@@ -1,0 +1,541 @@
+{
+  "sector": "neocloud",
+  "label": "네오클라우드",
+  "run_id": "20260905_0618",
+  "as_of": "2026-09-05",
+  "staleness_days": 0,
+  "layer": "L3",
+  "members": ["IREN", "NBIS", "CRWV"],
+  "candidate_disclaimer": "본 산출물은 섹터 층위 컨센서스 관측이다. 개별 종목 등급 판정·변경은 하지 않으며(P13), 최종 판정은 사람이 한다.",
+
+  "tagging_convention": "본 파일의 모든 서술 문장은 앞머리에 [fact] 또는 [inference/강도]를 명시한다(P1). [fact]는 허용 입력(02_company·03_signal)에 grade가 부여된 상태로 존재하는 진술의 인용이며, [inference]는 본 에이전트의 해석이다.",
+
+  "inputs_used": [
+    "output/20260905_0618/02_company/IREN.json",
+    "output/20260905_0618/02_company/NBIS.json",
+    "output/20260905_0618/02_company/CRWV.json",
+    "output/20260905_0618/03_signal/IREN.json",
+    "output/20260905_0618/03_signal/NBIS.json",
+    "output/20260905_0618/03_signal/CRWV.json"
+  ],
+  "input_scope_note": "[fact] P17 준수 — 위 6개 파일 외 로드 없음. L2 수집 원문(_raw_edgar_*.json), 타 섹터 산출물(MU·CRCL·COIN·HOOD), 01_macro_kc.json, thesis card 원문, ThesisPatch·승인 큐는 열지 않았다. 스크립트 감사 목적으로 consensus_aggregate.py·validate_output.py 코드와 config/coverage.yaml의 neocloud 항목을 참조했으나, 이는 집계 도구·섹터 정의이지 종목 자료가 아니다. 직전 run 산출물(20260820_1932/04_sector/neocloud*.json)은 스키마 참조 및 이월 항목 대조 목적으로 참조했다.",
+
+  "aggregate_source": "output/20260905_0618/04_sector/neocloud_aggregate.json (수기 집계본 — consensus_aggregate.py 실행 실패로 스크립트 산출물 없음)",
+
+  "aggregate_audit": {
+    "script_execution_status": "failed_no_output",
+    "script_failure": {
+      "id": "AD-4",
+      "severity": "blocking",
+      "command": "python .claude/skills/consensus-aggregate/scripts/consensus_aggregate.py --sector neocloud --run-id 20260905_0618",
+      "error": "[fact] KeyError: '혼재' — consensus_aggregate.py 44행 `bucket = by_axis[d['axis']][d.get('direction', 'neutral')]`. by_axis는 defaultdict이나 2단계 값은 영문 4키(strengthen/weaken/neutral/break) 고정 dict라 미등록 키 접근이 예외를 낸다.",
+      "root_cause": "[fact] 02_company/IREN.json의 deltas[].direction이 한국어 라벨(혼재/강화/훼손/중립)이고, 02_company/NBIS.json·CRWV.json은 영문 라벨(weaken/strengthen)이다. L2 종목 에이전트 간 방향 라벨 규약이 통일되어 있지 않으며, 스크립트에도 라벨 정규화·미지 키 방어가 없다.",
+      "consequence": "[fact] 예외가 파일 쓰기 이전에 발생하므로 이번 run의 스크립트 산출 aggregate 파일은 생성되지 않았다. 04_sector/neocloud_aggregate.json은 SKILL.md 처리 1~5항을 수기로 적용해 작성했다.",
+      "manual_correction_applied": true,
+      "script_modified": false,
+      "script_modification_note": "[fact] 본 에이전트는 스크립트를 수정하지 않았다. 수정은 사람 판단 영역이며, 프롬프트가 안내한 별도 수정 태스크(task_c4bf9a33)의 범위 확대 여부도 사람이 결정한다."
+    },
+    "manual_recount": {
+      "method": "[fact] 3개 02_company/*.json의 deltas 배열을 전수 재계수하고 축·방향·종목 매핑을 대조했다.",
+      "result": "[fact] IREN 6건(funding_dilution/혼재, execution_delivery/강화, btc_mining/훼손, ai_cloud_conversion/중립, power_permit/중립, margin_structure/중립), NBIS 2건(leverage_burden/weaken, funding_access/strengthen), CRWV 2건(customer_concentration/strengthen, gpu_priority/strengthen). 합계 10건, distinct 축 10개.",
+      "ticker_count_check": "[fact] 종목 수 3개 전원 Delta 기여(직전 run과 달리 CRWV도 2건 기여). 어느 종목도 중복 계상되지 않았다.",
+      "axis_overlap_check": "[fact] coverage_count>=2인 축 0개. 축 문자열이 3사 간에 하나도 겹치지 않는다."
+    },
+    "known_bug_1_double_counting": {
+      "status": "not_reproduced_and_not_exercised",
+      "finding": "[fact] 프롬프트가 통지한 종목 중복 계상 버그(task_c4bf9a33)에 대해: 현행 consensus_aggregate.py 45행에 `if t not in bucket` 종목 단위 dedup이 구현되어 있다. 또한 이번 회차 입력에는 동일 종목이 동일 축에 낸 복수 Delta가 0건이므로 dedup 경로 자체가 실행 대상이 아니었다. 수기 재계수에서도 종목 중복 계상은 발견되지 않았다.",
+      "manual_correction_applied": false,
+      "caveat": "[inference/medium] 이번 회차 검산은 '중복 계상이 이 산출물을 왜곡하지 않았음'만 확인한 것이고 dedup 로직의 정상성을 회귀 검증한 것이 아니다. 직전 run(20260820_1932)에 이어 2회차 연속 동일 상태이며, 버그가 실재하는지 여부는 이 두 회차 입력으로는 판별되지 않는다."
+    },
+    "known_bug_2_single_ticker_dispersion": {
+      "status": "not_exercised",
+      "finding": "[fact] 55~60행의 single_ticker 분기(coverage 1개 축을 low가 아닌 single_ticker로 분류)는 이번 회차에 실행되지 못했다 — 그 앞 44행에서 예외 중단됐기 때문이다. 수기 집계에서 SKILL.md 처리 4항을 직접 적용해 10개 축 전부 dispersion=single_ticker로 표기했다.",
+      "manual_correction_applied": true
+    },
+    "residual_distortions_found": [
+      {
+        "id": "AD-1",
+        "status": "carried_resolved_this_run",
+        "field": "single_ticker_view",
+        "issue": "[fact] 직전 run에서 지적한 왜곡 — 스크립트는 single_ticker_view를 (members - missing_inputs) <= 1로만 계산해 Delta 0건 종목도 커버로 계상한다(49행).",
+        "this_run": "[fact] 이번 회차는 3사 전원이 Delta를 기여했으므로 이 왜곡이 실질 영향을 주지 않는다. 다만 로직 자체는 미수정 상태다.",
+        "manual_correction": "[fact] 수기 집계본에 delta_contributing_tickers=[IREN,NBIS,CRWV], zero_delta_tickers=[] 명기."
+      },
+      {
+        "id": "AD-2",
+        "status": "carried_unresolved",
+        "field": "axis_view[].axis",
+        "issue": "[fact] SKILL.md 처리 1항은 coverage.yaml의 common_axes 관련 Delta를 추출하라고 규정하나, 스크립트는 common_axes를 참조하지 않고 모든 Delta의 axis 문자열을 그대로 키로 집계한다. coverage.yaml의 neocloud common_axes는 한국어 라벨(발주처 신용도 / MW당 매출 / AI CapEx 전송체인 / 인허가·전력 규제)이고, 집계되는 축은 종목 카드의 영문 축명이다 — 두 체계 간 매핑이 코드에 없다.",
+        "this_run": "[fact] 이번 회차 집계 축 10개 중 common_axes에 직접 대응하는 것은 power_permit(→인허가·전력 규제) 1개뿐이다. 나머지 9개는 종목 카드 고유 축이다.",
+        "manual_correction": "[fact] 본 파일 common_axis_mapping에 수기 매핑을 기록. coverage.yaml 수정은 사용자 편집 영역(CLAUDE.md §9)이므로 제안만 기록한다.",
+        "impact": "중간 — 집계 축 10개를 '섹터 공통 축'으로 부르면 안 된다. 10개 중 9개는 종목 고유 축이다."
+      },
+      {
+        "id": "AD-3",
+        "status": "carried_unresolved",
+        "field": "axis_view[].intra_ticker_dispersion",
+        "issue": "[fact] 이 필드는 '동일 축 내에서 한 종목이 복수 방향을 낸 경우'만 감지한다(54행). 한 종목이 서로 다른 두 축에 상충 방향을 낸 경우는 축별 뷰에서 각각 단일 방향으로만 보여 상충이 드러나지 않는다.",
+        "this_run": "[fact] 이번 회차에도 NBIS가 leverage_burden=weaken / funding_access=strengthen으로 축간 상충을 냈고, 양 축 모두 intra_ticker_dispersion=[]이다. 추가로 IREN funding_dilution은 '혼재'라는 축 내부 상충 라벨을 달고 있는데, 이 역시 스크립트의 4키 스키마에 자리가 없다(그리고 AD-4의 직접 원인이다).",
+        "manual_correction": "[fact] intra_ticker_tension 항목에 NBIS 축간 상충과 IREN 축내 혼재를 각각 기록. 수기 집계본에는 intra_axis_mixed 필드를 신설했다."
+      },
+      {
+        "id": "AD-5",
+        "status": "new_this_run",
+        "field": "deltas[].direction (L2 산출물 규약)",
+        "issue": "[fact] L2 종목 에이전트 3사의 direction 라벨 체계가 통일되어 있지 않다 — IREN은 한국어(혼재/강화/훼손/중립), NBIS·CRWV는 영문(weaken/strengthen). 또한 IREN의 '혼재'는 다른 두 종목의 어느 라벨에도 대응 값이 없다.",
+        "manual_correction": "[fact] 수기 집계본 direction_label_normalization에 매핑표를 기록하고, '혼재'는 강화·훼손 어느 쪽으로도 환원하지 않고 mixed로 별도 보존했다.",
+        "impact": "높음 — 라벨 불일치는 이번 회차 집계 자체를 중단시켰다(AD-4). 라벨 규약이 통일되지 않으면 축이 실제로 중첩되는 회차에도 방향 일치도 산출이 불가능하다.",
+        "escalation": "esc-2"
+      },
+      {
+        "id": "AD-6",
+        "status": "new_this_run",
+        "field": "axis_view[] — null observation 계상",
+        "issue": "[fact] IREN margin_structure Delta는 supporting_claims=[] / magnitude='없음'으로, 관측된 변화가 아니라 '이번 회차 신규 자료 없음'을 명시적으로 기록한 항목이다(02_company/IREN.json). 스크립트는 이를 다른 Delta와 구분하지 않고 direction=neutral 축 1개로 계상한다.",
+        "manual_correction": "[fact] 수기 집계본에 null_observation_record=true 플래그를 부여하고 substantive_axes_excluding_null_records=9를 별도 표기했다.",
+        "impact": "낮음~중간 — 축 개수를 관측 밀도의 지표로 읽으면 과대계상된다. 10개 축 중 실질 관측은 9개다."
+      }
+    ]
+  },
+
+  "coverage_corrected": {
+    "delta_contributing_tickers": ["IREN", "NBIS", "CRWV"],
+    "zero_delta_tickers": [],
+    "coverage_change_vs_prior_run": "[fact] 직전 run(20260820_1932)에서는 CRWV가 Delta 0건이었고 축 4개 전부 IREN·NBIS 단독이었다. 이번 회차는 3사 전원이 기여해 축이 4개에서 10개로 늘었다. [inference/medium] 그러나 축 중첩(coverage_count>=2)은 여전히 0개다 — 관측 밀도는 증가했으나 비교 가능성은 개선되지 않았다.",
+    "comparable_axes_count": 0,
+    "comparable_axes": [],
+    "sector_direction_computable": false,
+    "sector_direction_note": "[fact] coverage_count>=2인 축이 0개이므로 이번 회차에도 섹터 방향 일치도(direction consensus)와 분산(low/medium/high)은 산출 대상이 없다. 10개 축 전부 dispersion=single_ticker(비교 대상 부재). [inference/high] 이는 '3사 방향이 일치했다'와도 '갈렸다'와도 다른 제3의 상태이며, 축 기준 섹터 컨센서스 부재로 기록해야 한다. [fact] 2회차 연속 동일 상태다."
+  },
+
+  "common_axis_mapping": [
+    {"aggregated_axis": "power_permit", "coverage_common_axis": "인허가·전력 규제", "mapping": "직접 대응", "covered_by": ["IREN"]},
+    {"aggregated_axis": "funding_dilution", "coverage_common_axis": null, "mapping": "대응 없음 — 종목 카드 고유 축", "covered_by": ["IREN"]},
+    {"aggregated_axis": "execution_delivery", "coverage_common_axis": null, "mapping": "대응 없음 — 'AI CapEx 전송체인'과 내용상 인접하나 config에 매핑 규칙 없음(provisional_cross_mapping_view 참조)", "covered_by": ["IREN"]},
+    {"aggregated_axis": "btc_mining", "coverage_common_axis": null, "mapping": "대응 없음 — 종목 카드 고유 축(비AI 사업부문)", "covered_by": ["IREN"]},
+    {"aggregated_axis": "ai_cloud_conversion", "coverage_common_axis": null, "mapping": "대응 없음 — 종목 카드 고유 축", "covered_by": ["IREN"]},
+    {"aggregated_axis": "margin_structure", "coverage_common_axis": null, "mapping": "대응 없음 — 종목 카드 고유 축. 본 회차는 null observation 기록", "covered_by": ["IREN"]},
+    {"aggregated_axis": "leverage_burden", "coverage_common_axis": null, "mapping": "대응 없음 — 종목 카드 고유 축", "covered_by": ["NBIS"]},
+    {"aggregated_axis": "funding_access", "coverage_common_axis": null, "mapping": "대응 없음 — 종목 카드 고유 축", "covered_by": ["NBIS"]},
+    {"aggregated_axis": "customer_concentration", "coverage_common_axis": null, "mapping": "대응 없음 — '발주처 신용도'와 인접하나 집중도(concentration)와 신용도(credit quality)는 다른 개념이므로 직접 대응으로 처리하지 않는다", "covered_by": ["CRWV"]},
+    {"aggregated_axis": "gpu_priority", "coverage_common_axis": null, "mapping": "대응 없음 — 'AI CapEx 전송체인'과 내용상 인접하나 config에 매핑 규칙 없음(provisional_cross_mapping_view 참조)", "covered_by": ["CRWV"]},
+    {"aggregated_axis": null, "coverage_common_axis": "발주처 신용도", "mapping": "직접 대응 Delta 0건 — 3사 모두 발주처 신용 자체에 대한 신규 관측 없음", "covered_by": []},
+    {"aggregated_axis": null, "coverage_common_axis": "MW당 매출", "mapping": "이번 회차 Delta 0건 — 3사 모두 미관측(2회차 연속)", "covered_by": []},
+    {"aggregated_axis": null, "coverage_common_axis": "AI CapEx 전송체인", "mapping": "직접 대응 Delta 0건 — 인접 축 2개(IREN execution_delivery, CRWV gpu_priority)는 provisional_cross_mapping_view에서 별도 취급", "covered_by": []}
+  ],
+  "common_axis_mapping_note": "[fact] coverage.yaml neocloud common_axes 4개 중 이번 회차에 Delta가 직접 매핑된 것은 '인허가·전력 규제' 1개(IREN 단독)뿐이며, 이는 직전 run과 동일하다. [inference/medium] 집계 축 10개 중 9개가 종목 카드 고유 축이라는 것은 현행 섹터 프레임(발주처 신용도·MW당 매출·AI CapEx 전송체인·인허가·전력 규제)이 이번 회차에 실제로 움직인 사안(자본조달 구조·GPU 공급·사업부문 전환·고객 구성)을 대부분 포착하지 못한다는 뜻이다. [fact] config/coverage.yaml은 사용자 직접 편집 영역이므로(CLAUDE.md §9) 본 에이전트는 제안만 기록하고 수정하지 않았다.",
+
+  "axis_view": [
+    {
+      "axis": "funding_dilution",
+      "coverage_common_axis": null,
+      "direction": "mixed(혼재)",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": [], "break": [], "mixed": ["IREN"]},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(IREN) — 비교 대상 부재로 방향 일치도·분산 산출 불가. [fact] 근거: CFO Anthony Lewis의 2026-08-27 실적콜 발언으로 FY27 CapEx 가이던스 $25-30bn(IREN-0905-C01, grade2·confirmed)과 기확보 재원 약 $14bn·잔여 조달 목표 약 $8bn(targeting, IREN-0905-C02, grade2·confirmed)이 확정됐고, 선수금이 GPU capex의 약 절반·GPU 파이낸싱이 약 90%를 충당하는 구조가 재확인됐다(IREN-0905-C03). [fact] 등급 승격 경로가 특이하다 — 도메인이 sources.yaml 미등재(default 4)이나 4개 독립 전사에서 인용문이 문자 그대로 일치해 grade 2가 수동 부여됐고, 회사 공식 웹캐스트 원본 대조는 미실시로 잔여 캐비어트가 남아 있다(02_company/IREN.json unconfirmed). [fact] 03_signal/IREN.json은 이 축의 혼재를 '신규 정량 악화'가 아니라 '동일 범위($25-30bn)의 증거등급 상향(3→2)'으로 재분류하고 close call로 플래그했다(등급 🟡 유지). [inference/medium] 즉 이 축에서 확정된 것은 필요 자금의 규모이고, 미확정으로 남은 것은 잔여 $8bn의 조달 형태·조건이다 — 개별 실행 요인(회사별 조달 계획) 지배이며 섹터 요인 근거로 사용할 수 없다."
+    },
+    {
+      "axis": "execution_delivery",
+      "coverage_common_axis": null,
+      "direction": "strengthen(강화·약)",
+      "supporters": {"strengthen": ["IREN"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(IREN). 근거: Co-CEO Daniel Roberts가 Horizon 2-4 전체를 '12월 분기(calendar Q4 2026)' 인도 목표로 구두 재확인(IREN-0905-C04, grade2·confirmed). [fact] 10-K에 명시된 계약상 인도 유예기간(2026년 4분기 중반~2027년 2분기 초)은 콜에서 철회·단축되지 않아 목표 시점과 최대 허용 지연 시점 사이 최대 약 1개 분기 간극이 유지된다(IREN-0905-I02, medium). [fact] 03_signal/IREN.json은 이를 P7의 계약존재/이행/매출인식 3단 중 이행(execution) 단계 재확인으로 분류하고 매출인식 근거가 아니라고 명시했다. [inference/medium] 강화의 실질은 '일정 확정'이 아니라 '경영진 목표의 구두 구체화'이며, 계약상 완충이 그대로 남아 있으므로 이 축의 강화 폭은 좁게 읽어야 한다."
+    },
+    {
+      "axis": "btc_mining",
+      "coverage_common_axis": null,
+      "direction": "weaken(훼손·약)",
+      "supporters": {"strengthen": [], "weaken": ["IREN"], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(IREN). 근거: CFO가 '2026년 12월 말까지 채굴 사실상 중단(decommission)'이라는 기대치를 최초 제시(IREN-0905-C05, grade2·confirmed). 'currently expect'이므로 확정 실행이 아니라 경영진의 현재 기대치 표명이다. [fact] 02_company/IREN.json과 03_signal/IREN.json 모두 이를 '돌발 훼손이 아니라 계획된 전환의 완료 시점 확정'으로 판정했고, 리스크는 소멸이 아니라 ai_cloud_conversion 축으로 완전 이관된다고 기록했다(IREN-0905-I03, medium-high). [inference/low] 섹터 층위에서의 함의는 structural_observations의 cash_flow_source_convergence 항목에서 다룬다 — 다만 NBIS·CRWV의 비AI 현금흐름 원천 보유 여부가 허용 입력에서 확인되지 않으므로 섹터 수렴 판정은 하지 않고 관찰 큐에만 둔다."
+    },
+    {
+      "axis": "ai_cloud_conversion",
+      "coverage_common_axis": null,
+      "direction": "neutral(중립)",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["IREN"], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(IREN), 방향 중립. 이번 회차 신규 정량 매출·가동률·MFU 데이터가 없어 카드 체크포인트 ①②③이 여전히 unconfirmed다. 정성 신호(CCO Kent Draper의 Mirantis '신규 고객군' 코멘트, IREN-0905-C06)만 추가됐고 P2에 따라 축 이동 근거로 쓰이지 않았다. [fact] btc_mining으로부터 이관된 리스크가 이 축에 누적 중이라고 03_signal/IREN.json이 기록했다. [inference/medium] 이 축은 '움직이지 않은 축'이 아니라 '측정 수단이 없는 축'이다 — 리스크 유입은 기록되는데 그 리스크를 계량할 지표(과금 가동률·MFU·MW당 매출)가 2회차 연속 미확보 상태다."
+    },
+    {
+      "axis": "power_permit",
+      "coverage_common_axis": "인허가·전력 규제",
+      "direction": "neutral(중립)",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["IREN"], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(IREN), 방향 neutral(모니터링 유지, 신규 확정 영향 없음). 이번 회차에도 유일하게 coverage.yaml common_axis에 직접 대응하는 축이다. [fact] 근거 3건의 성격이 서로 다르다 — IREN-0905-C07(CCO의 '주지사 지시 부합' 자체평가, grade2·confirmed이나 내용은 회사 자기평가), IREN-0905-C09·C10(PUCT Docket 59220 커테일먼트 판정 및 ERCOT 감사 일정, 둘 다 scope=sector·grade4·confirmed=false). [fact] 03_signal/IREN.json은 C07을 KC-10 판정 입력에서 명시적으로 배제했고(P4 — 회사 자기평가는 규제기관 확정을 대체하지 못함), C09·C10·I05는 filter_arbiter_input.py가 P6/P13에 따라 물리적으로 제거해 arbiter가 접근하지 않았다. KC-10은 provisional/not_met 유지. [fact] NBIS·CRWV는 이번 회차 전력·인허가 축 Delta 0건이다. [inference/medium] 직전 run과 동일하게, 규제 사안의 scope 태깅이 'sector'라는 것은 사안의 성질(개별 회사 공시가 아닌 규제 절차)을 뜻할 뿐 섹터 3사에 실제로 파급된다는 확인이 아니다. 상세는 tx_power_regulation_sector_view 참조."
+    },
+    {
+      "axis": "margin_structure",
+      "coverage_common_axis": null,
+      "direction": "neutral(중립)",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["IREN"], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "null_observation_record": true,
+      "interpretation": "[fact] 이 Delta는 supporting_claims=[] / magnitude='없음'으로, 관측된 변화가 아니라 '이번 회차 이 축에 대한 신규 자료 부재'를 명시적으로 기록한 항목이다(P3 기준 승격 대상 없음). [fact] 직전 회차에 확인된 AI Cloud 매출총이익률(감가상각 제외) FY26 86.9%/Q4 87.0%는 유지되고, Horizon 건설원가·전력단가($/MWh)는 여전히 미공시다. [inference/medium] 이 기록 방식(변화 없음의 명시적 적재)은 P5·P3 준수 측면에서 바람직하나, 집계 시 실질 관측 축과 구분되지 않으면 축 개수를 관측 밀도로 오독하게 만든다(AD-6). NBIS·CRWV에 대응 축 Delta가 없어 3사 마진 구조 비교는 이번 회차에도 불가능하다."
+    },
+    {
+      "axis": "leverage_burden",
+      "coverage_common_axis": null,
+      "direction": "weaken",
+      "supporters": {"strengthen": [], "weaken": ["NBIS"], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["NBIS"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(NBIS) — 비교 대상 부재. 근거: 2026-08-24 6-K Ex-99.1(grade1·confirmed)로 전환사채 사모발행 클로징이 확정됐고, 초기구매자의 그린슈 옵션 전액 행사로 신규 발행이 $5.0B에서 $5.75B로 확대됐다(2030년물 0.50% $3.45B, 2034년물 4.50% $2.3B — c_20260905_NBIS_01). 동시에 기존 2029·2031년물 $800M을 약 15.8M주 Class A 보통주로 교환하는 계약이 재확인됐다(c_20260905_NBIS_02). [fact] 전환사채 원금 총액은 약 $14,991.8M 수준으로 추정되나 이는 6/30 재무제표에 단순 가산·차감한 사전 추정치이고(c_20260905_NBIS_03, inference/medium), 발행 수수료·할인 미공시로 순조달액은 확정할 수 없다. [fact] 03_signal/NBIS.json은 이를 '계약 존재 → 결제 완료' 단계 전환(P7)이자 직전 run이 이미 반영하던 시나리오 상단의 실현으로 분류하고, 하향 게이트 미충족으로 등급 🟡 유지 판정했다. [inference/high] 따라서 이 축의 weaken은 새로 발생한 훼손이라기보다 직전 회차에 계약 단계로 기록됐던 사안의 결제 단계 확정이다 — 개별 실행 요인(회사별 조달 수단 선택) 지배. [fact] $800M 지분교환의 실제 주식 인도 완료 시점은 원문만으로 확정되지 않아 unconfirmed로 남았다."
+    },
+    {
+      "axis": "funding_access",
+      "coverage_common_axis": null,
+      "direction": "strengthen",
+      "supporters": {"strengthen": ["NBIS"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["NBIS"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(NBIS). 근거는 leverage_burden과 동일한 c_20260905_NBIS_01(grade1·confirmed) — 최종 조달 규모가 최초 launch($4.50B) 대비 +27.8%, 업사이즈 확정치($5.0B) 대비 +15%인 $5.75B로 결제 단계까지 완결됐다. [fact] 02_company/NBIS.json은 '조달의 양'은 강화되나 '조달의 질(비희석·비부채)'은 개선되지 않았다고 명시했다. [fact] 03_signal/NBIS.json은 그린슈 전액 행사를 근거로 KC-NBIS-3(조달 조건 악화)이 오히려 임계치에서 멀어졌다고 판정했다(not_met). [inference/high] 이 축의 strengthen은 개별 종목 상향 근거가 아니며, 섹터 층위에서도 '섹터 조달 여건 양호'로 일반화할 수 없다 — 관측 종목이 1개이고 나머지 2사의 동시점 조달 조건 자료가 이번 회차에도 없다(P6·F13). [fact] IREN의 잔여 조달 $8bn은 아직 targeting 단계이고 CRWV는 이번 회차 조달 관련 Delta 0건이므로, 3사 조달 조건 비교표는 2회차 연속 구성 불가다."
+    },
+    {
+      "axis": "customer_concentration",
+      "coverage_common_axis": null,
+      "direction": "strengthen",
+      "supporters": {"strengthen": ["CRWV"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["CRWV"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(CRWV). 근거: 2026-08-20 회사 보도자료(grade1·confirmed)로 Hudson River Trading(HRT)과의 다년 계약 확장이 발표됐고, CRO Jon Jones가 'a material expansion'으로 언급했다(c_20260905_CRWV_001). 계약 금액은 미공시다. [fact] HRT는 금융서비스(퀀트 트레이딩) 부문으로 기존 대형 AI랩 중심 고객군과 업종이 다르나, 금액 미공시로 약 $129B 백로그 대비 상대적 중요도는 판단할 수 없다(c_20260905_CRWV_003, inference/weak). [fact] 02_company/CRWV.json은 이 Delta에 stage='contract_exists'를 명시했고, 03_signal/CRWV.json은 quantitative=false·stage=contract_exists로 상향 게이트 미충족을 판정해 holding_reinforcement로만 분류했다. [inference/medium] 이 축은 방향(다변화)은 확인되나 크기가 측정되지 않은 축이다 — 집중도 개선의 절대 규모를 계량할 수 없으므로 축 판정을 뒤집는 근거가 아니라는 L2·arbiter 판정이 섹터 층위에서도 유지된다. [fact] coverage.yaml common_axis '발주처 신용도'와 인접해 보이나, 고객 집중도와 발주처 신용도는 다른 개념이므로 직접 대응으로 매핑하지 않았다."
+    },
+    {
+      "axis": "gpu_priority",
+      "coverage_common_axis": null,
+      "direction": "strengthen",
+      "supporters": {"strengthen": ["CRWV"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["CRWV"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": "[fact] 커버 종목 1개(CRWV). 근거: HRT向 인프라에 NVIDIA Vera Rubin NVL72 및 HGX B200(Spectrum-X 네트워킹 포함)이 포함되며, 이는 2026-05-31 검증 완료된 것과 동일 세대 플랫폼이 실제 고객사에 상업 제공되기 시작한 사례 중 하나임을 시사한다(c_20260905_CRWV_002, grade1·confirmed). 구체적 가동 개시일은 미공시다. [fact] 이 Delta도 stage='contract_exists'이며 03_signal/CRWV.json은 GPU 공급 우선권 주장이 '검증 완료' 단계에서 '고객 가동' 단계로 이행 중이라는 해석에 inference_strength='moderate'를 부여했다. [inference/medium] 3사 중 GPU를 '공급 우선권'이라는 독립 축으로 계상하는 것은 CRWV뿐이다 — IREN은 같은 물리적 자산을 조달 담보(GPU 파이낸싱 90%)와 인도 일정(execution_delivery)이라는 다른 두 축으로 나눠 다루고, NBIS는 이번 회차 GPU 관련 Delta가 0건이다. 상세는 structural_observations의 gpu_axis_fragmentation 참조."
+    }
+  ],
+
+  "provisional_cross_mapping_view": {
+    "purpose": "[fact] SKILL.md 처리 1항이 요구하는 common_axes 기준 집계가 코드에 구현되어 있지 않으므로(AD-2), 종목 카드 축을 common_axis로 재매핑하면 중첩이 발생하는지를 수기로 점검했다. 본 항목은 대안 집계 시나리오이며 위 axis_view의 공식 집계를 대체하지 않는다.",
+    "candidate": {
+      "coverage_common_axis": "AI CapEx 전송체인(0~4단계)",
+      "would_map": [
+        {"ticker": "IREN", "axis": "execution_delivery", "direction": "strengthen", "basis_claims": ["IREN-0905-C04"], "stage_character": "자사 사이트向 GPU 인도 목표의 구두 구체화 — 인도 이전 단계"},
+        {"ticker": "CRWV", "axis": "gpu_priority", "direction": "strengthen", "basis_claims": ["c_20260905_CRWV_002"], "stage_character": "검증 완료 장비의 고객사 상업 제공 사례 — 인도 이후·매출인식 이전 단계"}
+      ],
+      "hypothetical_result": "[inference/medium] 이 매핑을 적용하면 해당 common_axis의 coverage_count=2, 방향 2사 일치(strengthen), dispersion=low가 된다 — 이번 회차 유일하게 중첩이 발생하는 지점이다.",
+      "why_not_adopted": [
+        "[fact] config/coverage.yaml에 이 매핑 규칙이 없다. 매핑을 만든 주체는 본 에이전트이며, 에이전트가 임의로 만든 축 대응으로 '섹터 컨센서스 성립'을 선언하면 집계 결과가 도구가 아니라 해석에 의존하게 된다.",
+        "[fact] 두 관측의 전송체인 단계 위치가 다르다 — IREN은 자사 사이트 인도 목표(인도 전), CRWV는 고객사 상업 제공(인도 후). 같은 방향 라벨(strengthen)이 같은 단계의 진전을 뜻하지 않는다.",
+        "[fact] 증거 성격도 다르다 — IREN은 경영진 콜 발언(grade2, 회사 공식 웹캐스트 원본 대조 미실시), CRWV는 회사 보도자료(grade1). 후자만 1차 자료다.",
+        "[fact] NBIS는 이 축에 대응하는 Delta가 0건이므로 3사 중 2사만의 중첩이며, 나머지 1사는 관측 부재다(P5 — 부재를 동조·이탈 어느 쪽으로도 해석하지 않는다)."
+      ],
+      "verdict": "not_adopted_this_run",
+      "escalation": "esc-5 — coverage.yaml의 common_axes와 종목 카드 축명 사이의 매핑 규칙을 config에 정의할지는 사용자 편집 영역(CLAUDE.md §9). 본 에이전트는 제안만 기록하고 파일을 수정하지 않았다."
+    }
+  },
+
+  "stage_position_view": {
+    "framing": "[fact] 축 중첩이 0건이므로 축 기준 비교는 불가하나, P7(계약 존재≠계약 이행≠매출 인식)의 단계 위치는 3사 모두에 대해 허용 입력에서 직접 확인된다. 축이 아닌 '전송체인 단계'를 기준으로 한 3사 비교를 별도로 기록한다.",
+    "observation": [
+      {"ticker": "IREN", "revenue_recognized_this_run": false, "basis": "[fact] 03_signal/IREN.json gate_check.upgrade_gate.revenue_recognized=false — 신규 확정 수치(C01·C02·C03)는 CapEx 가이던스·조달 재원·파이낸싱 구조이고, 인도 목표(C04)·채굴 중단 목표(C05)는 이행 단계다."},
+      {"ticker": "NBIS", "revenue_recognized_this_run": false, "basis": "[fact] 03_signal/NBIS.json gate_check.revenue_recognized=false — Claim 4건 전부 전환사채 발행·교환/자본조달 구조 관련이며 매출·마진·현금흐름·가이던스 수치가 아니다(vacuous false로 명시)."},
+      {"ticker": "CRWV", "revenue_recognized_this_run": false, "basis": "[fact] 03_signal/CRWV.json gate_check.revenue_recognized=false — Delta 2건의 stage가 전부 contract_exists다."}
+    ],
+    "interpretation": "[fact] 3사 전원에 대해 이번 회차 매출인식 단계 신규 재료가 0건이라는 점이 허용 입력에서 직접 확인된다 — 이는 축 방향 집계와 달리 3사 전원을 커버하는 유일한 비교 가능 관측이다. [inference/medium] 3사의 이번 회차 재료가 각각 조달 계획(IREN)·조달 실행(NBIS)·계약 체결(CRWV)에 몰려 있고 어느 것도 매출인식 단계에 도달하지 않았다는 것은, 이번 회차 관측이 전송체인의 앞단에 집중됐다는 뜻이다. [inference/medium] 다만 이 일치는 '섹터 요인이 3사를 동시에 움직였다'는 근거가 아니다 — 세 종목의 사안이 서로 무관하고(전환사채 클로징·CapEx 가이던스·고객 계약), 각 종목의 공시 캘린더가 독립적이기 때문이다. 단계 위치의 일치와 원인의 공통성은 별개다. [fact] P13 가드: 본 항목은 3개 03_signal 파일의 gate_check 필드를 인용한 것이며, 어떤 종목의 등급도 변경·제안하지 않는다. 3사가 모두 등급 유지 후보로 판정된 사실 역시 개별 판정의 결과이지 섹터 층위에서 도출된 것이 아니다."
+  },
+
+  "intra_ticker_tension": [
+    {
+      "ticker": "NBIS",
+      "type": "inter_axis(축간 상충)",
+      "axes": ["leverage_burden", "funding_access"],
+      "directions": ["weaken", "strengthen"],
+      "shared_event": "2026-08-24 전환사채 $5.75B 클로징(그린슈 전액 행사) + $800M 기존 전환사채 지분교환 계약 재확인",
+      "note": "[fact] 동일 조달 이벤트가 두 축에 반대 부호로 기록됐다. 스크립트의 축별 뷰(intra_ticker_dispersion)는 '동일 축 내 복수 방향'만 감지하므로 이 축간 상충을 표시하지 못한다(AD-3). [fact] 직전 run(20260820_1932)에서도 동일 종목·동일 축 쌍에서 같은 상충이 기록됐다 — 당시는 계약 존재 단계, 이번은 결제 완료 단계다. [inference/high] 이는 종목 간 이견이 아니라 한 종목 내부의 축 상충이며, 조달 성공을 '접근성 강화'로 볼지 '레버리지 확대'로 볼지의 프레임 선택 문제다. [fact] 03_signal/NBIS.json은 이 상충을 하향 게이트 미충족의 직접 근거로 사용했다 — leverage_burden 단독으로는 하향을 정당화하기에 funding_access의 상충 방향과 KC-NBIS-3 개선이 강하다고 판정했다. [inference/medium] 즉 축 상충이 미해소 상태로 남아 있는 한, 이 종목의 조달 이벤트는 규모가 커져도 등급 게이트를 어느 방향으로도 통과시키지 못하는 구조가 된다. 어느 프레임을 채택할지는 사람 판정 사항으로 이관되어 있다."
+    },
+    {
+      "ticker": "IREN",
+      "type": "intra_axis(축내 혼재)",
+      "axes": ["funding_dilution"],
+      "directions": ["mixed(혼재)"],
+      "shared_event": "2026-08-27 실적콜 — FY27 CapEx 가이던스 $25-30bn 확정 + 잔여 조달 목표 약 $8bn 제시",
+      "note": "[fact] 하나의 축 안에 강화 측 신호(조달 갭이 회사 자체 수치로 정량화·축소 제시, 조달 구조 재확인)와 훼손 측 신호(CapEx 규모 공식화로 절대 조달 부담 확정, $8bn은 미확정 목표)가 병존해 direction='혼재'로 기록됐다. [fact] 이 라벨은 스크립트의 방향 4키 스키마에 자리가 없어 집계를 중단시켰다(AD-4). [inference/medium] NBIS의 축간 상충과 IREN의 축내 혼재는 표기 위치가 다를 뿐 같은 형태의 관측이다 — 동일 조달 사안이 부담과 여력 양쪽으로 동시에 읽힌다는 것. [inference/medium] 두 종목이 이를 서로 다른 방식(축 2개로 분해 vs 축 1개에 혼재 라벨)으로 기록한다는 사실 자체가 3사 축 정의 표준의 부재를 보여준다(su_20260905_neocloud_003)."
+    }
+  ],
+
+  "cross_ticker_disagreement": {
+    "substantive_disagreement_found": false,
+    "basis": "[fact] 동일 축을 2개 이상 종목이 커버한 사례가 0건이므로, 방향 상충(diverge) 형태의 종목 간 이견은 이번 회차에도 구조적으로 발생할 수 없다. [fact] 관측된 부호 상충은 전부 종목 내부다(NBIS 축간, IREN 축내). [inference/high] 따라서 이번 회차 결론은 '3사 견해 일치'가 아니라 '이견 여부를 판정할 비교 축이 부재'다 — 직전 run과 동일한 상태가 2회차 연속 유지된다.",
+    "adjacent_observations_not_disagreement": [
+      {
+        "pair": ["IREN funding_dilution(혼재)", "NBIS funding_access(strengthen)"],
+        "note": "[fact] 축명이 달라 diverge로 집계되지 않으나 내용상 둘 다 자금조달 사안이다. [fact] 두 기록의 실질 차이는 단계다 — NBIS는 결제 완료된 실행($5.75B 클로징, grade1), IREN은 미실행 목표($8bn targeting, grade2 경영진 발언). [inference/medium] 이는 이견이 아니다. 같은 축에 놓였다 해도 한쪽은 완료 사실이고 다른 쪽은 계획이므로 방향 비교의 대상이 아니다. [fact] 두 종목의 조달 조건(쿠폰·프리미엄·스프레드)을 나란히 놓을 자료는 IREN 측에 없다 — 조건 비교는 2회차 연속 불가."
+      },
+      {
+        "pair": ["IREN execution_delivery(강화)", "CRWV gpu_priority(강화)"],
+        "note": "[fact] 방향 라벨은 같으나 전송체인 단계와 증거 등급이 다르다(provisional_cross_mapping_view 참조). [inference/medium] 같은 방향 라벨을 '일치'로 읽으면 안 되는 사례다 — 축 매핑 규칙 없이 라벨만 대조하면 성립하지 않는 컨센서스를 만들어낼 수 있다."
+      }
+    ],
+    "why_no_overlap": "[fact] 3사가 각자 다른 사안에 반응했다 — IREN은 8/27 실적콜(CapEx 가이던스·인도 일정·채굴 종료), NBIS는 8/24 전환사채 클로징, CRWV는 8/20 HRT 계약 확장. 세 사건은 서로 참조하지 않는 독립 사건이다. [inference/medium] 직전 회차에는 공시 캘린더의 비동기성을 축 비중첩의 원인으로 기록했으나, 이번 회차는 3사 전원이 재료를 냈는데도 축이 겹치지 않았다 — 즉 원인은 '관측 부재'만이 아니라 '축 정의 체계의 비공유'에도 있다. 3사 카드가 서로 다른 축 이름과 서로 다른 분해 방식을 쓰는 한, 관측 밀도가 늘어도 중첩은 발생하지 않는다. [fact] 축 10개 중 9개가 종목 고유 축이라는 집계 결과가 이를 뒷받침한다."
+  },
+
+  "structural_observations": [
+    {
+      "id": "so-1",
+      "topic": "조달 사안의 부호 상충이 2개 종목에서 동일 형태로 반복",
+      "shared_axis_basis": ["IREN funding_dilution", "NBIS leverage_burden", "NBIS funding_access"],
+      "basis_claims": ["IREN-0905-C01", "IREN-0905-C02", "IREN-0905-I01", "c_20260905_NBIS_01", "c_20260905_NBIS_03"],
+      "observation": "[fact] IREN과 NBIS 모두 이번 회차 주 재료가 자본조달이고, 두 종목 모두 그 재료가 단일 방향으로 정리되지 않았다 — IREN은 한 축 내부의 혼재로, NBIS는 두 축의 반대 부호로 기록했다. [fact] 두 종목 모두 해당 축이 등급 게이트를 통과시키지 못했다(IREN close call·등급 유지, NBIS 하향 게이트 미충족·등급 유지). [inference/medium] 공통 구조는 '조달 규모의 확정'과 '조달 조건의 미확정'이 동시에 발생한다는 것이다 — IREN은 필요액 $25-30bn이 확정되고 잔여 $8bn의 형태·조건이 미정, NBIS는 조달액 $5.75B가 확정되고 발행 수수료·순조달액이 미공시다. [inference/medium] 이 형태가 두 종목에서 같은 회차에 반복된다는 사실은 관찰로 기록할 가치가 있으나, 원인이 공통(섹터 조달 환경)인지 각자(회사별 조달 계획·공시 관행)인지는 이번 입력으로 판별되지 않는다 — capital_structure_attribution 참조.",
+      "counter_exposure": "[fact] 없음 — 두 종목의 부호 상충은 서로 반대 방향의 노출이 아니라 같은 형태의 미결 상태다.",
+      "p13_guard": "[fact] 본 관찰은 어느 종목의 등급 근거로도 사용되지 않는다. 'NBIS 조달 완결 우위'는 NBIS 상향 근거가 아니며(F13), 'IREN 조달 미실행'도 IREN 하향 근거로 섹터 층위에서 제시되지 않는다."
+    },
+    {
+      "id": "so-2",
+      "topic": "GPU가 3사에서 서로 다른 축으로 분산 계상됨(축 파편화)",
+      "shared_axis_basis": ["CRWV gpu_priority", "IREN funding_dilution", "IREN execution_delivery"],
+      "basis_claims": ["c_20260905_CRWV_002", "IREN-0905-C03", "IREN-0905-C04"],
+      "observation": "[fact] 동일 유형의 물리적 자산(NVIDIA 차세대 GPU 랙)이 종목별로 다른 축에 매핑되어 있다 — CRWV는 공급 우선권(gpu_priority), IREN은 조달 구조의 담보·재원(GPU 파이낸싱 약 90% 충당, 선수금이 GPU capex의 약 절반)과 인도 일정(execution_delivery)으로 분해, NBIS는 이번 회차 GPU 관련 Delta 0건. [inference/medium] 따라서 GPU 공급은 집계상 어떤 공통 축으로도 나타나지 않는다. 이는 GPU 공급이 섹터 공통 요인이 아니라는 뜻이 아니라, 현행 축 체계가 그것을 공통 축으로 포착하지 못한다는 뜻이다 — 관측의 부재가 아니라 집계 프레임의 한계다(P5).",
+      "counter_exposure": "[inference/medium] 축 파편화의 실질적 함의는 동일 요인이 두 종목에 반대 부호로 걸릴 수 있다는 점이다. IREN 측은 GPU 파이낸싱이 CapEx 재원의 약 90%를 충당하고 고객 선수금이 약 절반을 담당하는 구조이므로(IREN-0905-C03), GPU 인도 일정의 지연은 조달 축과 실행 축에 동시에 걸리는 이중 노출이 된다. CRWV 측은 차세대 랙의 조기 확보가 고객 계약 확장의 근거로 기록됐다(c_20260905_CRWV_002). [inference/low] 즉 GPU 공급 여건의 동일한 변화가 두 종목에 같은 부호로 작용한다고 가정할 근거가 이번 입력에는 없다. 이는 구조적 가능성의 기록이며, 실제 노출 방향·크기를 확인하려면 3사의 GPU 조달 계약 조건·인도 일정이 동시에 관측되는 회차가 필요하다(su_20260905_neocloud_002).",
+      "p14_compliance": "[fact] 본 항목은 공유 축과 근거 Claim ID로만 서술했다. 수치형 상관계수를 산출하거나 표기하지 않았다.",
+      "p13_guard": "[fact] 어느 종목의 등급 근거로도 사용되지 않는다."
+    },
+    {
+      "id": "so-3",
+      "topic": "2026년 12월에 검증 이벤트가 집중됨",
+      "shared_axis_basis": ["IREN power_permit", "IREN btc_mining", "IREN execution_delivery"],
+      "basis_claims": ["IREN-0905-C04", "IREN-0905-C05", "IREN-0905-C10"],
+      "observation": "[fact] 허용 입력에서 확인되는 2026년 12월 예정 이벤트 — (a) ERCOT의 데이터센터 프로젝트 감사 완료 목표 2026-12-10(IREN-0905-C10, scope=sector·grade4·confirmed=false), (b) IREN 채굴 사업의 사실상 중단 기대 시점 2026년 12월 말(IREN-0905-C05, grade2), (c) IREN Horizon 2-4 인도 목표 '12월 분기'(IREN-0905-C04, grade2). [inference/medium] (b)와 (c)는 IREN 단일 종목 내부의 시점 집중이고, (a)만이 섹터 성격의 규제 일정이다. 두 층위를 구분해 기록한다. [inference/medium] 섹터 층위 함의는 다음과 같다 — 축 중첩이 2회차 연속 0건인 상태에서 3사 축이 최초로 겹칠 가능성이 있는 시점은 3사 재료가 동시에 관측되는 회차이며, 규제 일정(a)은 그중 유일하게 사전에 날짜가 알려진 항목이다. [fact] 다만 NBIS·CRWV의 ERCOT 계통 노출 여부가 허용 입력에서 확인되지 않으므로(직전 run에서 이월), (a)가 실제로 3사 공통 관측을 만들어낼지는 판정할 수 없다.",
+      "counter_exposure": "[fact] 이번 입력으로 특정되지 않음.",
+      "p13_guard": "[fact] 특정 시점을 행동·판정 시점으로 지시하지 않는다. 관측 일정의 기록일 뿐이다."
+    },
+    {
+      "id": "so-4",
+      "topic": "비AI 현금흐름 원천의 소멸 예정 — 섹터 수렴 여부는 미판정",
+      "shared_axis_basis": ["IREN btc_mining", "IREN ai_cloud_conversion"],
+      "basis_claims": ["IREN-0905-C05", "IREN-0905-I03"],
+      "observation": "[fact] IREN은 채굴 사업이 2026년 12월 말까지 사실상 중단될 것으로 기대한다고 밝혔고(C05), L2는 이를 '리스크의 소멸이 아니라 완전한 이관'으로 판정하며 이후 현금흐름 방어선이 전적으로 AI Cloud 가동률·인도 진척에 의존하게 된다고 기록했다(I03, medium-high). [inference/low] 섹터 층위에서 '3사가 모두 AI Cloud 단일 현금흐름 원천 구조로 수렴한다'는 관찰이 성립하려면 NBIS·CRWV의 비AI 현금흐름 원천 보유 여부가 확인되어야 하나, 이번 허용 입력(02_company·03_signal ×3)에는 그 자료가 없다. [fact] P5에 따라 이 부재를 '두 종목에 비AI 원천이 없다'는 근거로 쓰지 않는다 — 수렴 판정을 하지 않고 관찰 큐(su_20260905_neocloud_004)에만 적재한다.",
+      "counter_exposure": "[fact] 이번 입력으로 특정되지 않음.",
+      "p13_guard": "[fact] 어느 종목의 등급 근거로도 사용되지 않는다."
+    },
+    {
+      "id": "so-5",
+      "topic": "3사 공통의 측정 공백 — 방향은 기록되나 크기가 계량되지 않는 축들",
+      "shared_axis_basis": ["IREN ai_cloud_conversion", "CRWV customer_concentration", "CRWV gpu_priority", "NBIS leverage_burden"],
+      "basis_claims": ["IREN-0905-C06", "c_20260905_CRWV_001", "c_20260905_CRWV_003", "c_20260905_NBIS_03"],
+      "observation": "[fact] 이번 회차 3사 모두에서 '방향은 기록되고 크기는 미확정'인 축이 관측된다 — IREN ai_cloud_conversion(과금 가동률·MFU·Mirantis 매출 비중 전부 unconfirmed, 정성 코멘트만 추가), CRWV customer_concentration·gpu_priority(계약 금액·가동 개시일 미공시로 백로그 대비 중요도 판단 불가), NBIS leverage_burden(발행 수수료·할인 미공시로 순조달액 미확정, 원금 총액은 추정치). [inference/high] 세 종목에서 각각 다른 지표가 비어 있으나 결손의 형태는 같다 — 사건의 발생은 1차 자료로 확인되는데 그 사건의 크기를 재는 수치가 동반되지 않는다. [inference/medium] 이 형태가 3사에서 동시에 나타난다는 것은 섹터 컨센서스 산출의 제약이 축 중첩 부재에만 있는 것이 아님을 뜻한다 — 축이 겹치는 회차가 오더라도 크기를 재는 지표가 없으면 방향 일치도는 산출되어도 그 일치의 실질적 무게는 비교할 수 없다. [fact] 직전 run의 su_20260820_neocloud_005(자본구조 측정 정의 미확정)를 이번 회차 관측으로 확장 승계한다.",
+      "counter_exposure": "[fact] 해당 없음.",
+      "p13_guard": "[fact] 어느 종목의 등급 근거로도 사용되지 않는다."
+    }
+  ],
+
+  "capital_structure_attribution": {
+    "question": "자본조달 구조(전환사채·GPU 파이낸싱 등 지분연계·자산연계 수단 의존)가 섹터 공통 요인인지 종목 특이 요인인지 — 판정은 사람이 한다. 본 항목은 판정 근거만 정리한다.",
+    "verdict": "not_determined_this_run",
+    "runs_carried": 2,
+    "evidence_for_sector_common_factor": [
+      "[fact] IREN — FY27 CapEx $25-30bn의 재원 구조가 고객 선수금(GPU capex의 약 절반)과 GPU 파이낸싱(약 90% 충당)에 의존하며, 잔여 조달 목표 약 $8bn도 'GPU financing' 형태로 제시됐다(IREN-0905-C02·C03, grade2).",
+      "[fact] NBIS — 2026-08-24 클로징으로 전환사채 신규 $5.75B가 확정됐고, 기존 $800M은 상환이 아닌 Class A 보통주 약 15.8M주 지분교환으로 처리됐다(c_20260905_NBIS_01·02, grade1).",
+      "[inference/medium] 두 종목 모두 현금·일반 회사채가 아니라 자산연계(GPU 파이낸싱·고객 선수금) 또는 지분연계(전환사채·지분교환) 수단에 자본구조의 핵심을 의존한다는 형태적 공통점이 있다. 축명은 다르지만(funding_dilution vs leverage_burden/funding_access) 수단의 성격은 인접하다.",
+      "[inference/medium] 두 종목 모두 그 수단의 크기가 확정되는 동시에 조건이 미확정으로 남는 동일 패턴을 보인다(so-1)."
+    ],
+    "evidence_for_ticker_specific_factor": [
+      "[fact] CRWV — 이번 회차에도 자본조달 관련 신규 Delta 0건이다(Delta 2건은 고객 계약·GPU 공급). 3사 중 1사에서 이 사안이 2회차 연속 관측되지 않는다.",
+      "[fact] 두 종목의 단계가 다르다 — NBIS는 결제 완료된 실행(grade1 1차 공시), IREN은 미실행 목표(grade2 경영진 발언, 회사 공식 웹캐스트 원본 대조 미실시). 같은 '자본조달'로 묶이지만 확실성 수준이 다르다.",
+      "[fact] 수단의 성격도 다르다 — NBIS는 지분연계(전환사채·지분교환)로 희석 경로가 주주에게 직접 걸리고, IREN은 자산연계(GPU 파이낸싱)와 고객 선수금 중심으로 희석보다 자산·고객 의존 경로가 크다. '조달 의존'이라는 형태 공통성이 리스크 이관 경로의 공통성을 함의하지 않는다.",
+      "[fact] 03_signal/NBIS.json은 이번 사안을 '직전 run 등급이 이미 반영하던 시나리오 상단의 실현'으로, 03_signal/IREN.json은 '동일 범위의 증거등급 승격(3→2)'으로 각각 분류했다 — 두 종목 모두 신규 놀람이 아니라는 판정이지만 그 이유가 서로 다르다."
+    ],
+    "discriminating_test_needed": [
+      "[inference/high] 판정을 가르려면 3사 동시점 조달 조건의 비교 가능한 지표가 필요하다 — 전환사채 쿠폰·전환 프리미엄·만기, GPU 파이낸싱의 담보 조건·조달 비율, 담보부 대출 스프레드. 조건이 3사에서 같은 방향·유사 폭으로 움직이면 섹터 요인 우세, 종목별로 벌어지면 개별 실행 요인 우세로 볼 근거가 된다.",
+      "[fact] 이번 회차에도 그 비교표를 구성할 자료가 없다 — NBIS만 조건(2030년물 0.50%, 2034년물 4.50%)이 확인되고, IREN은 잔여 $8bn의 조건이 미정이며, CRWV는 조달 관련 신규 자료가 없다. 직전 run에서 제기한 동일 판별 테스트가 2회차 연속 미해소다.",
+      "[inference/medium] 2회차 연속 미해소라는 사실 자체가 관찰 대상이다 — 이 판별이 회차 누적만으로 자연히 해소되지 않는다면, 3사 조달 조건을 명시적 수집 항목으로 정의하는 편이 필요하다. 수집 항목 정의는 config 영역이므로 제안만 기록한다."
+    ],
+    "escalation_to_human": "[fact] P13에 따라 본 항목은 어떤 종목의 등급 근거로도 사용되지 않는다. '조달 수단 의존이 섹터 공통이냐'는 판정은 사람이 하며, 본 에이전트는 양방향 근거와 판별 테스트만 제출한다."
+  },
+
+  "tx_power_regulation_sector_view": {
+    "framing": "[fact] IREN L2가 scope=sector로 분류한 텍사스 전력 규제 사안을 섹터 층위에서 다룬다. 관련 Claim 2건(IREN-0905-C09·C10)은 모두 evidence_grade=4·confirmed=false이며, P4상 단독 판단 근거로 쓸 수 없다. 이 Claim들은 filter_arbiter_input.py가 arbiter 입력에서 물리적으로 제거했으므로(P6/P13) 개별 종목 판정에는 반영되지 않았다.",
+    "observed_items": [
+      {
+        "item": "PUCT Docket No. 59220 — SB6하 최초 커테일먼트 판정",
+        "detail": "[fact] PUCT는 2026-07-24 명령에서 Crusoe/Ensign이 Goodnight 1 풍력(265.5MW) 배후에 병설한 525.5MW AI 데이터센터 캠퍼스에 대해 net metering을 승인하되, 계통 비상시 30분 내 전량 커테일먼트 의무를 부과했다 — 커테일먼트 범위가 배후 발전기 용량에 캡되지 않는다는 원칙이다(IREN-0905-C09). [fact] 이 사안은 IREN이 아닌 Crusoe/Ensign 건이다.",
+        "status": "판정 자체는 확정 사안이나 2차 소스 기반",
+        "evidence_grade": 4,
+        "confirmed": false,
+        "carried_from_prior_run": true
+      },
+      {
+        "item": "ERCOT 데이터센터 감사 및 Batch Zero 심사 기한 연장",
+        "detail": "[fact] PUCT는 2026-08-20 ERCOT의 Batch Zero 심사 기한 연장(good cause exception)을 승인했다 — 직전 run에서 '결과 미공개'로 이월됐던 항목이 이번 회차에 승인으로 확인됐다. ERCOT는 2026-08-03 텍사스 주지사 지시에 따른 데이터센터 프로젝트 감사를 2026-12-10까지 완료할 계획이며, 총 접속 신청 규모는 약 474GW(그중 데이터센터 약 90%)로 보도된다(IREN-0905-C10). [fact] IREN 개별 사이트에 대한 감사 진행 상황·MW 수치는 확인되지 않았다.",
+        "status": "기한 연장은 확인, 감사 결과는 미공표",
+        "evidence_grade": 4,
+        "confirmed": false,
+        "carried_from_prior_run": true
+      },
+      {
+        "item": "회사 자체 준수 평가",
+        "detail": "[fact] CCO Kent Draper는 '사이트·포트폴리오 구성이 주지사 지시에 부합한다'고 발언했다(IREN-0905-C07, grade2·confirmed — 발언 사실 자체는 확인). [fact] 내용은 회사 자기평가이며 PUCT·ERCOT의 독립적 감사 결과에 의한 확인이 아니다. L2·arbiter 모두 이를 KC-10 판정 입력에서 명시적으로 배제했다(P4, IREN-0905-I04).",
+        "status": "발언 확인, 규제기관 확정 아님",
+        "evidence_grade": 2,
+        "confirmed": true
+      }
+    ],
+    "sector_level_interpretation": "[fact] 이번 회차에도 power_permit 축을 커버한 종목은 IREN 1개이며 방향은 neutral(신규 확정 영향 없음), KC-10은 provisional/not_met 유지다. [fact] NBIS·CRWV에 대응 축 Delta는 0건이고, 두 종목의 ERCOT 계통 노출 여부 자체가 허용 입력에서 확인되지 않는다 — 직전 run과 동일한 상태다. [inference/medium] 직전 run 대비 진전된 것은 절차의 시점 확정뿐이다(good cause exception 승인 확인, 감사 완료 목표 2026-12-10). 파급 범위에 대한 정보는 늘지 않았다. [inference/low] Docket 59220의 커테일먼트 원칙은 배후 발전기 병설(BTM) 구조를 가진 사업자에 한해 비대칭 위험이 되는데, 3사 중 어느 종목이 그 구조를 보유하는지가 2회차 연속 미확인이어서 파급 대상 자체를 특정할 수 없다. IREN L2도 자사 계약 용량이 동일 BTM net-metering 구조인지 확인되지 않았다고 명시했다(IREN-0905-I05). [fact] 도메인 프레임상 가장 비대칭적인 단계(③계통연결+인허가동결)에 해당하는지 여부도 감사 결과 미공표로 판정 불가다.",
+    "cross_ticker_permitting_watch": "[fact] 인허가 관련 관측이 IREN 외 종목에서도 이어진다 — 직전 run에서 이월된 NBIS Vineland 공사중지명령(2026-08-06·08-10, 1차 자료 미확보) 항목에 대해, 이번 회차에는 반대 방향의 후속이 관측됐다: Vineland Planning Board가 2026-08-18 DataOne(Nebius) Phase 2 확장(587,980 sq ft)을 표결 승인했다는 복수 2차 매체 보도(c_20260905_NBIS_04, grade4·confirmed=false, 표결 결과는 매체별로 8-1 또는 9-1로 상이). [fact] 1차 자료(회사 6-K·보도자료 또는 지자체 회의록 원문)는 이번 회차에도 확보되지 않았다. [fact] 03_signal/NBIS.json은 이 Claim을 P4상 단독 근거 불가로 판정해 KC-NBIS-2 해제·발동 어느 쪽 근거로도 사용하지 않았다. [inference/low] 관할(TX ERCOT 계통 규제 vs NJ 지자체 토지이용 인허가)과 사안 성격이 달라 동일 요인으로 묶을 근거는 없다. 다만 3사 중 2사에서 인허가 성격의 사안이 2회차 연속 관측되면서 양쪽 모두 1차 자료 미확보 상태라는 점은 공통된다 — 섹터 공통 요인 후보가 아니라 공통된 자료 접근 한계로 기록한다(P5)."
+  },
+
+  "sector_unconfirmed": [
+    {
+      "id": "su_20260905_neocloud_001",
+      "topic": "3사 GPU 감가상각 정책 비교(내용연수·잔존가치·감가 방법)",
+      "detail": "[fact] 이번 회차 허용 입력 어디에도 3사의 GPU 감가상각 정책 수치가 없다. IREN 측에서 확인된 관련 수치는 직전 회차의 채굴 하드웨어 중심 상각 $638.8m뿐이며 GPU 자산의 정책은 아니다. 비교표를 구성할 자료가 없다.",
+      "reason": "1차 자료 미확보 — P5에 따라 unconfirmed 적재(부재를 정책 동일성·차이의 근거로 쓰지 않음)",
+      "carried_from": "su_20260820_neocloud_001",
+      "runs_carried": 2,
+      "next_check": "IREN FY27 1분기 10-Q(2026-11 예상) PP&E 각주 / NBIS 차기 20-F 유형자산 각주 / CRWV 차기 10-Q PP&E 각주"
+    },
+    {
+      "id": "su_20260905_neocloud_002",
+      "topic": "3사 ACV/MW·MW당 매출 정합 비교 및 GPU 조달 조건 비교",
+      "detail": "[fact] coverage.yaml common_axis 'MW당 매출'에 매핑되는 Delta가 3사 모두 0건으로 2회차 연속이다. IREN의 과금 가동률·MFU·MW당 매출은 여전히 unconfirmed이고, NBIS·CRWV의 동 지표도 이번 입력에 없다. [fact] so-2의 역노출 관찰(GPU 공급 변화가 두 종목에 반대 부호로 걸릴 구조적 가능성)을 검증하려면 3사의 GPU 조달 계약 조건·인도 일정이 동시에 관측되어야 하나 그 자료도 없다.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5)",
+      "carried_from": "su_20260820_neocloud_002",
+      "runs_carried": 2,
+      "next_check": "IREN FY27 1분기 10-Q / NBIS Q3 2026 / CRWV Q3 2026 — 3사 수치가 동시에 확보되는 회차에 정합 비교 최초 가능"
+    },
+    {
+      "id": "su_20260905_neocloud_003",
+      "topic": "3사 축 정의·방향 라벨 표준 부재",
+      "detail": "[fact] 두 층위의 비표준이 확인된다 — (a) 방향 라벨: IREN은 한국어(혼재/강화/훼손/중립), NBIS·CRWV는 영문(weaken/strengthen)을 쓰며 '혼재'는 다른 종목에 대응 값이 없다(AD-5, 이번 회차 집계 중단의 직접 원인). (b) 축 분해: 동일 성격의 조달 사안을 IREN은 축 1개(funding_dilution)에 혼재로, NBIS는 축 2개(leverage_burden/funding_access)에 반대 부호로 기록한다. [fact] 집계 축 10개 중 9개가 종목 고유 축이며 3사 간 겹치는 축 문자열이 하나도 없다.",
+      "reason": "[inference/high] 이 비표준은 관측 부재와 별개의 제약이다 — 3사가 같은 사안을 관측해도 축명과 라벨이 다르면 집계 단계에서 중첩이 발생하지 않는다. 정의 표준(어떤 축 이름·어떤 방향 라벨·어떤 분해 방식을 3사에 일관 적용할지)은 사람 결정 사항이며, config/coverage.yaml과 thesis card는 모두 자동 수정 금지 영역이다.",
+      "carried_from": "su_20260820_neocloud_005 (자본구조 측정 정의 부재에서 확장)",
+      "runs_carried": 2,
+      "next_check": "축 라벨 규약 결정(사람) 후 3사 카드·L2 산출물 정합 재확인. 라벨 정규화를 스크립트에서 처리할지 L2 산출 규약에서 처리할지도 사람 판단."
+    },
+    {
+      "id": "su_20260905_neocloud_004",
+      "topic": "NBIS·CRWV의 비AI 현금흐름 원천 보유 여부",
+      "detail": "[fact] IREN은 채굴 사업이 2026년 12월 말까지 사실상 중단될 것으로 기대한다고 밝혀 비AI 현금흐름 원천의 소멸 시점이 제시됐다(IREN-0905-C05·I03). NBIS·CRWV가 비AI 현금흐름 원천을 보유하는지는 이번 허용 입력에 자료가 없다.",
+      "reason": "1차 자료 미확보 — P5. 부재를 '두 종목에 비AI 원천이 없다'는 근거로 쓰지 않으며, 따라서 so-4의 '3사 현금흐름 원천 구조 수렴' 관찰은 판정하지 않고 관찰 큐에만 유지한다.",
+      "new_this_run": true,
+      "next_check": "3사 차기 실적 공시의 부문별 매출·현금흐름 구성"
+    },
+    {
+      "id": "su_20260905_neocloud_005",
+      "topic": "발주처 신용도 (a)/(b) 스크린 — 3사 주요 발주처 신용 상태",
+      "detail": "[fact] coverage.yaml common_axis '발주처 신용도'에 직접 매핑되는 Delta가 3사 모두 0건으로 2회차 연속이다. CRWV의 customer_concentration Delta는 고객 구성(집중도)에 관한 것이지 발주처 신용도가 아니며, HRT 계약도 금액이 미공시라 신용 노출 규모를 계량할 수 없다. IREN의 고객 선수금 구조(GPU capex의 약 절반)는 발주처의 자금 제공 능력에 대한 간접 정보이나 신용 상태 자체의 관측은 아니다.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). 관측 부재를 '발주처 신용 안정'으로 해석하지 않는다.",
+      "carried_from": "su_20260820_neocloud_003",
+      "runs_carried": 2,
+      "next_check": "3사 차기 실적 공시의 고객 집중도·수취채권·선수금 항목"
+    },
+    {
+      "id": "su_20260905_neocloud_006",
+      "topic": "AI CapEx 전송체인(0~4단계) 단계별 3사 위치 비교",
+      "detail": "[fact] coverage.yaml common_axis 'AI CapEx 전송체인'에 직접 매핑되는 Delta는 3사 모두 0건이다. [fact] 다만 stage_position_view에서 확인되듯 3사 전원의 이번 회차 재료가 매출인식 이전 단계에 있다는 점은 03_signal 3건의 gate_check에서 직접 확인된다. [fact] 인접 축 2개(IREN execution_delivery, CRWV gpu_priority)를 이 common_axis에 매핑하면 유일하게 중첩이 발생하나, config에 매핑 규칙이 없어 채택하지 않았다(provisional_cross_mapping_view).",
+      "reason": "매핑 규칙 부재 + 단계별 위치를 계량할 자료(가동 용량 MW·백로그 전환 진행률) 미확보 — P5",
+      "carried_from": "su_20260820_neocloud_004",
+      "runs_carried": 2,
+      "next_check": "coverage.yaml 매핑 규칙 결정(사람) + 3사 차기 실적의 가동 용량·인도 일정·백로그 전환 진행률"
+    },
+    {
+      "id": "su_20260905_neocloud_007",
+      "topic": "TX ERCOT/PUCT 절차의 3사 적용 범위",
+      "detail": "[fact] 직전 run에서 '결과 미공개'로 이월된 PUCT good cause exception은 2026-08-20 승인으로 확인됐고, ERCOT 감사 완료 목표는 2026-12-10이다. [fact] 그러나 IREN 개별 사이트의 감사 진행 상황·강제 감축 분류 MW는 미공표이고, IREN 자신의 계약 용량이 Docket 59220과 동일한 BTM net-metering 구조인지도 확인되지 않았다(IREN-0905-I05). NBIS·CRWV의 ERCOT 계통 노출 및 BTM 구조 보유 여부는 2회차 연속 미확인이다.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). 부재를 '적용되지 않음'으로 해석하지 않는다.",
+      "carried_from": "su_20260820_neocloud_006",
+      "runs_carried": 2,
+      "next_check": "ERCOT/PUCT 감사 결과 공표(~2026-12-10 목표) 및 3사 공시상 ERCOT 접속대기·BTM 구조 관련 서술"
+    },
+    {
+      "id": "su_20260905_neocloud_008",
+      "topic": "CRWV 관측 공백의 성질 — 이번 회차 부분 해소",
+      "detail": "[fact] 직전 run에서 CRWV는 신규 1차 공시 0건·Delta 0건이었다. 이번 회차에는 HRT 계약 확장(2026-08-20 회사 보도자료, grade1) 1건이 확보돼 Delta 2건이 생성됐다. [fact] 다만 EDGAR 신규 제출은 이번 회차에도 0건이며(최신 8-K는 2026-08-11자), 재무 지표 관련 신규 자료는 없다. CRWV의 이월 unconfirmed 3건(이자커버리지 정의, Q2 CapEx $9.4B 대 $6,422M 불일치, 증권집단소송 디스커버리 동향)은 모두 미해소 상태다.",
+      "reason": "부분 해소 — 사업 사안은 관측됐으나 재무 사안의 공백은 유지. P5에 따라 공백을 '무이슈'로 해석하지 않는다.",
+      "carried_from": "su_20260820_neocloud_007",
+      "runs_carried": 2,
+      "next_check": "CRWV Q3 2026 10-Q — 이자커버리지 분자·분모 정의, CapEx 불일치 해소 여부"
+    }
+  ],
+
+  "sector_level_conclusion": {
+    "consensus_status": "not_computable_this_run",
+    "runs_not_computable_consecutively": 2,
+    "statement": "[fact] 10개 축 전부 coverage_count=1(dispersion=single_ticker)이고 coverage_count>=2인 축은 0개다 — 방향 일치도와 분산(low/medium/high)을 산출할 대상이 없다. [fact] 종목 간 실질 이견(diverge)은 관측되지 않았으나, 이는 일치의 확인이 아니라 비교 축 부재의 결과다. [fact] 직전 run(20260820_1932)에 이어 2회차 연속 동일 상태다. [inference/high] 직전 회차와 이번 회차의 차이는 원인 진단에 있다 — 직전 회차는 3사 중 1사(CRWV)의 관측 부재가 중첩을 막았고, 이번 회차는 3사 전원이 재료를 냈는데도(Delta 4건→10건) 중첩이 0건이었다. 따라서 축 비중첩의 원인을 공시 캘린더의 비동기성만으로 설명할 수 없으며, 축 정의 체계의 비공유(su_20260905_neocloud_003)가 독립적인 제약으로 확인된다. [inference/high] 이번 회차 산출물은 '섹터 요인 지배'와 '개별 실행 요인 지배' 어느 쪽도 축 집계로는 지지하지 않는다 — 관측된 10개 축 중 9개가 종목 고유 축이고, 유일하게 섹터 성격을 갖는 축(power_permit)은 방향 neutral·grade4·confirmed=false로 판정 근거가 되지 못한다. [inference/medium] 축 집계 밖에서 3사 전원을 커버하는 유일한 비교 가능 관측은 전송체인 단계 위치다 — 3사 모두 이번 회차 매출인식 단계 신규 재료가 0건이다(stage_position_view). 이는 단계 위치의 일치이지 원인의 공통성이 아니다.",
+    "dispersion_cause_axis": "[fact] SKILL.md 요구사항(분산 존재 시 원인 축 지목)에 대해: 종목 간 분산(diverge)은 이번 회차에도 0건이므로 지목할 원인 축이 없다. [fact] 지목 가능한 부호 상충은 전부 종목 내부다 — (1) NBIS의 leverage_burden ↔ funding_access 축 쌍(원인: 동일 조달 이벤트를 레버리지 관점과 접근성 관점 중 어느 쪽으로 계상하는지의 프레임 선택), (2) IREN의 funding_dilution 축 내부 혼재(원인: 동일 실적콜 발언에서 CapEx 규모 확정과 조달 갭 축소 제시가 동시에 나온 것). [inference/medium] 두 상충의 실질 내용이 같다는 점(so-1)이 이번 회차의 주된 관찰이나, 이를 섹터 요인의 증거로 삼기에는 관측 종목이 2개이고 세 번째 종목(CRWV)에 대응 관측이 없다.",
+    "interpretation_per_skill_step2": "[inference/high] SKILL.md LLM 해석 2항(일치=섹터 요인 지배인지, 분산=개별 실행 요인 지배인지)에 대한 답: 이번 회차는 일치도 분산도 산출되지 않았으므로 어느 쪽 판정도 내리지 않는다. [inference/medium] 다만 관측 자체의 성격을 보면, 3사가 반응한 사건(IREN 실적콜, NBIS 전환사채 클로징, CRWV 고객 계약)이 서로를 참조하지 않는 독립 사건이고, 각 사건의 기전이 회사별 조달 계획·자본구조 선택·영업 활동이라는 점에서 이번 회차 관측의 내용은 개별 실행 요인에 속한다. [fact] 이 진술은 '섹터 요인이 없다'는 주장이 아니다 — 섹터 요인의 존재 여부는 축이 중첩되는 회차에만 검증 가능하며, 관측 부재는 반증이 아니다(P5).",
+    "forbidden_inference_guard": "[fact] 본 산출물은 어떤 종목의 시그널 등급도 변경·제안하지 않는다(signal_mutation: null). 'NBIS 조달 완결 우위'는 NBIS 상향 근거가 아니라 대체 시나리오의 입력일 뿐이다(F13). 'CRWV 고객 다변화'도 CRWV 상향 근거로 섹터 층위에서 제시되지 않는다 — 03_signal/CRWV.json에서 이미 quantitative=false·stage=contract_exists로 상향 게이트 미충족·등급 유지로 종결됐다. 'IREN 조달 부담 확정'도 IREN 하향 근거로 제시되지 않는다 — 03_signal/IREN.json에서 증거등급 승격으로 재분류돼 등급 유지로 종결됐다. [fact] 매크로 전망 내러티브를 포함하지 않으며, 수치형 상관계수를 산출·표기하지 않았다(P14)."
+  },
+
+  "escalation": {
+    "required": true,
+    "level": "정보성 에스컬레이션 — 자동 중단 사유 아님",
+    "double_red_present": false,
+    "double_red_basis": "[fact] 3사 03_signal 전건 등급 유지 후보이며 kill 우선 규칙 해당 없음 — IREN human_confirmation_required=false·kill_check.triggered=false(KC-10 provisional/not_met, IREN 종목 전용 KC 미정의, 가격 라인 $30·$28 미도달), NBIS kill_priority_triggered=false(종목 KC 3건 전건 not_met, KC-NBIS-3은 오히려 임계치에서 멀어짐), CRWV kill_priority_triggered=false(종목 KC 3건 전건 not_met). 🔴🔴(KC met & confirmed) 해당 없음 — CLAUDE.md §7의 자동 실행 중단 조건 불성립. [fact] 매크로 KC는 P17 격리로 본 에이전트 입력에 없으며, NBIS·CRWV 03_signal 모두 매크로 KC를 자기 판정 스코프 밖으로 명시했다 — 오케스트레이터/L4가 별도로 통합해야 한다.",
+    "items": [
+      {
+        "id": "esc-1",
+        "type": "섹터 컨센서스 산출 불가 통지(2회차 연속)",
+        "detail": "[fact] 이번 회차 neocloud 섹터는 축 중첩 0건으로 방향 컨센서스·분산이 산출되지 않았다. L4(cio-portfolio)가 본 파일을 입력으로 쓸 때 '섹터 방향 판정 있음'으로 오독하지 않도록 sector_direction_computable=false를 명시적으로 소비해야 한다. [fact] 직전 run에 이어 2회차 연속이며, 이번 회차는 관측 밀도가 늘었는데도(Delta 4건→10건) 중첩이 발생하지 않았다는 점이 새로운 정보다.",
+        "action_owner": "오케스트레이터 / L4"
+      },
+      {
+        "id": "esc-2",
+        "type": "스크립트 실행 실패 보고(수기 집계로 대체)",
+        "detail": "[fact] consensus_aggregate.py가 KeyError: '혼재'로 중단돼 이번 run의 스크립트 산출 aggregate 파일이 생성되지 않았다(AD-4). 원인은 L2 종목 에이전트 간 direction 라벨 규약 불일치(AD-5)와 스크립트의 미지 키 방어 부재다. 04_sector/neocloud_aggregate.json은 SKILL.md 처리 1~5항을 수기 적용해 작성했으며 generation_method=manual_hand_aggregation으로 명기했다. [fact] 사전 통지된 종목 중복 계상 버그(task_c4bf9a33)는 이번 회차 입력에서 재현되지 않았고 dedup 경로가 애초에 실행 대상이 아니었다 — 수기 재계수에서도 중복 계상은 없었다. [fact] 추가로 AD-2(common_axes 필터 미구현)·AD-3(축간 상충 미검출)·AD-6(null observation 미구분)이 미해소 상태로 이월된다. AD-1(single_ticker_view 계산)은 이번 회차에 실질 영향이 없었으나 로직은 미수정이다. [fact] 본 에이전트는 스크립트를 수정하지 않았다 — 수정 여부와 task_c4bf9a33의 범위 확대 여부는 사람 판단이다.",
+        "action_owner": "사람"
+      },
+      {
+        "id": "esc-3",
+        "type": "축 라벨·정의 표준 결정 요청",
+        "detail": "[fact] su_20260905_neocloud_003 — 3사의 방향 라벨 체계(한국어 vs 영문, '혼재' 라벨의 부재)와 축 분해 방식이 통일되어 있지 않다. [inference/high] 이는 도구 결함과 별개의 구조적 제약이다. 라벨 정규화만 스크립트에서 처리해도 집계 중단은 막을 수 있으나, 축명 비공유는 정규화로 해소되지 않으므로 축이 중첩되는 회차가 와도 컨센서스가 산출되지 않을 수 있다. [fact] thesis card와 config/coverage.yaml은 모두 자동 수정 금지 영역이므로 본 에이전트는 제안만 기록했다(F17/CLAUDE.md §9).",
+        "action_owner": "사람"
+      },
+      {
+        "id": "esc-4",
+        "type": "자본조달 구조 공통/특이 판정 요청(2회차 연속 미해소)",
+        "detail": "[fact] capital_structure_attribution에 양방향 근거와 판별 테스트를 정리했으며 verdict는 not_determined_this_run이다. 직전 run에서 제기한 동일 판별 테스트(3사 동시점 조달 조건 비교)가 2회차 연속 자료 미확보로 미해소다. [inference/medium] 회차 누적만으로 자연 해소되지 않는다면 3사 조달 조건을 명시적 수집 항목으로 정의하는 편이 필요하나, 수집 항목 정의는 config 영역이라 제안만 기록한다.",
+        "action_owner": "사람"
+      },
+      {
+        "id": "esc-5",
+        "type": "config 제안(자동 수정 금지 준수)",
+        "detail": "[fact] coverage.yaml neocloud common_axes 4개 중 이번 회차 Delta가 직접 매핑된 것은 1개('인허가·전력 규제', IREN 단독)이고, 집계 축 10개 중 9개는 대응 항목이 없다. [fact] 종목 카드 축명과 common_axes 사이의 매핑 규칙이 config에 정의되면 이번 회차에도 중첩이 발생할 여지가 있었다(provisional_cross_mapping_view — IREN execution_delivery와 CRWV gpu_priority를 'AI CapEx 전송체인'에 매핑 시 coverage 2·방향 일치). 본 에이전트는 그 매핑을 임의로 채택하지 않았다. [fact] common_axes에 자본조달 구조 축을 추가할지, 매핑 규칙을 어떻게 정의할지는 사용자 편집 영역(CLAUDE.md §9) — 제안만 기록하며 파일을 수정하지 않았다.",
+        "action_owner": "사람"
+      },
+      {
+        "id": "esc-6",
+        "type": "1차 자료 접근 한계 통지",
+        "detail": "[fact] 섹터 성격 사안 2건이 2회차 연속 1차 자료 미확보 상태다 — TX ERCOT/PUCT 절차(IREN-0905-C09·C10, grade4·confirmed=false, 직전 run에서 ercot.com·puc.texas.gov 직접 접근 403 실패 기록)와 NBIS Vineland 인허가(c_20260905_NBIS_04, grade4·confirmed=false, 회사·지자체 1차 문서 미확보). [fact] 두 건 모두 P4상 단독 판단 근거로 쓸 수 없어 축 판정·KC 판정에서 배제됐다. [inference/medium] 이 상태가 지속되면 인허가·전력 규제 축은 common_axis에 유일하게 대응하는 축임에도 계속 판정 불가 상태로 남는다.",
+        "action_owner": "오케스트레이터 / 사람"
+      }
+    ]
+  },
+
+  "signal_mutation": null,
+  "p13_compliance": "[fact] signal_mutation=null 고정. 본 파일은 개별 종목 등급 필드를 포함하지 않으며, 섹터 컨센서스·상대비교를 개별 종목 등급 근거로 서술하지 않았다(P13/F13). 섹터·규제 재료를 개별 종목 상향 근거로 쓰지 않았고(P6), 매크로 전망 내러티브를 포함하지 않으며, 축 관계는 공유 축과 근거 Claim ID로만 서술해 수치형 상관계수를 산출·표기하지 않았다(P14). 03_signal 파일의 등급·게이트 판정은 인용만 했으며 변경·제안하지 않았다."
+}

@@ -1,0 +1,388 @@
+{
+  "ticker": "CRCL",
+  "run_id": "20260815_2228",
+  "as_of": "2026-08-15T22:30",
+  "claims": [
+    {
+      "id": "c_20260815_CRCL_2228_001",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Q2'26(2026-06-30 마감) 실적: USDC 유통량 분기말 $73.3B(+19% YoY), 평잔 $76.5B(+25% YoY), Reserve Return Rate 3.5%(-66bps YoY).",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_002",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Q1'26(2026-03-31 마감) 실적: USDC 유통량 분기말 $77.0B(+28% YoY), 평잔 $75.2B(+39% YoY), Reserve Return Rate 3.5%(-66bps YoY).",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000148/final_05x11q1epr30.htm", "filed_at": "2026-05-11"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_003",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "위 두 분기 1차 공시치를 대조한 QoQ 값: 분기말 기준 USDC 유통량은 $77.0B(Q1'26)에서 $73.3B(Q2'26)로 약 -4.8% 감소한 반면, 평잔 기준은 $75.2B에서 $76.5B로 약 +1.7% 증가 — 스냅샷·평잔 두 측정치가 QoQ 방향에서 괴리.",
+      "evidence_grade": 1,
+      "source": {"type": "derived_from_company_filings", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_004",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "회사 자체 정의 스테이블코인 시장점유율(CoinMarketCap 기준, 유통량 $100M 이상·정기 공개 어테스테이션 보유 미달러 스테이블코인 대비 USDC 비중): Q2'26 분기말 27%(-66bps YoY), Q1'26 분기말 28%(-62bps YoY).",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_005",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "위 시장점유율 수치의 QoQ 대조: 28%(Q1'26)→27%(Q2'26)로 약 -1%p 하락.",
+      "evidence_grade": 1,
+      "source": {"type": "derived_from_company_filings", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_006",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "DefiLlama 기반 3자 집계(2026년 중반)는 USDC의 전체 스테이블코인 공급 대비 비중을 약 24%로 제시 — 회사 자체 수치(27%, CoinMarketCap 기준 $100M 이상·어테스테이션 보유 대상으로 분모 한정)와 약 3%p 차이. 분모 정의 차이에서 기인하는 것으로 판단되며, 두 수치를 동일 시계열로 비교하려면 출처·정의 일치가 필요.",
+      "evidence_grade": 4,
+      "source": {"type": "secondary_aggregator", "url": "https://bitcoinfoundation.org/news/stablecoin-news/stablecoin-market-cap-tops-321b/", "filed_at": "2026-08-10"},
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260815_CRCL_2228_007",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Reserve Income: Q2'26 $668M(+5% YoY), Q1'26 $653M(+17% YoY). Distribution and transaction costs: Q2'26 $410M(+1% YoY), Q1'26 $405M. RLDC Margin 41%로 양 분기 동일, YoY 기준 Q2 +302bps·Q1 +148bps 개선.",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_008",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "FY2026 가이던스 개정(2026-08-05 발표): Other Revenue $150-170M → $310-330M, RLDC Margin 38-40% → 41.7-43.7%. 각주에 '개정 수치는 인식된 ARC 토큰 프리세일 매출을 포함'이라고 명시. USDC 유통량 장기(멀티이어 사이클) CAGR 가이던스는 40%로 유지. Adjusted Operating Expenses 가이던스는 $570-585M로 유지.",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_009",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "FY26 Other Revenue·RLDC 마진 가이던스 상향분 중 상당 부분은 회사 각주가 명시한 대로 ARC 토큰 프리세일 인식 매출(성격상 일회성/준금융성 수입)에 기인하는 것으로 판단됨 — 경상적 Reserve Income 개선으로 액면 해석할 경우 마진 개선의 지속가능성을 과대평가할 위험.",
+      "evidence_grade": 1,
+      "source": {"type": "derived_from_company_filings", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_010",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle CEO Jeremy Allaire가 2026-08-05 Q2 실적 컨퍼런스콜에서 Circle-Coinbase Collaboration Agreement(2023년 8월 개시 조항)가 '기존 조건대로 갱신됐다(renewed on its existing terms)'고 직접 발언 — 자동 3년 갱신 조항에 따라 2029년까지 연장. 경영진 발언 원문 인용 확인(도메인 자동등급이 아닌 수동 grade2 부여).",
+      "evidence_grade": 2,
+      "source": {"type": "earnings_call_direct_quote", "url": "https://www.tipranks.com/news/the-fly/circle-ceo-says-agreement-with-coinbase-renewed-on-its-existing-terms-thefly-news", "filed_at": "2026-08-05", "note": "CEO 직접 인용 확인 후 수동 grade2 부여 — 원 도메인은 grade4"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_011",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle이 미 OCC(통화감독청)로부터 국가신탁은행(Circle National Trust) 설립 최종 인가를 받음 — 스테이블코인 발행사 중 연방 은행 헌장을 보유한 최초 사례 중 하나로, 디지털자산 커스터디 및 향후 USDC 준비자산 관리 권한을 부여. 동시에 뉴욕주 금융서비스국(NYDFS)으로부터 Circle New York Trust 설립 승인도 획득.",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_012",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "CPN(Circle Payments Network)이 Q2'26 마감 기준 최근 30일 연환산 거래액 $14.7B(+76% QoQ) 달성, 등록 금융기관 175개(+29% QoQ).",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_013",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Arc 메인넷 퍼블릭 런칭일이 2026-09-16로 확정. Founding Validator 그룹에 BlackRock, DTCC(예탁결제청산), Galaxy, Global Payments, ICE, Mastercard, MoneyGram, SBI Group, Standard Chartered, Sumitomo, Visa 참여 확인. BlackRock BUIDL 펀드 배포 예정, DTCC는 DTC 예탁자산 토큰화 지원 예정.",
+      "evidence_grade": 1,
+      "source": {"type": "company_press_release_exhibit", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm", "filed_at": "2026-08-05"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_014",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "2026-06-29/06-30에 Circle이 ARC 토큰 프리세일 2차 클로징을 완료: 기관투자자 대상 6,750만 토큰을 개당 $0.30(완전희석 네트워크가치 $3B 내재)에 발행, 총 조달액 약 $20.25M. 인수인은 Arc 네트워크의 지분증명 전환 이후 최소 1년(최대 4년까지 단계적 완화) 락업에 동의. Arc 네트워크가 2028-05-08까지 지분증명 전환을 완료하지 못하면 상환 조항 발동.",
+      "evidence_grade": 1,
+      "source": {"type": "sec_8k", "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000205/crcl-20260629.htm", "filed_at": "2026-07-02"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_015",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "SEC의 토큰화 'Innovation Exemption' 프레임워크가 2026-08-14 시점에도 추가 지연됨. 공개 예정이던 회의(open meeting)가 취소됐고, 신규 발표 일정은 공표되지 않음 — 카드가 명시한 '5/26 이후 신규 일정 없음' 상태가 8월 중순까지 이어짐.",
+      "evidence_grade": 4,
+      "source": {"type": "secondary_media", "url": "https://northeasttimes.com/2026/08/14/sec-again-delays-tokenization-exemption-after-wall-street-pushback/", "filed_at": "2026-08-14"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260815_CRCL_2228_016",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "CLARITY Act: 미 상원이 2026-08-08 여름 휴회 전 본회의 표결 없이 산회. 원내대표 Thune이 상정동의(cloture) 절차를 제출해, 휴회 복귀 다음날인 2026-09-15에 절차적 표결(motion to proceed)이 예정됨 — 최종 표결이 아닌 절차 단계.",
+      "evidence_grade": 3,
+      "source": {"type": "secondary_media", "url": "https://www.coindesk.com/policy/2026/08/06/senate-won-t-vote-on-crypto-clarity-act-before-its-summer-break", "filed_at": "2026-08-06"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260815_CRCL_2228_017",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "OUSD(Open USD, Visa·Stripe·Coinbase·BlackRock·Mastercard 등 140개 이상 참여, 2026-06-30 공식 발표)는 2026-08-15 시점까지도 일반 대중 대상 실거래가 시작되지 않은 출시 전 단계이며 실측 유통량이 존재하지 않음. 목표 출시 시점은 '2026년 하반기 중'으로만 제시되고 구체 확정일은 공표되지 않음.",
+      "evidence_grade": 4,
+      "source": {"type": "secondary_media_aggregate", "url": "https://en.cryptonomist.ch/2026/06/30/open-usd-stablecoin-launch/", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260815_CRCL_2228_018",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "$YLDS(Figure Technology Solutions 발행, SEC 등록 이자부 스테이블코인, Provenance·Solana·Stellar 체인 상장, SOFR 연동 이자 지급)의 유통량이 2026년 1분기 기준 약 $598M으로 보도됨.",
+      "evidence_grade": 4,
+      "source": {"type": "secondary_aggregator", "url": "https://www.coingecko.com/en/coins/ylds", "filed_at": "2026-08-11"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260815_CRCL_2228_019",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle CFO Jeremy Fox-Geen이 2026-08-13 Rule 10b5-1 매매계획에 따라 보통주(Class A) 8,476주를 주당 $75.00에 매도(2026-08-14 Form 4 제출). 거래 후 보유주식 323,837주(직접보유 39,564주 + RSU 부여예정 284,273주).",
+      "evidence_grade": 1,
+      "source": {"type": "sec_form4", "url": "https://www.sec.gov/Archives/edgar/data/1818008/000187604226000254/wk-form4_1786741369.xml", "filed_at": "2026-08-14"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_CRCL_2228_020",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "2차 보도(stocktitan·defenseworld)에 따르면 2026-08-04~08-10 구간에 추가 내부자 Form 4 매도가 다수 발생 — 이사 Danita K. Ostling이 2026-08-06 20,000주(약 $1.23M, 평균 $61.65) 매도 후 잔여 4,608주 보유, CEO Jeremy Allaire가 2026-08-05 10b5-1 계획에 따라 62,264주 매도. 본 Run에서는 claim 019(CFO건)만 SEC 원문(XML)으로 직접 재확인했으며, 본 항목은 2차 집계 기준.",
+      "evidence_grade": 4,
+      "source": {"type": "secondary_aggregator", "url": "https://www.stocktitan.net/sec-filings/CRCL/form-4-circle-internet-group-inc-insider-trading-activity-490a3704c01f.html", "filed_at": "2026-08-10"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260815_CRCL_2228_021",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "SEC EDGAR CIK 0001876042 공시 피드를 본 Run 시점에 직접 조회한 결과, 최신 8-K는 2026-08-05, 최신 Form 4는 2026-08-14이며 그 이후 신규 8-K·10-Q·S-1 제출 내역은 없음.",
+      "evidence_grade": 1,
+      "source": {"type": "sec_edgar_feed", "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001876042&type=8-K&dateb=&owner=include&count=10&output=atom", "filed_at": "2026-08-15"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    }
+  ],
+  "deltas": [
+    {
+      "id": "d_20260815_CRCL_2228_001",
+      "axis": "usdc_circulation_scale",
+      "direction": "neutral",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_001", "c_20260815_CRCL_2228_002", "c_20260815_CRCL_2228_003"],
+      "rationale": "Q2'26 분기말 유통량 $73.3B(+19% YoY)·평잔 $76.5B(+25% YoY)로 카드 축 관측치(2026-08-15 정정본)를 그대로 재확인. 다만 분기말 기준 QoQ는 $77.0B→$73.3B(-4.8%)로 감소한 반면 평잔 기준은 +1.7% 증가해 두 측정치가 괴리 — 카드가 요구하는 '분기말 스냅샷·30일 평잔 병기' 방식대로 방향 전제 없이 병기만 갱신."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_002",
+      "axis": "usdc_market_share",
+      "direction": "weaken",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_004", "c_20260815_CRCL_2228_005"],
+      "rationale": "Circle 자체 1차 공시(grade1) 기준 시장점유율이 Q1'26 28%→Q2'26 27%로 QoQ -1%p, YoY -66bps 하락 — 카드의 '실측 불가' 상태가 이번 Run에서 최초로 grade1 수치로 해소됨. 하락폭 자체는 카드가 KC-CRCL-2 판정 대상으로 언급한 -3%p QoQ 문턱보다 작은 폭."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_003",
+      "axis": "usdc_market_share",
+      "direction": "neutral",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_006"],
+      "rationale": "DefiLlama 기반 3자 추정(약 24%)과 회사 자체 정의(27%) 간 분모 방법론 차이 확인 — 삼각검증용 자료로 방향성 판단에 단독 사용 불가, 향후 축 비교 시 출처·정의 일관성 필요성만 기록."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_004",
+      "axis": "reserve_income",
+      "direction": "strengthen",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_007"],
+      "rationale": "Reserve Return Rate가 YoY -66bps 압축됐음에도 평잔 성장(+25% YoY)에 힘입어 Reserve Income +5% YoY 증가. 유통비용 증가율(+1% YoY)이 매출 증가율을 하회하며 RLDC 마진이 YoY +302bps(Q2)/+148bps(Q1) 개선 — 마진 방어력 확인."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_005",
+      "axis": "reserve_income",
+      "direction": "strengthen",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_008"],
+      "rationale": "FY26 Other Revenue 가이던스 $150-170M→$310-330M, RLDC 마진 가이던스 38-40%→41.7-43.7%로 상향."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_006",
+      "axis": "reserve_income",
+      "direction": "neutral",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_009"],
+      "rationale": "가이던스 상향분 중 상당 부분이 ARC 토큰 프리세일 인식 매출(회사 각주 명시, 일회성 성격)에 기인 — 경상 Reserve Income 개선으로 액면 해석 시 지속가능성 과대평가 우려, 질적 조정 필요."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_007",
+      "axis": "reserve_income",
+      "direction": "strengthen",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_010"],
+      "rationale": "CEO 직접 발언(grade2, 실적콜 확인)으로 Coinbase 분배계약이 기존 조건대로 2029년까지 자동 갱신 확정 — 카드가 2026-08-18 예정 이벤트(KC-CRCL-3)로 등재했던 재협상/조건악화 리스크가 사실상 해소됨. 8/18 날짜 자체의 이벤트성 중요도는 낮아짐."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_008",
+      "axis": "regulation",
+      "direction": "strengthen",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_011"],
+      "rationale": "OCC 국가신탁은행 인가(Circle National Trust)·NYDFS 인가는 스테이블코인 발행사 중 연방 은행 헌장 보유 최초 사례 중 하나로, 향후 USDC 준비자산 커스터디 신뢰성·규제 지위 강화."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_009",
+      "axis": "regulation",
+      "direction": "weaken",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_015"],
+      "rationale": "SEC Innovation Exemption이 8/14 기준으로도 재지연, 예정 회의까지 취소되며 신규 일정 부재 — 카드의 '5/26 이후 신규 일정 없음' 상태가 8월 중순까지 그대로 연장됨을 재확인."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_010",
+      "axis": "regulation",
+      "direction": "weaken",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_016"],
+      "rationale": "CLARITY Act 상원이 8/8 휴회 전 표결 불발, 9/15 절차적 표결(최종표결 아님)로 순연 — 입법 경로 추가 지연."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_011",
+      "axis": "diversification",
+      "direction": "strengthen",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_012", "c_20260815_CRCL_2228_013", "c_20260815_CRCL_2228_014"],
+      "rationale": "CPN 연환산거래액 $14.7B(+76% QoQ)·175개 금융기관(+29% QoQ), Arc 메인넷 9/16 런칭 확정과 BlackRock·DTCC·Visa 등 기관급 founding validator 11개사 확보, ARC 토큰 2차 프리세일 클로징($20.25M, FDV $3B) — 비이자 매출·플랫폼 다각화 진척이 다수 1차 공시로 확인됨."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_012",
+      "axis": "competition_ousd",
+      "direction": "strengthen",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_017"],
+      "rationale": "OUSD가 8/15 현재도 공식 출시 전이며 실측 유통량이 없음을 재확인 — 근접 경쟁 위협의 실현 시점이 최소 2026년 하반기 이후로 순연되어 단기 리스크는 완화되나, 140+사 컨소시엄이라는 구조적 위협 자체는 소멸되지 않음."
+    },
+    {
+      "id": "d_20260815_CRCL_2228_013",
+      "axis": "competition_ousd",
+      "direction": "weaken",
+      "basis_claim_ids": ["c_20260815_CRCL_2228_018"],
+      "rationale": "$YLDS 실측 유통량(1Q26 약 $598M)이 처음으로 구체적 수치로 확인됨 — USDC($73.3B) 대비 1% 미만의 미미한 규모이나, 이자부 경쟁 스테이블코인의 실제 채택 사례가 존재함을 보여줌(약한 강도 추론)."
+    }
+  ],
+  "unconfirmed": [
+    {
+      "id": "u_20260815_CRCL_2228_a",
+      "topic": "OUSD 공식 출시 확정일",
+      "attempted_search": "웹검색: 'OUSD stablecoin official launch circulation August 2026' 등 다수 쿼리",
+      "reason_for_absence": "다수 매체가 '2026년 하반기 중' 출시 목표만 보도하며, 구체적 확정 출시일은 어느 소스에서도 공표되지 않음."
+    },
+    {
+      "id": "u_20260815_CRCL_2228_b",
+      "topic": "2026-08-15 시점 USDC 실시간 유통량의 1차(회사) 공시",
+      "attempted_search": "웹검색: 'USDC circulating supply August 2026', usdc.org/stats·coingecko·cryptobriefing 등 확인",
+      "reason_for_absence": "회사의 공식 분기 공시는 2026-06-30 마감치($73.3B)가 최신이며, 8월 중순 시점 수치는 온체인 집계처(grade4, F1 대상)에서만 제공됨. 온체인 수치는 관측 시각·집계 방식이 소스별로 상이해 단독 판단 근거로 사용하지 않음."
+    },
+    {
+      "id": "u_20260815_CRCL_2228_c",
+      "topic": "Coinbase 분배계약 갱신 관련 별도 8-K(Item 1.01/1.02) 원문",
+      "attempted_search": "EDGAR CIK 0001876042 8-K 전건 확인(2026-08-05, 07-02, 06-12, 05-18, 05-11, 03-17, 02-25, 2025-11-12, 09-19, 08-12, 07-22, 06-06 등)",
+      "reason_for_absence": "계약 조건 변경/갱신을 별도로 알리는 Item 1.01·1.02 8-K가 EDGAR 목록에 존재하지 않음. 갱신 사실은 2026-08-05 실적 컨퍼런스콜에서의 CEO 구두 발언(claim 010, grade2)으로만 확인됨."
+    },
+    {
+      "id": "u_20260815_CRCL_2228_d",
+      "topic": "2026-08-15 14:00 이후 신규 CRCL 공시·보도",
+      "attempted_search": "EDGAR 8-K·Form4 company filing feed 직접 조회(atom), 웹검색 'Circle CRCL news August 15 2026' 등",
+      "reason_for_absence": "본 Run 조회 시점 기준 최신 8-K는 2026-08-05, 최신 Form4는 2026-08-14이며 그 이후 신규 제출·보도가 확인되지 않음(claim 021)."
+    },
+    {
+      "id": "u_20260815_CRCL_2228_e",
+      "topic": "$YLDS 최신(2026년 3분기) 유통량 갱신치",
+      "attempted_search": "웹검색: 'YLDS yield stablecoin circulation 2026'",
+      "reason_for_absence": "확인 가능한 최신 수치는 2026년 1분기($598M) 기준이며, 2·3분기 갱신치를 보도한 소스를 찾지 못함."
+    }
+  ],
+  "noise_log": {
+    "discarded": 9,
+    "promoted": 21
+  }
+}

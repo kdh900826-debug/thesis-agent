@@ -1,0 +1,16 @@
+{
+  "ticker": "COIN",
+  "cik": "0001679788",
+  "items": [
+    {
+      "id": "edgar_2026-09-02_8-K_3",
+      "form": "8-K",
+      "filed_at": "2026-09-02",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000101/coin-20260901.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

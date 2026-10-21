@@ -1,0 +1,64 @@
+# Thesis Card — COIN (v1 §5-6 기계 판독본)
+ticker: COIN
+sector: stablecoin
+tier: Next
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-6 / 투자_Thesis_Map_v32 (신호 🟠)"
+version_history:
+  - {date: "2026-09-20", change: 'ThesisPatch 적용(axes/amend) — 근거: c_20260919_HOOD_3 / 이전: - / {id: / derivatives_base, / label: / "파생상품·Base / 생태계 / 확장"}...'}
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화"}
+
+axes:
+  - {id: subscription_mix,  label: "구독·서비스 매출 비중 (~48%) — 사이클 저항성 전환"}
+  - {id: trading_cycle,     label: "거래 매출·거래량 (BTC·크립토 사이클 종속)"}
+  - {id: usdc_economics,    label: "USDC 관련 수익 (연 $1.2B+) — OUSD 대체·보완 관계"}
+  - {id: regulation,        label: "규제 — CLARITY Act 경로"}
+  - {id: derivatives_base,  label: "파생상품·Base 생태계 확장"}
+  # 2026-09-19 ThesisPatch(amend, run 20260919_2209) — 축 1개 신설(5개 → 6개, 전문 기준 계수). 기존 5개 축은 문자 하나도 변경하지 않는다(P9). 신설 축은 **빈 관측 슬롯**이며 방향·노출 여부를 판정하지 않는다. ⚠️축 id `prediction_market`는 **잠정 표기**다 — 선행 결정 `axis_naming_standardization`(사람 영역) 미확정 상태이며, 확정 시 id·label이 변경될 수 있다. 잠정 id를 HOOD 카드의 `prediction_market` 축과 동일 문자열로 둔 것은 두 종목이 같은 실체(예측시장·이벤트 계약)를 다루므로 **종목 간 공유 축을 성립시킬 기회**이기 때문이며, 채택 여부는 사람이 결정한다. 대안 후보: ⓐ`prediction_market`(HOOD 정합 — 공유 축 성립) ⓑ`event_contract_regulation`(규제 층위 한정) ⓒ`prediction_market_event_contracts`(실체 서술형, HOOD와 불일치).
+  - {id: prediction_market,  label: "예측시장·이벤트 계약 (잠정 id — axis_naming_standardization 결정 전. 【관측 상태: 미관측(unconfirmed)】). 이 축은 COIN의 예측시장·이벤트 계약 사업과 그에 대한 주(州) 단위 규제 조치를 관측하기 위한 **빈 슬롯**이다. 신설 사유는 관측 단위의 부재 자체다 — 2026-09-19 run 기준 COIN 산출물(02_company·03_signal)에 이 실체를 다루는 Claim·Delta·unconfirmed가 0건이어서, 해당 사안이 발생하더라도 카드에 매핑될 자리가 없었다. ⚠️본 축은 COIN에 대한 어떠한 사실도 주장하지 않는다 — 특히 'COIN이 코네티컷 주 cease-and-desist를 수신했다'는 진술은 **카드에 기재하지 않는다**. 해당 정황은 타 종목(HOOD) 수집분에서 파생된 것으로 P4·P17상 COIN에 대한 사실 주장의 근거로 부적격이며, 차기 회차 `company-coin`의 COIN 자체 1차 수집(주 증권감독기관 공개 문서·회사 공시·IR)으로 **확인 대상**으로 남긴다. 슬롯이 비어 있다는 것은 '노출 없음'이 아니라 '아직 관측되지 않음'을 뜻한다(P5 — 정보 부재는 반증이 아니다). 다음 관측점: 차기 run의 company-coin 수집 범위 확대(주 단위 증권감독기관 조치·예측시장 상품 라인업), COIN 8-K·10-Q의 법적 절차 주석, 회사 공식 블로그·IR"}
+
+thesis: >
+  "Everything Exchange" — 거래 수수료 의존을 낮추고 구독·서비스 매출(스테이블코인 수익 포함)
+  비중을 높여 사이클 저항성을 확보한다. 파생상품·Base 생태계 확장.
+
+key_metrics:
+  - "구독·서비스 매출 비중 (~48%)"
+  - "거래 매출 및 거래량"
+  - "USDC 관련 수익 (연 $1.2B+ 규모)"
+  - "파생상품 거래량"
+  - "Base 네트워크 활동"
+  - "OUSD 참여의 실제 수익 기여 (USDC 수익과의 대체·보완 관계)"
+
+catalysts:
+  - "CLARITY Act 상원 경로"
+  - "분기 실적"
+  - "BTC 가격 사이클"
+  - "OUSD 출시 및 COIN 분배 조건 공개"
+
+risks:
+  - "거래 매출의 BTC·크립토 사이클 종속"
+  - "CLARITY Act 실패 시 규제 수혜 소멸"
+  - "USDC-COIN 관계 재편 (OUSD 참여가 자사 USDC 수익 잠식 가능성)"
+  - "경쟁 거래소·수수료 압력"
+
+kill_conditions_ref: ["KC-COIN-1", "KC-COIN-2", "KC-COIN-3", "KC-COIN-4", "KC-3 연동", "CLARITY 최종 실패"]
+noise_filter_ref: "config/noise_filter.yaml#COIN"
+
+earnings_checkpoints:
+  date: null   # ⚠️ Q3 일정 확인 필요
+  items:
+    - "매출 컨센서스 대비 (Q2 miss 후 회복 여부 — 기준 소스 명시, F8)"
+    - "구독·서비스 비중 방향"
+    - "USDC 수익 절대액"
+    - "파생상품 매출"
+    - "비용 구조·마진"
+    - "OUSD 관련 가이던스"
+
+valuation:
+  primary: "Forward P/E + 구독 매출 비중"
+  secondary: "P/S"
+  caution: "거래 매출과 구독 매출에 동일 멀티플 적용 부적절 — recurring 비중으로 가중"
+
+conclusion: >
+  규제 촉매(CLARITY)와 구조 전환(구독 비중)이 모두 진행 중이나 Q2 매출 miss로 전환 속도가
+  검증 대상. OUSD 참여는 강세 재료가 아니라 USDC 수익과의 상충 여부를 확인해야 할 축이다.

@@ -1,0 +1,83 @@
+# 구조적 상관 — 종목별 드라이버 축 노출 벡터 (설계서 §6, D1)
+# 2026-08-15 검토 세션에서 사용자 확정 (U4 해소): IREN CRYPTO +M 유지(8/27 재평가 예약),
+# MU GPU_SUPPLY 축 제거(부호 양방향 모호 — AI_CAPEX가 이미 포착), NBIS RATES -L→-M(KC-NBIS-3 상향과 논리 일관).
+# 2026-08-15 2차 검토(vcp_20260815_2307_01~06 사용자 처리): ①CRCL CRYPTO +M 유지·basis 재작성
+# ②USDC_DISTRIBUTION_ECONOMICS 축 신설(CRCL -M / COIN +M — 첫 역노출 축) ③conditional_exposures 섹션 신설
+# ④이자부 코인 축 미신설(9/15 재판정) ⑤NBIS RATES -H 재검토 이월 ⑥IREN CRYPTO 8/27 예약 유지.
+# 이후 수정은 L4의 vector_change_proposal 승인 경로로만.
+# sign: 축이 상승할 때 종목에 유리(+)/불리(-) / strength: H·M·L / basis: 근거(Claim ID 또는 서술)
+# 이 벡터의 정확성이 곧 상관 레이어의 정확성 상한이다. 수치형 상관계수는 산출하지 않는다(P14).
+schema_version: 1
+status: active
+as_of: "2026-08-15"
+
+axes:
+  AI_CAPEX:      {label: "AI 인프라 CapEx 사이클", indicators: ["하이퍼스케일러 합산 CapEx·FCF(KC-7·8)", "SDLLMTK(KC-6)"]}
+  RATES:         {label: "금리·조달비용",           indicators: ["FFR·FFR 확률(KC-1)", "30Y"]}
+  CRYPTO:        {label: "크립토 사이클",           indicators: ["BTC(KC-3)"]}
+  REGULATION:    {label: "규제 확정 이벤트",        indicators: ["CLARITY", "SEC 면제", "SB6·PUCT"]}
+  GPU_SUPPLY:    {label: "GPU 공급·감가",           indicators: ["배정 일정", "감가상각 정책"]}
+  POWER_PERMIT:  {label: "전력·인허가",             indicators: ["DC 모라토리엄 5단계 프레임"]}
+  RISK_APPETITE: {label: "위험선호",                indicators: ["VIX(KC-2)", "ON RRP(KC-4)"]}
+  USDC_DISTRIBUTION_ECONOMICS: {label: "USDC 분배 경제구조 (축 상승 = 분배자 수취 몫 확대 — 발행자·분배자 제로섬)", indicators: ["Circle 유통·거래·기타비용(분기)", "분배계약 조건 변경 공시(KC-CRCL-3·KC-COIN-4)"]}
+
+exposures:
+  IREN:
+    AI_CAPEX:      {sign: "+", strength: H, basis: ["MS $9.7B + NVIDIA $3.4B + 신규 $2.8B = TCV ~$15.9B", "480MW 인도 목표"]}
+    CRYPTO:        {sign: "+", strength: M, basis: ["BTC 채굴 현금흐름", "재평가 예약: 8/27 실적의 매출 믹스 확인 후 L4가 vector_change_proposal 제안"]}
+    RATES:         {sign: "-", strength: M, basis: ["건설 CapEx 조달"]}
+    GPU_SUPPLY:    {sign: "-", strength: M, basis: ["차세대 GPU 배정 의존, GB300→VR200 대체 조항"]}
+    POWER_PERMIT:  {sign: "-", strength: H, basis: ["TX SB6 강제 감축·MW당 $50K 담보 (KC-10)"]}
+    RISK_APPETITE: {sign: "+", strength: M, basis: ["고베타 성장주"]}
+  NBIS:
+    AI_CAPEX:      {sign: "+", strength: H, basis: ["FY26 매출 $3.0-3.4B 가이던스, CapEx $20-25B, 연말 5GW 목표"]}
+    RATES:         {sign: "-", strength: M, basis: ["CapEx $20-25B vs 현금 $8B — 결국 외부 조달 필요 (KC-NBIS-3 하한 $5B 상향과 일관). 선불금 구조로 3사 중 민감도는 여전히 최저"]}
+    GPU_SUPPLY:    {sign: "-", strength: M, basis: ["Blackwell 이후 배정·옥션 가격 의존"]}
+    RISK_APPETITE: {sign: "+", strength: M, basis: ["고멀티플 성장주 — 디레이팅 민감"]}
+  CRWV:
+    AI_CAPEX:      {sign: "+", strength: H, basis: ["백로그 ~$104B, FY26 매출 $12.4-13.2B ⚠️갱신 대상"]}
+    RATES:         {sign: "-", strength: H, basis: ["레버리지 건설 모델 — 이자 커버리지 ~2.2x, 차환 의존 (KC-CRWV-3)"]}
+    GPU_SUPPLY:    {sign: "-", strength: H, basis: ["GPU 감가 → 담보가치 하락 직결"]}
+    RISK_APPETITE: {sign: "+", strength: M, basis: ["고베타 + 부채 리스크 프리미엄"]}
+  MU:
+    AI_CAPEX:      {sign: "+", strength: H, basis: ["HBM 수요가 AI CapEx 직접 연동, SCA 16건. GPU 출하 연동분도 이 축이 포착 (GPU_SUPPLY 축은 부호 양방향 모호로 2026-08-15 제거)"]}
+    RATES:         {sign: "-", strength: L, basis: ["CapEx $50B 계획 — 자체 현금흐름 위주"]}
+    RISK_APPETITE: {sign: "+", strength: L, basis: ["사이클주 베타"]}
+  CRCL:
+    RATES:         {sign: "+", strength: H, basis: ["Reserve Income = USDC 유통량 × 이자율 — 금리 하락 시 매출·멀티플 이중 압축"]}
+    REGULATION:    {sign: "+", strength: H, basis: ["GENIUS·MiCA 선점, SEC Innovation Exemption·CLARITY 게이트"]}
+    CRYPTO:        {sign: "+", strength: M, basis: ["USDC 유통량-크립토 활동 연동 가설 — 두 run(20260815_1408·2307) 연속 미검증: 시점 정렬 가능한 고빈도 잔고 계열이 1차 공시로 부재(su_stablecoin_2252_06), Q2'26 분기말 QoQ -4.8% vs 평잔 +1.7%로 방향 갈림. 구조 논리는 부정되지 않아 강도 유지(P5, 2026-08-15 사용자 확정) — 대사 수단 확보 시 재판정"]}
+    USDC_DISTRIBUTION_ECONOMICS: {sign: "-", strength: M, basis: ["발행자 유통비용 측 — 분배자 몫 확대는 CRCL Reserve Income 마진 압박(KC-CRCL-3 연동). 2026-08-15 신설(vcp_20260815_2307_02 승인): 기존 조건 갱신은 양사 경영진 확인(grade 2)·변경 8-K 부재 EDGAR 확인(grade 1). 수익배분 세부조건 비공개로 크기 정량화 불가 — 잠정 M, 8/18 갱신 실행 공시로 기준선 확정"]}
+  COIN:
+    CRYPTO:        {sign: "+", strength: H, basis: ["거래 매출의 BTC·크립토 사이클 종속 (KC-3 연동)"]}
+    REGULATION:    {sign: "+", strength: H, basis: ["CLARITY Act 수혜 전제"]}
+    RATES:         {sign: "+", strength: M, basis: ["USDC 연동 수익 연 $1.2B+ — 이자율 연동"]}
+    RISK_APPETITE: {sign: "+", strength: M, basis: ["리테일 거래 활동 베타"]}
+    USDC_DISTRIBUTION_ECONOMICS: {sign: "+", strength: M, basis: ["분배 수취 측 — USDC 연동 수익 연 $1.2B+의 수취 주체. 유리한 조건 변경은 수익 확대, 불리한 방향만 KC-COIN-4 발동. 2026-08-15 신설 — COIN 수취 절대액 미공시로 잠정 M"]}
+  HOOD:
+    CRYPTO:        {sign: "+", strength: M, basis: ["크립토 매출 비중 (KC-3 연동)"]}
+    REGULATION:    {sign: "+", strength: M, basis: ["CLARITY + 예측시장 규제 명확화"]}
+    RATES:         {sign: "+", strength: M, basis: ["이자수입 — 금리 하락 시 감소"]}
+    RISK_APPETITE: {sign: "+", strength: H, basis: ["리테일 거래 활동이 위험선호에 직결"]}
+
+# 참고 — 자연 헤지(역방향 노출) 예시: RATES 하락 시 CRCL·COIN·HOOD 이자수입 감소(-) vs IREN·CRWV 조달 개선(+).
+# correlation-map이 쌍별로 자동 산출한다. 여기에 수기로 적지 않는다.
+
+# 부호 미확정 조건부 노출 — [CODE](correlation_map.py) 집계에 포함하지 않는 감시 목록.
+# 2026-08-15 신설(vcp_20260815_2307_03 사용자 확정): 근거 등급 미달·부호 미확정 항목의 벡터 유입 차단(P4)이 목적.
+# 부호·강도가 확정되면 exposures로 승격하고 이 목록에서 제거한다(이력은 주석 보존).
+conditional_exposures:
+  OUSD_CONSORTIUM:
+    tickers:
+      CRCL: "단방향 위협(잠재 -) — 수익모델 정면 경쟁"
+      COIN: "양면 — 컨소시엄 참여 upside + USDC 분배수익 잠식 downside"
+    status: "OUSD 미출시·실측 유통량 부재로 부호 판정 불가 (su_stablecoin_2252_01)"
+    reassess_trigger: "OUSD 공식 출시 + 실측 유통량 확보"
+  YIELD_BEARING_STABLECOIN_CLAUSE:
+    tickers:
+      CRCL: "CLARITY 이자조항이 이자 지급 제한 시 경쟁재 축소(잠재 +)"
+      COIN: "이자부 상품 취급·분배 라인 축소(잠재 -)"
+    status: "조항 문언 미확정 + $YLDS 실측 $598M(grade 4, confirmed=false) — 근거 등급 미달로 벡터 미등재(P4)"
+    reassess_trigger: "2026-09-15 CLARITY 상원 절차 표결 이후 이자조항 문언 확정 (vcp_20260815_2307_04와 동일 트리거)"
+
+concentration_threshold_pct: 60   # 축 집중도 경보 임계 (positions.yaml 비중 범위 상단 합 기준, ⚠️초안)

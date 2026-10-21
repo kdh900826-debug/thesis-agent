@@ -1,0 +1,246 @@
+{
+  "ticker": "NBIS",
+  "run_id": "20260820_1932",
+  "as_of": "2026-08-20",
+  "staleness_days": 0,
+  "period_scope": "2026-08-15(직전 run 20260815_1408) ~ 2026-08-20. P17에 따라 NBIS 범위 내 자료만 로드.",
+  "thesis_card_ref": "state/thesis_cards/NBIS.yaml",
+  "special_task": {
+    "assignment": "보류 검증 건 — thesis 문장 '순현금 재무구조·저희석 확장'의 유지/재작성 판단 재료로, 이자부 부채 총액(전환사채 $4.3B·ABL $775M·리스)을 최신 1차 공시와 재대조. 판정은 하지 않음 — Claim(c_20260820_NBIS_01~10)만 생성, 유지/재작성 결정은 인간 검토 대상.",
+    "primary_source": "6-K filed 2026-08-12, Exhibit 99.2 'Unaudited Condensed Consolidated Financial Statements ... as of and for the Three and Six Months Ended June 30, 2026' — https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+    "reconciliation_summary_facts_only": [
+      "6/30/2026 재무상태표: 현금 $8,042.1M / Debt 유동 $46.7M / Debt 비유동 $8,499.0M(=합계 $8,545.7M) — Debt 비유동 라인은 Note 12 전환사채 상각후원가 합계와 100% 일치",
+      "전환사채(Note 12) 6/30/2026: 원금 합계 $10,041.8M(6개 시리즈: 2029·2030·2031·2032·2031(3월)·2033(3월)), 상각후원가 합계 $8,499.0M — 카드에 기재된 '$4,337.5M'은 이 중 2026년 3월 발행분(그린슈 포함 원금 $4.34B)만을 지칭하는 부분치",
+      "ABL $775M(SOFR+2.50%, 만기 2030-10-31)은 2026-07-10 체결(Note 16 Subsequent Events) — 6/30/2026 재무제표에 미포함",
+      "운용리스부채 총 $1,625.3M(유동 $114.9M+비유동 $1,510.4M)은 'Debt'와 별도 라인 — 금융리스 별도 공시 미확인",
+      "2026-08-19 launch/2026-08-20 pricing: 신규 전환사채 $5.0B(업사이즈, 2030년 $3.0B@0.50%+2034년 $2.0B@4.50%) + 기존 2029/2031 전환사채 $800M 지분교환(~15.8M Class A주) — 결제 예정 2026-08-24(본 run as_of 이후, 미결제)"
+    ],
+    "note": "6/30/2026 기준 이미 총부채(유동+비유동 $8,545.7M)가 현금($8,042.1M)을 상회 — ABL $775M·8/24 결제 예정분을 반영하면 격차 확대 방향. 리스부채 포함 여부는 정의(narrow debt vs total obligations)에 따라 달라짐 — 어느 정의를 채택할지는 인간 판정 사항."
+  },
+  "source_ingest_summary": {
+    "edgar_fulltext": "python .claude/skills/source-ingest/scripts/edgar_fulltext.py --ticker NBIS --forms 10-K 10-Q 8-K --since 2026-06-01 → 0건. coverage.yaml는 NBIS edgar_forms를 [10-K,10-Q,8-K]로 가정하나 실제 CIK 0001513845 submissions API 확인 결과 NBIS(Nebius Group N.V.)는 외국민간발행인(foreign private issuer)으로 20-F/6-K 체계로 제출 — IREN과 동일한 유형의 서식 가정 오류(coverage.yaml 자체 주석에 있는 IREN 사례와 동일 패턴). --forms 20-F 6-K '6-K/A' --since 2026-07-01로 재조회하여 7건 확보(output/20260820_1932/02_company/_raw_NBIS_fixed.json). ※ coverage.yaml은 사용자 직접 편집 영역(CLAUDE.md §9) — 본 에이전트는 수정하지 않고 여기 기록만 함. 오케스트레이터/사용자 확인 권장: NBIS edgar_forms를 [20-F, 6-K]로 갱신.",
+    "edgar_items_found": [
+      {"filed_at": "2026-08-20", "form": "6-K", "desc": "$5.0B 전환사채 pricing(upsize)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098924/tm2623617d1_ex99-1.htm"},
+      {"filed_at": "2026-08-19", "form": "6-K", "desc": "$4.50B 전환사채 launch", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098590/tm2623513d1_ex99-1.htm"},
+      {"filed_at": "2026-08-12", "form": "6-K", "desc": "Q2 2026 실적 press release + Letter to Shareholders", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-1.htm"},
+      {"filed_at": "2026-08-12", "form": "6-K", "desc": "Q2 2026 OFR + 미감사 연결재무제표(Ex-99.2)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm"},
+      {"filed_at": "2026-07-27", "form": "6-K", "desc": "AGM Notice/Agenda", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926087080/tm2621374d1_6k.htm"},
+      {"filed_at": "2026-07-17", "form": "6-K/A", "desc": "Facility Agreement 체결 보도자료(참조 편입 정정)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926084606/tm2620779d1_6ka.htm"},
+      {"filed_at": "2026-07-17", "form": "6-K", "desc": "$775M Facility Agreement 체결 보도자료", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926084452/tm2620683d1_6k.htm"}
+    ],
+    "web_search": "구조화된 재대조 목적 보충: (1) 8/19~8/20 전환사채 조건(전환가·프리미엄) — SEC 원문(Ex-99.1)에서 이미 확인되어 웹검색은 삼각검증 보조로만 사용(businesswire/investing.com/seekingalpha, grade 3, 단독 근거 아님). (2) Vineland 공사중지명령 후속 — hntrbrk.com 기사(datePublished 2026-08-14)는 review_window(2026-08-15~) 이전 사건이며 직전 run 클레임(c_20260815_NBIS_11)에 이미 반영된 사건에 대한 논평 성격 — 신규 1차 사실 아님, 애널리스트 PT 변경(DA Davidson -30%)은 noise_filter 공통 패턴(PT 변경 단독)."
+  },
+  "claims": [
+    {
+      "id": "c_20260820_NBIS_01",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-08-12 6-K(Exhibit 99.2) 미감사 연결재무상태표, 2026-06-30 기준: 현금및현금성자산 $8,042.1M(2025-12-31 $3,678.1M), Debt·유동 $46.7M(전기 $24.5M), Debt·비유동 $8,499.0M(전기 $4,103.2M), 총부채 $17,621.0M(전기 $7,836.6M). Debt 유동+비유동 합계 = $8,545.7M.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.2 (Unaudited Condensed Consolidated Financial Statements)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_02",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "Note 12(CONVERTIBLE DEBT) — 2026-06-30 기준 전환사채 6개 시리즈 합계: 원금 $10,041.8M / 미상각 할인(accretion) $(1,424.8)M / 미상각 발행비용 $(118.0)M / 상각후원가(carrying amount) 합계 $8,499.0M. 시리즈별: 2029년6월물(2.00%, 원금$587.5M/상각후$504.1M), 2030년9월물(1.00%, $1,818.4M/$1,588.2M), 2031년6월물(3.00%, $612.5M/$498.4M), 2032년9월물(2.75%, $1,818.4M/$1,575.0M), 2031년3월물(1.25%, $3,105.0M/$2,588.6M), 2033년3월물(2.63%, $2,100.0M/$1,744.7M). 원문: '총 전환사채 상각후원가는 2026-06-30 기준 $8,499.0'이며, 이는 재무상태표 Debt·비유동 라인과 정확히 일치.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.2, Note 12", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_03",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "thesis 카드 주석(2026-08-15)에 기재된 '전환사채 $4,337.5M'은 2026년 3월 발행분(March 2026 Notes, 그린슈 전액 행사 포함 원금 $4.34B)만을 지칭하는 부분치이며, 2025년 6월·9월 발행분(2029/2030/2031/2032년물, 원금 합계 $4,836.8M, 2026-06-30 상각후원가 합계 약 $4,165.7M)이 별도로 존재함. 2026-06-30 기준 전환사채 총액은 원금 $10,041.8M / 상각후원가 $8,499.0M(c_20260820_NBIS_02 참조)이며, 카드의 부분치를 총액으로 대체 사용해야 함.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.2, Note 12", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_04",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "$775M 자산담보(senior secured) 대출 — Note 16(Subsequent Events) 원문: '2026-07-10, the Group entered into its first senior secured debt facility in an aggregate principal amount of approximately $775. The facility bears interest at SOFR plus 2.50% and matures on October 31, 2030', GPU 인프라 및 투자적격 고객 계약 현금흐름 담보. 동일 계약 체결은 2026-07-17 6-K(Ex-99.1, 'Facility Agreement' 체결 보도자료)로도 별도 확인됨. 이 대출은 2026-06-30 기준 재무제표(Debt 라인, c_20260820_NBIS_01)에 포함되지 않은 후속 사건(subsequent event)임.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.2 Note 16 / 6-K Ex-99.1 (2026-07-17)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_05",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "리스부채 — 2026-06-30 기준 운용리스자산(ROU) $1,855.1M, 운용리스부채 유동 $114.9M + 비유동 $1,510.4M = 총 $1,625.3M. 재무상태표상 'Debt' 라인과 별도 항목으로 표기됨. Note 8 원문에서 금융리스(finance lease) 별도 공시는 확인되지 않음.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.2, Note 8", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_06",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-08-19 6-K(Ex-99.1): $4.50B 전환사채 발행 계획 발표(launch) — 2030년 만기 $2.75B + 2034년 만기 $1.75B, Rule 144A 사모(QIB 대상). 그린슈 옵션 최대 추가 $375M(2030)+$300M(2034).",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.1", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098590/tm2623513d1_ex99-1.htm", "filed_at": "2026-08-19"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_07",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-08-20 6-K(Ex-99.1, 발표일자상 8/19): 전일 발표 대비 규모를 $5.0B로 상향(upsize) 확정(pricing) — 2030년 만기 $3.0B @0.50% + 2034년 만기 $2.0B @4.50%. 2030 전환가 $313.46(2026-08-19 종가 $223.90 대비 +40.0% 프리미엄, 전환비율 3.1902주/$1,000), 2034 전환가 $324.65(+45.0% 프리미엄, 전환비율 3.0802주/$1,000). 최초매수인 그린슈 최대 추가 $450M(2030)+$300M(2034)=$750M. 예상 순조달액 약 $4.94B(그린슈 전액행사 시 최대 약 $5.68B). 결제(settlement) 예정일 2026-08-24.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.1", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098924/tm2623617d1_ex99-1.htm", "filed_at": "2026-08-20"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_08",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "동일 2026-08-20 6-K(Ex-99.1) 원문: 신규 발행 가격 확정과 동시에, 회사는 일부 보유자와 개별 협상을 통해 기존 2.00% 전환사채(2029년물) 원금 $400M 및 3.00% 전환사채(2031년물) 원금 $400M(합계 $800M)을 Class A 보통주 약 15.8M주로 교환(exchange)하는 계약을 체결. 신규 발행 완료는 이 교환 거래 완료를 조건으로 하지 않음(not contingent). 교환 결제도 2026-08-24 예정.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.1", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098924/tm2623617d1_ex99-1.htm", "filed_at": "2026-08-20"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_09",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "P7 3단 분리 — [계약 존재 단계만 확정] 2026-08-20(본 run as_of) 현재, $5.0B 신규 전환사채 발행 및 $800M 기존 전환사채 교환은 가격 확정(pricing/exchange agreement 체결) 단계이며, 결제(settlement, 대금·주식 실제 이전)는 2026-08-24로 예정되어 as_of 시점 기준 미완료. 즉 6/30/2026 재무제표(c_20260820_NBIS_01/02)가 여전히 최신 확정 수치이며, 신규 발행 반영분은 프로포마(prospective)로만 존재.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.1 (2026-08-20)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098924/tm2623617d1_ex99-1.htm", "filed_at": "2026-08-20"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_10",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "8/24 결제가 발표대로 완료된다고 가정할 경우(가정 명시, 확정 아님): 전환사채 원금은 6/30 $10,041.8M에서 +$5,000M(신규, 그린슈 전액 시 +$5,750M) -$800M(교환소각) = 약 $14,241.8M~$14,991.8M로 확대되고, 현금은 6/30 $8,042.1M에 순조달 약 +$4.94B(~+$5.68B 그린슈 전액)를 더해 약 $12.98B~$13.72B 수준으로 증가할 전망이다. 원금 기준으로는 결제 후에도 이자부 부채(전환사채만 기준)가 현금을 상회하는 구조가 유지·확대될 것으로 추정된다. 이 수치는 발표자료 기준 사전 추정치이며 Q3 2026 확정 재무제표로 재확인이 필요하다.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.1 (2026-08-20) 기반 추정", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098924/tm2623617d1_ex99-1.htm", "filed_at": "2026-08-20"},
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_NBIS_11",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "$800M 규모 기존 전환사채(2029·2031년물)를 상환이 아닌 지분(Class A 보통주 ~15.8M주)으로 교환하기로 한 결정은, 해당 채권의 조기 만기 압박을 줄이는 대신 신규 지분 발행(희석)을 발생시킨 것으로 해석 가능하다. 즉 레버리지 리스크의 일부가 (a) 단기 만기(2029/2031) → 장기 만기(2030/2034, 신규 발행분)로, (b) 채권자 → 신규 주주(교환 관련 지분 희석)로 동시에 이관되는 구조로 볼 수 있다.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex-99.1 (2026-08-20) 기반 해석", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926098924/tm2623617d1_ex99-1.htm", "filed_at": "2026-08-20"},
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "leverage_burden",
+      "direction": "weaken",
+      "prior_state": "카드 주석(2026-08-15)은 이자부 차입을 전환사채 $4,337.5M(부분치)+선지급워런트 $2,000.0M 기준으로만 파악하고, '전환사채만 기준하면 현금 $8,042.1M 대비 순현금이 성립할 수 있으나 리스 등 기타 이자부 부채 미재대조'로 검증 보류 상태였음.",
+      "new_state": "1차 재무제표 재대조 결과: (a) 전환사채 총액은 원금 $10,041.8M/상각후원가 $8,499.0M이며 카드의 $4,337.5M은 2026년 3월 발행분만의 부분치였음이 확인됨(c_...02,03) — 즉 카드가 가정한 것보다 이자부 부채 총액이 약 2배 더 큼. (b) 6/30/2026 시점 이미 Debt 유동+비유동 합계($8,545.7M)가 현금($8,042.1M)을 상회(c_...01). (c) $775M ABL(c_...04)은 6/30 재무제표 미반영 후속 사건으로 추가 부담. (d) 2026-08-19~20 신규 $5.0B 전환사채 가격 확정(결제 2026-08-24 예정)으로 결제 완료 시 전환사채 원금이 약 $14.2~15.0B로 추가 확대 전망(c_...07,08,10) — 카드의 '순현금 재무구조' 가정과 반대 방향의 1차 근거가 축적됨.",
+      "risk_transfer_to": ["2029·2031 전환사채 채권자 → 신규 Class A 주주(교환 관련 지분 발행 ~15.8M주, 희석)", "단기(2029/2031) 만기 리스크 → 장기(2030/2034) 만기로 이관"],
+      "supporting_claims": ["c_20260820_NBIS_01", "c_20260820_NBIS_02", "c_20260820_NBIS_03", "c_20260820_NBIS_04", "c_20260820_NBIS_07", "c_20260820_NBIS_08", "c_20260820_NBIS_09", "c_20260820_NBIS_10", "c_20260820_NBIS_11"]
+    },
+    {
+      "axis": "funding_access",
+      "direction": "strengthen",
+      "prior_state": "카드는 조달 접근성을 현금($8B)·고객 선불금($9B+)·ATM·2026-07 최초 ABL($775M, SOFR+2.50%)로 파악.",
+      "new_state": "2026-08-19 발표($4.50B) 직후 1일 내 $5.0B로 상향(upsize) 확정(c_...06,07) — 수요가 견조하여 발행 규모를 즉시 확대할 수 있었음을 시사. 순조달 예상액 최대 약 $5.68B(그린슈 전액 행사 시)로 대규모 자본시장 접근성이 재확인됨. 다만 조달 형태는 지분성 성격이 강한 전환사채·지분교환이며, 순수 현금 조달의 질(quality)에 대한 평가는 leverage_burden 축의 훼손 방향과 상충적임(risk_transfer 참조).",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260820_NBIS_06", "c_20260820_NBIS_07", "c_20260820_NBIS_08"]
+    }
+  ],
+  "new_axis_proposals": [],
+  "unconfirmed": [
+    {
+      "item": "Debt·유동 $46.7M(6/30/2026)의 세부 구성",
+      "reason": "Note 12 원문은 전환사채 상각후원가 합계($8,499.0M)가 Debt·비유동 라인과 정확히 일치함을 명시하나, Debt·유동 $46.7M(전기 $24.5M)의 구체적 구성 요소(전환사채 관련 소액 vs 별도 항목)에 대한 세부 분해는 원문에서 확인되지 않음.",
+      "next_check": "차기 10-Q/20-F 급 공시 또는 Note 12 각주 세부 재확인",
+      "related_claims": ["c_20260820_NBIS_01", "c_20260820_NBIS_02"]
+    },
+    {
+      "item": "금융리스(finance lease) 존재 여부",
+      "reason": "Note 8은 운용리스만 명시(총 $1,625.3M). 금융리스 관련 별도 공시 문구를 원문에서 찾지 못함(부재 ≠ 반증, P5) — 존재 시 추가 이자부 부채로 반영 필요.",
+      "next_check": "차기 20-F(연차보고서) 리스 각주에서 금융리스 유무 확인",
+      "related_claims": ["c_20260820_NBIS_05"]
+    },
+    {
+      "item": "2026-08-24 예정 결제(신규 $5.0B 전환사채 + $800M 교환)의 실제 완료 여부·최종 확정액",
+      "reason": "as_of(2026-08-20) 시점 발표/가격확정 단계이며 결제는 미완료(P7 계약존재 단계). 그린슈 옵션 행사 여부에 따라 최종 원금·조달액이 달라짐.",
+      "next_check": "2026-08-24 이후 6-K(결제 완료 공시) 또는 Q3 2026(20-F/6-K) 재무제표 확인",
+      "related_claims": ["c_20260820_NBIS_07", "c_20260820_NBIS_08", "c_20260820_NBIS_09", "c_20260820_NBIS_10"]
+    },
+    {
+      "item": "[직전 run(20260815_1408)에서 이관, 여전히 open] Q3 2026 실적 발표일",
+      "reason": "회사 IR 공식 공지 미확인(P5). 애그리게이터 캘린더 라벨은 F1상 근거 사용 불가.",
+      "next_check": "nebius.com/investor-hub 공식 공지 재확인 필요",
+      "related_claims": []
+    },
+    {
+      "item": "[직전 run에서 이관, 여전히 open] 2027 공식 가이던스 발표 시점",
+      "reason": "8/12 서한·실적발표에서도 '연내(later this year)'로만 언급, 구체 일자 미확인. 이번 회차 신규 자료(8/19~20 전환사채 공시)에서도 별도 가이던스 일자 언급 없음.",
+      "next_check": "차기 실적/IR 공지 확인 필요",
+      "related_claims": []
+    },
+    {
+      "item": "[직전 run에서 이관, 여전히 open] Vineland 공사중지명령(2건, 8/6·8/10)에 대한 회사 공식 1차 입장",
+      "reason": "hntrbrk.com(2026-08-14) 등 매체가 'Nebius가 on track 언급'을 보도했으나 1차 출처(원문 인용) 미확보. 이번 회차 재검색에서도 회사 자체 발표문·8-K/6-K 후속 공시를 찾지 못함(P5). DA Davidson의 목표가 -30% 조정은 애널리스트 PT 변경 단독 — noise_filter 공통 패턴, 판정 근거 아님.",
+      "next_check": "회사 IR/6-K 후속 공시 또는 실적콜 트랜스크립트 확인 필요",
+      "related_claims": []
+    }
+  ],
+  "noise_log": [
+    {
+      "item": "businesswire/investing.com/seekingalpha의 $5.0B 전환사채 가격확정 보도(2026-08-19~20) — 전환가·프리미엄 수치가 SEC Ex-99.1 원문과 일치",
+      "reason": "1차 SEC 공시(c_20260820_NBIS_07)로 이미 확보되어 그레이드 3 매체는 삼각검증 보조로만 사용, 단독 근거로 사용하지 않음(P4).",
+      "action": "discard (중복 확인용, Claim 별도 생성 안 함)"
+    },
+    {
+      "item": "hntrbrk.com 'Nebius Told Investors Vineland Was On Track Days After Undisclosed Stop Orders' (datePublished 2026-08-14)",
+      "reason": "review_window(2026-08-15~08-20) 이전 발행이며, 직전 run 클레임(c_20260815_NBIS_11)에 이미 반영된 사건(8/6·8/10 공사중지명령)에 대한 논평 성격. 1차 출처(회사 발언 원문) 미확보 상태 지속.",
+      "action": "discard (unconfirmed로 이관, 상단 unconfirmed 참조)"
+    },
+    {
+      "item": "DA Davidson 목표가 -30% 조정(Vineland 지연 우려)",
+      "reason": "noise_filter.yaml 공통 패턴 '애널리스트 PT·투자의견 변경 단독' — promote_if(매출·가이던스·마진·현금흐름·고객명·수주·양산일정 변화) 해당 없음.",
+      "action": "discard"
+    },
+    {
+      "item": "blockspace.media 'Vineland 승인' 기사",
+      "reason": "접근 차단(403, Cloudflare 챌린지) — 원문 확인 불가. 그레이드 부여 불가, Claim 미생성.",
+      "action": "discard (접근 불가)"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+# Thesis Card — CRCL (v1 §5-5 기계 판독본)
+ticker: CRCL
+sector: stablecoin
+tier: Next
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-5 / 투자_Thesis_Map_v32 (신호 🔴)"
+version_history:
+  - {date: "2026-08-15", change: "ThesisPatch 적용(earnings_checkpoints/amend) — 근거: 04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_08],04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_04],c_20260815_CRCL_008,c_20260815_CRCL_012,c_20260815_COIN_004 / 이전: earnings_checkpoints:
+  date: "2026-08-18"..."}
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화"}
+
+axes:
+  - {id: usdc_circulation,  label: "USDC 유통량 (축소 추세 — Reserve Income 분자)"}
+  - {id: reserve_income,    label: "Reserve Income·마진 (금리 직결)"}
+  - {id: competition_ousd,  label: "경쟁 — OUSD 컨소시엄·이자부 스테이블코인($YLDS 등)"}
+  - {id: regulation,        label: "규제 — SEC Innovation Exemption·CLARITY (2차 독립 게이트)"}
+  - {id: diversification,   label: "비이자 매출 다각화 (ARC·CPN)"}
+
+thesis: >
+  규제 선점(GENIUS Act·MiCA) + USDC 유통량 기반 준비자산 이자 수입.
+  스테이블코인 시장 자체의 파이 성장이 경쟁 침식을 상쇄한다는 구조.
+
+key_metrics:
+  - "USDC 유통량 (축소 추세)"
+  - "Reserve Income 및 마진"
+  - "기준금리 (이자수입 직결)"
+  - "OUSD 실측 점유율 영향"
+  - "유통·파트너십 비용 비중"
+  - "ARC·CPN 등 비이자 매출 다각화 진척"
+  - "내부자 거래"
+
+catalysts:
+  - "8/18 Q2 실적 (OUSD 영향 첫 확인)"
+  - "SEC Innovation Exemption 프레임워크 (5/26 이후 신규 일정 없음)"
+  - "CLARITY Act 상원 경로"
+  - "FOMC 금리 경로"
+
+risks:
+  - "OUSD 컨소시엄 (140+사, 발행·환매 무수수료 + 준비금 수익 파트너 환원) — 수익모델 정면 위협"
+  - "이자부 스테이블코인 경쟁자 ($YLDS 등) — 리스크 등록부 누락, 패치 대기"
+  - "SEC Innovation Exemption 지연"
+  - "금리 인하 시 이자수입 직접 축소 (포트폴리오 내 다른 자산과 역방향 노출 — 자연 헤지)"
+  - "내부자 매도"
+
+kill_conditions_ref: ["KC-CRCL-1", "KC-CRCL-2", "KC-CRCL-3", "SEC 면제 불허 확정", "CLARITY 최종 실패"]
+noise_filter_ref: "config/noise_filter.yaml#CRCL"
+
+earnings_checkpoints:
+  # 2026-08-15 ThesisPatch(amend) — 이전 값: date: "2026-08-18". Q2 실적은 2026-08-05에 이미 발표되어 해당 게이트는 소멸했다.
+  # 차기 게이트(Q3)는 회사 IR 공식 공지 확인 전까지 null을 유지한다 — 애그리게이터 자동 추정일은 등급과 무관하게 판정 근거로 사용할 수 없다(F1).
+  date: null
+  items:
+    - "USDC 평잔 및 분기말 잔액"
+    - "Reserve Income 절대액·이자율 민감도"
+    - "유통비용(파트너 분배) 비중"
+    - "OUSD 관련 경영진 코멘트·대응 전략"
+    - "비이자 매출 비중"
+    - "가이던스 제시 여부"
+
+valuation:
+  primary: "P/S + (USDC 유통량 × 이자율) 기반 Reserve Income 모델"
+  secondary: "Reserve Income 마진"
+  caution: "금리 하락 국면에서 매출과 멀티플이 동시 압축되는 이중 민감도"
+
+conclusion: >
+  경쟁(OUSD)·규제(SEC 면제 지연)·금리(이자수입) 3중 게이트가 동시에 열려 있다.
+  KC 정량 임계는 §8-7 초안 반영 — kill_conditions.yaml에서 수치 확정 후 활성화.

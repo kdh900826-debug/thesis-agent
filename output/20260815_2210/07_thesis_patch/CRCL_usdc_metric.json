@@ -1,0 +1,18 @@
+{
+  "as_of": "2026-08-15T22:10",
+  "run_id": "20260815_2210",
+  "ticker": "CRCL",
+  "card_field": "key_metrics",
+  "operation": "amend",
+  "before": "  - \"USDC 유통량 (축소 추세)\"",
+  "after": "  - \"USDC 유통량 — 방향 전제 없이 관측 (Q2'26 분기말 $73.3B +19% YoY·평잔 +25% YoY, grade 1. 이전 표기 '축소 추세'는 2026-08-15 정정 — 온체인 고빈도 수치는 grade 4로 단독 판단 근거 불가, P4)\"",
+  "reason": "[fact] key_metrics의 'USDC 유통량 (축소 추세)'는 axes의 usdc_circulation 축과 동일한 방향 전제를 중복 기재한 항목이다. [fact] Q2'26 1차 공시(grade 1)는 분기말 $73.3B +19% YoY, 평잔 +25% YoY다(c_20260815_CRCL_002). [fact] 8/6 기준 온체인 약 $71.8B(-2%) 관측이 존재하나 grade 4·confirmed=false로 단독 판단 근거가 될 수 없다(c_20260815_CRCL_007, P4). [inference:strong] 지표 항목은 방향 결론이 아니라 관측 대상을 기술해야 하므로 방향 전제를 제거하고 최신 확정 관측치를 병기한다. 축 분해 패치(CRCL_usdc_axis)와 한 쌍이며 자동 적용이 패치당 문자열 1건 치환이라 분리했다. [fact] 이전 표기는 after 문자열 안에 원문 인용으로 보존한다(P9).",
+  "basis_claims": [
+    "c_20260815_CRCL_002",
+    "c_20260815_CRCL_007",
+    "04_sector/stablecoin.json#axis_view[usdc_circulation]"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "핵심 전제 정정의 본체는 CRCL_usdc_axis 패치 — 본 건은 그 결정에 종속된 지표 표기 정합화."
+}

@@ -1,0 +1,86 @@
+{
+  "ticker": "NBIS",
+  "cik": "0001513845",
+  "items": [
+    {
+      "id": "edgar_2026-10-07_SCHEDULE 13G/A_0",
+      "form": "SCHEDULE 13G/A",
+      "filed_at": "2026-10-07",
+      "title": "SCHEDULE 13G/A filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000088698226000526/xslSCHEDULE_13G_X02/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-06_4_1",
+      "form": "4",
+      "filed_at": "2026-10-06",
+      "title": "PRIMARY DOCUMENT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000126/xslF345X06/form4.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-05_144_2",
+      "form": "144",
+      "filed_at": "2026-10-05",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000195004726010048/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-05_4_3",
+      "form": "4",
+      "filed_at": "2026-10-05",
+      "title": "PRIMARY DOCUMENT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000124/xslF345X06/form4.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-05_4_4",
+      "form": "4",
+      "filed_at": "2026-10-05",
+      "title": "PRIMARY DOCUMENT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000122/xslF345X06/form4.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-05_4_5",
+      "form": "4",
+      "filed_at": "2026-10-05",
+      "title": "PRIMARY DOCUMENT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000120/xslF345X06/form4.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-01_6-K_6",
+      "form": "6-K",
+      "filed_at": "2026-10-01",
+      "title": "FORM 6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926112824/tm2626792d1_6k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-01_4_7",
+      "form": "4",
+      "filed_at": "2026-10-01",
+      "title": "PRIMARY DOCUMENT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000118/xslF345X06/form4.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

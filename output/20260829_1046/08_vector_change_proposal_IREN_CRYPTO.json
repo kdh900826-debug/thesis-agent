@@ -1,0 +1,112 @@
+{
+  "as_of": "2026-08-29",
+  "run_id": "20260829_1046",
+  "artifact_type": "vector_change_proposal (예약 사항 해소 입력)",
+  "note": "[fact] 본 문서는 제안이며 config/correlation_matrix.yaml을 자동 수정하지 않는다 — 벡터 편집은 사용자 직접 영역이다(CLAUDE.md §9). [fact] correlation_matrix.yaml 주석은 'IREN CRYPTO +M 유지(8/27 재평가 예약)'과 '이후 수정은 L4의 vector_change_proposal 승인 경로로만'을 함께 규정한다. [fact] 이번 run은 L2·signal 계층만 실행했으므로 L4가 발행하는 정식 vcp가 아니며, 다음 run portfolio 실행 시 L4가 채택할 수 있도록 재평가 입력을 정리한 것이다. [fact] 근거 포인터는 P17에 따라 구조화 산출물 경로를 사용한다.",
+
+  "items": [
+    {
+      "id": "vcp_input_20260829_1046_IREN_CRYPTO",
+      "target": "exposures.IREN.CRYPTO",
+      "reservation_ref": "config/correlation_matrix.yaml 주석 2026-08-15 — 'IREN CRYPTO +M 유지(8/27 재평가 예약)' 및 2차 검토 ⑥ 'IREN CRYPTO 8/27 예약 유지'",
+      "current": "{sign: '+', strength: M, basis: ['BTC 채굴 현금흐름', '재평가 예약: 8/27 실적의 매출 믹스 확인 후 L4가 vector_change_proposal 제안']}",
+      "proposed": "sign '+' 유지, strength M → L 하향 검토. basis를 실측 믹스로 재작성하고 예약 문구를 제거한다.",
+      "operation": "review_strength_and_rewrite_basis",
+      "recommendation": "하향(M→L) 제안. 다만 확정은 사용자 몫이며, 아래 반대 근거가 남아 있어 '확정 하향'이 아니라 '하향 후보'로 제출한다.",
+
+      "evidence_for_downgrade": [
+        "[fact] 매출 믹스가 역전됐다 — Q4 FY26 총매출 $137.2m 중 Bitcoin 채굴 $66.7m(48.6%), AI Cloud $70.5m(51.4%). Q3는 채굴 76.8% / AI Cloud 23.2%였다.",
+        "[fact] 채굴 매출의 절대액이 축소 중이다 — Q4 $66.7m으로 Q3 $111.2m 대비 -40.0%.",
+        "[fact] 채굴 자산이 상각·전환되고 있다 — FY26 자산손상 $638.8m이 주로 Bitcoin 채굴 하드웨어 및 공랭 DC 리트로핏, Horizons 5·6 개발에 따른 자산 대체에 관련된다.",
+        "[fact] 전방 계약 ARR $4.0bn과 가동 중 ARR $1.0bn은 전액 AI Cloud 계약분이며 채굴 ARR은 제시되지 않았다.",
+        "[fact] ASC842 리스 계약 총가치 약 $11.4bn + ASC606 RPO $5.1bn = 약 $16.6bn의 계약 잔고에 채굴 매출은 포함되지 않는다.",
+        "[inference:strong] BTC 가격 1단위 변동이 IREN 손익에 미치는 전달 경로가 매출·자산 양쪽에서 축소되고 있으므로, CRYPTO 축 상승 시 유리한 정도(강도)가 M에서 L로 낮아지는 방향이다."
+      ],
+
+      "evidence_against_downgrade": [
+        "[fact] FY26 연간 기준으로는 채굴이 여전히 매출의 81.8%($578.2m)로 지배적이며, 단일 분기(Q4)만으로 구조 전환을 확정하는 것은 표본이 얇다.",
+        "[fact] 채굴 매출 $578.2m은 FY26 영업 규모 대비 절대액이 크고, 전환 과정에서 AI Cloud capex를 지지하는 현금 원천이라는 카드 thesis의 전제가 아직 폐기되지 않았다.",
+        "[fact] KC-3(BTC < $55,000 AND VIX ≥ 25 → IREN 50% 축소 검토)이 active로 유지되고 있어 KC 파급 경로에서는 여전히 IREN이 CRYPTO 축에 연결돼 있다. 벡터 강도를 낮추면 correlation-map의 KC 파급 집계와 KC 정의 사이에 불일치가 생길 수 있다.",
+        "[fact] 잔여 채굴 용량·해시레이트·FY27 채굴 매출 전망은 이번 공시에서 별도로 제시되지 않아, 축소 속도를 정량화할 입력이 없다(unconfirmed)."
+      ],
+
+      "proposed_basis_text": [
+        "매출 믹스 실측(2026-08-27 FY26 공시): 채굴 FY26 81.8%($578.2m) → Q4 48.6%($66.7m, QoQ -40.0%)",
+        "전방 계약(ARR $4.0bn·가동 $1.0bn, RPO+리스가치 ~$16.6bn)은 전액 AI Cloud — 채굴 미포함",
+        "채굴 하드웨어 중심 $638.8m 상각 및 사이트 AI Cloud 전환 진행",
+        "잔존 연결: KC-3(BTC<$55K AND VIX>=25)이 active — 강도 하향 시 KC 파급 정의와의 정합성 확인 필요"
+      ],
+
+      "status": "proposal_only",
+      "auto_applied": false,
+      "requires_user_edit": true,
+      "requires_l4_adoption": true,
+      "next_step": "[fact] run portfolio 실행 시 L4가 이 입력을 정식 vector_change_proposal로 채택하고, 사용자가 config/correlation_matrix.yaml을 직접 편집한다. [fact] 편집 시 예약 문구('재평가 예약: 8/27 실적의 매출 믹스 확인 후')는 조건이 충족됐으므로 제거 대상이다.",
+
+      "basis": [
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C03]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C04]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C10]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C15]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C26]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-I10]",
+        "output/20260829_1046/02_company/IREN.json#deltas[btc_mining]"
+      ]
+    },
+
+    {
+      "id": "vcp_input_20260829_1046_IREN_AI_CAPEX_basis",
+      "target": "exposures.IREN.AI_CAPEX",
+      "current": "{sign: '+', strength: H, basis: ['MS $9.7B + NVIDIA $3.4B + 신규 $2.8B = TCV ~$15.9B', '480MW 인도 목표']}",
+      "proposed": "sign·strength 유지(+H). basis 두 문구 모두 갱신 필요 — 부수 발견.",
+      "operation": "rewrite_basis_only",
+      "rationale": "[fact] basis의 '480MW 인도 목표'는 회사 공표 2026 누적 인도 목표 0.3GW(IT)와 수치가 일치하지 않으며 공시상 두 기준의 연결 고리를 확보하지 못했다(02_company#claims[IREN-2608-I08]). [fact] basis의 'TCV ~$15.9B'는 이번 공시에서 갱신 합계가 공표되지 않았고, 대신 ASC606 RPO $5.1bn + ASC842 리스 계약가치 $11.4bn = 약 $16.6bn이 다른 기준으로 제시됐다(IREN-2608-C15·C18). [inference:strong] 벡터의 basis는 노출 판정의 근거이므로 사실과 어긋난 채 두면 correlation 레이어의 정확성 상한이 낮아진다 — 다만 부호·강도 판정 자체는 바뀌지 않으므로 basis 재작성만 제안한다.",
+      "proposed_basis_text": [
+        "MS $9.7B + NVIDIA $3.4B (10-K: 양자가 계약 매출의 '상당 다수') + 신규 프론티어 AI 랩·Cohere·Perplexity 등 다수",
+        "계약 잔고 기준: ASC606 RPO $5.1B + ASC842 리스 계약가치 $11.4B = 약 $16.6B (6/30/26)",
+        "인도 목표: 2026 누적 0.3GW(IT) / 2027 0.8GW(IT) — ⚠️카드 key_metrics의 480MW 기준선과 상충 미해소"
+      ],
+      "status": "proposal_only",
+      "auto_applied": false,
+      "requires_user_edit": true,
+      "requires_l4_adoption": true,
+      "basis": [
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C15]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C17]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C18]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-I08]"
+      ]
+    },
+
+    {
+      "id": "vcp_input_20260829_1046_IREN_GPU_SUPPLY_basis",
+      "target": "exposures.IREN.GPU_SUPPLY",
+      "current": "{sign: '-', strength: M, basis: ['차세대 GPU 배정 의존, GB300→VR200 대체 조항']}",
+      "proposed": "sign·strength 유지(-M). basis에 '대체 조항 원문 미공시' 상태를 명시.",
+      "operation": "rewrite_basis_only",
+      "rationale": "[fact] VR200이 2026-06-30 기준 설치·발주 GPU 포트폴리오에 포함된 사실은 확인됐다(IREN-2608-C29). [fact] 그러나 GB300→VR200 대체 시 단가 재협상 조항의 계약 조건 원문은 10-K·보도자료·콜 어디에도 적재되지 않았다 — 체크포인트 ⑥ unconfirmed. [fact] 10-K는 과거 NVIDIA 장비 관련 업계 부품 부족으로 Horizon 1 인도 장비가 지연된 사례가 있었다고 기재했다(IREN-2608-C16). [inference:medium] 부호·강도의 근거는 유지되나 basis가 미검증 조항을 확정 사실처럼 서술하고 있어 표기 정정이 필요하다(P5).",
+      "proposed_basis_text": [
+        "차세대 GPU 배정 의존 — VR200은 6/30/26 기준 설치·발주 포트폴리오에 편입 확인",
+        "GB300→VR200 대체 시 단가 재협상 조항: ⚠️조항 존재·내용 모두 1차 공시 미확인(unconfirmed, 체크포인트 ⑥)",
+        "실증 사례: NVIDIA 장비 업계 부품 부족으로 Horizon 1 인도 장비 지연 발생 이력(10-K Item 1A)"
+      ],
+      "status": "proposal_only",
+      "auto_applied": false,
+      "requires_user_edit": true,
+      "requires_l4_adoption": true,
+      "basis": [
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C16]",
+        "output/20260829_1046/02_company/IREN.json#claims[IREN-2608-C29]",
+        "output/20260829_1046/02_company/IREN.json#unconfirmed[⑥]"
+      ]
+    }
+  ],
+
+  "not_proposed": [
+    {"target": "exposures.IREN.POWER_PERMIT", "reason": "[fact] SB6 요건은 구체화됐으나 IREN 적용 용량 MW가 미공시라 노출 강도(-H)를 조정할 정량 입력이 없다. [fact] basis의 'MW당 $50K 담보' 문구는 이번 공시에서 확인도 반증도 되지 않았다 — P5에 따라 유지한다."},
+    {"target": "exposures.IREN.RATES", "reason": "[fact] 조달 금리 실측(투자등급 6.0%, 비투자등급 9.0% 고정)이 확보됐으나 이는 노출 부호·강도(-M)의 변경 근거가 아니라 강도 유지의 확인 근거다."},
+    {"target": "exposures.IREN.RISK_APPETITE", "reason": "[fact] 이번 관측 창에서 재료 없음."}
+  ],
+
+  "axis_concentration_note": "[fact] 축 집중도(6축 95% 경보)의 재산출은 L4 correlation-map의 관할이며 이번 run은 종목 계층만 실행했다. [fact] 이번 재평가 입력이 채택되면 IREN의 CRYPTO 노출이 M→L로 낮아져 CRYPTO 축의 종목 수·강도 합이 변하므로 집중도 수치가 갱신된다 — run portfolio 시 재산출 필요. [fact] '단일 종목 cap 미정의' 상태는 이번 run에서 해소되지 않았다(사용자 확정 사항)."
+}

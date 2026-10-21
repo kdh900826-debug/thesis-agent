@@ -1,0 +1,35 @@
+# ThesisPatch — CRCL / axes / decompose
+
+- **Run**: 20260905_0618 · 2026-09-05T06:18 (L4 병행 `thesis-refine`)
+- **대상 필드**: `axes` (expected_after.counts: axes=8 — F20)
+- **operation**: `decompose`
+- **승인 필요**: ✅ (requires_human_approval: true, F17) / **핵심 논거 역전**: ❌ 아니오
+- **사전 확인**: 대상 카드 전문 열람 후 before 문자열의 카드 원문 일치 확인 ✅ (F20 — 부분 읽기 기반 '부재' 판정 없음)
+
+## diff
+
+```diff
+--- state/thesis_cards/CRCL.yaml (before)
++++ state/thesis_cards/CRCL.yaml (after 제안)
+@@ -1 +1,3 @@
+-  - {id: competition_ousd,  label: "경쟁 — OUSD 컨소시엄·이자부 스테이블코인($YLDS 등)"}
++  # 2026-09-05 ThesisPatch(decompose, run 20260905_0618) — 이전 축: {id: competition_ousd, label: "경쟁 — OUSD 컨소시엄·이자부 스테이블코인($YLDS 등)"}. 한 슬롯에 발행 주체·상품 성격(이자부 여부)·관측 가능성이 모두 다른 두 위협원이 혼재해 축 방향의 시계열 해석이 왜곡된다(su_20260905_12). 실제로 이번 run의 strengthen 근거는 OUSD가 아니라 $YLDS 실측이며, 이를 "OUSD 위협 완화"로 읽는 오독이 성립한다. ⚠️P8의 엄격 요건(새 1차 자료가 기존 축 판정을 뒤집음)은 충족하지 않는다 — 축 판정이 뒤집힌 것이 아니라 축이 담는 대상이 갈라진 사례이며, L3는 분해 여부를 카드 소유 계층 판단으로 이관했다. 2026-08-15 승인된 regulation 분해(회사 인가 grade1 vs 섹터 입법 grade3·4가 한 축에서 반대 부호로 상쇄)와 동일 유형이므로 제안하되 채택은 사람 판정이다. 축 수 7 → 8(전문 기준 계수).
++  - {id: competition_ousd_consortium, label: "경쟁 — OUSD 컨소시엄 (140+사, 발행·환매 무수수료 + 준비금 수익 파트너 환원 = 수익모델 정면 위협). 2026-09-05 기준 미출시로 실측 유통량이 존재하지 않으며 3 run 연속 상태 진전 없음 — 2026년 하반기 목표(Solana 우선) 반복 확인만. 자료 부재는 위협 소멸의 반증이 아니다(P5). 부호 활성화 조건 = 공식 출시 + 실측 유통량 최초 공시"}
++  - {id: competition_yield_bearing, label: "경쟁 — 이자부 스테이블코인 ($YLDS 등). 실측 관측이 가능한 축. $YLDS 유통량 4Q25 $328.193M → 1Q26 $598M → 2Q26 $556.033M(QoQ -7.0%), 전부 발행사 FIGR 1차 공시 grade 1. USDC 분기말 $73.3B 대비 1% 미만. 위협의 실질은 규모가 아니라 CLARITY 이자조항 문언에 조건부이며 문언은 미확정"}
+```
+
+## 왜
+
+[fact] 이번 run에서 competition_ousd 축의 strengthen 근거는 OUSD가 아니라 FIGR $YLDS의 실측 규모다(c_20260905_CRCL_0618_002·003, grade 1). [fact] OUSD는 2026-09-05 기준 미출시로 실측 유통량이 없고 3 run 연속 상태 진전이 없다(u_20260905_CRCL_0618_a). [fact] 두 위협원은 발행 주체(컨소시엄 vs Figure), 상품 성격(무수수료 준비금 환원 vs SOFR 연동 이자부), 관측 가능성(미출시 vs 분기 공시)이 모두 다르다. [inference:strong] 성질이 다른 두 위협원이 한 슬롯에 있으면 축 방향의 시계열 해석이 왜곡된다 — 이번 strengthen을 'OUSD 위협 완화'로 읽는 오독이 대표적이며, L3 산출물이 이를 구조 문제로 명시 기록했다(su_20260905_12). [fact] P8의 엄격 요건은 충족하지 않는다 — 축 판정이 뒤집힌 것이 아니라 축이 담는 대상이 갈라진 사례이고, L3는 분해 여부를 카드 소유 계층(L2/사람)의 판단 영역으로 명시 이관했다. [inference:medium] 그럼에도 분해를 제안하는 근거는 2026-08-15 승인된 regulation 분해 패치와 동일 유형이기 때문이다 — 그 건도 '축 판정 역전'이 아니라 '한 축에서 반대 부호가 상쇄되는 구조'를 사유로 승인됐다. [fact] 축 수 7 → 8. 하위 축 어느 쪽에도 방향 판정을 부여하지 않으며 이전 축 서술은 주석으로 보존한다(P9·F20).
+
+**역전 판정 주석**: [fact] 경쟁 위협의 존재·강도 판정을 바꾸지 않는다. 관측 단위를 둘로 나눌 뿐이며 thesis 본문과 시그널 등급(🔴)은 무관하다. [fact] thesis-refine 규칙상 핵심 논거 역전 패치가 아니므로 에스컬레이션 대상이 아니다.
+
+**후속 주의**: [fact] KC 재연결: KC-CRCL-2(점유율 -3%p QoQ)는 usdc_market_share 축에 걸려 있어 본 분해로 재연결이 필요하지 않다. 두 하위 축에는 정량 임계가 없으며 임계 신설은 사용자 영역이다(P11 · CLAUDE.md §9). [fact] risks 항목 '$YLDS' 정정 패치(CRCL_risks_ylds_grade1)와 동일 재료이며, 두 패치는 서로 다른 필드를 건드리므로 충돌하지 않는다. [fact] 미채택 시 대안은 축 유지 + 라벨에 '이번 방향의 근거 위협원 명시 의무' 주석만 추가하는 annotate이며, 사용자 지시 시 재생성한다.
+
+## 근거 Claim
+
+c_20260905_CRCL_0618_002, c_20260905_CRCL_0618_003, d_20260905_CRCL_0618_002, 04_sector/stablecoin.json#sector_unconfirmed[su_20260905_12], 04_sector/stablecoin.json#structural_inverse_exposure[sie_ousd_consortium]
+
+출처: `output/20260905_0618/04_sector/stablecoin.json#sector_unconfirmed[su_20260905_12] · output/20260905_0618/02_company/CRCL.json#deltas[d_20260905_CRCL_0618_002]`
+
+> 이 패치는 제안이며 자동 반영되지 않는다(F17). 적용은 사람의 `approve <id>` 이후 approvals.py가 수행한다(백업 → 적용 → expected_after 자동 대조 → 실패 시 원복).

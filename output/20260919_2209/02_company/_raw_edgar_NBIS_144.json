@@ -1,0 +1,76 @@
+{
+  "ticker": "NBIS",
+  "cik": "0001513845",
+  "items": [
+    {
+      "id": "edgar_2026-09-15_144_2",
+      "form": "144",
+      "filed_at": "2026-09-15",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000195004726009522/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-31_144_13",
+      "form": "144",
+      "filed_at": "2026-08-31",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000197337926000316/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-14_144_20",
+      "form": "144",
+      "filed_at": "2026-08-14",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000195004726008147/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-14_144_21",
+      "form": "144",
+      "filed_at": "2026-08-14",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000197337926000293/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-15_144_33",
+      "form": "144",
+      "filed_at": "2026-07-15",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000195004726007111/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-06-15_144_40",
+      "form": "144",
+      "filed_at": "2026-06-15",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000195004726006113/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-06-02_144_44",
+      "form": "144",
+      "filed_at": "2026-06-02",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000197337926000218/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

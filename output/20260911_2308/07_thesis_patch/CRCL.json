@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-09-12",
+  "run_id": "20260911_2308",
+  "ticker": "CRCL",
+  "card_field": "axes",
+  "operation": "amend",
+  "before": "  - {id: diversification,   label: \"비이자 매출 다각화 (ARC·CPN)\"}",
+  "after": "  # 2026-09-12 ThesisPatch(amend, run 20260911_2308) — 이전 라벨: \"비이자 매출 다각화 (ARC·CPN)\"(P9 보존). 이전 서술은 자체 구축 채널(ARC·CPN)만 열거해 인수·제휴를 통한 다각화 채널이 축 밖에 놓여 있었다. 2026-09-08 8-K로 확인된 Tazapay 확정계약을 관측 항목으로 병기한다. 축 수 8개 불변(전문 기준 계수).\n  - {id: diversification,   label: \"비이자 매출 다각화 — (a) 자체 구축 채널: ARC·CPN. (b) M&A 채널: Tazapay Pte. Ltd.(싱가포르 크로스보더 결제) 확정계약 2026-09-04 체결·2026-09-08 8-K 공시(Item 1.01/3.02/7.01/9.01, grade 1 confirmed). 대금 전액 Circle Class A 보통주 약 $400M 상당(종결 시 주가조정), 에스크로 5%·3%·핵심인력 유지 75%+·규제승인·최대 15개월 종결기한 조건부. P7 3단 분리상 1단계(계약 존재)에 불과하며 종결·매출인식은 미발생 — 매출 기여 정량화는 종결 공시 이후 분기보고서에서만 가능하다. 관측점: 거래 종결 공시(최대 15개월 내) 및 종결 후 비이자 매출 비중 변화\"}",
+  "reason": "[fact] state/thesis_cards/CRCL.yaml 전문(84행)을 읽고 확인한 결과 diversification 축의 라벨은 '비이자 매출 다각화 (ARC·CPN)' 단문이며 인수·제휴 채널을 담는 서술이 없다. [fact] 이번 창에 Circle은 싱가포르 크로스보더 결제사 Tazapay Pte. Ltd.의 인수 확정계약을 2026-09-04 체결하고 2026-09-08 8-K로 공시했다(c_20260911_CRCL_2, evidence_grade 1, confirmed, quantitative). 대금은 전액 Circle Class A 보통주 약 $400M 상당이며 종결 시 주가조정·에스크로(5%·3%)·핵심인력 유지(75%+)·규제승인·최대 15개월 종결기한이 조건으로 붙는다. [fact] 04_sector/stablecoin_aggregate.json의 axis_view에서 diversification 축은 이번 회차 방향 strengthen(CRCL 단독, dispersion=single_ticker)으로 집계됐다. [fact] 03_signal/CRCL.json의 thesis_delta_summary는 이 축의 risk_transfer_to에 'Tazapay는 ARC/CPN과 별개의 신규 M&A 채널로 카드 서술에 현재 미반영 — ThesisPatch 후보'라고 명시했다. [fact] 따라서 카드 서술이 이번 1차 공시를 담지 못하는 상태가 확인되며, 본 패치는 축을 신설·분해하지 않고 기존 축의 관측 범위를 명시적으로 넓히는 amend다. [fact] P7 3단 분리를 라벨 안에 명기해 계약 존재 단계임을 고정했다 — 종결·매출인식은 발생하지 않았다. [fact] 축 수는 전문 기준 8개(usdc_circulation_scale·usdc_market_share·reserve_income·competition_ousd_consortium·competition_yield_bearing·regulation_company_licensing·regulation_sector_legislation·diversification)로 불변이며 이전 라벨은 주석으로 보존한다(P9·F20).",
+  "basis_claims": [
+    "c_20260911_CRCL_2",
+    "c_20260911_CRCL_1"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] thesis 본문('규제 선점 + USDC 유통량 기반 준비자산 이자 수입 / 파이 성장이 경쟁 침식을 상쇄')과 시그널 등급(🔴)에 대한 판정을 포함하지 않는다. [fact] 축 라벨의 관측 범위 확장이며 방향 판정·등급 판정은 하지 않는다 — 등급 확정은 사람 영역이다(CLAUDE.md §9).",
+  "downstream_note": "[fact] key_metrics의 'ARC·CPN 등 비이자 매출 다각화 진척' 항목도 같은 재료의 갱신 대상 후보이나, 이번 창에는 거래 종결·매출 기여 수치가 존재하지 않아 정량 기준선을 넣을 수 없으므로 패치하지 않았다(P5 — 부재를 추론으로 메우지 않는다). [fact] 종결 공시가 나오면 key_metrics·earnings_checkpoints의 동시 갱신이 필요하다.",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "2026-09-12 ThesisPatch(amend, run 20260911_2308)",
+      "(b) M&A 채널: Tazapay Pte. Ltd.(싱가포르 크로스보더 결제) 확정계약 2026-09-04 체결·2026-09-08 8-K 공시",
+      "P7 3단 분리상 1단계(계약 존재)에 불과하며"
+    ],
+    "not_contains": [
+      "  - {id: diversification,   label: \"비이자 매출 다각화 (ARC·CPN)\"}"
+    ],
+    "counts": [
+      {
+        "path": "axes",
+        "n": 8
+      }
+    ]
+  },
+  "source_artifact": "output/20260911_2308/03_signal/CRCL.json#claims[c_20260911_CRCL_2] · #thesis_delta_summary[diversification] · output/20260911_2308/04_sector/stablecoin_aggregate.json#axis_view[diversification]",
+  "f20_note": "[fact] state/thesis_cards/CRCL.yaml 전문 84행을 읽은 뒤 before 문자열의 원문 일치와 axes 8개 계수를 확인했다 — 부분 읽기 기반의 '부재·누락' 판정을 하지 않았다(F20)."
+}

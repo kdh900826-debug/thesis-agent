@@ -1,0 +1,374 @@
+{
+ "ticker": "CRCL",
+ "run_id": "20260919_2209",
+ "as_of": "2026-09-19",
+ "staleness_days": 3,
+ "underlying_primary_event_date": "2026-09-16",
+ "lookback_window": {
+  "since": "2026-09-10",
+  "until": "2026-09-19",
+  "overlap_with_prior_run": "1일(2026-09-10) — 직전 run(20260911_2308)의 창 종료일 2026-09-12와 부분 중첩. 중첩 구간에서 신규로 포착된 재료는 없으며, 9/10 Form 4는 직전 run c_20260911_CRCL_5에 이미 등재된 항목이다.",
+  "out_of_window_items_found": 0,
+  "note": "EDGAR는 안전 마진을 두고 2026-09-01부터 전(全) 서식 스윕했고, 창 밖(9/1~9/9) 항목은 전부 직전 run에 등재된 기존 관측치로 확인돼 out_of_window:true 신규 적재 대상이 발생하지 않았다. 2026-09-15자 Form 144/A 6건은 과거(3~8월) 매도분 Table I를 소급 정정하는 서류이나 제출일이 창 안이므로 창 내 재료로 적재한다."
+ },
+ "claims": [
+  {
+   "id": "c_20260919_CRCL_1",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "SEC EDGAR 전(全) 서식 조회(CIK 0001876042, submissions API, 조회구간 2026-09-01~2026-09-19) 결과 이번 창(2026-09-10~2026-09-19)의 CRCL 제출물은 Form 4 1건(2026-09-10)과 Form 144/A 6건(2026-09-15)뿐이며, 8-K 신규 제출은 0건이다. 창 안 최신 8-K는 여전히 2026-09-08 제출분(crcl-20260904.htm, Tazapay 인수계약)이고, Coinbase 분배계약 변경·해지를 다루는 Item 1.01/1.02 공시는 이번 창에서도 0건이다. 2026-08-18 자동갱신 예정일 기준 8-K 제출기한(~2026-08-24) 경과 후 무공시 관측 구간이 약 26일로 연장됐다. 공시 부재 자체는 계약 무변경의 증명이 아니다(P5) — 최종 대조는 Q3 10-Q 계약 주석에서만 가능하다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "sec_edgar_submissions_api",
+    "url": "https://data.sec.gov/submissions/CIK0001876042.json",
+    "filed_at": "2026-09-19",
+    "note": "원자료 저장: output/20260919_2209/02_company/_raw_edgar_CRCL.json"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true
+  },
+  {
+   "id": "c_20260919_CRCL_2",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "Circle 공식 보도자료(2026-09-16, circle.com 프레스룸 및 businesswire 동시 배포)에 따르면 Circle이 자체 L1 블록체인 Arc의 메인넷을 정식 출시했다('Circle Launches Arc Mainnet, an Economic Operating System for the Internet'). 출시 첫날 100개 이상 기관·생태계 빌더 참여, 퍼미션드 밸리데이터 모델·거버넌스 경계 정의, EVM 호환, Arc Studio·Arc App Kits 동시 공개가 명시됐다. 은행 참여자로 BNY·BTG Pactual·HSBC·Lead Bank·Societe Generale·Standard Chartered·State Street가 열거됐다. 보도자료에는 Arc 관련 매출·수수료·가이던스 수치가 포함돼 있지 않다 — P7 3단 분리상 '서비스 개시'(2단계 진입)이며 매출 인식(3단계)은 미발생이다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "company_press_release",
+    "url": "https://www.circle.com/pressroom/circle-launches-arc-mainnet-an-economic-operating-system-for-the-internet",
+    "filed_at": "2026-09-16",
+    "note": "동일 내용 businesswire 배포본: https://www.businesswire.com/news/home/20260916108863/en/Circle-Launches-Arc-Mainnet-an-Economic-Operating-System-for-the-Internet (grade 1 도메인). 사전 예고 보도자료 2026-08-05 'Founding Validator Cohort ... Ahead of September 16 Mainnet Launch'와 일정 정합."
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true
+  },
+  {
+   "id": "c_20260919_CRCL_3",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "Circle이 직접 운영·공표하는 공개 엔드포인트(api.circle.com/v1/stablecoins, circle.com 트랜스페어런시 페이지의 데이터 원천)에서 2026-09-19T13:15:01Z 기준 USDC 총 유통량 $74,287,159,679.006(약 $74.287B, 39개 체인 합산), EURC 총 유통량 $408,396,279.848(9개 체인 합산)이 관측됐다. 체인별로는 ETH $50,034.656M, SOL $6,804.066M, HYPEREVM $6,563.138M, BASE $4,311.159M, ARB $2,652.241M 순이며, 자사 체인 ARC에 USDC $624.435M·EURC $5.466M이 적재돼 있다. 【계열 명기】 이 수치는 발행사 Circle이 공표하는 실시간 온체인 유통량 스냅샷으로 '회사 정의 계열'에 속하나, 10-Q·실적 보도자료가 제시하는 분기말 잔액(2026-06-30 $73.3B) 및 30일 평잔과는 측정 시점·기준이 다르다. 3자 집계(DefiLlama·CoinGecko 등, grade 4)와 혼용하지 않는다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "company_public_api",
+    "url": "https://api.circle.com/v1/stablecoins",
+    "filed_at": "2026-09-19",
+    "note": "원자료 저장: output/20260919_2209/02_company/_raw_circle_api_stablecoins.json. circle.com/transparency 페이지는 'As of Sep 17, 2026' 라벨만 정적 HTML에 노출하고 수치는 동적 로드라 WebFetch로 판독 불가 — 동일 데이터의 원천 API를 직접 역추적했다(D15 1차 URL 역추적)."
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true
+  },
+  {
+   "id": "c_20260919_CRCL_4",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "복수 2차 매체(cnbc.com 2026-09-15, theblock.co 2026-09-15, coindesk.com 2026-09-15) 보도에 따르면 2026-09-15 미 상원에서 CLARITY Act(H.R.3633) 심의 착수 동의(motion to proceed)에 대한 클로처 표결이 찬성 49·반대 50으로 부결돼 60표 문턱을 충족하지 못했다. 부결 사유로는 SEC/CFTC 시장구조 프레임 자체가 아니라 공직자 가상자산 보유 관련 윤리 조항 협상 결렬이 지목됐다. 표결 직전 공화당 측이 윤리 제한을 추가한 수정본을 9/13(일) 공개했으나 합의에 이르지 못했고, Thom Tillis 상원의원이 막판에 찬성에서 반대로 전환해 재의동의(motion to reconsider)를 제출함으로써 재표결 경로를 남겼다. 이는 법안 최종 통과 표결이 아니라 절차 표결이다. 1차 자료(senate.gov 롤콜 메뉴, congress.gov 법안 액션 페이지) 직접 접근은 HTTP 403으로 차단돼 롤콜 번호·공식 집계를 원문 확인하지 못한 상태다.",
+   "evidence_grade": 3,
+   "source": {
+    "type": "news_secondary",
+    "url": "https://www.cnbc.com/2026/09/15/senate-cloture-vote-on-clarity-act-fails-dealing-regulatory-setback-to-crypto-industry.html",
+    "filed_at": "2026-09-15",
+    "note": "삼각검증 교차 출처(모두 grade 3): https://www.theblock.co/news/regulation/2026-09-15-this-one-stings-clarity-act-fails-senate-is-cryptos-biggest-regulatory-push-dead-415135 , https://www.coindesk.com/policy/2026/09/15/crypto-clarity-act-flames-out-in-failed-u-s-senate-vote . 1차 자료 차단 이력: senate.gov roll_call_lists 403(requests·WebFetch 각 1회), 직전 run에서도 congress.gov 403 동일 유형(c_20260911_CRCL_4)."
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "sector",
+   "confirmed": false
+  },
+  {
+   "id": "c_20260919_CRCL_5",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "SEC EDGAR 원문 판독 결과 2026-09-15에 CRCL 관련 Form 144/A 6건이 동시 제출됐다. 6건 모두 사외이사(Director) Martha Michele Burns 명의이며, 각각 2026-03-12·04-06·05-04·05-05·06-03·08-20 제출된 기존 Form 144의 Table I을 소급 정정하는 수정 신고다(remarks: 'Amendment to the filing submitted on <date> in order to amend Table I.'). 신고 물량 합계 30,000주, 신고 시장가치 합계 약 $3,276,314, 브로커는 전건 Goldman Sachs & Co. LLC. 매도 예정일이 전부 과거 일자이므로 신규 매도 예고가 아니라 행정적 정정 제출이다. 카드 key_metrics '내부자 거래' 모니터링 로그 항목으로 등재하며, 비정기 대량매도·경영진 이탈 등 성격 변화 신호에 해당하지 않아 축 Delta는 생성하지 않는다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "form_144a",
+    "url": "https://www.sec.gov/Archives/edgar/data/1876042/000195824426000608/primary_doc.xml",
+    "filed_at": "2026-09-15",
+    "note": "6건 accession: 0001958244-26-000603~000608. 각 건 noOfUnitsSold/aggregateMarketValue = 11,670/$1,332,480.60, 1,666/$153,521.90, 1,666/$166,100.20, 10,000/$1,195,300.00, 1,666/$150,156.58, 3,332/$278,755.12."
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true
+  },
+  {
+   "id": "c_20260919_CRCL_6",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "$YLDS 발행사 FIGR(CIK 0002064124) EDGAR 전 서식 조회(2026-09-09~2026-09-19) 결과 이번 창 제출물은 Form 4 3건(9/14 2건, 9/15 1건)과 Form 144 2건(9/9)뿐이며 8-K·10-Q 제출은 0건이다. 따라서 $YLDS 유통량 수치의 신규 1차 공시는 이번 창에 발생하지 않았고, 2Q26(2026-06-30 마감) 기준 $556.033M(1Q26 $598M 대비 QoQ -7.0%)이 여전히 최신 grade 1 관측치다. 다음 갱신 게이트는 FIGR 3Q26 실적 공시(통상 11월)다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "sec_edgar_submissions_api",
+    "url": "https://data.sec.gov/submissions/CIK0002064124.json",
+    "filed_at": "2026-09-19",
+    "note": "원자료 저장: output/20260919_2209/02_company/_raw_edgar_FIGR.json. 발행사는 타 종목이나 CRCL competition_yield_bearing 축 위험지표 구성 대상으로 취급(9/5·9/11 run과 동일 관례)."
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true
+  },
+  {
+   "id": "c_20260919_CRCL_7",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "연방준비제도 1차 자료(federalreserve.gov 보도자료, 2026-09-16 14:00 EDT 공개)에 따르면 FOMC는 12-0 표결로 연방기금금리 목표범위를 25bp 인상해 3-3/4~4%(3.75~4.00%)로 결정했다. 이는 매크로 사실이며 회사 고유 사건이 아니다 — scope=macro로 태깅하고 개별 종목 시그널 상향 근거로 사용할 수 없다(P6·P13).",
+   "evidence_grade": 1,
+   "source": {
+    "type": "central_bank_primary",
+    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+    "filed_at": "2026-09-16"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "macro",
+   "confirmed": true
+  },
+  {
+   "id": "c_20260919_CRCL_8",
+   "ticker": "CRCL",
+   "claim_type": "inference",
+   "text": "카드 구조상 Reserve Income은 준비자산 이자수익으로 정책금리에 연동되므로, c_20260919_CRCL_7의 25bp 인상은 향후 준비금 수익률에 상방으로 작용하는 방향성을 갖는다. 다만 이번 창에서 Circle의 준비금 실효수익률·수익 인식 시차·재투자 만기구성에 관한 1차 자료(공시 또는 경영진 직접 발언)를 확보하지 못했으므로 금액·시점 효과는 정량화 불가다. 인상분이 분기 Reserve Income에 반영되는 크기는 준비금 듀레이션·USDC 평잔·유통비용(파트너 분배) 비중에 동시 의존하며, 이들 변수의 창 내 신규 1차 관측치도 부재하다. 따라서 '금리 인상 → Reserve Income 증가'는 Claim이 아니라 추론으로만 기록하며, 검증 게이트는 Q3 실적 공시다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "derived_from_macro_primary_and_thesis_card",
+    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+    "filed_at": "2026-09-16",
+    "note": "근거 Claim: c_20260919_CRCL_7(macro 1차). 회사 측 1차 근거 부재 — P1 태깅 준수, P2상 상향 근거 부적격."
+   },
+   "inference_strength": "low",
+   "quantitative": false,
+   "scope": "macro",
+   "confirmed": false
+  },
+  {
+   "id": "c_20260919_CRCL_9",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "GENIUS Act 제3조 규정제정예고(NPRM, 연방관보 2026-08-18자 게재, 문서번호 2026-16796)의 공개의견 접수 마감일은 2026-10-19로 유지되며, 이번 창(2026-09-10~2026-09-19)에 마감일 변경·연장·최종규칙 공표 등 절차 진전은 관측되지 않았다. Circle의 의견서 제출 여부는 이번 창에서 확인하지 못했다. federalregister.gov·home.treasury.gov는 sources.yaml 미등재 도메인으로 default_grade 4가 적용되며 단독 판단 근거로 사용할 수 없다(P4). scope=sector.",
+   "evidence_grade": 4,
+   "source": {
+    "type": "federal_register",
+    "url": "https://www.federalregister.gov/documents/2026/08/18/2026-16796/genius-act-regulations-on-payment-stablecoin-issuance-offer-and-sale",
+    "filed_at": "2026-08-18",
+    "note": "교차 출처: https://home.treasury.gov/news/press-releases/sb0605 (grade 4, 미등재 도메인). 직전 run·9/5 run(c_20260905_CRCL_0618_005)과 동일 상태 — 상태 무변화 확인 목적의 재관측."
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "sector",
+   "confirmed": false
+  },
+  {
+   "id": "c_20260919_CRCL_10",
+   "ticker": "CRCL",
+   "claim_type": "fact",
+   "text": "KC-CRCL-4(인가·감독 조치) 관측: SEC EDGAR 전 서식 조회(2026-09-10~2026-09-19) 결과 OCC의 Circle National Trust 인가 또는 NYDFS의 Circle New York Trust 인가에 관한 취소·정지·제재·동의명령을 공시하는 8-K(Item 8.01 등)는 0건이며, 이번 창 CRCL 제출물은 Form 4 1건·Form 144/A 6건이 전부다. 병행 웹검색에서도 2026-09 중 Circle에 대한 감독당국 조치 보도는 포착되지 않았고, 검색 결과는 2026-07 OCC 최종 인가·2026-07-31 NYDFS 한정목적 신탁 인가 등 기존 인가 취득 보도만 반복 확인됐다. 부재는 조치 부존재의 증명이 아니다(P5) — 관측 0건으로만 기록한다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "sec_edgar_submissions_api",
+    "url": "https://data.sec.gov/submissions/CIK0001876042.json",
+    "filed_at": "2026-09-19",
+    "note": "웹검색 보조 확인(grade 3·4 혼재, 삼각검증용): coindesk.com 2026-07-31 NYDFS 인가 보도, circle.com 프레스룸 OCC 최종 인가 보도자료. 감독조치 관련 신규 항목 없음."
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true
+  }
+ ],
+ "deltas": [
+  {
+   "id": "d_20260919_CRCL_1",
+   "axis": "diversification",
+   "direction": "strengthen",
+   "stage": "중(보통)",
+   "prior_state": "카드 축 서술 (a) 자체 구축 채널: ARC·CPN — ARC는 2025년 공개 테스트넷 단계로 메인넷 미가동, 정량 진척 관측 부재. (b) M&A 채널: Tazapay 확정계약 체결(2026-09-04/공시 09-08), 종결 전.",
+   "new_state": "2026-09-16 Arc 메인넷 정식 출시(c_20260919_CRCL_2, grade 1 회사 보도자료) — 자체 구축 채널 (a)가 테스트넷에서 가동 단계로 이행했다. 동일 창의 회사 공표 데이터(c_20260919_CRCL_3)에서 ARC 체인 USDC $624.435M·EURC $5.466M 적재가 관측돼 출시 후 온체인 잔액이 최초로 정량 확인된다. 다만 보도자료·API 어디에도 Arc 관련 수수료·매출·가이던스 수치는 제시되지 않았으므로 P7 3단 분리상 '이행 개시'까지이며 매출 인식은 미발생이다 — 비이자 매출 비중 변화로의 정량화는 Q3 실적 공시에서만 가능하다. (b) M&A 채널은 이번 창 진전 없음(종결 미공시).",
+   "risk_transfer_to": [
+    "Q3 실적에서 Arc 관련 매출·수수료 인식 여부 및 비이자 매출 비중 변화",
+    "ARC 체인 USDC 잔액의 지속성(신규 발행 vs 타 체인 이전 구분 필요 — 현 시점 구분 불가)",
+    "Tazapay 거래 종결 공시(최대 15개월 내, 규제 승인 전제)"
+   ],
+   "supporting_claims": ["c_20260919_CRCL_2", "c_20260919_CRCL_3"]
+  },
+  {
+   "id": "d_20260919_CRCL_2",
+   "axis": "usdc_circulation_scale",
+   "direction": "strengthen",
+   "stage": "하(약)",
+   "prior_state": "Q2'26 분기말(2026-06-30) $73.3B +19% YoY, 평잔 +25% YoY (grade 1, 카드 확정치). 이후 회사 정의 계열 신규 관측치 부재 — 직전 2개 run에서 3자 집계(grade 4)만 확보.",
+   "new_state": "발행사 공표 엔드포인트에서 2026-09-19T13:15Z 기준 USDC 유통량 $74.287B가 관측됐다(c_20260919_CRCL_3, grade 1). Q2'26 분기말 $73.3B 대비 +약 1.3%. 【측정기준 경고】 이 수치는 실시간 온체인 스냅샷으로, KC-CRCL-1 측정 기준(분기말 스냅샷·30일 평잔)과 동일 계열이 아니다 — 회사 공표 데이터라는 점에서 grade 1이나 KC 임계 대조에 직접 대입할 수 없으며, 대입은 Q3 10-Q/실적 보도자료의 분기말·평잔 수치로만 가능하다. 3자 집계(DefiLlama 등)와의 혼용도 금지(P4). 증가 폭이 작고 기준이 달라 stage는 '하(약)'로 기록한다.",
+   "risk_transfer_to": [
+    "Q3'26 분기말 잔액·30일 평잔 공시(KC-CRCL-1 대조 가능 유일 계열)",
+    "ARC 체인 잔액 증가분이 신규 순발행인지 체인 간 이전인지의 분해"
+   ],
+   "supporting_claims": ["c_20260919_CRCL_3"]
+  },
+  {
+   "id": "d_20260919_CRCL_3",
+   "axis": "regulation_sector_legislation",
+   "direction": "weaken",
+   "stage": "중(보통)",
+   "prior_state": "CLARITY Act(H.R.3633) 심의 착수 동의에 대한 클로처 표결이 2026-09-15 오후 2:15 ET로 예정된 상태 유지(직전 run d_20260911_CRCL_3, grade 3·confirmed=false). 절차 표결이며 최종 통과 표결이 아님.",
+   "new_state": "2026-09-15 클로처 표결이 49-50으로 부결돼 60표 문턱 미달, 본회의 심의 착수가 차단됐다(c_20260919_CRCL_4). Tillis 의원의 재의동의로 재표결 경로 자체는 남았으나 2026-09-19까지 재표결 실시는 확인되지 않은 상태다. 카드가 이 축에 기록한 '2차 독립 게이트'가 이번 창에 부정 방향으로 1회 판정된 사건으로, 이자부 스테이블코인 조항 문언 확정도 함께 지연된다. 【사용 제한】 scope=sector이므로 P6·P13에 따라 개별 종목 등급의 근거로 사용할 수 없고, 1차 자료(senate.gov 롤콜) 접근 차단으로 evidence_grade 3·confirmed=false다 — 삼각검증 자료로만 취급한다. CRCL은 regulation_company_licensing 축에서 자사 인가를 이미 취득한 상태라 이 축과 회사 인가 축은 독립 재평가 단위다(2026-08-15 분해 취지).",
+   "risk_transfer_to": [
+    "재의동의 후 2차 클로처 표결 실시 여부·시점",
+    "senate.gov 롤콜 1차 자료 확보(현재 403 차단)",
+    "CLARITY 이자부 스테이블코인 조항 문언 확정 시점의 추가 지연"
+   ],
+   "supporting_claims": ["c_20260919_CRCL_4"]
+  },
+  {
+   "id": "d_20260919_CRCL_4",
+   "axis": "reserve_income",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "Coinbase 분배계약 무공시 지속(8/24 기한 경과 후 약 19일)으로 '공시의무 없는 자동 갱신 완료' 잠정 확정 유지. 준비금 수익률에 관한 회사 1차 자료 부재.",
+   "new_state": "이번 창에도 Coinbase 분배계약 관련 8-K는 0건으로 무공시 관측 구간이 약 26일로 연장됐다(c_20260919_CRCL_1) — 기존 잠정 확정 상태에 변화 없음. 2026-09-16 FOMC 25bp 인상(3.75~4.00%, c_20260919_CRCL_7)은 scope=macro 사실이며, Circle의 준비금 수익률·수익 인식에 관한 1차 자료는 이번 창에 확보되지 않아 축 방향을 움직이는 회사 고유 재료로 승격하지 않는다(P6·P13). 금리→RI 연동은 c_20260919_CRCL_8에 inference(강도 low)로만 기록했다.",
+   "risk_transfer_to": [
+    "Q3 10-Q 계약 주석의 Coinbase 분배조건 원문 대조(통상 11월)",
+    "Q3 실적의 Reserve Income 절대액·유통비용 비중·이자율 민감도 공시"
+   ],
+   "supporting_claims": ["c_20260919_CRCL_1", "c_20260919_CRCL_7", "c_20260919_CRCL_8"]
+  },
+  {
+   "id": "d_20260919_CRCL_5",
+   "axis": "competition_yield_bearing",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "$YLDS 2Q26(6/30) $556.033M, QoQ -7.0% (grade 1, 9/5 run 확정 · 9/11 run 유지).",
+   "new_state": "이번 창 FIGR 1차 공시는 Form 4·144뿐으로 $YLDS 유통량 갱신 자료가 발생하지 않았다(c_20260919_CRCL_6) — 2Q26 수치가 최신 관측치로 유지된다. 한편 CLARITY 클로처 부결(c_20260919_CRCL_4)로 이 축 위협의 실질 조건인 '이자조항 문언 확정'이 추가 지연됐다 — 위협의 활성화·소멸 어느 쪽으로도 확정 신호가 아니므로 neutral로 기록한다.",
+   "risk_transfer_to": [
+    "FIGR 3Q26 공시($YLDS 유통량 갱신, 통상 11월)",
+    "CLARITY 이자조항 문언 확정 경로"
+   ],
+   "supporting_claims": ["c_20260919_CRCL_6", "c_20260919_CRCL_4"]
+  },
+  {
+   "id": "d_20260919_CRCL_6",
+   "axis": "competition_ousd_consortium",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "2026-06-30 발표(140+사, Open Standard) 이후 미출시 — '2026년 하반기 목표(Solana 우선)' 반복 확인만, 3 run 연속 상태 진전 없음. 부호 활성화 조건 = 공식 출시 + 실측 유통량 최초 공시.",
+   "new_state": "이번 창 웹검색에서도 OUSD 공식 출시·토큰 컨트랙트·실측 유통량 공표는 포착되지 않았고, 2026-09-02 시점 'later this year' 목표 반복만 재확인된다. noise_filter.yaml#CRCL 승격 요건(공식 출시 및 실측 유통량) 미충족으로 비승격 유지 — 4 run 연속 상태 진전 없음. 자료 부재는 위협 소멸의 반증이 아니다(P5).",
+   "risk_transfer_to": ["OUSD 공식 출시일·초기 유통량 공표"],
+   "supporting_claims": []
+  },
+  {
+   "id": "d_20260919_CRCL_7",
+   "axis": "regulation_company_licensing",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "OCC의 Circle National Trust 설립 최종 인가(2026-07) 및 NYDFS의 Circle New York Trust 인가(2026-07-31) — grade 1 confirmed. 이후 신규 인가·조치 관측 없음.",
+   "new_state": "이번 창에 신규 인가 취득도, 기존 인가에 대한 취소·정지·제재·동의명령도 관측되지 않았다(c_20260919_CRCL_10, EDGAR 8-K 0건 + 웹검색 보조 확인). KC-CRCL-4 관련 트리거 접근 신호 없음 — 부재는 조치 부존재의 증명이 아니므로 관측 0건으로만 기록한다(P5).",
+   "risk_transfer_to": ["OCC·NYDFS 감독보고서·제재 공표", "Tazapay 인수의 규제 승인 절차(싱가포르 MAS 포함 가능성 — 미확인)"],
+   "supporting_claims": ["c_20260919_CRCL_10"]
+  },
+  {
+   "id": "d_20260919_CRCL_8",
+   "axis": "usdc_market_share",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "회사 정의 점유율 Q1'26 28% → Q2'26 27% (-1%p QoQ, YoY -66bps, grade 1 confirmed). 분모 = 유통량 $100M 이상·정기 어테스테이션 보유 미달러 스테이블코인. 3자 집계 계열(전체 공급 분모) 약 24%는 grade 4·confirmed=false.",
+   "new_state": "이번 창에 회사 정의 계열의 신규 점유율 관측치는 발생하지 않았다 — 해당 계열은 분기 공시로만 갱신되므로 다음 갱신 게이트는 Q3 실적·10-Q다. 이번 창에 확보한 c_20260919_CRCL_3(USDC $74.287B)는 분자 측 회사 공표 수치일 뿐 분모(경쟁 스테이블코인 유통량, 회사 정의 기준)가 동반되지 않아 점유율로 환산할 수 없다 — 3자 집계 분모를 대입해 회사 정의 점유율을 재구성하는 것은 계열 혼용이므로 수행하지 않았다(P4, 카드 축 서술의 명시 요건). KC-CRCL-2(-3%p QoQ) 대조는 이번 창에서 수행 불가.",
+   "risk_transfer_to": ["Q3'26 실적·10-Q의 회사 정의 점유율 갱신치(KC-CRCL-2 대조 가능 유일 계열)"],
+   "supporting_claims": ["c_20260919_CRCL_3"]
+  }
+ ],
+ "unconfirmed": [
+  {
+   "topic": "CLARITY Act 재의동의 후 2차 클로처 표결 실시 여부",
+   "detail": "Tillis 의원이 2026-09-15 부결 직후 재의동의(motion to reconsider)를 제출했고 업계 인사는 '향후 2일 내 재표결 가능'이라고 언급했으나, 2026-09-19까지 실제 재표결이 실시됐는지는 이번 창 수집으로 판별하지 못했다. 관련 보도도 9/16 시점 분석(JPMorgan '완전히 죽지는 않았으나 통과 창이 매우 좁다')까지만 포착됐다.",
+   "reason": "no_primary_source_and_event_may_be_pending"
+  },
+  {
+   "topic": "2026-09-15 상원 클로처 표결의 1차 자료(롤콜 번호·공식 집계)",
+   "detail": "senate.gov roll_call_lists(XML·HTM 각 1회, requests 및 WebFetch)가 HTTP 403으로 차단됐고 congress.gov도 직전 run에서 동일 차단 이력이 있다. 49-50 집계는 grade 3 매체 3곳 교차확인분이며 1차 확정이 아니다 — c_20260919_CRCL_4는 confirmed=false로 유지한다(P4).",
+   "reason": "access_blocked"
+  },
+  {
+   "topic": "OUSD 공식 출시일·실측 유통량",
+   "detail": "2026-06-30 발표(140+사) 이후 4 run 연속 상태 진전 없음. 2026-09-02 시점 Open Standard의 'later this year' 목표 반복만 재확인되며 토큰 컨트랙트·순환공급 수치는 미공표. noise_filter.yaml#CRCL 승격 요건 미충족으로 비승격 유지. 부재는 위협 소멸의 반증이 아니다(P5).",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "'21개 은행 참여 USD 스테이블코인 컨소시엄' 보도(2026-09-02, cryptonomist.ch)의 OUSD 동일성 여부",
+   "detail": "직전 run(u, 20260911_2308)에서 원문 WebFetch가 HTTP 403으로 차단돼 미해소로 이월된 항목이다. 이번 창은 창 밖(9/2) 재료이고 신규 전개도 포착되지 않아 재시도하지 않았다 — 미해소 상태 그대로 이월한다.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "Coinbase 분배계약 조건 원문의 1차 자료 기반 최종 확인",
+   "detail": "8-K 부재가 8/24 기한 경과 후 약 26일로 연장됐으나(c_20260919_CRCL_1) 계약 조건 자체를 원문으로 대조한 것은 아니다. 최종 확인 게이트는 Q3 10-Q 계약 주석(통상 11월)이며, 이번 창 관측은 '신규 8-K 유무 재확인'에 한정된다. 정보 부재를 무변경의 증명으로 사용하지 않는다(P5).",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "Circle 준비금 실효수익률·수익 인식 시차(FOMC 25bp 인상의 Reserve Income 반영 크기)",
+   "detail": "2026-09-16 인상은 매크로 1차 자료로 확정됐으나(c_20260919_CRCL_7), 준비금 듀레이션·재투자 구성·USDC 평잔·유통비용 비중 등 회사 측 변수의 창 내 1차 자료를 확보하지 못해 정량화가 불가하다. c_20260919_CRCL_8에 inference(강도 low)로만 기록했다. 검증 게이트는 Q3 실적 공시.",
+   "reason": "no_company_primary_source"
+  },
+  {
+   "topic": "Q3'26 실적 발표일 공식 IR 공지",
+   "detail": "circle.com 프레스룸에서 2026-09 항목은 9/8 Tazapay·9/16 Arc 메인넷 2건뿐이며 'Circle to Announce Q3 2026 Financial Results on ...' 유형 공지는 확인되지 않은 상태다(과거 패턴: Q1 → 4/13 공지·5/11 발표, Q2 → 8/5 발표, Q3'25 → 10/15 공지·11/12 발표). 애그리게이터 추정일은 판정 근거로 사용할 수 없으므로(F1) 카드 earnings_checkpoints.date는 null 유지가 타당하다.",
+   "reason": "no_official_ir_notice"
+  },
+  {
+   "topic": "회사 정의 계열 USDC 점유율의 신규 관측치",
+   "detail": "분모(유통량 $100M 이상·정기 어테스테이션 보유 미달러 스테이블코인)를 회사 정의대로 재구성할 1차 자료가 없어 이번 창 점유율 산출이 불가하다. 3자 집계 분모 대입은 계열 혼용이므로 수행하지 않았다. 다음 갱신은 Q3 실적·10-Q.",
+   "reason": "quarterly_disclosure_only"
+  },
+  {
+   "topic": "KC-CRCL-4 관련 감독당국 조치",
+   "detail": "EDGAR 8-K 0건·웹검색 보조 확인에서 조치 관측 0건(c_20260919_CRCL_10). 다만 감독당국의 비공개 감독서한·MOU 등은 8-K 의무 대상이 아닐 수 있어 관측 0건이 조치 부존재를 증명하지 않는다(P5).",
+   "reason": "absence_is_not_disproof"
+  },
+  {
+   "topic": "GENIUS Act §3 NPRM에 대한 Circle 의견서 제출 여부",
+   "detail": "의견 마감 2026-10-19은 유지되나(c_20260919_CRCL_9, grade 4) regulations.gov 도켓의 제출자 목록을 이번 창에 확인하지 않았다. Circle 명의 의견서 제출 여부·내용은 미확인.",
+   "reason": "not_checked_this_run"
+  },
+  {
+   "topic": "Arc 메인넷 ARC 체인 USDC $624.435M의 성격(신규 순발행 vs 타 체인 이전)",
+   "detail": "회사 공표 API는 체인별 잔액만 제공하고 유입 경로를 구분하지 않는다. 총 유통량 $74.287B가 Q2 분기말 대비 +약 1.3%에 그친 점을 보면 상당 부분이 체인 간 이전일 개연성이 있으나, 이를 판별할 1차 자료가 없어 분해하지 않는다.",
+   "reason": "data_not_decomposable"
+  },
+  {
+   "topic": "Tazapay 인수 거래 종결·규제 승인 진행 상황",
+   "detail": "2026-09-04 확정계약 체결(9/8 8-K)은 규제 승인·최대 15개월 종결 기한 조건부다. 이번 창에 종결·승인 관련 신규 공시는 0건이며 최종 대가(주가 조정 후 실제 주식 수)도 미확정이다.",
+   "reason": "deal_not_closed"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "title": "'Analysts downplay Clarity Act defeat as bitcoin, major crypto stocks dip' (theblock.co, 2026-09-15)",
+   "reason": "부결 자체는 c_20260919_CRCL_4로 승격했으나, 애널리스트 논평·주가 일간 등락 부분은 common.noise '단순 주가 변동·일간 등락'·'애널리스트 코멘트 단독' 배제 대상 — 매출·마진·가이던스 변화 없음(P3)"
+  },
+  {
+   "title": "'JPMorgan says Clarity Act not fully dead, but passage window extremely narrow' (theblock.co, 2026-09-16)",
+   "reason": "IB 전망 코멘트 단독 — 1차 자료 없는 통과 확률 서술로 D3 보호 대상, 판정 근거 불가"
+  },
+  {
+   "title": "'CLARITY Act Senate Vote Result: Cloture Fails 49-50' (homecryptoinvest.com) / 'CLARITY Act Vote Today [LIVE]' (coinpedia.org) / bitget.com academy 해설",
+   "reason": "sources.yaml 미등재 도메인(default_grade 4) 애그리게이터·해설 콘텐츠. 동일 사실을 grade 3 3곳(CNBC·The Block·CoinDesk)으로 대체 확보했으므로 인용에서 제외"
+  },
+  {
+   "title": "'Live updates: Bitcoin slides from nearly $80,000 as Senate votes on Clarity Act' (coindesk.com, 2026-09-15)",
+   "reason": "가격 라이브 블로그 — common.noise '단순 주가 변동·일간 등락'. 표결 결과 사실만 c_20260919_CRCL_4의 교차 출처로 사용하고 가격 서술은 배제"
+  },
+  {
+   "title": "'Open USD Just Turned the Stablecoin Race Into an Ecosystem Contest' (pymnts.com) 외 OUSD 해설 기사군",
+   "reason": "noise_filter.yaml#CRCL 'OUSD 출시 임박 추측 (공식 출시·유통량 데이터 없는 한)' 배제 대상 — 6/30 발표 재탕, 신규 정량 데이터 없음"
+  },
+  {
+   "title": "'GENIUS Act Gets Criminal Teeth ... Tether Needs $47B Fix' (techtimes.com, 2026-08-18)",
+   "reason": "창 밖(8/18) + 미등재 도메인 확대 해석 기사. NPRM 사실관계는 연방관보 원문(c_20260919_CRCL_9)으로 대체"
+  }
+ ],
+ "reused_from": "output/20260911_2308/02_company/CRCL.json",
+ "notes": "【P17 컨텍스트 격리】 state/thesis_cards/CRCL.yaml(전문 86행 읽음 — 축 8개 전수 계수 확인), config/noise_filter.yaml, config/sources.yaml, CLAUDE.md, .claude/agents/company-crcl.md, 과거 CRCL 산출물 2건(20260911_2308, 20260905_0618), 자기 출력 경로만 접근했다. 타 종목 카드·output/*/01_macro_kc.json·output/*/04_sector/*·state/signals.json·output/*/03_signal/*는 열람하지 않았다. config/kill_conditions.yaml도 열람하지 않았으며 KC 관련 기술은 카드의 kill_conditions_ref·축 라벨에 이미 기재된 범위 안에서 '관측 결과'로만 작성했다 — KC 판정은 수행하지 않았다. FIGR EDGAR 원문 열람은 CRCL competition_yield_bearing 축 위험지표 구성 대상으로서 9/5·9/11 run과 동일 관례를 따랐다. 【reused_from 표기】 esc_0618_04로 지적된 20260905_0618 산출물의 reused_from 오류(run_id만 기재, 경로 아님)를 승계하지 않았다 — 본 run은 직전 run의 산출물 '경로'를 명기한다(P16). staleness_days=3은 as_of(2026-09-19) − underlying_primary_event_date(2026-09-16, Arc 메인넷 출시)로 산출했다. 【핵심 신규 발견 3건, 전부 grade 1】 ①2026-09-16 Arc 메인넷 정식 출시(회사 보도자료) — diversification 축 자체 구축 채널이 테스트넷→가동 단계로 이행. 매출 수치 미공개로 P7 3단 분리상 매출 인식 전. ②회사 공표 엔드포인트에서 2026-09-19 기준 USDC $74.287B·ARC 체인 $624.435M 최초 정량 관측 — 단 실시간 스냅샷이라 KC-CRCL-1 측정 기준(분기말·30일 평잔)과 계열이 달라 임계 대조 불가. ③2026-09-15 Form 144/A 6건은 사외이사 Burns의 과거 매도분 Table I 소급 정정(신규 매도 예고 아님). 【규제】 2026-09-15 CLARITY 클로처 표결은 49-50 부결(60표 미달)로 확인됐다 — 카드·직전 run이 '절차 표결이며 최종 표결이 아니다'라고 기록한 해석은 유지되나 결과는 부정 방향이며, senate.gov·congress.gov 1차 자료가 재차 403 차단돼 grade 3·confirmed=false로만 적재했다. scope=sector이므로 개별 종목 등급 근거 사용 불가(P6·P13). 【매크로】 2026-09-16 FOMC 25bp 인상(3.75~4.00%)은 federalreserve.gov 1차 자료로 fact·scope=macro 적재했고, '금리 인상 → Reserve Income 증가'는 회사 측 1차 근거 부재로 Claim화하지 않고 c_20260919_CRCL_8에 inference(강도 low)로 분리했다. 【ThesisPatch 후보(제안만, 카드 미수정)】 (1) diversification 축 (a) 자체 구축 채널 서술에 'Arc 메인넷 2026-09-16 출시(grade 1) — 매출 인식 전, ARC 체인 USDC 잔액 관측 개시' 병기. (2) usdc_circulation_scale 축에 '회사 공표 실시간 API 계열(api.circle.com/v1/stablecoins)'을 분기 공시 계열과 구분되는 제3의 관측 계열로 명시 — 현재 축 서술은 분기말·30일 평잔 2계열만 규정해 실시간 계열의 취급 기준이 비어 있다. (3) regulation_sector_legislation 축 서술의 '9/15 절차 표결 순연' 부분은 2026-09-15 실시·부결로 사실이 갱신됐으므로 결과 반영 필요(P9 — 이전 서술 주석 보존 방식). (4) $YLDS 리스크 등록부 누락 항목(u_20260815_011)은 카드 risks에 이미 반영 완료 상태로 재확인됐다. 【결함 기록, 파일 미수정】 .claude/agents/company-crcl.md의 '8/18 Q2 실적 임박' 문구는 여전히 stale이다(Q2는 2026-08-05 발표 완료) — 직전 run에서도 동일 지적. 또한 동 파일의 카드 axes 열거(usdc_circulation / reserve_income / competition_ousd / regulation / diversification, 5개)는 현행 카드 8축(usdc_circulation_scale, usdc_market_share, reserve_income, competition_ousd_consortium, competition_yield_bearing, regulation_company_licensing, regulation_sector_legislation, diversification)과 불일치하므로 갱신이 필요하다. 【수집 예산】 WebSearch 5회·WebFetch 3회·직접 HTTP(EDGAR/circle API/federalreserve/senate.gov) 6회. senate.gov 403 2회 실패 포함. 판정은 수행하지 않았다(P1~P17 준수, Claim·Delta만 생성)."
+}

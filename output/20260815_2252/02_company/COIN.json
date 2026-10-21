@@ -1,0 +1,222 @@
+{
+ "ticker": "COIN",
+ "run_id": "20260815_1408",
+ "as_of": "2026-08-15",
+ "lookback_window": "2026-08-08~2026-08-15",
+ "sources_collected": {
+  "edgar_fulltext": {
+   "forms": [
+    "10-K",
+    "10-Q",
+    "8-K"
+   ],
+   "since": "2026-08-08",
+   "cik": "0001679788",
+   "result_count": 0,
+   "note": "조회 기간 내 신규 10-K/10-Q/8-K 없음 (raw: output/20260815_1408/02_company/COIN_edgar_raw.json)"
+  },
+  "web_search": "CLARITY Act 상원 경로, OUSD 참여조건, USDC 수익 공시, 파생상품/Base 확장, Q3 실적일 관련 쿼리 수행"
+ },
+ "claims": [
+  {
+   "id": "c_20260815_COIN_001",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Senate Majority Leader Thune filed cloture on the motion to proceed to the Digital Asset Market CLARITY Act (H.R. 3633) on 2026-08-08, setting a procedural cloture vote for 2026-09-15 (60-vote threshold required to proceed).",
+   "evidence_grade": 3,
+   "source": {
+    "type": "news",
+    "url": "https://www.coindesk.com/policy/2026/08/08/u-s-senate-opens-first-stage-of-crypto-clarity-act-voting-to-give-bill-a-chance-next-month",
+    "published_at": "2026-08-08"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "macro",
+   "confirmed": false,
+   "as_of": "2026-08-08",
+   "staleness_days": 7,
+   "note": "1차 소스(congress.gov 법안 액션 페이지) 접근 시도했으나 403 차단(봇 방지). coindesk·cryptobriefing·natlawreview 등 복수 2차 매체 교차확인(삼각검증)되나, P4 규칙상 등급3 단독 근거 불가 → confirmed=false 유지. scope=macro: CLARITY 경로는 산업 전반 규제 이벤트로 COIN 특이 데이터 아님(P6 — signal 근거 불가, arbiter 필터 대상 아님)."
+  },
+  {
+   "id": "c_20260815_COIN_002",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Coinbase opened access to 170+ derivatives contracts (perpetuals up to 50x leverage, dated futures up to 20x, crypto options) for UK professional investors starting 2026-08-11, per a company blog post by UK head Keith Grose, following its MiFID license.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "company_blog",
+    "url": "https://www.coinbase.com/blog/coinbase-expands-derivatives-access-to-uk-professional-investors",
+    "published_at": "2026-08-11"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "as_of": "2026-08-11",
+   "staleness_days": 4,
+   "note": "1차 URL(coinbase.com, 저자 Keith Grose)은 검색 결과로 식별했으나 WebFetch 직접 접근 403 차단. The Block(등급3, 2026-08-11) 등 복수 2차 매체가 동일 사실(계약 수·레버리지·MiFID 근거) 교차확인. 직접 열람 실패로 confirmed=false 유지(보수적)."
+  },
+  {
+   "id": "c_20260815_COIN_003",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Coinbase obtained a Financial Services Permission (FSP) from Abu Dhabi Global Market's Financial Services Regulatory Authority (FSRA), announced 2026-08-13, enabling it to establish an international tokenization hub covering deal arrangement, custody, and issuance/registration of tokenized securities (fully backed by underlying shares, with shareholder rights incl. dividends/voting). Release also references a parallel derivatives trading hub initiative in Dubai.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "press_release",
+    "url": "http://www.prnewswire.com/news-releases/coinbase-establishes-its-tokenization-hub-in-abu-dhabi-with-financial-services-permission-from-the-financial-services-regulatory-authority-fsra-302850873.html",
+    "published_at": "2026-08-13"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "as_of": "2026-08-13",
+   "staleness_days": 2,
+   "note": "prnewswire.com 원문 직접 열람 성공(grade 1). Dubai 파생상품 허브 언급은 후속 확인 필요 — 별도 unconfirmed 없음, 본 릴리스 부기 사항."
+  },
+  {
+   "id": "c_20260815_COIN_004",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Coinbase CFO Alesia Haas stated on the Q2 2026 earnings call (2026-07-30): \"We have already met the conditions for the Circle contract to renew, so it will renew on the same terms.\" The Coinbase-Circle USDC revenue-sharing Collaboration Agreement (effective since 2023-08-18) is set to auto-renew for another 3-year term on 2026-08-18.",
+   "evidence_grade": 2,
+   "source": {
+    "type": "earnings_call_transcript",
+    "url": "https://www.fool.com/earnings/call-transcripts/2026/07/30/coinbase-coin-q2-2026-earnings-call-transcript/",
+    "published_at": "2026-07-30"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "as_of": "2026-07-30",
+   "staleness_days": 16,
+   "note": "조회 기간(8/8 이후) 이전 발화(7/30)이나 usdc_economics 축의 핵심 미확정 리스크(Circle 계약 갱신 조건)를 직접 해소하는 경영진 원문 인용이라 포함. 갱신 발효일(8/18)은 아직 미도래 — 실제 갱신 완료 공시는 차기 조회 대상."
+  },
+  {
+   "id": "c_20260815_COIN_005",
+   "ticker": "COIN",
+   "claim_type": "inference",
+   "text": "Cloture filing keeps the CLARITY Act's 2026 legislative path technically alive, but Democratic objections on stablecoin-yield and ethics provisions mean the 60-vote threshold at the 2026-09-15 vote remains uncertain; passage before the midterm elections is not assured.",
+   "evidence_grade": 3,
+   "source": {
+    "type": "news",
+    "url": "https://cryptoslate.com/clarity-act-is-finally-headed-for-a-60-vote-senate-showdown-in-september/",
+    "published_at": "2026-08-08"
+   },
+   "inference_strength": "medium",
+   "quantitative": false,
+   "scope": "macro",
+   "confirmed": true,
+   "as_of": "2026-08-08",
+   "staleness_days": 7,
+   "note": "규제 '임박' 확대해석 방지 — 통과 확정 아님을 명시. thesis card catalyst '규제 촉매(CLARITY)'의 타임라인만 갱신, 방향성 확정 아님."
+  },
+  {
+   "id": "c_20260815_COIN_006",
+   "ticker": "COIN",
+   "claim_type": "inference",
+   "text": "The UK derivatives access expansion and Abu Dhabi tokenization hub broaden Coinbase's regulated product surface geographically, but neither disclosure includes incremental revenue figures; near-term (Q3 2026) financial contribution is likely immaterial relative to core subscription/trading revenue pending company disclosure.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "derived",
+    "url": "https://www.prnewswire.com/news-releases/coinbase-establishes-its-tokenization-hub-in-abu-dhabi-with-financial-services-permission-from-the-financial-services-regulatory-authority-fsra-302850873.html",
+    "published_at": "2026-08-13"
+   },
+   "inference_strength": "medium",
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "as_of": "2026-08-13",
+   "staleness_days": 2,
+   "note": "거래 매출과 구독 매출 합산 서술 금지 규칙 준수 — 신규 사업 매출 기여를 추정치로 서술하지 않음, '미확정'으로만 표기."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "regulation",
+   "direction": "neutral",
+   "prior_state": "8월 휴회 전 표결 불발, 클로처 여부 불투명 (v1 카드 catalysts: 'CLARITY Act 상원 경로')",
+   "new_state": "9/15 클로처(동의절차) 표결 일정 확정 — 경로는 유지되나 60표 확보 여부·본회의 통과 여부는 여전히 미확정",
+   "risk_transfer_to": [
+    "규제 수혜 소멸 리스크는 소멸이 아니라 9월 표결 결과로 이연 — KC-3(연동) 감시 지속"
+   ],
+   "supporting_claims": [
+    "c_20260815_COIN_001",
+    "c_20260815_COIN_005"
+   ]
+  },
+  {
+   "axis": "derivatives_base",
+   "direction": "strengthen",
+   "prior_state": "파생상품·Base 생태계 확장 진행 중 — 매출 기여도 미확정",
+   "new_state": "UK 전문투자자 대상 170+계약 파생상품 접근 개시(8/11) — 지리적 확장 추가 확인. 단, 원문 직접열람 실패(confirmed=false)로 근거 강도는 제한적, 매출 기여는 여전히 미공시",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260815_COIN_002",
+    "c_20260815_COIN_006"
+   ]
+  },
+  {
+   "axis": "usdc_economics",
+   "direction": "strengthen",
+   "prior_state": "Circle 계약 갱신 조건 불확실 — OUSD 참여로 인한 자사 USDC 수익 잠식·재편 우려 (카드 risks 항목)",
+   "new_state": "CFO 원문 확인(7/30 콜): 갱신 조건 충족, 8/18 동일 조건 자동 갱신 예정 — Circle 계약 자체의 근시일 재편 리스크는 해소",
+   "risk_transfer_to": [
+    "OUSD 참여의 장기적 자사 USDC 수익 대체 가능성은 미해소 — usdc_economics 축 내 감시 지속 (OUSD 참여 조건·분배 구조는 여전히 unconfirmed)"
+   ],
+   "supporting_claims": [
+    "c_20260815_COIN_004"
+   ]
+  }
+ ],
+ "new_axis_proposals": [
+  {
+   "proposed_id": "tokenization_intl_expansion",
+   "label": "국제 토큰화 증권·규제 허브 확장 (Abu Dhabi ADGM, Dubai 파생상품 허브 등)",
+   "rationale": "Abu Dhabi FSRA 라이선스 취득(토큰화 증권 발행·커스터디)은 기존 5개 축(subscription_mix/trading_cycle/usdc_economics/regulation/derivatives_base) 어디에도 정확히 속하지 않음 — 파생상품이 아닌 토큰화 증권·국제 라이선스 확장이 핵심. 카드에 임의로 derivatives_base로 흡수시키지 않고 신규 축 제안으로 에스컬레이션(P8)",
+   "supporting_claims": [
+    "c_20260815_COIN_003"
+   ],
+   "status": "escalation_pending_human_review"
+  }
+ ],
+ "unconfirmed": [
+  {
+   "item": "OUSD 참여 조건·분배 구조 공개",
+   "reason": "조회 기간(2026-08-08~08-15) 내 신규 1차 공시 없음. Q2 실적콜(7/30) 이후 업데이트 부재 — noise_filter.yaml#COIN promote_if 항목이나 자료 미확보로 unconfirmed 유지(P5)"
+  },
+  {
+   "item": "USDC 수익 절대액 공시",
+   "reason": "조회 기간 내 신규 수치 공시 없음 (promote_if 항목, 자료 미확보)"
+  },
+  {
+   "item": "Q3 2026 실적 발표일",
+   "reason": "WallStreetHorizon 등 애그리게이터 추정치(10/29) 만 존재 — 회사 IR 공식 공지 미확인. 애그리게이터 추정 라벨은 등급 무관 판정 근거 불가(F1, sources.yaml rules)"
+  },
+  {
+   "item": "US500 지수 연동 퍼페추얼 선물 8/17 출시",
+   "reason": "최초 발표 자체는 2026-07-31로 조회 기간 이전. 1차 소스(coinbase.com blog) 직접 접근 403 차단, 등급3 2차 매체(cryptobriefing 등) 단독 근거 — 확인 보류"
+  }
+ ],
+ "noise_triage_log": [
+  {
+   "pattern": "BTC 가격 일간 변동",
+   "action": "discard",
+   "reason": "noise_filter.yaml#COIN — 'BTC $55K~$70K 일간 변동'"
+  },
+  {
+   "pattern": "Coinbase Noble network USDC/cbETH/DAI deposit-withdrawal 지원 종료 공지 (8/12, 8/17 발효)",
+   "action": "discard",
+   "reason": "매출·가이던스·마진·현금흐름·고객명·수주·양산일정 중 어느 것도 변화시키지 않는 네트워크 지원 정리 — P3 노이즈"
+  },
+  {
+   "pattern": "Ethena DeFi earn 상품 예치금 $300M 최고치 경신",
+   "action": "discard",
+   "reason": "수익 기여액 미공시, 단순 예치금 지표 — P3 노이즈 (promote_if 미해당)"
+  }
+ ],
+ "reused_from": "20260815_1408",
+ "staleness_days": 0
+}

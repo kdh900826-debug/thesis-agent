@@ -1,0 +1,137 @@
+{
+  "as_of": "2026-09-05",
+  "ticker": "NBIS",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [],
+  "claims": [
+    {
+      "id": "c_20260905_NBIS_01",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-08-24 6-K(Exhibit 99.1) 원문: 'Nebius Group announces closing of private offering of convertible senior notes, with aggregate gross proceeds of approximately $5.75 billion' — 2030년 만기 0.50% 전환사채 및 2034년 만기 4.50% 전환사채 사모 발행이 2026-08-24 클로징 완료됨. 'The initial purchasers exercised in full their options to purchase an additional $450 million aggregate original principal amount of 2030 Notes and $300 million aggregate original principal amount of 2034 Notes.' 그 결과 2030년물 원금 총액 $3.45B, 2034년물 원금 총액 $2.3B, 합계 원금 $5.75B(총 그린슈 옵션 전액 행사)로 확정. 직전 run(c_20260820_NBIS_07)에서 파악한 가격확정 단계($5.0B, 그린슈 미행사 가정)가 이번 클로징에서 그린슈 전액 행사로 $5.75B까지 확대됨.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "6-K Ex-99.1 (Closing 보도자료)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+        "filed_at": "2026-08-24"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_NBIS_02",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "동일 2026-08-24 6-K(Ex-99.1) 원문: 'Concurrently with the pricing of the offering of the Notes, in separate, privately negotiated transactions, the Company entered into exchange agreements with a limited number of holders... to exchange $400 million aggregate original principal amount of the 2029 Notes and $400 million aggregate original principal amount of the 2031 Notes for an aggregate of approximately 15.8 million of its Class A ordinary shares.' 즉 $800M 규모 기존 전환사채(2029·2031년물)의 지분교환 계약 체결 사실이 클로징 보도자료에서 재확인됨(P7 — 계약 체결 단계 재확인). 단, 본 문서는 신규 노트의 '클로징(결제)' 완료는 명시하나, 이 지분교환 건에 대해 별도로 '결제/주식 인도가 8/24에 완료되었다'는 문장은 포함하지 않음 — 두 거래가 동시 완료되었는지는 본 문서 원문만으로는 명시적으로 확정되지 않음.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "6-K Ex-99.1 (Closing 보도자료)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+        "filed_at": "2026-08-24"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_NBIS_03",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "c_20260905_NBIS_01·02의 발표 수치를 6/30/2026 재무제표(c_20260820_NBIS_01·02, 전환사채 원금 $10,041.8M)에 단순 가산·차감하면: 전환사채 원금 총액은 $10,041.8M + $5,750M(신규, 그린슈 전액) - $800M(교환 소각 가정) = 약 $14,991.8M 수준으로 확대될 것으로 추정된다. 이는 직전 run(c_20260820_NBIS_10)이 제시한 시나리오의 상단($14,991.8M)이 그린슈 전액 행사로 실현되는 방향과 일치한다. 현금은 총 발행대금(gross) $5.75B가 유입될 경우 6/30 $8,042.1M에서 약 $13.79B 수준까지 증가할 수 있으나, 발행 수수료·비용(discount)이 공시문에 명시되지 않아 순조달액은 확정할 수 없다. 이 수치는 Q3 2026 확정 재무제표(20-F/6-K)로 재검증이 필요한 사전 추정치다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "6-K Ex-99.1 (2026-08-24) 기반 추정 + 6-K Ex-99.2(2026-08-12) 6/30 재무제표",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+        "filed_at": "2026-08-24"
+      },
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_NBIS_04",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "복수의 2차 매체(whyy.org, tradingview, gurufocus, blockspace.media, foreignpolicyjournal — 전부 sources.yaml 미등재, default grade 4) 보도에 따르면, Vineland Planning Board가 2026-08-18 DataOne(Nebius) 데이터센터 Phase 2 확장(587,980 sq ft)을 표결 승인함(표결 결과는 매체별로 8-1 또는 9-1로 상이하게 보도). DataOne 대변인 인용문: 'We're grateful to the Planning Board for its careful review... will continue to engage with the Vineland community as we complete construction and operate at full capacity later this year.' 1차 자료(회사 6-K/보도자료 또는 지자체 회의록 원문)는 검색을 통해 확보하지 못했다 — 복수 2차 매체의 교차 보도만 확인됨(P4상 ③④ 등급 단독 근거이므로 confirmed=false로 적재).",
+      "evidence_grade": 4,
+      "source": {
+        "type": "2차 매체 교차보도(whyy.org 등)",
+        "url": "https://whyy.org/articles/vineland-planning-board-approves-data-center-plan/",
+        "filed_at": "2026-08-18"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "leverage_burden",
+      "direction": "weaken",
+      "prior_state": "직전 run(20260820_1932)은 2026-08-19~20 $5.0B 신규 전환사채 가격확정을 '계약 존재' 단계로만 인식하고, 결제(2026-08-24 예정)는 미완료(P7)로 분리 기록. 결제 완료 시 원금이 약 $14.2~15.0B로 확대될 것이라는 medium 강도 추정만 존재.",
+      "new_state": "2026-08-24 클로징이 1차 자료(c_20260905_NBIS_01)로 확정됨 — 그린슈 옵션 전액 행사로 신규 발행이 $5.0B에서 $5.75B로 오히려 추가 확대되었고, $800M 기존 전환사채 지분교환도 계약 단계가 재확인됨(c_20260905_NBIS_02). 전환사채 원금 총액이 직전 run 추정 상단($14,991.8M)에 부합하는 방향으로 실현 중임(c_20260905_NBIS_03, inference). 즉 직전 run에서 '결제 예정·미확정'이었던 리스크가 '결제 완료·실현'으로 단계 전환되었으며, 방향성(leverage_burden 훼손)은 유지·강화됨. 정확한 순조달액·Q3 재무상태표는 여전히 미확정(unconfirmed).",
+      "risk_transfer_to": [
+        "2029·2031 전환사채 채권자 → 신규 Class A 주주(교환 관련 지분 발행 ~15.8M주, 희석) — 8/24 클로징으로 재확인",
+        "단기(2029/2031) 만기 리스크 → 장기(2030/2034) 만기로 이관 — 8/24 클로징으로 재확인",
+        "신규 확대분($0.75B 그린슈)만큼 장기(2030/2034) 듀레이션 리스크가 추가로 신규 채권자에게 이전"
+      ],
+      "supporting_claims": [
+        "c_20260905_NBIS_01",
+        "c_20260905_NBIS_02",
+        "c_20260905_NBIS_03"
+      ]
+    },
+    {
+      "axis": "funding_access",
+      "direction": "strengthen",
+      "prior_state": "직전 run은 $4.50B 발표 후 1일 내 $5.0B로 상향(upsize)된 사실만으로 조달 접근성 강화를 판단(그린슈 행사 여부는 결제 전이라 미확정).",
+      "new_state": "8/24 클로징 결과 그린슈 옵션이 전액 행사되어 최종 조달 규모가 최초 launch($4.50B) 대비 +27.8%, upsize 확정치($5.0B) 대비도 +15%인 $5.75B로 실현됨(c_20260905_NBIS_01) — 발표 단계의 수요 신호가 결제 단계까지 이어져 실제로 더 큰 규모의 자본시장 접근이 완결되었음을 확인. 다만 조달 형태가 전환사채·지분교환 중심(지분성 성격)이라는 점은 leverage_burden 축 훼손과 상충되는 프레임이며(카드 주석 참조), '조달의 양'은 강화되나 '조달의 질(비희석·비부채)'은 개선되지 않음.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260905_NBIS_01",
+        "c_20260905_NBIS_03"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "$800M 기존 전환사채(2029·2031년물) 지분교환의 정확한 결제(주식 실제 인도) 완료일",
+      "reason": "8/24 클로징 보도자료(c_20260905_NBIS_02)는 신규 노트의 결제 완료는 명시하나 지분교환 건의 결제 완료 시점은 별도로 재확인하지 않음. 3차 분석(sec-api.io)은 15.8M주가 8/24 발행된 것으로 전제하나 해당 근거 문서를 원문에서 특정하지 못함(P5 — 부재를 반증으로 취급하지 않음, 판단 보류).",
+      "next_check": "차기 20-F 각주 또는 8/24 이후 후속 6-K에서 발행주식수 변동 재확인",
+      "related_claims": [
+        "c_20260905_NBIS_02"
+      ]
+    },
+    {
+      "item": "2026-06-30 이후 ATM(잔여 12.3M주) 실사용 여부·금액",
+      "reason": "sec-api.io 3차 분석은 완전희석 주식수 계산에 'ATM sales'를 언급하나 구체 수량·날짜·공시 문서를 특정하지 못함. EDGAR CIK 0001513845 제출목록(2026-08-15 이후)에서 ATM 관련 신규 6-K를 확인하지 못함 — 실제 발행 발생 여부 판단을 위한 1차 자료가 아직 없다.",
+      "next_check": "차기 20-F/6-K 재무제표 발행주식수·자본조달 각주 확인, EDGAR 제출목록 재조회",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] Q3 2026 실적 발표일",
+      "reason": "회사 IR 공식 공지를 이번 회차 검색에서도 확보하지 못했다. 애그리게이터 간 추정치가 상충함(marketbeat류 2026-11-10 vs barchart/tipranks류 2026-10-22) — F1상 두 추정 모두 판정 근거로 사용 불가.",
+      "next_check": "nebius.com/investor-hub 또는 newsroom 공식 공지 재확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] 2027 공식 가이던스 발표 시점",
+      "reason": "이번 회차 신규 자료(8/24 클로징, 8/26 AGM)에서도 구체 일자 언급이 없다 — 'later this year' 반복.",
+      "next_check": "차기 실적/IR 공지 확인",
+      "related_claims": []
+    },
+    {
+      "item": "Vineland DataOne Phase 2 확장 승인(2026-08-18)의 1차 확인",
+      "reason": "c_20260905_NBIS_04는 grade4 2차 매체 교차보도만으로 구성되어 confirmed=false로 적재됨. 직전 run에서 이관된 'Vineland 공사중지명령에 대한 회사 공식 입장' unconfirmed 항목과 연결되나, 이번 회차에도 회사·지자체 1차 문서는 확보하지 못했다.",
+      "next_check": "회사 IR/6-K 후속 공시, Vineland 시정부 회의록 원문 확인",
+      "related_claims": [
+        "c_20260905_NBIS_04"
+      ]
+    }
+  ]
+}

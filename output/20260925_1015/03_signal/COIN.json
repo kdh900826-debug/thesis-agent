@@ -1,0 +1,116 @@
+{
+ "as_of": "2026-09-25",
+ "run_id": "20260925_1015",
+ "ticker": "COIN",
+ "input_source": "output/20260925_1015/03_input/arbiter_COIN.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {"id": "c_20260925_COIN_1", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "scope": "company_specific", "confirmed": false, "out_of_window": true, "source_type": "state government press release (portal.ct.gov, 미등재 도메인 default_grade=4) + 2차매체 6건 삼각검증", "published_at": "2026-09-10", "summary": "코네티컷 DCP가 Coinbase 등 스포츠 이벤트 계약 제공 9개사에 cease-and-desist 발부, 코네티컷 주민 대상 광고·제공 중단 및 인출 허용 지시. 회사별 인출 이행·매출 영향 수치는 제시되지 않음. P4상 grade4는 confirmed=true 불가."},
+  {"id": "c_20260925_COIN_2", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "scope": "company_specific", "confirmed": false, "out_of_window": false, "source_type": "news(Law360, 4개 2차매체 삼각검증)", "published_at": "2026-09-22", "summary": "Coinbase Financial Markets가 제6순회항소법원 소송 정리를 기다리며 미시간주 스포츠 이벤트 계약을 자발적으로 철수. 앞서 D.Mich 법원이 CEA 선점 주장을 배척하고 가처분을 기각한 데 따른 조치. 법적 최종 결론(선점 여부)은 미확정(P7)."},
+  {"id": "c_20260925_COIN_3", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "out_of_window": false, "source_type": "Federal Register(govinfo.gov, GPO 발행 원문)", "filed_at": "2026-09-18", "published_at": "2026-09-23", "summary": "Coinbase Derivatives(CDE)가 SEC에 개별주식·ETF 대상 무기한 증권선물(Chapter 12, Rules 1201-1225) 자기인증 규칙변경 신고. 상장기준(시총$100B·ADV$450M·유통주식2천만주) 명시, 개별종목·상장시점 미특정. CFTC 승인·실제 상장·매출인식 중 어느 것도 확인 안 됨(P7, '신고 제출' 단계 한정)."},
+  {"id": "c_20260925_COIN_4", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "scope": "company_specific", "confirmed": false, "out_of_window": false, "source_type": "news(aggregator 다수 재인용, cftc.gov 원문 미대조)", "published_at": "2026-09-18", "summary": "Coinbase Derivatives가 CFTC 41.23(b) 자기인증(#2026-62)으로 AAPL 등 미 대형주 약 50~60종목 대상 Equity Perpetual Contracts 상장 추진 보도. cftc.gov 원문 미확보로 confirmed=false. c_20260925_COIN_3(SEC 경로)과 동일 이니셔티브인지 별개 트랙인지 확정 불가."}
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_COIN.json의 claims 4건 전건 scope=company_specific 확인. removed_claims 0건. F13 해당 없음.",
+ "kill_check": {
+  "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+  "own_company_kc": [
+   {"kc_id": "KC-COIN-1", "condition": "구조 전환 실패(구독 비중 하락 + 거래매출 동반 감소, all_of)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "이번 창 구독·서비스 비중 관련 신규 수치 없음(unconfirmed 이월). 판정 입력 부재 — met 근거 없음(P5)."},
+   {"kc_id": "KC-COIN-2", "condition": "예치자산 순유출(가격 변동 제외)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "이번 창 platform assets net inflow/outflow 신규 공시 없음(unconfirmed 항목 이월). 명목 잔액 대체 판정 금지(F3) — met 근거 없음."},
+   {"kc_id": "KC-COIN-3", "condition": "규제 소송(중대 건 한정)", "verdict": "met_candidate", "verdict_confidence": "unconfirmed", "note": "이번 창 신규: 코네티컷 DCP의 C&D 발부(c_20260925_COIN_1)와 미시간 자발적 철수(c_20260925_COIN_2) — 사건 발생 자체는 정부 공개문서·법원 관련 보도로 실질 확인되나, 두 claim 모두 evidence_grade=4이며 P4 규칙(grade 3·4 fact는 confirmed=true 불가, 삼각검증만으로 단독 판단 근거 부적격)에 따라 confirmed=false로 기계적 유지. 따라서 '중대 건'에 해당할 소지가 있는 사건이 실제 발생했음에도 Kill 규칙의 confirmed 요건을 충족하지 못해 met_and_confirmed=false — 이는 사건 부재가 아니라 근거등급 게이트 미달에 따른 것임을 명시한다. 두 건 모두 개별 주(州) 단위 조치이며 연방 선점 여부 등 법적 결론은 계류 중(P7)."},
+   {"kc_id": "KC-COIN-4", "condition": "USDC 연동 수익 훼손(교차 KC, 방향 조건부)", "verdict": "not_met", "verdict_confidence": "confirmed", "note": "이번 창 Circle 분배계약·USDC 수익 관련 신규 훼손 자료 없음. KC-CRCL-3 발췌 트리거 관련 언급도 없음(전 run 대비 변화 없음)."}
+  ],
+  "macro_kc_propagating": {
+   "note": "발췌본 기준 파급 매크로 KC(KC-2·KC-3·KC-4·KC-5) 전건 not_met·verdict_confidence=confirmed(VIX 15.67, BTC $84,653.665, ON_RRP $0.63B, TAIEX 20일선 대비 +3.44%p/1개월 +7.58%). P5 — 발췌 제외 KC는 '무관'이 아니라 correlation_matrix상 불리 방향 노출 축 없음을 뜻함."
+  },
+  "met_and_confirmed": false,
+  "human_confirmation_required": false,
+  "basis": "KC-COIN-1·2는 판정 입력 부재로 not_met(provisional). KC-COIN-4는 신규 훼손 없이 not_met(confirmed). KC-COIN-3만 이번 창 실질 사건(주정부 C&D·법원발 자발적 철수)이 발생해 'met 후보'로 격상되나, 근거가 전부 evidence_grade=4이고 P4상 confirmed=true 부여 불가하여 met_and_confirmed 조건(met AND confirmed)을 충족하지 못한다. 규칙1(Kill 우선) 자동 발동 대상 아님 — 다만 사람 검토 시 KC-COIN-3 근접 사건으로 보고할 가치가 있다(아래 alert 참조)."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative": true,
+   "scope_company_specific": true,
+   "stage_revenue_recognized": false,
+   "overall_upgrade_gate_met": false,
+   "basis": "P2/P6/P7 3요건 중 quantitative·scope_company_specific은 c_20260925_COIN_3(SEC Federal Register 원문, grade1, confirmed=true)이 충족하나, stage_revenue_recognized는 claim 자체가 명시하듯 '신고서 제출' 단계에 불과하고 CFTC 승인·실제 상장·매출 인식 중 어느 것도 확인되지 않아 미충족(P7 3단 분리 엄수). 3요건 전부 충족이 아니므로 overall_upgrade_gate_met=false. 병행 CFTC 트랙(c_20260925_COIN_4)은 quantitative=false·confirmed=false로 게이트 대상도 아님. derivatives_base 축은 holding_reinforcement로만 분류한다."
+  },
+  "downgrade_check": {
+   "rule": "v1 §6-2 규칙3 — 정량 훼손 또는 evidence_grade≤2의 정성 훼손 시 하향 가능(비대칭)",
+   "quantitative_deterioration": false,
+   "qualitative_deterioration_grade_le_2": false,
+   "overall_downgrade_gate_met": false,
+   "basis": "prediction_market 축은 방향 weaken(코네티컷 C&D·미시간 철수)이나, 근거 claim(c_20260925_COIN_1/_2)이 전부 evidence_grade=4로 규칙3의 grade≤2 임계를 충족하지 못해 하향 게이트 발동 요건 미달 — 비대칭 하향조차 근거등급 하한선(grade≤2)을 요구하는 설계이므로, 방향성이 부정적이라는 사실만으로 자동 하향되지 않는다. 매출·마진·현금흐름 등 정량 훼손 확정치도 이번 창 없음(quantitative_deterioration=false) — CT·미시간 조치의 매출 영향은 unconfirmed(정량화 미공시, next_check 이관). 따라서 overall_downgrade_gate_met=false."
+  }
+ },
+ "decision": "maintain",
+ "decision_reason": "P12 — 상향 게이트 3요건 중 quantitative·scope_company_specific은 충족하나 stage_revenue_recognized 미충족으로 상향 불가(derivatives_base는 holding_reinforcement 분류만). 하향 게이트는 방향성(weaken) 존재에도 근거등급이 grade4(>2)라 규칙3 임계 미달로 미발동. Kill 규칙(met AND confirmed)도 KC-COIN-3 실질 사건 발생에도 근거등급 게이트(P4, grade4→confirmed=true 불가)로 미충족. 게이트 미충족은 실패가 아니라 정상 경로(P12)이므로 현행 🟠 주의(Q2 매출 miss) 등급을 유지하고 사유만 기록한다.",
+ "thesis_delta_summary": [
+  {
+   "axis": "prediction_market",
+   "direction": "weaken",
+   "detail": "[c_20260925_COIN_1/_2, as_of 2026-09-25] 신설 축 최초 관측 — 카드 요구 확인 절차(COIN 자체 1차 수집)가 이번 회차에서 충족됨. 코네티컷 DCP C&D(2026-09-10)·미시간 자발적 철수(2026-09-22) 확인, 두 건 모두 개별 주(州) 단위 접근 제한. 법적 최종 결론(연방 선점 여부) 미확정, 매출 영향 정량 미공시, 근거등급 grade4(confirmed=false)로 확신도는 낮게 표기.",
+   "risk_transfer": [
+    "제6순회항소법원·D.Conn 계류 소송의 최종 판단(연방 선점 인정 여부) — 별도 이벤트로 추적",
+    "코네티컷·미시간 외 추가 주(州)로의 확산 여부 — 카드 미기재 항목, 다음 회차 감시",
+    "예측시장 부문 매출·거래량에 대한 주별 제한의 실제 기여도 — Q3 실적 이관, 회사가 지역별 분해 공시하지 않는 한 정량 판정 불가"
+   ]
+  },
+  {
+   "axis": "derivatives_base",
+   "direction": "strengthen",
+   "detail": "[c_20260925_COIN_3/_4] 등급이 news(3~4)에서 1차 공시(SEC Federal Register, grade1, confirmed=true)로 상향되고 신고 내용(상장기준·규칙 챕터)이 구체화됨. 방향은 전 run과 동일하게 strengthen 유지하되, P7상 여전히 '신고 제출' 단계이며 CFTC 승인·실제 상장·매출인식 미확인이라 확신도는 낮게 유지. 상향 게이트 미충족이므로 holding_reinforcement로만 분류.",
+   "risk_transfer": [
+    "CFTC 승인 여부 및 소요 기간 — 승인 전까지 '확인' 단계는 신고 단계에 머무름",
+    "CME v. CFTC 소송(제3자 간) 결과 — COIN 비당사자이나 CFTC 심사 여력·법적 근거에 영향",
+    "SEC의 60일 사후 무효화권 행사 여부 — 승인 이후에도 남는 절차적 리스크"
+   ]
+  }
+ ],
+ "alert": {
+  "ticker_event": "COIN — 코네티컷 DCP의 예측시장 스포츠 계약 C&D(09-10, 9개사 대상) + Coinbase의 미시간 자발적 철수(09-22, 제6순회법원 소송 계류 중) 신규 확인. 동시에 SEC Federal Register 원문으로 개별주식 무기한 증권선물 자기인증 신고 실체 확인(09-23 게재)",
+  "facts": [
+   "[portal.ct.gov 주정부 보도자료, 2026-09-10, 2차매체 6건 삼각검증] 코네티컷 DCP가 Coinbase 포함 9개 예측시장 플랫폼에 스포츠 이벤트 계약 cease-and-desist 발부, 주민 대상 광고·제공 중단 및 인출 허용 지시. 회사별 매출 영향 수치 미제시(c_20260925_COIN_1, grade4, confirmed=false).",
+   "[Law360, 2026-09-22, 4개 2차매체 삼각검증] Coinbase Financial Markets가 제6순회항소법원 소송 정리를 기다리며 미시간주 스포츠 이벤트 계약 자발적 철수 — 앞서 D.Mich 법원이 CEA 선점 항변을 배척(c_20260925_COIN_2, grade4, confirmed=false).",
+   "[govinfo.gov Federal Register, 문서번호 2026-19407, 제출 2026-09-18/게재 2026-09-23] Coinbase Derivatives가 개별주식·ETF 대상 무기한 증권선물 신설(Chapter 12) 자기인증 신고, 상장기준(시총$100B·ADV$450M·유통주식2천만주) 명시. 개별종목·승인·상장·매출인식 전부 미확인(c_20260925_COIN_3, grade1, confirmed=true — '신고 제출' 단계 한정).",
+   "[aggregator 다수, 2026-09-18] CFTC 41.23(b) 경로 별도 자기인증(#2026-62, AAPL 대표상품, 'Approval Pending 45일') 보도, cftc.gov 원문 미대조(c_20260925_COIN_4, grade4, confirmed=false)."
+  ],
+  "inference": {
+   "text": "예측시장 부문은 이번 창에서 처음으로 개별 주(州) 단위의 구체적 영업 제한이 2개 주(코네티컷·미시간)에서 동시 확인되며 weaken 방향이 열렸다. 다만 법적 최종 결론(연방 선점 여부) 미확정, 매출 영향 정량 미공시, 근거등급 grade4로 확신도는 낮다. 반대로 파생상품 온쇼어화 트랙은 SEC 1차 문서로 '신고 제출' 실체가 확인돼 strengthen 방향의 신뢰도가 높아졌으나 여전히 매출 인식과는 거리가 먼 초기 단계다.",
+   "strength": "low",
+   "basis_claim": "c_20260925_COIN_1, c_20260925_COIN_2, c_20260925_COIN_3"
+  },
+  "classification": "혼합 — 규제 리스크 신규 확인(prediction_market weaken, holding 감시 강화)과 정성적 사업 진전(derivatives_base holding_reinforcement) 병존. 등급 변경 근거 없음(P2/P6/P13).",
+  "thesis_delta": {
+   "axes": [
+    {"axis": "prediction_market", "direction": "weaken", "detail": "코네티컷 C&D·미시간 자발적 철수 최초 확인, 법적 결론 미확정, 매출 영향 미정량화, grade4/confirmed=false.", "risk_transfer": ["제6순회항소법원·D.Conn 소송 최종판단", "추가 주 확산 여부", "예측시장 매출 기여도의 실제 정량화"]},
+    {"axis": "derivatives_base", "direction": "strengthen", "detail": "SEC Federal Register 1차 문서로 신고 실체 확인(grade1, confirmed=true), 여전히 '신고 제출' 단계.", "risk_transfer": ["CFTC 승인 여부·소요기간", "CME v. CFTC 소송 결과(제3자)", "SEC 60일 사후무효화권 행사 여부"]}
+   ]
+  },
+  "signal_verdict": "🟠 주의(Q2 매출 miss) 등급 유지(후보) — 상향 게이트 미충족(stage_revenue_recognized=false, derivatives_base는 holding_reinforcement일 뿐 상향 근거 아님). 하향 게이트도 미충족(prediction_market weaken 방향은 존재하나 근거등급 grade4>2로 규칙3 임계 미달). Kill 규칙 미해당 — KC-COIN-3에서 실질 사건(주정부 C&D·법원발 철수)은 발생했으나 근거등급 게이트(P4)로 confirmed=true 부여 불가해 met_and_confirmed=false. **사람 검토 권고:** KC-COIN-3 근접 사건이므로 1차 문서(코네티컷 DCP 명령서 원문, 미시간 법원 도킷)의 직접 확보와 매출 영향 정량화가 확보되면 다음 run에서 Kill 조건 재평가 필요. 최종 등급 확정은 사람이 한다.",
+  "next_check": [
+   "Q3 2026 실적 — 예측시장(prediction market) 부문 매출의 코네티컷·미시간 조치 영향 정량치 (prediction_market 축·KC-COIN-3 판정용)",
+   "Q3 2026 실적 — 구독·서비스 매출 절대액 및 비중 방향, 거래매출 QoQ 부호 (KC-COIN-1 판정용)",
+   "회사 공시 platform assets net inflow/outflow(가격효과 제외) 분기치 (KC-COIN-2 판정용)",
+   "Q3 2026 Stablecoin revenue 절대액(직전 $292.147M) (KC-COIN-4 판정용)",
+   "코네티컷 DCP 명령서 원문·미시간 D.Mich/제6순회법원 도킷 직접 확보 및 confirmed 등급 재평가",
+   "cftc.gov 자기인증 게시판에서 Submission #2026-62 원문 대조"
+  ]
+ },
+ "next_gate": "Q3 2026 실적 — 예측시장 부문 매출의 코네티컷·미시간 조치 영향 정량치 + 구독·서비스 비중 방향 + Stablecoin(USDC) 수익 절대액(직전 $292.147M) + platform assets net inflow/outflow(가격효과 제외)",
+ "unconfirmed_carried": [
+  {"topic": "예측시장 부문 매출 기준선(Q2 연환산 $100M 돌파·QoQ+106% 서사)", "reason": "2차매체 인용만 존재, SEC EDGAR 8-K 주주서한 원문 미대조."},
+  {"topic": "CFTC 자기인증 제출(#2026-62) 원문 대조", "reason": "cftc.gov 원문 미확인, confirmed=false 유지."},
+  {"topic": "코네티컷·미시간 조치의 예측시장 부문 매출 영향 정량화", "reason": "회사가 주별 매출 영향을 공시하지 않음."},
+  {"topic": "OUSD 참여 조건·분배 구조 공개", "reason": "not_found — 이번 창 내 COIN 특정 1차 자료 없음(P5)."},
+  {"topic": "USDC 수익 절대액 Q3 2026 신규 공시", "reason": "not_yet_released — Q2 $292.147M이 최신치."},
+  {"topic": "Circle-Coinbase 분배계약 '2029년 갱신' 서사의 COIN 1차 확인", "reason": "이번 창 EDGAR 조회 0건, 여전히 grade1/2 근거 미확보."},
+  {"topic": "Q3 2026 실적 발표일 회사 IR 공식 공지", "reason": "aggregator_estimate_only — investor.coinbase.com 공식 공지 미확인(F1)."},
+  {"topic": "Deribit Starbase 이전·RWA 무기한선물 실제 매출·거래량 기여", "reason": "3개 run 연속 미해소."},
+  {"topic": "예치자산 순유출(가격효과 제외) 분기 데이터", "reason": "이번 창 회사 공시 없음 — KC-COIN-2 판정 입력 공란(F3에 따라 명목잔액 대체 불가)."}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. filter_bug 없음(removed_claims 0건, claims 4건 전건 scope=company_specific). gate_check 상향 3요건 중 quantitative·scope_company_specific만 충족(stage_revenue_recognized 미충족) — 등급 유지가 P12 기본 경로로 확정 적용됨. 하향 게이트는 prediction_market weaken 방향에도 근거등급(grade4>2) 미달로 미발동. **다만 KC-COIN-3(규제 소송 중대 건) 근접 사건이 이번 run에서 처음 실질적으로 관측됐다** — Kill 미발동 사유가 '사건 부재'가 아니라 'P4 근거등급 게이트'임을 사람에게 명확히 전달할 것을 권고. state/signals.json은 수정하지 않음(후보 판정까지만, 확정은 사람)."
+}

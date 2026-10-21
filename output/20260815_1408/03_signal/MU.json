@@ -1,0 +1,109 @@
+{
+  "as_of": "2026-08-15",
+  "run_id": "20260815_1408",
+  "ticker": "MU",
+  "prior_signal": "🟠",
+  "proposed_signal": "🟠",
+  "transition_candidate": "유지 (등급 변경 없음) — 상향·하향 게이트 모두 미충족",
+
+  "kc_priority_check": {
+    "rule": "전이 규칙 1 — Kill 우선: KC met AND confirmed → 🔴🔴",
+    "kc_checked": ["KC-6", "KC-7", "KC-8"],
+    "kc_status_summary": "KC-6(SDLLMTK -30% 2주 지속)=not_met/provisional, KC-7(하이퍼스케일러 합산 FCF<0 2분기 연속)=not_met/provisional, KC-8(MSFT FCF<0)=not_met/provisional",
+    "event_kc_observed": false,
+    "triggered": false,
+    "note": "전 KC not_met/provisional(미수집 상태) — Kill 후보 아님. 종목 이벤트형 KC 발동 관측 없음(오케스트레이터 확인)"
+  },
+
+  "gate_check": {
+    "quantitative": false,
+    "scope": true,
+    "stage": false,
+    "upgrade_eligible": false,
+    "rule": "전이 규칙 2 — quantitative==true AND scope==company_specific AND stage==revenue_recognized 전부 충족 시에만 상향",
+    "per_claim": [
+      {
+        "claim_id": "c_20260815_MU_01",
+        "quantitative": true,
+        "scope": "company_specific",
+        "stage": "demand_commentary_not_revenue_recognized",
+        "evidence_grade": 2,
+        "confirmed": true,
+        "verdict": "게이트 미충족 — 경영진(EVP/CBO Sumit Sadana) 직접 발언이나 수요 관련 정성적 코멘트(계약 존재/이행/매출 인식 3단 중 어디에도 해당 없음). 입력 필터본의 quantitative:true 태그와 무관하게, '수요의 절반 미충족'은 확정 매출·마진·현금흐름·가이던스 수치가 아니므로 P2상 상향 근거로 사용 불가. 정성 재료로 분류"
+      },
+      {
+        "claim_id": "c_20260815_MU_02",
+        "quantitative": false,
+        "scope": "company_specific",
+        "stage": "n/a",
+        "evidence_grade": 2,
+        "confirmed": true,
+        "verdict": "quantitative=false — 게이트 자동 미충족. 2027 공급부족 심화 전망은 경영진 정성적 전망 발언"
+      },
+      {
+        "claim_id": "c_20260815_MU_03",
+        "quantitative": false,
+        "scope": "company_specific",
+        "stage": "n/a",
+        "evidence_grade": 4,
+        "confirmed": false,
+        "verdict": "quantitative=false, confirmed=false, grade4(2차 매체 단독 보도) — 상향·하향 판정 모두 근거 불가. 1차 자료 미역추적"
+      },
+      {
+        "claim_id": "c_20260815_MU_04",
+        "quantitative": true,
+        "scope": "company_specific",
+        "stage": "market_share_estimate_not_revenue_recognized",
+        "evidence_grade": 4,
+        "confirmed": false,
+        "verdict": "quantitative=true이나 stage는 매출 인식 단계가 아닌 3자 애그리게이터(Counterpoint) 출하량 점유율 추정치. confirmed=false + grade4(P4상 애그리게이터, 삼각검증용, 단독 판단 근거 불가) — 상향은 물론 하향 단독 근거로도 부적격"
+      }
+    ],
+    "conclusion": "4개 Claim 중 stage==revenue_recognized를 충족하는 항목 없음 (매출·마진·현금흐름·가이던스 확정 수치 부재) — 상향 게이트 미충족"
+  },
+
+  "downgrade_check": {
+    "rule": "전이 규칙 3 — 정량 훼손 또는 evidence_grade≤2 정성 훼손이면 하향 가능 (비대칭)",
+    "triggered": false,
+    "analysis": [
+      {
+        "axis": "hbm_demand",
+        "direction": "strengthen",
+        "claims": ["c_20260815_MU_01", "c_20260815_MU_02"],
+        "note": "훼손이 아닌 강화 방향 — 하향 트리거 대상 아님"
+      },
+      {
+        "axis": "sca_defense",
+        "direction": "neutral",
+        "claims": ["c_20260815_MU_03"],
+        "note": "grade4·confirmed:false — 훼손 방향성 자체가 미확정. 정성 훼손 기준(grade≤2) 미충족"
+      },
+      {
+        "axis": "china_supply",
+        "direction": "weaken",
+        "claims": ["c_20260815_MU_04"],
+        "note": "YMTC NAND 출하량 점유율 3위 진입은 방향상 훼손이나, evidence_grade=4(Counterpoint, 애그리게이터)·confirmed=false. P4상 grade 3·4는 삼각검증용이며 단독 판단 근거 불가 — '정량 훼손'을 단독 사실로 확정할 수 없어 하향 트리거 미충족. 매출 기준으로는 MU가 여전히 우위(프리미엄 믹스)라는 동일 자료 내 상쇄 서술도 존재"
+      }
+    ],
+    "conclusion": "정량 훼손(확정) 또는 grade≤2 정성 훼손 사례 없음 — 하향 게이트 미충족"
+  },
+
+  "claims": [
+    { "id": "c_20260815_MU_01", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 2, "quantitative": true, "confirmed": true },
+    { "id": "c_20260815_MU_02", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 2, "quantitative": false, "confirmed": true },
+    { "id": "c_20260815_MU_03", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "confirmed": false },
+    { "id": "c_20260815_MU_04", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 4, "quantitative": true, "confirmed": false }
+  ],
+
+  "decision_rationale": "P12 — 게이트 미충족은 실패가 아니라 정상 경로: 등급 유지 + 사유 기록. 상향은 경영진 정성 발언(grade2, demand commentary)뿐으로 stage==revenue_recognized 불충족. 하향은 유일한 훼손 방향 재료(china_supply, YMTC 점유율)가 grade4·미확인 애그리게이터 자료로 P4 삼각검증 원칙상 단독 근거 불가. 따라서 MU는 🟠 주의(피크 역설 구간) 등급을 유지하며, 9/22 실적 발표가 다음 관측 게이트다.",
+
+  "alert": {
+    "ticker_event": "MU — 8/10 KeyBanc Technology Leadership Forum 경영진(EVP/CBO Sumit Sadana) 발언 및 8/12 TrendForce·Counterpoint 2차 보도 반영, 등급 유지 판정 (run_id 20260815_1408)",
+    "facts": "[fact, 출처·시각 확정] (1) Sadana, 8/10 KeyBanc 컨퍼런스: '데이터센터 고객 수요의 절반 이상을 충족하지 못하는 경우가 많다' (conference_transcript_direct_quote, grade2, confirmed). (2) 동일 자리에서 '2027 캘린더이어가 2026보다 더 타이트해질 것' 및 제1 제약은 DRAM이라고 발언 (grade2, confirmed). (3) TrendForce 8/12: 신규 SCA 상한가가 체결시점 시장가격 연동 구조로 전환 보도 (trade_press, grade4, confirmed:false, 1차자료 미역추적). (4) Counterpoint Research 8/12(Q2 2026 기준): YMTC NAND 출하량 점유율 14%로 Kioxia 추월, 글로벌 3위 진입. Micron은 출하량 5위이나 데이터센터 프리미엄 믹스로 매출 기준 YMTC 상회 (research_report, grade4, confirmed:false)",
+    "inference": "[inference, 강도] AI CapEx발 메모리 수요 압력이 최소 2027까지 지속될 가능성 — 경영진 직접 발언 기반이나 정성적 전망이므로 강도: 중간. 중국(YMTC) 물량 확대가 향후 가격 협상력에 미치는 영향은 방향성만 확인되고 크기는 미확정 — 강도: 낮음(자료 grade4·미확인)",
+    "classification": "holding_reinforcement — 경영진 수요 발언은 기존 hbm_demand 축의 정성적 강화 근거로만 분류(P2상 상향 부적격). china_supply·sca_defense는 미확정 관찰 항목으로 분류, 등급 판정에 미반영",
+    "thesis_delta": "hbm_demand 축 강화(정성) — 리스크는 Micron 자체 capex 집행·수율 램프 실행 리스크로 이관(수요는 확인되나 공급 확대 실행 여부가 관건). china_supply 축 약화 신호(미확정, grade4) — 리스크 일부가 매출·마진 믹스 방어력(프리미엄 엔터프라이즈 스토리지 비중)으로 이관 가능성 관찰 중. sca_defense 축은 중립 보류(1차자료 미확보)",
+    "signal_verdict": "🟠 주의 (피크 역설 구간) 유지 — 상향 게이트(quantitative && company_specific && revenue_recognized) 미충족, 하향 게이트(정량 훼손 확정 또는 grade≤2 정성 훼손) 미충족. 등급 전이 후보 없음(사람 확정 대상 아님)",
+    "next_check": "9/22 FY26 Q4 실적에서 관측 가능한 정량 항목: (1) 비트그로스 vs ASP 분해(순수 P사이클 가설 검증), (2) 고객 선수금(customer deposits/prepayment) 증감 방향, (3) SCA 신규 계약의 가격 연동 구조 원문(가이던스 대비) 대조, (4) 데이터센터/HBM 매출 비중 수치. 부수적으로 8/21 Apple 대상 CXMT/YMTC 관련 상원 서한 회신 결과 재조회 필요"
+  }
+}

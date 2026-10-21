@@ -1,0 +1,38 @@
+# 커버리지 정의 — 3섹터 7종목 (설계서 §커버리지, v1 §2 승계)
+# 사용자 직접 편집 영역. 에이전트는 이 파일을 수정하지 않는다.
+schema_version: 1
+as_of: "2026-08-15"
+
+sectors:
+  neocloud:
+    label: "네오클라우드"
+    members: [IREN, NBIS, CRWV]
+    common_axes: ["발주처 신용도", "MW당 매출", "AI CapEx 전송체인", "인허가·전력 규제"]
+  memory:
+    label: "메모리반도체"
+    members: [MU]
+    # D14: MU 단독 + 경량 참조. 참조 자산은 L2 에이전트 없음, Claim 미생성.
+    reference_assets:
+      - name: "삼성전자"
+        note: "sector-memory가 웹검색으로 업계 ASP·증설 발표 등 섹터 지표만 참조"
+      - name: "SK하이닉스"
+        note: "동일"
+    common_axes: ["비트그로스 vs ASP", "HBM 마진", "SCA·LTA 방어구조"]
+  stablecoin:
+    label: "스테이블코인"
+    members: [CRCL, COIN, HOOD]
+    common_axes: ["금리(이자수입)", "규제 확정(CLARITY·SEC 면제)", "크립토 사이클"]
+
+tickers:
+  IREN: {sector: neocloud,  tier: Edge, listing: "NASDAQ (호주 기업 — 20-F/6-K 제출)", edgar_forms: ["20-F", "6-K"]}
+  NBIS: {sector: neocloud,  tier: null, listing: "NASDAQ", edgar_forms: ["10-K", "10-Q", "8-K"], note: "관찰→커버리지 승격(v1 §2-2). 티어는 positions.yaml에서 확정"}
+  CRWV: {sector: neocloud,  tier: null, listing: "NASDAQ", edgar_forms: ["10-K", "10-Q", "8-K"], note: "관찰→커버리지 승격. Q2 수치 1차 자료 재대조 필요(Task 0)"}
+  MU:   {sector: memory,     tier: Base, listing: "NASDAQ", edgar_forms: ["10-K", "10-Q", "8-K"]}
+  CRCL: {sector: stablecoin, tier: Next, listing: "NYSE",   edgar_forms: ["10-K", "10-Q", "8-K", "S-1"]}
+  COIN: {sector: stablecoin, tier: Next, listing: "NASDAQ", edgar_forms: ["10-K", "10-Q", "8-K"]}
+  HOOD: {sector: stablecoin, tier: Next, listing: "NASDAQ", edgar_forms: ["10-K", "10-Q", "8-K"]}
+
+# v1 §2-2 스코프 변경 기록 (감사 추적)
+scope_changes:
+  excluded: ["삼성전자(참조로 강등)", "SK하이닉스(참조로 강등)", "WULF", "RKLB"]
+  promoted: ["NBIS", "CRWV"]

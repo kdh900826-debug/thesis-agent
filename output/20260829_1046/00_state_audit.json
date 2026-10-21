@@ -1,0 +1,98 @@
+{
+  "as_of": "2026-08-29",
+  "run_id": "20260829_1046",
+  "command": "run earnings IREN",
+  "pending_approvals": [
+    {
+      "approval_id": "ap_20260820_2235_thesis_patch_nbis_debt_annotate",
+      "type": "thesis_patch",
+      "age_days": 9,
+      "artifact": "output/20260820_2230/07_thesis_patch/NBIS_debt_annotate.md"
+    },
+    {
+      "approval_id": "ap_20260820_2235_thesis_patch_nbis_key_metrics_debt",
+      "type": "thesis_patch",
+      "age_days": 9,
+      "artifact": "output/20260820_2230/07_thesis_patch/NBIS_key_metrics_debt.md"
+    },
+    {
+      "approval_id": "ap_20260820_2235_thesis_patch_nbis_risks_funding_realized",
+      "type": "thesis_patch",
+      "age_days": 9,
+      "artifact": "output/20260820_2230/07_thesis_patch/NBIS_risks_funding_realized.md"
+    }
+  ],
+  "expired_now": [],
+  "config_errors": [],
+  "config_warnings": [],
+  "latest_run": "20260820_2230",
+  "artifacts": {
+    "macro_kc": {
+      "exists": false
+    },
+    "correlation": {
+      "exists": false
+    },
+    "positions": {
+      "age": 14,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": false
+    }
+  },
+  "run_plan": [
+    {
+      "step": 1,
+      "action": "state-audit",
+      "status": "done"
+    },
+    {
+      "step": 2,
+      "action": "사전 준비 브리핑 로드 (output/20260816_0000/earnings_prep_IREN_20260827.md)",
+      "status": "done"
+    },
+    {
+      "step": 3,
+      "action": "L2 company-iren 절차 준수 1차 자료 수집 (EDGAR 8-K/Ex-99.1/10-K)",
+      "status": "done",
+      "output": "02_company/IREN.json",
+      "validate": "PASS"
+    },
+    {
+      "step": 4,
+      "action": "체크포인트 13항목 대조표 + ValuationSnapshot",
+      "status": "done",
+      "output": "02E_earnings/IREN_checkpoints_20260827.md"
+    },
+    {
+      "step": 5,
+      "action": "filter_arbiter_input.py → signal-arbiter 후보 판정",
+      "status": "done",
+      "output": "03_signal/IREN.json",
+      "validate": "PASS"
+    },
+    {
+      "step": 6,
+      "action": "ThesisPatch 후보 6건 생성 + 승인 큐 등재",
+      "status": "done",
+      "output": "07_thesis_patch/"
+    },
+    {
+      "step": 7,
+      "action": "correlation_matrix IREN CRYPTO 재평가 입력 (L4 채택 대기)",
+      "status": "done",
+      "output": "08_vector_change_proposal_IREN_CRYPTO.json"
+    }
+  ],
+  "skipped": [
+    {
+      "item": "L1 macro-kc (01_macro_kc.json 부재)",
+      "reason": "명령 범위가 run earnings IREN — KC-3(BTC·VIX)은 L1 관할이며 종목 계층에서 판정하지 않는다(P13). KC-10은 이벤트형으로 종목 공시 관측만으로 판정 가능해 03_signal에서 처리했다."
+    },
+    {
+      "item": "correlation (05_correlation.json 부재)",
+      "reason": "L4 관할. 재평가 입력만 08_ 파일로 준비."
+    }
+  ],
+  "blocked_by_permission": []
+}

@@ -1,0 +1,91 @@
+# Thesis Card — CRCL (v1 §5-5 기계 판독본)
+ticker: CRCL
+sector: stablecoin
+tier: Next
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-5 / 투자_Thesis_Map_v32 (신호 🔴)"
+version_history:
+  - {date: "2026-09-25", change: 'ThesisPatch 적용(catalysts/amend) — 근거: c_20260925_CRCL_7 / 이전: - / "CLARITY / Act / 상원 / 경로"...'}
+  - {date: "2026-09-25", change: 'ThesisPatch 적용(axes/annotate) — 근거: c_20260925_CRCL_3,c_20260925_CRCL_4 / 이전: 관측점: / 거래 / 종결 / 공시(최대 / 15개월 / 내) / 및 / 종결 / 후 / 비이자 / 매출 / 비중 / 변화"}...'}
+  - {date: "2026-09-25", change: 'ThesisPatch 적용(axes/amend) — 근거: c_20260925_CRCL_1,c_20260925_CRCL_11,c_20260925_CRCL_6 / 이전: - / {id: / reserve_income, / label: / "Reserve / Income·마진 / (금리 / 직결...'}
+  - {date: "2026-09-12", change: 'ThesisPatch 적용(axes/amend) — 근거: c_20260911_CRCL_2,c_20260911_CRCL_1 / 이전: - / {id: / diversification, / label: / "비이자 / 매출 / 다각화 / (ARC·CPN)"}...'}
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(axes/decompose) — 근거: c_20260905_CRCL_0618_002,c_20260905_CRCL_0618_003,d_20260905_CRCL_0618_002,04_sector/stablecoin.json#sector_unconfirmed[su_20260905_12],04_sector/stablecoin.json#structural_inverse_exposure[sie_ousd_consortium] / 이전: - / {id: / competition_ousd, / label: / "경쟁 / — / OUSD / 컨소시엄·이자부 / 스테이블코...'}
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(risks/amend) — 근거: c_20260905_CRCL_0618_002,c_20260905_CRCL_0618_003,d_20260905_CRCL_0618_002 / 이전: - / "이자부 / 스테이블코인 / 경쟁자 / — / $YLDS(Figure / 발행, / SEC / 등록, / SOFR / 연동 / 이자 / 지급...'}
+  - {date: "2026-08-16", change: 'ThesisPatch 적용(kill_conditions_ref/amend) — 근거: c_20260815_CRCL_2228_011,config/kill_conditions.yaml#company.KC-CRCL-4,output/20260815_2307/07_thesis_patch/CRCL_regulation_decompose.json#axis_decomposition.kc_relink_note / 이전: kill_conditions_ref: / ["KC-CRCL-1", / "KC-CRCL-2", / "KC-CRCL-3",...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(axes/decompose) — 근거: output/20260815_2307/04_sector/stablecoin.json#axis_view[regulation],output/20260815_2307/04_sector/stablecoin.json#structural_inverse_exposure[sie_yield_bearing_stablecoin_clause],output/20260815_2307/04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_2252_03] / 이전: - / {id: / regulation, / label: / "규제 / — / SEC / Innovation / Exem...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(axes/amend) — 근거: output/20260815_2307/04_sector/stablecoin.json#axis_view[usdc_market_share],output/20260815_2307/04_sector/stablecoin.json#axis_view[competition_ousd],output/20260815_2307/04_sector/stablecoin.json#structural_inverse_exposure[sie_ousd_consortium],output/20260815_2307/04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_2252_01] / 이전: - / {id: / usdc_market_share, / label: / "스테이블코인 / 시장 / 내 / USDC / 점유...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(risks/amend) — 근거: output/20260815_2307/04_sector/stablecoin.json#structural_inverse_exposure[sie_yield_bearing_stablecoin_clause],output/20260815_2307/04_sector/stablecoin.json#axis_view[competition_ousd],output/20260815_2307/04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_2252_02] / 이전: - / "이자부 / 스테이블코인 / 경쟁자 / ($YLDS / 등) / — / 리스크 / 등록부 / 누락, / 패치 / 대기"...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(key_metrics/amend) — 근거: c_20260815_CRCL_002,c_20260815_CRCL_007,04_sector/stablecoin.json#axis_view[usdc_circulation] / 이전:   - "USDC 유통량 (축소 추세)"...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(axes/decompose) — 근거: c_20260815_CRCL_002,04_sector/stablecoin.json#axis_view[usdc_circulation],04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_01],04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_02],output/20260815_1408/06_portfolio.json#escalations[esc_20260815_1408_crcl_premise] / 이전:   - {id: usdc_circulation,  label: "USDC 유통량 (축소 추세 — Reserv...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(catalysts/amend) — 근거: 04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_08],04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_01],04_sector/stablecoin.json#structural_inverse_exposure[sie_ousd_consortium],c_20260815_CRCL_011,c_20260815_COIN_004 / 이전:   - "8/18 Q2 실적 (OUSD 영향 첫 확인)"...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(earnings_checkpoints/amend) — 근거: 04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_08],04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_04],c_20260815_CRCL_008,c_20260815_CRCL_012,c_20260815_COIN_004 / 이전: earnings_checkpoints: / date: "2026-08-18"...'}
+  - {date: "2026-08-15", change: 'v1 카드 기계 판독본 초기화'}
+axes:
+  # 2026-08-15 ThesisPatch(decompose, P8) — 이전 축: {id: usdc_circulation, label: "USDC 유통량 (축소 추세 — Reserve Income 분자)"}. "축소 추세" 방향 전제가 Q2'26 1차 공시(+19% YoY, grade 1, c_20260815_CRCL_002)와 상충 — 에스컬레이션(esc_20260815_1408_crcl_premise) 후 사용자 결정으로 정정
+  - {id: usdc_circulation_scale, label: "USDC 유통량 절대 규모·성장률 (Reserve Income 분자 — 분기말 스냅샷·30일 평잔 병기, KC-CRCL-1 측정 기준 정합. Q2'26 분기말 $73.3B +19% YoY·평잔 +25% YoY)"}
+  # 2026-08-15 ThesisPatch(amend, run 20260815_2307) — 이전 라벨: "스테이블코인 시장 내 USDC 점유율 (경쟁 침식 관측 — KC-CRCL-2 판정 대상 -3%p QoQ. OUSD·$YLDS 실측 부재로 2026-08-15 Run 관측 불가)". '관측 불가'는 회사 정의 점유율 grade 1 수치 확보로 더 이상 사실이 아니다(P9 — 이전 서술 주석 보존)
+  - {id: usdc_market_share,      label: "스테이블코인 시장 내 USDC 점유율 (경쟁 침식 관측 — KC-CRCL-2 판정 대상 -3%p QoQ). 회사 정의 점유율 Q1'26 28% → Q2'26 27% (-1%p QoQ, YoY -66bps, grade 1 confirmed) — 분모는 유통량 $100M 이상·정기 어테스테이션 보유 미달러 스테이블코인으로 한정. 3자 집계(DefiLlama 기반) 약 24%는 전체 공급을 분모로 삼아 약 3%p 격차가 있으며 grade 4·confirmed=false로 삼각검증 항목(P4). 두 계열은 분모 정의가 달라 직접 비교 불가 — KC-CRCL-2 판정 시 어느 계열을 쓰는지 명시 필요. OUSD는 출시 전이라 여전히 점유율 영향 관측 불가이며 자료 부재는 위협 소멸의 반증이 아니다(P5)"}
+  # 2026-09-25 ThesisPatch(amend, run 20260925_1015) — 이전 라벨: 'Reserve Income·마진 (금리 직결)'(P9 보존). 이전 서술은 금리 한 변수만 명시해 유통비용(파트너 분배) 쪽 비용 구조가 축 밖에 놓여 있었다. 2026-09-22 8-K로 확인된 Binance 5년 재계약을 비용 구조 관측 항목으로 병기한다. 축 수 8개 불변(전문 86행 기준 계수).
+  - {id: reserve_income,    label: "Reserve Income·마진 (금리 직결 + 유통비용 구조). 유통비용 관측 — [fact · grade 1 · confirmed] Circle 자회사와 Binance의 USDC 프로모션 계약 5년 확장·갱신(8-K Item 8.01, 사건일 2026-09-17·제출 2026-09-22). 2024-11·2025-08 기존 계약을 대체하며, Circle은 Binance에 USDC 보유액의 일정 비율인 월간 인센티브 수수료를 지급한다 — 요율·산식·조기해지 트리거는 비공개. 동시에 Binance가 Class A 보통주 1,237,011주를 주당 $80.84(총 $1억)에 사모 인수, 종결 후 2년 락업(c_20260925_CRCL_1). [inference · medium] 파트너 분배 비용이 5년간 잔액 연동 구조로 재고정됐다. 요율 비공개로 마진 영향 크기는 산출 불가이며 과거 Binance向 비용 수치를 대입하지 않는다(c_20260925_CRCL_11). 같은 계약은 usdc_circulation_scale 축에는 유통 채널 고정으로 반대 부호로 들어간다 — 분배계약 본래 구조이며 모순이 아니다. [fact] Coinbase 분배계약은 Item 1.01/1.02 8-K 무공시 약 32일(c_20260925_CRCL_6) — 무공시는 무변경의 증명이 아니다(P5). KC-CRCL-3은 Coinbase 분배계약 정의이며 Binance 산입 여부는 config 결정 영역이다. 관측점: Q3'26 10-Q 계약 주석·유통비용 항목에서 Binance 인센티브 요율·반영 규모 및 Coinbase 분배조건 원문 확인"}
+  # 2026-09-05 ThesisPatch(decompose, run 20260905_0618) — 이전 축: {id: competition_ousd, label: "경쟁 — OUSD 컨소시엄·이자부 스테이블코인($YLDS 등)"}. 한 슬롯에 발행 주체·상품 성격(이자부 여부)·관측 가능성이 모두 다른 두 위협원이 혼재해 축 방향의 시계열 해석이 왜곡된다(su_20260905_12). 실제로 이번 run의 strengthen 근거는 OUSD가 아니라 $YLDS 실측이며, 이를 "OUSD 위협 완화"로 읽는 오독이 성립한다. ⚠️P8의 엄격 요건(새 1차 자료가 기존 축 판정을 뒤집음)은 충족하지 않는다 — 축 판정이 뒤집힌 것이 아니라 축이 담는 대상이 갈라진 사례이며, L3는 분해 여부를 카드 소유 계층 판단으로 이관했다. 2026-08-15 승인된 regulation 분해(회사 인가 grade1 vs 섹터 입법 grade3·4가 한 축에서 반대 부호로 상쇄)와 동일 유형이므로 제안하되 채택은 사람 판정이다. 축 수 7 → 8(전문 기준 계수).
+  - {id: competition_ousd_consortium, label: "경쟁 — OUSD 컨소시엄 (140+사, 발행·환매 무수수료 + 준비금 수익 파트너 환원 = 수익모델 정면 위협). 2026-09-05 기준 미출시로 실측 유통량이 존재하지 않으며 3 run 연속 상태 진전 없음 — 2026년 하반기 목표(Solana 우선) 반복 확인만. 자료 부재는 위협 소멸의 반증이 아니다(P5). 부호 활성화 조건 = 공식 출시 + 실측 유통량 최초 공시"}
+  - {id: competition_yield_bearing, label: "경쟁 — 이자부 스테이블코인 ($YLDS 등). 실측 관측이 가능한 축. $YLDS 유통량 4Q25 $328.193M → 1Q26 $598M → 2Q26 $556.033M(QoQ -7.0%), 전부 발행사 FIGR 1차 공시 grade 1. USDC 분기말 $73.3B 대비 1% 미만. 위협의 실질은 규모가 아니라 CLARITY 이자조항 문언에 조건부이며 문언은 미확정"}
+  # 2026-08-15 ThesisPatch(decompose, P8, run 20260815_2307) — 이전 축: {id: regulation, label: "규제 — SEC Innovation Exemption·CLARITY (2차 독립 게이트)"}. 회사 개별 인허가(grade 1 confirmed)와 섹터 입법(grade 3·4 confirmed=false)이 한 축에서 반대 부호로 상쇄되는 문제를 분해해 독립 재평가 단위를 복원한다(P9 — 이전 서술 주석 보존)
+  - {id: regulation_company_licensing,  label: "회사 개별 인허가 (OCC의 Circle National Trust 설립 최종 인가·NYDFS의 Circle New York Trust 승인 — grade 1 confirmed. scope=company_specific, 자사 사업 인가 진척의 관측 단위)"}
+  - {id: regulation_sector_legislation, label: "섹터 입법·규제 게이트 (SEC Innovation Exemption·CLARITY Act — 2차 독립 게이트. 2026-08 Run 관측: SEC 토큰화 면제 8/14 시점 재지연·예정 회의 취소 grade 4 confirmed=false, CLARITY 상원 8/8 클로처 제출 후 9/15 절차 표결 순연 grade 3 confirmed=false — 9/15는 최종 표결이 아니다. scope=sector이므로 이 축의 재료는 개별 종목 등급의 근거로 사용될 수 없다(P6·P13))"}
+  # 2026-09-12 ThesisPatch(amend, run 20260911_2308) — 이전 라벨: "비이자 매출 다각화 (ARC·CPN)"(P9 보존). 이전 서술은 자체 구축 채널(ARC·CPN)만 열거해 인수·제휴를 통한 다각화 채널이 축 밖에 놓여 있었다. 2026-09-08 8-K로 확인된 Tazapay 확정계약을 관측 항목으로 병기한다. 축 수 8개 불변(전문 기준 계수).
+  - {id: diversification,   label: "비이자 매출 다각화 — (a) 자체 구축 채널: ARC·CPN. (b) M&A 채널: Tazapay Pte. Ltd.(싱가포르 크로스보더 결제) 확정계약 2026-09-04 체결·2026-09-08 8-K 공시(Item 1.01/3.02/7.01/9.01, grade 1 confirmed). 대금 전액 Circle Class A 보통주 약 $400M 상당(종결 시 주가조정), 에스크로 5%·3%·핵심인력 유지 75%+·규제승인·최대 15개월 종결기한 조건부. P7 3단 분리상 1단계(계약 존재)에 불과하며 종결·매출인식은 미발생 — 매출 기여 정량화는 종결 공시 이후 분기보고서에서만 가능하다. 관측점: 거래 종결 공시(최대 15개월 내) 및 종결 후 비이자 매출 비중 변화. (c) Arc 메인넷 기준선(2026-09-25 ThesisPatch annotate, run 20260925_1015 — 기존 (a)(b) 서술 보존, P9): [fact · grade 2 · 경영진 직접 발언] CEO Allaire 2026-09-23 Autonomous Research 심포지엄 발언 — Arc 메인넷(2026-09-16 출시) 첫 주 네트워크상 가치 약 $1B 근접, USDC 기준 거래 수수료 약 $0.5M, FDV 약 $3B, Circle 지분 25%. 본인이 출시 시점 버스트로 규정하고 지속성을 유보했다(c_20260925_CRCL_3). [삼각검증 전용 · grade 4 · confirmed=false · 단독 근거 부적격(P4)] 2차 매체 온체인 집계(DeFi TVL 약 $348M·스테이블코인 잔액 약 $630M 등)는 측정 계열이 달라 위 발언과 합산·대체하지 않는다(c_20260925_CRCL_4). [inference] 네트워크 거래 수수료는 Circle 재무제표 매출과 동일하지 않다 — P7상 이행 개시 단계이며 매출 인식 수치는 미공시. 관측점: 2주 차 이후 지표 지속 여부, Q3'26 재무제표 내 Arc 관련 매출·수수료 인식 여부"}
+
+thesis: >
+  규제 선점(GENIUS Act·MiCA) + USDC 유통량 기반 준비자산 이자 수입.
+  스테이블코인 시장 자체의 파이 성장이 경쟁 침식을 상쇄한다는 구조.
+
+key_metrics:
+  - "USDC 유통량 — 방향 전제 없이 관측 (Q2'26 분기말 $73.3B +19% YoY·평잔 +25% YoY, grade 1. 이전 표기 '축소 추세'는 2026-08-15 정정 — 온체인 고빈도 수치는 grade 4로 단독 판단 근거 불가, P4)"
+  - "Reserve Income 및 마진"
+  - "기준금리 (이자수입 직결)"
+  - "OUSD 실측 점유율 영향"
+  - "유통·파트너십 비용 비중"
+  - "ARC·CPN 등 비이자 매출 다각화 진척"
+  - "내부자 거래"
+
+catalysts:
+  - "⚠️소멸 — 이전 항목: '8/18 Q2 실적 (OUSD 영향 첫 확인)'. Q2 실적은 2026-08-05 발표 완료. 2026-08-18은 Circle-Coinbase 분배계약 3년 자동 갱신 예정일(KC-CRCL-3 관측 항목)이며 실적 게이트가 아니다. 또한 OUSD는 2026-08 현재 출시 전 단계로 실측 유통량이 없어 'OUSD 영향 첫 확인'은 8/5 실적에서도 이루어지지 않았다"
+  - "SEC Innovation Exemption 프레임워크 (5/26 이후 신규 일정 없음)"
+  # 2026-09-25 ThesisPatch(amend, run 20260925_1015) — 이전 항목: 'CLARITY Act 상원 경로'(P9 보존). 이전 서술은 경로만 적어 9/15 이후 상태가 촉매 목록에 반영되지 않았다. 근거가 grade 4·scope=sector이므로 일정 서술에만 쓰고 방향 판정 근거로 쓰지 않는다(P4·P6·P13). 항목 수 4개 불변(전문 86행 기준 계수).
+  - "CLARITY Act 상원 경로 — [확인 대상 · grade 4 · confirmed=false · scope=sector] 2차 매체 관측: 2026-09-15 클로처 부결 후 재의동의가 제출됐으나 2026-09-25 현재 재표결 일정 미확정, 11월 중간선거 이후 레임덕 세션 지연 가능성 지목. 미해결 쟁점에 이자부 스테이블코인 금지 조항 포함(c_20260925_CRCL_7). 1차 자료(senate.gov) 미확인 — 사실 확정이 아니다. [inference] 재의 경로가 남아 있어 kill_conditions_ref의 'CLARITY 최종 실패' 확정으로 읽지 않는다. 관측점: 재표결 일정 1차 확인, 이자부 스테이블코인 조항 문언"
+  - "FOMC 금리 경로"
+
+risks:
+  - "OUSD 컨소시엄 (140+사, 발행·환매 무수수료 + 준비금 수익 파트너 환원) — 수익모델 정면 위협"
+  # 2026-08-15 ThesisPatch(amend, run 20260815_2307) — 이전: "이자부 스테이블코인 경쟁자 ($YLDS 등) — 리스크 등록부 누락, 패치 대기". 실측 규모가 최초 확보돼 '패치 대기' 상태를 해소한다(P9 — 이전 서술은 삭제하지 않고 주석 보존)
+  # 2026-09-05 ThesisPatch(amend, run 20260905_0618) — 이전 값의 "1Q26 약 $598M (grade 4, confirmed=false)"는 이번 run에 발행사 FIGR의 1차 공시(8-K EX-99.1 2026-05-12 / 10-Q·8-K 2026-08-13~14)로 grade 1 confirmed 격상됐고 2Q26 신규 수치가 확보됐다. 등급·수치만 정정하며 위협 판정 프레임(CLARITY 이자조항 조건부)은 유지한다(P9 — 이전 서술 주석 보존). 항목 수 5개 불변.
+  - "이자부 스테이블코인 경쟁자 — $YLDS(Figure 발행, SEC 등록, SOFR 연동 이자 지급, Provenance·Solana·Stellar 상장) 유통량: 4Q25말 $328.193M → 1Q26말 $598M → 2Q26말(6/30) $556.033M — 전부 발행사 FIGR 1차 공시(grade 1, confirmed). 2Q26은 QoQ -7.0%로 4Q25→1Q26의 고성장 추세가 정체·반전. USDC 분기말 $73.3B 대비 여전히 1% 미만. [inference:medium] 근접 위협은 완화 신호이나 구조적 리스크는 미해소다 — 위협의 실질은 규모가 아니라 이자부 스테이블코인의 법적 취급(CLARITY 이자조항 문언)에 조건부이며, 2026-09-15 절차 표결은 최종 표결이 아니고 조항 문언은 미확정이다. 정량 감시 항목으로 유지"
+  - "SEC Innovation Exemption 지연"
+  - "금리 인하 시 이자수입 직접 축소 (포트폴리오 내 다른 자산과 역방향 노출 — 자연 헤지)"
+  - "내부자 매도"
+
+# 2026-08-16 ThesisPatch(amend) — KC-CRCL-4(인가·감독 조치, 2단) 신설 반영. 이전: ["KC-CRCL-1", "KC-CRCL-2", "KC-CRCL-3", "SEC 면제 불허 확정", "CLARITY 최종 실패"]
+kill_conditions_ref: ["KC-CRCL-1", "KC-CRCL-2", "KC-CRCL-3", "KC-CRCL-4", "SEC 면제 불허 확정", "CLARITY 최종 실패"]
+noise_filter_ref: "config/noise_filter.yaml#CRCL"
+
+earnings_checkpoints:
+  # 2026-08-15 ThesisPatch(amend) — 이전 값: date: "2026-08-18". Q2 실적은 2026-08-05에 이미 발표되어 해당 게이트는 소멸했다.
+  # 차기 게이트(Q3)는 회사 IR 공식 공지 확인 전까지 null을 유지한다 — 애그리게이터 자동 추정일은 등급과 무관하게 판정 근거로 사용할 수 없다(F1).
+  date: null
+  items:
+    - "USDC 평잔 및 분기말 잔액"
+    - "Reserve Income 절대액·이자율 민감도"
+    - "유통비용(파트너 분배) 비중"
+    - "OUSD 관련 경영진 코멘트·대응 전략"
+    - "비이자 매출 비중"
+    - "가이던스 제시 여부"
+
+valuation:
+  primary: "P/S + (USDC 유통량 × 이자율) 기반 Reserve Income 모델"
+  secondary: "Reserve Income 마진"
+  caution: "금리 하락 국면에서 매출과 멀티플이 동시 압축되는 이중 민감도"
+
+conclusion: >
+  경쟁(OUSD)·규제(SEC 면제 지연)·금리(이자수입) 3중 게이트가 동시에 열려 있다.
+  KC 정량 임계는 §8-7 초안 반영 — kill_conditions.yaml에서 수치 확정 후 활성화.

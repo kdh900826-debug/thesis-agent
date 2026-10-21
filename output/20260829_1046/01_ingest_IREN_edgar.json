@@ -1,0 +1,46 @@
+{
+  "ticker": "IREN",
+  "cik": "0001878848",
+  "items": [
+    {
+      "id": "edgar_2026-08-27_10-K_0",
+      "form": "10-K",
+      "filed_at": "2026-08-27",
+      "title": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-27_8-K_1",
+      "form": "8-K",
+      "filed_at": "2026-08-27",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000051/iren-20260827.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-13_8-K_3",
+      "form": "8-K",
+      "filed_at": "2026-08-13",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126032638/ef20080141_8k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-04_8-K_6",
+      "form": "8-K",
+      "filed_at": "2026-08-04",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126031053/ny20079234x2_8k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

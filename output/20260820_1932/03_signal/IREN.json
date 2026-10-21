@@ -1,0 +1,105 @@
+{
+ "as_of": "2026-08-20",
+ "run_id": "20260820_1932",
+ "ticker": "IREN",
+ "input_source": "output/20260820_1932/03_input/arbiter_IREN.json",
+ "prior_signal": "🟡",
+ "proposed_signal": "🟡",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260820_IREN_001",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "424B7",
+   "filed_at": "2026-08-04",
+   "summary": "424B7(Registration No. 333-284369, Mirantis 합병대가 매각주주 재판매 등록)에 따르면 2026-04-30 기준 보통주 발행주식수 357,378,674주. 별도 옵션 4,987,244주(가중평균 행사가 72.71달러), RSU 38,645,505주(2026-07-01 공동CEO 부여분 포함), 전환사채 전환상한 165,640,942주. 매각주주 재판매 등록분은 Mirantis 합병대가 중 최대 11,981,668주로 카드 기재 수치와 일치."
+  },
+  {
+   "id": "c_20260820_IREN_002",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "inference_strength": "medium",
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "derived_calculation_from_424B7",
+   "filed_at": "2026-08-04",
+   "summary": "c_001 구성요소 단순합산(if-converted 100% 가정) 약 566.65M주로 카드 range 상단(508M) 초과. 다만 실제 회계상 완전희석 주수는 in-the-money 여부 및 treasury-stock method 등 방법론에 따라 달라지며, 이번 자료가 495M/508M 출처 충돌을 해소하는 것은 아님. 상단 리스크가 시장 추정보다 클 가능성을 시사하는 수준."
+  }
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_IREN.json의 claims 2건 전부 scope=company_specific. removed_claims 2건(c_20260820_IREN_003, 004, scope=sector)은 필터(filter_arbiter_input.py)가 P6/P13에 따라 정상적으로 물리적 제거한 것으로, F13 위반 아님(제거 자체가 필터의 정상 동작).",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-1~10(macro, 전건)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional(KC-1, 6, 7, 8, 9, 10) / 나머지 4건은 provisional 아님 — 오케스트레이터 발췌 기준, 개별 KC 정의 미접근(P17)"
+   },
+   {
+    "kc_id": "KC-10(IREN 전력 및 인허가, event형)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "L2 관측: ERCOT good-cause exception 2026-08-10 신청, PUCT 2026-08-20(당일) 회의 처리 예정이나 결과 미공개. 발동(trigger) 관측 없음 — event형 provisional 유지."
+   },
+   {
+    "kc_id": "IREN 종목 전용 KC",
+    "verdict": "not_defined",
+    "verdict_confidence": "n/a",
+    "note": "kill_conditions.yaml에 IREN 종목 전용 KC 미정의(P11 — 임계 없는 KC는 로드 실패). 판정 대상 자체가 없음."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "매크로 KC-1~10 전건 met 0(not_met, 6건 provisional 포함 — 확정 판정 아님). KC-10(IREN 전력 및 인허가)은 event형 provisional로 PUCT 8/20 회의 결과 미공개 및 발동 관측 없음. IREN 종목 전용 KC는 정의되어 있지 않아 판정 대상 자체가 없음. 규칙1(Kill 우선: KC met AND confirmed) 해당 없음 — 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향 게이트(quantitative_evidence AND company_specific AND revenue_recognized 전부 충족) 미충족. c_001, c_002는 quantitative:true, company_specific:true이나 대상 축이 funding_dilution(자본구조 및 희석)이지 매출, 마진, 현금흐름, 가이던스가 아님(P2). revenue_recognized 단계 정보 자체가 없음 — P7의 계약존재/이행/매출인식 3단 분리 관점에서 이번 Claim은 그 어느 단계에도 해당하지 않는 자본구조 공시다. 인도완료, 인증, 파트너십류 정성 호재도 아니므로 holding_reinforcement 분류도 부적용 — 단순 등급 유지(P12)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "판정: 정량 훼손이 아니라 측정 방법론 차이로 분류함(오케스트레이터 지시에 따른 신중 판정). 근거: (1) c_001(fact, grade1, confirmed:true)은 2026-04-30 기준 기존 자본구조 구성요소(옵션, RSU, 전환사채)를 처음으로 수치 확인한 것일 뿐, 신규 희석 발생(추가 발행, 신규 전환사채 발행 등) 사실이 아니다. Mirantis 11.98M주 재판매 등록분도 카드에 기존 기재된 리스크와 수치가 일치해 기존 서술의 정확성 확인에 해당한다(신규 훼손 아님). (2) 카드 range 상단(508M) 초과 가능성을 제시하는 것은 c_002(inference, medium강도)이며, 이는 전환사채 100% if-converted라는 보수적 가정의 상한값 계산이다. c_002 자체가 495M/508M 출처 충돌을 해소하는 것은 아니라고 명시 — 즉 확정된 정량 악화가 아니라 in-the-money 여부, treasury-stock method 등 회계 방법론 차이에 따라 결과가 달라지는 불확실성의 재확인 및 강화다. (3) 상위 delta 입력(funding_dilution, direction=weaken)은 L2/thesis-delta 산출 결과이나, 규칙3 적용 여부는 arbiter가 독립적으로 재판정할 사안(확증편향 차단, v1 §9-2) — weaken 라벨을 그대로 승계하지 않았다.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "해당 없음 — c_001, c_002 모두 quantitative:true(정성 훼손 유형 자체가 아님)이며 evidence_grade=1(≤2 조건과 무관하게 애초에 규칙3 후단 조항의 적용 대상이 아님).",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "정량 훼손 미확인(방법론 차이로 판정) 및 evidence_grade≤2 정성 훼손 해당 없음 — 규칙3(비대칭 하향) 트리거 조건 불성립. 단, 이 판정은 근소한 차이의 판단(close call)이며 8/27 실적에서 완전희석 주수가 실제로 508M을 확정적으로 상회한다고 회사가 공시하면 즉시 재판정 대상(quantitative_impairment_detected 재평가)."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "funding_dilution",
+   "direction_upstream": "weaken",
+   "direction_arbiter_assessment": "weaken 라벨은 리스크 인지 강화로 이해하되, 확정 훼손으로는 채택하지 않음. 근거는 downgrade_check 참조.",
+   "supporting_claims": ["c_20260820_IREN_001", "c_20260820_IREN_002"],
+   "risk_transfer_to": "495M/508M range 출처 충돌 해소 여부 및 실제 완전희석 주수 확정치가 8/27 FY26 실적 발표(카드 checkpoint)로 이관됨"
+  }
+ ],
+ "alert": {
+  "ticker_event": "IREN — 2026-08-04 제출 424B7(Mirantis 인수 매각주주 재판매 등록)에서 완전희석 주식수 구성요소(옵션, RSU, 전환사채) 최초 확인, if-converted 합산 상한이 카드 range 상단(508M) 초과 가능성 인지",
+  "facts": "① 2026-08-04 제출 424B7(Registration No. 333-284369)에 따르면 2026-04-30 기준 IREN 보통주 발행주식수 357,378,674주 [출처: SEC EDGAR 424B7, 2026-08-04, evidence_grade 1, confirmed:true]. ② 동 문서상 별도로 옵션 4,987,244주(가중평균 행사가 72.71달러), RSU 38,645,505주(2026-07-01 공동CEO 부여분 포함), 전환사채 전환상한 165,640,942주 확인. ③ Mirantis 합병대가 중 매각주주 재판매 등록분 최대 11,981,668주 — 카드 기재 수치와 일치 확인.",
+  "inference": "[강도: medium, c_20260820_IREN_002] 위 구성요소 단순합산(if-converted 100% 가정)은 약 566.65M주로 카드 range 상단(508M)을 상회하나, 이는 보수적 상한 가정값이며 실제 회계상 완전희석 주수는 treasury-stock method 등 방법론에 따라 달라진다 — 이번 자료가 495M/508M 출처 충돌을 해소하는 것은 아니고, 상단 리스크가 시장 추정보다 클 가능성을 시사하는 수준에 그친다.",
+  "classification": "등급 유지(hold, P12) — 상향 게이트(P2/P6/P7) 미충족: 대상 축이 매출, 마진, 현금흐름, 가이던스가 아닌 자본구조 및 희석이며 revenue_recognized 단계 정보 없음. 하향 게이트(규칙3) 미충족: 신중 판정 결과 정량 훼손이 아니라 측정 방법론 차이(if-converted 대 treasury-stock method)로 분류 — evidence_grade 1의 quantitative 사실 확인 자체는 기존 카드 리스크(F9 range 충돌)의 재확인 및 구성요소 명세일 뿐 신규 악화 사실이 아님. holding_reinforcement 분류도 아님(정성 호재가 아니라 리스크 축 항목이므로) — 순수 등급 유지 및 사유기록.",
+  "thesis_delta": "funding_dilution 축: 상위 입력은 direction=weaken이나, arbiter는 이를 확정 훼손으로 채택하지 않고 리스크 인지 강화(방법론 차이 인지)로 재분류함. 리스크 이관: 495M/508M range 충돌 해소 여부 및 실제 완전희석 주수 확정치가 8/27 FY26 실적(카드 checkpoint 항목)으로 이관됨 — 회사가 해당 실적에서 확정 수치를 공시하면 quantitative_impairment_detected 재평가 필요.",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🟡(관망, 상향 대기) 유지 권고(maintain). Kill 게이트: 미충족(매크로 KC 10건 not_met, KC-10 event형 provisional, 발동 관측 없음, IREN 종목 전용 KC 미정의). 상향 게이트: 미충족(대상 축이 매출 관련 아님). 하향 게이트: 미충족(정량 훼손 아닌 방법론 차이로 판정). 🔴🔴 사람 확인 요청 대상 아님.",
+  "next_check": "① [next_gate, 정량] 8/27 FY26 실적 — 과금 가동률, AI Cloud 매출 비중, MW당 매출(기존 게이트) 및 완전희석 주식수 확정치(495M/508M range 실제 해소 여부, 이번 424B7 구성요소 분석 결과 반영). ② [근시일, 정성, next_gate 아님] 2026-08-20 PUCT 회의(ERCOT good-cause exception) 처리 결과 — 결과 공개 시 KC-10 provisional 상태 재판정 필요. ③ 424B7상 495M/508M 산출 방법론(어느 소스가 어떤 가정을 썼는지) 특정 — 미확보 지속."
+ },
+ "next_gate": "8/27 FY26 실적: 과금 가동률, AI Cloud 매출 비중, MW당 매출(기존 게이트 승계) 및 완전희석 주식수 확정치(495M/508M range 해소 여부) — 관측 가능한 정량 항목. state/signals.json 기존 게이트에 후자 추가 필요성을 오케스트레이터에 제안(자동 수정 안 함)",
+ "unconfirmed_carried": [
+  {"topic": "8/27 FY26 실적 관련 회사 자체 사전 가이던스 수정 및 프리뷰", "reason": "1차 자료 미확보 — 애널리스트 추정치만 존재하고 편차 극심(8배 차이), 판정 근거 불가(P2/P4)"},
+  {"topic": "TX 주지사 지시 및 ERCOT/PUCT 절차의 IREN 프로젝트(Childress, Sweetwater) 적용 여부 및 2026-08-20 PUCT 회의 처리 결과", "reason": "1차 자료 미확보 — 전 run(0815)에서 이관된 동일 항목의 연장"},
+  {"topic": "완전희석 주수 495M 대 508M 출처 충돌 해소", "reason": "424B7로 구성요소는 확인됐으나 카드 기재 495M/508M 자체의 산출 방법론은 특정되지 못함 — F9 range 유지, 8/27 checkpoint에서 확정 예정"},
+  {"topic": "Horizons 2-4 구체 일정", "reason": "noise_filter.yaml#IREN promote_if 조건 미충족 — 승격 없음"},
+  {"topic": "2026년 7~8월 BTC 채굴 월간 비즈니스 업데이트", "reason": "1차 자료 미확보 — 전 run(0815)에서 이관된 동일 항목"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 등급 유지가 P12 기본 경로에 따라 적용됨. 핵심 판단 플래그: funding_dilution weaken 딜타를 정량 훼손이 아닌 측정 방법론 차이(if-converted 대 treasury-stock method)로 재분류함 — 근소한 차이의 판단(close call)이므로 사람 검토 시 재확인 권고. 부가: (1) next_gate에 완전희석 주식수 확정치 항목 추가를 state/signals.json에 반영할지는 사람 판단 영역(config 및 state 직접 편집은 에이전트 권한 밖). (2) 2026-08-20 PUCT 회의 결과는 이번 run 시점 미공개 — 차기 run에서 KC-10 재확인 필요."
+}

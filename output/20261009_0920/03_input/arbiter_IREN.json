@@ -1,0 +1,248 @@
+{
+  "as_of": "2026-10-09",
+  "ticker": "IREN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261009_IREN_5",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261009_IREN_7",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261009_IREN_8",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261009_IREN_1",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "EDGAR 재조회 결과(edgar_fulltext.py --ticker IREN --forms 8-K 10-Q 10-K 424B5 424B7 S-8 \"SCHEDULE 13G\" --since 2026-10-01 → 0건; submissions API CIK 0001878848 최근 제출 목록) 조사 창(2026-10-01~2026-10-09) 내 IREN 제출 공시는 서식 불문 0건이다. 가장 최근 제출은 2026-09-30 SCHEDULE 13G(Citadel 계열, 직전 run에서 처리 완료)이며 그 이전은 2026-08-27 10-K·8-K다. 8-K·10-Q·10-K·424B5·424B7·S-8 신규 공시가 모두 0건이므로, 창 내 신규 희석(ATM 보충서·전환사채 424B 계열)·실적일 공지·계약 공시는 EDGAR 기준 존재하지 않는다. IREN 고유 신규 실질 1차 공시 부재는 7개 회차 연속이다(지시문 기준 직전 6회 연속 + 이번).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "edgar_api",
+        "url": "https://data.sec.gov/submissions/CIK0001878848.json",
+        "secondary_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001878848&type=&dateb=&owner=include&count=40",
+        "filed_at": "2026-10-09"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "P5: '신규 공시 0건'은 EDGAR 기준 관측이며 회사가 비공시 사건을 가지고 있지 않다는 반증이 아니다. 회사 IR 페이지(iren.gcs-web.com)는 직접 조회 시 HTTP 403(Cloudflare)으로 차단돼 IR 뉴스룸 직접 대조는 실패했다 — 웹검색 색인상 마지막 보도자료는 2026-09-08(Sweetwater Hub ERCOT Batch Zero)이나 이는 검색엔진 간접 관측(unconfirmed 적재)이다."
+    },
+    {
+      "id": "c_20261009_IREN_2",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "리서치사 SemiAnalysis가 2026-10-07 X(트위터) 게시물 연작에서 IREN의 British Columbia 레거시 사이트(Prince George 50MW·Mackenzie 80MW gross)에 대해 '고객들로부터 다일간 전력 중단, 네트워크 업그레이드 장애, 스토리지 장애, 공기질 제어 문제로 인한 링크 플랩·XID 오류 사례를 들었다'고 주장하고, 리셀러 경유로 확보한 IREN GPU 용량을 직접 테스트해 '광범위한 기술적 결함'을 확인했다고 밝혔다. 같은 게시물은 ClusterMAX 평가에서 IREN을 'Not Recommended / Underperforming' 등급에 둔다고 서술하고, IREN의 Childress·Sweetwater(텍사스) 신규 사이트는 N+0 구성에서 벗어난 설계로 훨씬 낫다고 평가했다. 또한 IREN이 10-K에서 풀스택 운영을 주장하는 것과 달리 CCO가 '현재 라이브 매니지드 서비스는 없다'고 인정했다고 주장하며 베어메탈에 집중하라고 권고했다. 게시 후 IREN 주가는 10/7 장중 약 -6~7%였다(보도 간 수치 상이). 보도 시점 기준 IREN의 공식 대응은 확인되지 않았다. 이 Claim의 사실은 '주장이 공표됐다'는 것이며 주장 내용의 진위는 확인되지 않았다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "third_party_research_via_secondary_media",
+        "url": "https://www.investing.com/news/stock-market-news/iren-shares-fall-as-semianalysis-highlights-data-center-reliability-issues-4937184",
+        "secondary_url": "https://www.tipranks.com/news/iren-stock-plunges-as-semianalysis-flags-data-center-problems",
+        "filed_at": "2026-10-07"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "P4: investing.com·tipranks.com은 sources.yaml 미등재 → grade 4. 원출처(SemiAnalysis X 게시물 x.com/SemiAnalysis_/status/2107848521638416506)는 HTTP 402로 접근 불가해 원문 대조 실패 → confirmed=false, 단독 판단 근거 불가. 복수 매체(Investing.com·TipRanks·Yahoo Finance·24/7 Wall St.)가 동일 내용을 재인용하나 모두 SemiAnalysis 단일 원출처의 파생이라 독립 삼각검증이 아니다. 정량 수치(가동률·중단 시간·고객 수·매출 노출) 부재, 고객 익명, 일부 증거는 익명 X 게시물 — 기사들 스스로 '감사된 데이터 없음'을 명시. 고객 해지·매출 변화·계약 변경 공시 0건(P3 7개 변화 항목 해당 없음)이므로 축 방향 판정에는 쓰지 않는다. 한편 noise_filter에 해당 패턴이 없고 execution/ai_cloud 가동 품질과 직접 연결될 수 있어 '애매하면 승격'으로 승격 처리. 보도 중 'Kent Draper가 이전 반박 글에서 고객들이 빠른 접근을 위해 중복성 타협을 수용했다고 해명'이라는 SemiAnalysis 게시물 내 간접 언급이 있으나 IREN 원문 발언·일자를 찾지 못해 Claim화하지 않는다."
+    },
+    {
+      "id": "c_20261009_IREN_3",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "IREN FY26 10-K(2026-08-27 제출, 1차 공시)는 회사가 'AI Cloud Services 스택의 세 계층(데이터센터 인프라·컴퓨트·소프트웨어)을 모두 보유·운영하는 것'이 강점이라 서술하고, 소프트웨어 계층을 '고객이 AI 워크로드를 프로비저닝·배포·관리·모니터링하게 하는 매니지드 서비스 및 엔터프라이즈 지원'으로 정의한다. 또 BC 사이트(Canal Flats 30MW·Prince George 50MW·Mackenzie 80MW, 모두 gross 계획 용량)를 열거하고, 약 $2.4B 규모 GPU 파이낸싱이 Mackenzie 데이터센터 설비용이며 자금 집행이 장비 인수(accepted)에 비례해 2026-12-31까지 이뤄진다고 기재한다. 10-K 위험요인은 정전·전력 공급 장애가 운영·재무에 중대한 영향을 줄 수 있다고 일반론으로 명시하나 BC 사이트 신뢰성 사고는 언급하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001878848/000187884826000052/iren-20260630.htm",
+        "filed_at": "2026-08-27"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true,
+      "note": "신규 사실이 아니라 c_20261009_IREN_2의 주장을 1차 공시와 대조하기 위한 맥락 Claim이다(10-K 원문 직접 확인). 10-K 문구와 SemiAnalysis 주장 중 '풀스택·매니지드 서비스 계층 서술' 부분의 출처 일치만 확인한 것이며, CCO 발언('라이브 매니지드 서비스 없음') 자체는 공식 전사로 대조하지 못했다(unconfirmed). 매니지드 서비스 정량 믹스는 8/27에도 미공개(카드 key_metrics) 상태 불변."
+    },
+    {
+      "id": "c_20261009_IREN_4",
+      "ticker": "IREN",
+      "claim_type": "inference",
+      "text": "SemiAnalysis 주장(c_20261009_IREN_2)이 사실이라면 두 가지 경로의 위험이 ai_cloud_conversion에 열린다: (a) BC 레거시 사이트의 서비스 품질 문제가 직접 임대 고객의 이탈·재계약 협상력 저하로 이어질 가능성, (b) Mackenzie GPU 설비가 $2.4B 파이낸싱 담보이며 집행이 장비 인수(acceptance)와 연동되므로(c_20261009_IREN_3) 해당 사이트의 가동 품질이 조달 구조와 맞닿아 있을 가능성. 그러나 SemiAnalysis 스스로 Horizons(Childress)·Sweetwater는 문제의 범위에서 구분했고, 고객명·해지·매출·가동률 수치가 하나도 공개되지 않았으며, 근거 등급이 4·미확인이므로 현 시점에서 이는 확인 대상 관측점일 뿐 훼손 증거가 아니다. Microsoft $9.7B 계약(Childress Horizons) 이행 경로와는 별개 사이트다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "derived_from_c_20261009_IREN_2_and_3",
+        "url": "https://www.investing.com/news/stock-market-news/iren-shares-fall-as-semianalysis-highlights-data-center-reliability-issues-4937184",
+        "filed_at": "2026-10-07"
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "강도 weak(간접 연결·수치 인과 없음). 근거 등급 승계(4·confirmed=false) — P4상 단독 판정 근거 불가, P2상 정성 논거는 상향 근거 부적격(하향 방향 판정의 근거로도 쓰지 않는다)."
+    },
+    {
+      "id": "c_20261009_IREN_6",
+      "ticker": "IREN",
+      "claim_type": "inference",
+      "text": "IREN은 2026-05-01 회사 보도자료로 Sweetwater 1(1.4GW) 사이트의 변전소 ERCOT 계통 연결(energization)을 공표했다. c_20261009_IREN_5의 제안 적용 기준('2025-12-31 이후 접속 + 단일 사이트 75MW 이상')을 문언대로 보면 Sweetwater 1은 접속 시점·규모 두 기준 모두 해당할 가능성이 있다. 그러나 (a) 제안 단계 규칙이며 제외 조건(critical load 등)·최종 채택 문언이 미확정이고, (b) 회사는 Sweetwater 1의 계약 용량·고객 MW·즉시 가동 MW를 공개하지 않았으며, (c) 이 규칙의 커테일먼트는 ERCOT 비상 시 조건부이므로, KC-10 첫 조건('계약 용량 중 강제 감축 분류 10%+')의 분모/분자인 'IREN 계약 용량 중 SB6 적용 MW'는 여전히 산출 불가다. 이 추론은 적용 가능성의 방향만 제시하며 KC-10 판정 재료가 아니다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "derived_from_c_20261009_IREN_5_and_company_release",
+        "url": "https://www.globenewswire.com/news-release/2026/05/01/3286213/0/en/iren-announces-successful-energization-of-sweetwater-1.html",
+        "secondary_url": "https://www.sos.texas.gov/texreg/archive/August142026/Proposed%20Rules/16.ECONOMIC%20REGULATION.html",
+        "filed_at": "2026-05-01"
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": true,
+      "note": "energization 사실 자체는 globenewswire.com(grade 1 등재 도메인) 회사 보도자료지만, 추론의 규제 전제(c_5)가 grade 4·confirmed=false라 체인 최저 등급(4)을 승계한다(P13 하위→상위). 'SB6 적용 MW 미공시' 상태를 해소하지 않는다. KC 판정은 signal-arbiter·사람 영역(P12·§9)."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "ai_cloud_conversion",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(1001): Q4 FY26 AI Cloud 매출 비중 51.4% 역전(FY26 연간 18.2%), 과금 가동률·MFU unconfirmed, 가동 ARR $1.0B 대 계약 ARR $4.0B 갭(해소 기한 2026-12-31). 신규 공시 없음.",
+      "new_state": "창 내 IREN 1차 공시 0건(c_20261009_IREN_1). 신규 재료는 SemiAnalysis의 BC 레거시 사이트 신뢰성 주장 연작(c_20261009_IREN_2, grade 4·confirmed=false)뿐이다. 주장은 익명 고객·미감사 데이터에 기반하고 고객 해지·매출·가동률 수치가 없어 P3 7개 변화 항목에 해당하지 않으며, 10-K 문구(풀스택 서술·Mackenzie $2.4B 파이낸싱 acceptance 연동, c_20261009_IREN_3)와의 연결은 weak 추론(c_20261009_IREN_4)에 그친다. 확인 대상 관측점으로만 추가하고 direction은 움직이지 않는다(P2·P4). 매니지드 서비스 라이브 여부(CCO 발언)는 공식 전사 미대조.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_IREN_1",
+        "c_20261009_IREN_2",
+        "c_20261009_IREN_3",
+        "c_20261009_IREN_4"
+      ]
+    },
+    {
+      "axis": "execution_delivery",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(1001): Horizon 1 인도·인수 완료(P7 2단 통과). Horizons 2-4는 calendar Q4 2026 목표, 10-K 계약 유예 2026 Q4 중반~2027 Q2 초. Horizon 2 인도·인수 완료 여부 unconfirmed.",
+      "new_state": "창 내 Horizon 2-4 구체 일정·인도·인수 관련 1차 공시·보도자료 0건(c_20261009_IREN_1). SemiAnalysis는 Childress·Sweetwater(텍사스) 신규 사이트를 문제 범위에서 구분했으므로 Microsoft Horizons 이행 경로에 대한 직접 신호가 아니다(c_20261009_IREN_4 서술). P7 3단 분리 상태 불변: 계약 존재(Microsoft $9.7B) / H1 이행 완료 / H2-4 이행 미확인 / ASC842 매출 인식 FY27 Q1 이후.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_IREN_1"
+      ]
+    },
+    {
+      "axis": "margin_structure",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(1001): 신규 정량 자료 없음. MW당 매출은 계약 단가 기준만 존재(F3).",
+      "new_state": "창 내 신규 정량 자료 0건(c_20261009_IREN_1). AI Cloud 감가상각 배분 검증·MW당 실적 매출은 FY27 Q1 체크포인트로 이월 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_IREN_1"
+      ]
+    },
+    {
+      "axis": "funding_dilution",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(1001): 완전희석 주수 range(394,058,648~558,718,254+) 유지(F9). 신규 발행·차환 공시 0건.",
+      "new_state": "창 내 8-K·424B5·424B7·S-8 신규 공시 0건(c_20261009_IREN_1). 10/7 주가 하락(-6~7%)을 일부 매체가 '차입비용 상승·추가 자금조달 필요성'으로 해석했으나 이는 매체 해석이며 IREN 신규 조달 공시는 없다. 완전희석 주수 range 갱신 근거 없음.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_IREN_1"
+      ]
+    },
+    {
+      "axis": "power_permit",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(1001): Sweetwater Hub 2GW ERCOT Batch Zero 조건부 Base Load(9/8, 최종 접속 승인 아님). SB6 적용 MW 미공시(KC-10 분모 공백). PUCT §25.194 채택 2차 보도(grade 4, confirmed=false). BC Hydro 결과 미공표(목표 9월 중순 경과).",
+      "new_state": "IREN 고유 1차 전력·인허가 공시 0건. 규제 프레임워크 측면의 신규 관측 3건 모두 sector scope·grade 4·confirmed=false: (a) PUCT 비상 커테일먼트 트랙의 제안규칙 §25.521(Project 58482)의 적용 기준(75MW+, 2025-12-31 이후 접속)·지급·배치 메커니즘이 구체화(c_20261009_IREN_5) — 채택 여부 미확인; (b) Sweetwater 1 energization(2026-05-01)과 대조한 weak 추론상 적용 가능성(c_20261009_IREN_6) — 계약 용량·적용 MW는 여전히 미공시라 KC-10 분모 공백 불변; (c) §25.194 최종규칙 독립 보도 보강(c_20261009_IREN_7); BC Hydro는 선거에 따른 일정 이동과 정부 이행기 이후 통보 서술로 9월 중순 목표가 사실상 후퇴(c_20261009_IREN_8) — IREN 신청 여부 미확인. 세 갈래 모두 company_specific·confirmed 근거가 없어 neutral 유지(P6·P13).",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_IREN_1",
+        "c_20261009_IREN_6"
+      ]
+    },
+    {
+      "axis": "btc_mining",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(1001): CFO 발언(grade 2, 8/27)으로 채굴 종료 목표 2026-12월 말 제시. 리스크는 ai_cloud_conversion으로 이관.",
+      "new_state": "창 내 신규 경영진 발언·월간 채굴 실적·1차 공시 0건(c_20261009_IREN_1). 종료 목표 시점·리스크 이관 상태 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_IREN_1"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "BC Hydro 2026 Call for Demand — 선정 결과·IREN 신청 여부 [갱신]",
+      "detail": "2026-10-09 조회한 BC Hydro 페이지는 15건·약 800MW 검토 중, 결과 통보 확정일 없음, 선거 소집으로 일정 이동·정부 이행기 이후 '올해 후반' 통보로 서술(c_20261009_IREN_8, grade 4). 직전 run의 '9월 중순' 목표는 후퇴. IREN의 BC 노출(Canal Flats 30 + Prince George 50 + Mackenzie 80 = 160MW gross)과 신청·선정 여부 연결은 미확인. 다음 관측점: BC Hydro 결과 통지 또는 FY27 Q1 10-Q.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "SB6/PUCT 커테일먼트 적용 MW (KC-10 첫 조건 분모) [갱신]",
+      "detail": "(1) 상호접속 §25.194(58481) 최종 채택: 2차 보도 복수(직전 run) + Utility Dive(c_20261009_IREN_7) 일치하나 PUCT 1차 원문은 이번에도 HTTP 403 → 미확인(1차). (2) 비상 커테일먼트 제안규칙 §25.521(58482) 채택 여부: 제안 접수 7/30·최단 채택일 9/13 이후 최종 채택 문서를 확인하지 못함. (3) IREN 계약 용량 중 SB6 적용 MW: 여전히 미공시 — KC-10 분모 공백 지속(16 TAC §25.194·§25.521 1차 원문 직접 대조 필요). PUCT 송전요금 배분 방법론 개정(별도 트랙) 시한 2026-12-31 미도래.",
+      "reason": "primary_source_inaccessible"
+    },
+    {
+      "topic": "FY27 Q1 10-Q 실적일 공지 여부",
+      "detail": "창 내 EDGAR 8-K 0건·회사 실적일 공지 미확인. 직전 연도 패턴: Q1 FY26 실적일 공지는 2025-10-23(실적 11/6 약 2주 전) GlobeNewswire — 이번에도 10월 하순 공지 가능성(패턴 관찰일 뿐 예측 아님). 애그리게이터 추정치 '2026-11-05'(days.to 등 복수)와 직전 run 관측 'TipRanks 2026-12-01'이 상충, 둘 다 회사 미확인 → F1에 따라 근거로 사용 안 함.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "회사 IR 뉴스룸 창 내 보도자료 0건 여부 (직접 조회 실패)",
+      "detail": "iren.gcs-web.com 직접 조회가 HTTP 403(Cloudflare), irenlimited.com은 404였다. 웹검색 색인(GlobeNewswire 목록)상 마지막 보도자료는 2026-09-08로 관측되지만 이는 검색엔진 간접 관측이다. EDGAR 8-K(보도자료 첨부 관행) 0건과 정합하나 IR 직접 대조는 미완.",
+      "reason": "primary_source_inaccessible"
+    },
+    {
+      "topic": "SemiAnalysis 주장 원문 및 CCO 발언·IREN 대응 [신규]",
+      "detail": "SemiAnalysis X 게시물 원문(HTTP 402)과 'CCO가 라이브 매니지드 서비스 없다고 말했다'는 발언의 출처(공식 전사·웹캐스트)는 대조하지 못했다. IREN의 공식 대응(보도자료·8-K)은 창 내 0건, 매체 4곳이 '대응 없음'을 보도. SemiAnalysis 게시물 내 인용된 Kent Draper의 선행 해명 원문·일자도 찾지 못함. 고객 해지·SLA 크레딧·계약 변경 공시도 0건. 다음 관측점: FY27 Q1 10-Q(위험요인·고객 집중·매니지드 서비스 서술)·실적콜 Q&A.",
+      "reason": "third_party_allegation_unverified"
+    },
+    {
+      "topic": "Governor Abbott 지시 ERCOT 데이터센터 감사 최종 결과",
+      "detail": "2026-12(경) 완료 목표로 진행 중. 창 내 신규 결과 없음.",
+      "reason": "audit_in_progress"
+    },
+    {
+      "topic": "Horizon 2 인도·인수 완료 여부",
+      "detail": "8/13 Horizon 1 인수 이후 Horizon 2-4는 '올해 후반(later this year)' 인도 목표 외 구체 일정·MW 변화 보도 없음. 직전 run이 기록한 회사 SNS 정성 서술 외 이번 창에서 추가 1차 자료 없음. P7 2단(이행) 미확인.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "Sweetwater·Childress 가동/고객 계약 (P7 3단 분리)",
+      "detail": "계약 존재: Microsoft $9.7B(Childress Horizons 1-4), 8/27 콜의 신규 frontier AI lab 다년 계약은 사이트 연결이 보도자료에 없음. 이행: Sweetwater 1은 energization(5/1, MW 미공시), 즉시 가동 MW·고객 MW 미공시. 매출 인식: ASC842 리스 분류로 FY27 Q1 이후. Sweetwater/Childress 신규 고객 계약 공시 창 내 0건.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "과금 가동률(billing utilization) / MFU",
+      "detail": "8/27 FY26 실적에서 미공개. 창 내 신규 자료 없음. 다음 관측점 FY27 Q1 10-Q.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "완전희석 주수 갱신치 (8/14 이후)",
+      "detail": "창 내 신규 EDGAR 공시 0건이라 카드 range(하한 394,058,648 ~ 상한 558,718,254+) 갱신 불가. F9 range 유지, 단일값 사용 금지.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "매니지드 서비스 믹스(Mirantis 매출 비중) 정량치",
+      "detail": "Mirantis는 2026-08-03/04 종결로 FY26 미반영. FY27 Q1이 첫 연결 분기이며 창 내 정량 자료 없음. SemiAnalysis 주장(c_20261009_IREN_2)이 이 관측점의 정성적 확인 필요성을 높이나 사실 확인 아님.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "신규 축 제안",
+      "detail": "이번 회차에서 카드 6개 축 밖의 신규 축 제안 사유는 발생하지 않았다. (참고: 서비스 품질·신뢰성 이슈가 향후 1차 자료로 확인되면 ai_cloud_conversion 하위 축 분해 대상이 될 수 있으나 현재는 해당 없음 — P8)",
+      "reason": "not_applicable"
+    }
+  ]
+}

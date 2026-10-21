@@ -1,0 +1,269 @@
+{
+ "ticker": "IREN",
+ "run_id": "20260919_2209",
+ "as_of": "2026-09-19",
+ "staleness_days": 11,
+ "underlying_primary_event_date": "2026-09-08",
+ "lookback_window": {
+  "since": "2026-09-10",
+  "until": "2026-09-19",
+  "primary_window": {
+   "since": "2026-09-10",
+   "until": "2026-09-19"
+  },
+  "note": "지시된 창은 2026-09-10~2026-09-19이며 직전 run(20260911_2308, until 2026-09-11)과 2일 중첩된다. 중첩 구간(09-10~09-11)에서 직전 run 미포착 재료는 발견되지 않았다. 창 밖 소급 스윕에서 발견된 미포착 재료 1건(BC Hydro 2026 Call for Demand 프레임워크 — 2026-01-30 개시, 2026-07 법률자문 해설)은 폐기하지 않고 out_of_window: true로 표기해 적재했다(c_20260919_IREN_3). 해당 프레임워크의 '선정 통보 2026-09 중순' 마일스톤은 이번 창 안에 걸치나 결과 공표는 확인되지 않았다."
+ },
+ "claims": [
+  {
+   "id": "c_20260919_IREN_1",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "SEC EDGAR submissions API(CIK 0001878848)를 2026-09-19 시점에 조회한 결과, 등재된 최신 공시는 2026-08-27자 10-K(accession 0001878848-26-000052, iren-20260630.htm)와 8-K(accession 0001878848-26-000051)이며 그 이후 신규 공시는 0건이다. 조회 대상 서식 8-K/10-Q/10-K/424B5/424B7/S-8/SCHEDULE 13G 기준 --since 2026-09-01 결과도 0건이었고, 전체 recent 엔트리 317건 중 filingDate 최댓값은 2026-08-27이므로 Form 4 등 타 서식을 포함해도 2026-08-28 이후 등재 공시는 없다. 즉 신규 1차 공시 부재 상태가 3개 회차(0905·0911·0919) 연속으로 이어진다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "edgar_api",
+    "url": "https://data.sec.gov/submissions/CIK0001878848.json",
+    "filed_at": "2026-09-19"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "edgar_fulltext.py --ticker IREN --forms 8-K 10-Q 10-K 424B5 424B7 S-8 \"SCHEDULE 13G\" --since 2026-09-01 → 0건. 교차 확인용으로 submissions API 원본을 직접 파싱해 filingDate 최댓값을 확인했다. coverage.yaml의 IREN edgar_forms:['20-F','6-K']는 2025-07 국내 신고인 전환 전 기준의 stale 오기이나 config는 수정하지 않았다(사용자 편집 영역)."
+  },
+  {
+   "id": "c_20260919_IREN_2",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "회사 IR 뉴스 페이지(iren.com/investors/news) 및 GlobeNewswire 발행사 페이지(IREN Limited) 조회 결과, 2026년 9월 중 IREN 명의 보도자료는 2026-09-08 'IREN's 2GW Sweetwater Hub Included as Base Load in ERCOT Batch Zero' 1건뿐이며, 조사 창(2026-09-10~2026-09-19) 안에 발행된 회사 보도자료는 0건이다. 직전 8월 발행분은 08-27 FY26 실적, 08-13 실적일 예고, 08-13 Horizon 1 인도, 08-04 Mirantis 인수 완료이며 모두 기존 회차에서 적재 완료됐다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "company_ir_newsroom",
+    "url": "https://iren.com/investors/news",
+    "secondary_url": "https://www.globenewswire.com/search/organization/IREN%20Limited",
+    "filed_at": "2026-09-19"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "2026-09-08 보도자료는 직전 run(20260911_2308) c_20260911_IREN_2에서 적재 완료 — 본 회차의 신규 재료가 아니다. 두 경로(회사 IR·GlobeNewswire) 목록이 일치해 창 내 공백을 교차 확인했다."
+  },
+  {
+   "id": "c_20260919_IREN_3",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "브리티시컬럼비아주(BC)는 산업용 전력 배분 프레임워크(Industrial Electricity Allocation Framework) 하에서 신규 암호화폐 채굴의 계통 접속을 영구 불허하고, AI·데이터센터에 대해서는 2년 단위 경쟁 배분으로 전환했다. 2026 Call for Demand는 2026-01-30 공고·2026-02-01 개시됐고 2년치 배분 한도는 AI 300MW + 데이터센터 100MW(합계 400MW, 별도 수소 수출 200MW)다. BC Hydro는 15건·총 약 800MW의 신청을 접수했다고 밝혔으며(한도의 약 2배), 선정자 통보를 2026년 9월 중순까지로 제시했다. 2026-09-19 시점까지 선정 결과 공표 또는 선정 기업 명단은 검색되지 않았다.",
+   "evidence_grade": 3,
+   "source": {
+    "type": "secondary_media_and_regulator_page",
+    "url": "https://www.datacenterdynamics.com/en/news/british-columbia-bc-hydro-launch-competitive-power-process-for-ai-and-data-centers/",
+    "secondary_url": "https://www.blg.com/en/insights/2026/07/data-centre-regulation-in-british-columbia-competing-for-a-limited-supply",
+    "primary_url_attempted": "https://news.gov.bc.ca/releases/2026ECS0005-000095",
+    "filed_at": "2026-07"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "sector",
+   "confirmed": false,
+   "out_of_window": true,
+   "note": "P4 — grade 3, 단독 판단 근거 불가. 1차 URL 역추적 시도: news.gov.bc.ca(2026ECS0005-000095)는 인증서 검증 실패로 직접 접근 불가, bchydro.com 보도자료 페이지는 접근됐으나 배분 수치·신청 건수·통보 시점이 본문에 없어 수치 확인에 실패했다(D15 의무 잔여 캐비어트). 프레임워크 자체는 창 밖(2026-01~02 개시, 2025-10 정책 발표)이나 '선정자 통보 2026-09 중순' 마일스톤은 이번 창(09-10~09-19)에 걸치며, 과거 IREN 산출물 전 회차에서 한 번도 추적되지 않은 미포착 재료이므로 지시에 따라 out_of_window 표기로 적재한다. scope=sector — IREN 개별 판정에 직접 대입 금지(P6/P13)."
+  },
+  {
+   "id": "c_20260919_IREN_4",
+   "ticker": "IREN",
+   "claim_type": "inference",
+   "text": "c_20260919_IREN_3의 BC 전력 배분 체제는 IREN의 power_permit 축에 종전까지 추적되지 않은 관측 공백을 노출한다. IREN은 2026-06-30 기준 공표 포트폴리오 5,610MW(gross) 중 BC 소재 3개 사이트 160MW(Canal Flats 30 + Prince George 50 + Mackenzie 80, 약 2.9%)를 보유하며, 그중 Mackenzie 공랭 확장은 Blue Owl·PIMCO 주도 $2.4bn GPU 파이낸싱의 명시된 용도다(두 사실 모두 FY26 결산 공시 기준 grade 1, 기존 회차 적재분 IREN-2608-C17·IREN-2608-C21). 따라서 (a) IREN이 2026 Call for Demand에 신청했는지, (b) 선정·탈락했는지, (c) 기존 계통 접속분이 신규 배분 체제의 영향을 받는지가 확인 대상이 되나, 세 항목 모두 공시·보도로 특정되지 않았다. 이는 축 판정을 바꾸는 근거가 아니라 unconfirmed 항목의 신규 편입이며, 텍사스 ERCOT/SB6 트랙과는 별개 관할·별개 절차다.",
+   "evidence_grade": 3,
+   "source": {
+    "type": "derived",
+    "url": null,
+    "filed_at": "2026-09-19"
+   },
+   "inference_strength": "low",
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": false,
+   "note": "근거 Claim 중 최저 등급(c_20260919_IREN_3, grade 3)을 승계. BC 노출 160MW는 gross 계획 용량 기준이며 계약 용량·IT 용량과 기준이 다르다(F3) — KC-10의 '계약 용량 10%+' 분모로 직접 사용 불가. KC 판정 자체는 signal-arbiter 영역이며 본 에이전트는 관측만 보고한다."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "power_permit",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0911): 2026-09-08 회사 보도자료로 Sweetwater Hub 2GW(Sweetwater1 1,400MW + Sweetwater2 600MW) 전량이 ERCOT Batch Zero에서 조건부 'Base Load'로 분류 — 약한 강화(stage 하). 조건부 지위이며 최종 접속 승인 아님. SB6 커테일먼트 적용 MW 미공시로 KC-10 첫 조건 분모 부재 지속. Abbott 지시 ERCOT 감사 2026-12-10 완료 목표로 진행 중.",
+   "new_state": "이번 창(09-10~09-19)에 IREN 고유의 전력·인허가 신규 1차 자료는 없다(c_20260919_IREN_1, c_20260919_IREN_2). Batch Zero 조건부 Base Load 지위·SB6 적용 MW 공백·ERCOT 감사 진행 상태 모두 직전 회차 그대로 이월된다. 다만 창 밖 소급 스윕에서 종전 미추적 관측 공백 1건이 신규 편입됐다 — BC Hydro 2026 Call for Demand(AI 300MW + DC 100MW 2년 한도, 신청 15건·약 800MW)의 선정자 통보 시점이 2026-09 중순으로 제시돼 이번 창에 걸치나 결과·명단 공표가 특정되지 않았고, IREN의 BC 3개 사이트 160MW(gross) 및 Mackenzie 공랭 확장($2.4bn GPU 파이낸싱 용도)과의 연결 여부가 미확인이다(c_20260919_IREN_3, c_20260919_IREN_4). 이는 축 방향을 바꾸는 근거가 아니라 unconfirmed 신규 항목이므로 direction=neutral을 유지한다.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260919_IREN_1",
+    "c_20260919_IREN_2",
+    "c_20260919_IREN_3",
+    "c_20260919_IREN_4"
+   ]
+  },
+  {
+   "axis": "execution_delivery",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0911): Horizon 1(50MW IT) Microsoft 인도·인수 완료. Horizons 2-4는 8/27 콜에서 '12월 분기(calendar Q4 2026)' 목표로 구두 구체화, 10-K상 계약 유예기간(2026 Q4 중반~2027 Q2 초) 유지.",
+   "new_state": "창 내 신규 1차 공시·보도자료 0건(c_20260919_IREN_1, c_20260919_IREN_2). 검색에서 재확인된 'Horizon 2 commissioning 진행, Horizon 3-4 late-stage construction, Q4 2026 목표' 서술은 전량 8/27 콜·8/13 보도자료의 2차 재인용으로 신규 정보가 아니다(P3). Horizon 2 인도·인수 완료 여부는 unconfirmed 유지. P7 3단 분리 상태 불변 — 계약 존재(TCV ~$15.9bn) / 이행(H1만 완료) / 매출 인식(ASC842로 FY26 인식액 0) 중 어느 단계에도 변화 없음.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260919_IREN_1",
+    "c_20260919_IREN_2"
+   ]
+  },
+  {
+   "axis": "ai_cloud_conversion",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0911): Q4 FY26 AI Cloud 매출 비중 51.4% 역전 확인(FY26 연간 18.2%), 과금 가동률·MFU unconfirmed 이월. 가동 중 ARR $1.0B 대 계약 ARR $4.0B의 ~$3.0B 갭, 회사 제시 해소 기한 2026-12-31.",
+   "new_state": "창 내 과금 가동률·MFU·가동 ARR 진척에 관한 신규 공시·경영진 발언 0건. 다음 관측점은 FY27 Q1 10-Q(2026-11 경, 정확일 미공시)로 불변. unconfirmed 이월.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260919_IREN_1",
+    "c_20260919_IREN_2"
+   ]
+  },
+  {
+   "axis": "margin_structure",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0911): 신규 정량 자료 없음(AI Cloud 매출총이익률 FY26 86.9%/Q4 87.0%, Adjusted EBITDA 마진 FY26 35%·Q4 14%는 8/27 기준 유지). MW당 매출은 계약 단가 기준 $20M+/MW(IT)만 존재, 실적 기준 산출 불가(F3).",
+   "new_state": "창 내 신규 정량 자료 0건. 자체 ~14% vs 임차 ~5% 전제의 검증 재료(AI Cloud 부문 감가상각 배분)는 FY27 Q1 체크포인트로 이월. 창 내 관측된 '컴퓨트 단가 인상' 관련 보도는 타 종목(NBIS) 발 섹터 재료로 P6/P17에 따라 IREN 축 근거로 사용하지 않고 discarded_noise_log에 적재했다.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260919_IREN_1",
+    "c_20260919_IREN_2"
+   ]
+  },
+  {
+   "axis": "funding_dilution",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0911): FY27 capex $25-30bn(grade 2), 확보 재원 $14bn·잔여 조달 목표 ~$8bn. 완전희석 주수 range 394,058,648 ~ 558,718,254+ 유지(F9). ATM 실현 47,165,838주·약 $2.5B(8/14 기준), 잔여 한도 존재.",
+   "new_state": "창 내 424B5·424B7·S-8·8-K 등 조달·희석 관련 신규 공시 0건이며(c_20260919_IREN_1) 회사 보도자료도 0건이다(c_20260919_IREN_2). 2026-09-16 FOMC의 기준금리 목표범위 25bp 인상(3.75~4.00%)은 매크로 사건이므로 종목 Claim으로 승격하지 않았다(P6/P13) — 승격 조건인 '금리에 직접 연동되는 IREN 고유 사실(신규 발행 금리·차환 조건·이자비용 변동)'을 담은 1차 자료가 창 내에 존재하지 않아 unconfirmed로 적재했다. 완전희석 주수 range도 갱신 근거가 없어 카드값 그대로 유지한다.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260919_IREN_1",
+    "c_20260919_IREN_2"
+   ]
+  },
+  {
+   "axis": "btc_mining",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0911): CFO Anthony Lewis의 'effectively decommissioned by the end of December 2026' 발언(grade 2, 8/27 콜)으로 채굴 종료 목표 시점 제시. 리스크는 소멸이 아니라 ai_cloud_conversion으로 완전 이관.",
+   "new_state": "창 내 신규 경영진 발언·월간 채굴 실적 업데이트·1차 공시 0건. 회사 IR 뉴스룸에도 9월 중 채굴 관련 발행물이 없다(c_20260919_IREN_2). 종료 목표 시점 및 리스크 이관 상태 불변.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260919_IREN_1",
+    "c_20260919_IREN_2"
+   ]
+  }
+ ],
+ "unconfirmed": [
+  {
+   "topic": "BC Hydro 2026 Call for Demand — IREN 신청·선정 여부 [신규 편입]",
+   "detail": "BC의 AI·데이터센터 2년 경쟁 배분(AI 300MW + DC 100MW, 신청 15건·약 800MW)에서 선정자 통보 시점이 2026-09 중순으로 제시돼 본 run 창(09-10~09-19)에 걸치나, 결과 공표·선정 명단이 특정되지 않았다. IREN의 BC 노출은 Canal Flats 30 + Prince George 50 + Mackenzie 80 = 160MW(gross, 포트폴리오 5,610MW의 약 2.9%)이며 Mackenzie 공랭 확장은 $2.4bn GPU 파이낸싱의 명시 용도다. 신청 여부·결과·기존 접속분 영향 모두 미확인(c_20260919_IREN_3, c_20260919_IREN_4). 다음 관측점: BC Hydro 결과 공표 또는 FY27 Q1 10-Q.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "2026-09-16 FOMC 25bp 인상의 IREN 조달조건 영향",
+   "detail": "창 내 신규 발행·차환·크레딧 파실리티 변경 공시가 EDGAR·회사 IR 양쪽에서 0건이므로, 금리 인상이 IREN의 조달 금리·이자비용에 반영된 종목 고유 1차 자료를 확보하지 못했다. 매크로 사실 자체는 지시에 따라 Claim으로 승격하지 않았다(P6/P13). 다음 관측점: 잔여 조달 목표 ~$8bn 집행 시의 424B5/8-K, 또는 FY27 Q1 10-Q의 이자비용·가중평균 조달금리.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "SB6/PUCT 커테일먼트 적용 MW (KC-10 첫 조건 분모)",
+   "detail": "IREN 계약 용량 중 SB6 비상시 강제 감축 의무 적용 MW가 여전히 미공시. ERCOT Batch Zero 분류는 별개 규제 트랙이라 이 공백을 메우지 못한다. PUCT 최종 규칙 시한은 2026-12-31.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "Governor Abbott 지시 ERCOT 데이터센터 감사 최종 결과",
+   "detail": "2026-12-10(또는 12월) 완료 목표로 진행 중. IREN 사이트별 개별 감사 결과 미공표. 창 내 진전 사항 미확인.",
+   "reason": "audit_in_progress"
+  },
+  {
+   "topic": "ERCOT Batch Zero 비조건부(최종) 분류 시점",
+   "detail": "2026-09-08 공시의 'Base Load'는 조건부이며 최종 접속 승인이 아니다. 송배전사업자 계통접속계약 체결이 전제 조건이며 최종 확정 시점·에너지화 일자 미공시.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "Horizon 2 인도·인수 완료 여부",
+   "detail": "8/27 콜 기준 commissioning 진행 중, Horizon 3-4는 late-stage construction, 3건 모두 calendar Q4 2026 인도 목표. 계약상 유예는 2026 Q4 중반~2027 Q2 초. 창 내 인도·인수 공시 없음 — P7 2단(이행) 미확인 상태 유지.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "과금 가동률(billing utilization) / MFU",
+   "detail": "8/27 FY26 실적에서 미공개. 창 내 신규 자료 없음. 다음 관측점 FY27 Q1 10-Q(카드 체크포인트 ①②).",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "완전희석 주수 갱신치 (8/14 이후)",
+   "detail": "창 내 신규 EDGAR 공시가 없어 카드 range(하한 394,058,648 ~ 상한 558,718,254+) 갱신 불가. F9 range 유지, 단일값 사용 금지.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "매니지드 서비스 믹스(Mirantis 매출 비중) 정량치",
+   "detail": "Mirantis는 2026-08-03/04 종결로 FY26 미반영. FY27 Q1이 첫 연결 분기이며 창 내 정량·정성 신규 언급 없음.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "신규 축 제안",
+   "detail": "이번 회차에서 카드 6개 축(ai_cloud_conversion / execution_delivery / margin_structure / funding_dilution / power_permit / btc_mining) 밖의 신규 축 제안 사유는 발생하지 않았다. BC 전력 배분 관측 공백은 관할만 다를 뿐 성격이 동일하므로 power_permit 축 내부에서 처리했으며, 별도 축을 만들지 않았다.",
+   "reason": "not_applicable"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "title": "JPMorgan, IREN 'double upgrade' to Overweight (2026-09-14)",
+   "reason": "noise_filter#common '애널리스트 PT·투자의견 변경 단독' — 매출·마진·가이던스·현금흐름·고객·수주·양산일정 중 어느 것도 변화시키지 않음(P3)"
+  },
+  {
+   "title": "Northland, IREN 커버리지 개시 Outperform/Buy + 'AI 시장 $4T' 코멘트 (2026-09-17~18)",
+   "reason": "noise_filter#common '애널리스트 PT·투자의견 변경 단독' + 테마 규모 전망. 회사 고유 정량 데이터 없음(P3)"
+  },
+  {
+   "title": "'AI 안전 우려'에 네오클라우드 동반 급락, IREN 포함 (2026-09-14)",
+   "reason": "scope=sector 일반론 + noise_filter#common '단순 주가 변동·일간 등락'. IREN 고유 재료 없음(P6)"
+  },
+  {
+   "title": "Oracle 실적·섹터 반등에 IREN 프리마켓 상승 (2026-09-11, 2026-09-16)",
+   "reason": "noise_filter#common '단순 주가 변동·일간 등락' — 타사 실적에 연동된 가격 반응"
+  },
+  {
+   "title": "Nebius 컴퓨트 단가 인상 보도에 IREN 등 동반 상승 (2026-09-17)",
+   "reason": "타 종목 발 섹터 재료 — P17(담당 범위 밖 종목 원문 미로드) 및 P6(섹터 재료는 개별 종목 상향 근거 불가). IREN 자체 단가 공시 아님"
+  },
+  {
+   "title": "IREN, Bundey(남호주) 800MW 캠퍼스 송전접속계약 체결 보도",
+   "reason": "실제 발표일 2026-06-03/04 — 창 밖 재유통. Bundey 800MW는 FY26 결산 기준 포트폴리오(5,610MW)에 이미 반영된 기존 정보(IREN-2608-C17)로, 미포착 재료가 아니므로 out_of_window 적재 대상 아님"
+  },
+  {
+   "title": "IREN·BE Networks, NVIDIA DSX Air 디지털트윈으로 50,000+ Blackwell Ultra GPU 배치 시뮬레이션",
+   "reason": "실제 발표일 2026-06-01 — 창 밖 재유통. 추가로 noise_filter#common '벤치마크·인증 결과 단독' 및 #IREN 'NVIDIA 인증 = 수주 연결' 패턴에 해당 — 주문·고객·매출 데이터 없음"
+  },
+  {
+   "title": "PUCT Docket 59220(Crusoe/Ensign 525.5MW 커테일먼트) 및 Abbott 감사 재유통 해설 기사",
+   "reason": "실제 결정일 2026-07-24 / 지시일 2026-08-03 — 직전 run 0905의 IREN-0905-C09·C10에 이미 적재된 scope=sector 재료. IREN·Sweetwater·Childress는 해당 문서에 명시되지 않음"
+  },
+  {
+   "title": "Schedule 13G — Bank of America 5.8%(21,027,180주, 2026-08-03), Goldman Sachs 9.4%(33,642,054주, 2026-08-12)",
+   "reason": "창 밖(8월) + noise_filter#common '패시브 13G 지분 보도의 기관 매수 = 강세 해석'. 두 신고의 발행주식 분모 기준일이 서로 달라 완전희석 주수 range 갱신 근거로도 사용 불가(F9)"
+  },
+  {
+   "title": "Sweetwater Hub ERCOT Batch Zero Base Load 분류 2차 재인용 보도",
+   "reason": "원 사건 2026-09-08, 직전 run 20260911_2308에서 grade 1 원문으로 적재 완료 — 재인용은 신규 근거가 아님(P3)"
+  },
+  {
+   "title": "IREN 종가·시총 일간 데이터 (09-18 $46.68, +7.36% 등)",
+   "reason": "noise_filter#common '단순 주가 변동·일간 등락'. 사전 정의 가격 라인($30 추가매수 정지 / $28 포지션 리뷰) 대비 이격이 확대된 방향이며 어느 라인도 접근하지 않아 알림 사유 없음"
+  }
+ ],
+ "reused_from": "output/20260911_2308/02_company/IREN.json",
+ "notes": "P17 컨텍스트 격리 준수 — state/thesis_cards/IREN.yaml(전문, F20), config/noise_filter.yaml, config/sources.yaml, 자기 종목 과거 산출물(output/20260911_2308·20260905_0618·20260829_1046/02_company/IREN.json), 자기 출력 경로, 웹/EDGAR 원문만 접근했다. 타 종목 카드·산출물, output/*/01_macro_kc.json, output/*/04_sector/*, output/*/03_signal/*, state/signals.json은 열람하지 않았다.\n\n[이번 회차 결과 요약] 창(2026-09-10~2026-09-19) 내 신규 grade 1~2 IREN 고유 재료는 0건이다. EDGAR 신규 공시 0건(마지막 2026-08-27), 회사 보도자료 0건(마지막 2026-09-08). 이는 P5에 따른 정상 결과이며 6개 축 전부 direction=neutral·stage=없음으로 유지한다. 억지 승격을 하지 않았다.\n\n[매크로 처리] 2026-09-16 FOMC 25bp 인상(목표범위 3.75~4.00%)은 지시대로 매크로로 취급해 Claim화하지 않았다(P6/P13). 승격 조건인 '금리에 직접 연동되는 종목 고유 1차 사실'(신규 발행 금리·차환 조건·이자비용)은 창 내 공시가 없어 unconfirmed에 적재했다. 참고로 기존 조달분의 금리는 FY26 결산 기준 고정금리 구조(전환사채 1.00% due 2033, Microsoft용 $3.6bn GPU 파이낸싱 가중평균 6.0%, 비투자등급 배치용 $2.4bn 고정 9.0%)로 공시돼 있으나, 이는 기존 회차 적재분이며 이번 인상과의 연결 고리를 새로 확인한 바 없으므로 신규 Claim으로 세지 않았다.\n\n[창 밖 미포착 재료] 지시에 따라 창 밖 소급 스윕을 수행해 1건을 out_of_window: true로 적재했다 — BC Hydro 2026 Call for Demand(c_20260919_IREN_3). 이는 IREN 전 회차 산출물에서 한 번도 추적되지 않은 관할(브리티시컬럼비아)의 전력 배분 체제이며, 선정자 통보 마일스톤이 이번 창에 걸친다. noise_filter#IREN promote_if 'DC 모라토리엄: 시행 / 텍사스·BC 관할 / IREN 계약 용량 영향' 중 'BC 관할' 항목에 직접 대응한다. 다만 grade 3이고 IREN 명시가 없어 confirmed=false이며, 축 판정 변경 근거가 아니라 unconfirmed 신규 편입으로 처리했다.\n\n[KC-10 관측 — IREN은 KC-10 이벤트형] 이번 창에서 (a) IREN 사이트의 전력접속 취소 공시, (b) 인허가 취소·보류 공시, (c) 계약 용량 10% 이상의 강제 감축 분류 — 세 이벤트 모두 관측되지 않았다. 직전 회차의 진행 방향 근거(2026-09-08 Sweetwater 2GW 조건부 Base Load)는 유지되며 취소·보류 방향의 신규 근거는 추가되지 않았다. 반대로 KC-10 met 판정을 뒷받침할 근거도 추가되지 않았다. 첫 번째 조건의 분모(SB6 적용 MW)는 여전히 공백이므로 해당 조건은 판정 불가 상태가 이월된다. 새로 편입된 BC 배분 이슈는 '취소·보류'가 아니라 '신규 배분 경쟁'이므로 현 시점 KC-10 조건문에 직접 대응하지 않는다 — 다만 BC 배분 탈락이 향후 Mackenzie 확장의 접속 제약으로 현실화될 경우 KC-10 (b) 조건 해석 논점이 생길 수 있어 관측 대상으로 등재했다. KC 판정 자체와 임계 확정은 signal-arbiter·사람의 영역이므로 본 산출물은 met/not_met 관측만 보고하고 등급을 매기지 않는다(P12·§9)."
+}

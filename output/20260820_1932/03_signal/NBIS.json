@@ -1,0 +1,86 @@
+{
+  "as_of": "2026-08-20",
+  "run_id": "20260820_1932",
+  "ticker": "NBIS",
+  "input_source": "output/20260820_1932/03_input/arbiter_NBIS.json",
+  "prior_signal": "🟡",
+  "prior_label": "관망 (신규 커버리지 초기화)",
+  "prior_since": "2026-08-15",
+  "prior_next_gate": "멀티플 조정 또는 2027 가이던스 확정",
+  "proposed_signal": "🟡",
+  "proposed_label": "관망 (레버리지 재측정 + 신규 조달 이벤트 발생, 결제 미확정으로 등급 유지)",
+  "transition_candidate": "유지 (변경 없음) — 등급 확정은 사람이 한다",
+  "claims_reviewed": {
+    "company_specific_count": 11,
+    "sector_scope_removed_count": 0,
+    "removed_ids": [],
+    "note": "arbiter_NBIS.json: claims=11건 전건 company_specific/grade1/confirmed=true. deltas=2건(leverage_burden weaken, funding_access strengthen). filter_arbiter_input.py 필터 단계 제거 건 없음(removed_claims=[])."
+  },
+  "gate_check": {
+    "quantitative_evidence": false,
+    "company_specific": false,
+    "revenue_recognized": false,
+    "basis": "이번 회차 Claim 11건은 전부 부채·조달·재무구조 관련이며 매출·가이던스·마진 인식 항목이 아님. 상향 게이트(P2/P6/P7: quantitative==true AND scope==company_specific AND stage==revenue_recognized)를 충족하는 대상 자체가 없음 — 상향 미해당(vacuous false)."
+  },
+  "kill_check": {
+    "macro_kc_1_10": {
+      "label": "매크로 KC-1~10 전건",
+      "verdict": "not_met",
+      "confidence": "일부 provisional(6건)",
+      "basis": "오케스트레이터 전달: 매크로 KC-1~10 전건 not_met(provisional 6건 포함). met&confirmed 건 없음."
+    },
+    "company_kc_3": {
+      "label": "NBIS 종목 KC 3건(전건 active)",
+      "verdict": "not_met",
+      "confidence": "active 상태 유지",
+      "items": [
+        {"kc": "KC-NBIS-1 (대형 계약 훼손)", "verdict": "not_met", "basis": "오케스트레이터 전달: 관측 없음."},
+        {"kc": "KC-NBIS-2 (용량 인도 지연 2단)", "verdict": "not_met", "basis": "오케스트레이터 전달: 관측 없음."},
+        {"kc": "KC-NBIS-3 (조달 조건 악화, any_of)", "verdict": "not_met", "basis": "하한 조건(현금<$5B 이면서 '추가 조달 실패' 동반)은 현금 $8,042.1M(c_20260820_NBIS_01, 6/30 grade1)로 하한 미달 아니며, 신규 조달은 실패가 아니라 $4.5B→$5.0B 업사이즈 성공(c_20260820_NBIS_06,07) — 이 arm은 정의상(현금 부족 AND 조달 실패의 결합) 충족될 수 없음. 스프레드(+300bp) arm은 발행물이 전환사채(equity-linked)라 신규 부채 스프레드와 직접 비교 가능한 지표가 관측되지 않음(unconfirmed, P5 — 반증 아님). any_of 구조상 한쪽 arm이 명확히 미해당이고 다른 쪽이 미관측이므로 전체 verdict는 not_met(미충족) 유지, 관측 지속 필요."}
+      ]
+    },
+    "kill_priority_triggered": false,
+    "basis": "전이 규칙 1(Kill 우선: KC met AND confirmed)에 해당하는 건 없음 — 매크로 10건 전건 not_met, 종목 KC 3건도 전건 not_met(active 모니터링 유지)."
+  },
+  "downgrade_check": {
+    "rule_applied": "rule 3 (비대칭 하향) — 신중 판정: 아래 두 갈래를 분리하여 각각 판정",
+    "branch_A_card_assumption_inaccuracy": {
+      "classification": "ThesisPatch 영역 (signal 하향 근거 아님)",
+      "basis": "c_20260820_NBIS_01/02/03(전부 grade1·confirmed)은 2026-06-30 시점(8/12 6-K 기준) 재무상태가 '이미 존재했던 상태'를 재확인한 것으로, thesis 카드 주석(2026-08-15 작성)이 전환사채 총액 중 2026년 3월 발행분($4,337.5M)만 반영한 부분치였음을 드러낸다. 즉 이번 회차에 회사 상태가 새로 악화된 것이 아니라, 8/15 등급 설정 당시 카드가 사용한 수치 자체가 부정확했던 것(전환사채 원금 실제 $10,041.8M, 상각후원가 $8,499.0M — 카드 대비 약 2배). 6/30 시점 Debt(유동+비유동 $8,545.7M) > 현금($8,042.1M) 구조도 8/15 시점 이미 성립해 있던 사실이며 이번 회차에 새로 발생한 훼손이 아니다. 이는 signal-arbiter의 등급 전이 판정 대상이 아니라 thesis-refine/ThesisPatch가 다룰 '카드 가정 부정확' 영역이다(P8 — 축 재평가는 하위 축 분해로, 사람 승인 필요)."
+    },
+    "branch_B_new_grade1_event_this_window": {
+      "classification": "신규 이벤트, 그러나 P7 1단계(계약 존재)에 그침 — 하향 게이트 미충족",
+      "basis": "8/19~20 신규 발생 사실은 (a) $4.5B→$5.0B 전환사채 업사이즈 가격 확정(c_...06,07), (b) $800M 기존 전환사채→지분 교환 계약(c_...08). 이들은 grade1·confirmed=true 사실이지만 c_20260820_NBIS_09(P7 3단 분리 명시)에 따라 '가격 확정' 단계일 뿐 결제(2026-08-24 예정)는 as_of 시점 미완료 — 즉 계약 존재 단계이며 이행·재무제표 반영 단계가 아니다. 원금 확대 전망(~$14.2~15.0B)은 c_20260820_NBIS_10에서 명시적으로 'inference, strength=medium, 가정 명시, Q3 2026 확정 재무제표로 재확인 필요'로 태깅된 추정치이며 grade1 확정 사실이 아니다. 따라서 rule 3의 '정량 훼손'을 이 갈래에 즉시 적용하기엔 근거가 아직 미확정(결제 전) 단계다."
+    },
+    "quantitative_deterioration": false,
+    "qualitative_deterioration_grade_le_2": false,
+    "downgrade_applied": false,
+    "basis": "Branch A는 signal 하향 근거가 아니라 ThesisPatch 후보(카드의 '순현금 재무구조' 가정 수정 필요)로 오케스트레이터/사람에게 별도 보고 대상. Branch B는 grade1 사실이나 P7상 '계약 존재' 단계에 그쳐 확정된 정량 훼손으로 판정하기엔 이르다(결제 2026-08-24 대기). rule 4(P12) 적용: 게이트(하향) 미충족 → 등급 유지 + 사유 기록. KC-NBIS-3도 not_met. funding_access 축은 오히려 strengthen(업사이즈 성공, 수요 견조)으로 leverage_burden weaken과 상충 방향이라 단일 방향 하향을 정당화하기 어려움."
+  },
+  "decision_basis_P12": "Kill 우선(rule 1) 미해당 — KC met&confirmed 없음. 상향 게이트(rule 2) 미해당 — 매출인식 관련 Claim 없음. 하향(rule 3)은 두 갈래로 분리 판정: (A) 카드 부분치 발견은 signal 하향 근거가 아닌 ThesisPatch 영역, (B) 신규 8/19~20 조달 이벤트는 grade1 사실이나 P7 1단계(계약 존재)에 머물러 결제 미확정 — 하향 게이트 미충족. 따라서 rule 4/P12 기본 경로: 현행 등급(🟡 관망) 유지 + 사유 기록. next_gate를 결제 완료 확인(관측 가능 정량 이벤트)으로 갱신 제안. 등급 확정은 사람이 한다.",
+  "alert": {
+    "ticker_event": "NBIS — 2026-06-30 재무제표 전환사채 총액 재대조(카드 부분치 발견) + 2026-08-19~20 신규 $5.0B 전환사채 업사이즈/가격확정 및 $800M 기존 전환사채-지분 교환 계약, 결제(8/24) 대기 — 등급 유지 판정",
+    "facts": [
+      {"text": "2026-06-30 기준: 현금 $8,042.1M, Debt 유동+비유동 합계 $8,545.7M(전환사채 상각후원가 $8,499.0M 포함), 전환사채 원금 합계 $10,041.8M(6개 시리즈)", "source": "6-K Ex-99.2 Note 12 (arbiter_NBIS.json c_20260820_NBIS_01/02)", "timestamp": "2026-08-12 filed"},
+      {"text": "thesis 카드 주석(2026-08-15)의 '전환사채 $4,337.5M'은 2026년 3월 발행분만의 부분치였음이 확인됨 — 총액은 원금 $10,041.8M/상각후원가 $8,499.0M", "source": "6-K Ex-99.2 Note 12 (arbiter_NBIS.json c_20260820_NBIS_03)", "timestamp": "2026-08-12 filed"},
+      {"text": "2026-07-10 $775M 자산담보(SOFR+2.50%, 만기 2030-10-31) 대출 체결 — 6/30 재무제표 미반영 후속사건", "source": "6-K Ex-99.2 Note 16 / 6-K Ex-99.1 2026-07-17 (arbiter_NBIS.json c_20260820_NBIS_04)", "timestamp": "2026-07-10 / 2026-07-17"},
+      {"text": "$4.50B 전환사채 발행 발표(8/19) → 익일 $5.0B로 업사이즈 가격확정(8/20): 2030년물 $3.0B@0.50%, 2034년물 $2.0B@4.50%, 예상 순조달 약 $4.94B(그린슈 전액 시 최대 약 $5.68B), 결제예정 2026-08-24", "source": "6-K Ex-99.1 (arbiter_NBIS.json c_20260820_NBIS_06/07)", "timestamp": "2026-08-19 / 2026-08-20"},
+      {"text": "동시에 기존 2029년물($400M)+2031년물($400M)=$800M 전환사채를 Class A 보통주 약 15.8M주로 교환하는 계약 체결(신규 발행 완료 조건 아님), 결제도 8/24 예정", "source": "6-K Ex-99.1 (arbiter_NBIS.json c_20260820_NBIS_08)", "timestamp": "2026-08-20"},
+      {"text": "오케스트레이터 전달: 매크로 KC-1~10 전건 not_met(provisional 6건). NBIS 종목 KC 3건 전건 active — KC-NBIS-1/2 관측 없음, KC-NBIS-3(현금<$5B AND 조달실패, 또는 스프레드+300bp) 미충족(현금 하한 미달 아님, 조달은 성공)", "source": "오케스트레이터 KC 발췌(L1/L2)", "timestamp": "2026-08-20"}
+    ],
+    "inference": [
+      {"text": "8/24 결제가 발표대로 완료되면 전환사채 원금은 약 $14.24~14.99B(그린슈 전액 시 최대 약 $14.99B)로 확대, 현금은 약 $12.98~13.72B로 증가할 전망 — 원금 기준 이자부 부채가 현금을 상회하는 구조가 유지·확대될 것으로 추정됨. Q3 2026 확정 재무제표 재확인 필요", "inference_strength": "medium — 발표자료 기반 사전추정, 미확정"},
+      {"text": "$800M 교환을 상환이 아닌 지분으로 처리한 결정은 (a) 단기(2029/2031) 만기 리스크를 장기(2030/2034)로 이관, (b) 채권자 리스크를 신규 Class A 주주(희석)로 이관하는 구조로 해석 가능", "inference_strength": "medium — 해석적 판단, 결제 완료 전 확정 아님"}
+    ],
+    "classification": "등급 유지(P12) — 단, 두 갈래 분리 기록: ①카드 가정 부정확 발견(ThesisPatch 후보, 오케스트레이터/사람 보고 대상, signal 하향 근거 아님) ②신규 조달·교환 이벤트는 grade1 사실이나 P7 1단계(계약 존재)에 머물러 하향 게이트 미충족. holding_reinforcement 분류 대상 아님(매출인식 이벤트 없음)",
+    "thesis_delta": "leverage_burden 축: weaken 방향 근거 축적 — (i) 카드 부분치 대신 전환사채 총액(원금 $10.0B/상각후원가 $8.5B) 사용 필요(카드 수정 필요, ThesisPatch 영역), (ii) $775M ABL 추가 부담(후속사건), (iii) 8/24 결제 완료 시 원금 확대(~$14.2~15.0B) 전망(미확정). funding_access 축: strengthen — $4.5B→$5.0B 익일 업사이즈는 수요 견조 시사, 다만 조달 형태가 지분성(전환사채·주식교환)이라 순수 현금성 조달의 질은 leverage_burden 훼손 방향과 상충. 리스크 이관: (a) 2029·2031 전환사채 채권자 → 신규 Class A 주주(교환분 지분 발행 ~15.8M주, 희석), (b) 단기(2029/2031) 만기 리스크 → 장기(2030/2034) 만기로 이관. 이상 Delta는 축 매핑 정보로만 기록하며 signal 등급 자체의 하향 근거로는 사용하지 않음(위 downgrade_check 참조).",
+    "signal_verdict": "🟡 관망 유지 — Kill 우선(KC met&confirmed 없음), 상향 게이트(매출인식 Claim 없음) 모두 미해당. 하향은 카드 가정 부정확(ThesisPatch 영역)과 미결제 상태의 신규 이벤트(P7 1단계)로 분리되어 이번 회차 signal 하향 게이트 미충족 → rule 4/P12 기본 경로 적용. 등급 확정은 사람이 한다.",
+    "next_check": [
+      "next_gate(갱신 제안, 관측가능·정량): 2026-08-24 예정 결제(신규 $5.0B 전환사채 + $800M 교환) 완료 여부 및 결제 후 확정 전환사채 원금·상각후원가·현금 잔액(차기 6-K/20-F 수치)",
+      "그린슈 옵션(최대 +$750M) 행사 여부 및 최종 순조달액 확정",
+      "KC-NBIS-3 스프레드 arm(+300bp) 비교 가능 지표 확보 — 전환사채 특성상 직접 비교 지표 부재 상태 지속 확인",
+      "thesis 카드 이자부 부채 주석 수정(전환사채 총액 $4,337.5M→$10,041.8M/원금 기준) — ThesisPatch 제안 필요, 사람 승인 전 자동 반영 금지(F17)",
+      "Vineland 공사중지명령·2027 가이던스 발표일·Q3 2026 실적일 등 이관된 unconfirmed 항목 재확인(당 run 신규 자료 없음)"
+    ]
+  }
+}

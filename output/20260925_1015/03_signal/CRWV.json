@@ -1,0 +1,207 @@
+{
+  "as_of": "2026-09-25",
+  "staleness_days": 0,
+  "run_id": "20260925_1015",
+  "ticker": "CRWV",
+  "input_source": "output/20260925_1015/03_input/arbiter_CRWV.json",
+  "prior_signal": "🟡",
+  "prior_label": "관망 (신규 커버리지 초기화, Q2 수치 재대조 대기)",
+  "prior_since": "2026-08-15",
+  "prior_next_gate": "FCF 흑자 전환 + 이자 커버리지 3x + 금리 경로 확정 동시 충족",
+  "proposed_signal": "🔴🔴",
+  "transition_candidate": "Kill 후보 (규칙1 Kill 우선 적용) — 사람 확인 요청. 등급 확정 권한은 사람에게 있다. (전회 20260919_2209 run에서도 동일 근거로 최초 트리거됐으나 state/signals.json상 아직 사람 확정 미반영 — 재확인 요청 지속)",
+  "candidate_disclaimer": "본 산출물은 시그널 등급 전이 '후보' 판정이며 최종 등급 확정 권한은 사람에게 있다. 매크로 KC-1(FFR 인상, 목표범위 4.00%, 임계 3.75 초과)이 이번 회차에도 met AND confirmed 상태를 유지해 규칙1(Kill 우선)이 재트리거된다. 종목 자체 펀더멘털(전환사채 결제 완료·옵션 전액 행사로 자본시장 접근 재강화, 이자커버리지 정태 추정 사실상 불변)은 강화 내지 중립 방향이나, 규칙1은 회사 펀더멘털 방향과 무관하게 우선 적용되도록 설계돼 있다(v1 §6-2, 변경 금지). 자동 실행 없음 — 사람 확인 + 근거 패키지 제출로 종료.",
+  "filter_bug_report": {
+    "bug_detected": false,
+    "detail": "arbiter_CRWV.json claims 2건 전수 scope=company_specific, quantitative=true, removed_claims=[] 확인 — F13(scope!=company_specific 혼입) 위반 없음. 필터본(03_input/arbiter_CRWV.json)·state/signals.json·03_kc_excerpt/CRWV.json 3개 외 파일은 열지 않았다(D7/P17). 02_company/·04_sector/·01_macro_kc.json 원문 미열람."
+  },
+  "claims": [
+    {
+      "id": "c_20260925_CRWV_1",
+      "claim_type": "fact",
+      "evidence_grade": 1,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "source_type": "sec_filing_8k",
+      "filed_at": "2026-09-22",
+      "as_of": "2026-09-22",
+      "staleness_days": 3,
+      "summary": "2026-09-22 8-K: 2026-09-17 가격결정 전환사채 결제 완료. 추가매입옵션 $500M 전액 행사로 발행규모 $3.7B→$4.2B 재상향, 순수취금 $4,137.0M. Indenture 체결, 교차부도 covenant 문턱(원금 $200M 또는 LTM EBITDA 5% 중 큰 금액, 30일 유예) 최초 1차 공시. Capped call 실비 약 $566.2M(사전 예시치 $498.8M 초과), cap price $199.70 확정. 최대 전환 시 52,578,540주 상한 명시."
+    },
+    {
+      "id": "c_20260925_CRWV_2",
+      "claim_type": "inference",
+      "evidence_grade": 1,
+      "inference_strength": "weak",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "source_type": "sec_filing_8k",
+      "filed_at": "2026-09-22",
+      "as_of": "2026-09-22",
+      "staleness_days": 3,
+      "summary": "확정 발행규모($4.2B, 2.875%)를 전회 run(20260919_2209) Adj.EBITDA/Interest expense,net 시계열에 정태 대입 시 TTM 이자커버리지 약 2.21x(전회 $3.7B 가정치 약 2.22x 대비 -0.01x, 옵션 전액 행사 반영) — 방향 판단에 실질적 영향 없음. 실제 관측치는 Q3 2026 10-Q 대기(U4)."
+    }
+  ],
+  "kill_check": {
+    "rule": "규칙1(Kill 우선, 변경 금지): KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청. 회사 KC·매크로 전파 KC 구분 없이 동일 적용.",
+    "own_company_kc": [
+      {
+        "kc_id": "KC-CRWV-1",
+        "condition": "대형 고객 계약 훼손 ($1B+ 전체)",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-09-25",
+        "staleness_days": 0,
+        "basis": "이번 창 Claim 2건은 전환사채 결제·이자커버리지 재계산에 국한되며 고객계약 해지·축소·재협상 사건 없음. P5 준수 — '사건 부재 확인'이지 반증은 아니므로 confidence는 provisional 유지."
+      },
+      {
+        "kc_id": "KC-CRWV-2",
+        "condition": "용량·차세대 GPU 배포 지연 (경고/발동 2단)",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-09-25",
+        "staleness_days": 0,
+        "basis": "이번 창에 GPU 배포·용량 관련 신규 1차 자료 없음(자본조달 이벤트만 발생). 지연 시사 자료 없음 — P5에 따라 provisional."
+      },
+      {
+        "kc_id": "KC-CRWV-3",
+        "condition": "이자 커버리지·차환 (경고 <1.5x / 발동 <1.0x)",
+        "verdict": "not_met",
+        "confidence": "confirmed",
+        "as_of": "2026-09-22",
+        "staleness_days": 3,
+        "basis": "2026-09-20 사용자 확정 산식(Adj.EBITDA/Interest expense,net, 분기 연환산) 유지. 확정 발행규모($4.2B) 반영 정태 재계산 결과 약 2.21x(c_20260925_CRWV_2)로 전회(2.22x) 대비 -0.01x, 경고(1.5x)·발동(1.0x) 양 임계 여전히 상회. 실제 관측치(총이자비용 분리 포함)는 Q3 2026 10-Q 대기(U4, 지표정의 최종 확정은 사람 영역)."
+      }
+    ],
+    "macro_kc_propagating": [
+      {
+        "kc_id": "KC-1",
+        "condition": "FFR 인상 리스크 (>3.75)",
+        "verdict": "met",
+        "confidence": "confirmed",
+        "as_of": "2026-09-24",
+        "staleness_days": 1,
+        "note": "FFR 4.00 > 3.75, api 대사 confirmed. 전회(20260919_2209) run에서 최초 met/confirmed 충족 이후 본 run에도 동일 상태 지속 — Kill 트리거 재확인."
+      },
+      {"kc_id": "KC-2", "condition": "변동성 급등(VIX>=30)", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-09-24", "staleness_days": 1},
+      {"kc_id": "KC-4", "condition": "유동성 위기 신호", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-09-24", "staleness_days": 1},
+      {"kc_id": "KC-5", "condition": "TAIEX 음전환", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-09-23", "staleness_days": 2},
+      {"kc_id": "KC-6", "condition": "AI 토큰 지출 급감(<=-30%)", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-09-01", "staleness_days": 24, "note": "지속성(2주) 조건 포함 — 사람 확인 필요"},
+      {"kc_id": "KC-7", "condition": "하이퍼스케일러 합산 FCF 악화", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-06-30", "staleness_days": 87, "note": "지속성(2분기 연속) 조건 포함 — 사람 확인 필요"},
+      {"kc_id": "KC-8", "condition": "MSFT FCF 마이너스(최후의 보루)", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-06-30", "staleness_days": 87},
+      {
+        "kc_id": "KC-9",
+        "condition": "에너지 쇼크 (brent>=120, 1개월 지속)",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-09-22",
+        "staleness_days": 3,
+        "note": "brent 114.89로 임계 120 미달(전회 130.8에서 하락) — duration 조건 이전에 임계 자체 미충족으로 전환."
+      }
+    ],
+    "kill_priority_triggered": true,
+    "kill_trigger_kc": ["KC-1"],
+    "conclusion": "KC-1(FFR 인상)이 전회 run(20260919_2209)에 이어 본 run에서도 met AND confirmed 요건을 유지해 규칙1(Kill 우선)이 재트리거된다. 종목 KC 3건(KC-CRWV-1/2/3)은 전부 not_met이며, 이번 창의 회사 고유 재료(전환사채 결제 완료·옵션 전액 행사)는 funding_access 강화·leverage_coverage 중립으로 규칙3(하향) 자체도 미충족이나, 규칙1은 회사 펀더멘털과 무관하게 매크로 KC 충족 시 우선 적용된다(v1 §6-2). state/signals.json상 CRWV 등급은 아직 🟡로 남아 있어 전회 Kill 후보에 대한 사람 확정이 이뤄지지 않은 것으로 판단되며, 본 run은 동일 근거의 재확인 요청으로 종료한다. → 🔴🔴 Kill 후보 판정, 사람 확인 요청 + 근거 패키지 제출로 종료. 자동 실행 없음."
+  },
+  "gate_check": {
+    "upgrade_gate": {
+      "rule": "규칙2(상향 게이트, P2·P6·P7 전부 충족 시에만): quantitative==true AND scope==company_specific AND stage==revenue_recognized",
+      "conditions": {
+        "quantitative_evidence": true,
+        "company_specific": true,
+        "revenue_recognized": false
+      },
+      "met": false,
+      "basis": "이번 창 Claim 2건 모두 quantitative=true·company_specific=true이나 부채 결제·이자커버리지 재계산에 국한되며 stage=revenue_recognized에 해당하는 신규 매출·마진·가이던스 수치는 없다. 인도(결제) 완료·옵션 행사는 P7상 '이행' 단계이나 매출 인식과는 무관 — holding_reinforcement 분류만 적용, 상향 근거로 사용하지 않는다."
+    },
+    "downgrade_check": {
+      "rule": "규칙3(하향, 비대칭): 정량 훼손 OR evidence_grade<=2의 정성 훼손 시 하향 가능",
+      "quantitative_deterioration": false,
+      "qualitative_deterioration_grade_le_2": false,
+      "met": false,
+      "basis": "funding_access축은 strengthen(옵션 전액 행사·결제 완료), leverage_coverage축은 neutral(정태 추정 -0.01x, 방향성 불변)로 델타 2건 모두 evidence_grade 1. capped call 실비 초과($566.2M>$498.8M 예시치)는 조달 순현금 효과를 소폭 줄이는 요소이나 funding_access 델타 자체는 strengthen으로 분류돼 있어 정량 훼손 요건 미충족. 회사 고유 정량·정성 훼손 근거 없음 — 규칙3(하향) 자체는 미충족."
+    }
+  },
+  "thesis_delta_summary": [
+    {
+      "axis": "funding_access",
+      "direction": "strengthen",
+      "stage": "강(strong)",
+      "summary": "2026-09-17 가격결정 단계에서 2026-09-22 결제 완료(이행)로 진전(P7). 추가매입옵션 $500M 전액 행사로 총 발행규모 $3.7B→$4.2B 재상향, 순수취금 $4,137.0M 실수취 — 자본시장 접근이 예상보다 강하게 성사. 교차부도 covenant 문턱 최초 1차 공시로 조달 접근성 축의 정량 기준 확보. 반대급부: capped call 실비 $566.2M(예시치 $498.8M 초과)로 순현금 유입 효과 소폭 축소.",
+      "risk_transfer_to": ["leverage_coverage"]
+    },
+    {
+      "axis": "leverage_coverage",
+      "direction": "neutral",
+      "stage": "약(weak)",
+      "summary": "확정 발행규모 반영 정태 추정 이자커버리지 약 2.21x(전회 2.22x 대비 -0.01x, 사실상 불변). 총이자비용·자본화이자 분리, covenant 준수·미인출 한도 등 실제 관측치는 여전히 Q3 2026 10-Q 대기(U4). 방향성 판단을 바꿀 재료 없음.",
+      "risk_transfer_to": []
+    }
+  ],
+  "alert": {
+    "ticker_event": "CRWV — 2026-09-22 8-K: 2026-09-17 가격결정 전환사채($3.7B, 2.875%) 결제 완료 + 추가매입옵션 $500M 전액 행사로 $4.2B 재상향(fact). 회사 고유 재료는 funding_access 강화·leverage_coverage 중립이나, 매크로 KC-1(FFR>3.75)이 전회에 이어 본 run에서도 met AND confirmed 유지 — 규칙1(Kill 우선) 재트리거로 🔴🔴 Kill 후보 판정(사람 확인 요청)(fact/inference 결합 판정)",
+    "facts": [
+      {
+        "text": "2026-09-22 8-K: 전환사채 결제 완료(Indenture 체결), 옵션 $500M 전액 행사로 발행규모 $3.7B→$4.2B, 순수취금 $4,137.0M. 교차부도 covenant 문턱($200M 또는 LTM EBITDA 5% 중 큰 금액, 30일 유예) 최초 공시. Capped call 실비 $566.2M, cap price $199.70 확정.",
+        "source": "arbiter_CRWV.json c_20260925_CRWV_1 (SEC 8-K, grade 1)",
+        "timestamp": "2026-09-22"
+      },
+      {
+        "text": "FFR 목표범위 4.00%(임계 3.75 초과) — FRED api 대사 confirmed. 전회 run(20260919_2209)에서 최초 met/confirmed 충족된 KC-1이 본 run에도 동일 상태로 지속.",
+        "source": "output/20260925_1015/03_kc_excerpt/CRWV.json KC-1 (오케스트레이터 전달, FRED api)",
+        "timestamp": "2026-09-24"
+      },
+      {
+        "text": "brent 114.89(2026-09-22)로 KC-9 임계(120) 미달 전환 — 전회(130.8, provisional met) 대비 하락, 규칙1 트리거 요건 해당 없음.",
+        "source": "output/20260925_1015/03_kc_excerpt/CRWV.json KC-9",
+        "timestamp": "2026-09-22"
+      }
+    ],
+    "inference": [
+      {
+        "text": "확정 발행규모($4.2B) 반영 정태 이자커버리지 재계산 약 2.21x — 전회 가정치(2.22x) 대비 -0.01x로 방향 판단에 실질적 영향 없음. 회사가 직접 공시한 지표가 아니라 1차 공시 구성요소의 산술 결합 파생값.",
+        "inference_strength": "weak (c_20260925_CRWV_2)"
+      }
+    ],
+    "classification": "kill_candidate (규칙1 Kill 우선 적용, 재확인) — 사람 확인 요청. 참고: 회사 고유 재료(funding_access strengthen·leverage_coverage neutral)는 그 자체로 holding_reinforcement 성격이나, 매크로 Kill 우선 규칙 앞에서는 등급 유지·상향 근거로 작동하지 않으며 최종 판정을 뒤집지 않는다.",
+    "thesis_delta": "funding_access(강, strengthen)→leverage_coverage(약, neutral)로 리스크 이관 구도 유지. next_gate의 '금리 경로 확정' 항목은 KC-1이 (불리한 방향으로) 지속 충족 중이라는 이유로 상향에 유리하게 계상하지 않는다(P6/P13) — 오히려 규칙1 Kill 트리거의 근거로만 사용.",
+    "signal_verdict": "🔴🔴 Kill 후보 (규칙1 우선 적용, 사람 확인 요청 재발) — 등급 확정은 사람이 한다. 근거: KC-1(FFR>3.75) met AND confirmed가 전회 run 이후 지속. 종목 KC 3건 전부 not_met, 회사 2축(funding_access strengthen·leverage_coverage neutral)이므로 규칙3(하향) 자체는 미충족이나, 규칙1이 규칙3보다 우선 적용된다(v1 §6-2). 규칙2(상향)도 stage=revenue_recognized 미충족으로 별도 불가. state/signals.json상 등급이 아직 🟡로 남아 있어 전회 요청에 대한 사람 확정이 미반영된 것으로 보이며, 조속한 확인을 요청한다.",
+    "next_check": [
+      "[사람 확인 필요] KC-1 Kill 후보에 대한 최종 등급·포지션 조치 확정 — 전회 run(20260919_2209)부터 대기 중, 시스템은 후보 판정과 근거 패키지 제출까지만 수행",
+      "이자 커버리지 실측: Q3 2026 10-Q에서 총이자비용·자본화이자·이자수익 분리 수치 및 결제 반영 후 총부채·가중평균이자율 확정(U4)",
+      "ATM 실사용 개시 여부(30일 lock-up 경과 후) 및 실제 매각 수량",
+      "FY26 매출($12.4-13.2B)·CapEx($35-39B) 가이던스 1차 자료 재대조 (이번 창도 미포함)",
+      "Masaitis 증권집단소송 디스커버리·화해 진행상황 공개 여부"
+    ]
+  },
+  "next_gate": "관측 가능 정량 항목: (1) Q3 2026 10-Q 이자커버리지 실측치(Adj.EBITDA/Interest expense,net, 분기 연환산) 3x 초과 여부 — 현재 정태 추정 2.21x는 참고치이며 실측 대기, (2) 다음 FOMC(약 2026-11월경) 결정 후 FFR이 3.75 이하로 재하락하는지 여부(KC-1 met 해제 관측), (3) 영업현금흐름-CapEx 기준 FCF 흑자 전환 여부(Q3 10-Q). 3개 동시 충족 전까지 상향 게이트 미충족 지속.",
+  "unconfirmed_carried": [
+    {
+      "topic": "이자 커버리지 잔여 정의 공백(U4 — KC 임계·정의 최종 확정)",
+      "detail": "총이자비용·자본화이자·이자수익 분리 수치 확정은 사람 영역(P11). 확정 발행규모($4.2B) 반영해도 정태 추정 약 2.21x로 사실상 불변 — 실측치는 Q3 2026 10-Q 대기.",
+      "reason": "partially_resolved_definition_final_ratification_pending_human"
+    },
+    {
+      "topic": "FY26 가이던스($12.4-13.2B)·CapEx 가이던스($35-39B) 재대조",
+      "detail": "이번 창 문서(2026-09-22 8-K)에도 가이던스 수치 미포함, 재대조 미완 지속.",
+      "reason": "not_included_in_window_documents"
+    },
+    {
+      "topic": "신규 전환사채 결제 후 총부채·미인출 한도·covenant 준수 상태",
+      "detail": "발행규모($4.2B)·순수취금($4,137.0M)·capped call 실비($566.2M)·교차부도 covenant 문턱은 확정됐으나, 결제 반영 후 총부채 총액·가중평균 이자율·DDTL 5.5 포함 통합 수치는 미공시. ATM 실제 매각 0건.",
+      "reason": "no_disclosure_awaiting_q3_10q"
+    },
+    {
+      "topic": "Masaitis v. CoreWeave 증권집단소송 진행상황",
+      "detail": "2026-03-13 리드플레인티프 지정 이후 공개 업데이트 이번 창에도 미확보 지속.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "창 내 신규 고객 계약(Caterpillar·CrowdStrike SafeMind) TCV·계약기간·매출인식 시점",
+      "detail": "실명 공시는 완료됐으나 계약금액·기간·인식 개시 시점 여전히 미공시.",
+      "reason": "contract_terms_not_disclosed"
+    }
+  ]
+}

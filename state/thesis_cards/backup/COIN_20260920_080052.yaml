@@ -1,0 +1,61 @@
+# Thesis Card — COIN (v1 §5-6 기계 판독본)
+ticker: COIN
+sector: stablecoin
+tier: Next
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-6 / 투자_Thesis_Map_v32 (신호 🟠)"
+version_history:
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화"}
+
+axes:
+  - {id: subscription_mix,  label: "구독·서비스 매출 비중 (~48%) — 사이클 저항성 전환"}
+  - {id: trading_cycle,     label: "거래 매출·거래량 (BTC·크립토 사이클 종속)"}
+  - {id: usdc_economics,    label: "USDC 관련 수익 (연 $1.2B+) — OUSD 대체·보완 관계"}
+  - {id: regulation,        label: "규제 — CLARITY Act 경로"}
+  - {id: derivatives_base,  label: "파생상품·Base 생태계 확장"}
+
+thesis: >
+  "Everything Exchange" — 거래 수수료 의존을 낮추고 구독·서비스 매출(스테이블코인 수익 포함)
+  비중을 높여 사이클 저항성을 확보한다. 파생상품·Base 생태계 확장.
+
+key_metrics:
+  - "구독·서비스 매출 비중 (~48%)"
+  - "거래 매출 및 거래량"
+  - "USDC 관련 수익 (연 $1.2B+ 규모)"
+  - "파생상품 거래량"
+  - "Base 네트워크 활동"
+  - "OUSD 참여의 실제 수익 기여 (USDC 수익과의 대체·보완 관계)"
+
+catalysts:
+  - "CLARITY Act 상원 경로"
+  - "분기 실적"
+  - "BTC 가격 사이클"
+  - "OUSD 출시 및 COIN 분배 조건 공개"
+
+risks:
+  - "거래 매출의 BTC·크립토 사이클 종속"
+  - "CLARITY Act 실패 시 규제 수혜 소멸"
+  - "USDC-COIN 관계 재편 (OUSD 참여가 자사 USDC 수익 잠식 가능성)"
+  - "경쟁 거래소·수수료 압력"
+
+kill_conditions_ref: ["KC-COIN-1", "KC-COIN-2", "KC-COIN-3", "KC-COIN-4", "KC-3 연동", "CLARITY 최종 실패"]
+noise_filter_ref: "config/noise_filter.yaml#COIN"
+
+earnings_checkpoints:
+  date: null   # ⚠️ Q3 일정 확인 필요
+  items:
+    - "매출 컨센서스 대비 (Q2 miss 후 회복 여부 — 기준 소스 명시, F8)"
+    - "구독·서비스 비중 방향"
+    - "USDC 수익 절대액"
+    - "파생상품 매출"
+    - "비용 구조·마진"
+    - "OUSD 관련 가이던스"
+
+valuation:
+  primary: "Forward P/E + 구독 매출 비중"
+  secondary: "P/S"
+  caution: "거래 매출과 구독 매출에 동일 멀티플 적용 부적절 — recurring 비중으로 가중"
+
+conclusion: >
+  규제 촉매(CLARITY)와 구조 전환(구독 비중)이 모두 진행 중이나 Q2 매출 miss로 전환 속도가
+  검증 대상. OUSD 참여는 강세 재료가 아니라 USDC 수익과의 상충 여부를 확인해야 할 축이다.

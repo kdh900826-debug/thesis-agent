@@ -1,0 +1,243 @@
+{
+  "as_of": "2026-09-19",
+  "ticker": "COIN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260919_COIN_2",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260919_COIN_1",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API 조회(CIK 0001679788, forms=10-K/10-Q/8-K, since=2026-09-08, 조회 시각 2026-09-19)가 반환한 해당 서식 건수는 0건이다. 동일 API의 전체 서식 목록을 직접 확인한 결과 이번 창(2026-09-10~09-19) 내 COIN 제출물은 Form 4 1건(2026-09-10 제출, accession 0001679788-26-000107)과 Form 144/A 1건(2026-09-14 제출, accession 0001974078-26-000354)뿐이다. Form 4 원문은 이사 Marc L. Andreessen이 2026-09-08 Class A 보통주 13,676주를 주당 $181.1392에 처분(transactionCode S)하고 잔여 1,136,324주를 보유한다는 내용이며, 매출·가이던스·마진·현금흐름·고객·수주 항목을 담고 있지 않다. 따라서 이번 창에서 Circle과의 USDC 분배계약 변경·갱신을 알리는 8-K, 실적 관련 8-K, 분기보고서는 모두 제출된 바 없다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "EDGAR submissions API + Form 4 원문",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000107/wk-form4_1789071473.xml",
+        "filed_at": "2026-09-10"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "KC-CRCL-3(Circle 분배계약 변경 공시) 트리거 부재 재확인 → KC-COIN-4의 'kc_crcl_3_adverse_to_coin' 조건 미충족. 이사 지분 처분 건은 보유분의 약 1.2% 규모이며 P3상 노이즈(축 매핑 대상 아님) — 사실 기록 목적으로만 적재."
+    },
+    {
+      "id": "c_20260919_COIN_3",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "Coinbase는 2026-09-16부로 Coinbase Advanced의 수수료 체계를 변경했다. 공개된 내용은 ①다수 글로벌 고객 대상 현물 거래 수수료 인하 ②볼륨 티어 산정에 현물과 파생상품 활동을 합산 ③Advanced 티어 진입 기준을 적격 거래대금 $25,000에서 $10,000로 하향 ④플랫폼 내 USDC 보유만으로 VIP 수수료·혜택 즉시 자격 부여 ⑤Advanced 거래 잔고를 USDC로 예치할 경우 미체결 주문에 묶인 USDC 포함 최대 4.1% USDC 리워드 지급(Coinbase One 회원은 USDC 3.5% APY 무제한 유지) ⑥VIP8 기준 현물 수수료 0bps/2bps 수준이다. 발표 문서는 변경에 따른 거래대금·매출·테이크레이트 영향 수치를 제시하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "회사 공식 블로그 (coinbase.com — sources.yaml grade_1 등재 도메인)",
+        "url": "https://www.coinbase.com/blog/were-lowering-fees-for-many-active-traders-on-coinbase-advanced",
+        "published_at": "2026-09-16"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "도메인 등급은 1이나 confirmed=false 유지 사유: coinbase.com이 Cloudflare 브라우저 검증으로 WebFetch·curl 모두 HTTP 403을 반환해 원문 페이지 본문을 직접 렌더링하지 못했다. 본문 내용은 coinbase.com 도메인 한정 검색 색인이 반환한 해당 블로그 발췌에 근거하며, 원문 직접 확인 전까지 confirmed=false(D15 역추적 원칙 — 1차 URL은 특정했으나 원문 대조 미완). 2차 매체(cryptodaily.co.uk 2026-09-16)가 티어 기준 $25,000→$10,000 하향과 USDC 티어 산입을 동일하게 보도해 삼각검증은 성립(P4)."
+    },
+    {
+      "id": "c_20260919_COIN_4",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "2026-09-18자 보도(원출처는 Wall Street Journal 보도 및 Coinbase의 자체 소셜 게시물)에 따르면 Coinbase는 미국 내 개별주식 무기한선물(single-stock perpetual futures)의 최초 상장을 위한 신청을 제출했으며, 대상은 Apple·Microsoft·Tesla·NVIDIA 등 미국 대형주 약 50~60종목이고 승인 시 연내 개시를 목표로 한다고 전한다. 해당 보도는 접수 규제기관·서식명·정확한 제출일·레버리지 한도·수수료 구조·예상 매출을 명시하지 않으며, 규제기관의 승인 사실도 제시하지 않는다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news (WSJ 재인용)",
+        "url": "https://www.cryptotimes.io/2026/09/18/coinbase-files-to-expand-u-s-derivatives-into-single-stock-perpetuals/",
+        "published_at": "2026-09-18"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "cryptotimes.io는 sources.yaml 미등재(default_grade=4). 1차 URL 역추적 시도: coinbase.com 블로그·CFTC 자체인증(self-certification) 게시판 모두에서 대응 문서를 특정하지 못했고 coinbase.com은 403 — confirmed=false(D15). P7 3단 분리: 본 건은 '신청 제출' 단계이며 '승인'·'거래 개시'·'매출 인식' 어느 단계도 확인되지 않았다."
+    },
+    {
+      "id": "c_20260919_COIN_5",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "COIN 10-Q(2026-06-30 기준, 2026-07-30 제출) Note 5 Revenue 원문 기준 Q2 2026 매출 믹스는 다음과 같다 — Total transaction revenue $599.156M(Consumer $451.670M, Institutional $100.073M, Other $47.413M), Total subscription and services revenue $555.145M(Stablecoin revenue $292.147M, Blockchain rewards $83.342M, Interest and finance fee income $66.128M, Other $113.528M), Total net revenue $1,154.301M. 전년동기(Q2 2025)는 transaction $764.270M / subscription and services $632.243M / total net revenue $1,396.513M이다. 상반기 누계는 transaction $1,354.981M / subscription and services $1,138.668M이므로 Q1 2026은 transaction $755.825M / subscription and services $583.523M / total net revenue $1,339.348M으로 산출된다. 구독·서비스 비중은 Q1 2026 43.6% → Q2 2026 48.1%(전년동기 45.3%)이며, 같은 기간 구독·서비스 매출 절대액은 QoQ -4.9%, YoY -12.2%, 거래 매출 절대액은 QoQ -20.7%, YoY -21.6%이다. Stablecoin revenue는 YoY -5.4%($308.914M→$292.147M)이며, 2026년 1분기부터 법인 결제용 스테이블코인 잔고 수익은 Stablecoin revenue가 아닌 Corporate interest and other income으로 표시가 변경되어 2025년 비교치도 재분류됐다(3개월 $23.6M, 6개월 $47.1M).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+        "filed_at": "2026-07-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true,
+      "note": "창(2026-09-10~09-19) 밖 자료 — out_of_window=true. 이번 run에서 원문 대조로 신규 적재한 이유는 이월 감시 항목 ④(구독·서비스 매출 비중 방향)에 대해 본 에이전트가 읽을 수 있는 직전 2개 산출물(20260905·20260911) 어디에도 비중 수치가 정량 claim으로 적재돼 있지 않았기 때문이다. 20260820 이전 run에 동일 수치가 이미 적재돼 있을 수 있으므로 L3·L4 통합 시 중복 계상에 유의. 비중 상승(43.6%→48.1%)은 구독 매출 증가가 아니라 거래 매출이 더 빠르게 감소한 결과이므로 '구조 전환 진전'으로 단독 해석 불가 — 믹스 분리 원칙에 따라 절대액과 비중을 분리 표기했다."
+    },
+    {
+      "id": "c_20260919_COIN_6",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "COIN 10-Q(2026-06-30 기준, 2026-07-30 제출) Note 2 'Changes in financial statement presentation' 항목은 2026년 1분기 법인 결제용 스테이블코인 잔고 수익의 표시 변경을 설명하면서 'There is no change to the Company's arrangement with Circle Internet Financial, LLC or the revenue generated'라고 명시한다. 같은 10-Q 전문에서 'Circle'은 총 4회 등장하며, 나머지 3회는 Circle Internet Group, Inc. 지분 투자의 공정가치 재측정·일부 지분 매도 관련 서술이다. 10-Q 본문에는 Circle-Coinbase 분배계약의 만기 연장(2029년)·분배율·개정 조건을 서술한 주석이나 별도 계약 주석이 존재하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "10-Q (Note 2 원문)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+        "filed_at": "2026-07-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true,
+      "note": "창 밖 자료 — out_of_window=true. 해석 범위 제한 명시: 인용 문장은 '표시 변경(presentation change)이 Circle과의 약정 및 발생 수익에 영향을 주지 않는다'는 회계표시 한정 진술이며, 2026년 하반기에 2차 매체가 전한 '2029년까지 기존 조건으로 갱신' 서사를 직접 확인하거나 반증하는 문장이 아니다. 따라서 이 claim은 '분배계약 조건을 서술한 COIN 1차 주석이 10-Q 본문에 없다'는 사실만 확정하며, 갱신 서사 자체는 unconfirmed로 유지한다(P5)."
+    },
+    {
+      "id": "c_20260919_COIN_7",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "복수 2차 매체(techtimes.com 2026-09-04, news.bitcoin.com, cryptopotato.com 등)는 Coinbase Derivatives LLC가 security futures exchange 등록을 위한 Form 1-N을, Coinbase Financial Markets Inc.가 limited-purpose security futures broker-dealer 등록을 위한 Form BD-N을 각각 2026-09-01자로 SEC에 제출했고, Chief Policy Officer Faryar Shirzad가 2026-09-03 이를 공개 발표했다고 보도한다. 보도는 해당 제출이 개별주식 무기한선물을 security futures로 분류해 SEC·CFTC 공동 관할 경로로 온쇼어화하려는 것이며, 미국 출시에는 CFTC의 추가 승인이 필요하고 출시일·대상 종목·레버리지 한도는 제시되지 않았다고 전한다.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "news",
+        "url": "https://www.techtimes.com/articles/326705/20260904/coinbase-files-domestic-stock-perps-under-security-futures-cme-suit-clouds-launch.htm",
+        "published_at": "2026-09-04"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": true,
+      "note": "창 밖(2026-09-01~09-04) 자료이며 직전 2개 산출물에 미포착 — out_of_window=true로 신규 적재. Form 1-N·BD-N은 EDGAR 일반 검색 대상 서식이 아니어서 COIN submissions API에 나타나지 않으며, SEC 측 1차 문서 URL 역추적은 실패 — confirmed=false(D15). c_20260919_COIN_4(09-18 상장 신청 보도)의 선행 절차로 보이나 두 건의 서식·기관 연결은 1차 자료로 확인되지 않았다."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "usdc_economics",
+      "direction": "neutral",
+      "prior_state": "20260911 run: Circle 분배계약 관련 8-K 신규 0건, '확장'(grade4) 대 '불변'(grade3 다수) 서사 상충 미해소, OUSD 참여조건·분배구조 및 USDC 수익 절대액 신규 공시 모두 미확보 — neutral 유지.",
+      "new_state": "이번 창에서도 Circle 분배계약 관련 8-K는 0건(c_20260919_COIN_1). 이월 감시 항목 ①(USDC 분배 수익 신규 1차 자료)에 대해 COIN 자체 10-Q 원문을 대조한 결과, 1차 자료로 확정할 수 있는 것은 두 가지다 — ⓐQ2 2026 Stablecoin revenue $292.147M(YoY -5.4%)이라는 절대액과 ⓑ10-Q 본문에 분배계약의 만기·분배율·개정 조건을 서술한 주석이 존재하지 않는다는 사실(c_20260919_COIN_5·_6). '2029년까지 기존 조건 갱신' 서사는 여전히 COIN 1차 자료로 확인되지 않아 unconfirmed 유지. 한편 이번 창 내 신규 재료로 2026-09-16 수수료 개편에 'USDC 보유만으로 VIP 자격 부여'와 '최대 4.1% USDC 리워드'가 포함됐다(c_20260919_COIN_3) — 플랫폼 내 USDC 잔고를 늘리는 유인은 잔고 연동 수익 구조에 우호적이나 리워드는 동시에 비용이며, 회사가 순효과 수치를 제시하지 않았으므로 방향 판정 근거로 쓰지 않는다. 종합해 neutral 유지.",
+      "risk_transfer_to": [
+        "OUSD 참여 조건·분배 구조 미공개 — usdc_economics 축 내 감시 지속(이번 창에서도 신규 1차 자료 미확보)",
+        "USDC 리워드율 상향(최대 4.1%)의 스테이블코인 수익 순마진 잠식 여부 — Q3 실적의 Stablecoin revenue 및 관련 비용 항목에서 확인 필요",
+        "'2029년 갱신' 서사의 1차 확인 — 차기 10-Q 계약 주석 또는 신규 8-K까지 이관"
+      ],
+      "supporting_claims": [
+        "c_20260919_COIN_1",
+        "c_20260919_COIN_3",
+        "c_20260919_COIN_5",
+        "c_20260919_COIN_6"
+      ]
+    },
+    {
+      "axis": "subscription_mix",
+      "direction": "neutral",
+      "prior_state": "직전 2개 산출물(20260905·20260911)에 구독·서비스 비중에 대한 정량 claim·delta가 적재돼 있지 않아 축 방향이 공란 상태로 이월됨(카드 기재치 ~48%).",
+      "new_state": "이번 창 내 신규 분기 데이터는 없다. 10-Q 원문 대조로 확정한 Q2 2026 기준값은 구독·서비스 비중 48.1%(Q1 2026 43.6%, Q2 2025 45.3%)로 카드의 '~48%' 기재와 일치한다(c_20260919_COIN_5). 다만 비중 상승은 구독·서비스 매출 증가가 아니라 거래 매출의 더 빠른 감소에서 비롯됐다 — 구독·서비스 절대액은 QoQ -4.9%·YoY -12.2%, 거래 매출은 QoQ -20.7%·YoY -21.6%. 즉 '사이클 저항성 전환'의 진전을 지지하는 방향과 훼손하는 방향의 근거가 같은 수치 안에 동시에 존재하므로 방향은 neutral로 기록한다. 부수 관측: KC-COIN-1의 all_of 첫 조건(구독 비중 2분기 연속 하락)은 Q1→Q2 비중이 상승했으므로 충족되지 않는다(두 번째 조건 거래매출 QoQ<0은 충족).",
+      "risk_transfer_to": [
+        "구독·서비스 절대액의 YoY 감소(-12.2%) 지속 여부 — 비중이 아닌 절대액 기준의 구조 전환 검증 항목으로 Q3 실적에 이관",
+        "Blockchain rewards YoY -42.3%($144.535M→$83.342M)의 구독·서비스 내 하방 기여 — 하위 항목 단위 추적 필요"
+      ],
+      "supporting_claims": [
+        "c_20260919_COIN_5"
+      ]
+    },
+    {
+      "axis": "trading_cycle",
+      "direction": "neutral",
+      "prior_state": "직전 2개 산출물에 trading_cycle 축 delta 없음. 거래 매출은 BTC·크립토 사이클 종속으로 기재된 상태.",
+      "new_state": "이번 창 내 회사 고유 재료로 2026-09-16 Coinbase Advanced 수수료 개편이 발생했다(c_20260919_COIN_3) — 현물 수수료 인하, 티어 진입 기준 $25,000→$10,000 하향, 현물·파생 합산 티어 산정, VIP8 0bps/2bps. 이는 거래 매출의 단가(테이크레이트)를 직접 건드리는 회사 결정이므로 P3상 노이즈가 아니다. 그러나 회사가 거래대금 탄력성·매출 영향 수치를 제시하지 않았고 창 내 실측 거래대금 데이터도 확보되지 않아, 단가 하락과 물량 유입 중 어느 쪽이 우세한지 판정할 근거가 없다 — 방향은 neutral로 기록하고 압력 요인만 risk_transfer_to로 이관한다. 창 내 BTC 현물가 관련 재료는 scope=macro로 본 축에 반영하지 않는다.",
+      "risk_transfer_to": [
+        "거래 테이크레이트 압축 — 카드 risks '경쟁 거래소·수수료 압력'이 회사 자체 가격 인하 형태로 표면화. Q3·Q4 실적의 거래 매출/거래대금 비율로 검증",
+        "현물·파생 합산 티어 산정이 파생 거래대금을 현물 수수료 할인으로 전가하는 구조인지 여부 — derivatives_base 축과의 교차 확인 필요"
+      ],
+      "supporting_claims": [
+        "c_20260919_COIN_3"
+      ]
+    },
+    {
+      "axis": "derivatives_base",
+      "direction": "strengthen",
+      "prior_state": "20260905 run: strengthen(확신도 낮음) — Deribit 'Starbase' 엔진 이전 9/9 완료 목표, 오픈인터레스트 96.6% Deribit 집중, RWA 무기한선물 8/31 출시 일정. 전부 grade4·confirmed=false, 매출 기여 미공시. 20260911 run에서는 재검색 미수행으로 상태 변화 미확인 채 이월.",
+      "new_state": "이번 창에서 제품 축의 미국 온쇼어 확장 시도가 한 단계 진전된 것으로 보도됐다 — 2026-09-18 Apple·Microsoft·Tesla·NVIDIA 등 약 50~60종목 대상 개별주식 무기한선물의 미국 내 최초 상장 신청(c_20260919_COIN_4), 그 선행 절차로 2026-09-01자 Form 1-N(Coinbase Derivatives LLC)·Form BD-N(Coinbase Financial Markets)의 SEC 제출 보도(c_20260919_COIN_7, 창 밖). 또한 09-16 수수료 개편이 파생 거래대금을 현물 티어 산정에 합산해 파생 이용 유인을 키운다(c_20260919_COIN_3). 방향은 전 run과 동일하게 strengthen으로 유지하되 확신도는 낮게 표기한다 — 근거 전부가 grade3/4·confirmed=false이고, P7 3단 기준으로 '신청 제출' 단계에 머물러 승인·거래 개시·매출 인식 어느 것도 확인되지 않았으며, 승인 필요 기관(CFTC)의 무기한선물 분류 권한 자체가 CME의 대(對)CFTC 소송으로 다투어지는 중이다.",
+      "risk_transfer_to": [
+        "CME v. CFTC 소송(2026-06-18 제소, 2026-09-02 CFTC 각하 신청)의 무기한선물 분류 판단 — 패소 시 온쇼어 상장 경로 자체가 재설계 대상. COIN은 당사자가 아니므로 KC-COIN-3 대상 아님",
+        "Deribit 'Starbase' 이전 및 RWA 무기한선물의 실제 거래량·매출 기여 미공시 — 2개 run 연속 미해소, Q3 실적으로 이관"
+      ],
+      "supporting_claims": [
+        "c_20260919_COIN_3",
+        "c_20260919_COIN_4",
+        "c_20260919_COIN_7"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "OUSD 참여 조건·분배 구조 공개 (이월 감시 항목 ①)",
+      "reason": "이번 창(09-10~09-19) 내 COIN 특정 OUSD 참여 조건·수익 배분 비율을 담은 1차 자료를 확보하지 못했다. noise_filter.yaml#COIN의 promote_if 트리거가 이번 창에서도 발생하지 않은 상태로 이월(P5 — 부재는 반증이 아님).",
+      "next_check": "OUSD의 Base 등 EVM 체인 확장 시점 또는 COIN 8-K/10-Q 신규 공시",
+      "related_claims": [
+        "c_20260919_COIN_1"
+      ]
+    },
+    {
+      "item": "USDC 수익 절대액의 Q3 2026 신규 공시 (이월 감시 항목 ①)",
+      "reason": "1차 자료로 확보된 최신치는 Q2 2026 Stablecoin revenue $292.147M(10-Q, 창 밖)이며 Q3 수치를 담은 공시는 이번 창에 제출되지 않았다.",
+      "next_check": "Q3 2026 실적 발표(회사 IR 공식 공지 확인 후 — 애그리게이터 추정일은 F1상 판정 근거 불가)",
+      "related_claims": [
+        "c_20260919_COIN_5"
+      ]
+    },
+    {
+      "item": "Circle-Coinbase 분배계약 '2029년까지 기존 조건 갱신' 서사의 COIN 측 1차 확인",
+      "reason": "COIN 10-Q 전문 대조 결과 분배계약의 만기·분배율·개정 조건을 서술한 주석이 본문에 존재하지 않으며(c_20260919_COIN_6), 이번 창의 8-K도 0건이다. 갱신 서사는 Circle 측 실적발표·2차 매체 요약에만 근거하므로 COIN 관점의 grade1/2 확인은 미완이다.",
+      "next_check": "COIN 10-Q(Q3) 관계사·계약 주석 또는 신규 8-K",
+      "related_claims": [
+        "c_20260919_COIN_1",
+        "c_20260919_COIN_6"
+      ]
+    },
+    {
+      "item": "Q3 2026 실적 발표일 회사 IR 공식 공지",
+      "reason": "이번 창 내 investor.coinbase.com의 'Coinbase Announces Date of Third Quarter 2026 Financial Results' 공지를 확인하지 못했다. 검색 결과에 등장하는 2026-10-29는 애그리게이터(tipranks 등) 추정으로 F1상 판정 근거가 될 수 없다. 카드 earnings_checkpoints.date는 여전히 null.",
+      "next_check": "investor.coinbase.com 공식 공지(전년 패턴상 10월 상순 발표)",
+      "related_claims": []
+    },
+    {
+      "item": "2026-09-16 수수료 개편 원문의 직접 대조",
+      "reason": "coinbase.com이 Cloudflare 브라우저 검증으로 403을 반환해 블로그 원문 본문을 직접 렌더링하지 못했다. 1차 URL은 특정했으나 원문 대조가 완료되지 않아 c_20260919_COIN_3은 confirmed=false 상태다.",
+      "next_check": "브라우저 경로 또는 사용자 본문 제공으로 coinbase.com 블로그 원문 확인",
+      "related_claims": [
+        "c_20260919_COIN_3"
+      ]
+    },
+    {
+      "item": "개별주식 무기한선물 상장 신청의 1차 문서(접수 기관·서식·제출일)",
+      "reason": "09-18 보도는 WSJ 재인용이며 규제기관·서식명·정확한 제출일을 명시하지 않는다. CFTC 자체인증 게시 또는 SEC 접수 문서를 특정하지 못했다.",
+      "next_check": "CFTC 자체인증 게시판, SEC Form 1-N/BD-N 접수 기록, coinbase.com 공식 블로그",
+      "related_claims": [
+        "c_20260919_COIN_4",
+        "c_20260919_COIN_7"
+      ]
+    },
+    {
+      "item": "Deribit 'Starbase' 이전 완료(9/9 목표) 및 RWA 무기한선물의 실제 매출·거래량 기여",
+      "reason": "20260905 run 이후 2개 run 연속으로 실측 거래량·수수료 매출이 공개되지 않았다. 이번 창에서도 1차 자료를 확보하지 못했다.",
+      "next_check": "Q3 실적 또는 COIN 공시의 파생상품 매출 세부",
+      "related_claims": []
+    },
+    {
+      "item": "예치자산 순유출(가격효과 제외) 분기 데이터 — KC-COIN-2 판정 입력",
+      "reason": "이번 창 내 회사 공시 net inflow/outflow 수치가 제출되지 않았다. KC-COIN-2의 측정 기준상 명목 잔액 변화로 대체 판정하는 것은 금지(F3)되어 있어 판정 입력이 비어 있다.",
+      "next_check": "Q3 2026 실적 자료(Shareholder Letter의 Platform assets 항목)",
+      "related_claims": []
+    }
+  ]
+}

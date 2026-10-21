@@ -1,0 +1,47 @@
+{
+  "as_of": "2026-09-25T10:15",
+  "run_id": "20260925_1015",
+  "ticker": "NBIS",
+  "card_field": "axes",
+  "operation": "annotate",
+  "target_slot": "axes[id=on_demand_pricing_power].label (말미에 추가)",
+  "l4_candidate_id": "tpc_05",
+  "depends_on_human_decision": "partial — L4 tpc_05 human_decision_dependency 원문: '무변화 축 delta 발행 규약(신규 발견) 결정 시 NBIS 카드의 무변화 축 처리 규칙도 함께 바뀔 수 있음'. 오케스트레이터 지시에서는 axis-naming 결정으로 표기됨. 어느 쪽이든 본 패치는 축 id·축 수를 바꾸지 않는 라벨 주석이므로 해당 결정과 독립적으로 승인 가능하다(inference:medium). 순서 판단은 사람이 한다.",
+  "before": "부호 활성화 조건 = 2026-10-01 이후 nebius.com/prices 신단가 1차 확인 또는 Q3 2026 실적자료의 단가·ARPU 언급\"}",
+  "after": "부호 활성화 조건 = 2026-10-01 이후 nebius.com/prices 신단가 1차 확인 또는 Q3 2026 실적자료의 단가·ARPU 언급 [2026-09-25 근거등급 격상 주석(annotate, run 20260925_1015) — 위 서술은 P9에 따라 삭제하지 않고 보존한다. (1)[fact] 2026-09-25 조회 nebius.com/prices(grade 1, confirmed)에 2026-10-01 발효 인상 후 단가가 회사에 의해 직접 게시됨: HGX H100 $3.85→$4.50(+16.9%) / H200 $4.50→$5.40(+20.0%) / B200 $7.15→$8.50(+18.9%). 2026-09-19 조회 시점에는 동일 페이지에 인상 고지 문구가 없었다(c_20260919_NBIS_1). 이로써 위 '2차 인상 고지'의 근거는 이 3개 모델에 한해 grade 3→grade 1, confirmed=false→true로 격상된다(c_20260925_NBIS_1, c_20260925_NBIS_2). (2)[fact] HGX B300·GB300/GB200 NVL72는 현재·인상 후 단가 모두 'Contact sales'로 비공개 — 보도된 B300 수치와 CPU-only 25%·메모리 약 41% 인상률은 여전히 1차 교차검증 없음(grade 3 유지). (3)[fact] P7 — 본 건은 '가격 고지 확정' 단계(3단 중 1단)다. 발효일 2026-10-01은 as_of(2026-09-25) 기준 미도래이며 가격 고지 ≠ 계약 갱신·체결 ≠ 매출 인식. (4)[fact] P2 — 리스트 가격 게시는 확정 매출·마진·가이던스 수치가 아니므로 시그널 상향 근거로 부적격이다(03_signal 상향 게이트 not_met — revenue_recognized 미충족, holding_reinforcement로만 분류). (5)[inference:high — 근거등급 판단에 한정, 매출·마진 영향 크기 아님] 위 부호 활성화 조건 중 '신단가 1차 게시' 요소만 충족됐고 '2026-10-01 이후 발효 확인'과 'Q3 2026 실적자료의 단가·ARPU 언급'은 미충족이다. 축 id·정의는 변경하지 않는다. commitment discount의 $1B+ 계약 전가 여부는 미확인으로 contract_monetization 축과 부호 분리를 유지한다. 다음 관측점 = 2026-10-01 이후 nebius.com/prices 재조회(발효 확인), B300/GB300 단가 공개 여부, Q3 2026 실적자료의 단가·ARPU·commitment discount 언급]\"}",
+  "reason": "[fact] 카드 전문(state/thesis_cards/NBIS.yaml, 105행)을 열람하고 yaml.safe_load로 계수한 결과 axes는 8개다 — growth_arr, margin_transition, funding_access, leverage_burden, capacity_delivery, contract_monetization, on_demand_pricing_power, customer_concentration(F20 전문 기준 계수). [fact] 현재 on_demand_pricing_power 라벨은 2026-10-01 발효 2차 인상을 'grade 3·confirmed=false, 1차 공시 경로 부재'로 기록하고 있고, 카드 어디에도 인상 후 단가나 run 20260925_1015 기록이 없다 — 카드가 아직 grade 1을 반영하지 않았으므로 후보를 드롭하지 않는다. [fact] c_20260925_NBIS_1(grade 1, confirmed): 2026-09-25 nebius.com/prices에 H100 $3.85→$4.50(+16.9%), H200 $4.50→$5.40(+20.0%), B200 $7.15→$8.50(+18.9%)와 발효일 2026-10-01이 직접 게시됐고, B300/GB300 계열은 'Contact sales'로 비공개다. [fact] 게시된 '현재' 단가 3개는 카드 라벨의 2026-09-19 기준선(H100 $3.85 / H200 $4.50 / B200 $7.15)과 일치한다. [inference:high] c_20260925_NBIS_2 — 축 근거가 3개 모델에 한해 grade 3→1로 격상된다. 이 강도는 등급 판단 자체에 한정되며 매출·마진 영향 크기에 대한 것이 아니다. [fact] P7 — 발효일이 as_of 기준 미도래이고 본 건은 가격 고지 단계이므로 stage 표기를 '가격 고지 확정'으로 유지하며 매출 인식 주장을 넣지 않는다. [fact] P2 — 03_signal/NBIS.json 상향 게이트는 revenue_recognized 미충족으로 not_met(vacuous)이며 본 Delta는 holding_reinforcement로만 분류된다. 이 캐비엇을 주석에 명기했다. [fact] P9 — 기존 라벨 문언(grade 3 서술 포함)은 삭제하지 않고 그대로 두며, 라벨 끝에 날짜가 붙은 주석 블록을 덧붙이는 방식이다. 축 id·축 수(8)는 변경하지 않는다.",
+  "basis_claims": [
+    "c_20260925_NBIS_1",
+    "c_20260925_NBIS_2"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 근거등급 격상 주석일 뿐 axes 단일 라벨만 건드린다. thesis·conclusion·kill_conditions_ref에는 접촉하지 않는다. [fact] 본 회차 🔴🔴 후보는 매크로 KC-1 경로(03_signal kill_check)이며 on_demand_pricing_power와 무관하다. 에스컬레이션 대상이 아니다.",
+  "downstream_note": "[fact] L4 tpc_05의 card_field는 'axes.on_demand_pricing_power / key_metrics'였으나 key_metrics 부분은 생성하지 않았다 — on-demand 단가 항목을 새로 추가하면 목록 항목 수가 7→8로 바뀌는데, 발효(2026-10-01) 1차 확인 전이고 P2상 확정 매출 지표도 아니기 때문이다. 발효 확인 후 재검토한다. [fact] KC 신설·임계 변경 없음(P11, CLAUDE.md §9).",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "{id: on_demand_pricing_power, label:",
+      "2026-09-25 근거등급 격상 주석(annotate, run 20260925_1015)",
+      "HGX H100 $3.85→$4.50(+16.9%) / H200 $4.50→$5.40(+20.0%) / B200 $7.15→$8.50(+18.9%)",
+      "grade 3·confirmed=false, 1차 공시 경로 부재",
+      "'가격 고지 확정' 단계(3단 중 1단)"
+    ],
+    "not_contains": [
+      "부호 활성화 조건 = 2026-10-01 이후 nebius.com/prices 신단가 1차 확인 또는 Q3 2026 실적자료의 단가·ARPU 언급\"}"
+    ],
+    "counts": [
+      {
+        "path": "axes",
+        "n": 8
+      },
+      {
+        "path": "key_metrics",
+        "n": 7
+      }
+    ]
+  },
+  "axes_count_before": 8,
+  "axes_count_after": 8,
+  "source_artifact": "output/20260925_1015/02_company/NBIS.json#deltas[on_demand_pricing_power] · output/20260925_1015/03_signal/NBIS.json#gate_check.upgrade_gate · output/20260925_1015/06_portfolio.json#thesis_patch_candidates.candidates[tpc_05]"
+}

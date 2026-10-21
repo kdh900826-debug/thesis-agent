@@ -1,0 +1,258 @@
+{
+ "data": [
+  {
+   "name": "Euro Coin",
+   "symbol": "EURC",
+   "totalAmount": "408396279.8475212",
+   "chains": [
+    {
+     "chain": "ARC",
+     "amount": "5465958.296891",
+     "updateDate": "2026-09-19T13:15:01.729Z"
+    },
+    {
+     "chain": "AVAX",
+     "amount": "5480127.811566",
+     "updateDate": "2026-09-19T13:15:01.728Z"
+    },
+    {
+     "chain": "BASE",
+     "amount": "51900768.965672",
+     "updateDate": "2026-09-19T13:15:01.728Z"
+    },
+    {
+     "chain": "CRONOS",
+     "amount": "216327.88",
+     "updateDate": "2026-09-19T13:15:01.729Z"
+    },
+    {
+     "chain": "ETH",
+     "amount": "297070962.911827",
+     "updateDate": "2026-09-19T13:15:01.728Z"
+    },
+    {
+     "chain": "PLASMA",
+     "amount": "80998.37",
+     "updateDate": "2026-09-19T13:15:01.729Z"
+    },
+    {
+     "chain": "SOL",
+     "amount": "44503731.423941",
+     "updateDate": "2026-09-19T13:15:01.728Z"
+    },
+    {
+     "chain": "WORLDCHAIN",
+     "amount": "412494.46",
+     "updateDate": "2026-09-19T13:15:01.729Z"
+    },
+    {
+     "chain": "XLM",
+     "amount": "3264909.7276242",
+     "updateDate": "2026-09-19T13:15:01.729Z"
+    }
+   ]
+  },
+  {
+   "name": "USD Coin",
+   "symbol": "USDC",
+   "totalAmount": "74287159679.006177066",
+   "chains": [
+    {
+     "chain": "ALGO",
+     "amount": "37032738.869677",
+     "updateDate": "2026-09-19T13:15:01.727Z"
+    },
+    {
+     "chain": "APTOS",
+     "amount": "387020366.583943",
+     "updateDate": "2026-09-19T13:15:01.724Z"
+    },
+    {
+     "chain": "ARB",
+     "amount": "2652241273.351068",
+     "updateDate": "2026-09-19T13:15:01.723Z"
+    },
+    {
+     "chain": "ARC",
+     "amount": "624435099.451778",
+     "updateDate": "2026-09-19T13:15:01.725Z"
+    },
+    {
+     "chain": "AVAX",
+     "amount": "390750287.323704",
+     "updateDate": "2026-09-19T13:15:01.722Z"
+    },
+    {
+     "chain": "BASE",
+     "amount": "4311159164.594651",
+     "updateDate": "2026-09-19T13:15:01.723Z"
+    },
+    {
+     "chain": "CELO",
+     "amount": "14551869.678166",
+     "updateDate": "2026-09-19T13:15:01.727Z"
+    },
+    {
+     "chain": "CODEX",
+     "amount": "51048412.46188",
+     "updateDate": "2026-09-19T13:15:01.724Z"
+    },
+    {
+     "chain": "CRONOS",
+     "amount": "7046460.134262",
+     "updateDate": "2026-09-19T13:15:01.726Z"
+    },
+    {
+     "chain": "EDGE",
+     "amount": "1500689.204374",
+     "updateDate": "2026-09-19T13:15:01.726Z"
+    },
+    {
+     "chain": "ETH",
+     "amount": "50034656283.011234",
+     "updateDate": "2026-09-19T13:15:01.722Z"
+    },
+    {
+     "chain": "HBAR",
+     "amount": "27084802.63",
+     "updateDate": "2026-09-19T13:15:01.727Z"
+    },
+    {
+     "chain": "HYPEREVM",
+     "amount": "6563137851.303978",
+     "updateDate": "2026-09-19T13:15:01.725Z"
+    },
+    {
+     "chain": "INJECTIVE",
+     "amount": "8641550.882253",
+     "updateDate": "2026-09-19T13:15:01.726Z"
+    },
+    {
+     "chain": "INK",
+     "amount": "40344177.595936",
+     "updateDate": "2026-09-19T13:15:01.725Z"
+    },
+    {
+     "chain": "LINEA",
+     "amount": "23997616.320938",
+     "updateDate": "2026-09-19T13:15:01.724Z"
+    },
+    {
+     "chain": "MONAD",
+     "amount": "226286178.129005",
+     "updateDate": "2026-09-19T13:15:01.724Z"
+    },
+    {
+     "chain": "MORPH",
+     "amount": "22047813.744368",
+     "updateDate": "2026-09-19T13:15:01.726Z"
+    },
+    {
+     "chain": "NEAR",
+     "amount": "27302707.428792",
+     "updateDate": "2026-09-19T13:15:01.727Z"
+    },
+    {
+     "chain": "NOBLE",
+     "amount": "102800802.263089",
+     "updateDate": "2026-09-19T13:15:01.723Z"
+    },
+    {
+     "chain": "OP",
+     "amount": "167917101.218585",
+     "updateDate": "2026-09-19T13:15:01.722Z"
+    },
+    {
+     "chain": "PAH",
+     "amount": "31442251.781752",
+     "updateDate": "2026-09-19T13:15:01.727Z"
+    },
+    {
+     "chain": "PHAROS",
+     "amount": "7984588.03406",
+     "updateDate": "2026-09-19T13:15:01.726Z"
+    },
+    {
+     "chain": "PLASMA",
+     "amount": "4476289.383592",
+     "updateDate": "2026-09-19T13:15:01.726Z"
+    },
+    {
+     "chain": "PLUME",
+     "amount": "3673227.706737",
+     "updateDate": "2026-09-19T13:15:01.725Z"
+    },
+    {
+     "chain": "POLY",
+     "amount": "613455443.987222",
+     "updateDate": "2026-09-19T13:15:01.723Z"
+    },
+    {
+     "chain": "SEI",
+     "amount": "35617954.129993",
+     "updateDate": "2026-09-19T13:15:01.725Z"
+    },
+    {
+     "chain": "SOL",
+     "amount": "6804065767.71341",
+     "updateDate": "2026-09-19T13:15:01.723Z"
+    },
+    {
+     "chain": "SONIC",
+     "amount": "131608806.922383",
+     "updateDate": "2026-09-19T13:15:01.724Z"
+    },
+    {
+     "chain": "STRK",
+     "amount": "138360427.350815",
+     "updateDate": "2026-09-19T13:15:01.725Z"
+    },
+    {
+     "chain": "SUI",
+     "amount": "303435999.937621",
+     "updateDate": "2026-09-19T13:15:01.723Z"
+    },
+    {
+     "chain": "TRX",
+     "amount": "27934099.204966",
+     "updateDate": "2026-09-19T13:15:01.728Z"
+    },
+    {
+     "chain": "UNI",
+     "amount": "24669150.011235",
+     "updateDate": "2026-09-19T13:15:01.724Z"
+    },
+    {
+     "chain": "WORLDCHAIN",
+     "amount": "17861957.965214",
+     "updateDate": "2026-09-19T13:15:01.724Z"
+    },
+    {
+     "chain": "XDC",
+     "amount": "63935476.999887",
+     "updateDate": "2026-09-19T13:15:01.725Z"
+    },
+    {
+     "chain": "XLAYER",
+     "amount": "18904817.574094",
+     "updateDate": "2026-09-19T13:15:01.727Z"
+    },
+    {
+     "chain": "XLM",
+     "amount": "324095924.2504593",
+     "updateDate": "2026-09-19T13:15:01.726Z"
+    },
+    {
+     "chain": "XRP",
+     "amount": "3997758.458900766",
+     "updateDate": "2026-09-19T13:15:01.728Z"
+    },
+    {
+     "chain": "ZKS",
+     "amount": "10636491.412155",
+     "updateDate": "2026-09-19T13:15:01.728Z"
+    }
+   ]
+  }
+ ]
+}

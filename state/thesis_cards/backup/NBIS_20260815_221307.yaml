@@ -1,0 +1,66 @@
+# Thesis Card — NBIS (v1 §5-2 기계 판독본)
+ticker: NBIS
+sector: neocloud
+tier: null   # 관찰→커버리지 승격. 티어는 positions.yaml에서 확정
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-2 (Q2 2026 = 8/12 발표 반영)"
+version_history:
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화"}
+
+axes:
+  - {id: growth_arr,        label: "매출·ARR 성장 (QoQ 궤적)"}
+  - {id: margin_transition, label: "Adj. EBITDA 마진 전환 (Q2 41%)"}
+  - {id: funding_capacity,  label: "조달·희석 (현금 $8B, 선불금 $9B+, ATM)"}
+  - {id: capacity_delivery, label: "계약 전력·용량 인도 (연말 5GW, late Q4 온라인 전환)"}
+  - {id: monetization_mix,  label: "ACV/MW 3단 구조·소프트웨어 수익화"}
+  - {id: customer_concentration, label: "고객 집중 (Meta·MS + 신규 4사)"}
+
+thesis: >
+  순현금 재무구조 + 최고 성장률 + 고객 선불금 기반 저희석 확장. Full-stack + 소프트웨어
+  (Token Factory, Echo) 보유로 MW당 수익화에서 bare-metal 대비 우위. NVIDIA·Meta 엔도스먼트.
+
+key_metrics:
+  - "분기 매출·ARR (Q2 2026: 매출 $582M +454% YoY, +46% QoQ / AI 부문 $575M +514% / ARR $3B)"
+  - "Adj. EBITDA 마진 (Q2 41%, +$236M — 전년 -$21M에서 흑자 전환)"
+  - "FY26 가이던스 재확인 ($3.0-3.4B 매출 / ~40% 마진 / CapEx $20-25B)"
+  - "현금 $8B + 고객 선불금 $9B+"
+  - "계약 전력 목표 (연말 5GW)"
+  - "ACV/MW 3단 구조 (기본 ~$12M / 장기 ~$20-25M / 단기 ~$40-50M)"
+  - "ATM 희석 (Q2 $2.8B, 12.7M주 @평균 $224, 잔여 12.3M주)"
+
+catalysts:
+  - "2027 가이던스 공식 발표 ('later this year')"
+  - "Q2 체결 4건 대형 계약(각 $1B+, Reflection·Cohere 등)의 late Q4 온라인 전환"
+  - "용량 옥션 가격 (첫 옥션 기존 Blackwell 대비 +15% 클리어)"
+  - "자산경량(asset-light) 파트너십 모델 진척"
+
+risks:
+  - "고평가 — 성장 둔화 시 급격한 디레이팅"
+  - "CapEx $20-25B vs 현금 $8B → 추가 조달·ATM 희석"
+  - "고객 집중 (Meta·MS + 신규 4사)"
+  - "'의도적 미판매 재고 전략'의 실행 리스크"
+  - "지정학 (러시아 연원 — 현 시점 분리 완료)"
+
+kill_conditions_ref: ["KC-NBIS-1", "KC-NBIS-2", "KC-NBIS-3", "섹터 공통 KC (KC-6·7·8, KC-1+KC-2 조합)"]
+noise_filter_ref: "config/noise_filter.yaml#NBIS"
+
+earnings_checkpoints:
+  date: null   # ⚠️ Q3 시기 미확정 — 회사 IR 기준으로 확정 필요 (F1 재발 방지)
+  items:
+    - "late Q4 온라인 전환 예정 계약의 실제 매출 인식 개시"
+    - "ARR $3B의 QoQ 증가율"
+    - "마진 41% 유지 여부"
+    - "CapEx 집행률 vs $20-25B"
+    - "ATM 잔여 12.3M주 사용 여부"
+    - "5GW 계약 전력 달성 진척"
+    - "2027 공식 가이던스"
+    - "단기 계약 $40-50M/MW 가격의 지속성"
+
+valuation:
+  primary: "EV/FY26 매출 및 EV/ARR"
+  secondary: "EV/FY27 ARR 목표 대비, 성장률 대비 멀티플(PEG 유사)"
+  caution: "ATM·전환사채 반영한 완전희석 기준 필수"
+
+conclusion: >
+  3사 중 재무 건전성·마진 전환 속도가 가장 명확하나 밸류에이션이 성장률을 상당 부분 반영.
+  진입 판단 게이트는 멀티플 조정 또는 2027 가이던스 확정 중 하나.

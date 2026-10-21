@@ -1,0 +1,500 @@
+{
+  "group": "g6",
+  "checked_at": "2026-10-20",
+  "window": ["2026-07-07", "2026-10-20"],
+  "notes": "이번 세션 공용 웹 검색 한도(200회)가 점검 도중 소진되어 p76·p79·p80·p82·p83·p84·p85·p86·p88·p89는 검색 1~2회 + 확인된 URL 직접 열람까지만 수행함. '신규 정보 찾지 못함' 항목은 정보 부재일 뿐 반증이 아님.",
+  "projects": [
+    {
+      "id": "p76",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 가장 최근 확인 사실은 2026년 5월 Stack이 Stafford Technology Campus(옛 Peterson 부지) 첫 건물 외부 공사를 끝내고 골조를 올린 것(top-out). 1단계 가동 목표는 2027년.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "'Peterson Stafford'는 Peterson Companies가 2023년 용도변경을 받은 부지 이름이고, 실제 개발 프로젝트명은 Stack의 'Stafford Technology Campus(STC)'. 집계 사이트(Cleanview)에 1,000MW(Peterson)·1,100MW(Stack) 두 항목으로 중복 등재된 것으로 보임.",
+        "총 건물 수가 자료마다 19동(DCD·회사 발표)과 23동(datacentermap)으로 다름."
+      ]
+    },
+    {
+      "id": "p77",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-09-24 기준 공사 중(미가동). 7/28 Meta가 BlackRock과 80:20 합작(총 개발비 140억 달러)을 발표했고, 전용 가스발전소(McCloud 366MW)는 9/23 텍사스 PUC 행정법 판사들이 '요금 납부자에게 비용을 넘기지 않는 조건이 아니면 불허'를 권고해 PUC 위원 표결을 기다리는 중.",
+      "holds": [
+        "텍사스 PUC 행정법 판사 제안 결정(9/23): 전용 가스발전소 McCloud는 요금 납부자 비용 전가 금지 조건부 승인, 아니면 불허 권고 — PUC 위원 표결 일정 미정",
+        "텍사스 9/21 TCEQ 데이터센터 인허가 중단은 McCloud에 영향 없음(대기 허가 이미 보유, Inside Climate News). 다른 데이터센터 관련 TCEQ 허가가 걸려 있는지는 불명확",
+        "8월 ERCOT 연결 감사는 해당 없음(엘패소는 서부 계통 WECC 소속)"
+      ],
+      "events": [
+        {
+          "date": "2026-07-28",
+          "kind": "자금",
+          "title_ko": "Meta, 엘패소 캠퍼스 지분 80%를 BlackRock 펀드에 넘기는 합작 발표",
+          "detail_ko": [
+            "총 개발비 140억 달러, BlackRock 펀드 80%·Meta 20% 지분 구조.",
+            "Meta는 토지·공사 중 자산 약 23억 달러를 현물 출자하고, BlackRock은 약 49억 달러를 출자하며 일부는 125억 달러 부채 조달로 충당.",
+            "Meta는 지분 조정용 일회성 10억 달러 배분을 받고, 초기 4년 단독 임차(최장 20년 연장 옵션)하며 공사 관리를 맡음. 가동 시작은 2028년 예상."
+          ],
+          "grade": 3,
+          "src": [{"t": "W.Media (Meta 투자자 보도자료 인용)", "u": "https://w.media/meta-hands-blackrock-majority-stake-in-1-gw-el-paso-data-center/"}]
+        },
+        {
+          "date": "2026-08",
+          "kind": "공사",
+          "title_ko": "8월 보도: 공사 계속 진행",
+          "detail_ko": [
+            "8월 보도 기준 엘패소 북동부 캠퍼스 공사가 이어지고 있음. 5월 위성사진에선 3개 동 기초, 2개 동 골조, 1개 동 지붕 공사가 관찰됨."
+          ],
+          "grade": 4,
+          "src": [{"t": "Cleanview 보고서", "u": "https://cleanview.co/reports/behind-the-meter-data-centers/full-report/meta-el-paso"}]
+        },
+        {
+          "date": "2026-09-23",
+          "kind": "전력",
+          "title_ko": "텍사스 PUC 행정법 판사들, 엘패소전력 전용 가스발전소에 '조건부 승인 아니면 불허' 권고",
+          "detail_ko": [
+            "판사들은 엘패소전력(El Paso Electric)이 대안을 충분히 검토하지 않았고 경쟁 입찰(RFP)도 하지 않았다고 판단.",
+            "요금 납부자가 발전소 자본·운영비를 내지 않는 조건일 때만 승인, 그 조건이 없으면 불허를 권고. 최종 결정은 PUC 위원 5명이 하며 표결 일정은 미정.",
+            "발전소는 Enchanted Rock 450kW 소형 가스발전기 813대(366MW), 비용 4.99억 달러(다른 보도는 4.73억 달러). 첫 5년은 Meta 전용·Meta 부담, 이후 일반 계통 연결."
+          ],
+          "grade": 3,
+          "src": [{"t": "Inside Climate News (2026-09-24)", "u": "https://insideclimatenews.org/news/24092026/el-paso-electric-only-considered-gas-to-power-meta-data-center/"}]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "자금 구조 변경(BlackRock 80%)과 전용 전원 승인이 PUC 표결에 걸림. 불허되면 2028년 가동 전력원이 흔들림.",
+        "questions": [
+          "PUC 위원 표결 일정과 결과(조건부 승인 시 요금 전가 금지 조건 포함 여부)",
+          "BlackRock 합작 거래 종결 여부(7월 말 '수일 내 종결' 예정)",
+          "TCEQ 중단 대상인 다른 허가(예: 비상발전기 대기 허가)가 있는지"
+        ],
+        "next_check": "2026-10-27 (PUC 공개회의 안건 확인)"
+      },
+      "tickers_touched": ["META", "BLK"],
+      "data_issues": [
+        "리포트 전력원 'Grid'와 다름: 전용 가스발전소 366MW(Enchanted Rock) + 엘패소전력 기존 자원 220MW 조합.",
+        "소유 구조 변경: 7/28 이후 BlackRock 펀드 80%·Meta 20% 합작 자산이 됨(개발사 표기 'Meta'만으론 불완전).",
+        "착공 시점 표기가 2025년 10월과 '2025년 말'로 엇갈림."
+      ]
+    },
+    {
+      "id": "p78",
+      "found_update": true,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": "3",
+      "status_ko": "알래스카(AK) 노스슬로프 부지. 주 천연자원부(DNR)가 50년 토지 임대에 대한 '예비' 공익 판단만 낸 상태이고, 의견 수렴 마감이 7/17로 연장된 뒤 최종 결정(Final Finding)은 확인되지 않음(2026-10-20 기준). 2026년 여름 착공 계획이 실행됐다는 자료 없음.",
+      "holds": ["알래스카 DNR 50년 토지 임대 최종 결정 대기(예비 판단만 존재)"],
+      "events": [
+        {
+          "date": "2026-07-17",
+          "kind": "인허가",
+          "title_ko": "DNR 예비 결정 의견 수렴 마감이 6/15에서 7/17로 연장",
+          "detail_ko": [
+            "DNR은 50년 협상 임대가 주 이익에 맞을 수 있다는 예비 판단을 냈고, 최종 결정 전에 의견 수렴·추가 검토를 거침.",
+            "검토 측은 임대료, 가스 공급 조건, 배관 경로, 대기 배출 모델링, 습지·영구동토층 조사, 원상복구 보증금 규모 등을 미결 과제로 지적.",
+            "예비 마감 전 500건 넘는 의견이 접수됐고 찬성은 10건 미만(Alaska Beacon 계열 보도)."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Northern Alaska Environmental Center", "u": "https://northern.org/news/stak-energy-campus-what-the-states-lease-documents-reveal-about-scale-risk-and-unanswered-questions/"},
+            {"t": "Alaska Beacon", "u": "https://alaskabeacon.com/2026/05/14/a-huge-data-center-could-rise-on-alaskas-north-slope/"},
+            {"t": "Alaska DNR 공고(ADL 422741)", "u": "https://aws.state.ak.us/OnlinePublicNotices/Notices/Attachment.aspx?id=161957"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "핵심 인허가(토지 임대)가 아직 예비 단계라 단계 2(인허가 통과·착공 임박)보다 3에 가까움. 자금 조달처도 미공개.",
+        "questions": [
+          "DNR 최종 결정(Final Finding and Decision) 발표 여부·날짜",
+          "2026년 여름 착공 계획이 실제로 미뤄졌는지",
+          "자금 조달처·가스 공급 계약 공개 여부"
+        ],
+        "next_check": "2026-11-03"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "주 코드 AK는 알래스카(아칸소 아님) — 부지는 Dalton Hwy 390마일 지점, Deadhorse 남쪽 약 26마일.",
+        "리포트 용량 1.0GW·전력원 'Grid'와 다름: 최대 3GW 구상, 초기 현장 가스 자가발전 약 1GW(계통 아님). 투자액 5억 달러로 보도.",
+        "가동 목표 2028년 말."
+      ]
+    },
+    {
+      "id": "p79",
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": "1",
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 2026년 3월 MOU로 착공 전 부지 작업(약 1,250만 달러)이 허용됐고, 카운티 의원은 4~5월 토공, 11~12월 건물 공사 시작을 예고했음. 5/19 공개설명회 이후 소식 없음.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "토공 착수 여부가 집계 사이트(grade 4)로만 확인돼 단계 1 후보. 11~12월 건물 공사 시작 예고가 있음.",
+        "questions": [
+          "2026년 5월 부지 정지 작업이 실제로 시작됐는지(지역 언론 WNDU·WSBT·ABC57)",
+          "세인트조지프 카운티 의회의 최종 승인 여부",
+          "11~12월 건물(수직) 공사 착수 여부"
+        ],
+        "next_check": "2026-12-01"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "부지 면적 보도가 930·939에이커로 엇갈림. 계획 건물 6동(5동은 톨로드 인근 주거지 옆).",
+        "착공 '지연' 원인은 상하수도 공급 주체 논쟁 — 미샤와카시가 공급하고 Microsoft가 3,000만 달러 연결비 부담으로 정리됨."
+      ]
+    },
+    {
+      "id": "p80",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 2026년 2월 기공 후 공사 중이며 1단계 가동은 2027년 말~2028년 초 목표(Meta 데이터센터 부사장 발언, 2026-02).",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "건물 수가 13동(데이터센터 10동, 2026-02 발표)과 15동(데이터센터 12동, 초기 계획)으로 다름. 투자액도 초기 1단계 8억 달러 → 총 100억 달러 이상으로 확대.",
+        "시공사 Turner Construction·Mortenson."
+      ]
+    },
+    {
+      "id": "p81",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-10-14 기준 공사 중. 8월부터 부지·지하 유틸리티 공사가 진행 중이고(주민 증언·지역 언론), 10/1 주 공익사업위원회(MPSC)가 DTE 전력계약을 조건부 승인, 10/14 타운십 계획위원회가 최종 부지계획을 5:1로 승인. 전력 수전은 2027년 12월, 1GW 도달은 2028년 12월 목표.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-08",
+          "kind": "인허가",
+          "title_ko": "미시간 주 환경당국, 습지 허가 승인",
+          "detail_ko": ["주 환경 규제기관이 8월 습지 허가를 승인함(Bridge Michigan 보도)."],
+          "grade": 3,
+          "src": [{"t": "Bridge Michigan (2026-10-14)", "u": "https://bridgemi.com/?p=81283"}]
+        },
+        {
+          "date": "2026-08",
+          "kind": "공사",
+          "title_ko": "현장 공사 시작 — 주민들 '8월부터 먼지, 주 6~7일 작업'",
+          "detail_ko": [
+            "인근 주민들은 8월 이후 오전 6시~오후 7시, 주 6~7일 공사가 이어진다고 증언. 주시공사는 Walbridge.",
+            "지하 유틸리티 공사는 8단계로 진행되며 2026년 말~2027년 3월까지 인근 도로 통제 예정(WXYZ)."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Bridge Michigan", "u": "https://bridgemi.com/?p=81283"},
+            {"t": "WXYZ Detroit", "u": "https://www.wxyz.com/news/van-buren-township-officials-approve-plans-for-controversial-google-data-center-campus"}
+          ]
+        },
+        {
+          "date": "2026-10-01",
+          "kind": "전력",
+          "title_ko": "MPSC, DTE–Google 20년 전력계약 만장일치 조건부 승인",
+          "detail_ko": [
+            "미시간 첫 '쟁송 절차'를 거친 하이퍼스케일 전력계약. 조건: 20년 계약, 계약 용량의 80% 최소 요금, 해지 시 최소 15년치 요금 지급, Google이 발전·송배전 비용 부담.",
+            "Google 비용으로 DTE가 재생에너지 최대 1,600MW·배터리 480MW 개발.",
+            "주 법무장관(Nessel)은 8/3 의견서에서 최소 요금 90% 등 더 강한 조건을 요구했었음."
+          ],
+          "grade": 3,
+          "src": [{"t": "Michigan Public (2026-10-02)", "u": "https://www.michiganpublic.org/transportation-infrastructure/2026-10-02/google-data-center-michigan-van-buren-township"}]
+        },
+        {
+          "date": "2026-10-01",
+          "kind": "기타",
+          "title_ko": "웨인 카운티 위원회, 카운티장 거부권 무효화하고 세금 감면 통과",
+          "detail_ko": [
+            "카운티장 Warren Evans의 거부권을 위원회가 뒤집어 Google에 1.25억 달러 이상(12년) 지방세 반감 혜택 확정.",
+            "대가로 Google은 타운십에 1,540만 달러 지급, 정규직 최소 51명 보장."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "WXYZ Detroit", "u": "https://www.wxyz.com/news/wayne-county-commissioners-override-veto-to-approve-google-data-center-tax-incentives-in-van-buren-township"},
+            {"t": "Michigan Public", "u": "https://www.michiganpublic.org/transportation-infrastructure/2026-10-02/google-data-center-michigan-van-buren-township"}
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "kind": "인허가",
+          "title_ko": "반뷰런 타운십 계획위원회, 최종 부지계획 5:1 승인",
+          "detail_ko": [
+            "282에이커 중 150에이커에 6개 동·주차장·변전소·장비 야적장을 짓는 최종 부지계획 승인.",
+            "타운십 이사회 전체를 겨냥한 주민 소환(recall) 운동이 진행 중."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Bridge Michigan (2026-10-14)", "u": "https://bridgemi.com/?p=81283"},
+            {"t": "WXYZ Detroit", "u": "https://www.wxyz.com/news/van-buren-township-officials-approve-plans-for-controversial-google-data-center-campus"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "단계 3→1 변경(서로 다른 언론 2곳이 공사 진행 확인). 주민 소환 운동·인근 지자체 유예 움직임이 있음.",
+        "questions": [
+          "MPSC 최종 명령문(사건번호)에서 조건 수치 확인(1차 자료)",
+          "타운십 이사회 소환 투표 일정",
+          "건물(수직) 공사 시작 시점"
+        ],
+        "next_check": "2026-11-17"
+      },
+      "tickers_touched": ["GOOGL", "DTE"],
+      "data_issues": [
+        "부지계획상 6개 동·150에이커로, 초기 보도(3개 데이터센터·130에이커)보다 큼.",
+        "개발 대행사 Panattoni, 시공 Walbridge. 용수는 GLWA에서 최대 일 360만 갤런 구매."
+      ]
+    },
+    {
+      "id": "p82",
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 2026-03-26 육군이 Dugway 1,201에이커에 대해 CyrusOne과 '독점 협상'에 들어갔고, 4월 보도 기준 임대·공사 계약 모두 미체결. 초기 운영 목표는 2029 회계연도.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "육군 EUL(장기 임대) 방식, 50년 임대·육군은 현금 대신 용량 일부를 받음. CyrusOne은 KKR·BlackRock 운용 펀드 공동 소유(보도 기준)."
+      ]
+    },
+    {
+      "id": "p83",
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": "3",
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 5/13 기준 InfraKey가 와코시에 521에이커의 외곽관할(ETJ) 해제를 청원한 상태로, 레이시레이크뷰 편입(합병)은 아직 확정 안 됨. 2025년 12월 시의회 표결은 구속력 없는 MOU였음.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상 가능성(해석) — 1.2GW 가스발전소 계획",
+        "텍사스 8/3 ERCOT 대형부하 연결 감사 대상 가능성(해석) — ERCOT 연결·변전소 계획"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "기준선 '2(주요 인허가 통과)'의 근거인 2025년 12월 표결은 비구속 MOU였고 부지 편입도 미완 → 3이 더 맞을 수 있음. 텍사스 주 동결 영향권.",
+        "questions": [
+          "와코시가 45일 안에 ETJ 해제를 처리했는지(6월경 기한)",
+          "레이시레이크뷰의 3마일 통로 포함 합병 완료 여부",
+          "가스발전소 TCEQ 허가 신청 여부와 9/21 동결 영향"
+        ],
+        "next_check": "2026-10-27"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "용량 표기가 925MW(2026-01 발표)·1GW·1.2GW(6단계안)로 엇갈림. 1단계는 계통 300MW.",
+        "전력원이 'Grid'만은 아님: ERCOT 연결 + 계통 밖 가스발전(1.2GW 보도)·저장장치 병행 계획.",
+        "투자액 표기 100억 달러 vs '인프라 20억 달러 이상' 혼재."
+      ]
+    },
+    {
+      "id": "p84",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 세일럼 타운십이 약 1,600에이커를 데이터센터 구역으로 용도변경했고 AWS는 10년간 15개 동을 계획. 공사 진척에 관한 2026년 1차 자료는 이번 점검에서 확인 못함.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "부지 면적 1,200에이커 vs 용도변경 1,600에이커로 표기 엇갈림. Talen은 최대 960MW 캠퍼스로 설명(리포트 1.0GW와 근사).",
+        "Susquehanna 원전 직결(계량기 뒤) 방식은 FERC가 거부했었음 — 현재 전력 공급 구조는 이번 점검에서 재확인 못함."
+      ]
+    },
+    {
+      "id": "p85",
+      "found_update": false,
+      "stage_base": "X",
+      "stage_now": "X",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 뉴욕주 매세나의 'Arsenal Data Center 1~8' 항목이 집계 사이트(aterio)에만 '발표' 단계로 있고, 용량·일정·인허가는 공개 자료로 확인 안 됨.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "1차·언론 자료 없이 집계 사이트 항목만 존재. 0.9GW 용량의 출처 불명.",
+        "NYPA가 Arconic 매세나 공장에 5MW 보존 전력을 배정한 기사는 있으나 데이터센터와 연결 근거 없음."
+      ]
+    },
+    {
+      "id": "p86",
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 2025년 12월 그린 카운티 계획위원회가 1단계(정지·복원·터빈·정수장) 토지개발을 8:1로 허용했으나, 다른 인허가 취득이 조건. 가동 목표 2029년 초.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": ["WTRG"],
+      "data_issues": [
+        "개발사 표기 오류 가능: 'Electric Power of Pittsburgh' → International Electric Power(IEP, 피츠버그). 프로젝트명 Project Hummingbird(옛 Robena 광산, Monongahela Twp).",
+        "전력원이 'Grid'가 아님: 현장 가스터빈 910~944MW(계량기 뒤) + 배터리, 계통은 예비 연결.",
+        "Essential Utilities(WTRG)가 자회사 Aqua 통해 일 1,800만 갤런 정수장에 2,400만~2,600만 달러 투자.",
+        "PA 환경청(DEP)이 부지에 유효한 광업 허가가 남아 있어 신청서 재제출을 요구했었음(2025-11). 임차인 미확정(후보 7곳)."
+      ]
+    },
+    {
+      "id": "p87",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-09-23 기준 공사 중(두 번째 건물 골조 완료 보도, 날짜 미상). 9월 중순 오자키 카운티 법원이 TID 5(세금증분지구) 무효 소송을 구두로 기각했고, 서면 기각 명령 서명 대기. 완공 목표 2028년.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-09",
+          "kind": "소송",
+          "title_ko": "TID 5 보조금 무효 소송, 1심 구두 기각",
+          "detail_ko": [
+            "주민단체 Great Lakes Neighbors United가 Vantage 사업용 TID 5(인프라 약 1.75억 달러)가 불필요한 공공보조라며 낸 소송을 Adam Gerol 판사가 구두로 기각(기사 전주).",
+            "재소 불가(with prejudice) 기각 명령안은 판사 서명이 남음. 단체는 주 세무부 민원·주 감사 요청을 예고.",
+            "별도로 '1,000만 달러 이상 TID는 주민투표 필요' 조례(4/7 주민투표 약 66% 찬성)를 둘러싼 경제단체 소송은 10/19 구두 판결 예정이었음(Vantage TID는 이미 승인돼 적용 제외)."
+          ],
+          "grade": 3,
+          "src": [{"t": "Wisconsin Public Radio via Urban Milwaukee (2026-09-23)", "u": "https://urbanmilwaukee.com/?p=1001069"}]
+        },
+        {
+          "date": "",
+          "kind": "공사",
+          "title_ko": "두 번째 건물 골조 완료(top-out)",
+          "detail_ko": ["Vantage가 Lighthouse 캠퍼스 두 번째 건물 골조를 완료. 4개 동 902MW, 672에이커, 최대 5,000명 투입. 보도 날짜는 확인 못함(7/7 이후인지 불명)."],
+          "grade": 3,
+          "src": [{"t": "DCD", "u": "https://www.datacenterdynamics.com/en/news/vantage-tops-out-second-building-at-openais-lighthouse-campus-in-wisconsin"}]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "TID 소송 서면 기각 확정 여부와 항소·주 감사 요청이 남음.",
+        "questions": [
+          "TID 5 소송 서면 기각 명령 서명·항소 여부",
+          "10/19 주민투표 조례 소송 구두 판결 결과",
+          "첫 건물 전력 공급(가동) 시점"
+        ],
+        "next_check": "2026-10-27"
+      },
+      "tickers_touched": ["ORCL"],
+      "data_issues": [
+        "DC Hub는 1,300MW(Stargate 확장)로 표기 — Vantage 공식 902MW와 다름."
+      ]
+    },
+    {
+      "id": "p88",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 2025년 11월 기공 후 공사 중이며 1단계 300MW는 2027년, 2단계 2030년, 3단계 2033~2035년 목표.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "부지는 캐롤라인 카운티 Ruther Glen(옛 Virginia Bazaar 벼룩시장 터). 초기 보도의 '2026년 3분기 200MW' 일정은 폐기된 것으로 보임.",
+        "전력 공급 주체(Dominion 등) 공개 자료로 확인 못함."
+      ]
+    },
+    {
+      "id": "p89",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-07-31 기준 공사 중(부지 정지 단계, Epoch AI 위성 추적). 1동 2027년 9월·2동 2027년 11월 가동 추정. 텍사스 주 동결(ERCOT 감사·TCEQ 인허가 중단)이 현장 900MW 발전소 허가에 걸릴 수 있는지는 미확인.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상 가능성(해석) — 현장 발전소 대기 허가",
+        "텍사스 8/3 ERCOT 연결 감사 대상 가능성(해석)"
+      ],
+      "events": [
+        {
+          "date": "2026-07-31",
+          "kind": "공사",
+          "title_ko": "Epoch AI 추적: 부지 정지 계속, 1동 2027년 9월 가동 추정",
+          "detail_ko": [
+            "1·2동 부지 정지가 2025-11-02부터 시작돼 2026-01 위성사진까지 계속 관찰됨. 현재 가동 용량 0.",
+            "규제 서류 기반 추정: 1동 2027-09-17(IT 336MW), 2동 2027-11-11(누적 IT 672MW, 255억 달러). 부지 소유·사용자는 Microsoft로 표기."
+          ],
+          "grade": 4,
+          "src": [{"t": "Epoch AI 데이터센터 디렉터리", "u": "https://epoch.ai/data/ai-data-centers/directory/crusoe-abilene-expansion"}]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "텍사스 주 동결(ERCOT 감사·TCEQ 인허가 중단) 영향권이며, 계량기 뒤 900MW 발전소 허가가 필요.",
+        "questions": [
+          "현장 발전소 TCEQ 대기 허가(예: Crusoe 신청 182126, Longhorn 9·10동) 발급 완료 여부와 9/21 중단 영향",
+          "TCEQ의 10/19 주지사실 이행 보고 내용",
+          "ERCOT 감사 대상 포함 여부"
+        ],
+        "next_check": "2026-10-27"
+      },
+      "tickers_touched": ["MSFT"],
+      "data_issues": [
+        "전력원이 'Grid'만이 아님: 계량기 뒤 900MW 현장 발전소 + 배터리(ERCOT 일정 보장 불가 때문으로 보도).",
+        "Epoch AI 추정 IT 용량은 672MW로 900MW와 차이(시설 전력 vs IT 전력 차이로 추정).",
+        "기준선 문구 '2026년 4분기 부지정지 진행 중'은 시점 오류 가능 — 부지 정지는 2025년 11월 시작."
+      ]
+    },
+    {
+      "id": "p90",
+      "found_update": false,
+      "stage_base": "X",
+      "stage_now": "C",
+      "stage_candidate": null,
+      "status_ko": "하노버 카운티 감독위원회가 2026-05-27 Tract의 430에이커 용도변경(900MW)을 4:3으로 부결 — 당국 결정으로 사업이 중단됨. 7/7 이후 재신청 등 신규 정보는 찾지 못함.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-05-27",
+          "kind": "중단",
+          "title_ko": "하노버 카운티 감독위원회, Mountain Road Tech Park 용도변경 4:3 부결(기준선 이전 사실)",
+          "detail_ko": [
+            "4월 계획위원회는 6:1로 승인 권고했지만, 감독위원회가 의장 Sean Davis의 결정표로 부결.",
+            "Tract는 상수 펌프장·저수조 1,500만 달러, 공원·보전 600만 달러 등을 제시했었음. 주민들은 물·교통·소음·농촌 경관을 이유로 반대."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Richmond BizSense (2026-05-28)", "u": "https://richmondbizsense.com/2026/05/28/hanover-supervisors-reject-data-center-project-on-mountain-road/"},
+            {"t": "DCD", "u": "https://www.datacenterdynamics.com/en/news/tracts-430-acre-data-center-rejected-by-local-officials-in-hanover-county-virginia/"},
+            {"t": "VPM (2026-06-01)", "u": "https://www.vpm.org/news/2026-06-01/hanover-mountain-road-data-center-tract-davis-prichard-kirchner-dibble"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "단계 X→C 정정(당국 부결이 서로 다른 언론 3곳 이상에서 확인). Tract의 재신청·소송 여부만 남음.",
+        "questions": ["Tract가 수정안 재신청이나 소송을 냈는지"],
+        "next_check": "2027-01-15"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "기준선 X('2026년 6월 추진 중단')는 사실상 C에 해당: 5/27 카운티 감독위원회 부결(당국 결정). 일부 집계 사이트는 '조건부 사용허가 거부'로 표기하나 다수 언론은 용도변경 부결로 보도."
+      ]
+    }
+  ],
+  "cross_cutting": [
+    "텍사스: 애벗 주지사가 2026-09-21경 TCEQ에 데이터센터 인허가 발급 중단을 지시, TCEQ는 10/19까지 주지사실에 이행 보고 예정(Inside Climate News 2026-09-24). 8월 발표된 ERCOT 연결 감사는 서부 계통(WECC)인 엘패소에는 적용 안 됨. 해당 그룹 TX 프로젝트: p77(이미 대기허가 보유로 TCEQ 영향 없음), p83·p89(영향 가능성, 해석).",
+    "미시간: MPSC가 2026-10-01 하이퍼스케일 데이터센터 전력계약을 처음으로 쟁송 절차로 조건부 승인(최소요금 80%, 해지 시 15년치) — 다른 미시간 데이터센터 계약의 기준선이 될 수 있음. Springfield Twp·Detroit·Oxford Twp 등은 유사 사업 유예·규제 움직임(WXYZ).",
+    "위스콘신 포트워싱턴: 2026-04-07 '1,000만 달러 이상 TID는 주민투표' 조례 통과, 경제단체 소송 10/19 구두 판결 예정 — 향후 위스콘신 데이터센터 세금 보조 방식에 영향(Urban Milwaukee/WPR 2026-09-23).",
+    "자금 구조: Meta가 엘패소 캠퍼스(7/28)에서 BlackRock 80% 합작(140억 달러, 125억 달러 부채)을 택함 — 하이퍼스케일러가 공사 중 자산을 외부 자본에 넘기고 임차인으로 남는 구조(W.Media 2026-07-28, Meta 보도자료 인용).",
+    "점검 한계: 세션 공용 웹 검색 한도 소진으로 일부 프로젝트는 검색 1~2회에 그침. 다음 점검 때 p79·p80·p84·p85·p86·p88을 우선 재검색 권장."
+  ]
+}

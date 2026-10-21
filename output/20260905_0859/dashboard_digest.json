@@ -1,0 +1,1356 @@
+{
+ "meta": {
+  "generated_at": "2026-09-05T08:59",
+  "latest_run": "20260905_0618",
+  "runs_used": [
+   "20260815_1408",
+   "20260820_1932",
+   "20260905_0618"
+  ]
+ },
+ "signals": [
+  {
+   "ticker": "IREN",
+   "grade": "🟡",
+   "label": "관망 (상향 대기)",
+   "since": "2026-08-14",
+   "next_gate": "FY27 Q1 10-Q (2026-11월경, 정확일 미공시) — ASC842 리스 매출 최초 인식 금액(상향 게이트 ⑪ 관측점)·가동 ARR $1.0B→$4.0B 진척·과금 가동률(이월)",
+   "upgrade_gate": {
+    "quantitative": true,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "blocker_summary": "CFO 발언(FY27 CapEx $25-30bn, 잔여 조달 ~$8bn)과 인도 목표(12월 분기)는 모두 확정 사실(grade2)이나 CapEx 가이던스·인도 목표·채굴 중단 목표는 P7의 이행(execution) 단계이지 매출인식(revenue_recognized) 단계가 아니어서 상향 게이트 미충족.",
+   "next_observation": "① FY27 1Q 10-Q 과금 가동률·AI Cloud 매출 비중·MW당 매출 ② Mirantis 매출 비중 확정치 ③ 잔여 조달 $8bn 실행 조건 확정 ④ ERCOT/PUCT 감사 결과(~2026-12-10)",
+   "kc_status": "KC-10(IREN 전력·인허가, event형) provisional/not_met — 회사 자기평가(C07)는 KC-10 입력에서 배제, ERCOT/PUCT 감사는 2026-12-10 목표로 진행 중(sector-scope, 판정 배제). IREN 종목 전용 KC는 미정의. 가격 라인 $30/$28 모두 미도달."
+  },
+  {
+   "ticker": "NBIS",
+   "grade": "🟡",
+   "label": "관망 (전환사채 $5.75B 클로징 완료 확인 — 레버리지 축적 실현되었으나 조달력도 동시 강화되어 하향 게이트 미충족)",
+   "since": "2026-08-15",
+   "next_gate": "Q3 2026(9/30 분기) 확정 재무제표(20-F/6-K)의 전환사채 원금·상각후원가 및 현금잔액, 순조달액 확인 + $800M 지분교환 실제 결제 완료 여부",
+   "upgrade_gate": {
+    "quantitative": false,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "blocker_summary": "이번 회차 Claim 4건은 전환사채 발행·교환/자본조달 구조 관련이며 P2가 인정하는 매출·마진·현금흐름·가이던스 카테고리가 아니다. stage=revenue_recognized에 해당하는 Claim 자체가 없어 상향 후보 불성립.",
+   "next_observation": "Q3 2026 확정 재무제표 전환사채 원금·현금잔액·순조달액, $800M 지분교환 결제 완료 시점, KC-NBIS-3 스프레드(≥300bp) 비교지표 확보, Vineland Phase2 1차 공시 재확인",
+   "kc_status": "NBIS 종목 KC 3건(KC-NBIS-1·2·3) 전건 not_met — KC-NBIS-3(조달 조건 악화)은 그린슈 전액 행사로 오히려 임계치에서 멀어짐. Kill 우선(규칙1) 해당 없음."
+  },
+  {
+   "ticker": "CRWV",
+   "grade": "🟡",
+   "label": "관망 (HRT 계약 확장 — 고객 다변화·GPU 우선권 강화 재료이나 상향 게이트 미충족)",
+   "since": "2026-08-15",
+   "next_gate": "FCF 흑자 전환 + 이자 커버리지 3x + 금리 경로 확정 동시 충족",
+   "upgrade_gate": {
+    "quantitative": false,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "blocker_summary": "HRT 다년 계약 확장(2026-08-20, grade1) 3건 Claim 전부 quantitative=false(계약 금액 미공시)이고 stage=contract_exists로 revenue_recognized 미도달 — P2/P6/P7 상향 게이트 중 quantitative·stage 2개 미충족.",
+   "next_observation": "HRT 계약 금액·매출 인식 시점 공시 여부, Q3 2026 실적(이자비용 실제치 vs 가이던스, Adj.EBITDA/이자비용 커버리지 3x 방향, 분자·분모 정의 확정), CapEx $9.4B vs $6,422M 불일치 해소 여부, Masaitis 증권집단소송 디스커버리 동향",
+   "kc_status": "CRWV 종목 KC 3건(대형고객계약훼손/용량·배포지연/이자커버리지·차환) 전건 not_met — HRT는 오히려 계약 확장 방향. 매크로 KC-1~10은 이 종목 판정 스코프 밖(오케스트레이터/L4 통합 필요)."
+  },
+  {
+   "ticker": "MU",
+   "grade": "🟠",
+   "label": "주의 (피크 역설 구간)",
+   "since": "2026-08-14",
+   "next_gate": "9/30 Q4 FY26 실적 — 비트그로스 vs ASP 분해·선수금 방향 (회사 공식 확정일, 2026-08-26 보도자료 grade 1)",
+   "upgrade_gate": {
+    "quantitative": false,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "blocker_summary": "13건 Claim 중 quantitative:true 0건. grade1·confirmed:true 사실(경영진 승진, 실적일 확정, Netlist 소송, SCA·비트/ASP no-change 확인)은 전부 정성적이거나 '변화 없음' 확인이며 확정 매출·마진·현금흐름·가이던스 수치가 아니다.",
+   "next_observation": "2026-09-30 FY26 Q4 실적(비트그로스 vs ASP 분해·선수금 방향), CDCA 소송 답변시한(9/10) 진행상황, ITC institution 결정 여부, 대만 노조 10월 협상 결과, Apple CXMT/YMTC 소싱 공식 발표, HBM 캐파 확대설(c_11) 실적 확인",
+   "kc_status": "MU 종목 전용 KC가 kill_conditions.yaml에 2회 연속(20260820, 20260905) 부재 — Kill 판정 대상 자체 없음."
+  },
+  {
+   "ticker": "CRCL",
+   "grade": "🔴",
+   "label": "비중 조절 검토 (OUSD 위협)",
+   "since": "2026-08-14",
+   "next_gate": "Q3'26 실적(유통량 QoQ 부호·회사 정의 점유율·Reserve Income 지속성) + Q3 10-Q 계약 주석으로 분배계약 조건 불변 최종 확인(11월경)",
+   "upgrade_gate": {
+    "quantitative": true,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "blocker_summary": "quantitative=true인 claim들(경쟁사 $YLDS 유통량, 온체인 애그리게이터 추정, 내부자 Form4 건수)도 어느 것도 CRCL 자체 매출·마진·현금흐름·가이던스가 아니며 P7의 revenue_recognized 단계에 해당하지 않는다. 계약변경 8-K 부재(c_001)는 정성적 부작위 확인일 뿐.",
+   "next_observation": "Q3'26 10-Q 계약 주석으로 Coinbase 분배계약 조건 원문 불변 최종 확인(KC-CRCL-3), Q3'26 실적(USDC 유통량 QoQ 부호·회사 정의 점유율%·Reserve Income 지속성)",
+   "kc_status": "KC-CRCL-1·2·4 not_met(신규 발동·경고 관측 없음). KC-CRCL-3(분배계약 변경, event형)은 'met' 자체 미성립(8-K 부재 12일 지속) — 계약 조건 원문 최종확인은 Q3 10-Q까지 보류(P5)."
+  },
+  {
+   "ticker": "COIN",
+   "grade": "🟠",
+   "label": "주의 (Q2 매출 miss)",
+   "since": "2026-08-14",
+   "next_gate": "구독·서비스 비중 방향 + USDC 수익 절대액",
+   "upgrade_gate": {
+    "quantitative": false,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "blocker_summary": "Deribit Starbase 파생상품 이전 진행률(c_002, quantitative=true)은 매출·마진·현금흐름·가이던스 수치가 아니라 거래 인프라 이전 지표이며 evidence_grade=4·confirmed=false로 단독 판단 근거 불가. Deribit·Circle 재료는 P7상 매출 인식 단계 아님.",
+   "next_observation": "구독·서비스 매출 비중 QoQ 방향, 거래매출 QoQ 부호(KC-COIN-1), platform assets net inflow/outflow 분기치(KC-COIN-2), USDC 수익 절대액·usdc_revenue_qoq(KC-COIN-4), 8-K/10-Q로 Circle 분배계약 실제 조건 확인, Deribit Starbase 마이그레이션 완료(9/9) 및 RWA 실거래량·수수료 매출 최초 공시",
+   "kc_status": "KC-COIN-3·4 not_met(신규 8-K는 이사회 인사 건, Circle·USDC 무관 확인). KC-COIN-1·2는 이번 구간 지표 미갱신으로 평가 불가(met 관측 없음)."
+  },
+  {
+   "ticker": "HOOD",
+   "grade": "🟡",
+   "label": "관망 (Q2 전면 beat)",
+   "since": "2026-08-14",
+   "next_gate": "AUA 순유입·mix 지속성",
+   "upgrade_gate": {
+    "quantitative": true,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "blocker_summary": "정량 Claim 2건(Robinhood Chain 체인수수료 급증)은 회사 자체 공시가 아닌 애널리스트 온체인 추정치(grade3·4, confirmed=false)이며 stage=revenue_recognized 요건 미충족 — 이중으로 상향 게이트 불충족.",
+   "next_observation": "2026-09-29 가스비 보조금 종료 후 Robinhood Chain 체인수수료·거래량의 회사 공식(1차) 수치 및 스톡토큰 실거래 비중 변화, 8월 월간 운영지표(순입금·AUA·크립토/주식 명목거래액) 공개, 제9순회 판례 SCOTUS 상고 여부·Nevada 주정부 실제 집행조치 개시 여부",
+   "kc_status": "KC-HOOD-1·2 not_met(8월 운영지표 미공개로 판정 대상 부재). KC-HOOD-3(예측시장 규제 금지) not_met — 9순회 Kalshi 판례로 간접노출 존재하나 발동 요건(연방 금지 또는 매출 상위 3개 주 동시 금지) 미달."
+  }
+ ],
+ "kc_gauges": [
+  {
+   "id": "KC-1",
+   "name": "FFR 인상 리스크",
+   "indicator": "FFR",
+   "unit": "%",
+   "current_value": 3.75,
+   "threshold": 3.75,
+   "direction": "above_triggers",
+   "margin_display": "0.00pp — 경계 접촉 (strict 부등호로 not_met, staleness 38일 provisional)",
+   "margin_ratio": 1.0,
+   "status": "not_met",
+   "provisional": true,
+   "staleness_days": 38,
+   "affected_tickers": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260820_1932",
+     "value": 3.75
+    },
+    {
+     "run": "20260905_0618",
+     "value": 3.75
+    }
+   ]
+  },
+  {
+   "id": "KC-2",
+   "name": "변동성 급등",
+   "indicator": "VIX",
+   "unit": "pt",
+   "current_value": 14.53,
+   "threshold": 30,
+   "direction": "above_triggers",
+   "margin_display": "15.47p (현재 14.53 → 임계 30, 약 2.06배 필요)",
+   "margin_ratio": 0.4843,
+   "status": "not_met",
+   "provisional": false,
+   "staleness_days": 0,
+   "affected_tickers": [
+    "COIN",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260815_1408",
+     "value": 14.25
+    },
+    {
+     "run": "20260820_1932",
+     "value": 15.16
+    },
+    {
+     "run": "20260905_0618",
+     "value": 14.53
+    }
+   ]
+  },
+  {
+   "id": "KC-3",
+   "name": "크립토 붕괴 + 위험회피 동시",
+   "indicator": "BTC",
+   "unit": "USD",
+   "current_value": 79819.855,
+   "threshold": 55000,
+   "direction": "below_triggers",
+   "margin_display": "BTC 레그 -31.10% 필요(79,819.855→55,000) / VIX 레그 10.47p 필요(14.53→25). 두 레그 동시 충족 조건(AND)",
+   "margin_ratio": 0.5487,
+   "status": "not_met",
+   "provisional": false,
+   "staleness_days": 0,
+   "affected_tickers": [
+    "COIN",
+    "CRCL",
+    "HOOD",
+    "IREN"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260815_1408",
+     "value": 63060.045
+    },
+    {
+     "run": "20260820_1932",
+     "value": 71825.765
+    },
+    {
+     "run": "20260905_0618",
+     "value": 79819.855
+    }
+   ]
+  },
+  {
+   "id": "KC-4",
+   "name": "유동성 위기 신호",
+   "indicator": "ON_RRP",
+   "unit": "USD",
+   "current_value": 675000000.0,
+   "threshold": 200000000000,
+   "direction": "above_triggers",
+   "margin_display": "ON RRP 레그 — 현재 값이 임계의 약 0.34% 수준(약 296배 증가 필요, 단위 정합 의문 미해소) / VIX 레그 10.47p 필요. 두 레그 동시 충족",
+   "margin_ratio": 0.0034,
+   "status": "not_met",
+   "provisional": false,
+   "staleness_days": 0,
+   "affected_tickers": [
+    "COIN",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260815_1408",
+     "value": 250000000.0
+    },
+    {
+     "run": "20260820_1932",
+     "value": 317000000.0
+    },
+    {
+     "run": "20260905_0618",
+     "value": 675000000.0
+    }
+   ]
+  },
+  {
+   "id": "KC-5",
+   "name": "TAIEX 음전환 (아시아 리스크 프록시)",
+   "indicator": "TAIEX_vs_20dma_pct",
+   "unit": "pt",
+   "current_value": 0.69,
+   "threshold": 0,
+   "direction": "below_triggers",
+   "margin_display": "20dma 레그 0.69p / 1개월 수익률 레그 2.79p — 전자가 매크로 KC 전체 중 KC-1에 이어 두 번째로 좁음. AND 조건",
+   "margin_ratio": 0.2639,
+   "status": "not_met",
+   "provisional": false,
+   "staleness_days": 1,
+   "affected_tickers": [
+    "COIN",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260820_1932",
+     "value": 2.1
+    },
+    {
+     "run": "20260905_0618",
+     "value": 0.69
+    }
+   ]
+  },
+  {
+   "id": "KC-6",
+   "name": "AI 토큰 지출 급감",
+   "indicator": "SDLLMTK_change_pct",
+   "unit": "%",
+   "current_value": 8.0,
+   "threshold": -30,
+   "direction": "below_triggers",
+   "margin_display": "38.0p (현재 +8.0% → 임계 -30%). duration(2주 지속) 조건 포함 — provisional",
+   "margin_ratio": 0.0,
+   "status": "not_met",
+   "provisional": true,
+   "staleness_days": 2,
+   "affected_tickers": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260820_1932",
+     "value": 1.9
+    },
+    {
+     "run": "20260905_0618",
+     "value": 8.0
+    }
+   ]
+  },
+  {
+   "id": "KC-7",
+   "name": "하이퍼스케일러 합산 FCF 악화",
+   "indicator": "hyperscaler_fcf_sum",
+   "unit": "USD",
+   "current_value": 6835000000,
+   "threshold": 0,
+   "direction": "below_triggers",
+   "margin_display": "$6.835B (현재 6,835,000,000 → 임계 0). duration(2분기 연속) 조건 — staleness 67일, provisional",
+   "margin_ratio": 0.0,
+   "status": "not_met",
+   "provisional": true,
+   "staleness_days": 67,
+   "affected_tickers": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260905_0618",
+     "value": 6835000000
+    }
+   ]
+  },
+  {
+   "id": "KC-8",
+   "name": "Microsoft FCF 마이너스 (최후의 보루)",
+   "indicator": "msft_fcf",
+   "unit": "USD",
+   "current_value": 19640000000,
+   "threshold": 0,
+   "direction": "below_triggers",
+   "margin_display": "$19.64B (현재 19,640,000,000 → 임계 0). staleness 67일, provisional",
+   "margin_ratio": 0.0,
+   "status": "not_met",
+   "provisional": true,
+   "staleness_days": 67,
+   "affected_tickers": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "portfolio_ripple_pct": 95.0,
+   "history": [
+    {
+     "run": "20260905_0618",
+     "value": 19640000000
+    }
+   ]
+  },
+  {
+   "id": "KC-9",
+   "name": "에너지 쇼크",
+   "indicator": "brent",
+   "unit": "USD",
+   "current_value": 96.02,
+   "threshold": 120,
+   "direction": "above_triggers",
+   "margin_display": "23.98p (현재 96.02 → 임계 120, 약 +25.0% 필요). duration(1개월 지속) 조건 — stale_days 3(한도 3 경계)",
+   "margin_ratio": 0.8002,
+   "status": "not_met",
+   "provisional": true,
+   "staleness_days": 3,
+   "affected_tickers": [],
+   "portfolio_ripple_pct": null,
+   "history": [
+    {
+     "run": "20260815_1408",
+     "value": 93.26
+    },
+    {
+     "run": "20260820_1932",
+     "value": 95.29
+    },
+    {
+     "run": "20260905_0618",
+     "value": 96.02
+    }
+   ]
+  },
+  {
+   "id": "KC-10",
+   "name": "IREN 전력·인허가 이벤트",
+   "indicator": null,
+   "unit": null,
+   "current_value": null,
+   "threshold": null,
+   "direction": "event",
+   "margin_display": "이격도 정의 불가 — 이벤트형 KC(지표 피드 아님, L2 공시 관측으로 판정, 자동 확정 불가)",
+   "margin_ratio": null,
+   "status": "not_met",
+   "provisional": true,
+   "staleness_days": null,
+   "affected_tickers": [
+    "IREN"
+   ],
+   "portfolio_ripple_pct": 95.0
+  }
+ ],
+ "scenarios": [
+  {
+   "id": "sc_kc1",
+   "name": "KC-1 — FFR > 3.75",
+   "linked_kc": "KC-1",
+   "summary": "매크로 KC 중 이격도가 가장 좁은 항목(0.00pp)이자 근거가 가장 오래된 항목(staleness 38일, web_search). 사전정의 consequence: 레버리지 전액 해제 + Edge/Next 50% 축소 검토.",
+   "proximity_note": "0.00pp — 경계 접촉 상태 (동일값이나 strict 부등호로 not_met)"
+  },
+  {
+   "id": "sc_kc2",
+   "name": "KC-2 — VIX >= 30",
+   "linked_kc": "KC-2",
+   "summary": "파급 종목 6개(RISK_APPETITE 축 공유, KC-2·4·5와 동일 축). 사전정의 consequence: 레버리지 해제 검토.",
+   "proximity_note": "15.47p (현재 14.53 → 임계 30, 약 2.06배 필요)"
+  },
+  {
+   "id": "sc_kc3",
+   "name": "KC-3 — BTC < 55,000 AND VIX >= 25",
+   "linked_kc": "KC-3",
+   "summary": "사전정의 consequence의 파급 대상(IREN·COIN·HOOD·CRCL)과 [CODE] 산출 affected가 정확히 일치하는 유일한 KC. 파급 4종목 중 실제 보유는 IREN 1종목. IREN CRYPTO 축 노출 근거(BTC 채굴 현금흐름)는 채굴 사업 종료 목표(2026-12월 말)로 재평가 제안 대기(vcp_20260905_0618_01). 사전정의 consequence: IREN 50% 축소 + Next 진입 보류 검토.",
+   "proximity_note": "BTC 레그 -31.10% 필요 / VIX 레그 10.47p 필요 — 두 레그 동시 충족 조건"
+  },
+  {
+   "id": "sc_kc4",
+   "name": "KC-4 — ON RRP >= $200B AND VIX >= 25",
+   "linked_kc": "KC-4",
+   "summary": "ON_RRP 입력이 직전 run 317,000,000→675,000,000으로 갱신됐으나 임계 대비 약 296배 격차로 단위 정합(달러 대 백만달러) 의문 미해소. 사전정의 consequence: 광범위 디리스킹 검토.",
+   "proximity_note": "ON RRP 레그 임계의 약 0.34% 수준 / VIX 레그 10.47p 필요"
+  },
+  {
+   "id": "sc_kc5",
+   "name": "KC-5 — TAIEX 20dma 대비 < 0 AND 1개월 수익률 < 0",
+   "linked_kc": "KC-5",
+   "summary": "두 레그의 상대 위치가 직전 run 대비 뒤바뀌었고 좁은 쪽 레그 이격도는 0.24p→0.69p로 확대. 사전정의 consequence: 광범위 디리스킹 검토.",
+   "proximity_note": "20dma 레그 0.69p / 1개월 수익률 레그 2.79p (AND 조건)"
+  },
+  {
+   "id": "sc_kc6",
+   "name": "KC-6 — SDLLMTK 변화율 <= -30% (2주 지속)",
+   "linked_kc": "KC-6",
+   "summary": "AI_CAPEX 축을 KC-6·7·8이 공유(동일 파급 목록). 사전정의 consequence: Base·Edge 전제 재검토.",
+   "proximity_note": "38.0p (현재 +8.0% → 임계 -30%)"
+  },
+  {
+   "id": "sc_kc7",
+   "name": "KC-7 — 하이퍼스케일러 합산 FCF < 0 (2분기 연속)",
+   "linked_kc": "KC-7",
+   "summary": "직전 run에 value=null(미수집)이던 항목이 이번 회차 수집돼(as_of 2026-06-30, staleness 67일) 이격도 산출이 가능해졌으나 판정 확정을 의미하지 않음(F7). 보유 종목 IREN이 노출된 축. 사전정의 consequence: CapEx 감속 시나리오 검토.",
+   "proximity_note": "$6.835B (현재 6,835,000,000 → 임계 0)"
+  },
+  {
+   "id": "sc_kc8",
+   "name": "KC-8 — Microsoft FCF < 0 (최후의 보루)",
+   "linked_kc": "KC-8",
+   "summary": "직전 run 미수집 항목이 이번 회차 수집(staleness 67일, provisional). KC-6·7·8은 동일 축·동일 파급 목록. 사전정의 consequence: AI CapEx 축 전면 재검토.",
+   "proximity_note": "$19.64B (현재 19,640,000,000 → 임계 0)"
+  },
+  {
+   "id": "sc_kc9",
+   "name": "KC-9 — Brent >= 120 (1개월 지속)",
+   "linked_kc": "KC-9",
+   "summary": "correlation_map.py KC_AXIS·correlation_matrix.yaml axes 모두에 에너지 축이 없어 파급이 산출되지 않음(파급 미산출≠파급 부재). 이격도 자체는 산출 가능. 사전정의 consequence: 에너지+인플레이션 시나리오 검토.",
+   "proximity_note": "23.98p (현재 96.02 → 임계 120, 약 +25.0% 필요)"
+  },
+  {
+   "id": "sc_kc10",
+   "name": "KC-10 — IREN 계약 용량 10%+ 강제 감축 분류 또는 전력접속·인허가 취소·보류 공시",
+   "linked_kc": "KC-10",
+   "summary": "이벤트형 KC로 이격도 정의 불가. 노출 종목이 IREN 단독인 유일한 KC이며 IREN이 유일한 보유 종목 — 파급 종목 수는 최소이나 보유 비중 기준 노출은 최대. PUCT good cause exception은 2026-08-20 승인 확인, ERCOT 감사 완료 목표 2026-12-10이나 IREN 개별 사이트 감사 진행·강제감축 분류 MW는 미공표. 사전정의 consequence: Edge 마진 전제 재검토.",
+   "proximity_note": "이격도 정의 불가 — 이벤트형(자동 확정 불가)"
+  },
+  {
+   "id": "sc_axis_concentration",
+   "name": "축 집중도 — 축별 비중 상단 합이 concentration_threshold_pct(60) 초과",
+   "linked_kc": null,
+   "summary": "8개 축 중 6개 축(AI_CAPEX·RATES·CRYPTO·GPU_SUPPLY·POWER_PERMIT·RISK_APPETITE)이 95.0으로 초과. 비중 상단이 0을 넘는 종목이 IREN 1개뿐이라 지표가 이진 지표로 축퇴(2회차 연속) — 6축 동시 초과를 6개의 독립 위험으로 읽으면 오독. 임계 60은 config 주석상 초안이며 확정은 사람 몫.",
+   "proximity_note": "+35.0pp 초과 (6개 축 전부 95.0 대 임계 60)"
+  },
+  {
+   "id": "sc_position_band",
+   "name": "포지션 밴드 — IREN 비중 [0.85,0.95] 및 현금 [0.05,0.15] 이탈 관측",
+   "linked_kc": null,
+   "summary": "positions.yaml 기입값(IREN 0.90/현금 0.10) 기준 범위 내. as_of 2026-08-15로 staleness 21일 — 시가 재평가 결과가 아니므로 21일간 가격 변동은 미반영.",
+   "proximity_note": "IREN 상단·하한 각각 5pp / 현금 상단·하한 각각 5pp"
+  }
+ ],
+ "concentration": [
+  {
+   "axis": "AI_CAPEX",
+   "value": 95.0,
+   "threshold": 60,
+   "over": true,
+   "note": "노출 종목 CRWV·IREN·MU·NBIS(4). 초과는 IREN 단일 포지션(비중상단0.95)에서 발생."
+  },
+  {
+   "axis": "RATES",
+   "value": 95.0,
+   "threshold": 60,
+   "over": true,
+   "note": "노출 종목 7개 전부(COIN·CRCL·CRWV·HOOD·IREN·MU·NBIS)."
+  },
+  {
+   "axis": "CRYPTO",
+   "value": 95.0,
+   "threshold": 60,
+   "over": true,
+   "note": "노출 종목 COIN·CRCL·HOOD·IREN(4)."
+  },
+  {
+   "axis": "REGULATION",
+   "value": 0.0,
+   "threshold": 60,
+   "over": false,
+   "note": "노출 종목(COIN·CRCL·HOOD) 전원 미보유 — 위험 부재가 아니라 보유 부재의 결과."
+  },
+  {
+   "axis": "GPU_SUPPLY",
+   "value": 95.0,
+   "threshold": 60,
+   "over": true,
+   "note": "노출 종목 CRWV·IREN·NBIS(3). 축 정의 검토 요청 대상(vcp_20260905_0618_06) — 동일 GPU 요인이 종목별 반대 부호로 걸릴 구조적 가능성 제기."
+  },
+  {
+   "axis": "POWER_PERMIT",
+   "value": 95.0,
+   "threshold": 60,
+   "over": true,
+   "note": "노출 종목 IREN 단독(1) — 단일 종목 축에 90%대 비중이 실린 결과이며 축 간 분산 부족의 지표가 아님."
+  },
+  {
+   "axis": "RISK_APPETITE",
+   "value": 95.0,
+   "threshold": 60,
+   "over": true,
+   "note": "노출 종목 COIN·CRWV·HOOD·IREN·MU·NBIS(6)."
+  },
+  {
+   "axis": "USDC_DISTRIBUTION_ECONOMICS",
+   "value": 0.0,
+   "threshold": 60,
+   "over": false,
+   "note": "노출 종목(COIN·CRCL) 전원 미보유 — 위험 부재가 아니라 보유 부재의 결과."
+  }
+ ],
+ "exposure_matrix": {
+  "axes": [
+   "AI_CAPEX",
+   "RATES",
+   "CRYPTO",
+   "REGULATION",
+   "GPU_SUPPLY",
+   "POWER_PERMIT",
+   "RISK_APPETITE",
+   "USDC_DISTRIBUTION_ECONOMICS"
+  ],
+  "tickers": [
+   "IREN",
+   "NBIS",
+   "CRWV",
+   "MU",
+   "CRCL",
+   "COIN",
+   "HOOD"
+  ],
+  "cells": [
+   {
+    "ticker": "IREN",
+    "axis": "AI_CAPEX",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "IREN",
+    "axis": "CRYPTO",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "IREN",
+    "axis": "RATES",
+    "sign": "-",
+    "strength": "M"
+   },
+   {
+    "ticker": "IREN",
+    "axis": "GPU_SUPPLY",
+    "sign": "-",
+    "strength": "M"
+   },
+   {
+    "ticker": "IREN",
+    "axis": "POWER_PERMIT",
+    "sign": "-",
+    "strength": "H"
+   },
+   {
+    "ticker": "IREN",
+    "axis": "RISK_APPETITE",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "NBIS",
+    "axis": "AI_CAPEX",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "NBIS",
+    "axis": "RATES",
+    "sign": "-",
+    "strength": "M"
+   },
+   {
+    "ticker": "NBIS",
+    "axis": "GPU_SUPPLY",
+    "sign": "-",
+    "strength": "M"
+   },
+   {
+    "ticker": "NBIS",
+    "axis": "RISK_APPETITE",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "CRWV",
+    "axis": "AI_CAPEX",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "CRWV",
+    "axis": "RATES",
+    "sign": "-",
+    "strength": "H"
+   },
+   {
+    "ticker": "CRWV",
+    "axis": "GPU_SUPPLY",
+    "sign": "-",
+    "strength": "H"
+   },
+   {
+    "ticker": "CRWV",
+    "axis": "RISK_APPETITE",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "MU",
+    "axis": "AI_CAPEX",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "MU",
+    "axis": "RATES",
+    "sign": "-",
+    "strength": "L"
+   },
+   {
+    "ticker": "MU",
+    "axis": "RISK_APPETITE",
+    "sign": "+",
+    "strength": "L"
+   },
+   {
+    "ticker": "CRCL",
+    "axis": "RATES",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "CRCL",
+    "axis": "REGULATION",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "CRCL",
+    "axis": "CRYPTO",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "CRCL",
+    "axis": "USDC_DISTRIBUTION_ECONOMICS",
+    "sign": "-",
+    "strength": "M"
+   },
+   {
+    "ticker": "COIN",
+    "axis": "CRYPTO",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "COIN",
+    "axis": "REGULATION",
+    "sign": "+",
+    "strength": "H"
+   },
+   {
+    "ticker": "COIN",
+    "axis": "RATES",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "COIN",
+    "axis": "RISK_APPETITE",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "COIN",
+    "axis": "USDC_DISTRIBUTION_ECONOMICS",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "HOOD",
+    "axis": "CRYPTO",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "HOOD",
+    "axis": "REGULATION",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "HOOD",
+    "axis": "RATES",
+    "sign": "+",
+    "strength": "M"
+   },
+   {
+    "ticker": "HOOD",
+    "axis": "RISK_APPETITE",
+    "sign": "+",
+    "strength": "H"
+   }
+  ],
+  "positions": {
+   "IREN": 0.9,
+   "MU": 0.0,
+   "NBIS": 0.0,
+   "CRWV": 0.0,
+   "CRCL": 0.0,
+   "COIN": 0.0,
+   "HOOD": 0.0,
+   "cash": 0.1
+  },
+  "conditional_exposures": [
+   {
+    "id": "OUSD_CONSORTIUM",
+    "tickers": {
+     "CRCL": "단방향 위협(잠재 -) — 수익모델 정면 경쟁",
+     "COIN": "양면 — 컨소시엄 참여 upside + USDC 분배수익 잠식 downside"
+    },
+    "status": "OUSD 미출시·실측 유통량 부재로 부호 판정 불가 (3 run 연속 무변화)",
+    "reassess_trigger": "OUSD 공식 출시 + 실측 유통량 확보"
+   },
+   {
+    "id": "YIELD_BEARING_STABLECOIN_CLAUSE",
+    "tickers": {
+     "CRCL": "CLARITY 이자조항이 이자 지급 제한 시 경쟁재 축소(잠재 +)",
+     "COIN": "이자부 상품 취급·분배 라인 축소(잠재 -)"
+    },
+    "status": "조항 문언 미확정 — 정량 감시 계열($YLDS 유통량, grade1) 최초 확보(1Q26 $598M → 2Q26 $556.033M, QoQ -7.0%). 근거 등급 미달이 아니라 조항 문언 미확정으로 벡터 미등재",
+    "reassess_trigger": "2026-09-15 CLARITY 상원 절차 표결 이후 이자조항 문언 확정"
+   }
+  ],
+  "inverse_pairs": [
+   {
+    "pair": "COIN-CRCL",
+    "axes": [
+     "USDC_DISTRIBUTION_ECONOMICS"
+    ],
+    "note": "COIN + vs CRCL - — 자연 헤지 (hedge_strength 중). 대칭적 제로섬 아님 — 조건 '불변'은 양면에 다른 의미로 작용."
+   },
+   {
+    "pair": "COIN-CRWV",
+    "axes": [
+     "RATES"
+    ],
+    "note": "COIN + vs CRWV - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "COIN-IREN",
+    "axes": [
+     "RATES"
+    ],
+    "note": "COIN + vs IREN - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "COIN-MU",
+    "axes": [
+     "RATES"
+    ],
+    "note": "COIN + vs MU - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "COIN-NBIS",
+    "axes": [
+     "RATES"
+    ],
+    "note": "COIN + vs NBIS - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "CRCL-CRWV",
+    "axes": [
+     "RATES"
+    ],
+    "note": "CRCL + vs CRWV - — 자연 헤지 (hedge_strength 상)"
+   },
+   {
+    "pair": "CRCL-IREN",
+    "axes": [
+     "RATES"
+    ],
+    "note": "CRCL + vs IREN - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "CRCL-MU",
+    "axes": [
+     "RATES"
+    ],
+    "note": "CRCL + vs MU - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "CRCL-NBIS",
+    "axes": [
+     "RATES"
+    ],
+    "note": "CRCL + vs NBIS - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "CRWV-HOOD",
+    "axes": [
+     "RATES"
+    ],
+    "note": "CRWV - vs HOOD + — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "HOOD-IREN",
+    "axes": [
+     "RATES"
+    ],
+    "note": "HOOD + vs IREN - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "HOOD-MU",
+    "axes": [
+     "RATES"
+    ],
+    "note": "HOOD + vs MU - — 자연 헤지 (hedge_strength 중)"
+   },
+   {
+    "pair": "HOOD-NBIS",
+    "axes": [
+     "RATES"
+    ],
+    "note": "HOOD + vs NBIS - — 자연 헤지 (hedge_strength 중)"
+   }
+  ]
+ },
+ "delta_history": [
+  {
+   "ticker": "IREN",
+   "axis": "funding_dilution",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "weaken",
+    "20260905_0618": "mixed"
+   }
+  },
+  {
+   "ticker": "IREN",
+   "axis": "execution_delivery",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "none",
+    "20260905_0618": "strengthen"
+   }
+  },
+  {
+   "ticker": "IREN",
+   "axis": "btc_mining",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "none",
+    "20260905_0618": "weaken"
+   }
+  },
+  {
+   "ticker": "IREN",
+   "axis": "ai_cloud_conversion",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "IREN",
+   "axis": "power_permit",
+   "by_run": {
+    "20260815_1408": "neutral",
+    "20260820_1932": "neutral",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "IREN",
+   "axis": "margin_structure",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "NBIS",
+   "axis": "leverage_burden",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "weaken",
+    "20260905_0618": "weaken"
+   }
+  },
+  {
+   "ticker": "NBIS",
+   "axis": "funding_access",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "strengthen",
+    "20260905_0618": "strengthen"
+   }
+  },
+  {
+   "ticker": "CRWV",
+   "axis": "customer_concentration",
+   "by_run": {
+    "20260815_1408": "neutral",
+    "20260820_1932": "none",
+    "20260905_0618": "strengthen"
+   }
+  },
+  {
+   "ticker": "CRWV",
+   "axis": "gpu_priority",
+   "by_run": {
+    "20260815_1408": "strengthen",
+    "20260820_1932": "none",
+    "20260905_0618": "strengthen"
+   }
+  },
+  {
+   "ticker": "CRCL",
+   "axis": "reserve_income",
+   "by_run": {
+    "20260815_1408": "strengthen",
+    "20260820_1932": "mixed",
+    "20260905_0618": "strengthen"
+   }
+  },
+  {
+   "ticker": "CRCL",
+   "axis": "competition_ousd",
+   "by_run": {
+    "20260815_1408": "neutral",
+    "20260820_1932": "none",
+    "20260905_0618": "strengthen"
+   }
+  },
+  {
+   "ticker": "CRCL",
+   "axis": "usdc_circulation_scale",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "CRCL",
+   "axis": "regulation_sector_legislation",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "neutral",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "COIN",
+   "axis": "usdc_economics",
+   "by_run": {
+    "20260815_1408": "strengthen",
+    "20260820_1932": "neutral",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "COIN",
+   "axis": "derivatives_base",
+   "by_run": {
+    "20260815_1408": "strengthen",
+    "20260820_1932": "strengthen",
+    "20260905_0618": "strengthen"
+   }
+  },
+  {
+   "ticker": "HOOD",
+   "axis": "prediction_market",
+   "by_run": {
+    "20260815_1408": "neutral",
+    "20260820_1932": "none",
+    "20260905_0618": "weaken"
+   }
+  },
+  {
+   "ticker": "HOOD",
+   "axis": "crypto_cycle",
+   "by_run": {
+    "20260815_1408": "weaken",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "MU",
+   "axis": "china_supply",
+   "by_run": {
+    "20260815_1408": "weaken",
+    "20260820_1932": "neutral",
+    "20260905_0618": "weaken"
+   }
+  },
+  {
+   "ticker": "MU",
+   "axis": "hbm_demand",
+   "by_run": {
+    "20260815_1408": "strengthen",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "MU",
+   "axis": "sca_defense",
+   "by_run": {
+    "20260815_1408": "neutral",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "MU",
+   "axis": "cycle_position",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  },
+  {
+   "ticker": "MU",
+   "axis": "valuation_paradox",
+   "by_run": {
+    "20260815_1408": "none",
+    "20260820_1932": "none",
+    "20260905_0618": "neutral"
+   }
+  }
+ ],
+ "events": [
+  {
+   "date": "2026-09-10",
+   "ticker": "MU",
+   "what": "Netlist CDCA 소송 Micron측 답변 시한(보도)",
+   "why_it_matters": "특허소송 리스크(ip_litigation_risk) 절차 진행 확인점 — grade4·미확인, 법원 도켓 원문 역추적 실패.",
+   "grade": 4
+  },
+  {
+   "date": "2026-09-15",
+   "ticker": "CRCL",
+   "what": "CLARITY Act 상원 절차 표결 (최종 표결 아님)",
+   "why_it_matters": "이자부 스테이블코인 취급 조항 문언 확정의 전제 관문 — CRCL·COIN 역노출(YIELD_BEARING_STABLECOIN_CLAUSE) 재판정 트리거.",
+   "grade": 3
+  },
+  {
+   "date": "2026-09-16",
+   "ticker": "macro",
+   "what": "FOMC 회의",
+   "why_it_matters": "KC-1(FFR>3.75) 재판정 시점 — 현재 FFR 3.75가 임계와 동일값으로 경계 접촉 상태(0.00pp).",
+   "grade": null
+  },
+  {
+   "date": "2026-09-29(추정)",
+   "ticker": "HOOD",
+   "what": "Robinhood Chain 90일 가스비 무료 보조금 종료 예정",
+   "why_it_matters": "crypto_cycle 축이 회사 공식 수치로 전환될 수 있는지를 가르는 관문 — 현재 온체인 수수료 급증은 밈코인·보조금발로 회사 공식 확인 전.",
+   "grade": 4
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "MU",
+   "what": "FY26 Q4 실적(회사 공식 확정, 2026-08-26 보도자료)",
+   "why_it_matters": "비트그로스 vs ASP 분해·선수금 방향·HBM 마진 확인의 유일한 관측 창 — MU 카드 next_gate 정정(9/22→9/30) 승인 완료.",
+   "grade": 1
+  },
+  {
+   "date": "2026-10-19",
+   "ticker": "CRCL/COIN/HOOD",
+   "what": "재무부 GENIUS Act 제3조 NPRM 의견수렴 마감",
+   "why_it_matters": "발행사 인가 요건 확정 절차 — 발의 단계이며 확정 규칙 아님(scope=sector, 개별 종목 등급 근거 불가).",
+   "grade": 4
+  },
+  {
+   "date": "2026-10-29(추정)",
+   "ticker": "COIN",
+   "what": "Q3 2026 실적 발표(애그리게이터 추정일, 회사 IR 공식 공지 없음)",
+   "why_it_matters": "구독·서비스 매출 비중, USDC 수익 절대액(KC-COIN-4), 거래매출 QoQ(KC-COIN-1) 확인 창 — 날짜 자체는 F1상 채택 불가.",
+   "grade": 4
+  },
+  {
+   "date": "2026-11(추정)",
+   "ticker": "IREN",
+   "what": "FY27 Q1 10-Q",
+   "why_it_matters": "ASC842 리스 매출 최초 인식 금액(사전정의 상향 게이트 ⑪) 관측점 — 과금 가동률·MFU·MW당 매출도 이 창에서 확인 필요.",
+   "grade": null
+  },
+  {
+   "date": "2026-11(추정)",
+   "ticker": "CRCL/COIN",
+   "what": "Q3'26 10-Q 계약 주석",
+   "why_it_matters": "Coinbase-Circle 분배계약 조건 원문 불변의 최종 확인 지점(KC-CRCL-3) — 8-K 부재 12일 지속은 잠정 결론일 뿐.",
+   "grade": null
+  },
+  {
+   "date": "2026-11-04(추정)",
+   "ticker": "HOOD",
+   "what": "Q3 2026 실적 발표(애그리게이터 추정일)",
+   "why_it_matters": "8월·9월 월간 운영지표 미확보 상태에서 AUA 순유입·mix 지속성(KC-HOOD-1·2) 확인 창.",
+   "grade": 4
+  },
+  {
+   "date": "2026-12-10",
+   "ticker": "IREN",
+   "what": "ERCOT 데이터센터 프로젝트 감사 완료 목표",
+   "why_it_matters": "KC-10(IREN 전력·인허가) 재판정 트리거 — IREN 개별 사이트 감사 진행·강제감축 분류 MW는 현재 미공표.",
+   "grade": 4
+  },
+  {
+   "date": "2026-12(추정)",
+   "ticker": "IREN",
+   "what": "채굴 사업 사실상 중단 기대 시점(CFO 'currently expect')",
+   "why_it_matters": "btc_mining 축 현금흐름 기여 소멸 예정 — 리스크는 소멸이 아니라 ai_cloud_conversion 축으로 완전 이관.",
+   "grade": 2
+  },
+  {
+   "date": "2026-12(추정)",
+   "ticker": "IREN",
+   "what": "Horizon 2-4 인도 목표(역년 Q4 2026)",
+   "why_it_matters": "계약상 최대 유예(~2027 Q2 초)와 최대 약 1개 분기 간극 — 인도 목표 재확인은 이행 단계이지 매출인식 아님(P7).",
+   "grade": 2
+  },
+  {
+   "date": "2027-Q2 초(추정)",
+   "ticker": "IREN",
+   "what": "Microsoft Horizon 계약 인도 유예기간 만료 상한",
+   "why_it_matters": "Horizon 2-4 인도 지연 허용의 계약상 최대 한계 — 경영진 목표 시점과의 간극이 이번 회차에도 유지.",
+   "grade": 2
+  }
+ ],
+ "inverse_exposures": [
+  {
+   "id": "sie_usdc_distribution_economics",
+   "pair": "CRCL-COIN",
+   "status": "updated — 계약변경 8-K 부재가 SEC 제출기한(약 2026-08-24) 경과 후 12일까지 양사에서 지속 확인됨. 부호는 이번 window에 활성화되지 않았고 규모 프록시도 갱신되지 않음(reused_from 20260820_1932, staleness 16일)",
+   "summary": "CRCL(유통비용, strengthen)과 COIN(usdc_economics, neutral)이 동일 비사건(계약변경 8-K 부재)을 각각 grade1으로 독립 확인했으나 부호가 갈림 — 자료 접근 비대칭이 아니라 '조건 불변'이 계약 양면에 비대칭적으로 작용하는 구조. 두 종목 모두 positions.yaml weight_range [0,0] — 실효 상쇄 없음(구조 관측)."
+  },
+  {
+   "id": "sie_ousd_consortium",
+   "pair": "CRCL-COIN",
+   "status": "partially_updated — OUSD 실체는 3 run 연속 무변화(미출시·실측 유통량 부재). CRCL competition_ousd 축은 재활성화됐으나 근거는 OUSD가 아닌 별개 경쟁재($YLDS) 실측치",
+   "summary": "CRCL은 단방향 위협(발행 점유 잠식), COIN은 컨소시엄 참여 upside와 자사 USDC 분배수익 잠식 downside가 병존하는 양면 노출 — 분산으로 처리 시 오독. 이번 run의 CRCL:strengthen을 OUSD 위협 완화로 읽는 것은 오독(근거는 $YLDS)."
+  },
+  {
+   "id": "sie_yield_bearing_stablecoin_clause",
+   "pair": "CRCL-COIN",
+   "status": "partially_updated — 조항 문언·상원 절차 무변화(2026-09-15 절차 표결 미도래), 유일한 정량 감시 계열($YLDS 유통량)이 이번 run 최초로 grade1 확보",
+   "summary": "이자 지급 제한 시 CRCL(무이자 발행자)에는 경쟁재 축소(잠재+), COIN(이자부 상품 취급 플랫폼)에는 상품 라인 축소(잠재-)로 반대 부호 개연성 — 조건부 역노출, 부호 미확정 유지. $YLDS는 단일 발행사 계열이라 이자부 스테이블코인 전체 프록시로 확대 해석 금지."
+  }
+ ],
+ "approvals": {
+  "pending": 0,
+  "applied_2026_09_05": 19,
+  "expired_total": 3,
+  "recent_applied": [
+   {
+    "id": "ap_20260905_0854_thesis_patch_hood_axes_prediction_baseline",
+    "ticker": "HOOD",
+    "field": "axes"
+   },
+   {
+    "id": "ap_20260905_0854_thesis_patch_hood_key_metrics_prediction_baseline",
+    "ticker": "HOOD",
+    "field": "key_metrics"
+   },
+   {
+    "id": "ap_20260905_0835_thesis_patch_nbis_thesis_rewrite_a",
+    "ticker": "NBIS",
+    "field": "thesis"
+   },
+   {
+    "id": "ap_20260905_0835_thesis_patch_nbis_conclusion_health_rewrite",
+    "ticker": "NBIS",
+    "field": "conclusion"
+   },
+   {
+    "id": "ap_20260905_0640_thesis_patch_mu_catalysts_earnings_date",
+    "ticker": "MU",
+    "field": "catalysts"
+   },
+   {
+    "id": "ap_20260905_0640_thesis_patch_mu_earnings_checkpoints_date",
+    "ticker": "MU",
+    "field": "earnings_checkpoints"
+   },
+   {
+    "id": "ap_20260905_0640_thesis_patch_mu_axes_ip_litigation",
+    "ticker": "MU",
+    "field": "axes"
+   },
+   {
+    "id": "ap_20260905_0640_thesis_patch_nbis_thesis_annotate",
+    "ticker": "NBIS",
+    "field": "thesis"
+   },
+   {
+    "id": "ap_20260905_0640_thesis_patch_nbis_key_metrics_debt",
+    "ticker": "NBIS",
+    "field": "key_metrics"
+   },
+   {
+    "id": "ap_20260905_0640_thesis_patch_nbis_risks_funding_realized",
+    "ticker": "NBIS",
+    "field": "risks"
+   }
+  ]
+ },
+ "data_quality": {
+  "provisional_kc": 6,
+  "stale_flags": [
+   {
+    "item": "KC-1 FFR (macro)",
+    "staleness_days": 38,
+    "limit": "명시 안됨(웹검색 입력, provisional 기본)"
+   },
+   {
+    "item": "KC-9 brent (macro)",
+    "staleness_days": 3,
+    "limit": 3
+   },
+   {
+    "item": "KC-7 hyperscaler_fcf_sum (macro)",
+    "staleness_days": 67,
+    "limit": 100
+   },
+   {
+    "item": "KC-8 msft_fcf (macro)",
+    "staleness_days": 67,
+    "limit": "명시 안됨"
+   },
+   {
+    "item": "positions.yaml / correlation_matrix.yaml as_of",
+    "staleness_days": 21,
+    "limit": "명시 안됨 — 리밸런싱·신규진입 시 갱신 규정"
+   },
+   {
+    "item": "CRCL 02_company reused_from 표기",
+    "staleness_days": 16,
+    "limit": "P16 표기 규약과 상충 소지(esc_0618_04) — as_of는 2026-09-05로 신규 Claim 6건 포함"
+   }
+  ],
+  "open_escalations": [
+   {
+    "id": "esc_pf_0618_01",
+    "summary": "KC-4 ON_RRP 입력 단위 정합 확인 요청 — 갱신됐으나 임계 대비 약 296배 격차 지속"
+   },
+   {
+    "id": "esc_pf_0618_02",
+    "summary": "KC-1 이격도 0.00pp 경계 접촉 + staleness 38일(직전 22일에서 확대)"
+   },
+   {
+    "id": "esc_pf_0618_03",
+    "summary": "KC-9 축 매핑 부재 + 종목 전용 KC(NBIS·CRWV·CRCL·COIN·HOOD 각 3건) 파급·이격도 미산출(config 소관)"
+   },
+   {
+    "id": "esc_pf_0618_04",
+    "summary": "축 집중도·KC 파급 비중 지표가 단일 포지션(IREN)으로 축퇴 — 임계 60 판별력 부재 2회차 연속"
+   },
+   {
+    "id": "esc_pf_0618_05",
+    "summary": "직전 run 벡터 제안 6건이 config에 미반영 — correlation_matrix.yaml·positions.yaml as_of 2026-08-15로 불변"
+   },
+   {
+    "id": "esc_pf_0618_06",
+    "summary": "GPU_SUPPLY 축 정의 검토 요청 — '상' 등급 3쌍(CRWV·IREN/CRWV·NBIS/IREN·NBIS)의 공유 축이며 종목별 반대 부호 가능성 제기"
+   },
+   {
+    "id": "esc_pf_0618_08",
+    "summary": "ThesisPatch 후보 6건(MU·IREN·NBIS·CRWV·HOOD) 식별 — before/after 생성은 F20 요건상 refine thesis 경로로 이관"
+   }
+  ],
+  "known_defects": [
+   "consensus_aggregate.py KeyError: '혼재' (AD-4) — L2 종목 에이전트 간 direction 라벨 규약 불일치(한국어 vs 영문)로 neocloud 섹터 집계 스크립트 중단, 수기 집계로 대체",
+   "KC-4 임계 단위 의심 — ON_RRP 값이 임계 대비 약 296배 격차, 달러 대 백만달러 단위 혼재 가능성 미해소",
+   "KC-1 staleness 38일 — 이격도 0.00pp로 가장 좁으나 근거는 매크로 KC 중 가장 오래됨(web_search, 2026-07-29)",
+   "GPU_SUPPLY 축 정의 결함 — 배정일정(공급 접근성)과 감가상각 정책(자산 감가)이라는 성격이 다른 두 지표가 한 축에 혼재, 종목별 반대 부호 가능성",
+   "config 드리프트 — 직전 run 벡터 변경 제안 6건이 correlation_matrix.yaml에 미반영 상태로 2회차 누적",
+   "CRCL 02_company reused_from/staleness_days 표기가 as_of·신규 Claim 존재와 불일치(P16 표기 규약 확인 필요)",
+   "competition_ousd 축 슬롯에 이질적 위협원(OUSD, $YLDS) 혼재 — 시계열 해석 왜곡 가능성(su_20260905_12)"
+  ]
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "ticker": "HOOD",
+ "run_id": "20260820_1932",
+ "as_of": "2026-08-20",
+ "staleness_days": 0,
+ "lookback_window": {
+  "since": "2026-08-15",
+  "until": "2026-08-20"
+ },
+ "claims": [],
+ "deltas": [],
+ "unconfirmed": [
+  {
+   "topic": "Q3 2026 실적 발표일",
+   "detail": "thesis card의 earnings_checkpoints.date가 여전히 null. 애그리게이터(TipRanks 등)의 2026-11-04 추정만 확인되며 회사 IR 공식 공지 없음(F1 — 애그리게이터 추정 라벨은 1차 자료로 채택 불가). 직전 run(20260815) 대비 변화 없음.",
+   "reason": "aggregator_estimate_only"
+  },
+  {
+   "topic": "8월(August) 2026 월간 운영지표 (순입금·AUA·크립토/주식 명목거래액)",
+   "detail": "EDGAR full-text 검색(10-K/10-Q/8-K, since 2026-08-15) 0건, investors.robinhood.com 신규 보도자료 검색 결과 07-29(Q2 실적)·08-12(7월 운영지표) 이후 신규 게시 없음. 8월 운영지표는 통상 익월 중순 발표 패턴상 조회기간 종료(08-20) 시점에 아직 미발표 상태로 판단됨. aua_inflow·crypto_cycle 축 갱신을 위한 신규 1차 자료 없음.",
+   "reason": "not_yet_released"
+  },
+  {
+   "topic": "예측시장(Rothera/이벤트 계약) 매출·거래량의 신규 회사 공식 수치",
+   "detail": "조회기간(08-15~08-20) 내 Robinhood/Rothera의 신규 공식 매출·거래량 공시를 확보하지 못함. 웹검색에서 발견된 'Rothera 예측시장 매출이 크립토를 상회' 류 보도는 2026-07-29 Q2 실적발표 콜 발언에 기반한 것으로 확인되며, 발표 시점이 조회기간 이전(직전 run의 조회기간 08-08~08-15보다도 이전)이라 본 run의 '직전 run 이후 신규 1차 자료' 기준에 해당하지 않아 Claim화하지 않음. 다만 해당 발언이 어느 직전 run에서도 Claim으로 포착되지 않은 것으로 보여, arpu_mix/prediction_market 축 갱신 후보로 사용자 확인을 권고함(본 에이전트는 config·과거 run 재작성 권한 없음).",
+   "reason": "out_of_window_but_flagged_for_user_review"
+  },
+  {
+   "topic": "이자수입(rates_income) 축 관련 신규 1차 자료",
+   "detail": "조회기간 내 Robinhood 이자수입에 특정된 신규 1차 자료 미확보. 금리 자체는 매크로 지표로 L1(macro-kc) 소관이라 접근하지 않음(P17).",
+   "reason": "not_found"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "title": "HOOD 주가 8/18(화) -4.9% 하락 보도 (Benzinga 등)",
+   "reason": "이미 확보된 08-12 7월 운영지표(크립토 명목거래액 YoY -62%)에 대한 시장 반응 재보도 — 일간 주가 변동, common.noise"
+  },
+  {
+   "title": "Vlad Tenev CEO 토큰화(tokenization) 관련 X 게시물 (8/18)",
+   "reason": "매출·가이던스·마진·현금흐름·규제 확정 중 어느 것도 변화시키지 않는 테마성 비전 발언 — common.noise 유사(테마 일반론), HOOD noise_filter의 promote_if 미해당"
+  },
+  {
+   "title": "Washington주 법원, Kalshi 대상 예측시장 금지 명령 확대(8/12 수정본, 지오펜싱 8/18·9/2 시한)",
+   "reason": "규제 대상이 Kalshi 자체이며 Robinhood를 특정 조치 대상으로 지정하지 않음 + 발생일(08-12)이 조회기간(08-15~08-20) 이전 — 기간 외 재료"
+  },
+  {
+   "title": "Kentucky·Wisconsin 주정부의 Kalshi/Polymarket 대상 소송 (Robinhood는 배급 파트너로 병기)",
+   "reason": "각각 2026-06-17, 2026-04-24 제소 — 기간 외 반복 보도. Robinhood 직접 규제조치 아님"
+  },
+  {
+   "title": "CFTC vs Kentucky 연방소송, NY vs Kalshi 판결(Torres 판사), Connecticut 중지명령(2025-12) 등",
+   "reason": "모두 Kalshi/주정부 간 소송이며 발생 시점이 조회기간 이전. Robinhood 특정 규제 결정 아님"
+  },
+  {
+   "title": "Susquehanna JV·Rothera(MIAXdx) 인수 배경 설명 재유통 기사",
+   "reason": "2025-11-25 발표·2026-01-20 인수 완료 건의 반복 설명 — 기간 외, 신규 진전 없음"
+  }
+ ],
+ "reused_from": null,
+ "notes": "본 조회기간(2026-08-15~08-20) 내 EDGAR 10-K/10-Q/8-K 신규 제출 0건(edgar_fulltext.py 확인), 회사 신규 보도자료 없음. source-ingest 결과 promote 대상 1차 자료가 없어 fact-split·thesis-delta 단계에서 신규 Claim/Delta 생성 없이 정상 종료(P5). thesis card 축(aua_inflow/arpu_mix/crypto_cycle/prediction_market/rates_income)은 직전 run(20260815_2252) 판정을 그대로 유지."
+}

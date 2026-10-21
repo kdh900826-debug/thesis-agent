@@ -1,0 +1,153 @@
+{
+  "as_of": "2026-10-01",
+  "ticker": "CRWV",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261001_CRWV_4",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261001_CRWV_1",
+      "ticker": "CRWV",
+      "claim_type": "fact",
+      "text": "CoreWeave는 2026-09-30 자사 뉴스룸에 'CoreWeave Forge Launches, Turning the AI Loop Production Run Into a Better Model and Agent'를 게시했다. CoreWeave Forge는 모델·에이전트 개발의 run-observe-curate-improve-evaluate 루프를 하나의 연결된 환경에서 지원하는 신규 개발 레이어(제품 출시)다. MasterClass와 Canva가 이미 CoreWeave Forge 상에서 구축 중이라고 실명 공시했다. 정량 성능 수치로 Serverless RL이 자체관리 설정 대비 1.4배 빠르고 비용 40% 낮다고 제시했고, Agent Lens는 치명적 실패를 20% 더 탐지하고 10분의 1 비용으로 이슈를 수정한다고 제시했다. Fully Connected 2026 컨퍼런스(2026-09-29~10-01, 샌프란시스코) 참석 규모는 4,500명+(고객·파트너·개발자·AI 리더 합산)로 공시됐다. 매출·가격·계약금액 수치는 포함되지 않았다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_blog",
+        "url": "https://www.coreweave.com/news/coreweave-forge-launches-turning-the-ai-loop-production-run-into-a-better-model-and-agent",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "noise_filter#CRWV 승격 조건에 직접 해당하지 않으나 CLAUDE.md P3 '고객명' 변화 기준에 해당해 승격(promote). 계약금액·매출 인식 시점은 미공시 — P7 1단계(계약/도입 발표)에 해당, 매출 인식 단계 아님."
+    },
+    {
+      "id": "c_20261001_CRWV_2",
+      "ticker": "CRWV",
+      "claim_type": "fact",
+      "text": "CoreWeave는 2026-09-30 자사 블로그에 'Cognition Becomes First Customer for NVIDIA Vera Rubin NVL72 on CoreWeave Cloud'를 게시했다. Cognition(Devin 개발사)이 NVIDIA Vera Rubin NVL72에서 프로덕션(실사용) 워크로드를 운영하는 세계 최초 고객이 됐다고 공시했다 — CoreWeave가 업계 최초로 Vera Rubin NVL72를 가동(bring-up)한 클라우드 사업자라는 종전 주장(직전 run 2026-09-16 멀티랙 가동 공지)에서 '실제 프로덕션 고객 사용'단계로 진전했다(P7 2단계: 계약/도입 발표→실제 이행). Cognition은 수개월 내 수천 GPU 규모로 확장했고 트레이닝·강화학습·프로덕션 추론에 Vera Rubin을 사용 중이라고 공시했다. 정량 성능 수치: SWE-2 추론 워크로드 기준 GB200 NVL72 대비 토큰처리량 4.8배, 강화학습 출력 토큰처리량 3.8배, 토큰당 비용 45배 절감(Blackwell 대비), HBM4 메모리대역폭 1,400TB/s, NVLink 대역폭 216TB/s, 랙당 Rubin GPU 72개+Vera CPU 36개. 계약금액·과금 조건은 공시되지 않았다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_blog",
+        "url": "https://www.coreweave.com/blog/cognition-becomes-first-customer-for-nvidia-vera-rubin-nvl72-on-coreweave-cloud",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "P3 '양산일정'(production schedule) 변화 기준에 명확히 해당 — 승격. 카드 catalysts의 'Vera Rubin 최초 배포 일정' 항목과 직접 연결. 계약금액은 미공시(unconfirmed 이월)."
+    },
+    {
+      "id": "c_20261001_CRWV_3",
+      "ticker": "CRWV",
+      "claim_type": "fact",
+      "text": "CoreWeave CEO Michael Intrator는 2026-09-29~30 Fully Connected 2026 키노트에서 규제·데이터센터 개발 압력 우려에 대해 'There has absolutely not been any reduction in orders'(주문 감소는 전혀 없었다)라고 발언했다고 복수의 2차 매체(tradingview/stocktwits, thestreet, biggo)가 보도했다. CoreWeave 1차 채널(coreweave.com 뉴스룸·블로그, 2026-09-30 게시 2건)에는 이 발언의 원문 인용이 확인되지 않아 1차 URL 역추적에 실패했다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "secondary_media",
+        "url": "https://www.tradingview.com/news/stocktwits:a314aa040094b:0-crwv-ceo-says-no-reduction-in-orders-as-coreweave-rolls-out-nvidia-vera-rubin-ai-systems/",
+        "filed_at": "2026-09-29"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "note": "D15 1차 URL 역추적 실패 — confirmed=false 고정(P4 ③④ 단독 판단 근거 불가). 3개 독립 2차 매체(tradingview/stocktwits, thestreet.com, biggo.com)가 동일 취지로 삼각검증되나 전부 grade 4이므로 축 판정의 단독 근거로 사용하지 않는다 — backlog_scale 델타에는 참고 문맥으로만 기재."
+    },
+    {
+      "id": "c_20261001_CRWV_5",
+      "ticker": "CRWV",
+      "claim_type": "fact",
+      "text": "Related Digital(Related Companies 자회사)은 2025-10-07 보도자료에서 와이오밍주 샤이엔(Cheyenne) 302MW 데이터센터 캠퍼스 기공을 발표하며 CoreWeave를 88MW 규모 장기임대 앵커테넌트로 명시했다(related.com 자사 발표, 미등재 도메인 — config/sources.yaml 기준 default_grade=4). Data Center Dynamics(datacenterdynamics.com, config/sources.yaml grade_3)가 동일 거래를 독립 보도해 2차 교차검증은 되나, 두 출처 모두 grade 3·4로 P4상 단독 판단 근거 불가 — SEC 공시·coreweave.com 자체 발표로 1차 확인되지 않았다. 이 샤이엔 건은 Project Star/Encinal(c_20261001_CRWV_4)과는 별개 프로젝트·별개 부지이며, 이번 창(2026-09-24~10-01)에 새로 발생한 사실이 아니라 Encinal 관련성 판정을 위해 배경 조사 중 확인한 기존(2025-10-07) 사실이다.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "secondary_media",
+        "url": "https://www.datacenterdynamics.com/en/news/related-digital-breaks-ground-on-12bn-data-center-in-cheyenne-wyoming-will-host-coreweave-servers/",
+        "filed_at": "2025-10-07"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "note": "P4 미충족으로 confirmed=false — 델타 생성 근거로 사용하지 않음. CRWV가 Related 계열과 별도 부지에서 기존 임대 관계가 있다는 배경 정보일 뿐, Encinal 자체에 CRWV 연관성을 부여하지 않는다(c_20261001_CRWV_4의 sector 판정을 뒤집지 않음). 향후 Related/NextEra가 Encinal 인접 5GW 캠퍼스의 테넌트를 공개 특정할 경우 즉시 재검토 필요 — unconfirmed 적재."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "gpu_priority",
+      "direction": "strengthen",
+      "stage": "강(strong)",
+      "prior_state": "직전 run(20260919_2209 계승): 2026-09-16 멀티랙 NVIDIA Vera Rubin NVL72 클러스터 '가동(bring-up)' 공지 — 검증·가동 단계였고 실사용 고객 워크로드는 미확인.",
+      "new_state": "2026-09-30 자체 공시(c_20261001_CRWV_2)로 Cognition이 Vera Rubin NVL72에서 '프로덕션' 워크로드(트레이닝·강화학습·추론)를 실제 운영 중임이 확인됐다 — 가동 검증 단계에서 실사용 단계로 진전(P7). 업계 최초 Vera Rubin NVL72 프로덕션 고객이라는 지위는 NVIDIA GPU 공급·배포 우선권 축의 핵심 서사(최초 배포 일정 catalyst)를 직접 뒷받침하는 1차 자료다. 계약금액·과금 시작 시점은 미공시(unconfirmed) — 매출 인식 단계까지는 아직 확인되지 않았다(P7 3단 분리: 계약존재/도입 확인, 매출인식 미확인).",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_CRWV_2"
+      ]
+    },
+    {
+      "axis": "customer_concentration",
+      "direction": "strengthen",
+      "stage": "약(weak)",
+      "prior_state": "직전 run: 금융서비스 고객 백로그 비중 약 10% 최초 정량 공시, Caterpillar·CrowdStrike 실명 공시(계약금액 미공시, unconfirmed).",
+      "new_state": "이번 창에 Cognition(Vera Rubin 프로덕션 1호 고객, c_20261001_CRWV_2), MasterClass·Canva(CoreWeave Forge 고객, c_20261001_CRWV_1) 3개 신규 고객명이 추가로 실명 공시됐다 — OpenAI·Meta 등 소수 대형 고객 집중 서사 대비 고객 기반 다변화를 시사하는 정성적 근거다. 단 세 고객 모두 계약금액·매출 비중이 미공시돼 정량적 집중도 완화 여부는 판단할 수 없다(quantitative=false) — 방향은 약한 강화(weak strengthen)로 제한한다.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_CRWV_1",
+        "c_20261001_CRWV_2"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "Cognition·MasterClass·Canva 계약금액·매출 인식 시점",
+      "detail": "[신규] 2026-09-30 공시 2건(c_20261001_CRWV_1, c_20261001_CRWV_2) 모두 고객명·성능지표만 공개하고 계약금액(TCV)·과금 개시일·매출 인식 방식은 공시하지 않았다.",
+      "reason": "contract_terms_not_disclosed"
+    },
+    {
+      "topic": "CEO 'no reduction in orders' 발언의 1차 확인",
+      "detail": "[신규] c_20261001_CRWV_3 — 3개 독립 2차 매체가 동일 발언을 보도하나 coreweave.com 1차 채널에서 원문 인용을 역추적하지 못했다. 컨퍼런스 영상 아카이브(coreweave.com/fully-connected-2026) 직접 확인은 이번 run 검색 예산 내 미수행.",
+      "reason": "primary_source_not_located_this_window"
+    },
+    {
+      "topic": "CRWV-Related Digital(샤이엔, WY) 임대 관계의 1차 확인 — Encinal 인접 가능성 포함 향후 모니터링",
+      "detail": "[신규] c_20261001_CRWV_5 — related.com·datacenterdynamics.com 2차 출처만 존재, SEC 10-Q/10-K 부동산·리스 각주 또는 coreweave.com 자체 발표로 미확인. Q3 2026 10-Q 부동산 리스 각주 대조 필요. Related/NextEra가 Encinal 인접 캠퍼스 테넌트를 향후 실명 공시할 경우 즉시 재평가 필요.",
+      "reason": "awaiting_primary_confirmation"
+    },
+    {
+      "topic": "이자 커버리지 잔여 정의 공백 — 총이자비용·자본화이자·이자수익 분리 수치",
+      "detail": "[u_20260905_001/u_20260815_004에서 이관, 다수 run 반복 이월] 분자·분모·기간 산식은 확정(2026-09-20 사용자 결정)됐고 관측치는 Q2'26 2.36x. 잔여 공백은 총이자비용·자본화이자·이자수익 분리 수치이며 Q3 2026 10-Q 대기. 이번 창에도 관련 신규 1차 자료 없음.",
+      "reason": "awaiting_q3_10q"
+    },
+    {
+      "topic": "CoreWeave Q2 2026 CapEx 현금흐름표 브리지(회사 정의 $9,352M vs GAAP PP&E 매입액 $6,422M)",
+      "detail": "[이관] 현금흐름표 항목별 브리지(금융리스 취득액·미지급 CapEx 변동)는 이번 창에도 미공시.",
+      "reason": "not_disclosed_awaiting_q3_10q"
+    },
+    {
+      "topic": "FY26 매출 가이던스($12.4-13.2B)·CapEx 가이던스($35-39B)의 1차 자료 재대조",
+      "detail": "[이관] 카드 key_metrics 두 항목은 여전히 ⚠️갱신 표시 상태. 이번 창 공시(2026-09-30 블로그 2건)에도 가이던스 수치는 포함되지 않음 — 재대조 미완 지속. Task 0 잔여 항목(u_20260815_001).",
+      "reason": "not_included_in_window_documents"
+    },
+    {
+      "topic": "신규 전환사채 확정 결제 후 총부채·미인출 한도·covenant 준수 상태",
+      "detail": "[이관] 2026-09-22 8-K로 발행규모·순수취금·capped call 비용·교차부도 covenant 문턱은 확정됐으나 결제 반영 후 총부채 총액·가중평균 이자율·DDTL 5.5 포함 통합 수치는 미공시. Q3 10-Q 대기.",
+      "reason": "no_disclosure_awaiting_q3_10q"
+    },
+    {
+      "topic": "Masaitis v. CoreWeave 증권집단소송 디스커버리·화해 진행상황",
+      "detail": "[다수 run 이관] 2026-03-13 리드플레인티프 지정 마감 이후 공개 업데이트를 이번 창에서도 확보하지 못함. CourtListener 도켓(2:26-cv-00355) 직접 조회는 이번 run 검색 예산 내 미수행.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "Caterpillar·CrowdStrike SafeMind 계약금액·기간·매출 인식 시점",
+      "detail": "[이관] 여전히 미공시. 이번 창에 별도 공시 없음.",
+      "reason": "contract_terms_not_disclosed"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+ "as_of": "2026-09-12",
+ "run_id": "20260911_2308",
+ "ticker": "IREN",
+ "input_source": "output/20260911_2308/03_input/arbiter_IREN.json",
+ "prior_signal": "🟡",
+ "proposed_signal": "🟡",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "IREN-0911-C01",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "edgar_api",
+   "filed_at": "2026-09-11",
+   "stage": "no_new_filing",
+   "summary": "EDGAR CIK 0001878848 조회(2026-08-28~2026-09-11, 8-K/10-Q/10-K/424B5/424B7/S-8/SCHEDULE 13G 기준) 신규 1차 공시 0건. 마지막 1차 공시는 2026-08-27(10-K·8-K). 직전 run(0905, since 08-29)도 0건이었으므로 2주 이상 신규 공시 부재 지속. 매출·마진·현금흐름·가이던스 수치 자체가 없어 상향·하향 어느 근거도 되지 못함."
+  },
+  {
+   "id": "IREN-0911-C02",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company_press_release",
+   "filed_at": "2026-09-08",
+   "stage": "power_interconnection_classification(pre_final_approval)",
+   "summary": "2026-09-08 07:01 ET GlobeNewswire(회사 공식): IREN 2GW Sweetwater Hub(Sweetwater1 1,400MW+Sweetwater2 600MW) 전량이 ERCOT Batch Zero 심사에서 'Base Load'로 조건부 포함. 보도자료 자체가 '최종 접속 승인 아님·에너지화 일자 미확정'을 명시하고 송배전사업자 계통접속계약 체결을 전제로 단다. Sweetwater1 DC 용량 300MW는 2027 Q4 인도 목표(Childress Horizon 1-4와 별개 캠퍼스·별개 일정). quantitative·company_specific이나 stage는 revenue_recognized가 아니며, 규칙2가 명시한 '분류 승인' 예외에 해당."
+  },
+  {
+   "id": "IREN-0911-I01",
+   "claim_type": "inference",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "derived",
+   "filed_at": "2026-09-11",
+   "inference_strength": "medium",
+   "stage": "kc_determination_input",
+   "summary": "C02의 조건부 Base Load 분류는 KC-10 두 번째 조건(전력접속·인허가 취소·보류)에 대해 진행방향(비-취소) 증거이나 제한적. (a) 지위 자체가 조건부이고 Governor Abbott 지시 ERCOT 감사(2026-12 완료 목표)가 미종료, (b) Batch Zero 접속심사와 SB6 비상 커테일먼트 의무는 별개 규제트랙이라 이번 공시는 KC-10 첫 번째 조건(계약 용량 10%+ 강제감축 분류, 적용 MW 미공시)의 갭을 메우지 못함. 근거계보상 최저등급 승계(제거된 sector-scope claim, grade4)."
+  }
+ ],
+ "filter_bug_report": "없음 — arbiter_IREN.json의 claims 3건 전부 scope=company_specific. removed_claims 1건(c_20260911_IREN_3, scope=sector)은 filter_arbiter_input.py가 P6/P13에 따라 정상적으로 물리적 제거한 것으로 F13 위반 아님. IREN-0911-I01은 근거계보상 그 제거된 sector-scope claim(grade4)을 승계한다고 필터본이 스스로 주석 처리했으나, I01 자체의 scope 태그는 company_specific이며 grade4로 이미 강등되어 단독 근거로 사용하지 않도록 제약돼 있음 — 필터 버그 아니라 grade 승계 로직의 정상 표기(전회차와 동일 패턴).",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-1~KC-8(매크로, IREN 노출 전파)",
+    "verdict": "not_met(8건 전건)",
+    "verdict_confidence": "혼재(confirmed 다수, KC-1/6/7/8은 provisional)",
+    "note": "발췌본 kc_status 전건 met 없음 — 규칙1 트리거 대상 아님. KC-1(FFR>3.75)은 이격 0.00pp 경계접촉 상태이며 2026-09-16 FOMC 예정이나 현 판정은 not_met(발췌본 caution — 확률·전망으로 met 취급 금지, F1/P5)."
+   },
+   {
+    "kc_id": "KC-10(IREN 전력·인허가, event형)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "두 조건 모두 미충족: ①계약 용량 10%+ 강제감축 분류 — SB6 적용 MW 여전히 미공시(unconfirmed 이월). ②전력접속·인허가 취소·보류 공시 — 없음, 오히려 C02(Sweetwater Batch Zero 조건부 Base Load 포함)는 진행방향 증거. 단 지위 자체가 조건부이고 최종 접속 승인이 아니며 Abbott 감사가 미종료(~2026-12-10 목표)이므로 provisional 유지(I01)."
+   },
+   {
+    "kc_id": "IREN 종목 전용 KC(kill_conditions.yaml#company)",
+    "verdict": "not_defined",
+    "verdict_confidence": "n/a",
+    "note": "발췌본 own_company_kc: '미정의' — P11에 따라 판정 대상 자체가 없음. 전회차(0905)와 동일 상태, 변경 없음."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "규칙1(Kill 우선: KC met AND confirmed) 해당 없음. 매크로 KC-1~8 전건 not_met, KC-10은 event형 provisional·발동 관측 없음(오히려 진행방향), IREN 종목 전용 KC는 정의 자체가 없어 판정 대상 없음. 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향 게이트(quantitative_evidence AND company_specific AND revenue_recognized 전부 충족)는 세 요건 모두가 '동시에' 충족돼야 하나 revenue_recognized가 미충족이라 게이트 자체가 성립하지 않는다. C01(신규 1차 공시 0건)은 매출·마진·현금흐름·가이던스 수치 자체가 존재하지 않아 상향 근거 후보조차 아니다. C02(Sweetwater Batch Zero 조건부 'Base Load' 분류)는 quantitative:true(MW 수치 포함)·company_specific:true·grade1·confirmed:true이나, stage는 전력접속 심사상 분류이지 매출인식(revenue_recognized)이 아니며 최종 접속 승인도 아니다 — 오히려 agent 지침 규칙2가 명시적으로 열거한 예외('인도 완료·인증·파트너십·분류 승인')의 '분류 승인'에 정확히 해당해 등급 유지 + holding_reinforcement 분류만 가능하다. I01(추론, grade4·quantitative:false)은 P4에 따라 애초에 단독 상향 근거 자격이 없다. 결론: revenue_recognized=false → 게이트 미충족(P12 등급 유지)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "C01(신규 공시 부재)은 정보 부재이며 반증이 아니다(P5) — 훼손 근거 아님. C02(Sweetwater Batch Zero 조건부 포함)는 power_permit 축에 오히려 강화 방향(진행/승인 쪽, 취소·보류가 아님)의 신호이며 정량 훼손이 아니다. 이번 회차에 신규 정량 악화 사실(예: 감축분류 확정, 접속 취소·보류 공시, 가이던스 하향 등) 자체가 없다.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "grade≤2 정성 훼손 후보 Claim이 이번 회차에 없음 — C01·C02는 grade1이나 정량(quantitative:true) Claim이고 내용상 훼손이 아니다. I01은 정성(quantitative:false)이나 grade4로 규칙3의 grade≤2 요건 자체를 충족하지 않으며, 내용도 KC-10 판정 범위를 제한하는 주의사항일 뿐 축 자체의 훼손 주장이 아니다.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "정량 훼손 미확인 및 evidence_grade≤2 정성 훼손 후보 부재 — 규칙3(비대칭 하향) 트리거 조건 불성립. power_permit 축은 오히려 약한 강화(holding_reinforcement 분류로만 처리)로 판정."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "power_permit",
+   "direction_upstream": "강화(약)",
+   "direction_arbiter_assessment": "방향성 자체는 동의(취소·보류가 아닌 진행) — 그러나 C02는 규칙2 예외('분류 승인')에 정확히 해당해 상향 근거로 세우지 않고 holding_reinforcement로만 분류한다. KC-10 첫 번째 조건(SB6 적용 MW)은 여전히 provisional — 분모 미공시 지속.",
+   "supporting_claims": ["IREN-0911-C02", "IREN-0911-I01"],
+   "risk_transfer_to": "없음 — power_permit 축 내부에 잔류. Abbott 감사(~2026-12-10) 및 계통접속계약 체결 여부가 최종 확정 전까지 리스크는 이관되지 않고 이 축에 계속 누적."
+  },
+  {
+   "axis": "execution_delivery",
+   "direction_upstream": "중립",
+   "direction_arbiter_assessment": "동의 — 이번 회차 신규 1차 공시 없음(C01). 웹검색상 'Horizon 2-4 Q4 2026 목표' 재서술은 8/27 콜의 2차 재인용일 뿐 신규 정보 아님(P3).",
+   "supporting_claims": ["IREN-0911-C01"],
+   "risk_transfer_to": "없음"
+  },
+  {
+   "axis": "funding_dilution",
+   "direction_upstream": "중립",
+   "direction_arbiter_assessment": "동의 — 신규 1차 공시 없음(C01). 조사구간 밖 재유통 기사(ATM 확대, Form4)는 discarded_noise_log 처리 확인, 채택하지 않음.",
+   "supporting_claims": ["IREN-0911-C01"],
+   "risk_transfer_to": "없음"
+  },
+  {
+   "axis": "margin_structure",
+   "direction_upstream": "중립",
+   "direction_arbiter_assessment": "동의 — 신규 정량 자료 없음, FY26 수치 유지.",
+   "supporting_claims": ["IREN-0911-C01"],
+   "risk_transfer_to": "없음"
+  },
+  {
+   "axis": "ai_cloud_conversion",
+   "direction_upstream": "중립",
+   "direction_arbiter_assessment": "동의 — 과금 가동률·MFU 관련 신규 공시 없음. unconfirmed 상태 이월.",
+   "supporting_claims": ["IREN-0911-C01"],
+   "risk_transfer_to": "없음 — btc_mining으로부터의 이관 리스크(전회차 I03)가 이 축에 계속 누적 중"
+  },
+  {
+   "axis": "btc_mining",
+   "direction_upstream": "중립",
+   "direction_arbiter_assessment": "동의 — 신규 경영진 1차 발언 없음. 2차 매체의 '2026년 말 채굴 종료 목표' 재인용은 8/27 콜 재확인일 뿐 신규 근거 아님(P3).",
+   "supporting_claims": ["IREN-0911-C01"],
+   "risk_transfer_to": "없음(이관은 전회차에 완료 — ai_cloud_conversion)"
+  }
+ ],
+ "alert": {
+  "ticker_event": "IREN — 2026-09-08 07:01 ET GlobeNewswire(회사 공식): 2GW Sweetwater Hub 전량이 ERCOT Batch Zero 심사에서 조건부 'Base Load'로 분류. 동시에 EDGAR 신규 1차 공시는 2026-08-28~09-11 구간 0건(2주 이상 공시 공백 지속).",
+  "facts": "① EDGAR CIK 0001878848 조회 결과 조사구간 신규 1차 공시 0건, 마지막 공시 2026-08-27(10-K·8-K) [C01, grade1, confirmed]. ② GlobeNewswire 2026-09-08: Sweetwater Hub(Sweetwater1 1,400MW+Sweetwater2 600MW) 전량 ERCOT Batch Zero 'Base Load' 조건부 포함, 최종 접속 승인 아님·에너지화 일자 미확정, 계통접속계약 체결 전제, Sweetwater1 DC 300MW는 2027 Q4 목표(Childress Horizon 1-4와 별개 캠퍼스·일정) [C02, grade1, confirmed].",
+  "inference": "[medium, I01] 조건부 Base Load 분류는 KC-10 두 번째 조건(취소·보류)에 대해 진행방향 증거이나 (a) 지위 자체가 조건부·Abbott 감사 미종료, (b) Batch Zero와 SB6 커테일먼트는 별개 규제트랙이라 KC-10 첫 번째 조건(적용 MW 미공시)의 갭을 메우지 못함.",
+  "classification": "등급 유지(hold, P12). 상향 게이트(P2/P6/P7) 미충족 — C02는 quantitative·company_specific이나 stage가 전력접속 심사 '분류 승인'이며 revenue_recognized가 아니다. 규칙2가 명시한 예외('인도 완료·인증·파트너십·분류 승인')에 정확히 해당해 holding_reinforcement로만 분류한다. C01은 신규 공시 부재로 상향·하향 어느 근거도 아니다. 하향 게이트(규칙3)도 미충족 — 정량 훼손 없음, evidence_grade≤2 정성 훼손 후보 없음.",
+  "thesis_delta": "power_permit(약한 강화 — holding_reinforcement로만 분류, KC-10 provisional 유지, 리스크 이관 없이 축 내부 누적), execution_delivery/funding_dilution/margin_structure/ai_cloud_conversion/btc_mining 전부 중립(신규 1차 자료 없음, unconfirmed 이월). 리스크 이관 없음 — 전회차 완료된 btc_mining→ai_cloud_conversion 이관 상태만 유지.",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🟡(관망, 상향 대기) 유지 권고(maintain). Kill 게이트: 미충족(KC-10 provisional·발동 관측 없음, 매크로 KC-1~8 전건 not_met, IREN 종목 전용 KC 미정의). 상향 게이트: 미충족(유일한 신규 quantitative·company_specific 자료가 '분류 승인' 예외에 해당). 하향 게이트: 미충족(신규 훼손 없음). 🔴🔴 사람 확인 요청 대상 아님.",
+  "next_check": "① [정량, next_gate 승계] FY27 Q1 10-Q(2026-11월경) — ASC842 리스 매출 최초 인식액·과금 가동률·MW당 매출·가동 ARR $1.0B→$4.0B 진척. ② [정량, 신규] SB6/PUCT 비상 커테일먼트 적용 MW 공시(KC-10 첫 번째 조건 분모 — 미공시 지속). ③ [정량, 신규] Sweetwater 계통접속계약(grid connection agreement) 체결 여부 및 비조건부(최종) Batch Zero 분류 확정 시점. ④ [정량, 승계] ERCOT/PUCT 감사(Governor Abbott 지시) 결과 공표(~2026-12-10 목표) 및 IREN 사이트별 감축 분류 MW."
+ },
+ "next_gate": "① FY27 Q1 10-Q(2026-11월경) — ASC842 리스 매출 최초 인식액·과금 가동률·MW당 매출·ARR $1.0B→$4.0B 진척(승계) ② SB6/PUCT 커테일먼트 적용 MW 공시(신규, KC-10 첫 조건 분모) ③ Sweetwater 계통접속계약 체결·비조건부 Batch Zero 분류 확정 시점(신규) ④ ERCOT/PUCT 감사 결과(~2026-12-10, 승계) — 전항목 관측 가능한 정량 항목.",
+ "unconfirmed_carried": [
+  {"topic": "SB6/PUCT 커테일먼트 적용 MW", "reason": "IREN 계약 용량 중 SB6 비상시 강제감축 의무 적용 MW 여전히 미공시. Batch Zero 분류(C02)는 별개 트랙이라 이 갭을 메우지 못함(I01) — no_disclosure, KC-10 첫 조건 분모 부재 지속."},
+  {"topic": "Governor Abbott 지시 ERCOT 감사 최종 결과", "reason": "audit_in_progress — 2026-12-10(또는 12월) 완료 목표, IREN 사이트별 개별 결과 미공표."},
+  {"topic": "ERCOT Batch Zero 비조건부(최종) 분류 시점", "reason": "no_disclosure — C02의 'Base Load'는 조건부이며 최종 접속 승인 아님, 확정 시점 미공시."},
+  {"topic": "과금 가동률(billing utilization)/MFU", "reason": "carried_over_from_prior_run — 8/27 실적에서도 미공개, 이번 회차 신규 자료 없음."},
+  {"topic": "완전희석 주수 갱신치(8월 이후)", "reason": "no_disclosure — 신규 EDGAR 공시 없어 카드 range(394.06M~558.72M+) 갱신 불가."},
+  {"topic": "매니지드 서비스 믹스(Mirantis 매출 비중) 정량치", "reason": "carried_over_from_prior_run — FY27 Q1(Mirantis 첫 연결 분기)이 다음 관측점, 이번 회차 정성 언급조차 신규 확인 없음."}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 등급 유지가 P12 기본 경로에 따라 적용됨. 핵심 판단 플래그: (1) C02(Sweetwater 2GW Batch Zero 조건부 'Base Load' 포함)는 quantitative:true·company_specific:true·grade1·confirmed:true로 상향 게이트 3요건 중 2개를 충족하지만, agent 지침 규칙2가 명시적으로 열거한 '분류 승인' 예외에 정확히 해당한다고 판정해 revenue_recognized=false로 처리했다 — 최종 접속 승인이 아니고 계통접속계약 체결이 전제조건이라는 보도자료 자체의 명시가 근거다. 사람이 이 예외 적용의 타당성을 재확인할 필요가 있다면 KC-10 및 power_permit 축 재검토 대상. (2) KC-10은 여전히 provisional — 이번 공시는 두 번째 조건(취소·보류)에 대해서만 진행방향 증거이고 첫 번째 조건(SB6 적용 MW)의 분모 공백은 그대로다. (3) filter_bug_report 없음 — 필터본 claims 3건 전부 company_specific, 제거된 1건(sector scope)은 정상 배제."
+}

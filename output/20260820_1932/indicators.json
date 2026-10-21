@@ -1,0 +1,73 @@
+{
+  "yield_30y": {
+    "value": 5.28,
+    "as_of": "2026-08-18",
+    "source_url": "https://fred.stlouisfed.org/series/DGS30",
+    "method": "api"
+  },
+  "ON_RRP": {
+    "value": 317000000.0,
+    "as_of": "2026-08-19",
+    "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+    "method": "api"
+  },
+  "brent": {
+    "value": 95.29,
+    "as_of": "2026-08-18",
+    "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+    "method": "api"
+  },
+  "BTC": {
+    "value": 71825.765,
+    "as_of": "2026-08-20",
+    "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "method": "api"
+  },
+  "VIX": {
+    "value": 15.15999984741211,
+    "as_of": "2026-08-20",
+    "source_url": "yfinance:^VIX",
+    "method": "api"
+  },
+  "TAIEX_vs_20dma_pct": {
+    "value": 2.1,
+    "as_of": "2026-08-20",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "TAIEX_1m_return_pct": {
+    "value": 0.24,
+    "as_of": "2026-08-20",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "FFR": {
+    "value": 3.75,
+    "as_of": "2026-07-29",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+    "method": "web_search",
+    "note": "FOMC 2026-07-29 결정 — target range 3.50-3.75%, 값은 상단(upper limit) 사용. fred_fetch.py SERIES에 미포함 지표 — 웹검색 수집(D3: 수치·출처·시각만)"
+  },
+  "FFR_prob": {
+    "value": 65.4,
+    "as_of": "2026-08-19",
+    "source_url": "https://centralbank.watch/federal-reserve/",
+    "method": "web_search",
+    "note": "2026-09-16 FOMC 회의 '동결(hold)' 확률(%), CME FedWatch 데이터 인용 집계 사이트. any KC condition에서 직접 참조되지 않음(KC-1은 FFR 실측값만 사용) — 감사 추적용 부기"
+  },
+  "SDLLMTK_change_pct": {
+    "value": 1.9,
+    "as_of": "2026-08-18",
+    "source_url": "https://www.silicondata.com/products/silicon-index/llm-token-expenditure-index",
+    "method": "web_search",
+    "note": "7일 변화율(%), 1차 소스(Silicon Data 자체 페이지). 방향은 증가(+1.9%) — KC-6은 감소(<=-30%) 조건이므로 부호 반대"
+  },
+  "global_fund_flow_weekly_est": {
+    "value": 27.28,
+    "unit": "USD billion, long-term mutual fund + ETF net inflow, week ended 2026-08-05",
+    "as_of": "2026-08-05",
+    "source_url": "https://www.ici.org/research/stats/combined_flows",
+    "method": "web_search",
+    "note": "KC-5 inputs_note에 따라 유료 EPFR 대체 불가 — 판정 조건 비참조, 보조 서술용 수치만 부기(P4)"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "as_of": "2026-09-19T22:09",
+  "run_id": "20260919_2209",
+  "ticker": "COIN",
+  "card_field": "axes",
+  "operation": "amend",
+  "depends_on_human_decision": "axis_naming_standardization",
+  "before": "  - {id: derivatives_base,  label: \"파생상품·Base 생태계 확장\"}",
+  "after": "  - {id: derivatives_base,  label: \"파생상품·Base 생태계 확장\"}\n  # 2026-09-19 ThesisPatch(amend, run 20260919_2209) — 축 1개 신설(5개 → 6개, 전문 기준 계수). 기존 5개 축은 문자 하나도 변경하지 않는다(P9). 신설 축은 **빈 관측 슬롯**이며 방향·노출 여부를 판정하지 않는다. ⚠️축 id `prediction_market`는 **잠정 표기**다 — 선행 결정 `axis_naming_standardization`(사람 영역) 미확정 상태이며, 확정 시 id·label이 변경될 수 있다. 잠정 id를 HOOD 카드의 `prediction_market` 축과 동일 문자열로 둔 것은 두 종목이 같은 실체(예측시장·이벤트 계약)를 다루므로 **종목 간 공유 축을 성립시킬 기회**이기 때문이며, 채택 여부는 사람이 결정한다. 대안 후보: ⓐ`prediction_market`(HOOD 정합 — 공유 축 성립) ⓑ`event_contract_regulation`(규제 층위 한정) ⓒ`prediction_market_event_contracts`(실체 서술형, HOOD와 불일치).\n  - {id: prediction_market,  label: \"예측시장·이벤트 계약 (잠정 id — axis_naming_standardization 결정 전. 【관측 상태: 미관측(unconfirmed)】). 이 축은 COIN의 예측시장·이벤트 계약 사업과 그에 대한 주(州) 단위 규제 조치를 관측하기 위한 **빈 슬롯**이다. 신설 사유는 관측 단위의 부재 자체다 — 2026-09-19 run 기준 COIN 산출물(02_company·03_signal)에 이 실체를 다루는 Claim·Delta·unconfirmed가 0건이어서, 해당 사안이 발생하더라도 카드에 매핑될 자리가 없었다. ⚠️본 축은 COIN에 대한 어떠한 사실도 주장하지 않는다 — 특히 'COIN이 코네티컷 주 cease-and-desist를 수신했다'는 진술은 **카드에 기재하지 않는다**. 해당 정황은 타 종목(HOOD) 수집분에서 파생된 것으로 P4·P17상 COIN에 대한 사실 주장의 근거로 부적격이며, 차기 회차 `company-coin`의 COIN 자체 1차 수집(주 증권감독기관 공개 문서·회사 공시·IR)으로 **확인 대상**으로 남긴다. 슬롯이 비어 있다는 것은 '노출 없음'이 아니라 '아직 관측되지 않음'을 뜻한다(P5 — 정보 부재는 반증이 아니다). 다음 관측점: 차기 run의 company-coin 수집 범위 확대(주 단위 증권감독기관 조치·예측시장 상품 라인업), COIN 8-K·10-Q의 법적 절차 주석, 회사 공식 블로그·IR\"}",
+  "reason": "[fact] `state/thesis_cards/COIN.yaml` **전문 61행**을 읽고 계수한 결과 axes는 5개다(subscription_mix, trading_cycle, usdc_economics, regulation, derivatives_base) — 부분 읽기 기반 '부재' 판정이 아니다(F20). [fact] 5개 축 어디에도 예측시장·이벤트 계약을 관측 대상으로 삼는 라벨이 없다. regulation 축의 라벨은 'CLARITY Act 경로'로 한정되어 연방 입법 경로만 지목하며, 주(州) 단위 증권감독기관 조치를 포섭하지 않는다. derivatives_base 축은 파생상품·Base 생태계를 지목하며 예측시장·이벤트 계약을 지목하지 않는다. [fact] `output/20260919_2209/02_company/COIN.json`(claims 7건·deltas 5건·unconfirmed 8건)과 `output/20260919_2209/03_signal/COIN.json`(claims 6건·unconfirmed_carried 8건) 전수 대조 결과, 예측시장·이벤트 계약·코네티컷 주 조치에 해당하는 Claim·Delta·unconfirmed는 **0건**이다. [fact] L4가 올린 정황(코네티컷 cease-and-desist 수신자 9개사 명단에 Coinbase 포함)의 근거는 `c_20260919_HOOD_3`으로, **타 종목 HOOD의 수집분**이다. [inference:strong] P4(자료 등급 위계)와 P17(담당 범위 밖 원문 비적재)에 따라 이 근거는 'COIN 카드에 관측 단위가 없다'는 **구조적 공백의 존재를 지적하는 논거로는 유효**하나, 'COIN이 C&D를 받았다'는 **COIN에 대한 사실 주장의 근거로는 부적격**이다. 따라서 본 패치는 빈 슬롯 신설과 미관측 표기에만 그치며, 수신 사실을 카드에 사실로 기재하지 않는다. [fact] 신설 축의 라벨에는 방향·등급·노출 여부를 판정하는 서술이 없으며, 관측 상태를 unconfirmed로 명시한다(P5). [fact] 관측 슬롯이 없는 한 섹터 계층의 구조적 역노출 후보 `sie_event_contract_state_federal`은 COIN 측 대응 축이 없어 후보 이상으로 확정될 수 없다 — 본 패치는 그 확정을 수행하지 않고 확정에 필요한 관측 자리만 연다. [fact] 기존 5개 축의 문자열은 하나도 삭제·변경되지 않는다(P9) — before 행은 after 안에 원문 그대로 보존되고 신설 행이 뒤에 추가된다. [fact] 승인 대기(pending) 상태의 COIN thesis_patch 건은 `state/pending_approvals.json`에 존재하지 않으며(전 39건 전수 확인, 전부 approved 또는 expired), 중복 패치 위험 없음. [fact] 본 패치는 카드 패치 단독으로 완결되지 않는다 — conflict 항목 참조.",
+  "basis_claims": ["c_20260919_HOOD_3"],
+  "basis_claims_note": "[fact] 유일한 근거 Claim이 **타 종목(HOOD) 수집분**이다. [fact] 본 패치에서 이 Claim은 ①'COIN 카드에 대응 관측 단위가 없다'는 구조적 공백을 지목하는 **필요성 논거**로만 사용되며 ②COIN에 대한 사실 주장(수신 여부·시점·내용)의 근거로는 사용되지 않는다(P4·P17). [fact] 본 패치 작성 중 HOOD의 `02_company` 산출물 원문은 로드하지 않았다(P17). [fact] COIN 자체 1차 자료로의 확인은 차기 회차 `company-coin` 수집 대상으로 이월되며, 그 전까지 이 축의 관측 상태는 unconfirmed다(P5).",
+  "requires_human_approval": true,
+  "axis_decomposition": null,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 카드 thesis 본문('Everything Exchange' — 거래 수수료 의존 축소·구독 서비스 비중 확대)과 conclusion의 판정을 변경하지 않는다. [fact] 기존 축의 방향·등급을 재판정하지 않으며, 신설 축에도 방향을 부여하지 않는다. [fact] 시그널 등급(🟠 유지)에 대한 제안을 포함하지 않는다(P13).",
+  "conflict": {
+    "type": "collection_scope_gap",
+    "statement": "[fact] 본 카드 패치 단독으로는 해소되지 않는다 — 차기 run의 `company-coin` 수집 범위 확대가 함께 필요하다. [fact] 현재 COIN의 수집 경로는 EDGAR 서식·회사 IR·블로그 중심이며, 주(州) 단위 증권감독기관의 행정조치(cease-and-desist 등)와 예측시장·이벤트 계약 상품 라인업은 수집 범위에 포함되어 있지 않다. [inference:strong] 슬롯만 신설하고 수집 범위를 넓히지 않으면 이 축은 영구히 빈 채로 남아 '미관측'이 사실상 '무노출'로 오독될 위험이 생긴다(P5 위반 유도). [fact] 수집 범위 변경은 `config/sources.yaml` 영역이며 에이전트는 제안만 한다(CLAUDE.md §9).",
+    "requires": [
+      "차기 run `company-coin` 수집 범위에 주 단위 증권감독기관 행정조치 경로 추가 (제안 — 사용자 결정)",
+      "차기 run `company-coin` 수집 범위에 COIN 예측시장·이벤트 계약 상품 라인업 확인 추가 (제안 — 사용자 결정)"
+    ]
+  },
+  "depends_on_human_decision_note": "[fact] L4 기록에 따르면 **축 명명 표준화 결정이 선행되지 않은 상태에서 개별 카드의 축 신설·분해를 진행하면 섹터 결합 문제가 악화된다** — 3섹터 모두 종목 간 공유 축이 0개(neocloud 0/14, stablecoin 0/18)인 상태에서 축 수만 늘리면 공유 축 0이 고착된다. [fact] 본 패치는 stablecoin 섹터의 COIN 축 수를 5 → 6으로 늘린다. [fact] 따라서 본 패치는 `axis_naming_standardization` 결정에 종속되며, 그 결정 전 승인은 권장되지 않는다 — 순서 결정은 사람 영역이다(CLAUDE.md §9). [inference:strong] 다만 본 건은 예외적으로 **공유 축을 늘릴 기회**이기도 하다 — 신설 대상이 HOOD 카드의 `prediction_market` 축과 동일 실체이므로, 두 축의 id를 정합시키면 stablecoin 섹터의 종목 간 공유 축이 0개에서 1개가 된다. [fact] 본 패치는 그 정합 가능성을 잠정 id `prediction_market`로 **제안**할 뿐이며 채택·개명·순서는 전부 사람이 결정한다.",
+  "expected_after": {
+    "contains": [
+      "  - {id: prediction_market,  label: \"예측시장·이벤트 계약 (잠정 id — axis_naming_standardization 결정 전.",
+      "2026-09-19 ThesisPatch(amend, run 20260919_2209) — 축 1개 신설(5개 → 6개, 전문 기준 계수)",
+      "슬롯이 비어 있다는 것은 '노출 없음'이 아니라 '아직 관측되지 않음'을 뜻한다(P5",
+      "  - {id: derivatives_base,  label: \"파생상품·Base 생태계 확장\"}"
+    ],
+    "not_contains": [],
+    "not_contains_note": "[fact] 본 패치는 기존 행을 삭제하지 않는 순수 추가형이므로 사라져야 할 문자열이 존재하지 않는다 — not_contains를 비운다(빈 목록 지정은 2026-08-16 자동 원복 사고 유형의 역방향 오류, 즉 '보존 대상 문자열을 not_contains에 넣어 자기모순을 만드는 것'을 회피하기 위함이다).",
+    "counts": [
+      {"path": "axes", "n": 6}
+    ]
+  },
+  "f20_note": "[fact] `state/thesis_cards/COIN.yaml` 전문 61행을 읽은 뒤 before 문자열(15행)의 원문 일치와 axes 5개 계수를 확인했다. [fact] before 문자열 `  - {id: derivatives_base,  label: \"파생상품·Base 생태계 확장\"}`는 카드 전문에서 1회만 출현한다(치환 모호성 없음). [fact] 적용 후 기대 개수는 axes = 6이며 `expected_after.counts`에 명기했다(목록형 필드 필수 요건).",
+  "downstream_note": "[fact] 승인 시 확인 필요: ① `config/kill_conditions.yaml` — 신설 축에 대응하는 KC는 정의되어 있지 않으며, 임계 없는 KC 신설은 금지되므로(P11) 본 패치는 KC를 제안하지 않는다. KC 신설 여부·임계는 사용자 영역이다. ② `card.kill_conditions_ref` 무수정. ③ `config/correlation_matrix.yaml` — 예측시장·이벤트 계약 규제를 노출 축으로 등재할지는 `axis_naming_standardization` 결정 이후 판단 대상이며 본 패치는 벡터 변경을 제안하지 않는다(CLAUDE.md §9). ④ `key_metrics`·`risks`·`catalysts`는 이번 패치 대상이 아니다 — COIN 자체 1차 관측이 0건인 상태에서 지표·리스크 문장을 추가하면 미관측 사안을 사실처럼 카드에 심게 된다(P5·P4). 자체 관측이 확보된 뒤 별건으로 판단한다.",
+  "source_artifact": "output/20260919_2209/02_company/COIN.json#claims(7건 전수) · #deltas(5건 전수) · #unconfirmed(8건 전수) — 예측시장·이벤트 계약 관련 0건 확인 · output/20260919_2209/03_signal/COIN.json#claims(6건)·#unconfirmed_carried(8건) — 동일 0건 확인 · state/thesis_cards/COIN.yaml(전문 61행, axes 5개)"
+}

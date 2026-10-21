@@ -1,0 +1,170 @@
+{
+ "as_of": "2026-08-15T23:00",
+ "run_id": "20260815_2228",
+ "ticker": "CRCL",
+ "input_claims": [
+  {
+   "id": "c_20260815_CRCL_2228_001",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_002",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_003",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_004",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_005",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_006",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_007",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_008",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_009",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_010",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_011",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_012",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_013",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_014",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_017",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_018",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_019",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_020",
+   "scope": "company_specific"
+  },
+  {
+   "id": "c_20260815_CRCL_2228_021",
+   "scope": "company_specific"
+  }
+ ],
+ "input_filter_check": {
+  "note": "[fact] arbiter_CRCL.json의 claims 배열 20건 전량 scope=='company_specific' 확인 완료. removed_claims 2건(015,016)은 scope=='sector'로 정상 제거됨 — 필터 버그(F13) 없음.",
+  "f13_triggered": false
+ },
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "gate_check": {
+  "quantitative_evidence": true,
+  "company_specific": true,
+  "revenue_recognized": true
+ },
+ "kc_check": [
+  {
+   "kc_id": "KC-3",
+   "scope": "macro (참고용, company-KC 아님)",
+   "verdict": "not_met",
+   "verdict_confidence": "confirmed",
+   "note": "[fact] reused_from 20260815_1408, staleness_days 0. Kill 우선순위 규칙의 트리거 대상 아님(met 아님)."
+  },
+  {
+   "kc_id": "KC-CRCL-1",
+   "threshold": "usdc_circulation_30d_avg_vs_90d_peak <= -20%(경고) + reserve_income_qoq_declines >= 2분기(발동)",
+   "met": false,
+   "confidence": "confirmed",
+   "note": "[fact] Q2'26 유통량 분기말 +19% YoY·평잔 +25% YoY, Reserve Income +5% YoY — 임계와 반대 방향. QoQ 연속 감소 조건 미충족. 8/6 온체인 관측치(-2%, grade4 confirmed=false)는 단독 근거 불가(P4)."
+  },
+  {
+   "kc_id": "KC-CRCL-2",
+   "threshold": "usdc_stablecoin_share_qoq <= -3%p",
+   "met": "판정 불가",
+   "confidence": "n/a — 관측 부재",
+   "note": "[fact] OUSD는 2026-08-15 시점까지 미출시(claim 017, grade4 confirmed=false)로 실측 유통량 없음 → 점유율 변화 산출 불가. [fact] 회사 자체 정의 점유율은 28%→27% QoQ -1%p(claim 004/005, grade1 confirmed)로 -3%p 임계에 미달. 자료 부재를 위협 소멸의 반증으로 해석하지 않음(P5)."
+  },
+  {
+   "kc_id": "KC-CRCL-3 / KC-COIN-4",
+   "threshold": "Circle-Coinbase 분배계약 조건 변경(경중불문 즉시 발동)",
+   "met": false,
+   "confidence": "confirmed(갱신 사실) / 조건변경 자체는 미발동",
+   "note": "[fact] CEO가 2026-08-05 컨콜에서 '기존 조건대로 갱신됐다'고 직접 발언(claim 010, grade2 confirmed) — 조건 변경이 아니므로 미발동. [fact] 2026-08-18 자동 갱신 발효일은 아직 미도래(su_stablecoin_04 참조, 본 Run 입력 외 영역)."
+  }
+ ],
+ "decision_rationale": [
+  "[fact] Q2'26(2026-06-30 마감) USDC 유통량 분기말 $73.3B(+19% YoY)·평잔 $76.5B(+25% YoY), Reserve Return Rate 3.5%(-66bps YoY) (claim 001, grade1 confirmed).",
+  "[fact] Q1'26 대비 QoQ 대조: 분기말 유통량 $77.0B→$73.3B로 약 -4.8% 감소한 반면 평잔은 $75.2B→$76.5B로 약 +1.7% 증가 — 스냅샷·평잔 지표가 QoQ 방향에서 괴리 (claim 003, grade1 confirmed).",
+  "[fact] 회사 자체 정의 스테이블코인 점유율은 28%(Q1'26)→27%(Q2'26)로 QoQ -1%p 하락 (claim 004/005, grade1 confirmed).",
+  "[inference:medium] 3자 집계(DefiLlama, 약 24%)와 회사 수치(27%)의 약 3%p 차이는 분모 정의(어테스테이션 보유·$100M 이상 한정 여부) 차이에서 기인하는 것으로 판단되며 단독 판단 근거로 사용하지 않음(P4) (claim 006, grade4 confirmed=false).",
+  "[fact] Reserve Income $668M(+5% YoY), Distribution and transaction costs $410M(+1% YoY), RLDC Margin 41% 유지·YoY 개선(+302bps) (claim 007, grade1 confirmed).",
+  "[fact] FY2026 가이던스 개정: Other Revenue $150-170M→$310-330M, RLDC Margin 38-40%→41.7-43.7%. 회사 각주가 개정 수치에 '인식된 ARC 토큰 프리세일 매출 포함'을 명시 (claim 008, grade1 confirmed).",
+  "[inference:medium] 가이던스 상향분의 상당 부분이 회사 각주가 명시한 대로 일회성 성격의 ARC 토큰 프리세일 인식 매출에 기인하는 것으로 판단되며, 경상적 Reserve Income 개선으로 액면 해석 시 마진 개선의 지속가능성을 과대평가할 위험이 있음 (claim 009, grade1 confirmed, quantitative=false — 정성적 판단이나 1차 자료 각주 직접 근거).",
+  "[fact] CEO가 2026-08-05 컨콜에서 Circle-Coinbase 계약이 '기존 조건대로 갱신됐다'고 발언 — 자동 3년 갱신 조항에 따라 2029년까지 연장 (claim 010, grade2 confirmed). 계약 갱신은 상향 게이트 규칙상 holding_reinforcement 분류만 가능하며 등급 변경 근거 부적격.",
+  "[fact] OCC로부터 Circle National Trust 설립 최종 인가, NYDFS로부터 Circle New York Trust 승인 획득 (claim 011, grade1 confirmed). 인증 사안으로 holding_reinforcement 분류.",
+  "[fact] CPN 최근 30일 연환산 거래액 $14.7B(+76% QoQ), 등록 금융기관 175개(+29% QoQ) (claim 012, grade1 confirmed). 거래량 지표이며 인식 매출 항목이 아니므로 상향 게이트 미해당, holding_reinforcement 분류.",
+  "[fact] Arc 메인넷 퍼블릭 런칭 2026-09-16 확정, BlackRock·DTCC·Mastercard·Visa 등 Founding Validator 참여 (claim 013, grade1 confirmed). 파트너십/인프라 사안으로 상향 게이트 미해당, holding_reinforcement 분류(양산일정 확정이나 매출 미인식 — P7 3단 분리상 '계약 존재/이행' 단계).",
+  "[fact] 2026-06-29/06-30 ARC 토큰 프리세일 2차 클로징 완료, 조달액 약 $20.25M, 완전희석 네트워크가치 $3B 내재. 지분증명 전환 미완료 시(2028-05-08 기한) 상환 조항 발동 (claim 014, grade1 confirmed) — claim 009의 마진 질적 우려의 근거 데이터.",
+  "[fact] 내부자 매매: CFO가 2026-08-13 10b5-1 계획에 따라 8,476주 매도(claim 019, grade1 confirmed) — 사전예약 계획에 따른 통상적 매도로 그 자체로는 등급 판정에 미반영. 이사·CEO 관련 추가 매도 보도(claim 020)는 grade4·confirmed=false로 단독 근거 불가(P4), 참고 정보로만 기록.",
+  "[fact] 본 Run 시점 SEC EDGAR 직접 조회 결과 최신 8-K(8/5)·Form4(8/14) 이후 신규 제출 없음 (claim 021, grade1 confirmed) — 판정 시점 정보 완결성 확인.",
+  "[inference:low] 종합하면 quantitative·company_specific·revenue_recognized 3조건은 기술적으로 성립하나(Reserve Income 등 실제 인식 매출 존재), 그 방향성 자체가 개선이 아닌 둔화(유통량·점유율 QoQ 하락, 마진 개선의 비경상성 우려)이므로 상향 게이트의 실질 요건(P2 취지상 '개선' 증거)은 충족되지 않음. 동시에 KC-CRCL-1·2 모두 met&confirmed가 아니므로 Kill 우선 규칙도 미해당 — 현 등급 유지가 적절."
+ ],
+ "alert": {
+  "ticker_event": "CRCL Q2'26(6/30 마감) 실적 사후 판정(발표 8/5) — 등급 유지, Kill·상향 게이트 모두 미해당",
+  "facts": [
+   "[fact] USDC 유통량 분기말 QoQ -4.8%($77.0B→$73.3B), 평잔 QoQ +1.7%($75.2B→$76.5B) — 지표 간 방향 괴리 (출처: SEC 공시 exhibit, 2026-08-05).",
+   "[fact] 회사 자체 정의 점유율 28%→27% QoQ -1%p (출처: 동 exhibit, 2026-08-05).",
+   "[fact] Reserve Income $668M(+5% YoY), RLDC Margin 41% 유지·YoY 개선 (출처: 동 exhibit, 2026-08-05).",
+   "[fact] FY26 가이던스 상향은 회사 각주상 ARC 프리세일 인식매출 포함분이 상당 부분 기여 (출처: 동 exhibit, 2026-08-05).",
+   "[fact] Coinbase 계약 '기존 조건대로 갱신' CEO 발언(2026-08-05 컨콜), 2026-08-18 자동 갱신 발효 대기 중.",
+   "[fact] OCC 국가신탁은행 인가·NYDFS 승인 획득 (출처: 동 exhibit, 2026-08-05); Arc 메인넷 9/16 런칭 확정, 주요 금융기관 Founding Validator 참여.",
+   "[fact] OUSD 2026-08-15 시점 미출시, 실측 유통량 없음 (출처: 2차 매체, 2026-08-12, grade4 confirmed=false)."
+  ],
+  "inference": [
+   "[inference:medium] FY26 마진·Other Revenue 가이던스 상향의 지속가능성은 과대평가 위험 — 상당 부분 일회성 ARC 프리세일 인식매출 기인으로 판단.",
+   "[inference:low] 유통량 스냅샷·점유율의 QoQ 둔화는 아직 KC 임계(-20%, -3%p) 도달과 거리가 있으나 방향성 자체는 부정적 축으로 관찰됨."
+  ],
+  "classification": "holding_reinforcement(Coinbase 계약 갱신, OCC/NYDFS 신탁 인가, CPN 확장, Arc 메인넷 런칭 확정) + 정량 둔화 관찰(유통량·점유율 QoQ 하락, 마진 개선의 비경상성) — 두 축 모두 등급 변경 트리거(Kill 또는 상향 게이트) 미충족",
+  "thesis_delta": "리스크 이관 없음 — OUSD발(發) 직접 위협은 여전히 판정 불가(관측 부재, P5)로 기존 축 유지. 다만 유통량 스냅샷·점유율의 QoQ 방향 둔화 및 마진 개선의 질적 지속가능성 문제가 [inference:medium] 새로운 관찰축으로 부상 — 향후 KC-CRCL-1 재평가 시 이 축의 추이를 별도 추적 필요.",
+  "signal_verdict": "🔴 유지(비중 조절 검토, OUSD 위협) — Kill 조건(KC met&confirmed) 미해당, 상향 게이트(P2) 실질 요건(개선 방향성) 미충족, 하향은 KC 임계 미도달로 현 등급 내 흡수. 등급 확정은 사람이 한다.",
+  "next_check": "2026-08-18 Circle-Coinbase 분배계약 자동갱신 발효 관련 8-K(Item 1.01/1.02) 제출 여부 및 조건(수수료율·분배비율) 수치 변경 유무; 및 차기 실적(Q3'26, 예상 11월) 발표 시 USDC 유통량 분기말/평잔 QoQ 부호와 회사 자체 정의 점유율(%) 재확인"
+ },
+ "signals_json_update_proposal": {
+  "field": "grades.CRCL.next_gate",
+  "current_value": "8/18 Q2 — USDC 평잔·Reserve Income·OUSD 대응",
+  "issue": "[fact] Q2'26 실적은 이미 2026-08-05에 발표·반영 완료(claim 001-013). '8/18 Q2'라는 현재 표기는 8/18(Coinbase 계약 자동갱신 발효일)과 Q2 실적 게이트를 혼동한 stale 표기로 판단됨.",
+  "proposed_value": "2026-08-18 Coinbase 계약 자동갱신 발효(8-K 조건 변경 유무) 확인 + Q3'26 실적 — USDC 유통량 QoQ 부호·점유율(%) 방향·Reserve Income 지속성 재확인",
+  "note": "signals.json 직접 수정 없음 — 사람 확인 후 반영 제안."
+ },
+ "reused_from": "20260815_2228",
+ "staleness_days": 0
+}

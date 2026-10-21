@@ -1,0 +1,354 @@
+{
+ "as_of": "2026-10-09",
+ "run_id": "20261009_0920",
+ "ticker": "CRCL",
+ "input_source": "output/20261009_0920/03_input/arbiter_CRCL.json",
+ "kc_excerpt_source": "output/20261009_0920/03_kc_excerpt/CRCL.json (as_of 2026-10-09T09:23)",
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20261009_CRCL_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "summary": "Circle 공식 IR 공지(2026-10-07): Q3'26 실적 2026-11-04 8am ET 발표. 재무 가이던스 서술 없음. 일정 확정 사건(축 비이동)."
+  },
+  {
+   "id": "c_20261009_CRCL_2",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "summary": "발행사 API USDC 유통량 $73.159B(2026-10-09 00:24 UTC). 동일 실시간 계열 9/19 $74.287B 대비 -$1.13B(-1.5%), Q2'26 분기말 $73.3B와 거의 동일 수준(계열 상이, 직접 이어붙이지 않음)."
+  },
+  {
+   "id": "c_20261009_CRCL_3",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "summary": "USDC 3주 -1.5% 소폭 감소는 방향 관측일 뿐 추세 반전 단정 불가, 원인 불명, Q3 분기말 이후 구간.",
+   "inference_strength": "medium"
+  },
+  {
+   "id": "c_20261009_CRCL_4",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "summary": "DefiLlama 삼각검증 전용: USDC 9/25 $76.44B -> 10/9 $73.19B, 비중 약 23.4%(분모 상이, 판정 계열 아님)."
+  },
+  {
+   "id": "c_20261009_CRCL_5",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "summary": "OUSD 순유통량 $789.65M(발행사 대시보드, 2026-10-09), 10/1 대비 +68.6%, USDC 대비 약 1.08%. 미등재 도메인 grade 4."
+  },
+  {
+   "id": "c_20261009_CRCL_6",
+   "claim_type": "inference",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "summary": "OUSD 확대로 수익모델 위협 구조 실체화 방향 유지, 규모 1% 수준이라 직접 잠식 아님, 파트너 시드 유동성 분리 불가.",
+   "inference_strength": "medium"
+  },
+  {
+   "id": "c_20261009_CRCL_7",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "summary": "FIGR 8-K(2026-10-06): $YLDS 3Q26말 $504M(QoQ -9%), 1Q26 고점 $598M 이후 2분기 연속 감소. 비감사 예비치."
+  },
+  {
+   "id": "c_20261009_CRCL_8",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "summary": "$YLDS 근접 위협 완화 방향, USDC 대비 약 0.69%, 구조 리스크(CLARITY 문언) 미해소.",
+   "inference_strength": "medium"
+  },
+  {
+   "id": "c_20261009_CRCL_9",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "summary": "Form 4/144: CEO Allaire 10/5 62,264주 처분(약 $5.20M, 10b5-1) 등 임원 매각. 전부 사전 설정 계획."
+  },
+  {
+   "id": "c_20261009_CRCL_10",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "summary": "내부자 매각은 사전 10b5-1 계획 하 매각이라 신규 판단 근거 없음, P3상 축 방향 근거 제외.",
+   "inference_strength": "weak"
+  },
+  {
+   "id": "c_20261009_CRCL_11",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "summary": "EDGAR 이번 창 8-K 0건, Form 4 7건·Form 144 5건만. Item 1.01/1.02(Coinbase)·5.02·Tazapay 공시 없음. Coinbase 관련 무공시 약 46일."
+  },
+  {
+   "id": "c_20261009_CRCL_12",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "summary": "CFO Fox-Geen 2026-12-31까지 재직, 후임 미지명, 후속 8-K 없음. 원 사건일 9/25(창 밖 재확인)."
+  },
+  {
+   "id": "c_20261009_CRCL_15",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "summary": "Arc 체인 USDC 약 $523.9M(발행사 API, 2026-10-09). 네트워크 매출 인식 수치 회사 공시에 없음."
+  },
+  {
+   "id": "c_20261009_CRCL_16",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "summary": "DefiLlama Arc TVL 약 $544.4M(2026-10-09), 9/26 대비 +10%. DeFi 예치 지표이며 Circle 매출 아님."
+  }
+ ],
+ "filter_bug_report": "필터본 claims 14건(c_1~12, c_15, c_16) 전부 scope==company_specific 확인. removed_claims 2건(c_13, c_14, scope=sector)은 필터에서 정상 제거됨 — F13 해당 없음. 참고(필터 버그 아님): 유지된 c_8 본문·supporting 메모와 competition_yield_bearing delta new_state가 제거된 sector Claim c_14(CLARITY 문언)를 텍스트로 참조한다. 해당 참조 부분은 판정에 사용하지 않았고 c_8의 $YLDS 수치 부분(c_7, grade 1)만 반영했다.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-CRCL-1",
+    "description": "USDC 유통량 수축 (경고/발동 2단)",
+    "threshold_applied": "warning: usdc_circulation_30d_avg_vs_90d_peak <= -20%. trigger(all_of): 위 조건 AND reserve_income_qoq_declines >= 2분기 연속.",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "warning_verdict": "not_met",
+    "note": "발행사 API 현재치 $73.159B(c_2). 발행사 계열의 90일 고점 시계열은 필터본에 없으나, grade 4 계열의 최근 고점 $76.44B(9/25, c_4)를 고점으로 가정해도 현재치 괴리는 약 -4.3%이고 -20% 경고선($61.2B 수준)에서 멀다. 발행사 실시간 계열 9/19 대비도 -1.5%(c_2). 30일 평균 대 90일 고점 비율의 정식 산출은 발행사 90일 시계열 부재로 불가하여 provisional. reserve_income_qoq_declines는 신규 분기 관측이 없다(Q3 공시 11/4 예정, c_1). 두 조건 모두 임계 미충족이므로 warning·trigger 모두 not_met. 관측 공백을 met 근거로 쓰지 않는다(P5/P11)."
+   },
+   {
+    "kc_id": "KC-CRCL-2",
+    "description": "점유율 잠식 (OUSD·이자부 코인 포함)",
+    "threshold_applied": "all_of: usdc_stablecoin_share_qoq <= -3%p. 판정 분모 = 회사 정의 계열(Circle 공시, grade 1 분기 관측, 최신 Q2'26 27%/QoQ -1%p). DefiLlama 등 3자 집계(전체 공급 분모, 약 23.4~24%)는 삼각검증·조기경보 전용, 계열 혼용 금지.",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "회사 정의 계열의 신규 분기 관측치가 이번 창에 없다(다음 공시 Q3 실적 11/4, c_1). 3자 집계 비중 약 23.4%(c_4)와 OUSD 약 $0.79B(c_5, USDC 대비 약 1.08%)는 분모 정의가 달라 QoQ %p 산출에 대입하지 않았다. 3자 집계상 직전 약 24% 대비 -0.6%p 수준으로 -3%p 경고권과도 거리가 있다(참고, 판정 근거 아님)."
+   },
+   {
+    "kc_id": "KC-CRCL-3",
+    "description": "Coinbase 분배 계약 변경",
+    "threshold_applied": "trigger: 분배율 상향·구조 변경 공시 발생 (경중 불문 즉시).",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "c_11: 이번 창 8-K 0건, Item 1.01/1.02 공시 없음, 무공시 구간 약 46일. trigger 불성립. 무공시는 무변경의 증명이 아니므로 최종 확인은 Q3 10-Q 주석(P5)."
+   },
+   {
+    "kc_id": "KC-CRCL-4",
+    "description": "인가·감독 조치 (규제 선점 전제 훼손)",
+    "threshold_applied": "warning_trigger: OCC/NYDFS 신탁 법인 대상 공식 감독 조치 개시 공시 또는 GENIUS 인가 거부 가능성 시사·중대 보완 요구 공시. trigger: 인가 취소·정지·중대 영업 제한(consent order·C&D 포함) 또는 GENIUS 인가 거부·철회 확정. 근거는 1차 공시 또는 인가 기관 공식 발표만.",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "warning_verdict": "not_met",
+    "note": "c_11: EDGAR 8-K 0건이며 필터본에 OCC/NYDFS 공식 조치 관측이 없다. 8-K 의무공시 대상이 아닌 비공개 감독서한은 EDGAR로 포착되지 않으므로 관측 0건은 조치 부존재의 증명이 아니다(P5) — provisional 유지."
+   },
+   {
+    "kc_id": "KC-3 (macro, BTC<55000 & VIX>=25)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "KC 발췌 kc_status 그대로 인용: BTC 81,686.03(2026-10-09, stale 0일) / VIX 15.41(2026-10-08, stale 1일) — 양쪽 임계 미충족. CRCL에 파급되는 유일한 매크로 KC. 매크로 KC는 개별 종목 등급 근거가 아니며(P13) 참조만 한다."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "trigger_source": [],
+  "reason": "규칙1(KC met AND confirmed) 해당 조합 0건. KC-CRCL-1·2·4는 not_met·provisional, KC-CRCL-3은 not_met·confirmed, 매크로 KC-3은 not_met·confirmed. 🔴🔴 후보 아님, 사람 확인 요청 대상 아님. (참고: IREN·NBIS·CRWV·MU의 🔴🔴는 KC-1 매크로 경로이며 CRCL 발췌에는 KC-1이 파급 KC로 포함되지 않았다.)"
+ },
+ "gate_check": {
+  "kill_check": "not_met — KC-CRCL-1~4 및 KC-3 전부 not_met, met AND confirmed 조합 0건 (규칙1 미발동)",
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 3요건 동시충족 필요. 정량 company_specific Claim(c_2 USDC 유통량, c_7 $YLDS 잔액, c_15 Arc 체인 USDC)은 있으나 매출·마진·현금흐름·가이던스 수치가 아니고 revenue_recognized 단계 Claim이 없다. Arc 네트워크 수수료·매출 인식 수치는 회사 공시에 없다(c_15). 현행 🔴에서 상향 대상은 🟠이나 게이트 미충족이므로 상향 후보 없음. $YLDS 2분기 연속 감소(c_7)는 경쟁 위협 완화 방향의 holding_reinforcement 분류에 그치며 상향 근거가 아니다(P2, 타사 지표)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "weaken 축 2건을 원문 Claim 단위로 대조했다. (1) usdc_circulation_scale — 근거 c_2(grade 1, 발행사 API, confirmed). 동일 실시간 계열 내 9/19 -> 10/9 -1.5%(-$1.13B)로 Q2'26 분기말 수준($73.3B)으로 복귀한 수준이며, 방향 관측이지 임계 훼손이 아니다: KC-CRCL-1 경고선(30일 평균 대 90일 고점 -20%)에 크게 못 미치고, 감소는 Q3 분기말 이후 구간(10월)이라 11/4 공개될 Q3 수치에는 반영되지 않으며, 원인이 확인되지 않았다(c_3은 medium 추론·confirmed=false이고 인과 미입증). 3자 집계(c_4, grade 4)의 더 큰 감소폭은 정의 차이로 삼각검증 전용이다(P4). 정량 훼손으로 채택하지 않음. (2) competition_ousd_consortium — 근거 c_5(grade 4, confirmed=false, 미등재 도메인)·c_6(grade 4 inference). 경쟁사 지표의 확대일 뿐 CRCL 자신의 확정 매출·점유율 수치 훼손이 아니며, 규모는 USDC 대비 약 1.08%, 파트너 시드 유동성 분리 불가(c_6 자체 명시). grade 4는 단독 판단 근거 불가(P4). 정량 훼손으로 채택하지 않음.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "grade<=2 Claim은 c_1·c_2·c_3·c_7·c_8·c_9·c_10·c_11·c_12·c_15. 이 중 훼손 방향의 정성 Claim은 없다: c_1·c_11·c_12는 일정·무공시·재직 확인, c_9·c_10은 사전 10b5-1 계획 하 임원 매각으로 P3상 축 비이동, c_3은 inference·미확정, c_7·c_8은 위협 완화 방향. 하향 근거 Claim ID 없음.",
+   "asymmetric_downgrade_triggered": false,
+   "downgrade_candidate_claim_ids": [],
+   "reason": "규칙3 양 경로 불성립 — 유지. 추가로 현행 🔴는 🔴🔴 바로 위 등급이라 규칙3만으로 이동 가능한 하위 등급은 🔴🔴뿐이며, 이는 규칙1(KC met AND confirmed) 소관이다. 두 규칙을 혼동하지 않았다. 게이트 미충족은 실패가 아니라 등급 유지 + 사유 기록(규칙4, P12)."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "usdc_circulation_scale",
+   "direction": "weaken",
+   "stage": "약 — 소폭(-1.5%) 방향 관측, 임계 훼손 아님",
+   "supporting_claims": [
+    "c_20261009_CRCL_2",
+    "c_20261009_CRCL_3",
+    "c_20261009_CRCL_4"
+   ],
+   "risk_transfer_to": [
+    "Q3'26 실적(11/4) 분기말·평잔 공식 수치와 Q4 코멘트",
+    "OUSD 확대(competition_ousd_consortium)",
+    "Reserve Income 분자 감소 시 reserve_income 축"
+   ]
+  },
+  {
+   "axis": "usdc_market_share",
+   "direction": "neutral",
+   "supporting_claims": [
+    "c_20261009_CRCL_4",
+    "c_20261009_CRCL_5"
+   ],
+   "risk_transfer_to": [
+    "Q3'26 실적 회사 정의 점유율 신규치(KC-CRCL-2 입력)"
+   ]
+  },
+  {
+   "axis": "reserve_income",
+   "direction": "neutral",
+   "supporting_claims": [
+    "c_20261009_CRCL_1",
+    "c_20261009_CRCL_11",
+    "c_20261009_CRCL_12"
+   ],
+   "risk_transfer_to": [
+    "11/4 Q3 실적·10-Q 계약 주석 Coinbase·Binance 분배조건 대조",
+    "CFO 후임 선임 후 코멘트 연속성"
+   ]
+  },
+  {
+   "axis": "competition_ousd_consortium",
+   "direction": "weaken",
+   "stage": "약 — 성장 방향 확인(grade 4), 규모 약 1%, 시드 유동성 분리 불가",
+   "supporting_claims": [
+    "c_20261009_CRCL_5",
+    "c_20261009_CRCL_6"
+   ],
+   "risk_transfer_to": [
+    "OUSD 9월분 월간 어테스테이션",
+    "Q3 실적의 OUSD 관련 경영진 코멘트",
+    "reserves.bridge.xyz 등급 등재 여부(사람 영역, 제안만)"
+   ]
+  },
+  {
+   "axis": "competition_yield_bearing",
+   "direction": "strengthen",
+   "stage": "약 — 근접 위협 완화(2분기 연속 감소), 구조 리스크 미해소",
+   "supporting_claims": [
+    "c_20261009_CRCL_7",
+    "c_20261009_CRCL_8"
+   ],
+   "risk_transfer_to": [
+    "FIGR Q3 정식 10-Q(11월)",
+    "CLARITY 이자조항 문언 확정 경로"
+   ]
+  },
+  {
+   "axis": "regulation_company_licensing",
+   "direction": "neutral",
+   "supporting_claims": [
+    "c_20261009_CRCL_11",
+    "c_20261009_CRCL_12"
+   ],
+   "risk_transfer_to": [
+    "OCC·NYDFS 감독 공표",
+    "Circle National Trust 개점·업무범위 확대 공지"
+   ]
+  },
+  {
+   "axis": "diversification",
+   "direction": "neutral",
+   "stage": "P7 1~2단계 — 매출 인식 수치 미공시",
+   "supporting_claims": [
+    "c_20261009_CRCL_15",
+    "c_20261009_CRCL_16"
+   ],
+   "risk_transfer_to": [
+    "Q3 실적·10-Q의 Arc 매출·수수료 인식 여부",
+    "Tazapay 종결 공시"
+   ]
+  }
+ ],
+ "alert": {
+  "ticker_event": "CRCL — Q3'26 실적일 1차 확정(11/4) + 발행사 API USDC 유통량 $73.16B(9/19 대비 -1.5%) + OUSD 출시 9일차 $0.79B + $YLDS 3Q 2분기 연속 감소 + 임원 10b5-1 매각 + 8-K 0건(Coinbase 무공시 약 46일). KC-CRCL-1~4 및 KC-3 전부 not_met.",
+  "facts": "① Circle 공식 IR 공지(2026-10-07): Q3'26 실적 2026-11-04 8am ET 발표, 가이던스 서술 없음 [IR 보도자료, grade 1 confirmed, staleness 2일]. ② 발행사 API USDC 총 유통량 $73,159,469,377, 갱신 2026-10-09 00:24 UTC; 9/19 실시간 계열 $74.287B 대비 -1.5%, Q2'26 분기말 $73.3B와 거의 동일 수준(계열 상이) [issuer API, grade 1 confirmed, staleness 0일]. ③ OUSD 순유통량 789,650,657, 준비자산 $791.65M(100.25% 담보), 10/1 대비 +68.6%, USDC 대비 약 1.08% [발행사 대시보드+DefiLlama 일치, grade 4 confirmed=false, 2026-10-09 00:00 UTC]. ④ FIGR 8-K(2026-10-06, 비감사 예비치): $YLDS 3Q26말 $504M(QoQ -9%), 1Q26 $598M 대비 -15.7% [SEC EDGAR, grade 1 confirmed, staleness 3일]. ⑤ Form 4/144(제출 10/5~10/8): CEO Allaire 10/5 62,264주 처분 약 $5.20M(10b5-1), 임원 베스팅 원천징수·계획 매각, 전 이사 Neville·CPTO Chandhok Form 144 예정 통지(체결 미확정) [SEC EDGAR, grade 1 confirmed]. ⑥ EDGAR 이번 창 Circle 8-K 0건 — Coinbase Item 1.01/1.02 무공시 약 46일, Item 5.02 후속·Tazapay 종결 공시 없음 [SEC EDGAR submissions, grade 1 confirmed, 2026-10-09]. ⑦ CFO Fox-Geen 2026-12-31까지 재직, 후임 미지명 [IR 보도자료 9/25 재확인, grade 1 confirmed]. ⑧ Arc 체인 USDC 약 $523.9M [issuer API, grade 1]; DefiLlama Arc TVL 약 $544M(+10% vs 9/26) [grade 4 삼각검증용, 매출 아님]. ⑨ 매크로 KC-3: BTC 81,686.03(10/9)·VIX 15.41(10/8) not_met/confirmed [KC 발췌 인용].",
+  "inference": "medium — USDC 3주 -1.5%는 방향 관측이며 원인 불명(OUSD 성장과 시기가 겹치나 인과 입증 자료 없음, 시간적 동시성만), Q3 분기말 이후 구간이라 11/4 공개 수치에는 반영되지 않음(c_3). medium — OUSD 확대는 수익모델 위협 구조의 실체화 방향 유지이나 규모 1% 수준·시드 유동성 분리 불가(c_6, grade 4). medium — $YLDS 근접 위협 완화, 구조 리스크 미해소(c_8). weak — 임원 매각은 사전 10b5-1 계획 하 매각이라 신규 판단 근거 없음(c_10, P3상 축 비이동).",
+  "classification": "holding_reinforcement (등급 유지 + 사유 기록, P12). 상향 게이트(P2/P6/P7) 미충족: revenue_recognized Claim 없음. 하향(규칙3) 미충족: usdc_circulation_scale은 -1.5% 방향 관측으로 임계 훼손이 아니고(c_2), competition_ousd_consortium은 grade 4 단독 근거 불가 + CRCL 자체 수치 훼손 아님(c_5·c_6), grade<=2 확정 정성 훼손 Claim 없음. 일정 확정(c_1)·임원 매각(c_9)은 노이즈/체크포인트 갱신.",
+  "thesis_delta": "usdc_circulation_scale weaken[약, c_2·c_3 — 리스크를 Q3 실적 분기말·평잔 공식 수치와 reserve_income 축으로 이관]. competition_ousd_consortium weaken[약, c_5·c_6 — 리스크를 OUSD 월간 어테스테이션·Q3 실적 코멘트로 이관]. competition_yield_bearing strengthen[약, c_7·c_8 — 위협 소멸 아님, CLARITY 문언 미해소]. usdc_market_share·reserve_income·regulation_company_licensing·diversification neutral(신규 grade 1 방향 근거 없음, 부재는 반증이 아님 P5). 카드 earnings_checkpoints.date를 2026-11-04로 확정할 수 있는 1차 근거 확보(c_1, 카드 수정은 사람 승인 영역).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🔴(비중 조절 검토, OUSD 위협) 유지 권고(maintain). 규칙1 미발동(KC met AND confirmed 0건), 규칙2 미충족(매출 인식 Claim 없음), 규칙3 양 경로 불성립(weaken 2축 모두 정량 훼손 요건·grade<=2 정성 훼손 요건 미달, 근거 Claim 대조 결과 하향 후보 Claim ID 없음), 규칙4에 따라 유지. 🔴🔴 사람 확인 요청 대상 아님. 최종 확정은 사람.",
+  "next_check": "① [정량] 2026-11-04 Q3'26 실적: USDC 분기말 유통량($B, Q2말 $73.3B 대비 QoQ 부호)·평잔, 회사 정의 점유율 %(Q2'26 27%; KC-CRCL-2 발동선 QoQ -3%p, 즉 24% 이하), Reserve Income 절대액·QoQ(KC-CRCL-1 trigger는 2분기 연속 감소 + 30일 평균 대 90일 고점 -20% 이하). ② [정량] Q3 10-Q 계약 주석 Coinbase·Binance 분배조건 원문 대조(KC-CRCL-3, 무공시 약 46일 구간 최종 해소). ③ [정량·주간] 발행사 API USDC 유통량(10/9 $73.16B; 경고권 = 30일 평균이 90일 고점 대비 -20%) 및 reserves.bridge.xyz OUSD 순유통량(10/9 $789.65M, 9월분 어테스테이션). ④ [정량] FIGR 정식 Q3 10-Q $YLDS 확정치(예비 $504M 대비)."
+ },
+ "next_gate": "Q3'26 실적 2026-11-04(USDC 분기말 유통량 QoQ 부호·평잔, 회사 정의 점유율 % [KC-CRCL-2 발동선 QoQ -3%p], Reserve Income 절대액·QoQ) + Q3 10-Q 계약 주석 Coinbase 분배조건 최종 확인 + 발행사 API USDC 유통량·OUSD 순유통량 주간 추이 — signals.json 기존 게이트 유지, 실적일 11/4 반영은 ThesisPatch 후보로만 기록(사람 승인 필요). 게이트 미도래 상태의 등급 유지가 정상 경로(P12).",
+ "unconfirmed_carried": [
+  {
+   "topic": "USDC 감소(9/19 $74.29B -> 10/9 $73.16B)의 원인",
+   "reason": "no_causal_evidence"
+  },
+  {
+   "topic": "OUSD 9월분 월간 어테스테이션·초기 파트너 유동성 약정 집행 규모",
+   "reason": "event_may_be_pending"
+  },
+  {
+   "topic": "Coinbase 분배계약 조건 원문",
+   "reason": "no_disclosure — 무공시 약 46일, Q3 10-Q까지 보류"
+  },
+  {
+   "topic": "Binance 월간 인센티브 요율·산식",
+   "reason": "not_disclosed_in_primary_source"
+  },
+  {
+   "topic": "CFO 후임자 및 선임 시점",
+   "reason": "event_may_be_pending"
+  },
+  {
+   "topic": "회사 정의 점유율 Q3'26 신규치(KC-CRCL-2 입력)",
+   "reason": "event_may_be_pending — 11/4"
+  },
+  {
+   "topic": "Arc 매출·수수료 인식 및 트래픽 구성",
+   "reason": "not_disclosed_in_primary_source"
+  },
+  {
+   "topic": "Neville·Chandhok Form 144 매각 실제 체결",
+   "reason": "event_may_be_pending"
+  },
+  {
+   "topic": "GENIUS Act NPRM Circle 의견서(마감 2026-10-19)·CLARITY 이자조항 문언",
+   "reason": "not_checked_this_run / access_blocked_and_event_pending"
+  }
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 필터 버그 없음(14건 전부 company_specific). 단 c_8·competition_yield_bearing delta 본문이 제거된 sector Claim c_14를 텍스트로 참조하므로 필터본 생성 스크립트가 파생 Claim의 sector 참조를 정리하는지 점검 권장(판정에는 미사용). weaken 축 2건은 규칙3 요건을 원문 Claim 단위로 대조한 결과 하향 후보 아님."
+}

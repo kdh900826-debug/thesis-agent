@@ -1,0 +1,113 @@
+{
+  "sector": "memory",
+  "as_of": "2026-09-05T06:33",
+  "run_id": "20260905_0618",
+  "members": [
+    "MU"
+  ],
+  "missing_inputs": [],
+  "single_ticker_view": true,
+  "axis_view": [
+    {
+      "axis": "china_supply",
+      "direction": "weaken",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [
+          "MU"
+        ],
+        "neutral": [],
+        "break": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "MU"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "hbm_demand",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "MU"
+        ],
+        "break": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "MU"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "sca_defense",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "MU"
+        ],
+        "break": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "MU"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "cycle_position",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "MU"
+        ],
+        "break": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "MU"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "valuation_paradox",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "MU"
+        ],
+        "break": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "MU"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    }
+  ],
+  "sector_unconfirmed": [],
+  "signal_mutation": null,
+  "_note": "단일 종목 뷰 — 분산 계산 스킵(설계서 S4)",
+  "staleness_days": 0,
+  "dispersion_semantics": "[fact] 위 axis_view의 dispersion 필드에 기록된 문자열 'single_ticker'는 분산값이 아니라 분산 미산출 사유다 — 5개 축 전부 coverage_count=1이므로 종목 간 방향 분산은 산출 대상이 아니며(consensus-aggregate SKILL 3·4항, 설계서 S4 단일 종목 변형) 의미상 dispersion=not_applicable로 읽어야 한다. [fact] 어떤 축도 'low(전원 일치)'로 해석해서는 안 된다. [fact] 스크립트 실행 로그는 '단일 종목 커버 축 5개 — 분산 계산 스킵(single_ticker)'을 출력했고 dispersion=low 오표기는 이번 실행분에서 관측되지 않았다.",
+  "llm_interpretation_location": "[fact] SKILL의 [LLM] 해석 단계 산출물(축별 interpretation·요인 귀속·sector_unconfirmed)은 본 파일이 아니라 output/20260905_0618/04_sector/memory.json에 기록되어 있다 — 본 파일은 결정론 집계분으로 유지한다."
+}

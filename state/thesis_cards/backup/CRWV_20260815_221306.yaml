@@ -1,0 +1,70 @@
+# Thesis Card — CRWV (v1 §5-3 기계 판독본)
+# ⚠️ Q2 2026 수치는 직전 세션 확인분 — 1차 자료(10-Q/보도자료) 재대조가 Task 0 (unconfirmed 큐 등재됨)
+ticker: CRWV
+sector: neocloud
+tier: null   # 관찰→커버리지 승격
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-3"
+version_history:
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화 (⚠️갱신 항목 다수)"}
+
+axes:
+  - {id: backlog_scale,     label: "백로그·스케일 (~$104B ⚠️갱신)"}
+  - {id: debt_refinancing,  label: "부채·차환·이자 커버리지 (생존 조건)"}
+  - {id: margin_trend,      label: "Adj. EBITDA 마진 추세 (59% 하락 추세 ⚠️갱신)"}
+  - {id: gpu_priority,      label: "NVIDIA 지분·백스톱·GPU 공급 우선권"}
+  - {id: customer_concentration, label: "고객 집중 (OpenAI·Meta 등)"}
+  - {id: litigation,        label: "증권 집단소송"}
+
+thesis: >
+  네오클라우드 스케일 1위. 대규모 백로그를 레버리지로 건설하고 매출로 상환하는 모델.
+  Full-stack + 소프트웨어(Mission Control, ARIA) + NVIDIA 지분·백스톱으로 GPU 공급 최우선권.
+
+key_metrics:
+  - "분기 매출 (Q2 2026 $2.575B, +112% YoY ⚠️갱신)"
+  - "백로그 (~$104B ⚠️갱신)"
+  - "FY26 가이던스 ($12.4-13.2B로 상향 ⚠️갱신)"
+  - "CapEx ($35-39B로 상향 ⚠️갱신)"
+  - "Adj. EBITDA 마진 59%로 하락 추세 ⚠️갱신"
+  - "총부채·자본리스 및 분기 이자비용"
+  - "이자 커버리지 (EBITDA/이자 — 1.5x 이하 = 위험, 현 ~2.2x ⚠️갱신)"
+  - "FCF"
+  - "$1B+ 고객 수"
+  - "증권 집단소송 진행"
+
+catalysts:
+  - "차환·리파이낸싱 성공/실패"
+  - "금리 경로 (인하 전환 시 생존확률 급상승)"
+  - "Vera Rubin 최초 배포 일정"
+  - "대형 고객(OpenAI·Meta 등) 계약 갱신"
+
+risks:
+  - "부채 리스크 #1 — CapEx 상향($35-39B)이 매출 상향폭 초과 시 조달 의존 심화"
+  - "마진 하락 추세(59%)와 이자비용의 동시 진행"
+  - "증권소송 디스커버리"
+  - "GPU 감가 → 담보가치 하락"
+  - "고객 집중도"
+
+kill_conditions_ref: ["KC-CRWV-1", "KC-CRWV-2", "KC-CRWV-3", "섹터 공통 KC"]
+noise_filter_ref: "config/noise_filter.yaml#CRWV"
+
+earnings_checkpoints:
+  date: null   # ⚠️ Q3 시기 미확정
+  items:
+    - "매출 가이던스 대비 실적"
+    - "이자비용 증감"
+    - "Adj. EBITDA 마진 59%에서 추가 하락 여부"
+    - "백로그 유지·고객 해지 사례"
+    - "부채 총액 및 만기 구조"
+    - "FCF 개선 여부"
+    - "CapEx $35-39B 집행률"
+    - "소송 관련 경영진 코멘트"
+
+valuation:
+  primary: "EV/FY26 매출 (시총 단독 비교 무의미 — 순부채 필수 반영)"
+  secondary: "이자 커버리지, EV/백로그 (백로그의 질 = 고객 집중도·해지 조건)"
+  caution: "부채 미반영 멀티플 서술 금지"
+
+conclusion: >
+  스케일과 GPU 공급 우선권은 3사 중 최상위이나 재무 리스크도 최상위.
+  진입 검토 조건은 FCF 흑자 전환 + 이자 커버리지 3x 이상 + 금리 경로 확정의 동시 충족.

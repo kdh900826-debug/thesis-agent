@@ -1,0 +1,53 @@
+{
+  "as_of": "2026-08-15",
+  "run_id": "20260815_2327",
+  "command": "",
+  "pending_approvals": [
+    {
+      "approval_id": "ap_20260815_2315_thesis_patch_crcl_risks_ylds",
+      "type": "thesis_patch",
+      "age_days": 0,
+      "artifact": "output/20260815_2307/07_thesis_patch/CRCL_risks_ylds.md"
+    },
+    {
+      "approval_id": "ap_20260815_2315_thesis_patch_crcl_market_share_observed",
+      "type": "thesis_patch",
+      "age_days": 0,
+      "artifact": "output/20260815_2307/07_thesis_patch/CRCL_market_share_observed.md"
+    },
+    {
+      "approval_id": "ap_20260815_2315_thesis_patch_crcl_regulation_decompose",
+      "type": "thesis_patch",
+      "age_days": 0,
+      "artifact": "output/20260815_2307/07_thesis_patch/CRCL_regulation_decompose.md"
+    }
+  ],
+  "expired_now": [],
+  "config_errors": [],
+  "config_warnings": [],
+  "latest_run": "20260815_2307",
+  "artifacts": {
+    "macro_kc": {
+      "exists": true,
+      "path": "output\\20260815_2307\\01_macro_kc.json",
+      "age": 0,
+      "unit": "calendar_days",
+      "limit": 5,
+      "stale": false
+    },
+    "correlation": {
+      "exists": true,
+      "path": "output\\20260815_2307\\05_correlation.json",
+      "age": 0,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": false
+    },
+    "positions": {
+      "age": 0,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": false
+    }
+  }
+}

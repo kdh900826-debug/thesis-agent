@@ -1,0 +1,323 @@
+{
+  "ticker": "NBIS",
+  "run_id": "20260815_1408",
+  "as_of": "2026-08-15",
+  "staleness_days": 0,
+  "period_scope": "2026-08-08 ~ 2026-08-15 (최근 7일 신규 재료 중심)",
+  "thesis_card_ref": "state/thesis_cards/NBIS.yaml (as_of 2026-08-15, source: Q2 2026 = 8/12 발표 반영)",
+
+  "sources_ingested": {
+    "edgar_fulltext": {
+      "cik": "0001513845",
+      "query": "--ticker NBIS --forms 20-F 6-K F-1 --since 2026-08-08 (참고: 10-K/10-Q 검색은 0건 — 외국 민간 발행사로 20-F/6-K 체계 사용)",
+      "items_found": 2,
+      "note": "10-K/10-Q/8-K 형식으로는 0건 — Nebius는 Form 20-F/6-K 체계의 외국 민간 발행사(foreign private issuer)"
+    },
+    "web_search": "날짜한정 + 지표지정 쿼리(Nebius ATM/2027 guidance/Q3 earnings date/Vineland/Vantage 등) — 1차 URL 역추적 수행"
+  },
+
+  "claims": [
+    {
+      "id": "c_20260815_NBIS_01",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "Q2 2026(6월 결산) 연결매출 $582.3M(+454% YoY, +46% QoQ). Nebius AI cloud 매출 $574.9M(+514% YoY, 그룹 매출의 약 98%). ARR $3.0B — 3월말 $1.9B 대비 +56% QoQ, +598% YoY (ARR 정의: 분기 마지막 달 AI cloud 매출 x12).",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.1/99.2", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-1.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_02",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "Q2 2026 연결 Adjusted EBITDA $236.2M(매출대비 41%, 전년동기 $(21.0)M 손실에서 흑자전환). Nebius AI cloud 세그먼트 단독 Adjusted EBITDA는 $285.7M, 마진 49.7%(~50%) — 연결마진(41%)보다 높음, 비핵심사업(Avride/TripleTen)이 연결마진을 희석 중임을 시사하는 세그먼트 분해 수치.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.2 (Letter to Shareholders)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_03",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026.6.30 기준 현금성자산 $8,042.1M. H1 2026 영업활동현금흐름 $4,504.1M(Q2 단독 $2,246.1M). 회사는 2026년 중 고객 선불금 $9B+ 유입을 예상한다고 명시.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.1", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-1.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_04",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026년 7월, 최초의 자산담보부(asset-backed) 대출 약 $775M을 SOFR+2.50% 조건으로 조달 완료. 배치된 GPU 인프라 및 투자적격(investment-grade) 고객과의 계약 현금흐름을 담보로 함. 회사는 총 $40B+ 규모의 고객 계약(commitment)을 근거로 유사 조달을 추가로 계획 중이라고 명시.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.2 (Letter to Shareholders)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_05",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "ATM: 2026.6.30 기준 누적 12.7M Class A주 매도, 가중평균 $223.6/주, 총조달 약 $2.8B. 동일 기준 잔여 발행가능 12.3M주(카드 기존 수치와 일치, 신규 발행분 아님). 동시에 H1 2026 중 전환사채로 총 $4,337.5M, 선지급워런트(pre-funded warrants)로 총 $2,000.0M을 신규 조달 완료. 이 결과 비유동부채가 2025년말 $4,103.2M → 2026.6.30 $8,499.0M로 급증(총부채 $7,836.6M → $17,621.0M). 밸류에이션 Claim 시 완전희석(전환사채·워런트·ATM 잔여분) 반영 필요.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.1/99.2", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-1.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_06",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "CEO Arkady Volozh는 주주서한(Letter to Shareholders)에서 '오늘 이 조건으로 2027년 전체 용량을 매각할 수도 있으나(could sell our entire 2027 capacity on these terms today), 즉시 고객 수요 대응을 위해 일부 용량을 의도적으로 보유하기 위해 그렇게 하지 않고 있다(deliberately not doing so)'고 직접 언급함.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.2 (Letter to Shareholders, CEO 직접 서한)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_07",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "Q2 2026 중 대형 계약(landmark deal) 4건 체결 확인, 건당 평균 TCV $1B+, ACV $20-25M/MW(3단 구조 중 '장기' 단). 4건 중 2건 고객명 공개(Reflection — 오픈소스 모델 학습/운영 다년계약, Cohere — 에이전틱 AI 파트너십), 나머지 2건은 '또 다른 미국계 AI neolab'과 '대형 미국계 퀀트트레이딩펀드(금융서비스 부문 최초 대형 고객)'로 익명 서술. Q2 체결 계약 TCV는 QoQ +4배, 신규고객 기여분 TCV는 QoQ +9배. 계약의 약 70%에 선지급(capex 50-60% 커버) 포함, 예상 회수기간(payback) 1년10개월로 단축(기존 2-3년에서).",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.2 (Letter to Shareholders)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_08",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "P7 3단 분리 — [계약 존재 단계] Q3 2026 들어(6/30 이후, 8/12 서한 시점 기준 '이번 주' 체결) 최초의 단기(3-6개월) 용량계약 체결, 가격은 3단 구조 중 '단기' 단인 $40-50M/MW 구간(구체 수치 미공개, '이 구간에서 첫 건 체결'로만 서술). 해당 용량은 [계약 이행 단계] Q4 2026 가동(go live) 예정. 회사는 최초 용량 경매(auction) 파일럿도 실시해 'NVIDIA Blackwell 칩에 대해 지금까지 체결한 최고가'를 확보했다고 서술(구체 % 수치는 본 문서에 없음 — 카드의 '+15%' 수치는 본 1차 자료로 재확인되지 않음, 별도 출처 필요). [매출 인식 단계]는 미도래.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.2 (Letter to Shareholders)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_09",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "회사는 2026년말 계약전력(contracted power) 목표를 5GW로 재상향(직전 분기 안내치 '4GW+' 대비 상향). 2027년부터 연간 1GW 이상 배치 속도를 계획한다고 명시. 2차 Meta 계약 관련 용량 구축이 진행 중이며 2027년초 가동 예정이라고 서술. 이번 분기 신규 도입한 '자산경량(asset-light) 파트너십 모델'(파트너가 인프라 자산을 직접 소유·Nebius는 소프트웨어/시스템설계/GTM 제공) 구조를 도식과 함께 설명.",
+      "evidence_grade": 1,
+      "source": {"type": "6-K Ex.99.2 (Letter to Shareholders)", "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm", "filed_at": "2026-08-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "as_of": "2026-08-12",
+      "staleness_days": 3
+    },
+    {
+      "id": "c_20260815_NBIS_10",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026.8.13, Vantage Data Centers와 Nebius가 영국 웨일스(Newport) CWL1 캠퍼스에서 NVIDIA DSX AI factory 레퍼런스 설계 기반 고밀도 AI 인프라 배치 계약(콜로케이션 리스)을 발표. 규모(용량/금액)는 비공개. South Wales AI Growth Zone 내 첫 상업용 용량 계약으로 보도됨(기존 발표된 영국 4개 사이트 약 £1.7B 확약 구축의 일부로 위치).",
+      "evidence_grade": 3,
+      "source": {"type": "web/2차매체(다중 독립매체 교차확인: datacenterdynamics.com, vantage-dc.com 자사 발표, investing.com, marketscreener.com)", "url": "https://www.datacenterdynamics.com/en/news/nebius-to-lease-data-center-capacity-from-vantage-in-newport-wales/", "filed_at": "2026-08-13"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "as_of": "2026-08-13",
+      "staleness_days": 2,
+      "note": "P4: 3등급 단독 근거 불가 원칙에 따라 confirmed=false 유지. 4개 독립 매체가 동일 사실(날짜·장소·상대방)을 일치 서술 — 삼각검증 목적으로만 사용, Nebius 자사 1차 공시(IR/뉴스룸)는 미확인."
+    },
+    {
+      "id": "c_20260815_NBIS_11",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "뉴저지주 Vineland市 당국이 Nebius/DataOne 데이터센터 부지에 대해 공사중지명령(stop-construction order)을 2건 발부: (1) 2026.8.6 — LNG 저장탱크를 사전 승인·허가 없이 설치, (2) 2026.8.10 — Bloom Energy 연료전지 설비를 사전 승인·허가 없이 설치. 해당 Vineland 부지(300MW)는 Nebius-Microsoft 간 최대 $17.4B(5년) AI 인프라 계약의 핵심 사이트로, 2025-2026년 중 여러 트랜치에 걸쳐 MS向 GPU 용량을 인도하기로 되어 있던 곳임.",
+      "evidence_grade": 4,
+      "source": {"type": "web/2차·3차매체(다중 독립매체 교차확인: whyy.org 지역언론 자체취재, Hunterbrook Media 리서치, investing.com, tipranks.com, newsquawk.com)", "url": "https://whyy.org/articles/vineland-data-center-stop-work-orders/", "filed_at": "2026-08-10"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "as_of": "2026-08-10",
+      "staleness_days": 5,
+      "note": "P4: 4등급 단독 근거 불가 원칙에 따라 confirmed=false 유지. WHYY(지역 공영라디오, 독립 취재)와 Hunterbrook(공매도 리서치, 이해상충 가능)이 각각 별도로 동일한 구체 사실(일자·설비종류·사유)을 보도해 교차확인됨. 회사측 공식 반박/확인 성명의 1차 출처는 미확보(일부 매체가 'Nebius가 Vineland는 on track이라 언급'이라 보도했으나 원문 인용 미확인 — unconfirmed 처리)."
+    }
+  ],
+
+  "inferences": [
+    {
+      "id": "c_20260815_NBIS_12",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "Vineland 부지 공사중지명령 2건(c_...11)은 해당 사이트의 MS 트랜치 인도 일정에 지연 리스크를 추가하나, 지연 규모(일 단위 vs 분기 단위)는 현재 확보한 자료로 산정 불가. capacity_delivery 축의 'late Q4 온라인 전환' 카탈리스트 및 연말 5GW 목표 전반에 즉시 위협이 된다고 단정할 근거는 아직 부족(다수 사이트 중 1곳의 이슈).",
+      "evidence_grade": null,
+      "source": null,
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": null
+    },
+    {
+      "id": "c_20260815_NBIS_13",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "$775M 자산담보부 대출(c_...04)과 $40B+ 고객 커밋먼트 기반의 추가 유사 조달 계획은 향후 자본조달에서 지분희석(ATM) 의존도를 낮출 수 있는 채널이 될 가능성을 시사한다. 다만 동시기 전환사채·워런트로 대규모 신규 조달(c_...05)이 병행되어 비유동부채가 2배 이상 증가했으므로, 전체 조달 리스크가 감소했다기보다 '지분희석 리스크'의 일부가 '레버리지 리스크'로 이전(risk transfer)된 것으로 해석하는 것이 더 정확하다.",
+      "evidence_grade": null,
+      "source": null,
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": null
+    },
+    {
+      "id": "c_20260815_NBIS_14",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "AI cloud 세그먼트 마진(49.7%)이 연결마진(41%)보다 뚜렷이 높다는 점(c_...02)은 Avride·TripleTen 등 비핵심사업이 연결마진을 희석시키고 있음을 시사하며, 비핵심사업 비중 축소 시 연결마진이 세그먼트 마진에 수렴할 잠재력이 있다는 해석이 가능하나, 회사가 비핵심사업 매각·축소 계획을 공식화한 바는 확인되지 않았다.",
+      "evidence_grade": null,
+      "source": null,
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": null
+    }
+  ],
+
+  "deltas": [
+    {
+      "id": "d_20260815_NBIS_01",
+      "axis": "growth_arr",
+      "direction": "strengthen",
+      "prior_state": "매출·ARR 수치는 2차 정리문서(설계계획서 v1) 요약 기반 — 매출 $582M/+454%, ARR $3B로만 기재, QoQ 궤적 세부치 미기재",
+      "new_state": "1차 SEC 공시(6-K)로 확정 재확인. ARR이 3월말 $1.9B→6월말 $3.0B로 QoQ +56% 성장한 궤적치 신규 정량 확인(c_...01) — growth_arr 축이 요구하는 'QoQ 궤적' 근거 보강",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260815_NBIS_01"]
+    },
+    {
+      "id": "d_20260815_NBIS_02",
+      "axis": "margin_transition",
+      "direction": "strengthen",
+      "prior_state": "Adj. EBITDA 마진 Q2 41%(연결 기준)만 카드에 기재, 세그먼트 분해 없음",
+      "new_state": "1차 공시로 세그먼트 분해 신규 확인: AI cloud 세그먼트 단독 마진 49.7%(그룹 41%보다 높음) — 핵심사업 수익성 전환이 카드 기재치보다 더 뚜렷함을 확인, 비핵심사업의 마진 희석 구조도 함께 노출",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260815_NBIS_02", "c_20260815_NBIS_14"]
+    },
+    {
+      "id": "d_20260815_NBIS_03a",
+      "axis": "funding_capacity",
+      "direction": "strengthen",
+      "prior_state": "조달 채널을 현금($8B)·고객선불금($9B+)·ATM으로만 파악",
+      "new_state": "2026.7월 최초 자산담보부(asset-backed) 대출 $775M(SOFR+2.50%) 신규 실행 확인 — 고객계약 현금흐름을 담보로 한 비희석성 조달 채널 신규 확보, $40B+ 고객 커밋먼트 기반 추가 조달 계획 명시",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260815_NBIS_04"]
+    },
+    {
+      "id": "d_20260815_NBIS_03b",
+      "axis": "funding_capacity",
+      "direction": "weaken",
+      "prior_state": "ATM 잔여 12.3M주 희석 리스크만 카드에 명시, 전환사채·워런트 규모 미기재",
+      "new_state": "H1 2026 중 전환사채 $4,337.5M + 선지급워런트 $2,000.0M 신규 조달로 비유동부채가 $4,103.2M→$8,499.0M로 급증 확인 — ATM 외 레버리지성 조달 규모가 카드 기재보다 훨씬 큼, 완전희석 밸류에이션 시 필수 반영 사항",
+      "risk_transfer_to": ["equity_dilution_risk(ATM) 일부가 leverage_risk(전환사채·담보부채)로 이전 — 총 조달 리스크가 소멸한 것이 아니라 형태가 변경됨"],
+      "supporting_claims": ["c_20260815_NBIS_05", "c_20260815_NBIS_13"]
+    },
+    {
+      "id": "d_20260815_NBIS_04a",
+      "axis": "capacity_delivery",
+      "direction": "weaken",
+      "prior_state": "연말 5GW 계약전력·late Q4 온라인전환 목표에 대해 부지별 규제 리스크는 카드에 구체 기재 없음",
+      "new_state": "MS $17.4B 계약의 핵심 사이트인 Vineland(NJ) 300MW 부지에서 8/6·8/10 지자체 공사중지명령(LNG탱크·연료전지 무허가 설치) 신규 확인 — 해당 사이트向 인도 일정에 구체적 실행 리스크 신규 발생(stage: 계약이행 단계 리스크, 매출인식 단계 아님)",
+      "risk_transfer_to": ["일반적 '규제/모라토리엄' 매크로 리스크가 Vineland 부지 한정 '인허가 위반' 리스크로 구체화·이전"],
+      "supporting_claims": ["c_20260815_NBIS_11", "c_20260815_NBIS_12"]
+    },
+    {
+      "id": "d_20260815_NBIS_04b",
+      "axis": "capacity_delivery",
+      "direction": "strengthen",
+      "prior_state": "연말 계약전력 목표 4GW+ 수준(직전 분기 안내)",
+      "new_state": "연말 목표 5GW로 재상향 확인, 2027년 연간 1GW+ 배치 계획 명시, 신규 부지(웨일스 Newport, Vantage 콜로케이션, 8/13 발표, 3등급 미확정) 추가 확인, 2차 Meta 계약 용량 2027년초 가동 예정 진행 확인",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260815_NBIS_09", "c_20260815_NBIS_10"]
+    },
+    {
+      "id": "d_20260815_NBIS_05",
+      "axis": "monetization_mix",
+      "direction": "strengthen",
+      "prior_state": "ACV/MW 3단 구조($12M/$20-25M/$40-50M)가 카드에 목표·구조로만 기재, 단기 단($40-50M)의 실제 체결 여부 미확인",
+      "new_state": "P7 분리 확인 — [계약존재] Q2 4대 계약(장기 단 $20-25M/MW) 체결 완료 + Q3 최초 단기 단($40-50M/MW 구간) 계약 1건 체결(c_...08) 확인. [계약이행] 단기계약 용량은 Q4 가동 예정. [매출인식]은 아직 미도래 — 3단 구조 전부가 최초로 실체(체결 사실) 확인되었으나 3단계 중 앞 2단계만 진행",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260815_NBIS_07", "c_20260815_NBIS_08"]
+    },
+    {
+      "id": "d_20260815_NBIS_06",
+      "axis": "customer_concentration",
+      "direction": "neutral",
+      "prior_state": "Meta·MS + 신규 4사로 집중 리스크 인지(카드 risks 항목)",
+      "new_state": "Q2 4대 계약 중 신규 고객군으로 '대형 퀀트트레이딩펀드'(금융서비스 최초 대형고객) 등장 확인 — 업종 다변화 신호이나, 4건 중 2건은 여전히 고객명 비공개이고 대형 계약 소수 집중 구조 자체는 변화 없음. 방향을 강화/훼손 어느 쪽으로도 단정하기보다 중립(다변화 신호 + 집중 구조 유지 병존)으로 평가",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260815_NBIS_07"]
+    }
+  ],
+
+  "new_axis_proposals": [],
+
+  "unconfirmed": [
+    {
+      "item": "Q3 2026 실적 발표일",
+      "reason": "회사 IR 공식 공지 미확인(P5). 애그리게이터 캘린더 라벨은 카드 규칙(F1)상 근거로 사용 불가 — 확정 캘린더 없음.",
+      "next_check": "nebius.com/investor-hub 공식 공지 재확인 필요"
+    },
+    {
+      "item": "2027 공식 가이던스 발표 시점",
+      "reason": "8/12 서한·실적발표에서도 '연내(later this year)'로만 언급, 구체 일자 미확인",
+      "next_check": "차기 실적/IR 공지 확인 필요"
+    },
+    {
+      "item": "Vineland 공사중지명령에 대한 회사 공식 입장(원문)",
+      "reason": "일부 매체가 'Nebius가 Vineland는 on track이라 언급'이라 보도했으나, 해당 발언의 1차 출처(원문 인용·발화자)는 확보하지 못함(P5) — confirmed:false로 claims에는 별도 등재하지 않음",
+      "next_check": "회사 IR/8-K/6-K 후속 공시 또는 실적콜 트랜스크립트 확인 필요"
+    },
+    {
+      "item": "Vantage/Wales 계약의 Nebius 자사 1차 공시(IR·뉴스룸) 원문",
+      "reason": "Vantage Data Centers측 발표와 3차 매체 보도만 확인, Nebius 자체 보도자료 원문 미확보(P5)",
+      "next_check": "nebius.com/newsroom 확인 필요"
+    }
+  ],
+
+  "noise_log": [
+    {"dedup_key": "nbis_earnings_daily_swing_20260812_14", "title": "실적발표 후 일간 급등락(8/12 +28%, 8/13 -13.3%, 8/14 +8~30%, WSB 밈 변동성)", "reason": "noise_filter.yaml#NBIS 명시 노이즈 패턴('실적 후 일간 급등락') — promote_if 미해당"},
+    {"dedup_key": "nbis_da_davidson_pt_cut_20260814", "title": "DA Davidson, Vineland 지연 사유로 목표주가 -30% 하향", "reason": "공통 노이즈 패턴('애널리스트 PT·투자의견 변경 단독') — 근거는 Vineland 사실(c_...11)로 별도 반영, PT 변경 자체는 미승격"},
+    {"dedup_key": "ny_dc_moratorium_2026", "title": "뉴욕주 하이퍼스케일 데이터센터 1년 모라토리엄", "reason": "Nebius 사이트 목록(NJ/MO/OK/AL/MN/PA/Finland/Israel/Iceland/UK/France/Spain/Estonia 등)에 NY 미포함 — company_specific 아닌 sector/macro 스코프로 판단, P17 범위상 본 에이전트가 판정하지 않음"},
+    {"dedup_key": "nbis_stocktitan_regulatory_investigation_vague_20260813", "title": "'규제 조사 우려'식 저품질 애그리게이터 프레이밍", "reason": "구체 사실 미제시 — 실제 확인된 구체 사실은 c_...11(Vineland 공사중지명령)로 대체 기재, 모호한 프레이밍 자체는 미승격"}
+  ]
+}

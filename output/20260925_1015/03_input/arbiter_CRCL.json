@@ -1,0 +1,322 @@
+{
+  "as_of": "2026-09-25",
+  "ticker": "CRCL",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260925_CRCL_7",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20260925_CRCL_8",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260925_CRCL_1",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle이 2026-09-22 제출한 8-K(사건일 2026-09-17, Item 8.01)에 따르면 Circle 자회사와 Binance가 Circle의 Modular Smart Contract Wallet 서비스를 통한 USDC 프로모션 관련 상업적 협력관계를 5년 기간으로 확장·갱신했으며, 이 신규 계약이 2024년 11월·2025년 8월 체결된 기존 계약을 대체·대신한다('supersedes and replaces'). Circle은 Binance에 'USDC 보유액의 일정 비율을 나타내는 월간 인센티브 수수료'를 지급하며, 구체적 요율·산식은 8-K 원문에 공개되지 않았다. 계약은 '특정 사건 발생 시' 조기 해지 조항을 포함하나 해지 트리거 세부 내용은 원문에 명시되지 않았다. 동시에 Binance는 Circle Class A 보통주 1,237,011주를 주당 $80.84에 사모 인수해 총 $1억을 납입했으며(증권법 등록 면제), 종결 후 2년간 처분제한(락업) 대상이나 의결권 등 주주 권리는 보유한다. 직전 2개 run(9/11, 9/19)까지 이 계약은 관측되지 않았던 신규 재료다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000276/crcl-20260917.htm",
+        "filed_at": "2026-09-22",
+        "note": "회사 보도자료 교차 확인(2026-09-22, circle.com/pressroom, grade 1): 'Binance Invests $100 Million in Circle, Expands Strategic Partnership and Renews Commercial Agreement for Five Years'."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260925_CRCL_2",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "SEC EDGAR Form 4(제출 2026-09-24, 거래일 2026-09-22)에 따르면 CFO Jeremy Fox-Geen이 기존 스톡옵션 행사·베스팅으로 Class A 보통주 598주(행사가 $48.45, 옵션 만기 2032-05-04)와 2,155주(행사가 $32.95, 옵션 만기 2033-04-13)를 취득했다(거래코드 M, 정기 베스팅). 거래 후 실질 보유주식 311,044주. 신규 매도 예고나 비정기 대량 처분이 아닌 정기 보상 이행 항목으로, key_metrics '내부자 거래' 모니터링 로그에 등재하되 축 Delta는 생성하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "form_4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000181800826000002/xslF345X06/wk-form4_1790283660.xml",
+        "filed_at": "2026-09-24"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260925_CRCL_3",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle CEO Jeremy Allaire가 2026-09-23 Autonomous Research 'Future of Commerce Symposium'(진행: Ken Suchoski)에서 Arc 메인넷(2026-09-16 출시) 첫 주 실적을 직접 언급했다: '네트워크상 가치가 거의 10억 달러에 근접(approaching $1 billion)', 'USDC로 약 50만 달러의 거래 수수료 발생', '최근 완전희석가치(FDV) 30억 달러', Circle은 Arc의 '25% 지분 보유자(25% stakeholder)'. Allaire는 이를 '출시 시점의 폭발적 반응(burst at the launch)'으로 규정하며 '시간이 지나며 지속되는지 지켜봐야 한다'고 명시해 지속가능성을 스스로 유보했다. 경영진 직접 인용 확인(D15) 후 grade 2 수동 부여.",
+      "evidence_grade": 2,
+      "source": {
+        "type": "executive_direct_quote_conference_transcript",
+        "url": "https://www.investing.com/news/transcripts/circle-at-autonomous-2026-future-of-commerce-symposium-arc-launch-gains-93CH-4914297",
+        "filed_at": "2026-09-23",
+        "note": "investing.com은 sources.yaml 미등재 도메인(default grade 4)이나, 경영진 직접 인용문이 확인돼 규칙에 따라 grade 2로 수동 격상(원문 인용 다수 대조)."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260925_CRCL_4",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "복수 2차 매체(kucoin.com, thedefiant.io — 둘 다 sources.yaml 미등재, default grade 4)에 따르면 Arc 메인넷 출시 첫 주 온체인 지표는 DeFi TVL 약 $348M, 스테이블코인 잔액 약 $630M, 상호작용 주소 253만 개, DEX 거래량 $497M(이 중 Uniswap $479M)으로 집계됐다. 이 수치는 c_20260925_CRCL_3의 Allaire 발언('네트워크 가치 approaching $1B')과 측정 기준(온체인 DeFi TVL vs '네트워크상 가치' 포괄 개념)이 달라 직접 합산·대체 불가하다 — 계열 구분 필요. grade 4·confirmed=false로 삼각검증 전용 적재(P4).",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news_secondary_aggregator",
+        "url": "https://www.kucoin.com/news/flash/circle-stock-rises-as-arc-layer-1-tvl-and-stablecoin-growth-surpass-300m",
+        "filed_at": "2026-09-22",
+        "note": "교차 출처: https://thedefiant.io/converge/blockchains/circle-launches-arc-mainnet-with-blackrock-dtcc-and-visa-producing-blocks (grade 4). DefiLlama(defillama.com/chain/arc, 미등재 도메인) 실시간 대시보드는 직접 판독하지 않음 — 2차 매체의 집계 인용에 의존."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260925_CRCL_5",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "동일 심포지엄(c_20260925_CRCL_3)에서 Allaire는 Visa 데이터를 인용해 '6월 말 기준 USDC가 스테이블코인 거래 유틸리티(transaction utility)의 70%를 차지했고, 그 외 모든 달러 스테이블코인을 합쳐도 0.5% 미만'이라고 발언했다. 【계열 명기 필수】 이는 카드가 정의한 기존 두 계열(①회사 정의 유통량 기준 점유율 Q2'26 27%, ②DefiLlama 등 3자 집계 유통공급 기준 약 24%)과 분모·측정 대상이 전혀 다른 제3의 계열(거래 유틸리티/결제 볼륨 기준, Visa 원자료, 경영진 재인용)이다. 세 계열은 상호 대체 불가하며 혼용 시 점유율 축소 서사가 왜곡된다. 원출처(Visa) 데이터셋 자체는 확인하지 못해 경영진 재인용에 한정된 grade 2로 적재한다.",
+      "evidence_grade": 2,
+      "source": {
+        "type": "executive_direct_quote_conference_transcript",
+        "url": "https://www.investing.com/news/transcripts/circle-at-autonomous-2026-future-of-commerce-symposium-arc-launch-gains-93CH-4914297",
+        "filed_at": "2026-09-23"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260925_CRCL_6",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "EDGAR 전 서식 조회(2026-08-28~2026-09-24) 결과 이번 창에도 Coinbase 분배계약 변경·해지를 다루는 Item 1.01/1.02 8-K는 0건이다. 2026-08-18 자동갱신 예정일 기준 공시 무변화 관측 구간이 약 32일로 연장됐다(직전 run 26일). 무공시는 계약 무변경의 증명이 아니다(P5) — 최종 대조는 Q3 10-Q 계약 주석에서만 가능하다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_submissions_api",
+        "url": "https://data.sec.gov/submissions/CIK0001876042.json",
+        "filed_at": "2026-09-24",
+        "note": "원자료 저장: output/20260925_1015/02_company/_raw_edgar_CRCL.json (25건, 2026-08-28~2026-09-24)."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260925_CRCL_9",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "KC-CRCL-4(인가·감독 조치) 관측: EDGAR 전 서식 조회(2026-08-28~2026-09-24)에서 OCC·NYDFS의 Circle 관련 인가 취소·정지·제재·동의명령을 공시하는 8-K는 0건이며, 병행 웹검색(occ.gov 2026-09월 집행조치 목록 포함)에서도 Circle 관련 신규 감독조치는 포착되지 않았다. 또한 circle.com 프레스룸 조회 결과 2026-09-17~09-25 구간 공지는 Binance 계약(9/22)·CDFI 보조금(9/22) 2건뿐이며 'Q3 2026 실적 발표 예정' 유형의 IR 공지는 이번 창에도 없다 — 카드 earnings_checkpoints.date null 유지가 타당하다(F1, 애그리게이터 추정일 배제).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_submissions_api",
+        "url": "https://data.sec.gov/submissions/CIK0001876042.json",
+        "filed_at": "2026-09-24",
+        "note": "보조 확인: occ.gov/news-issuances/news-releases/2026/nr-occ-2026-79.html (Circle 무관 사안), circle.com/pressroom 직접 열람."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260925_CRCL_10",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "$YLDS 발행사 FIGR(CIK 0002064124) EDGAR 전 서식 조회(2026-09-09~2026-09-24) 결과 이번 창 신규 제출 0건. 2Q26(2026-06-30 마감) $556.033M(QoQ -7.0%)이 여전히 최신 grade 1 관측치이며 변동 없음. 다음 갱신 게이트는 FIGR 3Q26 실적(통상 11월).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_submissions_api",
+        "url": "https://data.sec.gov/submissions/CIK0002064124.json",
+        "filed_at": "2026-09-24",
+        "note": "원자료 저장: output/20260925_1015/02_company/_raw_edgar_FIGR.json(0건). 발행사는 타 종목이나 competition_yield_bearing 축 위험지표 구성 대상으로 취급(기존 run과 동일 관례)."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260925_CRCL_11",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "c_20260925_CRCL_1(Binance 5년 재계약, 월간 인센티브 수수료가 USDC 보유액 비율에 연동)의 구조상, 이는 유통비용(파트너 분배) 비중을 5년간 고정적으로 재확장하는 계약이며 변동 요율은 향후 금리·잔액 성장에 연동될 가능성이 있다. 다만 정확한 요율·산식이 8-K 원문에 비공개라 정량 마진 영향은 산출 불가하다. 2025년 Binance向 유통비용 실측치(약 $152.1M, 2차 매체 grade 4 추정)는 신규 계약과 무관한 과거 수치로 참고용일 뿐 대입 근거로 사용하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "derived_from_primary_8k",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000276/crcl-20260917.htm",
+        "filed_at": "2026-09-22",
+        "note": "근거 Claim: c_20260925_CRCL_1(회사 1차 공시). 요율 비공개로 정량화 불가 — P1 태깅 준수."
+      },
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false
+    }
+  ],
+  "deltas": [
+    {
+      "id": "d_20260925_CRCL_1",
+      "axis": "reserve_income",
+      "direction": "weaken",
+      "stage": "하(약)",
+      "prior_state": "Coinbase 분배계약 무공시 지속(약 26일)으로 유통비용 구조 무변화 잠정 확정. Binance 분배관계는 카드에 별도 관측 이력 없음.",
+      "new_state": "2026-09-17 발효(공시 9/22)된 Binance 5년 재계약이 기존 2024/2025년 계약을 대체하며 USDC 보유액 연동 월간 인센티브 수수료 구조를 5년간 재고정했다(c_20260925_CRCL_1, grade 1). 요율 자체는 비공개라 정량 마진 영향은 산출 불가하나(c_20260925_CRCL_11, inference:medium), 유통비용 항목이 장기 계약으로 재확장된 것은 마진 축에 대한 방향성 있는 관측이다. P7 3단 분리상 이는 신규 계약 체결(1단)이 아니라 기존 운영 관계의 갱신·확장으로 이미 '이행 중'인 항목이며 매출 인식은 항상 발생해온 것이라 3단계 여부 판정은 해당 없음. stage는 요율 비공개로 '하(약)'에 한정.",
+      "risk_transfer_to": [
+        "Q3 10-Q 유통비용(파트너 분배) 비중 공시에서 Binance 연동 수수료 실제 반영 규모",
+        "요율·산식 원문 확보(현재 8-K 비공개)"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRCL_1",
+        "c_20260925_CRCL_11"
+      ]
+    },
+    {
+      "id": "d_20260925_CRCL_2",
+      "axis": "usdc_circulation_scale",
+      "direction": "strengthen",
+      "stage": "하(약)",
+      "prior_state": "발행사 공표 실시간 API 계열 2026-09-19 기준 $74.287B. 분기 공시 계열(회사 정의) Q2'26 분기말 $73.3B +19% YoY가 최신 확정치.",
+      "new_state": "Binance 5년 재계약·$100M 지분투자(c_20260925_CRCL_1)는 카드 diversification·경쟁 축과 별개로 기존 최대 유통 채널 중 하나인 Binance 지갑 내 USDC 프로모션을 장기 고정한 유통 확장 조치다. Allaire는 동일 심포지엄에서 'Binance Wallet·Trust Wallet을 통해 달러 스테이블코인 결제 볼륨의 약 70%가 흐른다'고 언급했다(c_20260925_CRCL_5의 부속 발언, grade 2) — 정량 유통량 증분 자체는 이번 창에 확보되지 않아 stage는 '하(약)'에 한정한다. OUSD·이자부 경쟁 심화 국면에서 기존 채널을 선제 방어·확장하는 성격의 조치로 해석되나 이는 inference이며 회사가 그렇게 명시하지 않았다.",
+      "risk_transfer_to": [
+        "Q3 분기말·30일 평잔 공시에서 Binance 채널 기여분 분해 가능 여부(현재 채널별 분해 데이터 없음)",
+        "KC-CRCL-1 측정 기준(분기말·평잔) 대조는 여전히 Q3 실적 공시에서만 가능"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRCL_1",
+        "c_20260925_CRCL_5"
+      ]
+    },
+    {
+      "id": "d_20260925_CRCL_3",
+      "axis": "diversification",
+      "direction": "strengthen",
+      "stage": "하(약)",
+      "prior_state": "직전 run(9/19): Arc 메인넷 2026-09-16 출시(회사 보도자료) — 매출 인식 전, ARC 체인 USDC $624.435M 최초 관측.",
+      "new_state": "출시 후 첫 성과 지표가 최초로 확보됐다. CEO Allaire 직접 발언(c_20260925_CRCL_3, grade 2): 네트워크 가치 '거의 $1B에 근접', 거래수수료 약 $50만(USDC 기준), FDV $3B, Circle 지분 25%. 2차 매체 교차 수치(c_20260925_CRCL_4, grade 4·confirmed=false)는 DeFi TVL $348M·스테이블코인 $630M·주소 253만·DEX 거래량 $497M로 측정 기준이 달라 직접 합산 불가하다. Allaire 본인이 '출시 시점의 폭발적 반응'이라 규정하며 지속가능성을 유보했으므로 P7상 여전히 '이행 개시' 단계이고, 보도자료·발언 어디에도 매출·수수료의 회사 재무제표 반영 수치는 없어 매출 인식(3단계)은 미확정이다.",
+      "risk_transfer_to": [
+        "Arc 지표의 지속성(런칭 버스트 vs 안정화 추세) — Allaire 본인이 명시한 불확실성",
+        "Q3 실적에서 Arc 관련 매출·수수료 인식 여부 및 비이자 매출 비중 변화"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRCL_3",
+        "c_20260925_CRCL_4"
+      ]
+    },
+    {
+      "id": "d_20260925_CRCL_4",
+      "axis": "usdc_market_share",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "회사 정의 계열 Q2'26 27%(-1%p QoQ). 3자 집계(DefiLlama 등) 약 24%(grade 4). 두 계열은 분모 정의가 달라 직접 비교 불가.",
+      "new_state": "Allaire가 Visa 데이터를 인용해 제시한 '거래 유틸리티 70%'(c_20260925_CRCL_5)는 기존 두 계열과 전혀 다른 제3의 측정 계열(결제 볼륨/유틸리티 기준)이다. 단일 경영진 재인용치이고 원 데이터셋 미확인이라 이번 run에서 축을 움직이는 근거로 채택하지 않으며, 카드가 이 계열의 취급 기준(채택 여부·분모 정의)을 아직 규정하지 않아 축 매핑을 임의로 확정하지 않는다(P8 취지에 따라 신규 계열 발견으로만 기록, 임의 편입 금지). 회사 정의·3자 집계 두 계열 모두 이번 창 신규 관측치 없음 — neutral 유지.",
+      "risk_transfer_to": [
+        "신규 제3계열(거래 유틸리티 기준) 채택 여부에 대한 카드 소유 계층 판단"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRCL_5"
+      ]
+    },
+    {
+      "id": "d_20260925_CRCL_6",
+      "axis": "regulation_company_licensing",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "OCC·NYDFS 기존 인가(2026-07) 이후 신규 인가·조치 관측 없음.",
+      "new_state": "이번 창에도 신규 인가 취득·감독조치 어느 쪽도 관측되지 않았다(c_20260925_CRCL_9). 관측 0건으로만 기록하며 부재를 조치 부존재의 증명으로 취급하지 않는다(P5).",
+      "risk_transfer_to": [
+        "OCC·NYDFS 감독보고서·제재 공표"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRCL_9"
+      ]
+    },
+    {
+      "id": "d_20260925_CRCL_7",
+      "axis": "competition_yield_bearing",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "$YLDS 2Q26 $556.033M(QoQ -7.0%), CLARITY 이자조항 문언 미확정.",
+      "new_state": "$YLDS 신규 공시 없음(c_20260925_CRCL_10) — 2Q26 수치 유지. CLARITY 재표결 지연(d_20260925_CRCL_5)으로 이자조항 문언 확정도 함께 지연돼 위협의 활성화·소멸 어느 쪽도 확정 신호가 아니다.",
+      "risk_transfer_to": [
+        "FIGR 3Q26 공시(통상 11월)",
+        "CLARITY 이자조항 문언 확정 경로"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRCL_10"
+      ]
+    },
+    {
+      "id": "d_20260925_CRCL_8",
+      "axis": "reserve_income",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "Coinbase 분배계약 무공시 지속(약 26일).",
+      "new_state": "이번 창에도 Coinbase 관련 Item 1.01/1.02 8-K는 0건으로 무공시 구간이 약 32일로 연장됐다(c_20260925_CRCL_6) — 기존 잠정 확정 상태에 변화 없음. GENIUS §3 NPRM 마감(10/19)도 무변화(c_20260925_CRCL_8, sector scope).",
+      "risk_transfer_to": [
+        "Q3 10-Q 계약 주석의 Coinbase 분배조건 원문 대조(통상 11월)"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRCL_6"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "Binance 월간 인센티브 수수료의 정확한 요율·산식",
+      "detail": "8-K 원문은 'USDC 보유액의 일정 비율'이라고만 서술하고 구체 요율·산식을 공개하지 않았다. 2차 매체(grade 4)가 인용한 과거(2024년 계약) 요율 구조나 2025년 실측 비용(약 $152.1M)은 신규 계약과 별개 수치로 대입 근거로 쓰지 않는다.",
+      "reason": "not_disclosed_in_primary_source"
+    },
+    {
+      "topic": "Arc 메인넷 지표의 지속가능성",
+      "detail": "Allaire 본인이 '출시 시점 버스트'로 규정하고 지속 여부를 유보했다. 2주 차 이후 추세는 이번 창에 확인되지 않았다.",
+      "reason": "event_may_be_pending"
+    },
+    {
+      "topic": "CLARITY Act 레임덕 세션 재표결 일정",
+      "detail": "재의동의는 제출됐으나 2026-09-25 현재 신규 표결 일정 미확정. 1차 자료(senate.gov) 접근은 누적 403 차단으로 이번 창도 재시도하지 않았다.",
+      "reason": "access_blocked_and_event_pending"
+    },
+    {
+      "topic": "OUSD 공식 출시일·실측 유통량",
+      "detail": "이번 창 웹검색에서도 공식 출시·토큰 컨트랙트·순환공급 수치는 포착되지 않았다. noise_filter.yaml#CRCL 승격 요건 미충족으로 비승격 유지 — 5 run 연속 상태 진전 없음. 부재는 위협 소멸의 반증이 아니다(P5).",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "Coinbase 분배계약 조건 원문의 1차 자료 기반 최종 확인",
+      "detail": "8-K 부재가 약 32일로 연장됐으나 계약 조건 자체의 원문 대조는 아니다. 최종 확인 게이트는 Q3 10-Q(통상 11월).",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "Q3'26 실적 발표일 공식 IR 공지",
+      "detail": "circle.com 프레스룸에 'Circle to Announce Q3 2026 Financial Results on...' 유형 공지가 이번 창에도 없다. 카드 earnings_checkpoints.date는 null 유지가 타당하다(F1).",
+      "reason": "no_official_ir_notice"
+    },
+    {
+      "topic": "GENIUS Act §3 NPRM에 대한 Circle 의견서 제출 여부",
+      "detail": "의견 마감 2026-10-19은 유지되나 regulations.gov 도켓의 제출자 목록은 이번 창에도 확인하지 않았다.",
+      "reason": "not_checked_this_run"
+    },
+    {
+      "topic": "신규 제3계열(Visa 거래 유틸리티 기준) USDC 점유율의 카드 채택 여부",
+      "detail": "Allaire가 인용한 '70%'는 기존 두 계열과 분모가 달라 직접 대입 불가. 카드가 이 계열을 공식 관측 대상으로 채택할지는 사람 판단 영역이다(ThesisPatch 후보로만 표기).",
+      "reason": "requires_human_decision"
+    },
+    {
+      "topic": "KC-CRCL-4 관련 감독당국 비공개 조치",
+      "detail": "8-K·웹검색 모두 관측 0건이나, 비공개 감독서한·MOU 등은 8-K 의무 대상이 아닐 수 있어 부존재 증명이 아니다(P5).",
+      "reason": "absence_is_not_disproof"
+    }
+  ]
+}

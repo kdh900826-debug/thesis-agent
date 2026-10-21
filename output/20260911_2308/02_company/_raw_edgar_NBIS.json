@@ -1,0 +1,16 @@
+{
+  "ticker": "NBIS",
+  "cik": "0001513845",
+  "items": [
+    {
+      "id": "edgar_2026-09-08_6-K_0",
+      "form": "6-K",
+      "filed_at": "2026-09-08",
+      "title": "FORM 6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926105749/tm2624958d1_6k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

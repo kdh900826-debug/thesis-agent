@@ -1,0 +1,2982 @@
+{
+ "_comment": "미국 데이터센터 Top 90 주간 모니터링 원장. 규칙은 .claude/skills/dc-top90/SKILL.md. 원 목록 = 한국투자증권 2026-07-03 산업 Indepth(Top 90 원문) + 2026-07-07 건설 동향 #1(단계 분류). 리포트 원문은 고객 한정 배포물 — 이 원장·페이지는 로컬 전용, 외부 게시 금지.",
+ "updated_at": "2026-10-20",
+ "checked_through": null,
+ "baseline_date": "2026-07-07",
+ "stages": {
+  "0": "가동 시작(일부라도)",
+  "1": "착공 후 공사 중",
+  "2": "인허가 통과·착공 임박",
+  "3": "발표·인허가 진행",
+  "X": "진행 불확실(정보 없음·자금/인허가 불확실)",
+  "C": "중단·취소 공식화"
+ },
+ "report_aggregates": [
+  {
+   "date": "2026-07-07",
+   "src": "한국투자증권 건설 동향 #1 <표 1>",
+   "gw": {
+    "1": 89.3,
+    "2": 30.4,
+    "3": 80.0,
+    "X": 5.5
+   },
+   "n": {
+    "1": 34,
+    "2": 15,
+    "3": 36,
+    "X": 5
+   },
+   "total_gw": 205.2
+  },
+  {
+   "date": "2026-08-19",
+   "src": "한국투자증권 건설 동향 #5 [그림 1] (막대 값 판독 — 프로젝트별 내역 미공개)",
+   "gw": {
+    "1": 89.9,
+    "2": 23.1,
+    "3": 48.6,
+    "X": 43.5
+   },
+   "n": null,
+   "total_gw": 205.1,
+   "note": "텍사스 감사(8/3) 이후 '불확실'이 5.5→43.5GW로 늘어난 것으로 읽힘(해석). 리포트 본문: 착공 프로젝트(90GW)는 계획대로 진행, 텍사스 불확실성 확대."
+  }
+ ],
+ "report_notes": [
+  {
+   "date": "2026-07-07",
+   "text": "7/7 단계표 '불확실' 5건 합계 5.5GW는 7/3 원문 용량 합(7.6GW)과도, 단계표 자체 용량 합(12.5GW)과도 맞지 않음 — 리포트 내부 불일치. 원장은 7/3 원문 용량을 쓴다."
+  },
+  {
+   "date": "2026-07-20",
+   "text": "뉴욕 1년 환경허가 신규 승인 중단 → Top 90 중 4.7GW 영향(리포트). = p21 St. Lawrence 2.8 + p72 Treetop 1.0 + p85 Arsenal 0.9 (NY 3건, 계산)."
+  },
+  {
+   "date": "2026-08-19",
+   "text": "Top 90 중 텍사스 23건·61.3GW(리포트)."
+  }
+ ],
+ "policies": [],
+ "events": [],
+ "week_titles": {},
+ "projects": [
+  {
+   "id": "p01",
+   "no": 1,
+   "name": "Delta Gigasite - Expansion",
+   "developer": "Creekstone Energy",
+   "state": "UT",
+   "gw": 9.7,
+   "mw_0707": 9700,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 12월 착공"
+    }
+   ],
+   "base_note_0703": "2025년 12월 착공",
+   "base_note_0707": "2025년 12월 착공",
+   "status": "2025년 12월 착공",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Delta Gigasite",
+    "Millard County"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p02",
+   "no": 2,
+   "name": "PORTS Technology Campus - Phase 2",
+   "developer": "SB Energy",
+   "state": "OH",
+   "gw": 9.2,
+   "mw_0707": 9200,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 3월 20일 착공"
+    }
+   ],
+   "base_note_0703": "2026년 3월 착공",
+   "base_note_0707": "2026년 3월 20일 착공",
+   "status": "2026년 3월 20일 착공",
+   "holds": [],
+   "tickers": [
+    "SFTBY"
+   ],
+   "aliases": [
+    "PORTS",
+    "Piketon"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p03",
+   "no": 3,
+   "name": "GW Ranch",
+   "developer": "Pacifico Energy",
+   "state": "TX",
+   "gw": 7.7,
+   "mw_0707": 7650,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 2월 착공(부지정지 작업 진행 중)"
+    }
+   ],
+   "base_note_0703": "2026년 착공(부지 작업 중)",
+   "base_note_0707": "2026년 2월 착공(부지정지 작업 진행 중)",
+   "status": "2026년 2월 착공(부지정지 작업 진행 중)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "GW Ranch",
+    "Pecos County"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p04",
+   "no": 4,
+   "name": "Nexus Hubbard - Expansion",
+   "developer": "Nexus Data Centers",
+   "state": "TX",
+   "gw": 7.2,
+   "mw_0707": 7200,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년말 착공"
+    }
+   ],
+   "base_note_0703": "2025년 착공",
+   "base_note_0707": "2025년말 착공",
+   "status": "2025년말 착공",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Nexus Hubbard"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p05",
+   "no": 5,
+   "name": "New Era Lea Data Center",
+   "developer": "New Era Energy",
+   "state": "NM",
+   "gw": 7.0,
+   "mw_0707": 7000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년말 토지 옵션 계약)"
+    }
+   ],
+   "base_note_0703": "2025년 11월 토지 계약",
+   "base_note_0707": "2025년말 토지 옵션 계약)",
+   "status": "2025년말 토지 옵션 계약)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p06",
+   "no": 6,
+   "name": "Monarch Compute Campus - Phase 2",
+   "developer": "Nscale",
+   "state": "WV",
+   "gw": 6.0,
+   "mw_0707": 6000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "부지정지 작업 진행 중"
+    }
+   ],
+   "base_note_0703": "2026년 착공(부지 작업중)",
+   "base_note_0707": "부지정지 작업 진행 중",
+   "status": "부지정지 작업 진행 중",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Monarch Compute Campus",
+    "Mason County"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p07",
+   "no": 7,
+   "name": "Wonder Valley (Stratos Project) - Phase 2 (Expansion)",
+   "developer": "O'Leary Digital",
+   "state": "UT",
+   "gw": 6.0,
+   "mw_0707": 6000,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 5월 카운티 승인(착공 전, 환경심사 잔존)"
+    }
+   ],
+   "base_note_0703": "2026년 5월 승인(착공 전)",
+   "base_note_0707": "2026년 5월 카운티 승인(착공 전, 환경심사 잔존)",
+   "status": "2026년 5월 카운티 승인(착공 전, 환경심사 잔존)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Wonder Valley",
+    "Stratos"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p08",
+   "no": 8,
+   "name": "Fermi (Gas - Project Matador)",
+   "developer": "Fermi America",
+   "state": "TX",
+   "gw": 6.0,
+   "mw_0707": 6000,
+   "power": "BTM",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 착공(현재 전력인프라 설치 진행)"
+    }
+   ],
+   "base_note_0703": "2025년 착공",
+   "base_note_0707": "2025년 착공(현재 전력인프라 설치 진행)",
+   "status": "2025년 착공(현재 전력인프라 설치 진행)",
+   "holds": [],
+   "tickers": [
+    "FRMI"
+   ],
+   "aliases": [
+    "Project Matador",
+    "HyperGrid",
+    "Amarillo"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p09",
+   "no": 9,
+   "name": "Fermi (Gas - Project Matador East)",
+   "developer": "Fermi America",
+   "state": "TX",
+   "gw": 5.0,
+   "mw_0707": 5000,
+   "power": "BTM",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "인허가 진행",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [
+    "FRMI"
+   ],
+   "aliases": [
+    "Project Matador"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p10",
+   "no": 10,
+   "name": "Data City - Expansion",
+   "developer": "Energy Abundance Development",
+   "state": "TX",
+   "gw": 4.7,
+   "mw_0707": 4700,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 내 착공 목표(건설 자금 확보 못함)"
+    }
+   ],
+   "base_note_0703": "프로젝트 파이낸싱 진행 중",
+   "base_note_0707": "2026년 내 착공 목표(건설 자금 확보 못함)",
+   "status": "2026년 내 착공 목표(건설 자금 확보 못함)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p11",
+   "no": 11,
+   "name": "Homer City Energy Campus",
+   "developer": "Homer City Redevelopment",
+   "state": "PA",
+   "gw": 4.5,
+   "mw_0707": 4500,
+   "power": "BTM",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 11월 착공"
+    }
+   ],
+   "base_note_0703": "2025년 11월 착공",
+   "base_note_0707": "2025년 11월 착공",
+   "status": "2025년 11월 착공",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Homer City"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p12",
+   "no": 12,
+   "name": "High Performance Compute Data Center Campus",
+   "developer": "Joule Capital Partners",
+   "state": "UT",
+   "gw": 4.0,
+   "mw_0707": 4000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 11월 공사 시작"
+    }
+   ],
+   "base_note_0703": "2025년 11월 기공식",
+   "base_note_0707": "2025년 11월 공사 시작",
+   "status": "2025년 11월 공사 시작",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p13",
+   "no": 13,
+   "name": "DCIP DeSoto County AI Data Center",
+   "developer": "DCIP Group",
+   "state": "FL",
+   "gw": 4.0,
+   "mw_0707": 4000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "부지 사용 승인 예비 단계"
+    }
+   ],
+   "base_note_0703": "토지 인허가 완료(착공 전)",
+   "base_note_0707": "부지 사용 승인 예비 단계",
+   "status": "부지 사용 승인 예비 단계",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p14",
+   "no": 14,
+   "name": "Tract Caldwell Valley",
+   "developer": "Tract",
+   "state": "TX",
+   "gw": 4.0,
+   "mw_0707": 4000,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "부지 인허가 완료(pre-construction)"
+    }
+   ],
+   "base_note_0703": "부지 인허가 완료(착공 전)",
+   "base_note_0707": "부지 인허가 완료(pre-construction)",
+   "status": "부지 인허가 완료(pre-construction)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p15",
+   "no": 15,
+   "name": "Aligned Shippingport Data Center",
+   "developer": "Aligned",
+   "state": "PA",
+   "gw": 3.6,
+   "mw_0707": 3600,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 착공 목표로 인허가 진행)"
+    }
+   ],
+   "base_note_0703": "미착공(인허가 진행 중)",
+   "base_note_0707": "2026년 착공 목표로 인허가 진행)",
+   "status": "2026년 착공 목표로 인허가 진행)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p16",
+   "no": 16,
+   "name": "Sailfish Comanche Circle",
+   "developer": "Sailfish Digital Ventures",
+   "state": "TX",
+   "gw": 3.2,
+   "mw_0707": 3200,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "프로젝트 추진 위한 제안 단계(자금, 수요)"
+    }
+   ],
+   "base_note_0703": "제안 단계(자금/수요 미정)",
+   "base_note_0707": "프로젝트 추진 위한 제안 단계(자금, 수요)",
+   "status": "프로젝트 추진 위한 제안 단계(자금, 수요)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p17",
+   "no": 17,
+   "name": "Vermaland La Osa Data Center Campus",
+   "developer": "Vermaland",
+   "state": "AZ",
+   "gw": 3.0,
+   "mw_0707": 3000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2027-2038년 착공 목표. 초기 대비 규모 축소"
+    }
+   ],
+   "base_note_0703": "미착공",
+   "base_note_0707": "2027-2038년 착공 목표. 초기 대비 규모 축소",
+   "status": "2027-2038년 착공 목표. 초기 대비 규모 축소",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p18",
+   "no": 18,
+   "name": "Hyperion - Phase 2",
+   "developer": "Meta",
+   "state": "LA",
+   "gw": 3.0,
+   "mw_0707": 3000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "부지 확장·인허가 진행 중"
+    }
+   ],
+   "base_note_0703": "부지 확장·인허가 진행",
+   "base_note_0707": "부지 확장·인허가 진행 중",
+   "status": "부지 확장·인허가 진행 중",
+   "holds": [],
+   "tickers": [
+    "META"
+   ],
+   "aliases": [
+    "Hyperion",
+    "Richland Parish"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p19",
+   "no": 19,
+   "name": "Wonder Valley (Stratos Project) - Phase 1",
+   "developer": "O'Leary Digital",
+   "state": "UT",
+   "gw": 3.0,
+   "mw_0707": 3000,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 5월 카운티 승인(착공 전, 환경심사 잔존)"
+    }
+   ],
+   "base_note_0703": "착공 전(환경심사 필요)",
+   "base_note_0707": "2026년 5월 카운티 승인(착공 전, 환경심사 잔존)",
+   "status": "2026년 5월 카운티 승인(착공 전, 환경심사 잔존)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Wonder Valley",
+    "Stratos"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p20",
+   "no": 20,
+   "name": "Gainseville Data Center",
+   "developer": "Microsoft",
+   "state": "VA",
+   "gw": 3.0,
+   "mw_0707": 2982,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "토지 매입 진행"
+    }
+   ],
+   "base_note_0703": "토지 인허가 진행(착공 전)",
+   "base_note_0707": "토지 매입 진행",
+   "status": "토지 매입 진행",
+   "holds": [],
+   "tickers": [
+    "MSFT"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p21",
+   "no": 21,
+   "name": "St. Lawrence Infrastructure Data Center",
+   "developer": "St. Lawrence Infrastructure LLC",
+   "state": "NY",
+   "gw": 2.8,
+   "mw_0707": null,
+   "power": "Grid",
+   "stage_base": "X",
+   "stage": "X",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "X",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "프로젝트 발표 후 진행 상황 파악 불가"
+    }
+   ],
+   "base_note_0703": "미착공",
+   "base_note_0707": "프로젝트 발표 후 진행 상황 파악 불가",
+   "status": "프로젝트 발표 후 진행 상황 파악 불가",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": [
+    "7/7 단계표에는 NM·2,000MW로 적힘 — 7/3 원문(NY·2.8GW)과 7/20 '뉴욕 영향 4.7GW' 합계에 맞춰 원문 값 사용"
+   ]
+  },
+  {
+   "id": "p22",
+   "no": 22,
+   "name": "Project Jade",
+   "developer": "Crusoe",
+   "state": "WY",
+   "gw": 2.7,
+   "mw_0707": 2700,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 내 카운티 승인 후 착공 목표"
+    }
+   ],
+   "base_note_0703": "2026년 1분기 착공 목표 지연",
+   "base_note_0707": "2026년 내 카운티 승인 후 착공 목표",
+   "status": "2026년 내 카운티 승인 후 착공 목표",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p23",
+   "no": 23,
+   "name": "Microsoft Pecos Data Center",
+   "developer": "Microsoft",
+   "state": "TX",
+   "gw": 2.6,
+   "mw_0707": 2595,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "Chevron의 최종 투자 결정 지연(2026년말 예정)"
+    }
+   ],
+   "base_note_0703": "착공 전(2026년 말 예정)",
+   "base_note_0707": "Chevron의 최종 투자 결정 지연(2026년말 예정)",
+   "status": "Chevron의 최종 투자 결정 지연(2026년말 예정)",
+   "holds": [],
+   "tickers": [
+    "MSFT"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p24",
+   "no": 24,
+   "name": "Tract Virginia Highlands",
+   "developer": "Tract",
+   "state": "NV",
+   "gw": 2.5,
+   "mw_0707": 2500,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "토지 확보 및 계획 단계"
+    }
+   ],
+   "base_note_0703": "토지 확보와 프로젝트 계획 중",
+   "base_note_0707": "토지 확보 및 계획 단계",
+   "status": "토지 확보 및 계획 단계",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p25",
+   "no": 25,
+   "name": "Carlyle Fort Bliss Data Center",
+   "developer": "Carlyle Group",
+   "state": "TX",
+   "gw": 2.5,
+   "mw_0707": 2500,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "조건부 토지 선정 및 협상"
+    }
+   ],
+   "base_note_0703": "투자 조건 협상 중",
+   "base_note_0707": "조건부 토지 선정 및 협상",
+   "status": "조건부 토지 선정 및 협상",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p26",
+   "no": 26,
+   "name": "Tract Hanover",
+   "developer": "Tract",
+   "state": "VA",
+   "gw": 2.4,
+   "mw_0707": 2400,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2024년 부지 사용 허가 취득했으나 착공 지연"
+    }
+   ],
+   "base_note_0703": "2027년 완료 목표",
+   "base_note_0707": "2024년 부지 사용 허가 취득했으나 착공 지연",
+   "status": "2024년 부지 사용 허가 취득했으나 착공 지연",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p27",
+   "no": 27,
+   "name": "AWS Hobart",
+   "developer": "Amazon",
+   "state": "IN",
+   "gw": 2.4,
+   "mw_0707": 2400,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "발표 단계(세부 계획 미정)"
+    }
+   ],
+   "base_note_0703": "발표 단계(착공 시기 미정)",
+   "base_note_0707": "발표 단계(세부 계획 미정)",
+   "status": "발표 단계(세부 계획 미정)",
+   "holds": [],
+   "tickers": [
+    "AMZN"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p28",
+   "no": 28,
+   "name": "Stargate - Project Jupiter",
+   "developer": "Stack Infrastructure",
+   "state": "NM",
+   "gw": 2.2,
+   "mw_0707": 2210,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "착공(기초공사 진행중)"
+    }
+   ],
+   "base_note_0703": "기초 공사 진행",
+   "base_note_0707": "착공(기초공사 진행중)",
+   "status": "착공(기초공사 진행중)",
+   "holds": [],
+   "tickers": [
+    "ORCL"
+   ],
+   "aliases": [
+    "Project Jupiter",
+    "Dona Ana County"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p29",
+   "no": 29,
+   "name": "George Washington Village Data Center",
+   "developer": "Garrett Development Corporation",
+   "state": "VA",
+   "gw": 2.1,
+   "mw_0707": 2100,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "토지 용도 변경 심의"
+    }
+   ],
+   "base_note_0703": "미착공(토지 용도 변경 심의)",
+   "base_note_0707": "토지 용도 변경 심의",
+   "status": "토지 용도 변경 심의",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p30",
+   "no": 30,
+   "name": "Eneus Energy Cameron Data Center",
+   "developer": "Eneus Energy",
+   "state": "TX",
+   "gw": 2.0,
+   "mw_0707": 2000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "발표 단계(세부 계획 미정)"
+    }
+   ],
+   "base_note_0703": "제안 단계(자금/수요 미정)",
+   "base_note_0707": "발표 단계(세부 계획 미정)",
+   "status": "발표 단계(세부 계획 미정)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p31",
+   "no": 31,
+   "name": "Google Southeast Nebraska Data Center",
+   "developer": "Google",
+   "state": "NE",
+   "gw": 2.0,
+   "mw_0707": 2000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "토지 매입 진행"
+    }
+   ],
+   "base_note_0703": "제안 단계(자금/수요 미정)",
+   "base_note_0707": "토지 매입 진행",
+   "status": "토지 매입 진행",
+   "holds": [],
+   "tickers": [
+    "GOOGL"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p32",
+   "no": 32,
+   "name": "Monarch Compute Campus - Phase 1",
+   "developer": "Nscale",
+   "state": "WV",
+   "gw": 2.0,
+   "mw_0707": 2000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 4월 부지 정지 작업 시작"
+    }
+   ],
+   "base_note_0703": "2026년 4월 부지정지 개시",
+   "base_note_0707": "2026년 4월 부지 정지 작업 시작",
+   "status": "2026년 4월 부지 정지 작업 시작",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Monarch Compute Campus"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p33",
+   "no": 33,
+   "name": "Hyperion - Phase 1",
+   "developer": "Meta",
+   "state": "LA",
+   "gw": 2.0,
+   "mw_0707": 2000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2024년 말 착공(2026년초 본격화)"
+    }
+   ],
+   "base_note_0703": "2026년 1분기 본격 건설",
+   "base_note_0707": "2024년 말 착공(2026년초 본격화)",
+   "status": "2024년 말 착공(2026년초 본격화)",
+   "holds": [],
+   "tickers": [
+    "META"
+   ],
+   "aliases": [
+    "Hyperion",
+    "Richland Parish"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p34",
+   "no": 34,
+   "name": "Green Data Centers - Socorro",
+   "developer": "Green Data Centers",
+   "state": "NM",
+   "gw": 2.0,
+   "mw_0707": 2000,
+   "power": "Grid",
+   "stage_base": "X",
+   "stage": "X",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "X",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 6월 프로젝트 추진 중단"
+    }
+   ],
+   "base_note_0703": "사업 추진 여부 불확실",
+   "base_note_0707": "2026년 6월 프로젝트 추진 중단",
+   "status": "2026년 6월 프로젝트 추진 중단",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p35",
+   "no": 35,
+   "name": "Tract Buckeye",
+   "developer": "Tract",
+   "state": "AZ",
+   "gw": 1.8,
+   "mw_0707": 1800,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "부지 사용 허가 취득했으나 착공 지연"
+    }
+   ],
+   "base_note_0703": "부지 사용 허가 승인",
+   "base_note_0707": "부지 사용 허가 취득했으나 착공 지연",
+   "status": "부지 사용 허가 취득했으나 착공 지연",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p36",
+   "no": 36,
+   "name": "Project Cardinal Data Center",
+   "developer": "Pioneer Development",
+   "state": "IL",
+   "gw": 1.8,
+   "mw_0707": 1800,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "예비 승인 취득 후 건설 관련 소송 진행"
+    }
+   ],
+   "base_note_0703": "미착공(소송 중)",
+   "base_note_0707": "예비 승인 취득 후 건설 관련 소송 진행",
+   "status": "예비 승인 취득 후 건설 관련 소송 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p37",
+   "no": 37,
+   "name": "Joliet Technology Center",
+   "developer": "PowerHouse",
+   "state": "IL",
+   "gw": 1.8,
+   "mw_0707": 1800,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "인허가 단계",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p38",
+   "no": 38,
+   "name": "Provident Data Center Texas",
+   "developer": "Provident Data Centers",
+   "state": "TX",
+   "gw": 1.8,
+   "mw_0707": 1800,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 2분기 착공"
+    }
+   ],
+   "base_note_0703": "2025년 2분기 착공",
+   "base_note_0707": "2025년 2분기 착공",
+   "status": "2025년 2분기 착공",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p39",
+   "no": 39,
+   "name": "Tract Pole Canyon",
+   "developer": "Tract",
+   "state": "UT",
+   "gw": 1.7,
+   "mw_0707": 1700,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "인허가/계획 단계",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p40",
+   "no": 40,
+   "name": "Fundamental Ridgeline Data Center",
+   "developer": "Fundamental Data LLC",
+   "state": "WV",
+   "gw": 1.7,
+   "mw_0707": 1656,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "대기배출 허가 취득했으나 분쟁 지속"
+    }
+   ],
+   "base_note_0703": "미착공(소송 중)",
+   "base_note_0707": "대기배출 허가 취득했으나 분쟁 지속",
+   "status": "대기배출 허가 취득했으나 분쟁 지속",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p41",
+   "no": 41,
+   "name": "IREN Project Emerald",
+   "developer": "IREN",
+   "state": "OK",
+   "gw": 1.6,
+   "mw_0707": 1600,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2027년 착공 목표(현재 인허가 진행 단계)"
+    }
+   ],
+   "base_note_0703": "2027년 착공 목표(인허가 중)",
+   "base_note_0707": "2027년 착공 목표(현재 인허가 진행 단계)",
+   "status": "2027년 착공 목표(현재 인허가 진행 단계)",
+   "holds": [],
+   "tickers": [
+    "IREN"
+   ],
+   "aliases": [
+    "IREN Oklahoma"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p42",
+   "no": 42,
+   "name": "Colossus 2",
+   "developer": "xAI",
+   "state": "TN",
+   "gw": 1.6,
+   "mw_0707": 1563,
+   "power": "BTM",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년부터 공사 진행 중"
+    }
+   ],
+   "base_note_0703": "공사 진행(2025년 중)",
+   "base_note_0707": "2025년부터 공사 진행 중",
+   "status": "2025년부터 공사 진행 중",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Colossus 2",
+    "Memphis"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p43",
+   "no": 43,
+   "name": "Casper Data Center",
+   "developer": "Prometheus Hyperscale",
+   "state": "WY",
+   "gw": 1.5,
+   "mw_0707": 1500,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "미착공(인허가 진행)",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p44",
+   "no": 44,
+   "name": "Hassayampa Ranch Data Center",
+   "developer": "Arizona Land Consulting",
+   "state": "AZ",
+   "gw": 1.5,
+   "mw_0707": 1500,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "미착공(2026년말 토지 용도 변경 승인)"
+    }
+   ],
+   "base_note_0703": "미착공(토지 용도 변경 승인)",
+   "base_note_0707": "미착공(2026년말 토지 용도 변경 승인)",
+   "status": "미착공(2026년말 토지 용도 변경 승인)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p45",
+   "no": 45,
+   "name": "Gouldsboro Data Center",
+   "developer": "1778 Rich Pike LLC",
+   "state": "PA",
+   "gw": 1.5,
+   "mw_0707": 1500,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "토지 사용 관련 소송 계류"
+    }
+   ],
+   "base_note_0703": "미착공",
+   "base_note_0707": "토지 사용 관련 소송 계류",
+   "status": "토지 사용 관련 소송 계류",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p46",
+   "no": 46,
+   "name": "Antelope Data Center",
+   "developer": "Pronghorn Development LLP",
+   "state": "UT",
+   "gw": 1.5,
+   "mw_0707": 1500,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "미착공(2026년 6월 조건부 토지 사용허가 취특)"
+    }
+   ],
+   "base_note_0703": "미착공(인허가 단계)",
+   "base_note_0707": "미착공(2026년 6월 조건부 토지 사용허가 취특)",
+   "status": "미착공(2026년 6월 조건부 토지 사용허가 취특)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p47",
+   "no": 47,
+   "name": "Crusoe Victoria Data Center",
+   "developer": "Crusoe",
+   "state": "TX",
+   "gw": 1.5,
+   "mw_0707": 1500,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "발표 단계(세부 계획 미정)"
+    }
+   ],
+   "base_note_0703": "발표 및 계획 단계",
+   "base_note_0707": "발표 단계(세부 계획 미정)",
+   "status": "발표 단계(세부 계획 미정)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p48",
+   "no": 48,
+   "name": "Project Horizon Phase 2",
+   "developer": "Poolside",
+   "state": "TX",
+   "gw": 1.5,
+   "mw_0707": 1500,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "발표 단계(세부 계획 미정)"
+    }
+   ],
+   "base_note_0703": "2025년 10월 발표 후 미착공",
+   "base_note_0707": "발표 단계(세부 계획 미정)",
+   "status": "발표 단계(세부 계획 미정)",
+   "holds": [],
+   "tickers": [
+    "CRWV"
+   ],
+   "aliases": [
+    "Project Horizon",
+    "Poolside",
+    "Pecos County"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p49",
+   "no": 49,
+   "name": "Takanock Goshen Data Center",
+   "developer": "Takanock",
+   "state": "IN",
+   "gw": 1.5,
+   "mw_0707": 1500,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "미착공(인허가 진행)",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p50",
+   "no": 50,
+   "name": "Stargate - Frontier",
+   "developer": "Vantage Data Centers",
+   "state": "TX",
+   "gw": 1.4,
+   "mw_0707": 1400,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년말 착공(기초·지붕공사 진행)"
+    }
+   ],
+   "base_note_0703": "2025년말 착공",
+   "base_note_0707": "2025년말 착공(기초·지붕공사 진행)",
+   "status": "2025년말 착공(기초·지붕공사 진행)",
+   "holds": [],
+   "tickers": [
+    "ORCL"
+   ],
+   "aliases": [
+    "Stargate Frontier",
+    "Shackelford County"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p51",
+   "no": 51,
+   "name": "Stargate - Michigan Data Center",
+   "developer": "Related Digital",
+   "state": "MI",
+   "gw": 1.4,
+   "mw_0707": 1400,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "착공(기초공사 진행)"
+    }
+   ],
+   "base_note_0703": "착공(기초공사 진행)",
+   "base_note_0707": "착공(기초공사 진행)",
+   "status": "착공(기초공사 진행)",
+   "holds": [],
+   "tickers": [
+    "ORCL"
+   ],
+   "aliases": [
+    "Stargate Michigan",
+    "Saline Township"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p52",
+   "no": 52,
+   "name": "IREN Sweetwater 1",
+   "developer": "IREN",
+   "state": "TX",
+   "gw": 1.4,
+   "mw_0707": 1400,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 4월 전력 공급 완료 후 추가 작업"
+    }
+   ],
+   "base_note_0703": "2026년 6월 전력 공급 시작",
+   "base_note_0707": "2026년 4월 전력 공급 완료 후 추가 작업",
+   "status": "2026년 4월 전력 공급 완료 후 추가 작업",
+   "holds": [],
+   "tickers": [
+    "IREN"
+   ],
+   "aliases": [
+    "IREN Sweetwater",
+    "Nolan County"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p53",
+   "no": 53,
+   "name": "PAX – Pennsylvania Digital I",
+   "developer": "PowerHouse",
+   "state": "PA",
+   "gw": 1.4,
+   "mw_0707": 1350,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "발표 단계(세부 계획 미정)"
+    }
+   ],
+   "base_note_0703": "발표 및 계획 단계",
+   "base_note_0707": "발표 단계(세부 계획 미정)",
+   "status": "발표 단계(세부 계획 미정)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p54",
+   "no": 54,
+   "name": "Spring Valley Technology Park",
+   "developer": "Active Infrastructure",
+   "state": "VA",
+   "gw": 1.3,
+   "mw_0707": 1300,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "토지 사용 관련 인허가"
+    }
+   ],
+   "base_note_0703": "미착공(2024년 10월 승인 신청)",
+   "base_note_0707": "토지 사용 관련 인허가",
+   "status": "토지 사용 관련 인허가",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p55",
+   "no": 55,
+   "name": "PowerHouse Grand Prairie - Phase 2",
+   "developer": "PowerHouse",
+   "state": "TX",
+   "gw": 1.3,
+   "mw_0707": 1300,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "Phase 1 완공 후 후속 작업 진행(동일 부지)"
+    }
+   ],
+   "base_note_0703": "착공",
+   "base_note_0707": "Phase 1 완공 후 후속 작업 진행(동일 부지)",
+   "status": "Phase 1 완공 후 후속 작업 진행(동일 부지)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p56",
+   "no": 56,
+   "name": "Project Arrowhead",
+   "developer": "Premier Data Center Development",
+   "state": "GA",
+   "gw": 1.3,
+   "mw_0707": 1250,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "미착공(2026.4.10 DRI 신청, 2026.5.14 광역심의 완료)"
+    }
+   ],
+   "base_note_0703": "미착공(2026년 5월 심의 완료)",
+   "base_note_0707": "미착공(2026.4.10 DRI 신청, 2026.5.14 광역심의 완료)",
+   "status": "미착공(2026.4.10 DRI 신청, 2026.5.14 광역심의 완료)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p57",
+   "no": 57,
+   "name": "Zenith Volts Roswell Data Center",
+   "developer": "Zenith Volts",
+   "state": "NM",
+   "gw": 1.3,
+   "mw_0707": 1250,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년말 태양광+BESS 공사 발표 후 지연"
+    }
+   ],
+   "base_note_0703": "1단계(태양광/BESS배터리) 착공",
+   "base_note_0707": "2025년말 태양광+BESS 공사 발표 후 지연",
+   "status": "2025년말 태양광+BESS 공사 발표 후 지연",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p58",
+   "no": 58,
+   "name": "Tract South Valley",
+   "developer": "Tract",
+   "state": "NV",
+   "gw": 1.2,
+   "mw_0707": 1215,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "발표 및 계획 단계",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p59",
+   "no": 59,
+   "name": "Bilateral Energy Knox Ranch Data Center",
+   "developer": "Bilateral Energy LLC",
+   "state": "TX",
+   "gw": 1.2,
+   "mw_0707": 1200,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "토지 사용 관련 소송 계류"
+    }
+   ],
+   "base_note_0703": "미착공(소송 중)",
+   "base_note_0707": "토지 사용 관련 소송 계류",
+   "status": "토지 사용 관련 소송 계류",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p60",
+   "no": 60,
+   "name": "Oasis Dahlgren West Data Center",
+   "developer": "Oasis Digital Properties",
+   "state": "VA",
+   "gw": 1.2,
+   "mw_0707": 1200,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "미착공(인허가 및 전력 계통 연계 협의 중)"
+    }
+   ],
+   "base_note_0703": "미착공(용도변경/계통연계 협의)",
+   "base_note_0707": "미착공(인허가 및 전력 계통 연계 협의 중)",
+   "status": "미착공(인허가 및 전력 계통 연계 협의 중)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p61",
+   "no": 61,
+   "name": "Project Zodiac - Phase 2",
+   "developer": "Google",
+   "state": "IN",
+   "gw": 1.2,
+   "mw_0707": 1200,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년말 착공. 일부 설비 가동"
+    }
+   ],
+   "base_note_0703": "착공 및 일부 가동",
+   "base_note_0707": "2025년말 착공. 일부 설비 가동",
+   "status": "2025년말 착공. 일부 설비 가동",
+   "holds": [],
+   "tickers": [
+    "GOOGL"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p62",
+   "no": 62,
+   "name": "Nebius Independence Campus",
+   "developer": "Nebius",
+   "state": "MO",
+   "gw": 1.2,
+   "mw_0707": 1200,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 5월 착공"
+    }
+   ],
+   "base_note_0703": "2026년 5월 착공",
+   "base_note_0707": "2026년 5월 착공",
+   "status": "2026년 5월 착공",
+   "holds": [],
+   "tickers": [
+    "NBIS"
+   ],
+   "aliases": [
+    "Nebius Independence",
+    "Independence Missouri"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p63",
+   "no": 63,
+   "name": "CloudBurst San Marcos Data Center",
+   "developer": "CloudBurst",
+   "state": "TX",
+   "gw": 1.2,
+   "mw_0707": 1200,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 11월"
+    }
+   ],
+   "base_note_0703": "2025년 11월 기공",
+   "base_note_0707": "2025년 11월",
+   "status": "2025년 11월",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p64",
+   "no": 64,
+   "name": "MSB Matrix Data Center Phase 2",
+   "developer": "MSB Global Services",
+   "state": "TX",
+   "gw": 1.2,
+   "mw_0707": 1200,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 1분기 착공"
+    }
+   ],
+   "base_note_0703": "2025년초 착공",
+   "base_note_0707": "2025년 1분기 착공",
+   "status": "2025년 1분기 착공",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p65",
+   "no": 65,
+   "name": "Google Monrovia Data Center",
+   "developer": "Google",
+   "state": "IN",
+   "gw": 1.2,
+   "mw_0707": 1200,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 1분기 기초 부지 및 ·유틸리티 공사 착수"
+    }
+   ],
+   "base_note_0703": "2026년 2월 유틸리티 공사 착수",
+   "base_note_0707": "2026년 1분기 기초 부지 및 ·유틸리티 공사 착수",
+   "status": "2026년 1분기 기초 부지 및 ·유틸리티 공사 착수",
+   "holds": [],
+   "tickers": [
+    "GOOGL"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p66",
+   "no": 66,
+   "name": "EdgeCore Shannon Hill Campus",
+   "developer": "EdgeCore",
+   "state": "VA",
+   "gw": 1.1,
+   "mw_0707": 1100,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "미착공(인허가 및 초기 부지작업 단계)"
+    }
+   ],
+   "base_note_0703": "미착공(인허가)",
+   "base_note_0707": "미착공(인허가 및 초기 부지작업 단계)",
+   "status": "미착공(인허가 및 초기 부지작업 단계)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p67",
+   "no": 67,
+   "name": "Stack Infrastructure Stafford Campus",
+   "developer": "Stack Infrastructure",
+   "state": "VA",
+   "gw": 1.1,
+   "mw_0707": 1100,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 착공(공사 진행)"
+    }
+   ],
+   "base_note_0703": "2025년 착공(공사 진행)",
+   "base_note_0707": "2025년 착공(공사 진행)",
+   "status": "2025년 착공(공사 진행)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p68",
+   "no": 68,
+   "name": "QTS Richmond RIC4 (10 buildings)",
+   "developer": "QTS",
+   "state": "VA",
+   "gw": 1.1,
+   "mw_0707": 1085,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "초기 부지작업 착수(개발계획 승인 완료)"
+    }
+   ],
+   "base_note_0703": "초기 부지 작업 (인허가 완료)",
+   "base_note_0707": "초기 부지작업 착수(개발계획 승인 완료)",
+   "status": "초기 부지작업 착수(개발계획 승인 완료)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p69",
+   "no": 69,
+   "name": "AWS Ridgeland",
+   "developer": "Amazon",
+   "state": "MS",
+   "gw": 1.1,
+   "mw_0707": 1056,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 초기 단계의 공사 진행"
+    }
+   ],
+   "base_note_0703": "초기 공사 단계(2026)",
+   "base_note_0707": "2026년 초기 단계의 공사 진행",
+   "status": "2026년 초기 단계의 공사 진행",
+   "holds": [],
+   "tickers": [
+    "AMZN"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p70",
+   "no": 70,
+   "name": "Goodnight Campus",
+   "developer": "Crusoe",
+   "state": "TX",
+   "gw": 1.0,
+   "mw_0707": 1030,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2024년말 착공"
+    }
+   ],
+   "base_note_0703": "착공(2024년말 승인 후 진행)",
+   "base_note_0707": "2024년말 착공",
+   "status": "2024년말 착공",
+   "holds": [],
+   "tickers": [],
+   "aliases": [
+    "Crusoe Goodnight"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p71",
+   "no": 71,
+   "name": "Chesapeake Data",
+   "developer": "TeraWulf",
+   "state": "MD",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "미착공(발전소 인수 FERC 심사)",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [
+    "WULF"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p72",
+   "no": 72,
+   "name": "Treetop Development Data Center",
+   "developer": "Donovan Drive Holdings LLC",
+   "state": "NY",
+   "gw": 1.0,
+   "mw_0707": null,
+   "power": "Grid",
+   "stage_base": "X",
+   "stage": "X",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "X",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "프로젝트 발표 후 진행 상황 파악 불가"
+    }
+   ],
+   "base_note_0703": "미착공(전력망 연결 대기 단계)",
+   "base_note_0707": "프로젝트 발표 후 진행 상황 파악 불가",
+   "status": "프로젝트 발표 후 진행 상황 파악 불가",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": [
+    "7/7 단계표에는 FL·4,000MW로 적힘 — 7/3 원문(NY·1.0GW) 사용"
+   ]
+  },
+  {
+   "id": "p73",
+   "no": 73,
+   "name": "Huntley Page Data Center",
+   "developer": "Huntley LLC",
+   "state": "AZ",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "미착공(토지 용도 변경 인허가)",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p74",
+   "no": 74,
+   "name": "Tract Morris Data Center",
+   "developer": "Tract",
+   "state": "IL",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "제안 및 인허가 단계",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p75",
+   "no": 75,
+   "name": "Tract Altoona",
+   "developer": "Tract",
+   "state": "IA",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "인허가 및 계획 단계",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p76",
+   "no": 76,
+   "name": "Peterson Stafford Data Center",
+   "developer": "Stack Infrastructure",
+   "state": "VA",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 착공(공사 진행)"
+    }
+   ],
+   "base_note_0703": "2025년 착공(공사 진행)",
+   "base_note_0707": "2025년 착공(공사 진행)",
+   "status": "2025년 착공(공사 진행)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p77",
+   "no": 77,
+   "name": "Meta El Paso Data Center",
+   "developer": "Meta",
+   "state": "TX",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 10월 착공"
+    }
+   ],
+   "base_note_0703": "2025년 10월 착공",
+   "base_note_0707": "2025년 10월 착공",
+   "status": "2025년 10월 착공",
+   "holds": [],
+   "tickers": [
+    "META"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p78",
+   "no": 78,
+   "name": "Stak Energy Campus",
+   "developer": "Stak Energy",
+   "state": "AK",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 여름 착공 예정"
+    }
+   ],
+   "base_note_0703": "2026년 하반기 착공 예정",
+   "base_note_0707": "2026년 여름 착공 예정",
+   "status": "2026년 여름 착공 예정",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p79",
+   "no": 79,
+   "name": "Microsoft Granger Data Center",
+   "developer": "Microsoft",
+   "state": "IN",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 2분기 착공 예정이었으나 지연"
+    }
+   ],
+   "base_note_0703": "2026년 2분기 착공 예정",
+   "base_note_0707": "2026년 2분기 착공 예정이었으나 지연",
+   "status": "2026년 2분기 착공 예정이었으나 지연",
+   "holds": [],
+   "tickers": [
+    "MSFT"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p80",
+   "no": 80,
+   "name": "Lebanon Data Center",
+   "developer": "Meta",
+   "state": "IN",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 2월 공사 시작"
+    }
+   ],
+   "base_note_0703": "2026년 2월 기공",
+   "base_note_0707": "2026년 2월 공사 시작",
+   "status": "2026년 2월 공사 시작",
+   "holds": [],
+   "tickers": [
+    "META"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p81",
+   "no": 81,
+   "name": "Project Cannoli",
+   "developer": "Google",
+   "state": "MI",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "인허가 진행"
+    }
+   ],
+   "base_note_0703": "인허가 및 규제 심사 중",
+   "base_note_0707": "인허가 진행",
+   "status": "인허가 진행",
+   "holds": [],
+   "tickers": [
+    "GOOGL"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p82",
+   "no": 82,
+   "name": "CyrusOne Dugway Proving Ground",
+   "developer": "CyrusOne",
+   "state": "UT",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "3",
+   "stage": "3",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "3",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "발표 단계(세부 계획 미정)"
+    }
+   ],
+   "base_note_0703": "프로젝트 추진 조건 협상 중",
+   "base_note_0707": "발표 단계(세부 계획 미정)",
+   "status": "발표 단계(세부 계획 미정)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p83",
+   "no": 83,
+   "name": "InfraKey Lacy Lakeview Data Center",
+   "developer": "InfraKey Capital",
+   "state": "TX",
+   "gw": 1.0,
+   "mw_0707": 1000,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "미착공(2025년말 시의회 승인)"
+    }
+   ],
+   "base_note_0703": "미착공",
+   "base_note_0707": "미착공(2025년말 시의회 승인)",
+   "status": "미착공(2025년말 시의회 승인)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p84",
+   "no": 84,
+   "name": "AWS Susquehanna Data Center",
+   "developer": "Amazon",
+   "state": "PA",
+   "gw": 1.0,
+   "mw_0707": 960,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 상반기 현재 공사 진행"
+    }
+   ],
+   "base_note_0703": "토지 개발 및 공사 진행 추진",
+   "base_note_0707": "2026년 상반기 현재 공사 진행",
+   "status": "2026년 상반기 현재 공사 진행",
+   "holds": [],
+   "tickers": [
+    "AMZN"
+   ],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p85",
+   "no": 85,
+   "name": "Arsenal Data Site",
+   "developer": "Arconic Corporation",
+   "state": "NY",
+   "gw": 0.9,
+   "mw_0707": null,
+   "power": "Grid",
+   "stage_base": "X",
+   "stage": "X",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "X",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "프로젝트 발표 후 진행 상황 파악 불가"
+    }
+   ],
+   "base_note_0703": "미착공(전력망 연결 대기 단계)",
+   "base_note_0707": "프로젝트 발표 후 진행 상황 파악 불가",
+   "status": "프로젝트 발표 후 진행 상황 파악 불가",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": [
+    "7/7 단계표에는 PA·3,600MW로 적힘 — 7/3 원문(NY·0.9GW) 사용"
+   ]
+  },
+  {
+   "id": "p86",
+   "no": 86,
+   "name": "Robena Data Center",
+   "developer": "Electric Power of Pittsburgh",
+   "state": "PA",
+   "gw": 0.9,
+   "mw_0707": 910,
+   "power": "Grid",
+   "stage_base": "2",
+   "stage": "2",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "2",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "미착공(2025년말 발전소 부지개발 예비 승인)"
+    }
+   ],
+   "base_note_0703": "미착공(발전소 부지 승인 진행)",
+   "base_note_0707": "미착공(2025년말 발전소 부지개발 예비 승인)",
+   "status": "미착공(2025년말 발전소 부지개발 예비 승인)",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p87",
+   "no": 87,
+   "name": "Stargate - Lighthouse",
+   "developer": "Vantage Data Centers",
+   "state": "WI",
+   "gw": 0.9,
+   "mw_0707": 902,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년 기초 공사 진행"
+    }
+   ],
+   "base_note_0703": "2025년 12월 기공",
+   "base_note_0707": "2025년 기초 공사 진행",
+   "status": "2025년 기초 공사 진행",
+   "holds": [],
+   "tickers": [
+    "ORCL"
+   ],
+   "aliases": [
+    "Lighthouse",
+    "Port Washington"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p88",
+   "no": 88,
+   "name": "CleanArc VA1 Campus",
+   "developer": "CleanArc Data Centers",
+   "state": "VA",
+   "gw": 0.9,
+   "mw_0707": 900,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2025년말 착공"
+    }
+   ],
+   "base_note_0703": "착공",
+   "base_note_0707": "2025년말 착공",
+   "status": "2025년말 착공",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p89",
+   "no": 89,
+   "name": "Crusoe Abilene Microsoft AI Factory",
+   "developer": "Crusoe",
+   "state": "TX",
+   "gw": 0.9,
+   "mw_0707": 900,
+   "power": "Grid",
+   "stage_base": "1",
+   "stage": "1",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "1",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 4분기 부지정지 진행 중"
+    }
+   ],
+   "base_note_0703": "2026년 착공(부지 작업 중)",
+   "base_note_0707": "2026년 4분기 부지정지 진행 중",
+   "status": "2026년 4분기 부지정지 진행 중",
+   "holds": [],
+   "tickers": [
+    "MSFT"
+   ],
+   "aliases": [
+    "Crusoe Abilene"
+   ],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  },
+  {
+   "id": "p90",
+   "no": 90,
+   "name": "Mountain Road Technology Park",
+   "developer": "Tract",
+   "state": "VA",
+   "gw": 0.9,
+   "mw_0707": 900,
+   "power": "Grid",
+   "stage_base": "X",
+   "stage": "X",
+   "stage_asof": "2026-07-07",
+   "stage_history": [
+    {
+     "date": "2026-07-07",
+     "stage": "X",
+     "src": "한국투자증권 7/7 단계 분류",
+     "note": "2026년 6월 프로젝트 추진 중단"
+    }
+   ],
+   "base_note_0703": "사업 추진 여부 불확실",
+   "base_note_0707": "2026년 6월 프로젝트 추진 중단",
+   "status": "2026년 6월 프로젝트 추진 중단",
+   "holds": [],
+   "tickers": [],
+   "aliases": [],
+   "followup": null,
+   "last_checked": null,
+   "events": [],
+   "data_issues": []
+  }
+ ]
+}

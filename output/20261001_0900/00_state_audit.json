@@ -1,0 +1,60 @@
+{
+  "as_of": "2026-10-01",
+  "run_id": "20261001_0900",
+  "command": "run full",
+  "pending_approvals": [],
+  "expired_now": [],
+  "config_errors": [],
+  "config_warnings": [],
+  "latest_run": "20260925_1015",
+  "artifacts": {
+    "macro_kc": {
+      "exists": true,
+      "path": "output\\20260925_1015\\01_macro_kc.json",
+      "age": 6,
+      "unit": "calendar_days",
+      "limit": 5,
+      "stale": true
+    },
+    "correlation": {
+      "exists": true,
+      "path": "output\\20260925_1015\\05_correlation.json",
+      "age": 6,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": false
+    },
+    "positions": {
+      "age": 12,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": false
+    }
+  },
+  "user_injected_sources": [
+    {
+      "path": "output/20261001_0900/00_user_sources/korea_us_energy_investment_20260930.json",
+      "event": "韓 대미 에너지 투자 발표(2026-09-30 백악관) — Encinal TX 6,472MW AI DC용 가스발전 $22.3B 확정, 원전 8기·알래스카 LNG 미확정",
+      "grade": 3,
+      "distributed_to": [
+        "L2 x7 (읽기 허용 추가 — 사용자 지정 외부 뉴스)"
+      ],
+      "not_distributed_to": [
+        "L1 (매크로 KC 지표 아님)",
+        "signal-arbiter (필터본 경유만)",
+        "L3/L4 (구조화 산출물 경유만, P17)"
+      ]
+    }
+  ],
+  "run_plan_note": "run full: L1·L2×7 병렬 → filter_arbiter_input + make_kc_excerpt → arbiter×7 → consensus_aggregate×3 → L3×3 → correlation_map → L4(+thesis-refine) → dashboard. macro_kc stale(6일>5일) → 재실행. lookback --since 2026-09-24.",
+  "run_log": [
+    "L1·L2×7 병렬 완료(전건 validate PASS)",
+    "make_kc_excerpt.py 결함 발견·수정(종목 전용 KC 임계 필드 전 종목 누락) — 백업 make_kc_excerpt_backup_20261001.py, 회귀테스트 tests/validators/test_kc_excerpt_thresholds.py, pytest 32 PASS",
+    "결함 발췌로 판정된 arbiter 5건(CRWV·NBIS·HOOD·COIN·CRCL) 재실행 — 1차본 03_signal/_superseded_excerpt_defect/ 보존, 등급 후보 불변. 결함 발췌본 03_kc_excerpt/_superseded_defect/ 보존",
+    "L3 neocloud는 NBIS·CRWV arbiter 재실행 전 1차본을 읽음 — 재실행본 등급 후보·kill 판정 동일로 재실행 불요 판정",
+    "L3 memory·stablecoin 1차 시도 API 사용량 한도로 중단 — memory.json은 완결본 기록 확인(validate PASS) 후 재사용, stablecoin 재실행",
+    "L4 1차 시도 API 주간 한도로 산출물 0건 중단 — L4a(05/06)·L4b(07 thesis-refine) 분할 재실행, 전건 validate PASS",
+    "ThesisPatch 12건 승인 큐 등재(ap_20261002_*), 큐 백업 state/pending_approvals_backup_20261001_0900.json",
+    "dashboard.html·ticker_report.html 생성"
+  ]
+}

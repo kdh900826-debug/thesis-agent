@@ -1,0 +1,158 @@
+{
+  "_comment": "현행 시그널 등급 + 전이 이력. 등급 확정은 사람만 한다. 초기값은 투자_Thesis_Map_v32_20260814.md에서 승계 (NBIS·CRWV는 신규 커버리지 — 🟡 관망 초기화).",
+  "as_of": "2026-10-03",
+  "as_of_note": "2026-10-03 사용자 확정 — IREN·NBIS·CRWV·MU 🔴🔴(KC-1). 직전 as_of 2026-09-05. 백업 state/signals_backup_20261003_pre_kc1_confirm.json",
+  "initialized_from": "투자_Thesis_Map_v32_20260814.md",
+  "grades": {
+    "IREN": {
+      "signal": "🔴🔴",
+      "label": "Kill 우선 — KC-1 매크로(FFR>3.75) 확정",
+      "since": "2026-10-03",
+      "next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 ② FY27 Q1 10-Q(2026-11월경) ASC842 매출 최초 인식액·가동 ARR·과금 가동률 ③ SB6/PUCT 커테일먼트 적용 MW 공시(기한 2026-12-31) ④ BC Hydro Call for Demand 결과",
+      "next_gate_note": "2026-10-03 사용자 확정(run 20261001_0900 근거). 이전 값은 transitions[].previous_state에 보존(P9).",
+      "as_of": "2026-10-03",
+      "trigger_source": [
+        "KC-1"
+      ]
+    },
+    "NBIS": {
+      "signal": "🔴🔴",
+      "label": "Kill 우선 — KC-1 매크로(FFR>3.75) 확정",
+      "since": "2026-10-03",
+      "next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 ② on-demand 가격 실과금 전환 재조회 ③ AIB 50MW 계약 금액·가동 시점(6-K) ④ 2027 가이던스",
+      "next_gate_note": "2026-10-03 사용자 확정(run 20261001_0900 근거). 이전 값은 transitions[].previous_state에 보존(P9).",
+      "as_of": "2026-10-03",
+      "trigger_source": [
+        "KC-1"
+      ]
+    },
+    "CRWV": {
+      "signal": "🔴🔴",
+      "label": "Kill 우선 — KC-1 매크로(FFR>3.75) 확정",
+      "since": "2026-10-03",
+      "next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 ② Q3'26 10-Q 이자커버리지(Adj. EBITDA ÷ Interest expense, net, 분기 연환산 — KC-CRWV-3 경고 1.5x/발동 1.0x) ③ FCF 흑자 전환",
+      "next_gate_note": "2026-10-03 사용자 확정(run 20261001_0900 근거). 이전 값은 transitions[].previous_state에 보존(P9).",
+      "as_of": "2026-10-03",
+      "trigger_source": [
+        "KC-1"
+      ]
+    },
+    "MU": {
+      "signal": "🔴🔴",
+      "label": "Kill 우선 — KC-1 매크로(FFR>3.75) 확정 (펀더멘털 경로도 🔴 하향 후보: Netlist HBM 2차 ITC)",
+      "since": "2026-10-03",
+      "next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 ② FQ1-27 실적(2026-12월경, 가이던스 $61.5B±1.5B 대비 비트/ASP 분해) ③ Netlist HBM 2차 ITC 제소 institution 여부·337-TA-1523 ALJ/target date ④ 대만 노조 파업투표",
+      "next_gate_note": "2026-10-03 사용자 확정(run 20261001_0900 근거). 이전 값은 transitions[].previous_state에 보존(P9).",
+      "as_of": "2026-10-03",
+      "trigger_source": [
+        "KC-1"
+      ]
+    },
+    "CRCL": {
+      "signal": "🔴",
+      "label": "비중 조절 검토 (OUSD 위협)",
+      "since": "2026-08-14",
+      "next_gate": "Q3'26 실적(유통량 QoQ 부호·회사 정의 점유율·Reserve Income 지속성) + Q3 10-Q 계약 주석으로 분배계약 조건 불변 최종 확인(11월경)",
+      "next_gate_note": "2026-09-05 사용자 승인 정정(run 20260905_0618) — 앞단 '8/18 분배계약 자동 갱신 확인(8-K 유무)'은 관측 완료: 제출기한(~8/24) 경과 후 9/5까지 12일간 양사 8-K 0건(grade 1), '변경 없는 자동 갱신(공시의무 부재)' 잠정 결론 격상. 최종 확인은 Q3 10-Q 주석으로 이관. 직전 정정 이력(2026-08-15 run 20260815_2228): '8/18 Q2' 게이트는 Q2 8/5 기발표로 소멸(F1). 등급은 변경하지 않음(확정 권한 사람).",
+      "as_of": "2026-09-05"
+    },
+    "COIN": {
+      "signal": "🟠",
+      "label": "주의 (Q2 매출 miss)",
+      "since": "2026-08-14",
+      "next_gate": "구독·서비스 비중 방향 + USDC 수익 절대액"
+    },
+    "HOOD": {
+      "signal": "🟡",
+      "label": "관망 (Q2 전면 beat)",
+      "since": "2026-08-14",
+      "next_gate": "AUA 순유입·mix 지속성"
+    }
+  },
+  "transitions": [
+    {
+      "ticker": "IREN",
+      "from": "🟡",
+      "to": "🔴🔴",
+      "decided_on": "2026-10-03",
+      "decided_by": "user (사람 확정)",
+      "first_candidate_run": "20260919_2209",
+      "confirmed_on_run": "20261001_0900",
+      "trigger_source": [
+        "KC-1"
+      ],
+      "basis": "KC-1(FFR 인상 리스크: FFR > 3.75) met & confirmed — FRED DFEDTARU 4.00(2026-09-16 FOMC 25bp 인상, 3.75~4.00%), run 20260919_2209·20260925_1015·20261001_0900 3회 연속 🔴🔴 후보(arbiter 규칙1 Kill 우선, RATES 축 불리 노출 경로). 종목 전용 KC 훼손 0건 — 매크로 전이 단일 경로.",
+      "consequence_ref": "KC-1 consequence(config 원문): '레버리지 전액 해제 + Edge/Next 50% 축소 검토' — 검토 의무이며 실행 지시 아님(P15). 포지션 행동은 사람.",
+      "previous_state": {
+        "signal": "🟡",
+        "label": "관망 (상향 대기)",
+        "since": "2026-08-14",
+        "next_gate": "FY27 Q1 10-Q (2026-11월경, 정확일 미공시) — ASC842 리스 매출 최초 인식 금액(상향 게이트 ⑪ 관측점)·가동 ARR $1.0B→$4.0B 진척·과금 가동률(이월)"
+      },
+      "note": "🔴🔴 결정 기록 경로 부재(승인 큐는 thesis_patch/version_publish만 수용) — 사용자 채팅 지시로 signals.json에 직접 기록. 해소 조건: KC-1 not_met(FFR ≤ 3.75) 관측 시 등급 재판정은 다시 사람."
+    },
+    {
+      "ticker": "NBIS",
+      "from": "🟡",
+      "to": "🔴🔴",
+      "decided_on": "2026-10-03",
+      "decided_by": "user (사람 확정)",
+      "first_candidate_run": "20260919_2209",
+      "confirmed_on_run": "20261001_0900",
+      "trigger_source": [
+        "KC-1"
+      ],
+      "basis": "KC-1(FFR 인상 리스크: FFR > 3.75) met & confirmed — FRED DFEDTARU 4.00(2026-09-16 FOMC 25bp 인상, 3.75~4.00%), run 20260919_2209·20260925_1015·20261001_0900 3회 연속 🔴🔴 후보(arbiter 규칙1 Kill 우선, RATES 축 불리 노출 경로). 종목 전용 KC 훼손 0건 — 매크로 전이 단일 경로.",
+      "consequence_ref": "KC-1 consequence(config 원문): '레버리지 전액 해제 + Edge/Next 50% 축소 검토' — 검토 의무이며 실행 지시 아님(P15). 포지션 행동은 사람.",
+      "previous_state": {
+        "signal": "🟡",
+        "label": "관망 (신규 커버리지 초기화)",
+        "since": "2026-08-15",
+        "next_gate": "멀티플 조정 또는 2027 가이던스 확정"
+      },
+      "note": "🔴🔴 결정 기록 경로 부재(승인 큐는 thesis_patch/version_publish만 수용) — 사용자 채팅 지시로 signals.json에 직접 기록. 해소 조건: KC-1 not_met(FFR ≤ 3.75) 관측 시 등급 재판정은 다시 사람."
+    },
+    {
+      "ticker": "CRWV",
+      "from": "🟡",
+      "to": "🔴🔴",
+      "decided_on": "2026-10-03",
+      "decided_by": "user (사람 확정)",
+      "first_candidate_run": "20260919_2209",
+      "confirmed_on_run": "20261001_0900",
+      "trigger_source": [
+        "KC-1"
+      ],
+      "basis": "KC-1(FFR 인상 리스크: FFR > 3.75) met & confirmed — FRED DFEDTARU 4.00(2026-09-16 FOMC 25bp 인상, 3.75~4.00%), run 20260919_2209·20260925_1015·20261001_0900 3회 연속 🔴🔴 후보(arbiter 규칙1 Kill 우선, RATES 축 불리 노출 경로). 종목 전용 KC 훼손 0건 — 매크로 전이 단일 경로.",
+      "consequence_ref": "KC-1 consequence(config 원문): '레버리지 전액 해제 + Edge/Next 50% 축소 검토' — 검토 의무이며 실행 지시 아님(P15). 포지션 행동은 사람.",
+      "previous_state": {
+        "signal": "🟡",
+        "label": "관망 (신규 커버리지 초기화, Q2 수치 재대조 대기)",
+        "since": "2026-08-15",
+        "next_gate": "FCF 흑자 전환 + 이자 커버리지 3x + 금리 경로 확정 동시 충족"
+      },
+      "note": "🔴🔴 결정 기록 경로 부재(승인 큐는 thesis_patch/version_publish만 수용) — 사용자 채팅 지시로 signals.json에 직접 기록. 해소 조건: KC-1 not_met(FFR ≤ 3.75) 관측 시 등급 재판정은 다시 사람."
+    },
+    {
+      "ticker": "MU",
+      "from": "🟠",
+      "to": "🔴🔴",
+      "decided_on": "2026-10-03",
+      "decided_by": "user (사람 확정)",
+      "first_candidate_run": "20260919_2209",
+      "confirmed_on_run": "20261001_0900",
+      "trigger_source": [
+        "KC-1"
+      ],
+      "basis": "KC-1(FFR 인상 리스크: FFR > 3.75) met & confirmed — FRED DFEDTARU 4.00(2026-09-16 FOMC 25bp 인상, 3.75~4.00%), run 20260919_2209·20260925_1015·20261001_0900 3회 연속 🔴🔴 후보(arbiter 규칙1 Kill 우선, RATES 축 불리 노출 경로). 종목 전용 KC 훼손 0건 — 매크로 전이 단일 경로.",
+      "consequence_ref": "KC-1 consequence(config 원문): '레버리지 전액 해제 + Edge/Next 50% 축소 검토' — 검토 의무이며 실행 지시 아님(P15). 포지션 행동은 사람.",
+      "previous_state": {
+        "signal": "🟠",
+        "label": "주의 (피크 역설 구간)",
+        "since": "2026-08-14",
+        "next_gate": "9/30 Q4 FY26 실적 — 비트그로스 vs ASP 분해·선수금 방향 (회사 공식 확정일, 2026-08-26 보도자료 grade 1)"
+      },
+      "note": "🔴🔴 결정 기록 경로 부재(승인 큐는 thesis_patch/version_publish만 수용) — 사용자 채팅 지시로 signals.json에 직접 기록. 해소 조건: KC-1 not_met(FFR ≤ 3.75) 관측 시 등급 재판정은 다시 사람."
+    }
+  ]
+}

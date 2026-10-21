@@ -1,0 +1,105 @@
+{
+  "as_of": "2026-09-12",
+  "run_id": "20260911_2308",
+  "ticker": "NBIS",
+  "input_source": "output/20260911_2308/03_input/arbiter_NBIS.json",
+  "prior_signal": "🟡",
+  "prior_label": "관망 (신규 커버리지 초기화)",
+  "prior_since": "2026-08-15",
+  "prior_next_gate": "멀티플 조정 또는 2027 가이던스 확정",
+  "proposed_signal": "🟡",
+  "transition_candidate": "유지 (변경 없음) — 등급 확정은 사람이 한다",
+  "candidate_disclaimer": "본 판정은 후보(candidate)이며 최종 등급 확정 권한은 사람에게 있다(v1 §9-2, CLAUDE.md §9). signal-arbiter는 격리 컨텍스트에서 필터본·state/signals.json·KC 발췌만 근거로 판정했다.",
+  "claims": [
+    {
+      "id": "c_20260911_NBIS_1",
+      "claim_type": "fact",
+      "evidence_grade": 1,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "source_type": "6-K Ex-99.1 (파트너십 보도자료)",
+      "filed_at": "2026-09-08",
+      "summary": "Nebius-Palantir 전략적 제휴 발표: Palantir가 Nebius를 'preferred sovereign AI infrastructure partner'로 지정, 자사 상업 고객에게 Nebius 컴퓨팅 접근을 제공하는 채널형 파트너십. 6-K 원문에 달러 금액·MW·GPU 수량·계약기간·최소구매약정 등 정량 수치 전혀 없음 — 전략적 제휴 발표 단계이며 개별 수주 계약 체결·매출인식 경로는 미확정(P7 3단 분리: 제휴 발표≠계약 체결≠매출인식)."
+    }
+  ],
+  "filter_bug_report": {
+    "bug_detected": false,
+    "checked_count": 1,
+    "non_company_specific_found": 0,
+    "note": "arbiter_NBIS.json claims 1건 전건 scope=company_specific, removed_claims=[] — P6/P13/F13 필터 버그 없음."
+  },
+  "kill_check": {
+    "rule_applied": "rule 1 (Kill 우선: KC met AND confirmed)",
+    "own_company_kc": [
+      {"kc_id": "KC-NBIS-1", "condition": "Meta·MS 및 $1B+ 계약 고객 해지·20%+ 축소·재협상", "verdict": "not_met", "verdict_confidence": "provisional", "basis": "이번 Claim 1건(Palantir 제휴)은 기존 대형 계약의 해지·축소·재협상과 무관 — 관측 대상 없음."},
+      {"kc_id": "KC-NBIS-2", "condition": "용량 인도 지연 (경고/발동 2단)", "verdict": "not_met", "verdict_confidence": "provisional", "basis": "입력 지표(capacity_delivery_delay_months, delivery_delay_quarters) 전건 unconfirmed(value=null) — 발동 근거 없음."},
+      {"kc_id": "KC-NBIS-3", "condition": "조달 조건 악화 (현금<$5B 또는 신규부채 스프레드≥300bp)", "verdict": "not_met", "verdict_confidence": "provisional", "basis": "입력 지표 전건 unconfirmed(value=null) — 이번 Claim과도 무관(제휴 발표는 조달 이벤트 아님)."}
+    ],
+    "macro_kc_propagating": {
+      "checked_ids": ["KC-1", "KC-2", "KC-4", "KC-5", "KC-6", "KC-7", "KC-8"],
+      "verdict_summary": "전건 not_met (KC-2/4/5는 confirmed, KC-1/6/7/8은 provisional). met 판정 0건.",
+      "caution_carried": "KC-1(FFR>3.75)은 이격 0.00pp 경계 접촉 — 2026-09-16 FOMC 예정이나 현 시점 판정은 not_met. 전망으로 met 취급 금지(F1·P5)."
+    },
+    "kill_priority_triggered": false,
+    "basis": "03_kc_excerpt/NBIS.json summary: 종목 KC 3건 + 매크로 파급 KC 7건 전건 verdict=not_met, met&confirmed 조합 0건 — rule 1 미해당. 사람 확인 요청(🔴🔴) 대상 아님."
+  },
+  "gate_check": {
+    "upgrade_gate": {
+      "quantitative_evidence": false,
+      "company_specific": true,
+      "revenue_recognized": false,
+      "result": "not_met (vacuous — 3요건 중 quantitative_evidence·revenue_recognized 미충족)",
+      "reason": "claim c_20260911_NBIS_1은 scope=company_specific(충족)이나 quantitative=false(미충족)이고, 문서 내용 자체가 '전략적 제휴 발표' 단계(stage=partnership_announced)로 stage=revenue_recognized에 해당하지 않음(미충족). P2·P6·P7 전부 충족 요건 중 2개 미충족 — 상향 게이트 불성립. 규칙 2 명시 예외에 따라 전략적 제휴·파트너십 발표는 인도 완료·인증과 동일 범주로 취급하여 '등급 유지 + holding_reinforcement 분류'만 부여한다(P7 — 계약 존재≠계약 이행≠매출인식, 3단 분리 중 1단 단계)."
+    },
+    "downgrade_check": {
+      "quantitative_deterioration": false,
+      "qualitative_deterioration_grade_le_2": false,
+      "result": "not_triggered",
+      "reason": "claim c_20260911_NBIS_1은 evidence_grade=1(질 좋음)이며 정량 훼손이 아니라 방향상 강화(customer_concentration 축 strengthen) 신호다. P3 관점에서도 노이즈가 아니라 유효 정보이나, 훼손 요건(정량 훼손 또는 grade≤2 정성 훼손) 어느 쪽에도 해당하지 않아 하향 트리거 없음."
+    }
+  },
+  "thesis_delta_summary": [
+    {
+      "axis": "customer_concentration",
+      "direction": "strengthen (방향만 확인, 크기 미확정)",
+      "basis_claims": ["c_20260911_NBIS_1"],
+      "risk_transfer_to": [],
+      "note": "Palantir가 Nebius를 'preferred sovereign AI infrastructure partner'로 지정하고 자사 상업 고객에게 접근을 제공하는 채널 구조 — Meta·MS 2대 앵커 편중 완화 방향의 신규 유통 채널로 1차 자료 확인됐으나, 계약 금액·용량(MW)·기간 등 정량 수치가 전혀 공개되지 않아 크기는 unconfirmed(quantitative=false). Palantir 자체가 Meta·MS급 대형 컴퓨트 구매자로 확정된 것도 아니며, 최종 매출 경로(Palantir向 직접계약 vs Palantir 고객사 개별계약)도 unconfirmed. 카드 축 등치(앵커 고객 추가) 금지 — arbiter_NBIS.json claim note 명시."
+    }
+  ],
+  "alert": {
+    "ticker_event": "NBIS — 2026-09-08 Palantir와 전략적 제휴 발표(6-K Ex-99.1) — 등급 유지 후보(holding_reinforcement, 상향 아님)",
+    "facts": [
+      {"text": "2026-09-08 6-K(Ex-99.1) 원문: 'Nebius and Palantir partner to deliver a complete sovereign AI stack to Palantir customers' — Palantir가 Nebius를 'preferred sovereign AI infrastructure partner'로 지정, Palantir 상업 고객에게 Nebius AI-native compute·cloud platform 접근 제공. 'Sovereign AI stack'은 Palantir 소프트웨어(AIP·Ontology·Foundry·Apollo) + Nebius 컴퓨팅 인프라(하드웨어) 결합.", "source": "6-K Ex-99.1 (c_20260911_NBIS_1)", "timestamp": "2026-09-08 filed"},
+      {"text": "동일 문서에 달러 금액·MW·GPU 수량·계약기간·최소구매약정 등 정량 수치 전혀 없음 — Nebius-Palantir 간 또는 Palantir 고객-Nebius 간 개별 수주 계약 체결 여부·규모·매출인식 경로는 본 문서로 확정되지 않음.", "source": "6-K Ex-99.1 (c_20260911_NBIS_1)", "timestamp": "2026-09-08 filed"},
+      {"text": "NBIS 종목 KC 3건 + 매크로 파급 KC 7건, 총 10건 전건 verdict=not_met. met&confirmed 조합 0건 — Kill 우선 미트리거.", "source": "output/20260911_2308/03_kc_excerpt/NBIS.json", "timestamp": "2026-09-12T09:51"}
+    ],
+    "inference": [
+      {"text": "Palantir가 자사 엔터프라이즈·정부 고객군에게 Nebius 인프라를 중개하는 채널형 파트너십 성격에 가까우며, Palantir 자체를 Meta·MS와 같은 대형 앵커 컴퓨트 구매자로 등치할 근거는 아직 없다.", "inference_strength": "medium"},
+      {"text": "정량 조건이 전무한 발표 단계이므로 customer_concentration 축의 실질 개선 크기는 후속 계약 조건 공시 전까지 unconfirmed로 유지해야 한다.", "inference_strength": "medium — 방향은 확인되나 규모는 추정 불가"}
+    ],
+    "classification": "등급 유지(P12) + holding_reinforcement 분류 — 상향 게이트 3요건(quantitative_evidence·company_specific·revenue_recognized) 중 company_specific만 충족, 나머지 2개 미충족(quantitative=false, stage=partnership_announced≠revenue_recognized) → 규칙 2 명시 예외에 따라 파트너십 발표는 인도 완료·인증과 동일 범주로 등급 유지만 부여. 하향 트리거(정량 훼손 또는 grade≤2 정성 훼손)도 해당 없음 — 오히려 강화 방향이나 미확정.",
+    "thesis_delta": "customer_concentration 축: strengthen 방향(신규 유통 채널 확인)이나 크기 미확정(quantitative=false) — Meta·MS 편중 완화 '방향'만 1차 자료로 확인, 크기·확정 매출 경로는 unconfirmed. 리스크 이관: 현재 라운드에서는 명시적 리스크 이관 없음(risk_transfer_to=[]) — Palantir 채널 자체가 신규 counterparty/실행 리스크를 도입하는지는 후속 계약 조건 공시 전까지 판단 보류.",
+    "signal_verdict": "🟡 관망 유지 — Kill 우선 미해당(KC 10건 전건 not_met), 상향 게이트 미해당(quantitative=false, stage≠revenue_recognized → holding_reinforcement만), 하향 게이트 미해당(훼손 없음) → rule 4/P12 기본 경로 적용. 등급 확정은 사람이 한다.",
+    "next_check": [
+      "next_gate(정량·관측가능): Palantir 파트너십의 계약 금액·용량(MW)·계약기간·최소구매약정이 명시되는 후속 6-K/20-F 각주 또는 개별 최종고객 계약 체결·매출인식 공시",
+      "next_gate 대안: 2027 공식 가이던스 확정 발표(현재까지 'later this year' 반복 외 구체 일자 없음)",
+      "[carried] Q3 2026 실적 발표일 — 애그리게이터 상충(marketbeat 11/10 vs barchart/tipranks 10/22) 지속, 회사 IR 공식 공지 미확보",
+      "[carried] $800M 기존 전환사채(2029·2031물) 지분교환(~15.8M주)의 실제 주식 인도 완료 시점 — 후속 20-F/6-K 각주 확인 필요",
+      "[carried] ATM 잔여 12.3M주 실사용 여부·금액 — 신규 6-K 없음",
+      "[carried] Vineland DataOne Phase 2 확장의 1차 공시 확인 — grade4 2차 매체 교차보도만 확보, 회사/지자체 1차 문서 미확보"
+    ]
+  },
+  "next_gate": "Palantir 파트너십의 계약 금액·용량(MW)·계약기간 등 정량 조건이 명시되는 후속 공시(6-K/20-F 각주) 또는 2027 공식 가이던스 확정 — 둘 중 먼저 도달하는 시점 (관측 가능한 정량 항목)",
+  "unconfirmed_carried": [
+    {"item": "Palantir 파트너십의 계약 금액·용량(MW)·계약기간·최소구매약정 등 정량 조건", "reason": "6-K Ex-99.1 원문에 구체 수치 없음 — 전략적 제휴 발표 단계로만 확인, 개별 계약 체결·매출인식 여부는 본 문서로 확정 불가(P7).", "next_check": "후속 6-K/20-F 각주 또는 Palantir 측 공시에서 계약 규모·인식 경로 확인", "related_claims": ["c_20260911_NBIS_1"]},
+    {"item": "[carried] Q3 2026 실적 발표일", "reason": "애그리게이터 상충 지속(marketbeat 11/10 vs barchart/tipranks 10/22), 회사 IR 공식 공지 미확보.", "next_check": "nebius.com/investor-hub 또는 newsroom 공식 공지 재확인", "related_claims": []},
+    {"item": "[carried] $800M 기존 전환사채(2029·2031년물) 지분교환(~15.8M주)의 실제 주식 인도 완료 시점", "reason": "EDGAR 제출목록(09-04~09-12, 소급 08-28)에 관련 신규 6-K/20-F 없음.", "next_check": "차기 20-F/6-K 각주에서 발행주식수 변동 재확인", "related_claims": []},
+    {"item": "[carried] ATM 잔여 12.3M주 실사용 여부·금액", "reason": "EDGAR 제출목록에서 ATM 관련 신규 6-K 미확인 — noise_filter promote_if 조건(실제 발행) 미충족 지속.", "next_check": "차기 20-F/6-K 재무제표·자본조달 각주 확인", "related_claims": []},
+    {"item": "[carried] 2027 공식 가이던스 발표 시점", "reason": "nebius.com/newsroom·WebSearch에서도 'later this year' 반복 외 구체 일자 없음.", "next_check": "차기 실적/IR 공지 확인", "related_claims": []},
+    {"item": "[carried] Vineland DataOne Phase 2 확장(2026-08-18 승인 보도)의 1차 확인", "reason": "직전 run 이후에도 grade4 2차 매체 교차보도만 확보, 회사·지자체 1차 문서 미확보.", "next_check": "회사 IR/6-K 후속 공시, Vineland 시정부 회의록 원문 확인", "related_claims": []}
+  ],
+  "human_confirmation_required": false,
+  "note_for_orchestrator": "1) filter_bug_report: 버그 없음(claims 1건 전건 company_specific). 2) 상향 게이트 3요건 중 company_specific만 충족 — quantitative_evidence·revenue_recognized 미충족으로 상향 불성립(vacuous). 규칙 2 명시 예외(전략적 제휴·파트너십=인도완료·인증과 동일 범주) 적용해 holding_reinforcement로만 분류하고 등급은 🟡 유지 제안. 3) 하향 트리거 없음(훼손 없음, 오히려 방향상 강화이나 크기 미확정). 4) Kill 우선 미해당(KC 10건 전건 not_met, met&confirmed 0건) — 사람 확인 요청(🔴🔴) 대상 아님. 5) next_gate를 'Palantir 계약 조건 공시 또는 2027 가이던스 확정' 중 먼저 도달하는 시점으로 갱신 제안(state/signals.json 현재값 '멀티플 조정 또는 2027 가이던스 확정'에서 세분화) — state/signals.json 반영은 사람 승인 필요(CLAUDE.md §9, config/thesis_cards는 자동 수정 금지). 6) thesis card의 customer_concentration 축 관련 갱신 필요 여부는 thesis-refine 영역이며 본 판정에 자동 반영하지 않음."
+}

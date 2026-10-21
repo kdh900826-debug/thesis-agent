@@ -1,0 +1,21 @@
+{
+  "as_of": "2026-08-15T23:07",
+  "run_id": "20260815_2307",
+  "ticker": "CRCL",
+  "card_field": "axes",
+  "operation": "amend",
+  "before": "  - {id: usdc_market_share,      label: \"스테이블코인 시장 내 USDC 점유율 (경쟁 침식 관측 — KC-CRCL-2 판정 대상 -3%p QoQ. OUSD·$YLDS 실측 부재로 2026-08-15 Run 관측 불가)\"}",
+  "after": "  # 2026-08-15 ThesisPatch(amend, run 20260815_2307) — 이전 라벨: \"스테이블코인 시장 내 USDC 점유율 (경쟁 침식 관측 — KC-CRCL-2 판정 대상 -3%p QoQ. OUSD·$YLDS 실측 부재로 2026-08-15 Run 관측 불가)\". '관측 불가'는 회사 정의 점유율 grade 1 수치 확보로 더 이상 사실이 아니다(P9 — 이전 서술 주석 보존)\n  - {id: usdc_market_share,      label: \"스테이블코인 시장 내 USDC 점유율 (경쟁 침식 관측 — KC-CRCL-2 판정 대상 -3%p QoQ). 회사 정의 점유율 Q1'26 28% → Q2'26 27% (-1%p QoQ, YoY -66bps, grade 1 confirmed) — 분모는 유통량 $100M 이상·정기 어테스테이션 보유 미달러 스테이블코인으로 한정. 3자 집계(DefiLlama 기반) 약 24%는 전체 공급을 분모로 삼아 약 3%p 격차가 있으며 grade 4·confirmed=false로 삼각검증 항목(P4). 두 계열은 분모 정의가 달라 직접 비교 불가 — KC-CRCL-2 판정 시 어느 계열을 쓰는지 명시 필요. OUSD는 출시 전이라 여전히 점유율 영향 관측 불가이며 자료 부재는 위협 소멸의 반증이 아니다(P5)\"}",
+  "reason": "[fact] 현 라벨은 'OUSD·$YLDS 실측 부재로 2026-08-15 Run 관측 불가'라고 기술하나, run 20260815_2252 섹터 산출물은 이 축에서 '직전까지 실측 불가였던 상태가 grade 1 수치로 최초 해소된 지점'이라고 명시하며 회사 정의 점유율 Q1'26 28%→Q2'26 27%(-1%p QoQ, YoY -66bps, grade 1 confirmed)를 적재했다. [fact] 동시에 3자 집계 약 24%와 회사 수치 27% 사이의 약 3%p 격차가 삼각검증 항목으로만 기록됐고(grade 4, confirmed=false), 섹터 산출물은 이 축의 diverge 원인을 '종목 간 이견이 아니라 단일 종목 내부의 하위 사안 분리 + 같은 점유율 라벨 아래 분모 정의가 다른 두 계열의 병존'으로 판정했다. [inference:strong] 축 라벨이 '관측 불가'를 단정하면 실측이 들어온 뒤에도 판정 단위가 닫힌 상태로 남아 KC-CRCL-2의 판정 가능 여부를 오독하게 만든다. [inference:strong] 또한 분모 정의가 다른 두 계열이 같은 라벨에 병존한다는 사실이 축에 기재되지 않으면 -1%p와 3%p 격차가 같은 척도의 수치로 취급될 수 있다. [fact] 본 패치는 관측 상태와 측정 기준을 기재할 뿐 KC-CRCL-2의 임계·발동 여부를 판정하지 않으며(임계 -3%p 불변), OUSD 관련 관측 불가 상태는 그대로 유지한다.",
+  "basis_claims": [
+    "output/20260815_2307/04_sector/stablecoin.json#axis_view[usdc_market_share]",
+    "output/20260815_2307/04_sector/stablecoin.json#axis_view[competition_ousd]",
+    "output/20260815_2307/04_sector/stablecoin.json#structural_inverse_exposure[sie_ousd_consortium]",
+    "output/20260815_2307/04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_2252_01]"
+  ],
+  "basis_claims_note": "[fact] L4는 P17에 따라 02_company 산출물을 로드하지 않으므로 구조화 산출물 경로를 근거 포인터로 기재한다. [fact] 회사 정의 점유율은 grade 1 confirmed, 3자 집계는 grade 4 confirmed=false이며 두 등급을 라벨 안에 분리 표기했다(P4).",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 본 패치는 '파이 성장이 경쟁 침식을 상쇄한다'는 thesis 가설의 참·거짓을 판정하지 않는다 — -1%p QoQ는 침식의 존재를 기록할 뿐 상쇄 구조의 성립 여부를 결론짓지 않으며, 상쇄 판정에는 유통량 규모 축(usdc_circulation_scale)과의 결합이 필요하나 그 축은 이번 run에서 neutral이다. [fact] 시그널 등급을 변경·제안하지 않는다(P13).",
+  "downstream_note": "[fact] 승인 시 kill_conditions.yaml 수정은 불요하다(임계 -3%p 불변). [fact] 다만 KC-CRCL-2의 분모 정의(회사 정의 대 3자 집계) 미명시는 별도 에스컬레이션(esc_20260815_2307_kccrcl2_denominator)으로 사용자 확정 대상이며, 확정 전까지 이 축의 실측치는 관측 기록으로만 사용한다."
+}

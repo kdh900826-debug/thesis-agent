@@ -1,0 +1,56 @@
+{
+  "ticker": "FIGR",
+  "cik": "0002064124",
+  "items": [
+    {
+      "id": "edgar_2026-09-15_4_0",
+      "form": "4",
+      "filed_at": "2026-09-15",
+      "title": "4",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226042764/xslF345X06/ownership.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-14_4_1",
+      "form": "4",
+      "filed_at": "2026-09-14",
+      "title": "4",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226042631/xslF345X06/ownership.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-14_4_2",
+      "form": "4",
+      "filed_at": "2026-09-14",
+      "title": "4",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226042630/xslF345X06/ownership.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-09_144_3",
+      "form": "144",
+      "filed_at": "2026-09-09",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000162828026061202/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-09_144_4",
+      "form": "144",
+      "filed_at": "2026-09-09",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000162828026061201/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+ "as_of": "2026-09-19",
+ "run_id": "20260919_2209",
+ "ticker": "CRCL",
+ "input_source": "output/20260919_2209/03_input/arbiter_CRCL.json",
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260919_CRCL_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-09-19",
+   "staleness_days": 0,
+   "summary": "EDGAR 전서식 재조회(2026-09-01~2026-09-19) 결과 이번 창 신규 8-K 0건(Form4 1건·Form144/A 6건뿐). Coinbase 분배계약 관련 Item1.01/1.02 공시 이번 창도 0건 — 8/24 제출기한 경과 후 무공시 관측구간 약 26일로 연장. 부재는 계약 무변경의 증명이 아니다(P5) — 최종 대조는 Q3 10-Q 계약주석."
+  },
+  {
+   "id": "c_20260919_CRCL_2",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company_press_release",
+   "filed_at": "2026-09-16",
+   "staleness_days": 3,
+   "summary": "Circle 공식보도자료(businesswire 동시배포): 자체 L1 Arc 메인넷 정식 출시, 100+ 기관 참여·주요은행(BNY·HSBC·SocGen 등) 열거·EVM호환. 매출·수수료·가이던스 수치 미포함 — P7 3단 분리상 '서비스 개시'(2단계)이며 매출 인식(3단계)은 미발생."
+  },
+  {
+   "id": "c_20260919_CRCL_3",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company_public_api",
+   "filed_at": "2026-09-19",
+   "staleness_days": 0,
+   "summary": "Circle 공표 API(2026-09-19T13:15:01Z) USDC 유통량 $74.287B(Q2 분기말 $73.3B 대비 +약1.3%), ARC체인 자체 USDC $624.435M·EURC $5.466M 적재 관측. 【측정기준 경고】실시간 온체인 스냅샷으로 KC-CRCL-1 임계 기준(분기말·30일평잔)과 계열 불일치 — KC 대조에 직접 대입 불가(Q3 10-Q/실적 보도자료 수치로만 대조 가능)."
+  },
+  {
+   "id": "c_20260919_CRCL_5",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "form_144a",
+   "filed_at": "2026-09-15",
+   "staleness_days": 4,
+   "summary": "Form144/A 6건(전량 사외이사 Burns 명의, 기존 3~8월 제출분 Table I 소급정정) 동시제출, 합계 30,000주·약$3.28M, 매도예정일 전부 과거 — 신규 매도예고 아닌 행정정정. 성격변화 신호 아니므로 축 Delta 미생성(모니터링 로그)."
+  },
+  {
+   "id": "c_20260919_CRCL_6",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-09-19",
+   "staleness_days": 0,
+   "summary": "$YLDS 발행사 FIGR EDGAR 재조회: 이번 창 8-K·10-Q 0건(Form4 3건·Form144 2건뿐) — $YLDS 신규 1차 공시 없음. 2Q26(6/30) $556.033M(QoQ -7.0%)이 최신 grade1 관측치로 유지. 다음 갱신게이트 FIGR 3Q26(통상 11월)."
+  },
+  {
+   "id": "c_20260919_CRCL_10",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-09-19",
+   "staleness_days": 0,
+   "summary": "KC-CRCL-4 관측: OCC/NYDFS 인가 관련 취소·정지·제재·동의명령 8-K 0건, 병행 웹검색도 2026-09 신규 감독조치 보도 미포착(기존 인가취득 보도만 재확인). 부재는 조치 부존재의 증명이 아니다(P5) — 관측 0건으로만 기록."
+  }
+ ],
+ "filter_bug_report": "없음 — arbiter_CRCL.json의 claims 6건(c_1·c_2·c_3·c_5·c_6·c_10) 전부 scope=company_specific 확인. removed_claims 4건(c_4·c_9 scope=sector, c_7·c_8 scope=macro)은 필터가 정상 제거 — F13 위반 없음.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-CRCL-1",
+    "description": "USDC 유통량 수축 (경고/발동 2단)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "c_3(실시간 스냅샷 $74.287B)은 Q2 분기말 대비 오히려 +1.3% 증가 방향이며 수축 신호 아님. 다만 KC 임계 기준(30일평잔·90일고점 대비)과 측정계열이 달라 이 수치를 KC 임계 자체에 직접 대입할 수 없음 — 계열 정합 관측치는 Q3 10-Q/실적까지 부재, not_met은 방향성 근거이며 확정 대조 아님."
+   },
+   {
+    "kc_id": "KC-CRCL-2",
+    "description": "점유율 잠식 (OUSD·이자부 코인 포함)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "이번 창 회사 정의 계열 점유율 갱신 claim 없음(분모 재구성 1차자료 부재, 3자 집계 대입은 계열혼용이라 미수행) — Q2'26 27%(-1%p QoQ) 상태 그대로 이월."
+   },
+   {
+    "kc_id": "KC-CRCL-3",
+    "description": "Coinbase 분배 계약 변경",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "c_1: 8-K 부재가 8/24 제출기한 경과 후 약 26일째 지속 — '사건 미발생' 정황은 강화되나 met 자체가 성립하지 않아 확정 판정 대상 아님. 공시 부재는 계약 무변경의 증명이 아님(P5). 최종확인은 Q3 10-Q 계약주석(통상 11월)까지 보류."
+   },
+   {
+    "kc_id": "KC-CRCL-4",
+    "description": "인가·감독 조치 (규제 선점 전제 훼손)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "c_10: EDGAR 8-K 0건 + 웹검색 보조확인에서도 신규 감독조치 관측 0건. 비공개 감독서한·MOU 등은 8-K 의무대상이 아닐 수 있어 관측 0건이 조치 부존재의 증명은 아님(P5) — provisional 유지."
+   },
+   {
+    "kc_id": "KC-3",
+    "description": "크립토 붕괴 + 위험회피 동시 (macro, CRCL 파급)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "reason": "BTC 81,235.105(임계 <55,000 미충족, as_of 2026-09-19, stale 0일) · VIX 14.81(임계 >=25 미충족, as_of 2026-09-18, stale 0일) — 경계 접촉 아님. 오케스트레이터 전달: 이번 run met으로 전이된 KC-1(FFR)·KC-9(brent)는 노출벡터상 CRCL 불리방향 축과 연결되지 않아 발췌 대상 아님('무관'이 아니라 '불리방향 노출 축 없음', P5) — CRCL에 파급되는 매크로 KC는 KC-3뿐."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "규칙1(Kill 우선: KC met AND confirmed)에 해당하는 KC 없음 — 종목 KC 4건 전부 not_met/provisional, macro 파급 KC-3은 not_met/confirmed. 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2·P6·P7 상향게이트는 quantitative_evidence AND company_specific AND revenue_recognized 3조건 동시충족 필요. c_3(USDC $74.287B)·c_5(Form144/A 금액)·c_6($YLDS 수치)는 quantitative=true·scope=company_specific이나 전부 매출 인식과 무관한 잔액/신고 수치다. c_2(Arc 메인넷 출시)는 회사 1차자료가 '매출·수수료·가이던스 수치 미포함'을 명시해 quantitative=false이며 P7 3단 분리상 2단계(서비스 개시)에 그쳐 revenue_recognized=false. 【가드레일 준수】 2026-09-16 FOMC 25bp 인상(KC-1 met)은 노출벡터상 CRCL 불리방향 연결이 없고, 필터본 어디에도 회사 1차자료가 금리와 Reserve Income을 명시적으로 연결한 claim이 없어(관련 서술은 제거된 macro-scope claim에만 low-strength inference로 존재) 상향 근거로 사용하지 않았다(P6). 3요건 미동시충족 — holding_reinforcement 분류로 등급 유지(P12)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "이번 입력 6건 및 오케스트레이터 전달 Delta 6건(diversification strengthen, usdc_circulation_scale strengthen[약], reserve_income/competition_yield_bearing/regulation_company_licensing/usdc_market_share neutral) 중 훼손(weaken) 방향 없음. c_5(Form144/A)는 신규 매도예고가 아닌 소급 행정정정으로 축 Delta 미생성.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "이번 창 claims 6건 전부 evidence_grade=1. 오케스트레이터 전달 Delta 전건도 evidence_grade=1 기반 — arbiter는 P13/P17에 따라 하위 판정 결과를 재해석하지 않고 그대로 수용한다.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "정량 훼손 없음 + evidence_grade<=2 정성 훼손 없음 — 규칙3(비대칭 하향) 트리거 조건 불성립."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "diversification",
+   "direction": "strengthen",
+   "stage": "중(보통)",
+   "supporting_claims": ["c_20260919_CRCL_2", "c_20260919_CRCL_3"],
+   "risk_transfer_to": "Q3 실적의 Arc 관련 매출·수수료 인식 여부 및 비이자매출 비중 변화 / ARC체인 USDC 잔액 지속성(신규발행 vs 이전 구분 불가) / Tazapay 거래 종결 공시(최대 15개월 내, 규제승인 전제)"
+  },
+  {
+   "axis": "usdc_circulation_scale",
+   "direction": "strengthen",
+   "stage": "하(약)",
+   "supporting_claims": ["c_20260919_CRCL_3"],
+   "risk_transfer_to": "Q3'26 분기말 잔액·30일평잔 공시(KC-CRCL-1 대조 가능 유일 계열) / ARC체인 잔액 증가분의 신규순발행 vs 체인간이전 분해"
+  },
+  {
+   "axis": "reserve_income",
+   "direction": "neutral",
+   "stage": "없음",
+   "supporting_claims": ["c_20260919_CRCL_1"],
+   "risk_transfer_to": "Q3 10-Q 계약주석 원문대조(통상 11월) / Q3 실적 Reserve Income 절대액·유통비용비중·이자율민감도 공시 — 금리(FOMC 25bp 인상)는 회사 1차자료 연결 부재로 이 축 방향을 움직이는 근거로 사용하지 않음(P6)"
+  },
+  {
+   "axis": "competition_yield_bearing",
+   "direction": "neutral",
+   "stage": "없음",
+   "supporting_claims": ["c_20260919_CRCL_6"],
+   "risk_transfer_to": "FIGR 3Q26 공시($YLDS 유통량 갱신, 통상 11월) / CLARITY 이자조항 문언 확정 경로"
+  },
+  {
+   "axis": "regulation_company_licensing",
+   "direction": "neutral",
+   "stage": "없음",
+   "supporting_claims": ["c_20260919_CRCL_10"],
+   "risk_transfer_to": "OCC·NYDFS 감독보고서·제재 공표 / Tazapay 인수 규제승인 절차(싱가포르 MAS 포함 가능성 미확인)"
+  },
+  {
+   "axis": "usdc_market_share",
+   "direction": "neutral",
+   "stage": "없음",
+   "supporting_claims": ["c_20260919_CRCL_3"],
+   "risk_transfer_to": "Q3'26 실적·10-Q 회사정의 점유율 갱신치(KC-CRCL-2 대조 가능 유일 계열)"
+  }
+ ],
+ "alert": {
+  "ticker_event": "CRCL — Arc 메인넷 정식 출시(9/16) + USDC 유통량 $74.287B 실시간 관측(+약1.3% vs Q2 분기말, 측정기준 상이) + Coinbase 분배계약 8-K 부재 26일째 지속 + Form144/A 6건 행정정정(신규매도 아님) + FIGR $YLDS 무변경 + KC-CRCL-4 감독조치 관측 0건",
+  "facts": "① Circle 보도자료(2026-09-16): Arc 메인넷 정식출시, 100+기관 참여·주요은행 열거, 매출·수수료 수치 미포함 [company_press_release, 2026-09-16, grade1 confirmed, staleness 3일]. ② Circle 공표 API(2026-09-19T13:15Z): USDC $74.287B(Q2말 $73.3B 대비 +약1.3%), ARC체인 자체 USDC $624.435M — 측정계열이 KC-CRCL-1 임계기준과 달라 직접대입 불가 [company_public_api, 2026-09-19, grade1 confirmed, staleness 0일]. ③ EDGAR 재조회: Coinbase 분배계약 관련 8-K 이번 창(9/1~9/19)도 0건, 8/24 기한경과 후 약26일 지속 [SEC EDGAR submissions API, 2026-09-19, grade1 confirmed, staleness 0일]. ④ Form144/A 6건(2026-09-15, 이사 Burns, 소급정정, 합계30,000주·약$3.28M) [form_144a, grade1 confirmed, staleness 4일]. ⑤ FIGR EDGAR 재조회: $YLDS 신규공시 없음, 2Q26 $556.033M(QoQ-7.0%) 최신치 유지 [SEC EDGAR submissions API, 2026-09-19, grade1 confirmed, staleness 0일]. ⑥ KC-CRCL-4 관측: 감독조치 8-K 0건 + 웹검색 보조확인 0건 [SEC EDGAR submissions API, 2026-09-19, grade1 confirmed, staleness 0일]. ⑦ 매크로 KC-3: BTC 81,235.105·VIX 14.81 not_met/confirmed(오케스트레이터 전달, CRCL 파급 매크로 KC는 KC-3뿐).",
+  "inference": "없음 — 이번 입력 6건 전부 claim_type=fact, inference_strength=null. 금리→Reserve Income 연동(low강도 inference)은 scope=macro claim(제거됨)에만 존재하며 회사 1차자료 연결이 없어 이번 판정에 사용하지 않음(P6).",
+  "classification": "holding_reinforcement (등급 유지 + 사유기록, P12) — 상향게이트(P2/P6/P7) 미충족: Arc 메인넷은 서비스개시 단계(2단)로 매출인식(3단) 아님, USDC 성장·Form144/A·$YLDS 수치는 quantitative=true이나 revenue_recognized 근거 아님. 하향 트리거 미성립: 훼손 방향 없음(strengthen×2, neutral×4).",
+  "thesis_delta": "diversification 축 strengthen(c_2·c_3, Arc 메인넷 출시+ARC체인 온체인잔액 최초확인 — 서비스개시 단계, 리스크이관: Q3 매출인식 여부). usdc_circulation_scale 축 strengthen[약](c_3, +1.3% 그러나 측정계열 상이 — KC-CRCL-1 직접대입 불가). reserve_income 축 neutral(c_1, 8-K부재 26일 지속 — 금리 인상은 회사1차자료 연결 부재로 근거 미사용, P6). competition_yield_bearing·regulation_company_licensing·usdc_market_share 축 전부 neutral(c_6·c_10·c_3, 갱신자료 없음/조치 미관측).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🔴(비중조절 검토, OUSD 위협) 유지 권고(maintain). Kill 게이트 미충족(KC met&confirmed 없음). 상향 게이트 미충족(P2/P6/P7). 하향 게이트 미충족(훼손 없음). 🔴🔴 사람확인 요청 대상 아님.",
+  "next_check": "① [정량] Q3'26 실적 — USDC 유통량 QoQ 부호(분기말·30일평잔 계열)·회사정의 점유율(%)·Reserve Income 절대액. ② [정량] Q3 10-Q 계약주석 대조로 Coinbase 분배계약 조건 불변 최종확인(KC-CRCL-3). ③ [정량] Arc 관련 매출·수수료 인식 여부(Q3 실적, 비이자매출 비중 변화)."
+ },
+ "next_gate": "Q3'26 실적(USDC 유통량 QoQ 부호·회사 정의 점유율%·Reserve Income 지속성) + Q3 10-Q 계약 주석으로 분배계약 조건 불변 최종 확인(11월경) — signals.json 기존 게이트 승계, 변경 없음. 아직 도래하지 않아 등급 유지가 정상 경로(P12).",
+ "unconfirmed_carried": [
+  {
+   "topic": "CLARITY Act 재의동의 후 2차 클로처 표결 실시 여부",
+   "reason": "2026-09-19까지 실제 재표결 실시 여부 이번 창 수집으로 미판별(no_primary_source_and_event_may_be_pending)."
+  },
+  {
+   "topic": "OUSD 공식 출시일·실측 유통량",
+   "reason": "2026-06-30 발표 이후 상태 진전 없음 — noise_filter.yaml#CRCL 승격 요건 미충족으로 비승격 유지(carried_over_from_prior_run)."
+  },
+  {
+   "topic": "Coinbase 분배계약 조건 원문의 1차자료 기반 최종확인",
+   "reason": "8-K 부재 26일 지속이 계약 조건 자체의 원문대조를 대체하지 않음 — Q3 10-Q(통상 11월)까지 no_disclosure. 정보부재를 무변경의 증명으로 사용하지 않는다(P5)."
+  },
+  {
+   "topic": "Circle 준비금 실효수익률·수익인식 시차(FOMC 25bp 인상의 RI 반영크기)",
+   "reason": "회사 측 변수(듀레이션·재투자구성·평잔·유통비용비중)의 창내 1차자료 부재로 정량화 불가 — 검증게이트 Q3 실적(no_company_primary_source)."
+  },
+  {
+   "topic": "Q3'26 실적 발표일 공식 IR 공지",
+   "reason": "circle.com 프레스룸에 공식 발표일 공지 미확인 — 애그리게이터 추정일은 근거로 사용 불가(F1), earnings_checkpoints.date null 유지(no_official_ir_notice)."
+  },
+  {
+   "topic": "회사 정의 계열 USDC 점유율 신규 관측치",
+   "reason": "분모 재구성 1차자료 부재로 이번 창 산출 불가, 3자집계 분모 대입은 계열혼용이라 미수행 — 다음 갱신 Q3 실적·10-Q(quarterly_disclosure_only)."
+  },
+  {
+   "topic": "KC-CRCL-4 관련 감독당국 조치",
+   "reason": "EDGAR 8-K 0건·웹검색 보조확인 0건이나 비공개 감독서한 등은 8-K 의무대상이 아닐 수 있어 관측 0건이 조치 부존재를 증명하지 않음(absence_is_not_disproof)."
+  },
+  {
+   "topic": "Arc 메인넷 ARC체인 USDC $624.435M의 성격(신규순발행 vs 타체인이전)",
+   "reason": "체인별 잔액만 제공되고 유입경로 미구분 — 총유통량이 Q2말 대비 +약1.3%에 그쳐 상당부분 체인간이전 개연성 있으나 판별 1차자료 없음(data_not_decomposable)."
+  },
+  {
+   "topic": "Tazapay 인수 거래 종결·규제승인 진행상황",
+   "reason": "규제승인·최대15개월 종결기한 조건부, 이번 창 종결·승인 관련 신규공시 0건, 최종대가 미확정(deal_not_closed)."
+  }
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속단계 진행 가능. 등급 유지가 P12 기본경로에 따라 적용됨. Arc 메인넷 출시(c_2)·USDC 유통량 관측(c_3)은 diversification/usdc_circulation_scale 축 강화방향이나 서비스개시 단계·측정계열 상이로 상향 근거 불가. 오케스트레이터 전달 가드레일 준수: KC-1(FFR)·KC-9(brent) met 전이는 CRCL 노출벡터상 불리방향 축 없음으로 이번 판정에서 제외했고, 금리를 Reserve Income 상향 근거로 사용하지 않았다(P6) — 회사 1차자료가 금리·RI를 명시적으로 연결한 claim이 필터본에 없었다. 필터버그(F13) 없음 — scope!=company_specific claim 전무."
+}

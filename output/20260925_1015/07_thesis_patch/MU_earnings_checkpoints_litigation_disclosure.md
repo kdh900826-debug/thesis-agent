@@ -1,0 +1,45 @@
+# ThesisPatch — MU / earnings_checkpoints.items — 소송 공시 기술 체크포인트 / amend
+
+- **Run**: 20260925_1015 · as_of 2026-09-25 · 스킬 `thesis-refine`(S7) · L4 후보 tpc_03 (earnings_checkpoints 부분)
+- **patch_id**: `MU_earnings_checkpoints_litigation_disclosure` · priority: high
+- **대상 필드**: `earnings_checkpoints` — earnings_checkpoints.items — 소송 공시 기술 체크포인트 1개 추가 (7 → 8)
+- **승인 필요**: 예 (requires_human_approval: true, F17) / **핵심 논거 역전**: 아니오
+- **사전 확인(F20)**: `state/thesis_cards/MU.yaml` 전문 75행 열람, before 출현 1회 확인. 현재 계수 axes 7 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / earnings_checkpoints.items 7 / version_history 6
+- **expected_after**: counts [{"path": "earnings_checkpoints.items", "n": 8}, {"path": "axes", "n": 7}] · contains 3건 · not_contains 1건
+
+**관측 항목 추가만** — 결과·금액 추정 없음. items 7 → 8.
+
+## diff
+
+```diff
+--- state/thesis_cards/MU.yaml (before)
++++ state/thesis_cards/MU.yaml (after 제안)
+-    - "HBM 마진 vs 범용 마진 직접 확인"
+-
+-valuation:
++    - "HBM 마진 vs 범용 마진 직접 확인"
++    # 2026-09-25 ThesisPatch(amend, run 20260925_1015) — 항목 추가 7 → 8(전문 75행 기준 계수). 기존 7개 항목은 전건 미확인 상태로 불변 이월(P9). 근거: ITC 337-TA-1523 조사개시(c_20260925_MU_3, grade 1)에도 창 내 회사 8-K·보도자료 기술 0건(c_20260925_MU_1·c_20260925_MU_2).
++    - "소송 공시 기술 — ITC 337-TA-1523 조사개시(2026-09-24)에 대한 9/30 실적 발표·컨퍼런스콜 언급 여부와 후속 FY26 10-K(제출일 미확인)의 소송·우발부채 각주 기재 여부, 병행 CDCA·D.Del·CAFC 건 포함 여부 (결과 추정 금지)"
++
++valuation:
+```
+
+## 왜
+
+[fact] 카드 전문 75행 기준 earnings_checkpoints.date = 2026-09-30, items 7개(전건 재무·계약 항목, 소송 관련 항목 0개)를 계수했다(F20). [fact] USITC가 2026-09-24 337-TA-1523 조사개시를 표결했다(c_20260925_MU_3, grade 1·confirmed). [fact] 창 내 Micron의 8-K·10-Q·10-K 신규 등재 0건, 2026-09-15 이후 회사 보도자료 0건이다(c_20260925_MU_1·c_20260925_MU_2) — 회사 측 1차 기술이 아직 없다. P5상 공시 부재는 영향 부재의 근거가 아니다. [inference · moderate] 따라서 9/30 실적은 회사가 이 절차를 처음 1차 자료로 기술할 수 있는 관측점이며, 현 7개 항목만으로는 ip_litigation_risk 축의 1차 확인 경로가 체크포인트에 없다. [fact] FY26 10-K 제출일은 확인하지 않았으므로 '후속·제출일 미확인'으로만 표기했다. 결과·금액 추정은 포함하지 않는다. [fact] 04_sector/memory.json risk_transfer_to에 '2026-09-30 실적 콜·10-K 소송 각주의 ITC 건 기술'이 관측점으로 기재돼 있고 L4 tpc_03이 이를 후보로 올렸다.
+
+**역전 판정 주석**: [fact] 관측 항목 추가일 뿐 thesis·conclusion·등급을 건드리지 않는다.
+
+**후속 주의**: [fact] 목록형 필드 변경 — expected_after.counts로 items 8, axes 7을 검증한다. 패치 A와 순서 무관(dry-run 양방향 통과).
+
+## 근거 Claim
+
+c_20260925_MU_3, c_20260925_MU_1, c_20260925_MU_2
+
+[fact] c_3은 L4 tpc_03 지정 근거. c_1·c_2(grade 1·confirmed, 회사 공시·보도자료 0건)는 '회사 기술 미존재' 상태를 적시하기 위해 추가했다 — 새 후보 창작이 아니라 동일 후보 내 근거 보강.
+
+출처: `output/20260925_1015/02_company/MU.json#claims[c_20260925_MU_1,2,3] · output/20260925_1015/04_sector/memory.json#axis_view[ip_litigation_risk].risk_transfer_to · output/20260925_1015/06_portfolio.json#thesis_patch_candidates.tpc_03`
+
+**F20 주석**: [fact] before(마지막 item 행 + 빈 행 + 'valuation:')의 카드 내 출현 횟수 1회를 스크립트로 확인했다(카드는 CRLF이나 approvals.py read_text의 개행 정규화 후 LF 기준). [fact] not_contains '직접 확인"\n\nvaluation:'은 after에서 마지막 기존 item 뒤에 주석·신규 item이 끼어 사라지며, key_metrics의 'HBM 마진 vs 범용 마진 (⚠️…' 행과도 겹치지 않는다.
+
+> 이 패치는 제안이며 자동 반영되지 않는다(F17). 적용은 사람의 `approve <id>` 이후 `approvals.py`가 수행한다(백업 → 적용 → expected_after 자동 대조 → 실패 시 원복).

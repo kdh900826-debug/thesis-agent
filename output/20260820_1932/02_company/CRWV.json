@@ -1,0 +1,72 @@
+{
+  "as_of": "2026-08-20",
+  "run_id": "20260820_1932",
+  "ticker": "CRWV",
+  "review_window": "2026-08-15 ~ 2026-08-20 (직전 run 20260815_1408 이후 신규 1차 자료 중심, P17에 따라 CRWV 범위 내 자료만)",
+  "task0_status": "Q2 2026 수치(매출/백로그/가이던스/CapEx/마진/이자커버리지) 1차 자료 재대조는 직전 run(20260815_1408)에서 완료됨(u_20260815_001 대부분 해소). 이번 회차는 그 이후 신규 1차 자료 탐색에 집중.",
+  "source_ingest_summary": {
+    "edgar_fulltext": "python .claude/skills/source-ingest/scripts/edgar_fulltext.py --ticker CRWV --forms 10-K 10-Q 8-K --since 2026-08-15 → 0건 (output/20260820_1932/02_company/_raw_edgar_CRWV.json)",
+    "edgar_cross_check": "SEC EDGAR 기업 제출 atom 피드(CIK 0001769628, type=8-K) 직접 대조 — 최신 8-K는 여전히 2026-08-11자(accession 0001769628-26-000362). 2026-08-15 이후 신규 10-K/10-Q/8-K 없음.",
+    "web_search": "날짜 한정 쿼리 다수 수행(차환/covenant, 소송 디스커버리, OpenAI/Meta 신규계약, CDS/신용등급, 08-17~08-20 일자 지정). 검토기간 내 발표된 CRWV 자체 1차 공시급 신규 재료는 확인되지 않음."
+  },
+  "claims": [],
+  "deltas": [],
+  "unconfirmed": [
+    {
+      "id": "u_20260820_001",
+      "text": "검토기간(2026-08-15~08-20) 내 CRWV 관련 신규 1차 공시(10-K/10-Q/8-K) 0건. EDGAR full-text 검색(--since 2026-08-15)과 EDGAR 기업 제출 피드 직접 대조 모두 최신 8-K가 2026-08-11자임을 재확인. 웹검색에서 발견된 CDS 스프레드 확대·DDTL 3.0 covenant 완화·$2.6B 대출조건 완화 관련 기사는 각각 2026-07-29·2026-08-03·2026-01-02(개정 발효 2025-12-31) 발표분으로 검토기간 이전 사건이며, DDTL 5.5($2.6B) 관련 보도는 직전 run의 Claim(c_20260815_CRWV_012/013)에 이미 반영된 사건의 사전(prior) 보도로 판단됨. P5에 따라 이 정보 공백을 thesis 훼손·강화의 근거로 사용하지 않음 — 다음 회차(또는 run earnings 시) 재확인 대상으로 큐 유지.",
+      "related_claims": []
+    },
+    {
+      "id": "u_20260815_002",
+      "text": "[직전 run에서 이관, 여전히 open] CoreWeave Q2 2026 CapEx 수치 불일치 — CFO 콜 발언 $9.4B vs GAAP 현금흐름표 PP&E 매입액 $6,422M. 약 $3.0B 차이 원인 미해소. 이번 회차 자료 탐색에서도 해소 자료 발견되지 않음(신규 10-Q 없음 — 다음 분기 공시에서 재확인 필요).",
+      "related_claims": ["c_20260815_CRWV_019"]
+    },
+    {
+      "id": "u_20260815_003",
+      "text": "[직전 run에서 이관, 여전히 open] 증권집단소송(Masaitis) 및 통합 주주대표소송의 디스커버리 진행상황·화해 협상 여부에 대한 공개 정보 여전히 확보되지 않음. 웹검색 재수행 결과도 2026년 3월(리드플레인티프 지정 절차) 이후 업데이트를 찾지 못했음 — P5, 다음 회차 재확인 대상.",
+      "related_claims": ["c_20260815_CRWV_020"]
+    },
+    {
+      "id": "u_20260815_004",
+      "text": "[직전 run에서 이관, 여전히 open] thesis card '이자 커버리지 ~2.2x' 서술의 분자·분모·기간 기준(분기 vs 누적)이 카드 본문에 명시돼 있지 않음 — ThesisPatch 후보(사람 승인 필요, 자동 반영 아님). 이번 회차에서 카드 재확인 결과 아직 미반영 상태.",
+      "related_claims": ["c_20260815_CRWV_009"]
+    }
+  ],
+  "noise_log": [
+    {
+      "item": "2026-08-18 CRWV 주가 -12.1%(30년물 금리 5.32%로 상승 배경, 부채조달 우려 재부각 2차 매체 서술: Motley Fool/Yahoo Finance 등)",
+      "reason": "noise_filter.yaml 공통 '단순 주가 변동·일간 등락' + 서술의 핵심 배경이 금리(매크로) — P6(매크로 재료는 개별 종목 판정 근거 불가). promote_if 7개 변화 항목(매출·가이던스·마진·현금흐름·고객명·수주·양산일정) 중 어느 것도 해당 없음.",
+      "action": "discard"
+    },
+    {
+      "item": "'CoreWeave said to sweeten $2.6 billion loan terms amid debt concerns' (investing.com, 발행일 2026-07-29)",
+      "reason": "DDTL 5.5($2.6B) 신디케이션 과정 중 조건 완화 보도. 최종 클로징 조건(SOFR+5.50%, 2026-08-10)은 직전 run Claim c_20260815_CRWV_012로 이미 1차 공시 기준 확정 반영됨 — 동일 사건의 사전 보도, 신규 재료 아님.",
+      "action": "discard"
+    },
+    {
+      "item": "'CoreWeave amends credit agreement to adjust financial covenants and liquidity' (investing.com, 발행일 2026-01-02, 개정 발효 2025-12-31, DDTL 3.0 대상)",
+      "reason": "검토기간(2026-08-15~08-20) 이전 사건이며 review_window 범위 밖. 1차 공시(10-K 첨부 예정 언급) 원문도 미확보. 향후 회차에서 범위 내 신규 사건과 결부될 경우에만 재검토.",
+      "action": "discard (범위 밖)"
+    },
+    {
+      "item": "techtimes.com 'CRWV CDS 50% default odds'(2026-07-30) / 'backlog $129B, 6주간 +$29.6B'(2026-08-12) 보도",
+      "reason": "미등재 도메인(default_grade=4), 애그리게이터·2차 매체 단독 서술이며 검토기간 이전 발표. 백로그 $129B는 카드/Claim에 이미 반영된 '$104B(6/30) + 신규 커밋 $25B 초과'와 방향상 정합적이나 1차 공시 재확인 없이 단독 근거로 채택 불가(P4). CDS 시장가격은 회사 공시가 아닌 시장 파생지표 — 판정 근거 불가.",
+      "action": "discard (unconfirmed 미적재 — 기존 확인 사실과 방향 정합, 별도 이슈 아님)"
+    },
+    {
+      "item": "Seeking Alpha 'CoreWeave Q2: Contracts Are Getting Shorter, Debt Isn't' 및 'Overblown Debt Financing Concerns Don't Help (Downgrade)' 애널리스트 논평",
+      "reason": "PT·투자의견/논평류 — noise_filter.yaml 공통 '애널리스트 PT·투자의견 변경 단독' 해당. 원문 접근 제한(403)으로 신규 1차 사실 인용 여부 확인 불가.",
+      "action": "discard"
+    }
+  ],
+  "source_manifest": [
+    {
+      "type": "EDGAR full-text search (0 results)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001769628&type=8-K (atom feed 직접 대조로 보완)",
+      "filed_at": "2026-08-20",
+      "evidence_grade": 1,
+      "note": "가장 최근 8-K는 accession 0001769628-26-000362, filed 2026-08-11 — 신규 없음"
+    }
+  ]
+}

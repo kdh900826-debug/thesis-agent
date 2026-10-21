@@ -1,0 +1,101 @@
+{
+  "as_of": "2026-09-25",
+  "ticker": "CRWV",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [],
+  "claims": [
+    {
+      "id": "c_20260925_CRWV_1",
+      "ticker": "CRWV",
+      "claim_type": "fact",
+      "text": "CoreWeave는 2026-09-22 8-K(Items 1.01/3.02/8.01/9.01, 서명일 2026-09-22, 이벤트일 표지 2026-09-17)를 제출해 2026-09-17 가격결정된 전환사채의 실제 결제(settlement)를 공시했다. 최초매입자가 추가매입 옵션 $500M을 전액 행사해 총 발행규모는 당초 상향분 $3.7B에서 $4.2B로 재상향(upsized)됐다. Indenture는 2026-09-22자로 CoreWeave·보증인단(기존 9.250%~8.500% 시니어노트 및 1.75% 전환사채 보증 자회사와 동일)·U.S. Bank Trust Company(수탁자) 간 체결됐다. 순수취금은 $4,137.0M(발행비용 차감 전 인수수수료만 차감)이며 이 중 일부를 capped call 비용에, 잔여는 general corporate purposes에 사용한다고 재확인했다. Capped Call Transactions은 Base(2026-09-17, Barclays·Credit Agricole·Citibank·Deutsche Bank·Bank of Nova Scotia·Goldman Sachs·HSBC·Wells Fargo 8개사)와 Additional(2026-09-18, 옵션 행사분 대응)로 나뉘며 총 비용은 약 $566.2M(발행 전 프레젠테이션상 예시치 $498.8M보다 확정 후 실제 비용이 더 큼 — 옵션 전액 행사분 반영), cap price는 최초 $199.70/주(2026-09-17 종가 대비 150% 프리미엄)로 최종 확정됐다. Indenture의 event of default 조항 중 교차부도(cross-default) 트리거가 처음으로 1차 공시됐다 — CoreWeave 또는 'significant subsidiaries'(그룹 합산 포함)의 차입채무 중 원금 '$200M 또는 LTM EBITDA의 5% 중 큰 금액' 이상에 대한 디폴트 발생 시(30일 유예 후) 교차부도 사유가 된다. 최대 전환 시 발행가능 주식수는 52,578,540주(최대 전환율 12.5187주/천달러 기준)로 상한이 명시됐다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_filing_8k",
+        "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/crwv-20260917.htm",
+        "filed_at": "2026-09-22"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "noise_filter#CRWV promote_if '차환·리파이낸싱 성공/실패' 및 'covenant 관련 공시'에 해당 — 승격 처리. P7 3단 분리: 2026-09-17(계약 존재/가격결정) → 2026-09-18(옵션행사/추가 capped call) → 2026-09-22(Indenture 체결·결제 완료, 본 claim)로 단계가 완결됐다. 이 8-K에는 Item 2.03(직접 재무의무 발생)이 별도 표기되지 않았으나 Item 1.01 본문에 동일 내용(신규 채무 발생)이 기재돼 있다."
+    },
+    {
+      "id": "c_20260925_CRWV_2",
+      "ticker": "CRWV",
+      "claim_type": "inference",
+      "text": "c_20260925_CRWV_1의 확정 발행규모($4.2B, 2.875%)를 이전 run의 5분기 Adj. EBITDA/순이자비용 시계열(output/20260919_2209#c_20260919_CRWV_5,6)에 정태적으로 대입하면, 연 추가이자는 약 $120.75M(=$4.2B×2.875%, 종전 $3.7B 가정 시 예시치 약 $106M보다 큼)이다. 이를 TTM 분모(Q3'25~Q2'26 $1,875M)에 단순 가산하면 $1,995.75M이 되고, TTM Adj. EBITDA $4,403M 기준 이자 커버리지는 약 2.21x로 산출된다(종전 run의 $3.7B 가정 정태치 약 2.22x 대비 -0.01x, 옵션 전액 행사 반영분 차이). 이는 조달금 운용 이자수익·DDTL 5.5 이자·Q3 Adj. EBITDA 성장분을 반영하지 않은 정태적 예시 계산이며, KC-CRWV-3 공식 산식(분기 연환산, 2026-09-20 사용자 확정)의 실제 관측치는 Q3 2026 10-Q 공시를 기다려야 한다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_filing_8k",
+        "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/crwv-20260917.htm",
+        "filed_at": "2026-09-22"
+      },
+      "inference_strength": "weak",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "1차 공시 수치(확정 발행규모)와 직전 run 1차 수치(Adj. EBITDA/순이자비용 시계열)의 산술 결합 파생값이므로 inference 태깅(P1). 옵션 전액 행사로 종전 예시 대비 총부채가 더 늘었으나 커버리지 영향은 미미(-0.01x)함을 확인 — 방향 판단에 실질적 영향 없음."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "funding_access",
+      "direction": "strengthen",
+      "stage": "강(strong)",
+      "prior_state": "직전 run(20260919_2209): 2033년 전환사채가 2026-09-18 가격결정 단계에서 $3.0B→$3.7B로 상향(옵션 $500M 별도, 미행사)됐고 결제는 2026-09-22 예정으로 기재됐다. covenant 관련 신규 공시는 당시 없었다.",
+      "new_state": "결제가 실제로 완료됐다(2026-09-22 Indenture 체결) — 계약 존재(가격결정)에서 이행 완료(결제)로 단계가 진전(P7). 추가매입 옵션 $500M이 전액 행사돼 총 발행규모가 $3.7B→$4.2B로 재상향됐고, 순수취금 $4,137.0M을 실제 수취했다. 자본시장 접근이 예상보다 더 강하게 성사됐다는 신호(전액 옵션 행사)다. 동시에 이번 8-K가 교차부도 covenant 문턱('$200M 또는 LTM EBITDA의 5% 중 큰 금액')을 처음으로 1차 공시해 조달 접근성 축의 covenant 하위 요소에 대한 정량 기준이 처음 확보됐다. 반대 방향 요소: capped call 실제 비용이 $566.2M으로 사전 예시치($498.8M)보다 커져 조달 순현금 유입 효과가 그만큼 줄었다.",
+      "risk_transfer_to": [
+        "leverage_coverage"
+      ],
+      "supporting_claims": [
+        "c_20260925_CRWV_1"
+      ]
+    },
+    {
+      "axis": "leverage_coverage",
+      "direction": "neutral",
+      "stage": "약(weak)",
+      "prior_state": "직전 run: KC-CRWV-3 공식 산식(분자 Adj. EBITDA/분모 Interest expense, net·분기 연환산) 확정(사용자, 2026-09-20). 관측치 Q2'26 2.36x. $3.7B·2.875% 가정 시 TTM 정태 추정 약 2.22x.",
+      "new_state": "확정 발행규모가 $4.2B로 늘어남에 따라 동일 방법으로 재계산한 TTM 정태 추정치는 약 2.21x로 사실상 불변이다(c_20260925_CRWV_2). 실제 관측치(Q3 2026 10-Q 대기)는 여전히 미확보이며, 총이자비용·자본화이자 분리 수치·covenant 준수 여부·미인출 한도 관련 신규 1차 자료도 이번 창에 없다. 방향성 판단을 바꿀 재료는 없어 neutral로 유지한다.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260925_CRWV_1",
+        "c_20260925_CRWV_2"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "이자 커버리지 잔여 정의 공백 — 총이자비용·자본화이자·이자수익 분리 수치",
+      "detail": "[u_20260905_001/u_20260815_004에서 이관, 2026-09-19 run에서 부분 해소] 분자(Adj. EBITDA)·분모(Interest expense, net) 기준 산식은 확정(2026-09-20 사용자 결정)됐고 관측치는 Q2'26 2.36x다. 이번 창의 신규 조달($4.2B 확정)을 반영해도 정태 추정치는 약 2.21x로 사실상 불변(c_20260925_CRWV_2). 잔여 공백은 총이자비용·자본화이자·이자수익 분리 수치이며 Q3 2026 10-Q 대기.",
+      "reason": "awaiting_q3_10q"
+    },
+    {
+      "topic": "CoreWeave Q2 2026 CapEx 현금흐름표 브리지(회사 정의 $9,352M vs GAAP PP&E 매입액 $6,422M)",
+      "detail": "[u_20260905_002/u_20260815_002에서 이관] 정의적 원인은 확정(2026-09-19 run)됐으나 현금흐름표 항목별 브리지(금융리스 취득액·미지급 CapEx 변동)는 이번 창에도 미공시.",
+      "reason": "not_disclosed_awaiting_q3_10q"
+    },
+    {
+      "topic": "FY26 매출 가이던스($12.4-13.2B)·CapEx 가이던스($35-39B)의 1차 자료 재대조",
+      "detail": "카드 key_metrics 두 항목은 여전히 ⚠️갱신 표시 상태. 이번 창 문서(2026-09-22 8-K)에도 가이던스 수치는 포함되지 않았다 — 재대조 미완 지속.",
+      "reason": "not_included_in_window_documents"
+    },
+    {
+      "topic": "신규 전환사채 확정 결제 후 총부채·미인출 한도·covenant 준수 상태",
+      "detail": "[이관] 2026-09-22 8-K로 발행규모($4.2B)·순수취금($4,137.0M)·capped call 실비($566.2M)·교차부도 covenant 문턱은 확정됐으나, 결제 반영 후 총부채 총액·가중평균 이자율·DDTL 5.5 포함 통합 수치는 공시되지 않았다. ATM 실제 매각 수량도 여전히 0건(30일 lock-up 경과 후 개시 예정). Q3 10-Q 대기.",
+      "reason": "no_disclosure_awaiting_q3_10q"
+    },
+    {
+      "topic": "Masaitis v. CoreWeave 증권집단소송 디스커버리·화해 진행상황",
+      "detail": "[u_20260919/u_20260911/u_20260905_003/u_20260815_003에서 이관] 2026-03-13 리드플레인티프 지정 마감 이후 공개 업데이트를 이번 창에서도 확보하지 못했다. CourtListener 도켓(2:26-cv-00355) 직접 조회는 본 run의 검색 예산 내에서 수행하지 않았다.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "창 내 신규 고객 계약(Caterpillar·CrowdStrike SafeMind)의 계약금액·기간·매출 인식 시점",
+      "detail": "[이관] 2026-09-17 프레젠테이션이 실명 공시했으나 TCV·계약기간·인식 개시 시점은 여전히 미공시. 이번 창에 별도 8-K·보도자료 확인되지 않음.",
+      "reason": "contract_terms_not_disclosed"
+    }
+  ]
+}

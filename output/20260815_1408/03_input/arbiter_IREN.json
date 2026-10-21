@@ -1,0 +1,40 @@
+{
+  "as_of": "2026-08-15",
+  "ticker": "IREN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260815_IREN_001",
+      "scope": "sector"
+    }
+  ],
+  "claims": [],
+  "deltas": [],
+  "unconfirmed": [
+    {
+      "topic": "TX 주지사 8/3 감사·보류 지시의 IREN 프로젝트 적용 범위",
+      "detail": "IREN의 신규/기존 확장 프로젝트가 이번 ERCOT 그리드 접속 보류 대상에 포함되는지 gov.texas.gov, puc.texas.gov 원문 및 IREN 자체 공시에서 확인되지 않음.",
+      "reason": "P5 원칙 적용 — 정보 공백을 반증으로 취급하지 않고 unconfirmed 상태로만 적재함."
+    },
+    {
+      "topic": "EDGAR 검색 대상 서식(20-F/6-K) 불일치",
+      "detail": "company-iren.md 정의는 IREN을 '호주 기업 — 20-F/6-K 대상'으로 규정하나, edgar_fulltext.py 실행 결과 최근 20-F/6-K 필링은 2025-06-30이 마지막이며 이후 IREN은 8-K·10-Q·424B·S-8·Form 4·SCHEDULE 13G 등 국내 신고인(domestic filer) 양식으로 공시 중(2026-08-13 8-K, 2026-08-12 SCHEDULE 13G 확인). 2026-08-08 이후 20-F/6-K 조회는 0건 — 서식 가정 자체가 최신 상태와 불일치할 가능성.",
+      "reason": "P5 — 부재(0건)를 '신규 공시 없음'으로 단정하지 않고, 서식 불일치 가능성을 별도 기록. 정의 파일 수정은 에이전트 권한 밖(제안만 가능)."
+    },
+    {
+      "topic": "완전희석 주수 495M vs 508M 충돌 해소 여부",
+      "detail": "이번 조회 기간(2026-08-08~15) 신규 자료로 해소되지 않음. 카드 F9 range 유지, 8/27 실적에서 확정 예정(earnings_checkpoints 항목).",
+      "reason": "1차 자료 미확보 — unconfirmed 유지."
+    },
+    {
+      "topic": "Horizons 2-4 구체 일정",
+      "detail": "2026-08-13 8-K/보도자료(Horizon 1 인도)에서도 'Horizons 2-4 later this year'로만 언급, 구체 일정 미공개.",
+      "reason": "noise_filter.yaml#IREN promote_if 조건('Horizons 2-4 구체 일정') 미충족 — 승격 없음."
+    },
+    {
+      "topic": "2026년 7~8월 BTC 채굴 월간 실적(해시레이트·채굴량·전력단가)",
+      "detail": "이번 조회 기간 내 신규 월간 비즈니스 업데이트를 발견하지 못함(확인 가능한 가장 최근 월간 데이터는 2025년 자료).",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5)."
+    }
+  ]
+}

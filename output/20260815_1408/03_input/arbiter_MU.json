@@ -1,0 +1,136 @@
+{
+  "as_of": "2026-08-15",
+  "ticker": "MU",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260815_MU_05",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260815_MU_01",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Micron EVP 겸 Chief Business Officer Sumit Sadana가 8/10 KeyBanc Capital Markets Technology Leadership Forum에서 '데이터센터 고객 수요의 절반 이상을 충족시키지 못하는 경우가 많다(Quite often we are not able to meet any more than half of the demand our customers have)'고 직접 발언했다.",
+      "evidence_grade": 2,
+      "source": {
+        "type": "conference_transcript_direct_quote",
+        "url": "https://www.investing.com/news/transcripts/micron-at-technology-leadership-forum-2026-ai-tightens-memory-market-93CH-4849994",
+        "filed_at": "2026-08-10"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_MU_02",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "동일 자리에서 Sadana는 '2027 캘린더이어가 2026보다 더 타이트해질 것으로 예상한다(We now expect that 2027 calendar year will be even tighter than 2026)'고 발언했고, 고객이 겪는 제1 제약은 전력·공간·로직 웨이퍼가 아닌 DRAM이라고 밝혔다.",
+      "evidence_grade": 2,
+      "source": {
+        "type": "conference_transcript_direct_quote",
+        "url": "https://www.investing.com/news/transcripts/micron-at-technology-leadership-forum-2026-ai-tightens-memory-market-93CH-4849994",
+        "filed_at": "2026-08-10"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260815_MU_03",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "TrendForce(8/12)는 향후 신규 SCA의 상한가격이 기존 CQ2 2026 벤치마크 고정 방식 대신 '체결 시점의 시장가격'을 따르는 구조로 전환될 것이라고 보도했다(경영진 발언 인용 형태이나, 1차 자료(회사 공시·IR)로 직접 역추적되지 않음).",
+      "evidence_grade": 4,
+      "source": {
+        "type": "trade_press",
+        "url": "https://www.trendforce.com/news/2026/08/12/news-micron-can-meet-less-than-half-of-data-center-demand-as-customers-rush-to-secure-memory-at-very-high-prices/",
+        "filed_at": "2026-08-12"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260815_MU_04",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Counterpoint Research(8/12 발표, Q2 2026 기준)는 YMTC가 NAND 출하량 점유율 14%로 삼성(25%)·SK하이닉스(22%)에 이어 글로벌 3위(Kioxia를 근소하게 추월)에 올랐고, Micron은 출하량 기준 5위이나 데이터센터·엔터프라이즈 프리미엄 믹스 비중이 높아 매출 기준으로는 YMTC(매출 기준 5위)보다 앞선다고 밝혔다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "research_report",
+        "url": "https://counterpointresearch.com/en/insights/server-led-essds-hit-48-percent-of-nand-shipments",
+        "filed_at": "2026-08-12"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "hbm_demand",
+      "direction": "strengthen",
+      "prior_state": "HBM/데이터센터향 수요가 AI CapEx에 연동된다는 가설이 카드에 정성적으로 등재, 정량 확인은 9/22 실적 대기 중",
+      "new_state": "8/10 경영진(Sumit Sadana, EVP/CBO) 직접 발언: 데이터센터 고객 수요의 절반 이상을 충족하지 못하는 상황이 지속되고 있으며, 2027 캘린더이어 공급부족이 2026보다 심화될 것으로 예상 — AI CapEx발 수요 압력이 최소 2027까지 지속됨을 경영진이 재확인",
+      "risk_transfer_to": [
+        "Micron 자체 capex 집행·수율 램프 실행 리스크로 이관 (수요 자체는 강화되나 공급 확대 실행 여부가 관건)"
+      ],
+      "supporting_claims": [
+        "c_20260815_MU_01",
+        "c_20260815_MU_02"
+      ]
+    },
+    {
+      "axis": "sca_defense",
+      "direction": "neutral",
+      "prior_state": "16건 SCA 체결(DRAM 20%+/NAND 1/3 커버리지), 기존 SCA는 CQ2 2026 벤치마크 기준 상한가 고정 구조로 알려짐",
+      "new_state": "TrendForce(grade4, confirmed:false) 보도에 따르면 향후 신규 SCA는 상한가를 '체결 시점 시장가격'에 연동하는 구조로 전환 가능성이 제기됨 — 1차 자료(회사 공시·IR) 미확보로 마진 방어 강화/약화 방향성 판정을 보류. 9/22 실적 'SCA 가이던스' 체크포인트에서 원문 대조 필요",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260815_MU_03"
+      ]
+    },
+    {
+      "axis": "china_supply",
+      "direction": "weaken",
+      "prior_state": "카드상 CXMT·YMTC 공급 확대가 핵심 리스크로 등재. 'CXMT=Micron 위기' 과장 서술은 SCA 방어구조 미분석으로 노이즈 처리",
+      "new_state": "Counterpoint Research(8/12, grade4, confirmed:false): YMTC가 Q2 2026 NAND 출하량 점유율에서 Kioxia를 근소하게 추월, 글로벌 3위(14%) 진입 — 중국 공급 확대가 물량 기준으로는 진전됨. 다만 Micron은 데이터센터향 프리미엄 믹스 비중으로 매출 기준 우위를 유지",
+      "risk_transfer_to": [
+        "NAND 출하량 점유율 잠식 리스크가 매출·마진 믹스 방어력(프리미엄 엔터프라이즈 스토리지 비중)으로 일부 이관"
+      ],
+      "supporting_claims": [
+        "c_20260815_MU_04"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "HBM 마진 vs 범용 마진 ('HBM이 장기계약 대가로 마진이 더 낮다' 가설)",
+      "status": "이번 조회 기간(8/8~8/15) 내 신규 확인 자료 미확보. 카드상 미검증 가설 상태 유지, 9/22 Q4 FY26 실적에서 직접 확인 대상"
+    },
+    {
+      "topic": "8/21 Apple CXMT/YMTC 상원 서한 응답",
+      "status": "Schumer·Banks 등 초당적 상원의원단이 Apple에 8/21까지 회신 요구. 2026-08-15 기준 Apple/Tim Cook의 공개 응답 없음 — 마감 미도래로 결과 판정 불가. 8/21 이후 재조회 필요"
+    },
+    {
+      "topic": "비트그로스 vs ASP 분해 (MU 고유 데이터, '순수 P 사이클' 가설 검증)",
+      "status": "이번 조회 기간 내 Micron 자체 공시·IR을 통한 비트그로스/ASP 분해 데이터 미확보. TrendForce의 업계 전반 서버 D램 가격 전망(c_20260815_MU_05, scope=sector)만 존재하며 MU 고유 분해 근거로 사용 불가. 9/22 실적 체크포인트에서 확인 예정"
+    },
+    {
+      "topic": "EDGAR full-text 신규 공시",
+      "status": "10-K/10-Q/8-K 대상 2026-08-08 이후 검색 결과 0건 — 조회 기간 내 신규 SEC 공시 없음 (원본: MU_edgar_raw.json)"
+    },
+    {
+      "topic": "SCA 상한가격 구조 변경(c_20260815_MU_03)의 1차 자료 역추적",
+      "status": "TrendForce 단독 보도(grade4)로 confirmed:false 유지. 회사 IR/공시를 통한 원문 확인 실패 — 9/22 실적 'SCA 가이던스' 체크포인트에서 재확인 필요"
+    }
+  ]
+}

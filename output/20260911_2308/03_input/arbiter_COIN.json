@@ -1,0 +1,89 @@
+{
+  "as_of": "2026-09-12",
+  "ticker": "COIN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260911_COIN_2",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260911_COIN_1",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API 재조회(CIK 0001679788, forms=10-K/10-Q/8-K, since=2026-08-28, 조회 시점 2026-09-12)에서 반환된 필터링은 정확히 1건: 8-K filed 2026-09-02 (https://www.sec.gov/Archives/edgar/data/1679788/000167978826000101/coin-20260901.htm) — 직전 run(20260905_0618, c_20260905_COIN_001)에서 이미 원문 확인·Item 5.02(이사회 인사, Anthony Armstrong 선임) 단독 건으로 판명된 동일 필링이다. 이번 주 창(2026-09-04~09-12) 및 소급 스윕 구간(2026-08-28~09-03) 어디에도 신규 8-K/10-Q/10-K는 존재하지 않으며, 특히 Circle과의 USDC 분배계약 변경·갱신을 알리는 8-K는 이번 조회에서도 0건이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "EDGAR submissions API (원문 8-K 재확인)",
+        "url": "https://data.sec.gov/submissions/CIK0001679788.json",
+        "filed_at": "2026-09-02"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "KC-CRCL-3(Circle 분배계약 변경 공시) 트리거 부재 확인 — 따라서 KC-COIN-4의 'kc_crcl_3_adverse_to_coin' 조건 미충족. 이사회 인사건 자체는 매출·가이던스·마진 변화 없어 노이즈(P3), 축 매핑 대상 아님."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "usdc_economics",
+      "direction": "neutral",
+      "prior_state": "20260905 run: Circle 분배계약 관련 8-K 부재 지속, 유일 신규 8-K(9/2)는 이사회 인사 건으로 무관 확인됨. '확장' 서사(단일 grade4) vs '불변' 서사(복수 grade3) 상충 미해소 — neutral 유지.",
+      "new_state": "본 주 창(09-04~09-12) + 소급 스윕(08-28~09-03) EDGAR 재조회(c_20260911_COIN_1)에서도 Circle 분배계약 관련 8-K는 신규 0건. KC-CRCL-3 미발동 확인. 시중에는 2026-08-05~06(창 밖, 이미 알려진 구간) 발행된 2차 보도들이 'Circle-Coinbase USDC 수익배분 계약이 2023-08-18 원 조건(플랫폼 보유분 100%+역외 유통분 50%) 그대로 2029년까지 갱신됐다'고 전하나, 해당 보도들은 SEC 공시를 인용하지 않고 Circle 실적발표 자료·2차 매체 요약에 근거하며 분배율 자체를 Circle이 명시적으로 공개하지 않았다고 스스로 밝힘(coingabbar.com 확인) — grade1/2 근거 부재로 여전히 미확정. OUSD 참여조건·분배구조 공개, USDC 수익 절대액 신규공시 모두 이번 창에서도 미확보. 방향은 neutral 유지(강화·훼손 근거 모두 신규 미확보, 상충도 미해소).",
+      "risk_transfer_to": [
+        "OUSD 참여의 장기적 자사 USDC 수익 대체·재편 가능성 — usdc_economics 축 내 감시 지속 이관(분배 구조 공개 unconfirmed)",
+        "'확장'(grade4) vs '불변'(grade3 다수, 2차보도 우세) 서사 상충 — 차기 8-K 또는 10-Q 계약 주석 확인 시까지 이관"
+      ],
+      "supporting_claims": [
+        "c_20260911_COIN_1"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "OUSD 참여 조건·분배 구조 공개",
+      "reason": "조회 기간(08-28~09-12) 내 COIN 특정 분배 조건·수익 배분 비율 공개 없음 — promote_if 트리거 미충족 지속.",
+      "next_check": "OUSD 라이브 출시(Base 등 EVM 체인 확장 시점) 또는 COIN 8-K/10-Q 신규 공시",
+      "related_claims": [
+        "c_20260911_COIN_1"
+      ]
+    },
+    {
+      "item": "USDC 수익 절대액 신규 공시(Q3 2026)",
+      "reason": "Q2 2026 수치(3개월 $292.1M, 상반기 $597.6M)가 가장 최근이며 이번 창 내 Q3 신규 공시 없음(다음 실적 대상 이월).",
+      "next_check": "Q3 2026 실적 발표(회사 IR 공식 공지 필요 — 애그리게이터 추정일 F1상 판정 근거 불가)",
+      "related_claims": []
+    },
+    {
+      "item": "Circle-Coinbase 분배계약 '확장' 서사(전 run 이월)의 진위",
+      "reason": "grade1/2(8-K·직접인용) 근거 여전히 부재. 이번 창에서 확인한 2차보도(08-05~06, 창 밖)는 '원 조건 불변 2029년 갱신' 쪽에 무게가 실리나, Circle 스스로 구체 분배율 미공개를 인정(coingabbar.com) — grade4 단독 근거로 confirmed=true 불가.",
+      "next_check": "COIN 10-Q 관계사 계약 주석 또는 신규 8-K",
+      "related_claims": [
+        "c_20260911_COIN_1"
+      ]
+    },
+    {
+      "item": "Q3 2026 실적 발표일 공식 공지",
+      "reason": "회사 IR 공식 공지 이번 창에도 미확인(애그리게이터 추정치만 존재, F1상 판정 근거 불가).",
+      "next_check": "investor.coinbase.com 공식 공지",
+      "related_claims": []
+    },
+    {
+      "item": "Deribit 'Starbase' 이전(9/9 완료 목표)·RWA 무기한선물의 실제 매출·거래량 기여",
+      "reason": "전 run에서 일정 진행만 확인(전부 grade4, confirmed=false)되었고 이번 창에서는 예산 제약상 재검색을 수행하지 않음 — 상태 변화 여부 미확인 채 이월. 신규 근거 없음.",
+      "next_check": "Q3 실적 또는 COIN 자체 공시의 파생상품 매출 세부 공개",
+      "related_claims": []
+    },
+    {
+      "item": "CLARITY Act 클로처 표결(H.R.3633, 09-15 2:15pm ET) 결과",
+      "reason": "as_of(2026-09-12) 시점 표결 미실시 — 예정 상태(c_20260911_COIN_2). scope=sector로 COIN 개별 축 판정 근거 아님(P6).",
+      "next_check": "2026-09-15 표결 이후 congress.gov/senate.gov 공식 기록",
+      "related_claims": [
+        "c_20260911_COIN_2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "yield_30y": {
+    "value": 5.25,
+    "as_of": "2026-09-03",
+    "source_url": "https://fred.stlouisfed.org/series/DGS30",
+    "method": "api"
+  },
+  "ON_RRP": {
+    "value": 675000000.0,
+    "as_of": "2026-09-04",
+    "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+    "method": "api"
+  },
+  "brent": {
+    "value": 96.02,
+    "as_of": "2026-09-01",
+    "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+    "method": "api"
+  },
+  "BTC": {
+    "value": 79819.855,
+    "as_of": "2026-09-05",
+    "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "method": "api"
+  },
+  "VIX": {
+    "value": 14.529999732971191,
+    "as_of": "2026-09-04",
+    "source_url": "yfinance:^VIX",
+    "method": "api"
+  },
+  "TAIEX_vs_20dma_pct": {
+    "value": 0.69,
+    "as_of": "2026-09-03",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "TAIEX_1m_return_pct": {
+    "value": 2.79,
+    "as_of": "2026-09-03",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "FFR": {
+    "value": 3.75,
+    "as_of": "2026-07-29",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+    "method": "web_search",
+    "note": "FOMC 2026-07-29 결정 유지 — target range 3.50-3.75%, 값은 상단(upper limit) 사용. 다음 FOMC는 2026-09-16(미개최, 본 run as_of 이전). fred_fetch.py SERIES 미포함 — 웹검색 수집(D3: 수치·출처·시각만)"
+  },
+  "FFR_prob": {
+    "value": 58.6,
+    "as_of": "2026-08-25",
+    "source_url": "https://centralbank.watch/federal-reserve/",
+    "method": "web_search",
+    "note": "2026-09-16 FOMC '동결(hold)' 확률(%), CME FedWatch 데이터 인용 집계 사이트. staleness 한도(7일) 초과 — provisional. any KC condition에서 직접 참조되지 않음(KC-1은 FFR 실측값만 사용) — 감사 추적용 부기. 소스 불일치 기록: investing.com Fed Rate Monitor(갱신 2026-09-04)는 동일 회의에 대해 상이한 범위구성(43.9%/56.1%)을 제시하며 어느 범위가 '현재 유지'인지 페이지 자동추출 결과가 federalreserve.gov 공식 발표(현재 3.50-3.75%)와 불일치 — 신뢰도 낮아 채택 보류, centralbank.watch 값을 잠정 채택"
+  },
+  "SDLLMTK_change_pct": {
+    "value": 8.0,
+    "as_of": "2026-09-03",
+    "source_url": "https://www.silicondata.com/products/silicon-index/llm-token-expenditure-index",
+    "method": "web_search",
+    "note": "7일 변화율(%), 1차 소스(Silicon Data 자체 페이지) 직접 표시값. 방향은 증가(+8.0%) — KC-6은 감소(<=-30%) 조건이므로 부호 반대. 인덱스 절대수준($0.97/M tokens)은 CNBC(2026-09-01) 등 보도에 따르면 올여름 고점 대비 절반 이하로 하락했다고 하나, 이는 장기·비고정window 비교로 KC-6의 '2주 지속' 조건과 직접 매핑되지 않아 change_pct 판정에 미반영(D3 — 논평·해석 배제, 소스 자체 표시 수치만 채택)"
+  },
+  "msft_fcf": {
+    "value": 19640000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+    "method": "web_search",
+    "note": "MSFT FY2026 Q4(회계연도 4분기, 캘린더 2026-04~06월) Free Cash Flow — 2026-07-29 발표. 전년동기 대비 -23%. 분기 공시 기반 — EDGAR 확정 대기(config inputs_note)"
+  },
+  "hyperscaler_fcf_sum": {
+    "value": 6835000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm ; https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/GOOG-10-Q-Q2-2026.pdf ; https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-06302026xexhibit991.htm ; https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+    "method": "web_search",
+    "note": "2026년 캘린더 2분기(2026-04~06월 종료) 4개사 FCF 합산: MSFT +19.64B(FY26 Q4, 공식 발표치) + GOOGL -5.9B(Q2'26, 공식 발표치 — OCF 39.1B-capex 44.9B 원시 raw는 -5.8B, 언론 인용 공식치 -5.9B 채택) + AMZN -7.689B(Q2'26, SEC 8-K Ex.99.1 원시 수치 직접 계산: OCF 45,387M - capex 54,208M + 매각대금 1,132M) + META +0.784B(Q2'26, SEC 8-K Ex.99.1 공식 발표치) = 약 +6.84B. 4사 구성(MSFT·GOOGL·AMZN·META)은 이전 run에서 사용된 정의를 확인할 근거 없음(이전 run은 unconfirmed) — 본 run이 최초 채택. KC-7은 '2분기 연속' 조건(duration)이라 자동 판정 불가 — needs_manual 강제, 전분기(2026 캘린더 Q1) 수치는 미수집(unconfirmed 취급)"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ticker": "NBIS",
+  "cik": "0001513845",
+  "items": [
+    {
+      "id": "edgar_2026-08-12_6-K_2",
+      "form": "6-K",
+      "filed_at": "2026-08-12",
+      "title": "6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812x6k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-12_6-K_3",
+      "form": "6-K",
+      "filed_at": "2026-08-12",
+      "title": "FORM 6-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_6k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

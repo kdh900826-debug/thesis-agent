@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run 리포트 20260815_1408</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --ink:#1a1d24; --sub:#5b6472; --line:#e4e7ec;
+    --y:#b7791f; --y-bg:#fdf6e3; --o:#c05621; --o-bg:#fdeee3; --r:#c53030; --r-bg:#fde8e8;
+    --g:#2f855a; --g-bg:#e6f4ec; --b:#2b6cb0; --b-bg:#e8f1fb; --warn:#9b2c2c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:32px 16px;background:var(--bg);color:var(--ink);
+       font-family:'Segoe UI','Malgun Gothic',sans-serif;line-height:1.6;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto}
+  h1{font-size:24px;margin:0 0 4px}
+  h2{font-size:18px;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  h3{font-size:15px;margin:18px 0 8px}
+  .meta{color:var(--sub);font-size:13px;margin-bottom:24px}
+  .cards{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+  .card{flex:1 1 200px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .card .k{font-size:12px;color:var(--sub);margin-bottom:2px}
+  .card .v{font-size:20px;font-weight:700}
+  .card .d{font-size:12px;color:var(--sub)}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+        border-radius:8px;overflow:hidden;font-size:13.5px}
+  .scroll{overflow-x:auto}
+  th{background:#f0f2f5;text-align:left;padding:8px 10px;font-size:12.5px;color:var(--sub);white-space:nowrap}
+  td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+  .badge{display:inline-block;padding:1px 9px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap}
+  .b-y{background:var(--y-bg);color:var(--y)} .b-o{background:var(--o-bg);color:var(--o)}
+  .b-r{background:var(--r-bg);color:var(--r)} .b-g{background:var(--g-bg);color:var(--g)}
+  .b-b{background:var(--b-bg);color:var(--b)} .b-gray{background:#eef0f3;color:var(--sub)}
+  .alert{background:var(--r-bg);border-left:4px solid var(--r);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+  .note{background:var(--b-bg);border-left:4px solid var(--b);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+  .quiet{color:var(--sub);font-size:13px}
+  code{background:#eef0f3;padding:1px 6px;border-radius:4px;font-size:12.5px;font-family:Consolas,monospace}
+  ul{margin:8px 0;padding-left:22px}
+  li{margin:4px 0}
+  .footer{margin-top:40px;padding:14px;text-align:center;background:var(--card);
+          border:1px solid var(--line);border-radius:8px;font-size:13px;color:var(--sub);font-weight:600}
+  .small{font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>투자 Thesis 검증 — Run 리포트</h1>
+<div class="meta">run_id <code>20260815_1408</code> · 2026-08-15(금) 14:08 시작 · <b>run full</b> (L1→L2×7→arbiter×7→L3×3→L4) 완주 · validate 게이트 전건 PASS · 산출물 59개 파일</div>
+
+<div class="cards">
+  <div class="card"><div class="k">발동 KC</div><div class="v" style="color:var(--g)">0건</div><div class="d">확정 미충족 3 · 잠정 6 · 판정부재 1</div></div>
+  <div class="card"><div class="k">시그널 전이</div><div class="v">전건 유지</div><div class="d">7종목 모두 등급 변동 후보 없음</div></div>
+  <div class="card"><div class="k">집중도 경보</div><div class="v" style="color:var(--r)">6/7 축</div><div class="d">전부 IREN 단일 집중의 전사 (지속 상태)</div></div>
+  <div class="card"><div class="k">사람 할 일</div><div class="v" style="color:var(--o)">승인 6 + 판단 5</div><div class="d">ThesisPatch 승인 대기(~8/29) · 에스컬레이션</div></div>
+</div>
+
+<h2>1. 시그널 보드 — 7종목 전건 등급 유지</h2>
+<div class="scroll"><table>
+<tr><th>종목</th><th>등급</th><th>이번 주 핵심 재료</th><th>유지 사유</th><th>다음 게이트</th></tr>
+<tr><td><b>IREN</b> <span class="badge b-b">보유 90%</span></td><td><span class="badge b-y">🟡 관망</span></td>
+<td>회사 특정 재료 <b>0건</b>. TX 주지사 ERCOT 신규접속 감사·보류 지시(8/3)만 관측 — 섹터 재료·미확인(grade 4)</td>
+<td>판정 대상 자체 없음</td><td><b>8/27 실적</b>: 과금 가동률·AI Cloud 매출 비중·MW당 매출</td></tr>
+<tr><td><b>NBIS</b></td><td><span class="badge b-y">🟡 관망</span></td>
+<td>Q2 매출 $582M·EBITDA 흑자전환(1차 공시) ↔ 전환사채·워런트 <b>$6.3B+</b> 부채 급증, Vineland(MS $17.4B 사이트) 공사중지명령(미확인)</td>
+<td>강화·훼손 재료 상충 → 보수적 유지</td><td>2027 가이던스 확정 또는 멀티플 조정</td></tr>
+<tr><td><b>CRWV</b></td><td><span class="badge b-y">🟡 관망</span></td>
+<td>매출 $2.575B(+112%)·백로그 ~$104B 1차 확인 ↔ 총부채 $21.4B→<b>$35.1B</b>(+64%), Q3 이자비용 급증 가이던스</td>
+<td>이자커버리지 ~2.27x로 게이트(3x) 미달 + FCF 마이너스</td><td>FCF 흑자 + 커버리지 3x + 금리 경로 동시 충족</td></tr>
+<tr><td><b>MU</b></td><td><span class="badge b-o">🟠 주의</span></td>
+<td>EVP "데이터센터 수요 50%+ 미충족, 2027 공급부족 심화" 발언(grade 2) · YMTC NAND 3위 진입 보도(grade 4)</td>
+<td>정성 발언은 상향 부적격(P2) · grade 4는 하향 부적격(P4)</td><td><b>9/22 실적</b>: 비트그로스 vs ASP 분해·선수금 방향</td></tr>
+<tr><td><b>CRCL</b></td><td><span class="badge b-r">🔴 비중 조절 검토</span></td>
+<td>Q2 <b>기발표(8/5)</b>: USDC 유통량 +19% YoY·Reserve Income $668M(+5%)·유통비용 +1% (전부 grade 1)</td>
+<td>실측치가 상향 게이트를 기술적으로 충족하나 🔴 근거인 OUSD 위협 미해소</td><td>OUSD 공식 출시·실측 유통량 + Q3 실적(90/10 배분 반영)</td></tr>
+<tr><td><b>COIN</b></td><td><span class="badge b-o">🟠 주의</span></td>
+<td>UK 파생 170+계약 개시(8/11) · Abu Dhabi FSP 라이선스(8/13, 확인) · Circle 수익분배 동일조건 갱신(CFO 발언)</td>
+<td>전부 매출 미인식 단계(P7) → 보유 논거 강화로만 분류</td><td>구독·서비스 비중 방향 + USDC 수익 절대액</td></tr>
+<tr><td><b>HOOD</b></td><td><span class="badge b-y">🟡 관망</span></td>
+<td>7월 순입금 $5.6B·TTM +25% YoY 강화 ↔ 크립토 명목거래액 <b>-62% YoY</b> 훼손 (둘 다 grade 1)</td>
+<td>하향 트리거 성립하나 유입 강화와 병존 → 유지, 리스크는 arpu_mix 축으로 이관</td><td>AUA 순유입·mix 지속성</td></tr>
+</table></div>
+<p class="quiet">등급 확정은 사람의 몫 — 위 등급은 전부 <b>후보 판정</b>입니다. 이번 run에서 전이 제안이 없으므로 별도 확정 행위는 불필요합니다.</p>
+
+<h2>2. 매크로 KC 상태 (L1, 13:30 산출 재사용 · staleness 0일)</h2>
+<div class="scroll"><table>
+<tr><th>KC</th><th>조건</th><th>관측값</th><th>판정</th></tr>
+<tr><td>KC-2 변동성</td><td>VIX ≥ 30</td><td>14.25 (8/14)</td><td><span class="badge b-g">미충족 · 확정</span></td></tr>
+<tr><td>KC-3 크립토+위험회피</td><td>BTC &lt; $55K AND VIX ≥ 25</td><td>BTC 63,060 (+14.7% 여유) · VIX 14.25</td><td><span class="badge b-g">미충족 · 확정</span></td></tr>
+<tr><td>KC-4 유동성</td><td>ON_RRP ≥ $200B AND VIX ≥ 25</td><td>ON_RRP <b>단위 의심</b>⚠️ · VIX 14.25</td><td><span class="badge b-g">미충족 · 확정</span></td></tr>
+<tr><td>KC-1 금리</td><td>FFR &gt; 3.75%</td><td>미수집</td><td><span class="badge b-gray">미충족 · 잠정</span></td></tr>
+<tr><td>KC-6·7·8 AI CapEx 3단</td><td>토큰지출·하이퍼스케일러 FCF·MSFT FCF</td><td><b>3건 전부 미수집</b></td><td><span class="badge b-gray">미충족 · 잠정</span></td></tr>
+<tr><td>KC-9 에너지</td><td>Brent ≥ $120 (1개월)</td><td>93.26 (8/11, stale 3/3일)</td><td><span class="badge b-gray">미충족 · 잠정</span></td></tr>
+<tr><td>KC-10 IREN 전력·인허가</td><td>계약용량 10%+ 감축 or 사이트 취소·보류 공시</td><td>TX ERCOT 감사·보류 지시 관측 — IREN 적용범위 미확인</td><td><span class="badge b-gray">미충족 · 잠정</span></td></tr>
+<tr><td>KC-5 TAIEX</td><td>—</td><td>config <code>active</code> vs 산출물 <code>skipped_draft</code></td><td><span class="badge b-o">판정 부재 ⚠️</span></td></tr>
+</table></div>
+<p class="quiet">잠정(provisional) = 미수집·stale·지속조건 포함을 의미. 미충족 확정이 아닙니다(F7).</p>
+
+<h2>3. 집중도 경보 — "축 집중"이 아니라 "단일 종목 집중의 전사"</h2>
+<div class="alert">
+<b>7개 축 중 6개가 임계 60%를 +35%p 초과 (전부 95%)</b> — AI_CAPEX · RATES · CRYPTO · GPU_SUPPLY · POWER_PERMIT · RISK_APPETITE.<br>
+초과 폭이 전부 동일한 이유: IREN 단일 포지션(비중 상단 95%)이 6개 축 전부에 노출. IREN 노출 축 = 95%, 미노출 축(REGULATION) = 0%로 이분됩니다. <b>축 단위 분산 조치로는 해소되지 않으며</b>, 직전 run과 동일한 지속 상태(신규 발생 아님)입니다. 자연 헤지도 실효 없음 — 역노출 종목이 전부 비중 0.
+</div>
+<p><b>이번 run이 드러낸 구조적 비대칭:</b> 비중 95% 종목(IREN)의 이번 사이클 신규 근거가 grade 4·미확인 1건뿐이고, 집중도가 가장 높은 AI_CAPEX 축의 판정 지표(KC-6·7·8)는 3건 모두 미수집입니다. 8/27 실적 전까지 관측 공백 상태.</p>
+
+<h2>4. 리밸런싱 시나리오 — 9건 전건 no_action</h2>
+<p>발동 KC 0건. 전 시나리오가 사전 정의 KC·가격 라인에 연결돼 있고, 게이트가 열리지 않아 기본 출력은 행동 없음입니다(P12). <span class="quiet">no_action은 "현 상태가 적정하다"가 아니라 "사전 정의 게이트가 열리지 않았다"는 절차적 상태입니다.</span></p>
+<ul>
+<li><b>판정 불가 2건</b>: IREN 가격 라인($30/$28 — 가격 관측 입력 부재), KC-5(상태 불일치)</li>
+<li><b>주시 대상</b>: KC-10 — 실보유와 가장 직접 연결된 미해소 관측(TX ERCOT 건). 현 관측은 trigger 문구("감축 분류·취소·보류 공시")를 충족하지 않음</li>
+</ul>
+
+<h2>5. 섹터 한 줄 요약 (L3)</h2>
+<div class="scroll"><table>
+<tr><th>섹터</th><th>핵심 발견</th></tr>
+<tr><td><b>네오클라우드</b><br><span class="quiet small">IREN·NBIS·CRWV</span></td>
+<td>실질은 <b>NBIS·CRWV 2사 뷰</b>(IREN 재료 공백, 8/27까지 3사 컨센서스 취급 불가). 공통 단층선은 "조달 접근성 개선 ↔ 레버리지 확대"의 종목 내 양방향 분산 — 원인은 자기조달 구조 차이(NBIS 현금 $8.0B vs CRWV 상환&gt;영업현금) 및 조달 스프레드(SOFR+2.50% vs +5.50%). 3사 모두 매출 인식 단계 재료 전무(P7).</td></tr>
+<tr><td><b>스테이블코인</b><br><span class="quiet small">CRCL·COIN·HOOD</span></td>
+<td>규제 축 3사 일치 — 단 내용은 "촉매 긍정"이 아니라 <b>게이트 미개방</b>의 일치. 크립토 사이클 축은 CRCL↔HOOD 발산(관측 시점·스톡 vs 플로우 차이가 원인, 방향 미확정). USDC 유통경제는 CRCL↔COIN <b>구조적 역노출</b>(제로섬) — Q3 Hyperliquid 90/10 배분 반영 시 같은 사실이 반대 부호로 갈릴 수 있음.</td></tr>
+<tr><td><b>메모리</b><br><span class="quiet small">MU (+참조: SK하이닉스·삼성)</span></td>
+<td>hbm_demand 강화 — 참조사 동일 방향(SK하이닉스 OPM 76%·HBM4 양산)으로 <b>섹터 공통 요인 지배</b>, MU 고유 성과로 분리 불가. china_supply 약화(YMTC 3위 진입)는 grade 4 단독이라 크기 미확정.</td></tr>
+</table></div>
+
+<h2>6. 사람이 해야 할 일</h2>
+<h3>① 에스컬레이션 — CRCL 카드 핵심 전제 상충 (최우선)</h3>
+<div class="alert">
+카드 전제 <b>"USDC 유통량 축소 추세"</b> vs 1차 공시 <b>+19% YoY</b>(grade 1 확정)가 정면 상충. 논거의 부호를 뒤집는 수정이라 자동 제안이 금지돼 승인 큐에 <b>등재되지 않았습니다</b>. 직접 검토: <code>output/20260815_1408/07_thesis_patch/CRCL_escalation_usdc_circulation.md</code>
+</div>
+<h3>② ThesisPatch 승인 6건 (만료 8/29 — 14일)</h3>
+<div class="scroll"><table>
+<tr><th>승인 ID (approve/reject &lt;id&gt;)</th><th>내용</th></tr>
+<tr><td><code>ap_20260815_1528_thesis_patch_crwv</code></td><td>CRWV debt_refinancing 축을 조달접근성/레버리지로 분해(P8)</td></tr>
+<tr><td><code>ap_20260815_1528_thesis_patch_crwv_interest_coverage</code></td><td>이자커버리지 계산 기준(H1 누적 vs 분기) 명시</td></tr>
+<tr><td><code>ap_20260815_1528_thesis_patch_crwv_margin_basis</code></td><td>margin_trend 축 기준(YoY vs QoQ) 보강</td></tr>
+<tr><td><code>ap_20260815_1528_thesis_patch_nbis</code></td><td>NBIS funding_capacity 하위 축 분해</td></tr>
+<tr><td><code>ap_20260815_1528_thesis_patch_crcl</code></td><td>CRCL 카드 보강(Q2 실측 반영)</td></tr>
+<tr><td><code>ap_20260815_1528_thesis_patch_crcl_catalyst_gate</code></td><td>next_gate 갱신 — "8/18 Q2"는 소멸된 전제(Q2는 8/5 기발표)</td></tr>
+</table></div>
+<h3>③ config·데이터 정합 판단 (사용자 직접 편집 영역)</h3>
+<ul>
+<li><b>KC-5 상태 불일치</b>: config <code>active</code> vs L1 <code>skipped_draft</code> — 어느 쪽이 맞는지 확정 필요</li>
+<li><b>ON_RRP 단위</b>: 수집값과 임계가 1,000배 차이 — kill_conditions.yaml 단위 확인 (이번 판정 영향 없음)</li>
+<li><b>단일 종목 절대 한도(single-name cap) 미정의</b> — 정의 여부 자체가 사용자 판단 사항</li>
+<li><b>IREN 가격 피드 부재</b> — 가격 라인($30/$28) 판정을 위한 관측 입력 연결 필요</li>
+<li><b>벡터 변경 제안 4건</b>(05_correlation.json): CRCL CRYPTO 강도, USDC 분배경제 축 신설, 양면 노출 스키마, NBIS RATES 강도</li>
+</ul>
+
+<h2>7. 다가오는 일정</h2>
+<div class="scroll"><table>
+<tr><th>날짜</th><th>이벤트</th><th>연결 항목</th></tr>
+<tr><td><b>8/18 (월)</b></td><td>Circle-Coinbase USDC 수익분배 계약 갱신 발효 확인</td><td>KC-CRCL-3 / KC-COIN-4 (양사 CFO 자동 갱신 발언 — 실행 확인 대기)</td></tr>
+<tr><td><b>8/27 (수)</b></td><td><b>IREN FY26 실적 — 최대 분수령</b> → <code>run earnings IREN</code></td><td>포트 95% 노출 · 카드 체크포인트 13개 대조 · CRYPTO 벡터 재평가 예약</td></tr>
+<tr><td>9/14~15</td><td>CLARITY Act 상원 절차(클로처 표결 보도 — 소스 간 날짜 불일치, 미확인)</td><td>CRCL·COIN·HOOD 규제 축</td></tr>
+<tr><td>9/22</td><td>MU FY26 Q4 실적</td><td>비트그로스 vs ASP 분해·선수금·SCA 원문 대조</td></tr>
+</table></div>
+
+<h2>8. 시스템 정비 메모 (이번 run에서 발견)</h2>
+<ul class="small">
+<li>company-iren.md의 "20-F/6-K 대상" 가정 stale — IREN은 8-K/10-Q 체계로 전환 (수정 작업 별도 세션에서 진행 중)</li>
+<li>consensus_aggregate.py — cp949 콘솔에서 이모지 print로 exit 1 (파일 기록은 정상, <code>PYTHONIOENCODING=utf-8</code>로 우회)</li>
+<li>validate_output.py 인자는 <code>--file</code>이 아니라 위치 인자</li>
+<li>state/signals.json의 CRCL next_gate("8/18 Q2") 소멸 — 패치 승인 시 반영</li>
+<li>MU L2가 config/coverage.yaml 1회 열람(P17 위반 자진 보고 — 내용 동일, 산출물 영향 없음)</li>
+</ul>
+
+<div class="footer">본 대시보드는 판단 보조용 요약이며 매수·매도 지시가 아닙니다.<br>
+<span style="font-weight:400">모든 시그널 등급은 후보 판정 — 확정·승인·포지션 행동은 전부 사람의 몫입니다 (P12·P15).</span></div>
+
+</div>
+</body>
+</html>

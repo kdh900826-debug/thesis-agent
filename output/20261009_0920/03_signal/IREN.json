@@ -1,0 +1,179 @@
+{
+ "as_of": "2026-10-09",
+ "run_id": "20261009_0920",
+ "ticker": "IREN",
+ "staleness_days": 0,
+ "input_source": "output/20261009_0920/03_input/arbiter_IREN.json",
+ "kc_excerpt_source": "output/20261009_0920/03_kc_excerpt/IREN.json",
+ "prior_signal": "🔴🔴",
+ "prior_signal_basis": "state/signals.json grades.IREN — 사람 확정 2026-10-03 (KC-1 FFR>3.75, trigger_source=[KC-1])",
+ "proposed_signal": "🔴🔴",
+ "transition_candidate": "maintain_confirmed_kill_state",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보다. 현행 🔴🔴는 사람이 2026-10-03 확정한 상태이며, 이번 회차는 신규 전이가 아니라 '유지 후보' 재확인이다. 등급 해소·재판정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20261009_IREN_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "edgar_api",
+   "filed_at": "2026-10-09",
+   "stage": "no_new_filing_in_window",
+   "summary": "[P1] EDGAR 조회(조사 창 2026-10-01~10-09) IREN 제출 공시 서식 불문 0건. 8-K·10-Q·10-K·424B5·424B7·S-8·13G 신규 없음. 7개 회차 연속 고유 신규 1차 공시 공백. 회사 IR 직접 조회는 HTTP 403으로 대조 미완(unconfirmed)."
+  },
+  {
+   "id": "c_20261009_IREN_2",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "third_party_research_via_secondary_media",
+   "filed_at": "2026-10-07",
+   "stage": "third_party_allegation",
+   "summary": "[P1] SemiAnalysis가 2026-10-07 X 게시물로 IREN의 British Columbia 레거시 사이트 신뢰성 문제를 주장했다는 사실(주장 공표 자체). 주장 내용의 진위는 미확인. 원출처 HTTP 402로 대조 실패, 매체 재인용은 단일 원출처 파생(독립 삼각검증 아님), 수치·고객명 부재. 고객 해지·매출 변화·계약 변경 공시 0건. grade 4·confirmed=false이므로 단독 판정 근거 불가(P4)."
+  },
+  {
+   "id": "c_20261009_IREN_3",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": true,
+   "source_type": "10-K",
+   "filed_at": "2026-08-27",
+   "stage": "context_only",
+   "summary": "[P1] FY26 10-K(2026-08-27)의 풀스택 서술·BC 사이트 gross 용량(Canal Flats 30·Prince George 50·Mackenzie 80MW)·약 $2.4B GPU 파이낸싱(Mackenzie 설비, 집행은 장비 인수 연동, 2026-12-31까지). 창 외 맥락 Claim이며 본 회차 신규 판정 근거로 쓰지 않음."
+  },
+  {
+   "id": "c_20261009_IREN_4",
+   "claim_type": "inference",
+   "inference_strength": "weak",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "derived_from_c_20261009_IREN_2_and_3",
+   "filed_at": "2026-10-07",
+   "stage": "inference_only",
+   "summary": "[P1] 주장이 사실이라면 BC 사이트 품질 문제가 ai_cloud_conversion의 고객 이탈 경로와 Mackenzie 파이낸싱 acceptance 경로에 닿을 가능성(강도 weak). 근거 등급 4·미확인 승계, 수치 인과 없음. 하향 방향 판정 근거로도 사용하지 않음."
+  },
+  {
+   "id": "c_20261009_IREN_6",
+   "claim_type": "inference",
+   "inference_strength": "weak",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": true,
+   "source_type": "derived_from_c_20261009_IREN_5_and_company_release",
+   "filed_at": "2026-05-01",
+   "stage": "inference_only",
+   "summary": "[P1] Sweetwater 1(2026-05-01 energization)이 PUCT 비상 커테일먼트 제안규칙의 적용 기준에 해당할 가능성(weak). 규제 전제가 제안 단계·grade 4·미확인이며 SB6 적용 MW는 미공시라 KC-10 판정 재료가 아님."
+  }
+ ],
+ "filter_bug_report": "없음(F13 위반 아님) — arbiter_IREN.json claims 5건(c_1, c_2, c_3, c_4, c_6) 전부 scope=company_specific. removed_claims 3건(c_5·c_7·c_8, 전부 scope=sector)은 filter_arbiter_input.py가 정상 제거. deltas.power_permit 서술문이 c_5·c_7·c_8을 내러티브로 언급하나 supporting_claims에는 c_1·c_6만 있어 필터 우회 사용 없음. 본 판정은 해당 sector Claim을 사용하지 않았다. 참고: c_3·c_6은 out_of_window=true 맥락 Claim이며 판정에는 쓰지 않았다.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-1",
+    "condition": "FFR 인상 리스크 (FFR > 3.75)",
+    "value": "4.00 (as_of 2026-10-08, api)",
+    "verdict": "met",
+    "verdict_confidence": "confirmed",
+    "note": "임계 3.75 상회 지속. 규칙1 발동 요건(met AND confirmed) 충족. 2026-10-03 사람 확정 🔴🔴의 유일한 trigger_source이며 해소되지 않음."
+   },
+   {
+    "kc_id": "KC-9",
+    "condition": "에너지 쇼크 (brent >= 120, 1개월 지속)",
+    "value": "125.44 (as_of 2026-10-06, stale_days 3 / stale_limit 3)",
+    "verdict": "met",
+    "verdict_confidence": "provisional",
+    "note": "직전 회차(brent 113.96, not_met) 대비 임계 상회로 전환. 그러나 verdict_confidence=provisional(duration '1개월 지속' 조건 미확인, 지속성 확인은 사람). 입력 stale_days가 stale_limit에 도달해 경계 상태. 규칙1은 met AND confirmed만 발동하므로 KC-9는 규칙1 발동 요건 미충족 — trigger_source에 포함하지 않는다. 관찰 항목(경고 관찰)으로만 기록."
+   },
+   {
+    "kc_id": "KC-2~KC-8",
+    "condition": "변동성/크립토/유동성/TAIEX/AI토큰/하이퍼스케일러 FCF/MSFT FCF",
+    "verdict": "not_met (전건)",
+    "verdict_confidence": "혼재 (KC-2~5 confirmed, KC-6~8 provisional)",
+    "note": "KC-3: BTC 81,686 > 55,000 및 VIX 15.41 < 25. KC-2: VIX 15.41 < 30. KC-4: ON_RRP 0.335B < 200B. KC-5: TAIEX 20dma 대비 +4.68%. KC-6~8 provisional이나 not_met 방향."
+   },
+   {
+    "kc_id": "KC-10",
+    "condition": "IREN 계약 용량 10%+ 강제 감축 분류 또는 보유 사이트 전력접속·인허가 취소·보류 공시",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "이벤트형, L2 공시 관측으로 판정. 창 내 취소·보류 공시 0건(c_20261009_IREN_1). SB6 적용 MW 분모 공백은 unconfirmed 이월이며 KC-10 verdict 변경 근거가 아님."
+   },
+   {
+    "kc_id": "IREN 종목 전용 KC(kill_conditions.yaml#company)",
+    "verdict": "not_defined",
+    "verdict_confidence": "n/a",
+    "note": "own_company_kc 미정의(P11, 판정 대상 없음)."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": true,
+  "trigger_source": ["KC-1"],
+  "reason": "규칙1(Kill 우선) 재충족: KC-1 met AND confirmed. 현행 등급이 이미 사람 확정 🔴🔴(KC-1)이므로 결과는 '유지 후보'이며 신규 전이 아님. KC-9는 met이나 provisional이라 규칙1 요건 미충족 — 등급·trigger_source 변경 근거 아님."
+ },
+ "gate_check": {
+  "quantitative_evidence": false,
+  "company_specific": true,
+  "revenue_recognized": false,
+  "upgrade_gate": {
+   "conditions_required": ["quantitative == true", "scope == company_specific", "stage == revenue_recognized"],
+   "conditions_met": {"quantitative": false, "company_specific": true, "revenue_recognized": false},
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향 게이트 미충족. 창 내 신규 공시 0건으로 매출·마진·현금흐름·가이던스 수치 없음, 매출 인식(ASC842) 단계는 FY27 Q1 이후. 현행 🔴🔴는 KC-1 매크로 요인이므로 상향 게이트가 충족되더라도 KC-1 해소 전에는 규칙1이 우선한다. 상향 논거로 쓸 수 있는 정성 재료도 없음(holding_reinforcement 분류 대상 없음)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "evidence_grade_le2_qualitative_impairment": false,
+   "asymmetric_downgrade_triggered": false,
+   "reason": "규칙3 미충족. 유일한 신규 훼손 후보인 SemiAnalysis 주장(c_20261009_IREN_2)은 grade 4·confirmed=false·비정량이라 '정량 훼손 또는 evidence_grade≤2 정성 훼손' 요건에 해당하지 않는다. 고객 해지·SLA 크레딧·계약 변경·가동률 수치 공시 0건. 이미 최하위 등급(🔴🔴)이므로 추가 하향 여지도 없다. 6개 축 전부 neutral."
+  },
+  "note": "회사 펀더멘털 경로(상향·하향 게이트)는 둘 다 미충족 → P12 정상 경로는 등급 유지. 규칙1이 KC-1 기준으로 🔴🔴 유지를 지지한다. 해소 조건: KC-1이 not_met(FFR ≤ 3.75, 확인된 값)로 관측될 때 등급 재판정은 사람이 수행한다. 그 경우 회사 펀더멘털 경로 기준 기저값은 이전 상태(🟡, transitions.previous_state)이며 자동 복귀가 아니다."
+ },
+ "resolution_conditions": {
+  "to_exit_kill_state": "KC-1 not_met confirmed: FRED DFEDTARU ≤ 3.75 관측 (현재 4.00, as_of 2026-10-08). 사람이 재판정.",
+  "kc9_watch": "KC-9 confirmed 전환 시(brent ≥ 120이 1개월 지속으로 사람 확인) trigger_source에 KC-9가 추가되는 규칙1 재발동 후보가 됨. 현 시점 요건 미충족.",
+  "company_path_reference": "상향은 FY27 Q1 10-Q ASC842 매출 최초 인식액(정량·company_specific·revenue_recognized) 확인 후에만 검토. 하향은 정량 훼손 또는 grade≤2 정성 훼손 시에만."
+ },
+ "thesis_delta_summary": [
+  {"axis": "ai_cloud_conversion", "direction": "중립", "note": "[P1] 창 내 1차 공시 0건. SemiAnalysis BC 레거시 사이트 주장은 grade 4·미확인·비정량으로 확인 대상 관측점만 추가, direction 불변(P2·P4). 매니지드 서비스 라이브 여부(CCO 발언) 공식 전사 미대조.", "supporting_claims": ["c_20261009_IREN_1", "c_20261009_IREN_2", "c_20261009_IREN_3", "c_20261009_IREN_4"], "risk_transfer_to": []},
+  {"axis": "execution_delivery", "direction": "중립", "note": "[P1] Horizon 2-4 인도·인수 관련 1차 공시 0건. SemiAnalysis는 Childress·Sweetwater를 문제 범위에서 구분. P7 3단 분리 상태 불변.", "supporting_claims": ["c_20261009_IREN_1"], "risk_transfer_to": []},
+  {"axis": "margin_structure", "direction": "중립", "note": "[P1] 신규 정량 자료 0건. FY27 Q1 체크포인트로 이월.", "supporting_claims": ["c_20261009_IREN_1"], "risk_transfer_to": []},
+  {"axis": "funding_dilution", "direction": "중립", "note": "[P1] 8-K·424B5·424B7·S-8 신규 0건. 10/7 주가 하락의 '자금조달 필요성' 해석은 매체 해석이며 조달 공시 없음. 완전희석 range(F9) 유지.", "supporting_claims": ["c_20261009_IREN_1"], "risk_transfer_to": []},
+  {"axis": "power_permit", "direction": "중립", "note": "[P1] IREN 고유 1차 전력·인허가 공시 0건. 규제 프레임워크 관측은 sector scope·grade 4·미확인이라 판정에 사용하지 않음. Sweetwater 1 적용 가능성(c_6)은 weak 추론, KC-10 분모 공백 불변.", "supporting_claims": ["c_20261009_IREN_1", "c_20261009_IREN_6"], "risk_transfer_to": []},
+  {"axis": "btc_mining", "direction": "중립", "note": "[P1] 신규 경영진 발언·채굴 실적 0건. 종료 목표(2026-12월 말)·ai_cloud_conversion 리스크 이관 상태 불변.", "supporting_claims": ["c_20261009_IREN_1"], "risk_transfer_to": []}
+ ],
+ "alert": {
+  "ticker_event": "[P1] IREN — 매크로 KC-1(FFR 4.00 > 3.75) met+confirmed 지속으로 사람 확정 🔴🔴 유지 후보. 신규 이벤트: SemiAnalysis의 BC 레거시 사이트 신뢰성 주장(2026-10-07, 제3자 주장·미확인), KC-9 brent 임계 상회(provisional).",
+  "facts": "[P1][출처·시각] ① FFR 4.00%, KC-1 임계 3.75 상회, as_of 2026-10-08, api, verdict met/confirmed [KC 발췌본]. ② brent 125.44, KC-9 임계 120 상회, as_of 2026-10-06(stale 3일, 한도 3일), duration '1개월 지속' 미확인으로 provisional [KC 발췌본]. ③ EDGAR 조회 창 2026-10-01~10-09 IREN 제출 공시 0건 [c_20261009_IREN_1, grade 1, confirmed]. ④ SemiAnalysis가 2026-10-07 X 게시물에서 IREN BC 사이트 신뢰성 문제를 주장했다는 사실 자체(주장의 진위는 미확인), 2차 매체 경유·원문 접근 불가 [c_20261009_IREN_2, grade 4, confirmed=false]. 기사들은 10/7 장중 주가 약 -6~7%를 보도(매체 간 수치 상이).",
+  "inference": "[high, 판정근거] KC-1 met+confirmed 지속은 규칙1 요건을 재충족하며 종목 펀더멘털과 별개인 매크로 경로다. [low, 참고] KC-9 임계 상회는 provisional이라 규칙1 요건 미충족이며 지속성(1개월) 확인 전까지 판정 근거가 아니다. [weak, c_20261009_IREN_4] SemiAnalysis 주장이 사실일 경우 ai_cloud_conversion의 고객 이탈 및 Mackenzie 파이낸싱 acceptance 경로로 이어질 수 있으나 근거 등급 4·수치 부재로 훼손 증거가 아니다.",
+  "classification": "규칙1(Kill 우선) 유지 — 현행 사람 확정 🔴🔴의 유지 후보. 상향 게이트(P2/P6/P7) 미충족, 하향 게이트(규칙3) 미충족 → 펀더멘털 경로 P12 '등급 유지'. SemiAnalysis 건은 third_party_allegation_unverified로 분류하며 holding_reinforcement·훼손 어느 쪽도 아님.",
+  "thesis_delta": "6개 축 전부 neutral. 축간 리스크 이관 없음(기존 btc_mining→ai_cloud_conversion 이관 상태만 유지). SemiAnalysis 건은 ai_cloud_conversion의 확인 대상 관측점으로만 추가하며 1차 자료로 확인될 경우 하위 축 분해 대상(P8). KC-1 오버레이(레버리지 전액 해제 + Edge/Next 50% 축소 검토)는 검토 의무이며 실행 지시가 아니다(P15).",
+  "signal_verdict": "🔴🔴 유지 후보 (사람 확정 2026-10-03 상태 유지, trigger_source=[KC-1]). 해소 조건: FFR(DFEDTARU) ≤ 3.75 확인 후 사람 재판정. KC-9는 met이나 provisional이라 규칙1 미발동. 등급 확정은 사람이 한다.",
+  "next_check": "① [정량] KC-1: 차기 FOMC 후 DFEDTARU 값(현 4.00, 해소 임계 ≤ 3.75). ② [정량] KC-9: brent 일별 종가가 120 이상으로 1개월 연속 유지되는지(현 125.44, 2026-10-06) 및 입력 stale_days 한도(3일) 갱신. ③ [정량] FY27 Q1 10-Q(2026-11월경, 정확일 미공시): ASC842 매출 최초 인식액, 가동 ARR $1.0B→$4.0B 진척, 과금 가동률/MFU, 매니지드 서비스 매출 비중. ④ [정량] 10-Q/8-K 내 BC 사이트 관련 고객 해지·SLA 크레딧·계약 변경 공시 건수(현 0건). ⑤ [정량] SB6/PUCT 커테일먼트 적용 MW 공시(KC-10 분모, 기한 2026-12-31). ⑥ [정량] BC Hydro Call for Demand 결과 통지(현재 '올해 후반'으로 후퇴)."
+ },
+ "next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부(현 4.00) — 사람 재판정 트리거. ② KC-9 지속성: brent ≥ 120 일별 값의 1개월 연속 여부(현 125.44, 2026-10-06, provisional). ③ FY27 Q1 10-Q(2026-11월경): ASC842 매출 최초 인식액·가동 ARR $1.0B→$4.0B 진척·과금 가동률. ④ 10-Q/8-K의 BC 사이트 고객 해지·SLA 크레딧 공시 건수(현 0건). ⑤ SB6/PUCT 커테일먼트 적용 MW 공시(기한 2026-12-31). ⑥ BC Hydro Call for Demand 결과 통지.",
+ "unconfirmed_carried": [
+  {"topic": "SemiAnalysis 주장 원문·CCO 발언·IREN 공식 대응", "reason": "third_party_allegation_unverified"},
+  {"topic": "회사 IR 뉴스룸 직접 대조 (HTTP 403)", "reason": "primary_source_inaccessible"},
+  {"topic": "SB6/PUCT 적용 MW (KC-10 분모) 및 규칙 1차 원문", "reason": "primary_source_inaccessible"},
+  {"topic": "BC Hydro 2026 Call for Demand — IREN 신청·선정 여부", "reason": "no_disclosure"},
+  {"topic": "FY27 Q1 10-Q 실적일 확정", "reason": "no_disclosure"},
+  {"topic": "Horizon 2 인도·인수 완료 여부", "reason": "no_disclosure"},
+  {"topic": "과금 가동률 / MFU", "reason": "carried_over_from_prior_run"},
+  {"topic": "완전희석 주수 갱신치 (8/14 이후)", "reason": "no_disclosure"},
+  {"topic": "매니지드 서비스 믹스(Mirantis) 정량치", "reason": "carried_over_from_prior_run"},
+  {"topic": "Governor Abbott 지시 ERCOT 데이터센터 감사 최종 결과", "reason": "audit_in_progress"}
+ ],
+ "human_confirmation_required": true,
+ "note_for_orchestrator": "현행 🔴🔴(사람 확정 2026-10-03)와 동일한 유지 후보. 확인 요청 포인트: (1) KC-9가 not_met→met(provisional)로 전환 — brent 125.44, 입력 stale 3/3 경계. duration(1개월 지속) 확인은 사람 몫이며 확인 시 trigger_source 확장 후보. (2) SemiAnalysis 건은 grade 4·미확인이라 어떤 방향의 등급 근거로도 쓰지 않았으며 FY27 Q1 10-Q까지 관측 항목. (3) F13 필터 버그 없음. 키 규약: kill_check.triggered(bool)/trigger_source(array)."
+}

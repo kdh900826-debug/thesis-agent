@@ -1,0 +1,167 @@
+{
+ "ticker": "CRWV",
+ "run_id": "20260911_2308",
+ "as_of": "2026-09-12",
+ "staleness_days": 2,
+ "underlying_primary_event_date": "2026-09-10",
+ "lookback_window": {
+  "since": "2026-08-28",
+  "until": "2026-09-12",
+  "primary_window": {
+   "since": "2026-09-04",
+   "until": "2026-09-12"
+  },
+  "note": "지시된 주 창은 2026-09-04~2026-09-12(run이 2026-09-11 야간 시작 → 2026-09-12로 이어짐). 안전 오버랩으로 2026-08-28까지 소급 스윕했다. 스윕 결과 2026-08-28~2026-09-03 구간에서 신규(미확보) 1차 자료는 발견되지 않았다 — 창 밖 소급 발견분(outside_primary_window_retro_found) 없음."
+ },
+ "claims": [
+  {
+   "id": "c_20260911_CRWV_1",
+   "ticker": "CRWV",
+   "claim_type": "fact",
+   "text": "직전 시도에서 edgar_fulltext.py --forms 10-K 10-Q 8-K로 0건이 나온 것을 확인한 뒤, 폼 목록을 확장(10-K/10-Q/8-K/SCHEDULE 13G/13D/S-1/S-3/424B5)하고 --since 2026-08-01로 재실행했다. 그 결과 SEC EDGAR submissions API(CIK 0001769628)에서 3건이 조회됐으나 전량 조회기간(2026-08-28~2026-09-12) 이전이다: 10-Q(2026-08-12, crwv-20260630.htm), 8-K(2026-08-11, crwv-20260811.htm — Q2 실적 8-K), 8-K(2026-08-10, crwv-20260807.htm — DDTL 5.5 $2.6B 클로징, 직전 run에서 이미 확인됨). 2026-08-12 이후 신규 1차 공시는 0건이다.",
+   "evidence_grade": 1,
+   "source": {"type": "edgar_api", "url": "https://data.sec.gov/submissions/CIK0001769628.json", "filed_at": "2026-09-12"},
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "직전 시도의 0건은 폼 목록이 지나치게 좁아서였던 것으로 판단되나, 확장 재조회에서도 조회기간 내 신규 공시는 여전히 0건 — 재현됨. Q3(2026-09-30 마감) 10-Q는 통상 회계마감 후 약 40~45일 지연 공시되므로 이번 창에는 나올 수 없다."
+  },
+  {
+   "id": "c_20260911_CRWV_2",
+   "ticker": "CRWV",
+   "claim_type": "fact",
+   "text": "CoreWeave는 2026-09-10 자사 웹사이트(coreweave.com) 보도자료로 'Physical AI Field Engineering' 서비스를 발표했다. 이는 Monolith AI 인수로 확보한 팀·방법론을 기반으로, 고객 엔지니어링팀에 도메인 전문가를 배치해 R&D부터 현장 운영까지 전 엔지니어링 생애주기에서 자체 데이터로 AI 모델을 구축·검증·배포하는 서비스다. 보도자료는 이미 자동차·항공우주·로보틱스 분야 100개+ 엔지니어링 프로젝트에 적용됐다고 명시했고, 고객사로 Nissan Technical Centre Europe과 Aston Martin Aramco Formula One Team(무선통신 40채널 동시 처리 트랜스크립션 모델, 75회 반복 개선)을 실명으로 언급했다. 계약금액·매출 관련 수치는 공시되지 않았다. Nissan(Emma Deutsch, Director of Engineering & Test Operations), CoreWeave(Richard Ahlfeld, SVP of Physical AI), Futurum(Dan O'Brien, President and COO) 경영진 인용 포함.",
+   "evidence_grade": 1,
+   "source": {"type": "company_press_release", "url": "https://www.coreweave.com/news/coreweave-launches-physical-ai-field-engineering-to-turn-proprietary-data-into-production-ai", "filed_at": "2026-09-10"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "8-K 미제출(비중요 사건으로 판단된 듯) — coreweave.com 1차 공지만 확인. 재무 수치 없음."
+  },
+  {
+   "id": "c_20260911_CRWV_3",
+   "ticker": "CRWV",
+   "claim_type": "inference",
+   "text": "c_20260911_CRWV_2의 Nissan(자동차)·Aston Martin Aramco F1(모터스포츠) 고객은 기존 서술의 소수 대형 AI랩(OpenAI·Meta 등) 집중 구조와는 다른 업종이며, 2026-08-20 HRT(금융서비스) 사례에 이은 두 번째 비-AI랩 업종 다변화 신호다. 다만 이는 GPU 컴퓨트 백로그 계약이 아니라 엔지니어링 서비스(Monolith AI 기반) 상품이고 계약금액·매출 규모가 공시되지 않아, 백로그 스케일·매출 구조에 미치는 영향은 판단할 수 없다. 방향성만 고객 다변화 쪽이며 축 판정을 뒤집을 근거는 아니다.",
+   "evidence_grade": 1,
+   "source": {"type": "company_press_release", "url": "https://www.coreweave.com/news/coreweave-launches-physical-ai-field-engineering-to-turn-proprietary-data-into-production-ai", "filed_at": "2026-09-10"},
+   "inference_strength": "weak",
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "prior_state 대조를 위해 직전 run(20260905_0618) c_20260905_CRWV_001/003 HRT claim을 참고했다(자기 종목 산출물, P17 허용)."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "customer_concentration",
+   "direction": "strengthen",
+   "stage": "약(weak)",
+   "prior_state": "직전 run(0905): HRT(금융서비스, 2026-08-20) 계약 확장으로 비-AI랩 고객 다변화 신호 1건 확인, weak inference로만 반영.",
+   "new_state": "Physical AI Field Engineering(2026-09-10)으로 자동차(Nissan)·모터스포츠(Aston Martin Aramco F1) 고객 실명 확인 — 비-AI랩 업종 다변화 사례가 2건째 축적. 단 계약금액·매출 미공시로 절대 규모 불확실, weak inference 유지. 축 판정을 뒤집을 근거는 아님.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260911_CRWV_2", "c_20260911_CRWV_3"]
+  },
+  {
+   "axis": "funding_access",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 두 run(0820/0905): 신규 1차 공시 없음. 최근 확정 사건은 DDTL 5.5($2.6B, 2026-08-07/08-10 클로징, 오버서브스크라이브, Ba2/BB+).",
+   "new_state": "이번 회차도 신규 1차 공시 없음(c_20260911_CRWV_1). 웹검색에서 발견된 'DDTL 3.0 covenant 완화'(실제 발효 2025-12-31)와 '$8.5B DDTL 4.0 투자적격 등급 조달'(Moody's A3/DBRS A(low), 실제 공시 2026-03-31)은 모두 조회기간·안전 오버랩(2026-08-28~) 밖의 구정보로 확인돼 discarded_noise_log에 적재했다.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260911_CRWV_1"]
+  },
+  {
+   "axis": "leverage_coverage",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "카드/u_20260905_001·u_20260815_004: 이자 커버리지 '~2.2x' 서술의 분자(Adj.EBITDA/GAAP영업이익)·분모(순이자비용/총이자비용)·기간(분기 연환산/TTM) 기준 미확정. Task0 잔여 부채.",
+   "new_state": "이번 창에서도 이 공백을 메울 1차 자료(Q3 10-Q 등)는 나오지 않았다(c_20260911_CRWV_1) — Q3(2026-09-30 마감) 10-Q는 통상 40~45일 지연되어 이번 창(2026-09-12까지)에는 공시될 수 없는 구조적 이유가 확인됨. 공백은 여전히 open, unconfirmed로 이월.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260911_CRWV_1"]
+  },
+  {
+   "axis": "margin_trend",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "카드: Q2 Adj. EBITDA 마진 59%(YoY 압축, 시퀀셜 개선) — 기준별 방향 상반, 축 판정 시 기준 고정 필요.",
+   "new_state": "이번 창 신규 정량 자료 없음. 변화 없음.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260911_CRWV_1"]
+  },
+  {
+   "axis": "gpu_priority",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0905): HRT向 Vera Rubin NVL72/HGX B200 상업 제공 확인 — 공급 우선권이 고객 가동 단계로 이행 중이라는 최초 사례.",
+   "new_state": "이번 창 Physical AI Field Engineering 발표(c_20260911_CRWV_2)는 엔지니어링 서비스 상품이며 NVIDIA/Vera Rubin 관련 신규 GPU 공급·배포 정보를 포함하지 않는다 — 이 축에는 신규 근거 없음.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260911_CRWV_2"]
+  },
+  {
+   "axis": "backlog_scale",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "카드: 백로그 ~$104B ⚠️갱신(Q2 기준). c_20260911_CRWV_2·3의 신규 계약은 금액 미공시.",
+   "new_state": "이번 창 백로그 총액에 대한 신규 정량 공시 없음. 변화 없음.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260911_CRWV_1"]
+  },
+  {
+   "axis": "litigation",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "u_20260905_003/u_20260815_003: Masaitis v. CoreWeave(D.N.J.) 증권집단소송, 최신 확인 절차는 2026-03-13 리드플레인티프 지정 마감. 이후 디스커버리·화해 진행상황 공개 업데이트 미확인.",
+   "new_state": "이번 창 웹검색에서도 디스커버리·화해 관련 신규 공개 업데이트를 확인하지 못했다 — 정보 공백 지속(P5, 훼손·강화 판단에 사용하지 않음).",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260911_CRWV_1"]
+  }
+ ],
+ "unconfirmed": [
+  {
+   "topic": "이자 커버리지 계산기준(분자·분모·기간) 미확정 — KC-CRWV-3 판정 전제조건",
+   "detail": "[u_20260905_001/u_20260815_004에서 이관] 카드상 '현 ~2.2x'는 1차 자료 재대조 미완 상태. DDTL 5.5 covenant의 1.35x DSCR은 SPV 차주 단위 지표로 회사 전체 EBITDA/이자 커버리지와는 별개(c_20260815_CRWV_009, 자기 종목 이전 run 참조)임이 이미 확인돼 있어, 이 covenant 수치를 카드의 '~2.2x'와 동일시하면 안 된다. 이번 창에서도 해소 자료(Q3 10-Q 등) 없음 — Task0 잔여 부채 지속. ThesisPatch 후보(분자·분모·기간 정의 명시)는 여전히 사람 승인 대기.",
+   "reason": "no_disclosure_awaiting_q3_10q"
+  },
+  {
+   "topic": "CoreWeave Q2 2026 CapEx 수치 불일치(CFO 발언 $9.4B vs GAAP PP&E 매입액 $6,422M)",
+   "detail": "[u_20260905_002/u_20260815_002에서 이관] 약 $3.0B 차이 원인 미해소. 이번 창 자료 탐색에서도 해소 자료를 확인하지 못했다.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "Masaitis v. CoreWeave 증권집단소송 디스커버리·화해 진행상황",
+   "detail": "[u_20260905_003/u_20260815_003에서 이관] 2026-03-13 리드플레인티프 지정 마감 이후 공개 업데이트를 이번 창에서도 확인하지 못했다.",
+   "reason": "carried_over_from_prior_run"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "title": "'CoreWeave amends credit agreement to adjust financial covenants and liquidity' (investing.com 재유통)",
+   "reason": "실제 발효일 2025-12-31(개정 공지 2026-01-02), DDTL 3.0 대상 — 조회기간·안전 오버랩(2026-08-28~) 밖. 20260820_1932 run에서도 동일 판단으로 이미 discard됨."
+  },
+  {
+   "title": "'CoreWeave plans $1.5bn bond sale' / '$2.6B DDTL 5.5 closes' 재유통",
+   "reason": "실제 클로징 2026-08-07/08-10 — 조회기간 밖. c_20260911_CRWV_1에서 EDGAR 재확인, 직전 run(20260815_1408) Claim으로 이미 반영됨."
+  },
+  {
+   "title": "'CoreWeave Closes Landmark $8.5 Billion Financing Facility, Achieving First Investment-Grade Rated GPU-backed Financing'(DDTL 4.0, Moody's A3/DBRS A(low))",
+   "reason": "실제 공시일 2026-03-31 — 조회기간·안전 오버랩보다 5개월+ 이전. 접근 가능한 CRWV 이전 run(20260815/0820/0905) 어디에도 이 사건이 Claim으로 존재하지 않아 이력상 공백일 가능성이 있으나, 소급 반영은 이번 run 범위(P17 주 창+안전 오버랩) 밖 — 신규 Claim화하지 않고 여기 기록만 남긴다."
+  },
+  {
+   "title": "'CoreWeave (CRWV) Expands $22.5B OpenAI Deal' (yahoo finance/insider monkey)",
+   "reason": "WebSearch 요약이 최초 '2026-09-25' 발표로 제시했으나 원문(yahoo finance) 직접 대조 결과 실제 발표일은 2026-09-25가 아닌 2025-09-25(1년 전)로 확인 — 검색 요약의 연도 오표기. 조회기간과 무관한 구정보이며 이미 백로그(~$104B/$129B 등 기존 수치)에 반영된 사건."
+  },
+  {
+   "title": "Fully Connected 2026 컨퍼런스(2026-09-29~10-01, 샌프란시스코)",
+   "reason": "as_of(2026-09-12) 기준 미래 예정 행사 — 아직 발생하지 않음. Claim화 대상 아님(참고: 향후 catalyst)."
+  },
+  {
+   "title": "'NVIDIA·CoreWeave $6.3B 용량 계약' (datacenters.com)",
+   "reason": "검색 결과에 정확한 발표일이 없어 조회기간 내 신규 사건 여부를 확인하지 못했다. 검색 예산 제약(효율 지침)상 추가 역추적을 중단하고 미채택 — Claim화하지 않음(과대 추정 방지)."
+  }
+ ],
+ "reused_from": "output/20260905_0618/02_company/CRWV.json",
+ "notes": "P17 컨텍스트 격리 준수 — .claude/agents/company-crwv.md, state/thesis_cards/CRWV.yaml, config/noise_filter.yaml#CRWV, config/sources.yaml, config/kill_conditions.yaml#KC-CRWV-*(자기 종목 KC 정의 확인용), 자기 출력 경로(output/20260905_0618/02_company/CRWV.json 포함), 웹/EDGAR 원문만 접근했다. 타 종목 카드·output/*/01_macro_kc.json·output/*/04_sector/*·state/signals.json은 열람하지 않았다.\n직전 시도에서 edgar_fulltext.py --forms 10-K 10-Q 8-K가 0건을 반환한 원인은 폼 목록이 좁아서가 아니라(재확장 조회에서도 조회기간 내 0건 재현) 실제로 2026-08-12 이후 신규 1차 공시가 없기 때문으로 판단된다.\n이번 창의 핵심 발견은 2026-09-10 Physical AI Field Engineering 발표(customer_concentration 축 weak strengthen, HRT에 이은 2번째 비-AI랩 다변화 사례)이며, 재무·부채·마진·이자커버리지 관련 신규 1차 자료는 0건이다. 특히 orchestrator가 지목한 이자커버리지·CapEx 정의 공백은 이번 창에서도 해소되지 않았다 — Q3(2026-09-30 마감) 10-Q의 통상 공시 지연(약 40~45일)을 고려하면 다음 회차(2026년 11월경)까지는 구조적으로 해소될 수 없다.\nKC-CRWV-1(대형고객 계약훼손)·KC-CRWV-2(GPU배포 지연)·KC-CRWV-3(이자커버리지·차환)는 이번 창에 트리거 방향 신규 근거가 없어 관측상 not_met(경고·발동 미해당) 유지로 보이나, 최종 met/not_met 판정은 signal-arbiter 영역이므로 본 산출물은 관측 보고만 한다."
+}

@@ -1,0 +1,447 @@
+{
+  "as_of": "2026-10-09",
+  "ticker": "NBIS",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [],
+  "claims": [
+    {
+      "id": "c_20261009_NBIS_1",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-10-01 Nebius Group N.V. 6-K(제출 2026-10-01, Exhibit 99.1 보도자료): Nebius가 추론 최적화 스타트업 Inferize를 인수했고 Inferize의 기술·팀이 Nebius Token Factory(관리형 추론 플랫폼)에 합류했다. 회사 설명상 Inferize 기술은 모델 cold start(모델 로딩 대기 시간)를 줄여 유휴 GPU를 감소시키고 용량이 실사용량에 더 가깝게 확장되도록 하는 것이며, 보도자료는 앞서 Eigen AI(모델·커널·시스템 최적화)와 Clarifai(시스템 수준 추론·컴퓨트 오케스트레이션 핵심팀 및 라이선스 기술)가 Token Factory에 편입됐다고 기술한다. Inferize 창업 시점은 2026-01로 서술됐다. 'The terms of the transaction were not disclosed.' — 인수 대금·지급 형태·매출 기여 수치는 공시되지 않았다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "6-K Exhibit 99.1 (Nebius 보도자료, 20-F 제출 발행사)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926112824/tm2626792d1_ex99-1.htm",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "이번 창의 유일한 NBIS 6-K. 매출·가이던스·마진·현금흐름에 대한 수치 변화 없음 — 자본배분(M&A)·제품(Token Factory) 사건으로 승격(noise_filter 공통 promote_if '경영진·자본배분')."
+    },
+    {
+      "id": "c_20261009_NBIS_2",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "c_20261009_NBIS_1의 Inferize 인수는 Token Factory(contract_monetization 축 정의에 명시된 소프트웨어 수익화 레이어)의 기술 보강이지만, 보도자료는 활용률 개선 폭·출시 일정·고객·매출 기여를 정량화하지 않았고 인수 대금도 비공개이므로 이번 창에서 매출·마진·가이던스 변화로 환산할 근거가 없다. 활용률·token economics 개선은 회사 주장 단계(P2: 정성 논거는 상향 근거 부적격)이며, 인수 대금 규모(2차 매체의 Calcalist 인용 추정치 $100~150M)는 회사 미확인 수치로 unconfirmed 적재했다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "c_20261009_NBIS_1 종합 — 별도 대조 자료 없음",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926112824/tm2626792d1_ex99-1.htm",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "inference_strength weak = 방향 판단이 아니라 '정량 근거 부재' 판단의 확신도."
+    },
+    {
+      "id": "c_20261009_NBIS_3",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-10-09 09:24(KST) nebius.com/prices 원문 HTML(__NEXT_DATA__ JSON) 재조회: 발효일(2026-10-01) 8일 후에도 GPU 표는 'On-demand, GPU-hour'와 'GPU-hour (Effective October 1, 2026)' 두 열을 병기한다. 값은 10-01 조회와 동일 — HGX B300 $7.85→$9.50(+21.0%), HGX B200 $7.15→$8.50(+18.9%), HGX H200 $4.50→$5.40(+20.0%), HGX H100 $3.85→$4.50(+16.9%). GB300 NVL72·GB200 NVL72는 현재·발효 후 모두 'Contact us'(비공개). RTX PRO 6000 $1.80→$1.80, L40S(Intel CPU) from $1.55→from $1.55, L40S(AMD CPU) from $1.82→from $1.82로 불변. CPU-only: AMD EPYC Genoa from $0.10→from $0.13, Intel Ice Lake from $0.05→from $0.06. 페이지 전체 표(GPU·Preemptible·CPU·스토리지·네트워킹)에 메모리 전용 가격 품목은 없다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "회사 공식 가격 페이지 (nebius.com) 원문 파싱",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-10-09"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "10-01 run의 4개 SKU(H100·H200·B200·B300) 인상 수치가 8일 후에도 동일 — 신규 정량 변화는 없고 '지속 확인'이다. RTX PRO 6000·L40S는 인상 대상이 아님을 이번에 명시 기록(10-01 run은 해당 품목 미기재). 메모리 41% 보도는 대조 채널 부재(P5) 지속."
+    },
+    {
+      "id": "c_20261009_NBIS_4",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "같은 nebius.com/prices 페이지(2026-10-09 조회)의 회사 서술: (a) 'Commitment discounts — Pay up to 35% less than on-demand rates by reserving large-scale clusters for multiple months.' (b) Preemptible(spot) 표 각주: 'The highest PVM rate is always one cent below the current on-demand rate for that capacity' — spot 상한이 현재 on-demand 단가에 연동된다(spot 표시가 H100·H200·RTX PRO 6000 from $0.79, B200·B300 from $0.99, L40S는 spot 제외·고정 요율). (c) 페이지는 commitment discount가 $1B+ 대형 계약 단가에 적용되는지·어떤 폭인지 명시하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "회사 공식 가격 페이지 (nebius.com) 서술 인용",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-10-09"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "(a)는 복수개월 예약 클러스터 할인의 회사 공시 상한(35%)으로, on-demand 인상이 계약 단가에 전가되는지(contract_monetization 부호 분리)는 여전히 미확인. 이번 run에서 1차로 처음 기록하는 수치이나 페이지 문구 자체의 개정 시점은 불명."
+    },
+    {
+      "id": "c_20261009_NBIS_5",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "발효일 이후 8일이 지난 2026-10-09에도 가격 페이지가 현재가·발효 후가를 병기하는 구조는 '발효 예정 고지를 계속 게시 중'인 상태와 '이미 과금에 반영된 상태'를 문자열만으로 구분해주지 않으므로, 실과금 전환(billing effectuation)은 이번 창에서도 독립 검증되지 않았다. 병기 구조 유지가 미적용의 증거도 아니다(P5). 따라서 on_demand_pricing_power 축 부호 활성화 조건 중 '2026-10-01 이후 발효 확인'은 미충족 유지, 'Q3 2026 실적자료의 단가·ARPU 언급'도 미충족(Q3 실적일 미확정)이다. P7: 가격 고지 ≠ 계약 갱신 ≠ 매출 인식.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "c_20261009_NBIS_3·c_20261009_NBIS_4 종합 — 별도 대조 자료 없음",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-10-09"
+      },
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "검증 수단 후보: 고객 청구서·콘솔 가격 계산기(비공개)·Q3 실적자료. 모두 이번 창 접근 불가."
+    },
+    {
+      "id": "c_20261009_NBIS_6",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-10-01 AIB Data Centers Inc.(NYSE American: AIB) Form 8-K(Item 7.01 Regulation FD, 제출 2026-10-01; Exhibit 99.1 보도자료 일자 2026-09-30): AIB의 100% 자회사가 Nebius Inc.와 Master Colocation Services Agreement(MCSA)를 체결했다. 보도자료는 50MW critical IT capacity·초기 12년·갱신 옵션, 근거 전력(15년 65MW Electric Service Agreement)을 기술하나 계약 금액·선급금·가동 시점은 기재하지 않았고, 공시 항목이 Item 1.01(중요 계약)이 아닌 7.01(FD)이다. 같은 기간 Nebius 측 EDGAR 제출(6-K)에는 해당 계약 관련 문서가 없다(창 내 6-K는 Inferize 1건).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "AIB 8-K Exhibit 99.1 (카운터파티 공시, sec.gov)",
+        "url": "https://www.sec.gov/Archives/edgar/data/0002070542/000121390026105865/ea030737801ex99-1.htm",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "카운터파티(AIB) 공시이며 Nebius 자신의 공시가 아니다. 직전 run의 c_20261001_NBIS_1(GlobeNewswire 동일 보도자료)을 SEC 원문 8-K로 1차 재대조한 것."
+    },
+    {
+      "id": "c_20261009_NBIS_7",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "AIB 'Investor Presentation, Q3 2026'(AIB 8-K Exhibit 99.1, 제출 2026-09-30; AIB 자체 목표·전향적 진술): (a) MCSA는 2026-09 체결, 선급금(prepayments) 포함. (b) Electric Service Agreement 서비스 개시 예정일 2026-10-01. (c) 'CLT1' 캠퍼스 일정: Data Hall 1(25MW critical IT) 약 Month 10, Data Hall 2(25MW) 약 Month 14 — 시점은 ESA 서비스 개시일 기준이며 임차료는 hall별로 개시하고 12년 초기 기간은 첫 hall부터 기산. (d) 'Project-level debt and preferred equity have not been arranged' — 프로젝트 부채·우선주 미조달 상태. (e) 최종 자본구조에 따라 지분 조달이 필요할 수 있다고 명시. (f) 약 $800M 빌드 예시(건설부채 $560M·우선주 $140M·지분 $100M)는 'illustrative; not a projection or guidance'로 표기. 위 모두 AIB의 주장이며 Nebius가 확인한 사실이 아니다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "AIB 8-K Exhibit 99.1 투자자 프레젠테이션 (카운터파티 자료, sec.gov)",
+        "url": "https://www.sec.gov/Archives/edgar/data/2070542/000121390026105249/ea030723301ex99-1.htm",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true,
+      "note": "창 밖(제출 9-30) 자료이나 직전 run(20261001_0900)이 '금액·가동일 미공시'로 처리한 항목의 카운터파티 측 보강이라 기록. AIB 문서에 위치는 'CLT1'로만 기재(주 이름 없음) — 2차 매체(DCD) 'South Carolina'는 이 문서로 확인되지 않음."
+    },
+    {
+      "id": "c_20261009_NBIS_8",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "같은 AIB 프레젠테이션(제출 2026-09-30)의 가치·보증 관련 진술: (a) 'AIB implied rate: $1.32B ÷ 12 years ÷ 50 MW' — AIB가 Nebius 계약의 초기 12년 계약가치를 약 $1.32B로 가정해 임대율을 산정(산술상 연 $2.2M/MW)했다. 단 같은 문서의 'Contract value and prepayments per the Company's Form 8-K'라는 각주와 달리 AIB 8-K 보도자료 본문(c_20261009_NBIS_6)에는 금액이 없다. (b) 개발 자본 조달원 도식에 'Guaranty from Nebius ($50+ billion market cap) — Expected'가 포함되어 있다(보증 체결·금액 미기재). (c) 'Prepayments: 1–2 years of prepaid rent held as a deposit is the industry standard'는 업계 일반론 서술이며 본 계약의 선급금 금액이 아니다. 위 모두 AIB 측 진술이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "AIB 8-K Exhibit 99.1 투자자 프레젠테이션 (카운터파티 자료, sec.gov)",
+        "url": "https://www.sec.gov/Archives/edgar/data/2070542/000121390026105249/ea030723301ex99-1.htm",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true,
+      "note": "'AIB 진술이 존재한다'는 사실만 confirmed. $1.32B·Nebius 보증·선급금 규모는 Nebius 측 미확인 → unconfirmed 적재. 연 $2.2M/MW는 NBIS 카드의 ACV/MW 3단과 무관한 AIB의 임대율(코로케이션 임차료)이며 어느 단 가격도 아니다 — 카드 단가와 비교 인용 금지."
+    },
+    {
+      "id": "c_20261009_NBIS_9",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-10-07 AIB CEO 주주서한(AIB 8-K Item 7.01 Exhibit 99.1, 제출 2026-10-07): Nebius와의 MCSA를 'CLT1 data center campus'의 50MW critical IT capacity, 초기 12년·5년 갱신 옵션 2회로 재확인했고, '계약상 고객 선급금(contractual customer prepayments)이 초기 개발의 의미 있는 부분을 충당'할 것으로 기대하며 프로젝트 레벨 부채·우선주로 보완하는 계획이라고 서술한다. 'meeting our commitments to Nebius'를 우선순위로 언급한다. 신규 금액·가동일·보증 금액은 없다. 같은 서한은 AIB의 텍사스 인수로 총 계약 전력이 65MW에서 약 120MW로 늘었다고 기재(Nebius 계약과 무관).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "AIB 8-K Exhibit 99.1 (CEO 서한 보도자료, sec.gov)",
+        "url": "https://www.sec.gov/Archives/edgar/data/2070542/000121390026107421/ea030792301ex99-1.htm",
+        "filed_at": "2026-10-07"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "Nebius 측 수치·일정의 추가 공개는 없음."
+    },
+    {
+      "id": "c_20261009_NBIS_10",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "AIB 측 진술(c_20261009_NBIS_7)을 그대로 적용하면 AIB 50MW의 첫 hall 인도는 ESA 개시(2026-10-01) 후 약 10개월(2027-08 전후), 두 번째 hall은 약 14개월(2027-12 전후)이어서 FY2026 연결 전력(회사 목표 800MW~1GW) 시점에는 가동분이 없다. 연말 5GW 목표는 '계약 전력' 기준이라 이 50MW가 5GW 산정에 포함되는지는 회사 미확인이다. 또한 AIB의 프로젝트 부채·우선주가 미조달(c_20261009_NBIS_7(d))이고 Nebius 보증이 '기대' 단계(c_20261009_NBIS_8(b))이므로, 인도 리스크는 Nebius 자사 건설 경로에서 AIB의 자금조달 완료·건설 실행으로 이관되고, 보증이 체결되면 Nebius 쪽에 우발 의무(leverage_burden 후보)가 생길 수 있다. 위는 카운터파티 주장에 기반한 산술·구조적 추정이며 Nebius 확인 전까지 판정 근거가 아니다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "c_20261009_NBIS_7·c_20261009_NBIS_8 종합 — 별도 대조 자료 없음",
+        "url": "https://www.sec.gov/Archives/edgar/data/2070542/000121390026105249/ea030723301ex99-1.htm",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true,
+      "note": "P7: 1단(계약 체결) 외 2단(인도)·3단(매출 인식)은 미확인. 'Month 10' 환산은 월 단위 단순 가산(2026-10 + 10개월)이며 AIB 문서가 기산 요일을 밝히지 않아 ±1개월 오차 가능."
+    },
+    {
+      "id": "c_20261009_NBIS_11",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "Form 4(제출 2026-10-06, 최초 거래일 2026-10-05)·Form 144(제출 2026-10-05): COO·이사 Ophir Nave가 2026-10-05 Class A 주식 500,000주를 $231.12~$243.50 구간(가중평균 약 $235.5, 약 $117.8M)에 12개 거래로 매도했다. Form 4에 Rule 10b5-1 계획 체크박스가 표시돼 있고, 거래 후 직접 보유 454,685주. Form 144 신고상 매도 예정 500,000주·시장가치 $121.405M·발행주식수 238,400,165, 취득 경위는 2024-11-30 RSU. 주: 외국 발행사 지위로 Section 16(b) 단기매매차익반환은 면제된다는 각주 표기.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "SEC Form 4 / Form 144 (Nebius 내부자 신고)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000126/xslF345X06/form4.xml",
+        "filed_at": "2026-10-06"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "매출·가이던스·마진·현금흐름·수주·일정 어느 것도 변경하지 않으므로 카드 8축 중 어느 축에도 매핑하지 않는다. noise_filter 공통 promote_if '경영진·거버넌스' 보수적 승격으로 기록만 한다(Delta 미생성). Form 144 URL: https://www.sec.gov/Archives/edgar/data/1513845/000195004726010048/xsl144X01/primary_doc.xml"
+    },
+    {
+      "id": "c_20261009_NBIS_12",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "Form 4(제출 2026-10-01~10-05): 2026-10-01 RSU 베스팅 시 원천징수세 충당 목적의 자동 매도(각주: 재량 거래 아님) — CEO Arkadiy Volozh 37,778주 @$234.16(약 $8.85M, 거래 후 785,236주), CTO Danila Shtan 14,546주 @$234.16(거래 후 260,217주), Chief Infrastructure Officer Andrey Korolenko 29,090주 @$234.16(거래 후 522,248주). 별도로 이사 John W. Boynton IV의 2026-09-29 매도 50주는 Rule 10b5-1 계획(2026-03-06 채택) 하의 거래(직전 run에서 Form 144 기준 노이즈 폐기분의 Form 4 후속).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "SEC Form 4 (Nebius 내부자 신고)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000120/xslF345X06/form4.xml",
+        "filed_at": "2026-10-05"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "세금 충당 자동 매도로 신호 가치 없음 — 카드 축 매핑 없음, 완전성을 위한 기록. Volozh Form 4 URL 대표 인용; Shtan(…000122)·Korolenko(…000124)·Boynton(…000118)은 같은 경로 패턴."
+    },
+    {
+      "id": "c_20261009_NBIS_13",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-10-09 조회 기준 회사 IR 채널 상태: nebius.com/investor-events는 'No upcoming events yet. Please stay tuned.'로 표시하며 과거 이벤트 최신은 Citi 2026 Global TMT Conference(2026-09-09)와 Q2 2026 실적(2026-08-12)이다. nebius.com/newsroom의 2026-09-25 이후 항목은 2026-10-01 Inferize 보도자료 1건뿐이다(그 이전 2026-09-23 SemiAnalysis ClusterMAX 3.0 Platinum 블로그, 2026-09-08 Palantir 파트너십). Q3 2026 실적일·2027 가이던스 발표일 공지는 게시돼 있지 않다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "회사 IR·뉴스룸 페이지 (nebius.com)",
+        "url": "https://nebius.com/investor-events",
+        "filed_at": "2026-10-09"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "애그리게이터는 Q3 실적일을 10-22(TipRanks 추정 표기, 'TBA (Confirmed)' 병기)와 11-10(MarketBeat 추정)으로 상충 표기한다 — F1상 판정 근거 불가. 회사 공지 부재(P5)는 '일정 없음'의 반증이 아니라 미확정."
+    },
+    {
+      "id": "c_20261009_NBIS_14",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "SEC EDGAR NBIS(CIK 0001513845) 2026-10-01~2026-10-09 제출 목록(전 서식, edgar_fulltext.py 수집 8건): 6-K 1건(2026-10-01, Inferize), Form 4 5건(10-01·10-05×3·10-06), Form 144 1건(10-05), SCHEDULE 13G/A 1건(10-07, Goldman Sachs Group 13,023,110주·5.1%, 사건일 2026-09-30). 20-F·424B5·F-3·424B3·424B1 제출은 목록에 없다. 20-F/6-K 필터 조회는 6-K 1건만 반환했다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "SEC EDGAR 제출 목록 (_raw_edgar_NBIS.json)",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001513845&type=&dateb=&owner=include&count=40",
+        "filed_at": "2026-10-09"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "발행사 지위 재확인: 6-K 표지에 Form 20-F 체크 — 20-F/6-K 체계 유효(coverage.yaml의 '10-K' 표기는 오기, 제안만 유지·config 미수정). 목록 부재는 ATM·전환사채 신규 실행 '반증'이 아니라 EDGAR 공시 경로 기준 미관측이다(P5)."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "margin_transition",
+      "direction": "neutral",
+      "stage": null,
+      "prior_state": "Q2 Adj. EBITDA 마진 41% 유지 확인 상태",
+      "new_state": "이번 창 신규 1차 마진 자료 없음. Inferize는 활용률 개선을 주장하나 정량·일정 부재(c_20261009_NBIS_2)로 마진 환산 불가. 중립/변화 없음",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_NBIS_2"
+      ]
+    },
+    {
+      "axis": "funding_access",
+      "direction": "neutral",
+      "stage": null,
+      "prior_state": "2026-08-24 $5.75B 전환사채 클로징 완료(그린슈 전액 행사) 상태 유지",
+      "new_state": "이번 창 EDGAR 목록에 424B5/F-3/424B3/424B1 및 신규 채무 6-K 없음(c_20261009_NBIS_14). AIB 개발 자금조달 도식에 'Nebius 보증 — Expected'가 AIB 측 주장으로 존재하나 체결·금액 미확인(c_20261009_NBIS_8). 중립/변화 없음",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_NBIS_14"
+      ]
+    },
+    {
+      "axis": "leverage_burden",
+      "direction": "neutral",
+      "stage": null,
+      "prior_state": "6/30/26 기준 전환사채 원금 총액 약 $14,991.8M 추정(8/24 결제 반영) 상태 유지(inference:medium)",
+      "new_state": "이번 창 부채 잔액·만기구조 변경을 시사하는 Nebius 1차 공시 없음. 관찰만 기록: AIB 프레젠테이션의 'Guaranty from Nebius — Expected'와 AIB 계약가치 가정 약 $1.32B(c_20261009_NBIS_8)는 카운터파티 주장으로, 보증이 체결되면 우발 의무가 leverage_burden으로 이관될 후보다(c_20261009_NBIS_10, inference:medium). 사건 확인 전이므로 방향 판정 없음. $800M 교환(~15.8M주) 실제 인도 시점은 carried unconfirmed",
+      "risk_transfer_to": [
+        "Nebius 보증 체결 시 우발 의무(미확인)"
+      ],
+      "supporting_claims": [
+        "c_20261009_NBIS_8",
+        "c_20261009_NBIS_10"
+      ]
+    },
+    {
+      "axis": "capacity_delivery",
+      "direction": "neutral",
+      "stage": "계약 체결 단계(P7 1단) 유지 — AIB 측 인도 목표(첫 hall ~Month 10, 둘째 ~Month 14)는 카운터파티 주장으로 Nebius 미확인. 인도·매출 인식은 미확인",
+      "prior_state": "직전 run(20261001_0900): AIB 50MW·12년 MCSA 체결로 strengthen(계약 단계, 금액·가동일 미공시). 연말 5GW 계약전력 목표, late Q4 온라인 전환 대상 Q2 4건 $1B+ 계약 진행 중",
+      "new_state": "AIB SEC 문서로 계약 구조가 보강됐다(c_20261009_NBIS_6·7·9): ESA 개시 2026-10-01, 25MW hall 2개를 약 Month 10/14에 인도(≈2027-08·2027-12 환산, c_20261009_NBIS_10), 임대료·12년 기간은 첫 hall부터. 이는 FY2026 연결 전력 목표 기간 내 가동분이 아니며 5GW 산정 포함 여부는 미확인이다. 인도 실행 의존이 AIB의 프로젝트 부채·우선주 조달(미조달)로 이동. 신규 사건이 아니라 기존 계약의 세부이므로 직전 strengthen을 이어받되 이번 회차 신규 방향은 중립. Vineland(08-06·08-10 공사중지명령 해제 여부)는 이번 창 신규 자료 없음(carried)",
+      "risk_transfer_to": [
+        "AIB(3자 개발사)의 프로젝트 부채·우선주 조달 완료 및 건설·인도 실행",
+        "NBIS 보증 체결 시 leverage_burden으로 일부 이관(미확인)"
+      ],
+      "supporting_claims": [
+        "c_20261009_NBIS_6",
+        "c_20261009_NBIS_7",
+        "c_20261009_NBIS_9",
+        "c_20261009_NBIS_10"
+      ]
+    },
+    {
+      "axis": "contract_monetization",
+      "direction": "neutral",
+      "stage": null,
+      "prior_state": "ACV/MW 3단 구조($12M/$20-25M/$40-50M) 기준선 유지, 신규 정량 자료 없음(2026-09-19 이후 지속)",
+      "new_state": "계약형 단가 체계의 신규 Nebius 1차 자료 없음. 회사 가격 페이지에 'commitment discount 최대 35%(복수개월 예약 클러스터)' 서술을 1차로 기록(c_20261009_NBIS_4)했으나 $1B+ 계약(Meta·MS·Q2 4사)에 on-demand 인상이 전가되는지는 여전히 미확인 — on_demand_pricing_power와 부호 분리 유지. Inferize는 Token Factory 소프트웨어 레이어 보강이나 정량 부재(c_20261009_NBIS_1·2). AIB 임대율 연 $2.2M/MW는 NBIS 매출 단가(ACV/MW) 아님(c_20261009_NBIS_8 note). 중립/변화 없음",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_NBIS_1",
+        "c_20261009_NBIS_2",
+        "c_20261009_NBIS_4"
+      ]
+    },
+    {
+      "axis": "on_demand_pricing_power",
+      "direction": "neutral",
+      "stage": "가격 고지 1차 확정(P7 1단) 지속 — 발효일 도래, 실과금 전환 독립 검증 불가, 매출 인식과 별개",
+      "prior_state": "직전 run(20261001_0900): strengthen — 4개 SKU(H100·H200·B200·B300) 1차 교차검증, CPU 실제 인상률(EPYC +30%·Ice Lake +20%) 확인, 실과금 미검증",
+      "new_state": "2026-10-09 재조회에서 가격표 불변(c_20261009_NBIS_3). 페이지가 현재가·발효 후가를 병기하는 구조도 8일 후까지 유지돼 billing effectuation은 여전히 독립 검증되지 않았다(c_20261009_NBIS_5). spot 상한이 현재 on-demand 단가에 연동(최고 spot = on-demand − 1센트)됨을 회사 페이지로 확인(c_20261009_NBIS_4) — on-demand 인상이 spot 상한에 기계적으로 반영되는 구조. GB300/GB200 NVL72 비공개 지속, 메모리 약 41%는 대조 채널 부재. 신규 방향 없음 — P2상 리스트 가격은 상향 근거 부적격(holding_reinforcement 영역)",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261009_NBIS_3",
+        "c_20261009_NBIS_4",
+        "c_20261009_NBIS_5"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "nebius.com/prices 신단가의 실제 과금 시스템 반영(billing effectuation)",
+      "reason": "발효 8일 후(2026-10-09)에도 현재가·발효 후가 병기 구조가 유지돼 페이지 문자열만으로 판별 불가(c_20261009_NBIS_3·5).",
+      "next_check": "Q3 2026 실적자료의 단가·ARPU 언급, 회사 IR 질의응답, 고객 청구 사례(1차 가능 시)",
+      "related_claims": [
+        "c_20261009_NBIS_3",
+        "c_20261009_NBIS_5"
+      ]
+    },
+    {
+      "item": "GB300 NVL72·GB200 NVL72 단가 및 인상률",
+      "reason": "현재·발효 후 모두 'Contact us' 비공개 지속.",
+      "next_check": "nebius.com/prices 재조회, Q3 실적자료의 신규 SKU 가격",
+      "related_claims": [
+        "c_20261009_NBIS_3"
+      ]
+    },
+    {
+      "item": "메모리(RAM) 약 41% 인상 보도의 1차 대조",
+      "reason": "회사 가격 페이지 전체에 메모리 전용 가격 품목이 없어 대조 채널 자체가 부재(반증이 아님, P5).",
+      "next_check": "메모리 과금 품목 신설 여부, Q3 실적자료·IR 언급",
+      "related_claims": [
+        "c_20261009_NBIS_3"
+      ]
+    },
+    {
+      "item": "commitment discount(최대 35%)의 $1B+ 대형 계약(Meta·MS·Q2 4사) 단가 적용 여부와 on-demand 인상 전가",
+      "reason": "페이지는 복수개월 예약 클러스터 할인 상한만 서술하고 대형 계약 적용 여부·폭을 밝히지 않음(c_20261009_NBIS_4).",
+      "next_check": "Q3 실적자료의 ARPU·ACV/MW 변화 또는 commitment discount 언급",
+      "related_claims": [
+        "c_20261009_NBIS_4"
+      ]
+    },
+    {
+      "item": "AIB 50MW 계약의 Nebius 측 확인: 계약가치(AIB 가정 약 $1.32B)·선급금 규모·Nebius 보증 체결 여부·인도 일정(첫 hall ~Month 10, 둘째 ~Month 14)",
+      "reason": "전부 AIB(카운터파티) 문서의 진술이다. Nebius 6-K에는 해당 계약 관련 문서가 없고 AIB 8-K 보도자료 본문에는 금액·일정이 없다(c_20261009_NBIS_6·7·8). 계약 본문은 8-K Item 1.01로 제출되지 않았다.",
+      "next_check": "Nebius Q3 실적자료·20-F 주석의 약정·보증·선급금, AIB 10-Q(2026-11 예상)의 MCSA 주석, 후속 8-K/6-K",
+      "related_claims": [
+        "c_20261009_NBIS_6",
+        "c_20261009_NBIS_7",
+        "c_20261009_NBIS_8",
+        "c_20261009_NBIS_10"
+      ]
+    },
+    {
+      "item": "AIB 50MW가 연말 5GW 계약전력 목표 산정에 포함되는지 및 CLT1 소재 주(州)",
+      "reason": "회사 미공시. AIB 문서는 위치를 'CLT1'로만 기재하고 2차 매체(DCD, grade 3)가 South Carolina로 언급하나 1차 확인 없음(DCD 직접 조회는 403으로 차단).",
+      "next_check": "Nebius Q3 실적자료의 계약전력 합계·사이트 목록",
+      "related_claims": [
+        "c_20261009_NBIS_7"
+      ]
+    },
+    {
+      "item": "Inferize 인수 대금",
+      "reason": "6-K Exhibit 99.1은 'terms not disclosed'. 2차 매체가 Calcalist 인용으로 $100~150M 추정을 전하나 grade 3·1차 경로 없음(confirmed=false).",
+      "next_check": "Q3 실적자료·20-F 사업결합 주석(금액이 중요하지 않으면 미공시 가능)",
+      "related_claims": [
+        "c_20261009_NBIS_1"
+      ]
+    },
+    {
+      "item": "[carried] Q3 2026 실적 발표일",
+      "reason": "2026-10-09 회사 IR 이벤트 페이지 'No upcoming events yet'(c_20261009_NBIS_13). 애그리게이터는 10-22(추정 표기)와 11-10(추정)으로 상충 — F1상 판정 근거 불가.",
+      "next_check": "nebius.com/investor-events·newsroom·BusinessWire의 'announces date of third quarter 2026 results' 공지(Q2는 8-12 실적 14일 전인 7-29에 공지)",
+      "related_claims": [
+        "c_20261009_NBIS_13"
+      ]
+    },
+    {
+      "item": "[carried] 2027 공식 가이던스 발표 시점",
+      "reason": "회사 공지에 'later this year' 이상의 구체 일정 없음(c_20261009_NBIS_13).",
+      "next_check": "Q3 실적자료·IR 일정",
+      "related_claims": [
+        "c_20261009_NBIS_13"
+      ]
+    },
+    {
+      "item": "[carried] Vineland 공사중지명령(08-06 LNG 탱크/08-10 Bloom 연료전지) 해제 여부",
+      "reason": "이번 창 재검색에서 해제·허가 취득을 보도한 신규 1차·2차 자료 없음(P5). 2차 매체가 09-22 NJDEP 벌금 약 $1.07M 헤드라인을 전하나 본문 미확인.",
+      "next_check": "vinelandcity.org Planning Board/Construction Office 기록, 회사 6-K·Q3 실적자료의 Vineland 진척",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] ATM 잔여 12.3M주 실사용 여부·금액",
+      "reason": "창 내 EDGAR 목록에 신규 424B5·F-3 제출 없음(c_20261009_NBIS_14).",
+      "next_check": "차기 20-F/6-K 재무제표·자본조달 주석",
+      "related_claims": [
+        "c_20261009_NBIS_14"
+      ]
+    },
+    {
+      "item": "[carried] $800M 기존 전환사채(2029·2031년물) 지분교환(~15.8M주) 실제 주식 인도 완료 시점",
+      "reason": "창 내 관련 후속 6-K 없음.",
+      "next_check": "차기 20-F/6-K 발행주식수·전환사채 잔액 변동. 참고: 2026-10-05 Form 144의 발행주식수 238,400,165(c_20261009_NBIS_11)는 Class A 기준 여부 불명이라 교환 완료 판정에 사용하지 않음",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] KC-NBIS-2(용량 인도 지연) 경고/발동 임계 판정",
+      "reason": "Vineland 상태 미확정 지속, AIB 계약은 P7 1단(체결)이며 인도 목표는 AIB 주장. 인도 지연 판단 대상 아님(KC 판정 아님 — 관측만).",
+      "next_check": "회사 6-K·Q3 실적자료의 Vineland/Microsoft/AIB 트랜치 인도 일정",
+      "related_claims": [
+        "c_20261009_NBIS_10"
+      ]
+    }
+  ]
+}

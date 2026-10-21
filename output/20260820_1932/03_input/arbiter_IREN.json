@@ -1,0 +1,90 @@
+{
+  "as_of": "2026-08-20",
+  "ticker": "IREN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260820_IREN_003",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20260820_IREN_004",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260820_IREN_001",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "IREN Limited가 2026-08-04 제출한 424B7(Mirantis 인수 관련 매각주주 재판매 등록, Registration No. 333-284369)에 따르면, 2026-04-30 기준 보통주(Ordinary shares) 발행주식수는 357,378,674주이며, 이는 다음을 제외한다: (1) 주식매입선택권(옵션) 행사 시 발행 가능 4,987,244주(가중평균 행사가 $72.71), (2) RSU 베스팅 시 발행 가능 38,645,505주(2026-07-01 공동 CEO 부여분 포함), (3) 기존 전환사채 전환 시 발행 가능 최대 165,640,942주. 동 문서는 Mirantis 합병대가 총 13,673,894주 중 비공인(unaccredited) 보유자 현금 대체분을 제외한 최대 11,981,668주를 매각주주 재판매용으로 등록했다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "424B7",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126031055/ny20079234x1_424b7.htm",
+        "filed_at": "2026-08-04"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "직접 원문 다운로드(SEC User-Agent 헤더 지정) 후 본문 대조 확인. 카드에 기재된 'Mirantis 11.98M주 재판매'(risks 항목)와 수치 일치(11,981,668주) — 기존 서술의 1차 자료 정확 확인."
+    },
+    {
+      "id": "c_20260820_IREN_002",
+      "ticker": "IREN",
+      "claim_type": "inference",
+      "text": "c_20260820_IREN_001의 구성요소를 단순 합산하면 basic 357,378,674 + 옵션 4,987,244 + RSU 38,645,505 + 전환사채 전환상한 165,640,942 = 최대 약 566.65M주로, 카드 key_metrics에 기재된 완전희석 주수 range(495M~508M, 출처: 시장데이터 소스 추정)의 상단을 상회한다. 다만 이는 전환사채 100% 전환(if-converted) 가정의 상한값이며, 실제 회계상 '완전희석 주수'는 in-the-money 여부·treasury-stock method 등 방법론에 따라 달라진다 — 이번 자료로 495M/508M 충돌이 해소되는 것은 아니고, 오히려 상단 리스크가 시장 추정보다 더 클 가능성이 있음을 시사하는 수준.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "derived_calculation_from_424B7",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126031055/ny20079234x1_424b7.htm",
+        "filed_at": "2026-08-04"
+      },
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "funding_dilution",
+      "direction": "weaken",
+      "prior_state": "카드: 완전희석 주수 495M vs 508M 출처 충돌(단일값 사용 금지, F9). 희석 오버행 = Mirantis 11.98M주 재판매 + RSU + ATM. CEO RSU ~$687-749M 성과조건 부재(별도 리스크).",
+      "new_state": "1차 자료(424B7, c_20260820_IREN_001)로 2026-04-30 기준 basic 357,378,674주 및 옵션·RSU·전환사채 각 구성요소 수치를 처음으로 확인. 단순 합산 상한은 약 566.7M주(c_20260820_IREN_002, inference/medium)로 카드 range 상단(508M)을 상회하나, if-converted 가정과 실제 회계 방법론 차이로 495M/508M 충돌을 해소하지는 못함 — F9 range 원칙(단일값 금지)은 그대로 유지. 다만 상단 리스크가 기존 추정보다 클 가능성이 새로 인지되어 방향을 'weaken'으로 기록. 8/27 실적에서 '완전희석 주수 확정'(카드 checkpoint 항목)이 이 range를 좁힐 핵심 이벤트.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260820_IREN_001",
+        "c_20260820_IREN_002"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "8/27 FY26 실적 관련 회사 자체 사전 공시·프리뷰(가이던스 수정 등) 1차 자료",
+      "detail": "이번 조회에서 회사(IREN) 발표 형태의 사전 가이던스 수정·실적 프리뷰는 발견되지 못했다. 발견된 것은 애널리스트 추정치뿐이며, 소스 간 편차가 매우 크다(예: 매출 추정이 한 소스는 ~$165M, 다른 소스는 ~$1.4B로 8배 이상 차이 — 지표 정의·기간 혼동 가능성 시사). 애그리게이터·애널리스트 추정치는 회사 확정 발표가 아니므로 판정 근거로 사용할 수 없다(P2/P4).",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). D-7 시점 신규 근거 부재는 반증이 아니라 quiet period 등 정상적 상태일 수 있음."
+    },
+    {
+      "topic": "TX 주지사 지시·ERCOT/PUCT 절차의 IREN 프로젝트(Childress·Sweetwater) 적용 여부 및 2026-08-20 PUCT 회의 처리 결과",
+      "detail": "PUCT의 good-cause exception 처리 결과, 그리고 이번 절차 전반이 IREN의 기존 계약·시공 중 프로젝트에 적용되는지 여부가 자료수집 시점(2026-08-20)까지 1차 자료로 확인되지 못했다.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). 전 run(0815)에서 이관된 동일 항목의 연장."
+    },
+    {
+      "topic": "완전희석 주수 495M vs 508M 출처 충돌 해소",
+      "detail": "424B7(2026-04-30 기준)로 basic 주식수 및 옵션·RSU·전환사채 구성요소는 확인됐으나, 카드에 기재된 495M/508M 자체의 산출 방법론(어느 소스가 어떤 가정을 썼는지)은 이번 조회로도 특정되지 못했다.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). F9 range 유지, 8/27 실적 checkpoint에서 확정 예정."
+    },
+    {
+      "topic": "Horizons 2-4 구체 일정",
+      "detail": "이번 조회 기간 내 'later this year' 외의 구체 일정(월 단위 등)을 공개한 1차 자료를 찾지 못했다.",
+      "reason": "noise_filter.yaml#IREN promote_if 조건 미충족 — 승격 없음, unconfirmed 적재."
+    },
+    {
+      "topic": "2026년 7~8월 BTC 채굴 월간 비즈니스 업데이트(해시레이트·채굴량·전력단가)",
+      "detail": "이번 조회에서도 신규 월간 업데이트를 발견하지 못했다. 검색 결과 상 최근 인덱싱된 월간 업데이트는 2025년 자료 위주였다 — 발행 주기상 8월 업데이트 미발행 가능성과 검색 인덱싱 지연 가능성을 구분하지 못함.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). 전 run(0815)에서 이관된 동일 항목."
+    }
+  ]
+}

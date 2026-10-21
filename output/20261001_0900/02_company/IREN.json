@@ -1,0 +1,261 @@
+{
+ "ticker": "IREN",
+ "run_id": "20261001_0900",
+ "as_of": "2026-10-01",
+ "staleness_days": 0,
+ "underlying_primary_event_date": "2026-08-27",
+ "lookback_window": {
+  "since": "2026-09-24",
+  "until": "2026-10-01",
+  "primary_window": {
+   "since": "2026-09-24",
+   "until": "2026-10-01"
+  },
+  "note": "지시된 창은 2026-09-24~2026-10-01이며 직전 run(20260925_1015, until 2026-09-25)과 1일 중첩된다(2026-09-24). 중첩 구간에서 직전 run 미포착 신규 재료는 발견되지 않았다. 단, 창 밖(2026-09-18) 사건인 PUCT SB6 상호접속 최종규칙 채택은 power_permit 축 관련성이 높아 기회적으로 포착해 out_of_window=true로 별도 표기한다(c_20261001_IREN_3) — 정식 소급 스윕 지시는 이번 회차에 없었다."
+ },
+ "claims": [
+  {
+   "id": "c_20261001_IREN_1",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "EDGAR full-text 검색(edgar_fulltext.py --ticker IREN --forms 8-K 10-Q 10-K 424B5 424B7 S-8 \"SCHEDULE 13G\" --since 2026-09-24)과 submissions API(CIK 0001878848) 재조회 결과, 조사 창(2026-09-24~2026-10-01) 내 IREN 관련 신규 공시는 SCHEDULE 13G 1건(filed 2026-09-30)뿐이다. 해당 13G는 Citadel Securities LLC·Citadel Securities Group LP·Citadel Advisors LLC·Citadel Advisors Holdings LP·Citadel GP LLC·Kenneth Griffin의 공동 제출이며 Item 5 'Ownership of 5 Percent or Less of a Class'에 표기돼 있다 — 시장조성(market-making) 성격의 수동적 지분이 5% 미만으로 하락했음을 보고하는 통상적 공시다. 8-K·10-Q·10-K·424B5·424B7·S-8 신규 공시는 0건이며, 이로써 IREN 고유의 신규 실질 1차 공시 부재 상태가 6개 회차(0905·0911·0919·0925·이번) 연속으로 이어진다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "edgar_api",
+    "url": "https://www.sec.gov/Archives/edgar/data/1878848/000110465926112411/xslSCHEDULE_13G_X02/primary_doc.xml",
+    "secondary_url": "https://data.sec.gov/submissions/CIK0001878848.json",
+    "filed_at": "2026-09-30"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "13G 자체는 P3의 7개 변화 항목(매출·가이던스·마진·현금흐름·고객명·수주·양산일정) 어느 것도 건드리지 않아 축 판정에는 쓰지 않는다(아래 discarded_noise_log 중복 로그 참조). Claim은 '창 내 신규 공시 전수 확인' 결과를 보존하기 위한 것이다."
+  },
+  {
+   "id": "c_20261001_IREN_2",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "회사 IR 뉴스 페이지(iren.com/investors/news) 조회 결과 조사 창 내 신규 발행된 회사 보도자료는 0건이다(마지막 보도자료는 2026-09-08 'Sweetwater Hub ERCOT Batch Zero'로 직전 회차들에서 이미 반영됨). FY27 Q1 실적일에 대한 회사 공식 발표도 창 내에서 확인되지 않았다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "company_ir_newsroom",
+    "url": "https://iren.com/investors/news",
+    "filed_at": "2026-10-01"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "FY27 Q1 실적일 애그리게이터 추정치(TipRanks '2026-12-01', 일부 소스 '11/5~11/6')가 창 내 발견됐으나 F1(애그리게이터 자동추정 라벨 판정 근거 불가)에 따라 Claim화하지 않고 unconfirmed로만 적재한다."
+  },
+  {
+   "id": "c_20261001_IREN_3",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "복수의 독립 법무법인·업계 매체(Bracewell, White & Case, Legal500, Ashurst, colocationscout.com)가 PUCT(텍사스 공공사업위원회)가 2026-09-18 ERCOT 대형부하(단일 사이트 75MW 이상) 상호접속 표준화 규칙(16 TAC §25.194, PURA §37.0561 이행, Project No. 58481)을 채택(adoption order)했다고 일치되게 보도한다 — 정액 심사수수료 $100,000 + 요청 피크수요 MW당 $50,000 재무보증, 상호접속 일정 전반에 걸친 유예기간 부여가 핵심 내용이다. 1차 소스(interchange.puc.texas.gov/Documents/58481_4_1543628.PDF)를 식별했으나 WebFetch·curl 양쪽 모두 HTTP 403으로 접근이 차단돼 원문 직접 대조는 실패했다.",
+   "evidence_grade": 4,
+   "source": {
+    "type": "secondary_media_bundle",
+    "url": "https://www.bracewell.com/resources/texas-senate-bill-6-ushers-in-major-overhaul-of-large-load-interconnection-and-grid-access-rules/",
+    "secondary_url": "https://interchange.puc.texas.gov/Documents/58481_4_1543628.PDF",
+    "filed_at": "2026-09-18"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "sector",
+   "confirmed": false,
+   "out_of_window": true,
+   "note": "P4: 2차 매체 복수 소스 삼각검증이나 1차 PUCT 문서 직접 대조 실패로 confirmed=false 유지, 단독 판단 근거 불가. 창 밖(9/18) 사건이나 power_permit 축·KC-10과 직결돼 기회적으로 포착함. noise-triage promote_if '규제 확정' 조건에 해당해 승격. IREN 고유 적용 MW·보증금 액수는 본 규칙에 포함되지 않음 — KC-10 분모 공백은 그대로다. 카드의 'PUCT 송전요금 배분 방법론 개정 시한 2026-12-31'은 본 상호접속 규칙과 별개 규제 트랙이므로 혼동 금지."
+  },
+  {
+   "id": "c_20261001_IREN_4",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "2026-09-30 미 상무부와 한국 정부의 공동 보도자료(PR Newswire 유통, 원문 newsroom.nexteraenergy.com)에 따르면 텍사스주 Encinal(La Salle County, 남텍사스)에 6,472MW 천연가스 복합화력 'Project Star'($22.3B, 운영·건설 NextEra Energy Resources, 공동개발 Related Companies, 부지·가스·용수 Lewis Energy Group)가 추진되며, 인접한 Related Digital의 5GW 데이터센터 캠퍼스에 전력을 공급하는 구조다. 2029년부터 단계적 상업운전, 2032년 전체 가동이 목표다. 보도자료는 '잉여 발전량은 계통(grid)에 공급한다'와 '텍사스 주지사 Greg Abbott의 데이터센터 자가발전 지침과 부합한다'는 문구를 명시한다. 이 보도자료·commerce.gov 팩트시트·Korea Herald·조선비즈 기사 어디에도 IREN·Iris Energy·Sweetwater·Childress에 대한 언급은 포함돼 있지 않다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "company_press_release",
+    "url": "https://www.prnewswire.com/news-releases/the-united-states-department-of-commerce-and-the-government-of-the-republic-of-korea-announce-strategic-investment-in-project-star-a-22-3-billion-energy-infrastructure-campus-in-encinal-texas-being-jointly-developed-by-related-302895079.html",
+    "secondary_url": "https://www.commerce.gov/news/fact-sheets/2026/09/fact-sheet-korea-and-united-states-announce-historic-strategic-investment",
+    "filed_at": "2026-09-30"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "sector",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "사용자 주입 자료(output/20261001_0900/00_user_sources/korea_us_energy_investment_20260930.json)의 1차 URL 역추적 성공 — prnewswire.com은 config/sources.yaml grade_1 등재 도메인. whitehouse.gov 자체 fact sheet는 직접 확인하지 못했으나 동일 내용의 commerce.gov 팩트시트로 대체 확인했다. 산업통상자원부 보도자료는 세계일보·데일리안 등 국내 매체의 재인용으로만 확인(직접 접근 미시도, 내용은 commerce.gov·prnewswire 원문과 합치). IREN 직접 연관 1차 공시 부재 — scope=sector 태깅(P6, 사용자 지시 준수)."
+  },
+  {
+   "id": "c_20261001_IREN_5",
+   "ticker": "IREN",
+   "claim_type": "inference",
+   "text": "Project Star 부지(La Salle County, 남텍사스)는 IREN의 ERCOT 노출 사이트인 Sweetwater(Nolan County, 서텍사스)·Childress(텍사스 팬핸들)와 별개 카운티·별개 송전권역이며, c_20261001_IREN_4의 어느 소스에도 IREN과의 연관이 등장하지 않는다. 다만 보도자료가 명시한 '주지사 Abbott의 데이터센터 자가발전 지침'은 카드 power_permit 축이 이미 추적 중인 ERCOT 전 데이터센터 검증·감사의 배경 지침과 동일한 정책 트랙이다 — 연방·주정부 차원에서 '대형 전력 수요자는 자체 발전을 동반해야 한다'는 정책 기조가 강화되는 섹터 전반의 신호로 해석할 수 있다. 그러나 IREN에 대한 직접적 전력 희소성 완화 또는 심화 효과는 1차 자료로 뒷받침되지 않는다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "derived_from_c_20261001_IREN_4",
+    "url": "https://www.prnewswire.com/news-releases/the-united-states-department-of-commerce-and-the-government-of-the-republic-of-korea-announce-strategic-investment-in-project-star-a-22-3-billion-energy-infrastructure-campus-in-encinal-texas-being-jointly-developed-by-related-302895079.html",
+    "filed_at": "2026-09-30"
+   },
+   "inference_strength": "weak",
+   "quantitative": false,
+   "scope": "sector",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "P6 준수 — 섹터 정책 기조 관찰일 뿐 IREN 개별 축 상향/하향 근거로 사용하지 않는다. strength=weak(간접 정책 연결, 수치적 인과 없음)."
+  },
+  {
+   "id": "c_20261001_IREN_6",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "BC Hydro 2026 Call for Demand for Emerging Industries 공식 페이지(app.bchydro.com) 재조회 결과, 2026-10-01 시점까지 선정 결과·선정자 명단은 여전히 미공표다. 회사가 목표로 제시했던 통보 시점('2026-09 중순')이 2주 이상 경과한 상태다. 접수 15건·약 800MW, 배분 한도 AI 300MW+데이터센터 100MW(2년 단위)+수소수출 200MW라는 기존 프레임워크는 변동이 발견되지 않았다.",
+   "evidence_grade": 4,
+   "source": {
+    "type": "regulator_utility_page",
+    "url": "https://app.bchydro.com/accounts-billing/electrical-connections/large-load/emerging-industries-connections.html",
+    "filed_at": "2026-10-01"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "sector",
+   "confirmed": false,
+   "out_of_window": false,
+   "note": "bchydro.com 도메인은 config/sources.yaml 미등재 — default_grade=4 적용. IREN 신청·노출(Canal Flats 30+Prince George 50+Mackenzie 80=160MW gross) 여부는 여전히 미확인, 단독 4등급이라 축 판정 근거 불가(P4)."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "power_permit",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0925): Sweetwater Batch Zero 조건부 Base Load 지위·SB6 적용 MW 미공시(KC-10 분모 공백)·ERCOT 감사 진행 상태 불변. BC Hydro 선정 결과는 목표 시점(9월 중순) 경과에도 미공표.",
+   "new_state": "이번 창에서 IREN 고유 1차 전력·인허가 공시는 없다(c_20261001_IREN_1, _2). 다만 (a) PUCT가 2026-09-18 ERCOT 대형부하 상호접속 표준화 규칙(16 TAC §25.194)을 채택했다는 복수 2차 소스 보도를 포착했으나 1차 원문 접근 실패로 confirmed=false(c_20261001_IREN_3) — 일반 규제 프레임워크는 구체화됐으나 IREN 고유 적용 MW·보증금은 여전히 미공시라 KC-10 분모 공백은 그대로다. (b) 사용자 주입 자료(한국 대미 에너지 투자, Project Star 6,472MW 가스발전)를 처리한 결과 IREN 직접 연관 1차 공시는 없으며(c_20261001_IREN_4), 부지도 IREN 노출 카운티와 상이해 scope=sector로만 태깅한다(c_20261001_IREN_5). BC Hydro 결과는 여전히 미공표(c_20261001_IREN_6). 세 갈래 모두 direction을 움직일 만한 company_specific·confirmed 근거가 없어 neutral 유지(P6).",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20261001_IREN_1", "c_20261001_IREN_2", "c_20261001_IREN_3", "c_20261001_IREN_4", "c_20261001_IREN_5", "c_20261001_IREN_6"]
+  },
+  {
+   "axis": "execution_delivery",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0925): Horizon 1 인도·인수 완료. Horizons 2-4는 calendar Q4 2026 목표, 10-K 계약 유예(2026 Q4 중반~2027 Q2 초) 유지. Horizon 2 인도·인수 완료 여부 unconfirmed.",
+   "new_state": "창 내 신규 1차 공시·보도자료 0건(c_20261001_IREN_1, _2). IREN 공식 SNS(X) 게시물에서 'Horizon 2 데이터홀 건설 중, Horizon 3-4 토목 착수' 서술이 발견됐으나 구체 일정·MW 수치 변화가 없어 noise-triage promote_if 미충족 — Claim화하지 않고 노이즈 로그에만 남긴다(P3). P7 3단 분리 상태 불변.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20261001_IREN_1", "c_20261001_IREN_2"]
+  },
+  {
+   "axis": "ai_cloud_conversion",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0925): Q4 FY26 AI Cloud 매출 비중 51.4% 역전(FY26 연간 18.2%), 과금 가동률·MFU unconfirmed. 가동 ARR $1.0B 대 계약 ARR $4.0B 갭, 해소 기한 2026-12-31.",
+   "new_state": "창 내 과금 가동률·MFU·가동 ARR 진척에 관한 신규 공시·경영진 발언 0건(c_20261001_IREN_1, _2). FY27 Q1 실적일에 관해 애그리게이터 간 상충 추정(TipRanks '12/1' vs 타 소스 '11/5~11/6')만 발견 — 회사 공식 확인 없어 F1에 따라 근거로 사용하지 않는다.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20261001_IREN_1", "c_20261001_IREN_2"]
+  },
+  {
+   "axis": "margin_structure",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0925): 신규 정량 자료 없음. MW당 매출은 계약 단가 기준만 존재(F3).",
+   "new_state": "창 내 신규 정량 자료 0건. AI Cloud 부문 감가상각 배분 검증 재료는 FY27 Q1 체크포인트로 이월 불변.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20261001_IREN_1", "c_20261001_IREN_2"]
+  },
+  {
+   "axis": "funding_dilution",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0925): 완전희석 주수 range(394,058,648~558,718,254+) 유지(F9). 신규 발행·차환 공시 0건.",
+   "new_state": "창 내 유일한 신규 공시는 SCHEDULE 13G(c_20261001_IREN_1) — 이는 Citadel의 수동적 지분(시장조성 포지션) 보고로 신주 발행·전환·상환과 무관하다. 완전희석 주수 range 갱신 근거 없음. 424B5/424B7/S-8 등 조달 관련 신규 공시도 0건.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20261001_IREN_1"]
+  },
+  {
+   "axis": "btc_mining",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0925): CFO 발언(grade2, 8/27)으로 채굴 종료 목표 2026-12월 말 제시. 리스크는 ai_cloud_conversion으로 완전 이관.",
+   "new_state": "창 내 신규 경영진 발언·월간 채굴 실적 업데이트·1차 공시 0건(c_20261001_IREN_1, _2). 종료 목표 시점·리스크 이관 상태 불변.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20261001_IREN_1", "c_20261001_IREN_2"]
+  }
+ ],
+ "unconfirmed": [
+  {
+   "topic": "BC Hydro 2026 Call for Demand — 선정 결과·IREN 신청 여부 [갱신]",
+   "detail": "2026-10-01 시점까지 선정 결과·명단 미공표 — 목표 통보 시점('9월 중순')이 2주 이상 경과. IREN의 BC 노출(Canal Flats 30 + Prince George 50 + Mackenzie 80 = 160MW gross)과 신청·선정 여부의 연결은 여전히 미확인. 다음 관측점: BC Hydro 결과 공표 또는 FY27 Q1 10-Q.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "SB6/PUCT 적용 MW (KC-10 첫 조건 분모) [갱신]",
+   "detail": "2026-09-18 PUCT가 ERCOT 대형부하(75MW+) 상호접속 표준화 규칙(16 TAC §25.194)을 채택했다는 복수 2차 보도가 확인됐으나(c_20261001_IREN_3) 1차 원문 대조 실패로 confirmed=false. 일반 규칙의 구체화와 별개로, IREN 계약 용량 중 SB6 비상 커테일먼트 적용 MW는 여전히 미공시 — KC-10 분모 공백 지속. PUCT 송전요금 배분 방법론 개정(별도 트랙) 시한 2026-12-31도 미도래.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "FY27 Q1 실적일 확정",
+   "detail": "카드 기준선은 '2026-11 경, 정확일 미공시'. 창 내 애그리게이터 소스 간 상충 발견(TipRanks '2026-12-01 장마감 후' vs 일부 소스 '11/5~11/6') — 회사 IR·GlobeNewswire 공식 확인 없음, F1에 따라 근거로 사용하지 않음.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "Governor Abbott 지시 ERCOT 데이터센터 감사 최종 결과",
+   "detail": "2026-12(경) 완료 목표로 진행 중. Project Star 보도자료가 동일 지침을 재확인했으나 IREN 사이트별 개별 감사 결과는 여전히 미공표.",
+   "reason": "audit_in_progress"
+  },
+  {
+   "topic": "Horizon 2 인도·인수 완료 여부",
+   "detail": "8/27 콜 기준 commissioning 진행 중, Horizon 3-4는 late-stage construction, calendar Q4 2026 인도 목표. 회사 SNS가 진행 중이라는 정성 서술을 제공했으나 구체 일정·MW 변화는 없음 — P7 2단(이행) 미확인 상태 유지.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "과금 가동률(billing utilization) / MFU",
+   "detail": "8/27 FY26 실적에서 미공개. 창 내 신규 자료 없음. 다음 관측점 FY27 Q1 10-Q.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "완전희석 주수 갱신치 (8/14 이후)",
+   "detail": "창 내 신규 EDGAR 공시가 13G(지분보고) 1건뿐이라 카드 range(하한 394,058,648 ~ 상한 558,718,254+) 갱신 불가. F9 range 유지, 단일값 사용 금지.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "매니지드 서비스 믹스(Mirantis 매출 비중) 정량치",
+   "detail": "Mirantis는 2026-08-03/04 종결로 FY26 미반영. FY27 Q1이 첫 연결 분기이며 창 내 정량·정성 신규 언급 없음.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "한국 대미 에너지 투자(Project Star)의 IREN 직접 연관 여부 [신규 처리]",
+   "detail": "사용자 주입 자료 처리 완료(output/20261001_0900/00_user_sources/korea_us_energy_investment_20260930.json). 1차 소스(prnewswire.com 경유 newsroom.nexteraenergy.com 원문, commerce.gov 팩트시트) 역추적 성공. IREN·Iris Energy·Sweetwater·Childress에 대한 언급은 어느 1차·2차 소스에도 없음 — 현재는 노이즈가 아니라 scope=sector의 confirmed Claim(c_20261001_IREN_4)으로 적재하되 IREN 축 상향·하향 근거로는 사용하지 않는다(P6). 향후 IREN이 테넌트·공급 관계로 직접 언급되는 1차 공시가 나오면 company_specific으로 재평가 대상.",
+   "reason": "sector_scope_no_company_link"
+  },
+  {
+   "topic": "신규 축 제안",
+   "detail": "이번 회차에서 카드 6개 축 밖의 신규 축 제안 사유는 발생하지 않았다.",
+   "reason": "not_applicable"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "title": "SCHEDULE 13G — Citadel Securities/Kenneth Griffin 그룹 (2026-09-30, IREN 5% 미만 지분 보고)",
+   "reason": "시장조성 성격의 수동적 지분 변동 보고 — P3의 7개 변화 항목 어느 것도 해당 없음. 반복적 기관 지분 공시 패턴(원문 기록은 c_20261001_IREN_1에 보존)."
+  },
+  {
+   "title": "IREN Ltd 주가 -5.5% 하락 (2026-09-28, GuruFocus 'GF Value 여전히 고평가' 논평)",
+   "reason": "noise_filter#common 성격 — 단순 일간 주가 등락·밸류에이션 논평, 회사 고유 정량 데이터 변화 없음(P3)"
+  },
+  {
+   "title": "JPMorgan IREN 투자의견 Underweight→Overweight 상향 (2026-09-26경), B. Riley PT $96→$91 하향 (2026-09-29), 24/7 Wall St. '82% 상승여력' 기사 (2026-09-25)",
+   "reason": "noise_filter#common '애널리스트 PT·투자의견 변경' — 회사 고유 신규 정량 데이터 없이 기존 공개 정보 재해석(P3)"
+  },
+  {
+   "title": "IREN 공식 X(트위터) 게시물 — Horizon 2 데이터홀 건설 중, Horizon 3-4 토목 착수, 1,200명 이상 현장 인력",
+   "reason": "noise_filter#IREN promote_if('Horizons 2-4 구체 일정') 미충족 — 구체 날짜·MW 수치 변화 없이 기존 'calendar Q4 2026' 목표를 정성적으로 재확인할 뿐(P3). Claim화하지 않고 로그만 보존."
+  },
+  {
+   "title": "한미 에너지 투자 패키지 중 Project Power(원전 최대 $120B, 상업성 평가 조건부) 및 Project North(알래스카 LNG $50B+) 보도",
+   "reason": "확정 사업이 아닌 '상업성 없으면 미진행' 조건부 검토 단계이며, IREN·텍사스 ERCOT과 무관(원전은 부지 미정 4개 주, LNG는 알래스카) — scope=macro, 노이즈 처리. Project Star(c_20261001_IREN_4)만 power_permit 관련성 있어 Claim화."
+  }
+ ],
+ "reused_from": "output/20260925_1015/02_company/IREN.json",
+ "notes": "P17 컨텍스트 격리 준수 — state/thesis_cards/IREN.yaml(전문, F20), config/noise_filter.yaml, config/sources.yaml, 사용자 지정 외부 자료(output/20261001_0900/00_user_sources/korea_us_energy_investment_20260930.json), 자기 종목 과거 산출물(output/20260925_1015 등 02_company/IREN.json 계열), 자기 출력 경로, 웹/EDGAR 원문만 접근했다. 타 종목 카드·산출물, 01_macro_kc.json, 04_sector/*, 03_signal/*, state/signals.json은 열람하지 않았다. 시그널 등급 판정은 수행하지 않았다(signal-arbiter 영역).\n\n[이번 회차 결과 요약] 창(2026-09-24~2026-10-01) 내 IREN 고유 신규 1차 공시는 SCHEDULE 13G(수동적 지분보고) 1건뿐이며 실질 영향 0건이다. 신규 실질 1차 공시 부재 상태가 6개 회차 연속이다(P5 — 정상 종료). 6개 축 전부 direction=neutral·stage=없음으로 유지했다. 억지 승격을 하지 않았다.\n\n[사용자 주입 자료 처리 결과] 한국 대미 에너지 투자(Project Star, 텍사스 Encinal 6,472MW 가스발전) 건을 지시대로 처리했다. 1차 URL 역추적 성공 — prnewswire.com(grade 1, config/sources.yaml 등재) 경유 NextEra 보도자료 원문 및 commerce.gov 팩트시트를 확인했다. whitehouse.gov 자체 페이지는 직접 접근하지 않았으나(검색 결과가 commerce.gov로 수렴) 동일 내용을 commerce.gov에서 확인했다. 산업통상자원부 보도자료는 국내 매체 재인용으로만 간접 확인했다(직접 URL 접근 미시도). IREN 직접 연관 1차 공시는 전혀 발견되지 않았다 — 부지(La Salle County)도 IREN 노출 사이트(Sweetwater/Nolan County, Childress/팬핸들)와 무관해 scope=sector로 태깅했고(P6), IREN 축 상향·하향 근거로 사용하지 않았다. 노이즈 판정은 아니며(회사 직접 연관은 없지만 섹터·정책 맥락 정보로서 유효) confirmed fact Claim으로 적재했다.\n\n[기회적 포착] 조사 창 밖(2026-09-18)이지만 PUCT SB6 상호접속 최종규칙(16 TAC §25.194, Project No. 58481) 채택 보도를 포착했다 — power_permit 축·KC-10 관련성이 높아 out_of_window=true로 별도 적재했다. 1차 PUCT 문서(interchange.puc.texas.gov)는 HTTP 403으로 접근이 막혀 confirmed=false를 유지했다(복수 2차 소스 삼각검증은 됐으나 P4상 단독 판단 근거로 격상하지 않음). 이 규칙은 IREN 고유 적용 MW를 공개하지 않으므로 KC-10 분모 공백은 여전히 해소되지 않았다.\n\n[carry-over 점검] (1) BC Hydro 선정 결과 — 여전히 미공표, 목표 시점 경과. (2) 신규 8-K/424B/S-8 — 0건. (3) FY27 Q1 실적 정확일 — 애그리게이터 간 상충(12/1 vs 11/5~11/6), 회사 확인 없어 미채택. (4) Sweetwater/ERCOT Batch Zero 상태 — 변동 없음. (5) Horizon 2-4 진행 — SNS 정성 업데이트만 존재, 구체 일정 변화 없음.\n\n[KC-10 관측] 이번 창에서 (a) IREN 사이트 전력접속 취소, (b) 인허가 취소·보류, (c) 계약 용량 10%+ 강제 감축 분류 — 세 이벤트 모두 관측되지 않았다. 첫 번째 조건 분모(SB6 적용 MW)는 여전히 공백. KC 판정·임계 확정은 signal-arbiter·사람의 영역이므로 met/not_met 관측만 보고한다(P12·§9)."
+}

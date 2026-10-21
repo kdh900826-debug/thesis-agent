@@ -1,0 +1,88 @@
+{
+  "as_of": "2026-09-05",
+  "run_id": "20260905_0618",
+  "ticker": "NBIS",
+  "input_source": "output/20260905_0618/03_input/arbiter_NBIS.json",
+  "prior_signal": "🟡",
+  "prior_label": "관망 (신규 커버리지 초기화)",
+  "prior_since": "2026-08-15",
+  "prior_next_gate": "멀티플 조정 또는 2027 가이던스 확정",
+  "proposed_signal": "🟡",
+  "proposed_label": "관망 (전환사채 $5.75B 클로징 완료 확인 — 레버리지 축적 실현되었으나 조달력도 동시 강화되어 하향 게이트 미충족 — 등급 유지)",
+  "transition_candidate": "유지 (변경 없음) — 등급 확정은 사람이 한다",
+  "claims_reviewed": {
+    "company_specific_count": 4,
+    "sector_scope_removed_count": 0,
+    "removed_ids": [],
+    "note": "arbiter_NBIS.json: claims=4건 전건 scope=company_specific(P6/P13/F13 필터 버그 없음 — removed_claims=[]). c_...01/02/03은 grade1·confirmed=true(6-K Ex-99.1 클로징 보도자료), c_...04는 grade4·confirmed=false(2차 매체 교차보도만 — P4상 단독 근거 불가, 시그널 판정에 미사용). deltas=2건(leverage_burden weaken, funding_access strengthen)."
+  },
+  "gate_check": {
+    "quantitative_evidence": false,
+    "company_specific": true,
+    "revenue_recognized": false,
+    "basis": "이번 회차 Claim 4건은 전부 전환사채 발행·교환/자본조달 구조 관련이며 매출·마진·현금흐름·가이던스(P2 지정 4개 카테고리) 수치가 아님. c_...01·02·03은 quantitative=true이나 P2가 상향 근거로 인정하는 매출·마진·현금흐름·가이던스 카테고리가 아니므로 gate에 담지 않음(quantitative_evidence=false로 판정). stage=revenue_recognized에 해당하는 Claim 자체가 없어 상향 후보 불성립(vacuous false) — 인도·인증·파트너십 등의 정성 이벤트도 없어 holding_reinforcement 분류 대상도 아님."
+  },
+  "kill_check": {
+    "macro_kc_1_10": {
+      "label": "매크로 KC-1~10",
+      "verdict": "not_provided_this_round",
+      "confidence": "n/a",
+      "basis": "P17 격리 입력(이번 프롬프트)에 매크로 KC 실시간 판정치가 포함되지 않았음(01_macro_kc.json 서사부는 금지). 또한 kill_conditions.yaml상 매크로 KC-1~10의 consequence가 명시하는 파급 종목 목록(IREN·COIN·HOOD·CRCL)에 NBIS는 포함되지 않아, 매크로 KC가 NBIS signal에 직접 게이트하는 구조가 아님. 미확인으로 남김(kill 미트리거 가정하지 않음)."
+    },
+    "company_kc_3": {
+      "label": "NBIS 종목 KC 3건(전건 active)",
+      "verdict": "not_met",
+      "confidence": "grade1 근거",
+      "items": [
+        {"kc": "KC-NBIS-1 (대형 계약 훼손, $1B+ 전체)", "verdict": "not_met", "basis": "이번 Claim 4건 중 고객 계약 해지·축소·재협상 관련 사실 없음 — 관측 대상 없음."},
+        {"kc": "KC-NBIS-2 (용량 인도 지연, 2단)", "verdict": "not_met", "basis": "c_...04(Vineland Phase2 확장 승인)는 오히려 건설 진행(지연이 아니라 확장) 방향을 시사하나 grade4·confirmed=false(2차 매체만, 1차 자료 미확보)라 P4상 단독으로 KC 해제의 근거로도, 발동의 근거로도 사용 불가 — 관측 미확정(unconfirmed) 유지."},
+        {"kc": "KC-NBIS-3 (조달 조건 악화, any_of)", "verdict": "not_met", "basis": "arm1(현금<$5B AND 추가조달 실패): c_...01에 따르면 $5.75B 총액 클로징이 그린슈 전액 행사로 완료되어 현금이 6/30 $8,042.1M에서 크게 증가할 것으로 추정(c_...03, 순조달액은 미확정이나 총액 기준 하한 $5B 대비 압도적 초과)이고 조달은 실패가 아니라 오히려 오버서브스크립션(그린슈 전액 행사)으로 성공 — arm1 명백히 미해당. arm2(신규부채 스프레드 ≥300bp): 전환사채 특성상 직접 비교 가능한 스프레드 지표가 여전히 관측되지 않음(unconfirmed, P5). 종합 verdict=not_met, 오히려 임계치에서 멀어지는 방향."}
+      ]
+    },
+    "kill_priority_triggered": false,
+    "basis": "전이 규칙 1(Kill 우선: KC met AND confirmed)에 해당하는 건 없음 — NBIS 종목 KC 3건 전건 not_met(특히 KC-NBIS-3은 이번 이벤트로 오히려 발동과 멀어짐). 매크로 KC는 이번 라운 입력에 미제공되었으나 NBIS에 적용되는 구조가 아니라 kill_priority에 영향 없음."
+  },
+  "downgrade_check": {
+    "rule_applied": "rule 3 (비대칭 하향) 검토 — 결론: 하향 게이트 미충족",
+    "leverage_deterioration_branch": {
+      "classification": "실현(settled) 단계 도달 — 그러나 이미 사전 반영된 시나리오의 상단 실현",
+      "basis": "직전 run(20260820_1932)은 8/19~20 가격확정($5.0B)을 P7 1단계(계약 존재)로만 인식하고 결제(8/24 예정)를 미확정으로 분리 기록했다. 이번 c_...01(6-K Ex-99.1 클로징 보도자료, grade1·confirmed=true)로 결제가 실제 완료되었으며, 그린슈 전액 행사로 신규발행이 $5.0B→$5.75B로 확대되어 직전 run이 medium 강도로 추정했던 상단($14,991.8M)이 실현 방향으로 진행 중이다(c_...03, inference). 즉 leverage_burden 축은 '계약 존재 → 결제 완료'로 단계 전환된 확정 사실이지만, 범위 자체는 이미 직전 run의 등급(현행 후보)이 반영하던 예강 시나리오 범위 내이며, 신규 정보로 인한 구조적 놀람(surprise)이라기보다 기대치 내의 실현에 가깝다."
+    },
+    "offsetting_funding_access_branch": {
+      "classification": "동일 근거(c_...01/03)로 확인된 상충 방향 Delta",
+      "basis": "그린슈 전액 행사(오버서브스크립션) 자체가 수요 견조를 입증하며, KC-NBIS-3(조달 조건 악화 — 이 종목에 대한 '자금조달 훼손'의 사전정의된 운영 기준)은 오히려 임계치에서 멀어지는 방향으로 이동함(현금 대폭 증가, 조달 실패 아님). 따라서 단일 축(leverage_burden)만으로 하향을 정당화하기에는 상충하는 축(funding_access)의 방향이 강하다."
+    },
+    "unresolved_items": {
+      "classification": "P5 — 부재를 반증으로 처리하지 않음, unconfirmed 적재",
+      "basis": "(a) $800M 기존 전환사채(2029·2031)의 지분교환 결제(주식 실제 인도)이 8/24 신규노트 결제와 동시에 완료됐는지는 이번 원문(c_...02)만으로는 확정되지 않음. (b) 발행수수료·할인액 미공시로 순조달액은 추정치(c_...03, medium)일 뿐 grade1 확정치가 아님. 이 두 미확정 항목 때문에 leverage_burden 축의 최종 수치적 훼손 규모를 '확정 수치'로 단정할 근거가 없다."
+    },
+    "quantitative_deterioration": true,
+    "quantitative_deterioration_note": "leverage_burden 축에 한해 grade1·confirmed 정량 훼손이 존재하나, 상충하는 funding_access 축의 동일 강도 강화와 KC-NBIS-3(이 종목의 사전정의된 조달악화 임계치) not_met(오히려 개선)을 근거로 단일 축 하향을 정당화하기에는 부족하다고 판단. 또한 범위 자체가 직전 run 등급이 이미 반영한 예강 시나리오 내의 실현이라 신규 놀람으로서의 성격이 약함.",
+    "qualitative_deterioration_grade_le_2": false,
+    "downgrade_applied": false,
+    "basis": "rule 4/P12 적용: 게이트(단일 축 하향 정당화) 미충족 → 등급 유지 + 사유 기록. leverage_burden 축의 '결제 완료 확인'은 thesis Delta로는 기록하되, signal 등급 하향의 단독 근거로는 사용하지 않음(KC-NBIS-3 미충족 + funding_access 상충 + 범위 예강성). 카드 가정(전환사채 총액 수치) 갱신 필요 여부는 thesis-refine 영역으로 오케스트레이터에게 별도 보고(ThesisPatch 후보, 자동 반영 금지)."
+  },
+  "decision_basis_P12": "Kill 우선(rule 1) 미해당 — NBIS 종목 KC 3건 전건 not_met, 특히 KC-NBIS-3는 이번 이벤트로 오히려 임계치에서 멀어짐. 상향 게이트(rule 2) 미해당 — 매출·마진·현금흐름·가이던스 관련 Claim 없음(vacuous false). 하향(rule 3)은 leverage_burden 축의 결제 완료(확정 사실)를 단독 축으로 적용하려 했으나, 동일 근거에서 확인된 funding_access 상충 방향과 KC-NBIS-3(이 종목의 조달악화 운영정의) not_met(개선)을 근거로 게이트 미충족 판정. 따라서 rule 4/P12 기본 경로 적용: 현행 등급(🟡 관망) 유지 + 사유 기록. next_gate를 관측 가능한 정량 항목(Q3 2026 확정 재무제표 전환사채 원금·현금잔액 + $800M 지분교환 결제 확인)으로 갱신 제안. 등급 확정은 사람이 한다.",
+  "alert": {
+    "ticker_event": "NBIS — 2026-08-24 전환사채 $5.75B(그린슈 전액 행사) 클로징 완료 + $800M 기존 전환사채 지분교환 계약 재확인(결제시점 미확정) — 등급 유지 후보",
+    "facts": [
+      {"text": "2026-08-24 6-K(Ex-99.1) 원문: 2030년만기 0.50% 및 2034년만기 4.50% 전환사채 사모발행 클로징 완료, 총조달대금 약 $5.75B(초기구매자가 2030년물 $450M·2034년물 $300M 그린슈 옵션 전액 행사, 원금 합계 2030년물 $3.45B/2034년물 $2.3B)", "source": "6-K Ex-99.1 (c_20260905_NBIS_01)", "timestamp": "2026-08-24 filed"},
+      {"text": "동일 보도자료: 가격확정과 동시에 기존 2029년물 $400M + 2031년물 $400M(합계 $800M) 전환사채를 약 15.8M주 Class A 보통주로 교환하는 계약이 체결되었음을 재확인했으나, 이 교환건의 실제 결제(주식 인도) 완료 시점은 본 문서만으로는 명시되지 않음", "source": "6-K Ex-99.1 (c_20260905_NBIS_02)", "timestamp": "2026-08-24 filed"},
+      {"text": "NBIS 종목 KC 3건(KC-NBIS-1/2/3) 전건 active이며, 이번 회차 관측 결과 전건 not_met — 특히 KC-NBIS-3(조달악화)는 현금하한 $5B 미달이 아니라 그린슈 전액 행사로 오히려 임계치에서 멀어졌음", "source": "config/kill_conditions.yaml(NBIS 발취) + c_20260905_NBIS_01 대조", "timestamp": "2026-09-05"}
+    ],
+    "inference": [
+      {"text": "c_...01/02의 발표 수치를 6/30 재무제표(전환사채 원금 $10,041.8M)에 단순 가산·차감하면 전환사채 원금 총액은 약 $14,991.8M 수준으로 확대될 것으로 추정된다 — 직전 run 시나리오 상단과 부합. 현금은 총발행대금 유입 시 약 $13.79B 수준까지 증가할 수 있으나 발행수수료·할인이 미공시되어 순조달액은 확정할 수 없다(Q3 2026 확정 재무제표 재검증 필요)", "inference_strength": "medium"},
+      {"text": "$800M 교환을 상환이 아닌 지분으로 처리한 결정은 (a) 단기(2029/2031) 만기를 장기(2030/2034)로 이관하고 (b) 채권자 리스크를 신규 Class A 주주(희석)로 이관하는 구조로 해석 가능하다", "inference_strength": "medium — 해석적 판단, 교환 결제 완료 전 확정 아님"}
+    ],
+    "classification": "등급 유지(P12) — leverage_burden 축의 '계약 존재→결제 완료' 단계 전환은 확정이나, 동일 근거의 funding_access 강화 방향 및 KC-NBIS-3 대폭 개선(오히려 임계치에서 멀어짐)이 단일 축 하향을 상쇄하여 하향 게이트 미충족. holding_reinforcement 대상 아님(매출인식 이벤트 없음). c_...04(Vineland Phase2, grade4·confirmed=false)는 P4상 단독 근거 불가로 판정에 미반영.",
+    "thesis_delta": "leverage_burden 축: weaken 방향 심화 — 전환사채 신규발행이 $5.0B 가격확정 단계에서 $5.75B 결제 완료 단계로 전환되었고(그린슈 전액 행사), $800M 기존 전환사채 지분교환도 계약 단계가 재확인됨. funding_access 축: strengthen 재확인 — 최초 launch($4.50B) 대비 +27.8%, 업사이즈 확정치($5.0B) 대비 +15%인 $5.75B로 실현되어 자본시장 접근성이 발표 단계보다도 더 강하게 완결됨. 리스크 이관: (a) 2029·2031 전환사채 채권자 → 신규 Class A 주주(교환분 약 15.8M주 발행, 희석) — 8/24 클로징으로 계약 단계 재확인(결제 완료은 미확정), (b) 단기(2029/2031) 만기 리스크 → 장기(2030/2034) 만기로 이관 재확인, (c) 그린슈 확대분($0.75B)만큼 장기 듀레이션 리스크가 신규 채권자에게 추가 이전. 카드 수정 필요성(전환사채 총액 갱신)은 signal 하향 근거가 아니라 ThesisPatch 후보로 별도 보고.",
+    "signal_verdict": "🟡 관망 유지 — Kill 우선(NBIS KC 3건 전건 not_met, KC-NBIS-3는 오히려 개선) 미해당, 상향 게이트(매출인식 Claim 없음) 미해당, 하향 게이트(leverage_burden 단독 하향은 funding_access 상충으로 상쇄) 미충족 → rule 4/P12 기본 경로 적용. 등급 확정은 사람이 한다.",
+    "next_check": [
+      "next_gate(갱신 제안, 관측가능·정량): Q3 2026(9/30 분기) 확정 재무제표(20-F/6-K)의 전환사채 원금·상각후원가 및 현금잔액, 순조달액(발행수수료·할인 반영) 확인",
+      "$800M 지분교환(2029/2031→2030/2034 관련 15.8M주)의 실제 결제(주식 인도) 완료 여부·시점 확인(차기 20-F 각주 또는 후속 6-K)",
+      "KC-NBIS-3 스프레드 arm(≥300bp) 비교가능 지표 확보 — 전환사채 특성상 직접 비교 지표 부재 상태 지속 확인",
+      "Vineland DataOne Phase 2 승인(c_...04)의 1차 공시(회사 IR/6-K 또는 지자체 회의록 원문) 재확인 — 현재 grade4·confirmed=false로 판정 미반영",
+      "ATM(잔여 12.3M주) 실사용 여부·금액 및 Q3 2026 실적발표일·2027 가이던스 발표 시점 등 이관된 unconfirmed 항목 재확인(당 run 신규 자료 없음)"
+    ]
+  }
+}

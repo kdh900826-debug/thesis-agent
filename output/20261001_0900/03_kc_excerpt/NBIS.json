@@ -1,0 +1,251 @@
+{
+  "_note": "오케스트레이터가 생성한 KC 발췌본(P17). signal-arbiter는 이 파일과 03_input/arbiter_{T}.json, state/signals.json 외에는 읽지 않는다. 매크로 KC는 correlation_matrix.yaml 노출 벡터상 해당 종목이 불리 방향으로 노출된 축에 연결된 것만 발췌했다. 발췌 제외는 '해당 종목과 무관'이 아니라 '불리 방향 노출 축 없음'을 뜻한다(P5).",
+  "generated_by": ".claude/scripts/make_kc_excerpt.py",
+  "run_id": "20261001_0900",
+  "as_of": "2026-10-01T22:10",
+  "ticker": "NBIS",
+  "own_company_kc": [
+    "KC-NBIS-1",
+    "KC-NBIS-2",
+    "KC-NBIS-3"
+  ],
+  "own_company_kc_detail": {
+    "KC-NBIS-1": {
+      "type": "event",
+      "description": "대형 고객 계약 훼손 ($1B+ 전체)",
+      "trigger": "Meta·MS 및 $1B 이상 계약 고객(Reflection·Cohere 등 Q2 신규 4사 포함)의 해지·규모 20%+ 축소·재협상 공시",
+      "consequence": "포지션 리뷰"
+    },
+    "KC-NBIS-2": {
+      "type": "metric",
+      "description": "용량 인도 지연 (경고/발동 2단)",
+      "warning": [
+        {
+          "metric": "delivery_delay_quarters",
+          "operator": ">=",
+          "threshold": 1,
+          "unit": "분기",
+          "note": "late Q4 온라인 전환·연말 5GW 목표 대비 1분기 지연 발표 시 경고"
+        }
+      ],
+      "any_of": [
+        {
+          "metric": "capacity_delivery_delay_months",
+          "operator": ">=",
+          "threshold": 6,
+          "unit": "개월"
+        },
+        {
+          "metric": "delivery_delay_quarters",
+          "operator": ">=",
+          "threshold": 2,
+          "unit": "분기 연속"
+        }
+      ],
+      "consequence": "경고: 알림 + 관측 강화 / 발동: 실행 리스크 상향"
+    },
+    "KC-NBIS-3": {
+      "type": "metric",
+      "description": "조달 조건 악화",
+      "any_of": [
+        {
+          "metric": "cash_balance",
+          "operator": "<",
+          "threshold": 5000000000,
+          "unit": "USD",
+          "note": "추가 조달 실패 동반 시. v1의 $3B에서 상향"
+        },
+        {
+          "metric": "new_debt_spread_vs_prior_bp",
+          "operator": ">=",
+          "threshold": 300,
+          "unit": "bp"
+        }
+      ],
+      "consequence": "저희석 확장 thesis 재검토"
+    }
+  },
+  "macro_kc_propagating_to_ticker": [
+    "KC-1",
+    "KC-2",
+    "KC-4",
+    "KC-5",
+    "KC-6",
+    "KC-7",
+    "KC-8",
+    "KC-9"
+  ],
+  "macro_kc_axis_mapping_undefined": null,
+  "kc_status": [
+    {
+      "kc_id": "KC-1",
+      "condition": "FFR 인상 리스크",
+      "inputs": [
+        {
+          "name": "FFR",
+          "operator": ">",
+          "threshold": 3.75,
+          "value": 4.0,
+          "as_of": "2026-10-01",
+          "method": "api"
+        }
+      ],
+      "verdict": "met",
+      "verdict_confidence": "confirmed",
+      "consequence": "레버리지 전액 해제 + Edge/Next 50% 축소 검토"
+    },
+    {
+      "kc_id": "KC-2",
+      "condition": "변동성 급등",
+      "inputs": [
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 30,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "레버리지 해제 검토"
+    },
+    {
+      "kc_id": "KC-4",
+      "condition": "유동성 위기 신호",
+      "inputs": [
+        {
+          "name": "ON_RRP",
+          "operator": ">=",
+          "threshold": 200000000000,
+          "value": 11539000000.0,
+          "as_of": "2026-09-30",
+          "method": "api",
+          "stale_days": 1,
+          "stale_limit": 5
+        },
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 25,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "광범위 디리스킹 검토"
+    },
+    {
+      "kc_id": "KC-5",
+      "condition": "TAIEX 음전환 (아시아 리스크 프록시)",
+      "inputs": [
+        {
+          "name": "TAIEX_vs_20dma_pct",
+          "operator": "<",
+          "threshold": 0,
+          "value": 2.92,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 3
+        },
+        {
+          "name": "TAIEX_1m_return_pct",
+          "operator": "<",
+          "threshold": 0,
+          "value": 4.82,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 3
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "광범위 디리스킹 검토"
+    },
+    {
+      "kc_id": "KC-6",
+      "condition": "AI 토큰 지출 급감",
+      "inputs": [
+        {
+          "name": "SDLLMTK_change_pct",
+          "operator": "<=",
+          "threshold": -30,
+          "value": null,
+          "as_of": "2026-07-03",
+          "method": "web_search",
+          "duration": "2주 지속"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "Base·Edge 전제 재검토",
+      "note": "duration 조건 포함 — 지속성은 사람이 확인해야 confirmed 가능"
+    },
+    {
+      "kc_id": "KC-7",
+      "condition": "하이퍼스케일러 합산 FCF 악화",
+      "inputs": [
+        {
+          "name": "hyperscaler_fcf_sum",
+          "operator": "<",
+          "threshold": 0,
+          "value": 6835000000,
+          "as_of": "2026-06-30",
+          "method": "web_search",
+          "duration": "2분기 연속"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "CapEx 감속 시나리오 검토",
+      "note": "duration 조건 포함 — 지속성은 사람이 확인해야 confirmed 가능"
+    },
+    {
+      "kc_id": "KC-8",
+      "condition": "Microsoft FCF 마이너스 (최후의 보루)",
+      "inputs": [
+        {
+          "name": "msft_fcf",
+          "operator": "<",
+          "threshold": 0,
+          "value": 19640000000,
+          "as_of": "2026-06-30",
+          "method": "web_search"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "AI CapEx 축 전면 재검토"
+    },
+    {
+      "kc_id": "KC-9",
+      "condition": "에너지 쇼크",
+      "inputs": [
+        {
+          "name": "brent",
+          "operator": ">=",
+          "threshold": 120,
+          "value": 113.96,
+          "as_of": "2026-09-29",
+          "method": "api",
+          "stale_days": 2,
+          "stale_limit": 3,
+          "duration": "1개월 지속"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "에너지+인플레이션 시나리오 검토",
+      "note": "duration 조건 포함 — 지속성은 사람이 확인해야 confirmed 가능"
+    }
+  ]
+}

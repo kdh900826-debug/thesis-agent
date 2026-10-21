@@ -1,0 +1,16 @@
+{
+  "ticker": "IREN",
+  "cik": "0001878848",
+  "items": [
+    {
+      "id": "edgar_2026-09-30_SCHEDULE 13G_0",
+      "form": "SCHEDULE 13G",
+      "filed_at": "2026-09-30",
+      "title": "SCHEDULE 13G filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000110465926112411/xslSCHEDULE_13G_X02/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

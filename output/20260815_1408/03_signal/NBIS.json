@@ -1,0 +1,87 @@
+{
+  "as_of": "2026-08-15",
+  "run_id": "20260815_1408",
+  "ticker": "NBIS",
+  "input_source": "output/20260815_1408/03_input/arbiter_NBIS.json",
+  "prior_signal": "🟡",
+  "proposed_signal": "🟡",
+  "transition_candidate": "maintain",
+  "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+
+  "filter_bug_check": {
+    "non_company_specific_claims_found": 0,
+    "note": "arbiter_NBIS.json claims[] 11건 전부 scope=company_specific 확인. removed_claims=[](오케스트레이터가 물리 제거할 비-company_specific claim이 애초에 없었음). F13 해당 없음."
+  },
+
+  "kill_check": {
+    "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+    "kc_reference": [
+      {"kc_id": "KC-1", "definition": "FFR>3.75", "verdict": "not_met", "verdict_confidence": "provisional"},
+      {"kc_id": "KC-2", "definition": "VIX>=30", "verdict": "not_met", "verdict_confidence": "confirmed", "inputs_asof": "VIX 14.25 @2026-08-14"},
+      {"kc_id": "KC-6", "definition": "SDLLMTK -30%", "verdict": "not_met", "verdict_confidence": "provisional"},
+      {"kc_id": "KC-7", "definition": "하이퍼스케일러 FCF", "verdict": "not_met", "verdict_confidence": "provisional"},
+      {"kc_id": "KC-8", "definition": "MSFT FCF", "verdict": "not_met", "verdict_confidence": "provisional"}
+    ],
+    "ticker_event_kc_observed": false,
+    "note_on_vineland": "Vineland 공사중지명령(c_...11)은 오케스트레이터가 사전 정의된 종목 이벤트형 KC로 분류·발동 통보한 항목이 아님 — 'KC 발동 관측 없음'으로 전달됨. 해당 재료는 KC 채널이 아닌 하향 검토(downgrade_check)에서 별도 독립 평가함.",
+    "met_and_confirmed": false,
+    "triggered": false,
+    "reason": "매크로 KC 5종 모두 verdict=not_met (KC-2만 confirmed, KC-1/6/7/8은 provisional이나 어차피 not_met이므로 규칙1의 'met AND confirmed' 요건 자체가 성립하지 않음). 종목 이벤트형 KC 발동 관측 없음. Kill 후보 해당 없음."
+  },
+
+  "gate_check": {
+    "upgrade_gate": {
+      "quantitative_evidence": true,
+      "company_specific": true,
+      "revenue_recognized": true,
+      "result": "claim_level_gate_met",
+      "candidate_claims": ["c_20260815_NBIS_01", "c_20260815_NBIS_02", "c_20260815_NBIS_03"],
+      "reason": "c_01(Q2 2026 연결매출 $582.3M 실적치, AI cloud 매출 $574.9M, ARR $3.0B), c_02(연결 Adj.EBITDA $236.2M 흑자전환, AI cloud 세그먼트 마진 49.7%), c_03(현금성자산 $8,042.1M, H1 영업현금흐름 $4,504.1M)은 모두 6-K Ex.99.1/99.2로 공시된 '이미 마감·보고된 분기 실적'이다. P7 3단 분리 기준으로 이는 계약 존재·이행 단계가 아니라 stage=revenue_recognized(매출이 이미 인식·재무제표에 반영된 단계)에 해당하며, quantitative=true·scope=company_specific·evidence_grade=1·confirmed=true 전건 충족. 따라서 claim 단위로는 P2·P6·P7 상향 게이트 3종이 전부 충족된다. 반면 c_07(대형계약 4건 체결)·c_08(단기 용량계약 1건 체결)·c_09(5GW 목표 재상향)·c_10(Vantage/Wales)은 '계약 존재' 또는 '목표 제시' 단계에 머물러 있어 stage=revenue_recognized 미충족 — 규칙2 단서에 따라 holding_reinforcement 분류만 부여하고 상향 근거로 사용하지 않는다."
+    },
+    "downgrade_check": {
+      "quantitative_impairment_detected": true,
+      "impairment_basis": "c_05: H1 2026 중 전환사채 $4,337.5M + 선지급워런트 $2,000.0M = 합계 $6,337.5M($6.3B+) 신규 조달로 비유동부채 $4,103.2M→$8,499.0M, 총부채 $7,836.6M→$17,621.0M로 급증(evidence_grade=1, confirmed=true, quantitative=true). P3 기준 노이즈 아님 — 완전희석 주식수·이자비용·레버리지 비율에 직접 영향을 미치는 재무제표 항목이며 d_20260815_NBIS_03b가 이를 funding_capacity 축 weaken으로 이미 태깅함(risk_transfer_to: leverage_risk).",
+      "vineland_check": {
+        "claim_id": "c_20260815_NBIS_11",
+        "evidence_grade": 4,
+        "confirmed": false,
+        "grade_le2_requirement_met": false,
+        "reason": "Vineland(NJ) 공사중지명령 2건(8/6·8/10)은 MS $17.4B 계약의 핵심 사이트(300MW)에 대한 인허가 위반 이슈로 capacity_delivery 축에 실질적 실행 리스크이나, evidence_grade=4·confirmed=false로 규칙3이 요구하는 'evidence_grade≤2의 정성 훼손' 요건을 충족하지 못한다. 지역언론(WHYY)·리서치(Hunterbrook, 공매도 이해상충 가능) 교차확인만 있고 회사측 1차 공시(8-K/6-K 후속) 또는 IR 공식 확인은 미확보(P5 — unconfirmed 유지). 따라서 이 재료 단독으로는 하향 트리거 성립 불가."
+      },
+      "asymmetric_downgrade_triggered": false,
+      "reason": "정량 훼손(전환사채·워런트 급증)은 규칙3의 하향 트리거 요건을 형식상 충족하나, 동일 축(funding_capacity)에서 자산담보부 대출 $775M 신규 확보(c_04, d_03a strengthen)로 비희석 조달 채널이 동시에 강화되었고, 부채 급증 자체가 $40B+ 고객 커밋먼트·H1 영업현금흐름 $4.5B·현금 $8.0B라는 강한 유동성 기반 위에서 발생한 고성장 자금조달 구조 변화로 해석될 여지가 크다. Vineland는 grade4·미확인으로 요건 미달. 두 재료 모두 '확정적 훼손'으로 단정하기에는 근거가 불충분 — 하향 후보로 발동하지 않되 리스크 이관(leverage_risk, Vineland 인허가 리스크)으로 기록한다."
+    }
+  },
+
+  "thesis_delta_summary": [
+    {"axis": "growth_arr", "direction": "strengthen", "risk_transfer_to": [], "supporting_claims": ["c_20260815_NBIS_01"]},
+    {"axis": "margin_transition", "direction": "strengthen", "risk_transfer_to": [], "supporting_claims": ["c_20260815_NBIS_02"]},
+    {"axis": "funding_capacity", "direction": "mixed(strengthen+weaken)", "risk_transfer_to": ["equity_dilution_risk(ATM) 일부가 leverage_risk(전환사채·담보부채)로 이전"], "supporting_claims": ["c_20260815_NBIS_04", "c_20260815_NBIS_05"]},
+    {"axis": "capacity_delivery", "direction": "mixed(strengthen+weaken)", "risk_transfer_to": ["일반 규제/모라토리엄 매크로 리스크가 Vineland 부지 한정 '인허가 위반' 리스크로 구체화·이전(unconfirmed)"], "supporting_claims": ["c_20260815_NBIS_09", "c_20260815_NBIS_10", "c_20260815_NBIS_11"]},
+    {"axis": "monetization_mix", "direction": "strengthen", "risk_transfer_to": [], "supporting_claims": ["c_20260815_NBIS_07", "c_20260815_NBIS_08"]},
+    {"axis": "customer_concentration", "direction": "neutral", "risk_transfer_to": [], "supporting_claims": ["c_20260815_NBIS_07"]}
+  ],
+
+  "decision": "maintain",
+  "decision_reason": "P2/P6/P7 상향 게이트 3종은 claim 단위(c_01~03, 6-K 확정 Q2 실적)로는 형식상 전부 충족된다. 그러나 (1) 현행 🟡 등급의 next_gate는 애초부터 '멀티플 조정 또는 2027 가이던스 확정'으로 사전 설정되어 있었고 — 이는 고성장 매출 자체(이미 시장이 알고 있던 궤적)가 아니라 밸류에이션 정상화·전방 가이던스 확정을 상향 조건으로 지정한 것이다 — 이번 6-K는 2027 가이던스를 '연내(later this year)'로만 재확인했을 뿐 확정치를 공시하지 않았고(unconfirmed 유지), 멀티플 조정 관측도 없다. (2) 동시에 비유동부채 급증($6.3B+, quantitative)이라는 하향 트리거 요건 성립 재료가 병존하며, (3) MS 최대 계약($17.4B)의 핵심 사이트 Vineland 공사중지(grade4·미확인이나 실행 리스크 실질적)까지 겹쳐 있다. 상향 근거(claim 단위 게이트 충족)와 하향 근거(부채 급증) 및 미확인 실행 리스크(Vineland)가 동시에 존재하는 상충 국면에서는 보수적으로 등급을 유지하고 사유를 기록하는 것이 정당한 결론이다(P12). 인도 완료·계약 체결·목표 재상향(c_07~10)류는 등급 유지 + holding_reinforcement 분류로만 처리한다(규칙2 단서).",
+
+  "alert": {
+    "ticker_event": "NBIS — 2026-08-12 6-K Q2 FY2026(6월 결산) 실적 공시(Ex.99.1 보도자료/Ex.99.2 CEO 주주서한), 2026-08-13 Vantage/Wales 신규 사이트 보도(등급3), 2026-08-06·08-10 Vineland(NJ) 공사중지명령 보도(등급4, 미확인)",
+    "facts": "[출처: SEC 6-K Ex.99.1/99.2, 2026-08-12] Q2 연결매출 $582.3M(+454% YoY), AI cloud 매출 $574.9M(+514% YoY, 그룹의 ~98%), ARR $3.0B(3월말 $1.9B 대비 +56% QoQ)(c_01). 연결 Adj.EBITDA $236.2M(매출대비 41%, 전년 $(21.0)M 손실에서 흑자전환), AI cloud 세그먼트 단독 마진 49.7%(c_02). 현금성자산 $8,042.1M, H1 영업현금흐름 $4,504.1M, 2026년 중 고객 선불금 $9B+ 유입 전망 명시(c_03). 2026년 7월 최초 자산담보부 대출 $775M(SOFR+2.50%) 조달 완료(c_04). H1 중 전환사채 $4,337.5M+선지급워런트 $2,000.0M 신규 조달, 비유동부채 $4,103.2M→$8,499.0M, 총부채 $7,836.6M→$17,621.0M로 급증(c_05). Q2 대형계약 4건 체결(TCV QoQ +4배, 신규고객분 +9배; Reflection·Cohere 실명 공개, 2건 익명)(c_07). Q3 진입 후 최초 단기(3-6개월) 용량계약 1건 체결, 계약존재 확인·매출인식은 미도래(c_08). 연말 계약전력 목표 5GW로 재상향(직전 4GW+)(c_09). [출처: web 2차매체 교차확인, 2026-08-13] Vantage Data Centers와 영국 Newport 콜로케이션 계약 발표, 규모 비공개, confirmed=false(c_10). [출처: WHYY·Hunterbrook 등 교차확인, 2026-08-06/08-10] Vineland(NJ) 300MW 부지(MS $17.4B 계약 핵심 사이트)에 LNG 저장탱크·Bloom Energy 연료전지 무허가 설치로 공사중지명령 2건 발부, confirmed=false(c_11).",
+    "inference": "[강도: medium] 전환사채·워런트를 통한 $6.3B+ 조달 급증은 $40B+ 고객 커밋먼트·강한 영업현금흐름을 뒷받침하는 고성장 자금조달 구조 변화로 해석될 여지가 있으나, 동시기에 발생한 Vineland 공사중지(미확인)와 결합할 경우 MS向 인도 일정·완전희석 밸류에이션 양쪽에 대한 감시 강도를 높여야 함을 시사한다(근거: d_20260815_NBIS_03b, d_20260815_NBIS_04a).",
+    "classification": "holding_reinforcement(growth_arr·margin_transition·monetization_mix 축 — 6-K 확정 실적·계약 체결 확인, c_01/c_02/c_07/c_08) + risk_monitoring(funding_capacity 축 레버리지 급증 c_05, capacity_delivery 축 Vineland 미확인 리스크 c_11) — 상향 게이트는 claim 단위(c_01~03)로 형식 충족되나 등급 전이 결론은 아래 signal_verdict 참조.",
+    "thesis_delta": "growth_arr: strengthen(리스크 이관 없음) / margin_transition: strengthen(리스크 이관 없음) / funding_capacity: 혼재(strengthen — 자산담보부 대출 신규 채널 확보 + weaken — 전환사채·워런트 급증, 리스크 이관: equity_dilution_risk 일부 → leverage_risk) / capacity_delivery: 혼재(strengthen — 5GW 목표 재상향·Wales 신규 사이트 + weaken — Vineland 공사중지, 리스크 이관: 일반 규제 리스크 → Vineland 부지 한정 인허가 위반 리스크, 미확인) / monetization_mix: strengthen(리스크 이관 없음) / customer_concentration: neutral(다변화 신호와 집중 구조 병존).",
+    "signal_verdict": "등급 유지 후보(🟡 관망 → 🟡 관망, maintain). 상향 게이트 3종(quantitative_evidence/company_specific/revenue_recognized)은 c_01~03(6-K 확정 Q2 실적)에서 claim 단위로 전부 충족되나, 현행 🟡 등급의 사전 지정 next_gate(멀티플 조정 또는 2027 가이던스 확정)는 이번 공시로 충족되지 않았다(2027 가이던스는 '연내'로만 재확인, 확정치 없음). 동시에 부채 급증(정량, 하향 트리거 요건 성립)과 Vineland 공사중지(grade4·미확인, 하향 트리거 요건 미달이나 실질 리스크)가 병존한다. 상충 재료 공존 국면에서 보수적으로 등급을 유지하고 사유를 기록한다(P12). Kill 조건(KC-1/2/6/7/8) 전부 not_met — 해당 없음.",
+    "next_check": "① 2027 매출·가이던스의 구체 수치($ 또는 % 단위) 공식 발표 여부(현재 '연내'로만 언급, 시점·수치 모두 미확정) ② Vineland 300MW 부지의 공사중지명령 해제 여부 및 MS向 계약 트랜치 인도율(%)의 회사 공식(6-K/8-K/IR) 확인 ③ 완전희석 발행주식수·이자비용(interest expense) Q3 2026 공시치(전환사채·워런트 급증 영향 정량화) ④ EV/ARR 등 밸류에이션 멀티플의 관측 가능한 조정 여부 — 4개 항목 모두 관측 가능한 정량 지표"
+  },
+
+  "unconfirmed_carried": [
+    {"topic": "Q3 2026 실적 발표일", "reason": "회사 IR 공식 공지 미확인, 애그리게이터 추정 라벨은 근거 불가(F1)"},
+    {"topic": "2027 공식 가이던스 발표 시점·수치", "reason": "8/12 서한에서 '연내'로만 언급, 구체 일자·수치 미확인 — 현행 next_gate의 핵심 미해소 항목"},
+    {"topic": "Vineland 공사중지명령에 대한 회사 공식 입장(원문)", "reason": "일부 매체 보도 인용의 1차 출처 미확보(P5), confirmed=false 유지"},
+    {"topic": "Vantage/Wales 계약의 Nebius 자사 1차 공시 원문", "reason": "Vantage측 발표·3차매체 보도만 확인, Nebius 자체 보도자료 미확보(P5)"}
+  ],
+
+  "human_confirmation_required": false,
+  "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 다만 상향 게이트가 claim 단위(c_01~03)로는 형식 충족되었음에도 등급을 유지한 판단이므로, 승인자 재검토 시 gate_check.upgrade_gate와 decision_reason을 함께 확인할 것을 권고함. Vineland(c_11)·전환사채 급증(c_05)은 다음 Run에서 우선 추적 대상."
+}

@@ -1,0 +1,220 @@
+{
+ "ticker": "IREN",
+ "run_id": "20260911_2308",
+ "as_of": "2026-09-11",
+ "staleness_days": 3,
+ "underlying_primary_event_date": "2026-09-08",
+ "lookback_window": {
+  "since": "2026-08-28",
+  "until": "2026-09-11",
+  "primary_window": {
+   "since": "2026-09-04",
+   "until": "2026-09-11"
+  },
+  "note": "지시된 주 창은 2026-09-04~2026-09-11이나, 과거 3-run 연속 창 경계 재료 유실 이력에 따라 안전 오버랩으로 2026-08-28까지 소급 스윕했다. 스윕 결과 2026-08-28~2026-09-03 구간에서 신규(미확보) 1차·2차 자료는 발견되지 않았다 — 이 구간의 유일한 사건(8/27 FY26 실적·10-K)은 직전 run(20260905_0618)에서 이미 완주됐다. 따라서 창 밖 소급 발견분에 대한 unconfirmed(outside_primary_window_retro_found) 항목은 없다."
+ },
+ "claims": [
+  {
+   "id": "c_20260911_IREN_1",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "SEC EDGAR submissions API(CIK 0001878848)를 2026-08-28~2026-09-11 구간에 대해 8-K/10-Q/10-K/424B5/424B7/S-8/SCHEDULE 13G 기준으로 조회한 결과 신규 공시는 0건이다(마지막 1차 공시는 2026-08-27 10-K 및 8-K). 직전 run(2026-09-05, since 2026-08-29 조회)도 0건이었으므로, 2026-08-27 이후 2주 이상 신규 1차 공시가 없는 상태가 이번 회차까지 이어진다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "edgar_api",
+    "url": "https://data.sec.gov/submissions/CIK0001878848.json",
+    "filed_at": "2026-09-11"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "coverage.yaml의 IREN edgar_forms:['20-F','6-K']는 2025-07 국내 신고인 전환 전 기준의 stale 오기다(마지막 6-K 2025-06-30, 첫 10-K 2025-08-28) — 에이전트 정의(8-K/10-Q/10-K/424B5/424B7/S-8/SCHEDULE 13G) 기준으로 조회했다. config는 수정하지 않았다."
+  },
+  {
+   "id": "c_20260911_IREN_2",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "IREN은 2026-09-08 07:01 ET GlobeNewswire 보도자료(회사 공식 배포)에서 자사 2GW Sweetwater Hub(Sweetwater 1: 1,400MW + Sweetwater 2: 600MW)가 ERCOT Batch Zero 대규모 부하 접속 심사에서 'Base Load'로 조건부 포함(conditionally included)됐다고 공시했다. 보도자료는 이 분류가 최종 접속 승인이 아니며 에너지화 일자를 확정하지 않는다는 취지를 명시했고, 송배전사업자와의 계통접속계약(grid connection agreement) 체결을 전제 조건으로 달았다. Sweetwater 1의 데이터센터 용량 300MW는 2027년 4분기 인도를 목표로 한다고 명시했으며, 이는 Childress Horizon 1-4(Microsoft, 2026년 역년 4분기 목표)와는 별개 캠퍼스·별개 일정이다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "company_press_release",
+    "url": "https://www.globenewswire.com/news-release/2026/09/08/3357498/0/en/iren-s-2gw-sweetwater-hub-included-as-base-load-in-ercot-batch-zero.html",
+    "filed_at": "2026-09-08"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "noise_filter#IREN promote_if 'DC 모라토리엄: ... IREN 계약 용량 영향' 충족 — Sweetwater 2GW가 명시적으로 특정된 IREN 고유 재료."
+  },
+  {
+   "id": "c_20260911_IREN_3",
+   "ticker": "IREN",
+   "claim_type": "fact",
+   "text": "2차 매체 분석(Electron Economics Substack, 2026-09, ERCOT 공식 문구 인용)에 따르면 ERCOT Batch Zero의 'Base Load'·'Studied Load' 분류는 모두 조건부이며, ERCOT은 조건부 포함이 최종 접속 승인이 아니고 에너지화 일자를 확정하지 않는다고 명시했다고 인용한다. 비교 사례로 Galaxy는 제출 용량 중 약 2,600MW(자사가 Base Load로 제출했던 프로젝트 포함, 제출 용량의 60%+)가 Studied Load로 강등된 반면 IREN Sweetwater 2GW 전량은 Base Load로 분류됐다고 서술한다. 해당 매체는 '지금까지 탈락(disqualified)된 사업자는 없다'고 덧붙였다.",
+   "evidence_grade": 4,
+   "source": {
+    "type": "secondary_media_analysis",
+    "url": "https://electroneconomics.substack.com/p/every-batch-zero-classification-ercot",
+    "filed_at": "2026-09"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "sector",
+   "confirmed": false,
+   "note": "default_grade 4(도메인 미등재, 단독 판단 근거 불가, P4). Galaxy 사례는 scope=sector — IREN 개별 판정에 직접 대입 금지(P6/P13). ERCOT 원문(M-A080326-01 등)은 403으로 직접 접근 실패 — 2차 인용으로만 확인, 1차 URL 역추적 미완(D15 의무 잔여 캐비어트로 기록)."
+  },
+  {
+   "id": "c_20260911_IREN_4",
+   "ticker": "IREN",
+   "claim_type": "inference",
+   "text": "c_20260911_IREN_2의 조건부 Base Load 분류는 KC-10의 두 번째 조건('사이트 전력접속·인허가 취소·보류 공시')과 관련해 취소·보류가 아닌 진행 방향의 증거다. 다만 (a) 지위 자체가 조건부이고 Governor Abbott 감사(2026-12 완료 목표, 직전 run C10 참조 — 이번 run에서는 재확인만 하고 신규 근거로 세지 않음)가 미종료 상태이며, (b) 이 접속 심사 분류는 SB6상 비상시 커테일먼트 의무 대상 용량(KC-10의 첫 번째 조건, '계약 용량 10%+ 강제 감축 분류')과는 별개의 규제 트랙이라는 점에서 제한적이다 — Batch Zero는 신규 접속 심사 절차이고 SB6 커테일먼트는 접속 완료 후 비상시 감축 의무이며, 이번 공시는 후자에 대한 정보를 제공하지 않는다. 두 트랙을 동일시하면 P7류 오류(존재≠이행)에 준하는 혼동이 발생한다.",
+   "evidence_grade": 4,
+   "source": {
+    "type": "derived",
+    "url": null,
+    "filed_at": "2026-09-11"
+   },
+   "inference_strength": "medium",
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "note": "근거 Claim 중 최저 등급(c_20260911_IREN_3, grade4)을 승계. KC-10 판정 자체는 signal-arbiter 영역 — 본 에이전트는 met/not_met 관측 보고만 한다."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "power_permit",
+   "direction": "strengthen",
+   "stage": "하(약)",
+   "prior_state": "직전 run(0905): SB6 요건·PUCT 방법론 시한(2026-12-31) 구체화, IREN 계약 용량 중 SB6 적용 MW 미공시로 KC-10 provisional/not_met. ERCOT 감사(Abbott 8/3 지시)는 2026-12-10 완료 목표로 진행 중, PUCT는 8/20 Batch Zero 심사 기한(원래 8/7) 연장 승인. 경영진 자체 준수 평가(회사 자기평가, 판정 근거 불가)만 존재.",
+   "new_state": "Sweetwater Hub(2GW: Sweetwater1 1,400MW+Sweetwater2 600MW) 전량이 2026-09-08 ERCOT Batch Zero에서 조건부 'Base Load'로 분류됨(c_20260911_IREN_2) — 취소·보류·강등(studied load)이 아닌 진행 방향의 첫 가시적 결과. 단 지위는 여전히 조건부이며 최종 접속 승인이 아니다(c_20260911_IREN_3). SB6 커테일먼트 적용 MW는 이번 회차에도 미공시로 KC-10 첫 번째 조건은 여전히 provisional.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260911_IREN_2",
+    "c_20260911_IREN_3",
+    "c_20260911_IREN_4"
+   ]
+  },
+  {
+   "axis": "execution_delivery",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0905): Horizon 1 Microsoft 인도·인수 완료. Horizons 2-4는 콜에서 '12월 분기(calendar Q4 2026)' 목표로 구두 구체화, 계약상 유예기간(~2027 Q2 초)은 유지.",
+   "new_state": "이번 회차 신규 1차 공시 없음(c_20260911_IREN_1). 웹검색에서 확인된 'Horizon 2 commissioning 중, 3·4 late-stage construction, Q4 2026 목표' 서술은 전량 8/27 콜의 2차 재인용이며 신규 정보가 아니다.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260911_IREN_1"
+   ]
+  },
+  {
+   "axis": "funding_dilution",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0905): FY27 capex $25-30bn 가이던스 grade2 확정, 잔여 조달 목표 ~$8bn. 완전희석 주수 range(394.06M~558.72M+) 유지.",
+   "new_state": "이번 회차 신규 1차 공시 없음(c_20260911_IREN_1). 웹검색에서 발견된 '$6B ATM 확대'(실제 공시일 2026-03-07, 기존 반영분)와 'CEO Form4 RSU 그랜트'(실제 체결일 2026-07-01)는 모두 조사 구간(2026-08-28~09-11) 밖의 재유통 기사로 확인돼 discarded_noise_log에 적재했다. Co-CEO 1백만주 매도 관련 기사는 URL 자체에 2025-09-11 날짜가 포함돼 1년 전 사건의 오표기로 판단, 채택하지 않았다.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260911_IREN_1"
+   ]
+  },
+  {
+   "axis": "margin_structure",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0905): 신규 정량 자료 없음(AI Cloud 매출총이익률 FY26 86.9%/Q4 87.0%는 8/27 기준 유지).",
+   "new_state": "이번 회차도 동일 — 신규 정량 자료 없음.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260911_IREN_1"
+   ]
+  },
+  {
+   "axis": "ai_cloud_conversion",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0905): Q4 AI Cloud 비중 51.4% 역전 확인, 과금 가동률·MFU 여전히 unconfirmed.",
+   "new_state": "이번 회차 과금 가동률·MFU 관련 신규 공시 없음. unconfirmed 상태 이월.",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260911_IREN_1"
+   ]
+  },
+  {
+   "axis": "btc_mining",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run(0905): CFO 발언 기반 2026-12월 말 채굴 사실상 중단 목표 최초 제시(grade2), 리스크는 ai_cloud_conversion으로 완전 이관.",
+   "new_state": "이번 회차 신규 경영진 1차 발언 없음. 2차 매체(Blockspace, Disruption Banking, Coingeek 등)가 동일 목표 시점('2026년 말까지 사실상 채굴 종료')을 재인용했으나 8/27 콜의 재확인일 뿐 신규 근거로 세지 않는다(P3).",
+   "risk_transfer_to": [],
+   "supporting_claims": [
+    "c_20260911_IREN_1"
+   ]
+  }
+ ],
+ "unconfirmed": [
+  {
+   "topic": "SB6/PUCT 커테일먼트 적용 MW",
+   "detail": "IREN 계약 용량 중 SB6 비상시 강제 감축 의무 적용 MW가 여전히 미공시. Batch Zero 분류(c_20260911_IREN_2)는 별개 트랙이라 이 갭을 메우지 못한다(c_20260911_IREN_4). KC-10 첫 번째 조건의 분모 부재 지속.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "Governor Abbott 지시 ERCOT 감사 최종 결과",
+   "detail": "2026-12-10(또는 12월) 완료 목표로 진행 중. IREN 사이트별 개별 감사 결과는 미공표.",
+   "reason": "audit_in_progress"
+  },
+  {
+   "topic": "ERCOT Batch Zero 비조건부(최종) 분류 시점",
+   "detail": "c_20260911_IREN_2의 'Base Load'는 조건부이며 최종 접속 승인이 아니다. 최종 확정 시점 미공시.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "과금 가동률(billing utilization) / MFU",
+   "detail": "8/27 실적에서도 미공개, 이번 회차 신규 자료 없음.",
+   "reason": "carried_over_from_prior_run"
+  },
+  {
+   "topic": "완전희석 주수 갱신치(8월 이후)",
+   "detail": "신규 EDGAR 공시 없어 카드 range(394.06M~558.72M+) 갱신 불가.",
+   "reason": "no_disclosure"
+  },
+  {
+   "topic": "매니지드 서비스 믹스(Mirantis 매출 비중) 정량치",
+   "detail": "FY27 Q1(Mirantis 첫 연결 분기)이 다음 관측점. 이번 회차 정성 언급조차 신규로 확인되지 않음.",
+   "reason": "carried_over_from_prior_run"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "title": "CEO Daniel Roberts 'MW당 ~$25M 협의 중' 재인용 (2026-09-08 Yahoo/24/7 Wall St)",
+   "reason": "카드 기존 key_metrics 수치(협의 중 ~$25M, 8/27 공시)와 동일 — 신규 정량 변화 없음(P3 5대 항목 무변화)"
+  },
+  {
+   "title": "'IREN CEO, 100만주 매도' (marketbeat)",
+   "reason": "기사 URL에 날짜 2025-09-11 포함 — 1년 전 사건의 오표기로 판단, 이번 조사 구간(2026-08-28~09-11)과 무관하여 미채택"
+  },
+  {
+   "title": "'IREN $6B ATM 확대' 재유통 기사",
+   "reason": "실제 공시일 2026-03-07 — 이미 카드/직전 run funding_dilution·F9에 반영된 구정보"
+  },
+  {
+   "title": "'Sweetwater 2 600MW 계통접속계약 체결' 재유통 기사",
+   "reason": "실제 체결일 2025-03-17(AEP Texas) — 오래된 뉴스 재게시, 구간 밖"
+  },
+  {
+   "title": "'IREN $50 향해?' 주가 전망 기사 (2026-09-11)",
+   "reason": "noise_filter#common '애널리스트 PT·투자의견 변경 단독' — 목표가·예측성 서술, 매출·마진·가이던스 데이터 없음"
+  },
+  {
+   "title": "'비트코인 해시레이트 316일 연속 고점 대비 하락' 매크로 기사 (IREN 부수 언급)",
+   "reason": "scope=sector/macro 일반론, IREN 고유 신규 데이터 없음 — noise_filter#common 'AI/크립토 버블'류 확대해석 인접"
+  },
+  {
+   "title": "IREN 실적콜 'frontier AI lab·Cohere·Perplexity 등' 신규 고객 재언급 (ts2.tech 등)",
+   "reason": "8/27 FY26 실적 보도자료 내용의 재인용 — 직전 run(0829) 범위에서 이미 다뤄졌어야 할 8/27 소재이며 이번 조사 구간 신규 사건 아님"
+  }
+ ],
+ "reused_from": "output/20260905_0618/02_company/IREN.json",
+ "notes": "P17 컨텍스트 격리 준수 — state/thesis_cards/IREN.yaml, config/noise_filter.yaml, config/sources.yaml, 자기 출력 경로, 웹/EDGAR 원문만 접근했다. 타 종목 카드·output/*/01_macro_kc.json·output/*/04_sector/*·state/signals.json은 열람하지 않았다. edgar_fulltext.py는 coverage.yaml의 stale 오기(20-F/6-K)를 따르지 않고 에이전트 정의 파일(company-iren.md) 지시대로 8-K/10-Q/10-K/424B5/424B7/S-8/SCHEDULE 13G로 조회했으며, 이 결함은 여기 기록만 하고 config는 수정하지 않았다. 이번 회차의 핵심 발견은 2026-09-08 IREN 공식 보도자료(Sweetwater 2GW ERCOT Batch Zero 조건부 Base Load)이며, 이는 power_permit 축에 국한된 약한 강화 신호다. KC-10(전력·인허가 이벤트형 킬조건: 계약용량 10%+ 강제감축 분류, 또는 접속·인허가 취소·보류)은 이번 회차에도 not_met이다 — 오히려 반대 방향(취소·보류 아닌 진행)의 근거가 추가됐으나, 조건부 지위·별개 규제트랙(SB6 커테일먼트 vs Batch Zero 접속심사) 한계로 met 판정 근거는 되지 못한다. 판정 자체는 signal-arbiter 영역이므로 본 산출물은 met/not_met 관측만 보고하고 등급을 매기지 않는다.\n[오케스트레이터 정규화 2026-09-12] deltas.direction의 한국어 라벨을 영문 규약(strengthen/weaken/neutral)으로 치환했다. 사유: L2 간 방향 라벨 규약 불일치(결함 AD-5)가 consensus_aggregate.py를 KeyError로 중단시킨 이력이 있어 L3 집계 전 통일이 필요했다. 내용 변경 없음(라벨 표기만). 정규화 전 원본은 같은 폴더 _IREN_preNorm_backup.json에 보존(P9). 치환 내역: power_permit: 강화->strengthen; execution_delivery: 중립->neutral; funding_dilution: 중립->neutral; margin_structure: 중립->neutral; ai_cloud_conversion: 중립->neutral; btc_mining: 중립->neutral"
+}

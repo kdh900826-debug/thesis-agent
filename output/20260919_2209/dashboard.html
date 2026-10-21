@@ -1,0 +1,322 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>thesis-agent 임계 관제판</title><style>
+:root{color-scheme:light;
+ --page:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--muted:#898781;
+ --grid:#e1e0d9;--ring:rgba(11,11,11,.10);
+ --good:#0ca30c;--warn:#fab219;--serious:#ec835a;--critical:#d03b3b;--goodtx:#006300;
+ --series:#2a78d6;
+ --pos-l:#cde2fb;--pos-m:#86b6ef;--pos-h:#2a78d6;
+ --neg-l:#f8d3d2;--neg-m:#ef9a99;--neg-h:#d03b3b;
+ --cellw:#fff;--ncell:#f0efec;--chip:#efede8;
+ --touchbg:#faeaea;--nearbg:#fdf1ea;--watchbg:#fdf6e2;}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;
+ --page:#0d0d0d;--surface:#1a1a19;--ink:#fff;--ink2:#c3c2b7;--muted:#898781;
+ --grid:#2c2c2a;--ring:rgba(255,255,255,.10);--goodtx:#0ca30c;--series:#3987e5;
+ --pos-l:#184f95;--pos-m:#2a78d6;--pos-h:#5598e7;
+ --neg-l:#5c2323;--neg-m:#a94443;--neg-h:#e66767;
+ --ncell:#262624;--chip:#262624;
+ --touchbg:#331c1c;--nearbg:#332419;--watchbg:#332c14;}}
+*{box-sizing:border-box}
+body{margin:0;padding:0 20px 60px;background:var(--page);color:var(--ink);
+ font-family:'Malgun Gothic','Segoe UI',sans-serif;font-size:14px;line-height:1.6}
+.wrap{max-width:1060px;margin:0 auto}
+.mono{font-family:Consolas,'Courier New',monospace}
+.num{font-variant-numeric:tabular-nums}
+header{padding:30px 0 6px}h1{font-size:23px;margin:0}
+header .meta{color:var(--muted);font-size:12.5px;margin-top:2px}
+h2{font-size:16.5px;margin:0}
+.sec{margin-top:36px}
+.sec-head{display:flex;gap:10px;align-items:baseline;border-bottom:2px solid var(--ink);
+ padding-bottom:6px;margin-bottom:14px;flex-wrap:wrap}
+.sec-head .note{color:var(--muted);font-size:12px}
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:11px;margin-top:16px}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:8px;padding:13px 15px}
+.tile .k{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.tile .v{font-size:20px;font-weight:700;margin-top:3px;line-height:1.3}
+.tile .d{font-size:12px;color:var(--ink2);margin-top:3px}
+.tile.alert{border-left:3px solid var(--critical);background:var(--touchbg)}
+.tile.alert .v{color:var(--critical)}
+.b{display:inline-flex;align-items:center;gap:3px;border-radius:99px;font-size:11px;
+ padding:1px 8px;border:1px solid transparent;font-weight:500;white-space:nowrap}
+.b-prov{background:var(--watchbg);color:var(--warn);border-color:var(--warn)}
+.b-stale{background:var(--nearbg);color:var(--serious);border-color:var(--serious)}
+.b-fresh{color:var(--muted);border-color:var(--grid)}
+.b-touch{background:var(--touchbg);color:var(--critical);border-color:var(--critical);font-weight:700}
+.b-near{background:var(--nearbg);color:var(--serious);border-color:var(--serious)}
+.b-watch{background:var(--watchbg);color:var(--warn);border-color:var(--warn)}
+.b-clear{color:var(--muted);border-color:var(--grid)}
+.kc{background:var(--surface);border:1px solid var(--ring);border-radius:8px;
+ padding:12px 15px;margin-bottom:9px}
+.kc.touch{border-left:3px solid var(--critical)}
+.kc.near{border-left:3px solid var(--serious)}
+.kc.watch{border-left:3px solid var(--warn)}
+.kc-top{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap}
+.kc-id{font-family:Consolas,monospace;font-weight:700;font-size:13px}
+.kc-name{font-weight:700}
+.kc-mid{display:grid;grid-template-columns:1fr 118px;gap:14px;align-items:center;margin-top:7px}
+.bullet{height:13px;background:var(--ncell);border-radius:4px;position:relative;overflow:hidden}
+.bullet .fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px 3px 3px 4px;min-width:2px}
+.bullet .thr{position:absolute;right:0;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+.f-touch{background:var(--critical)}.f-near{background:var(--serious)}
+.f-watch{background:var(--warn)}.f-clear{background:var(--pos-m)}
+.kc-margin{font-size:12px;color:var(--ink2);margin-top:5px}
+.kc-foot{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:7px;
+ font-size:11.5px;color:var(--muted)}
+.tk{background:var(--chip);border-radius:4px;padding:0 6px;font-family:Consolas,monospace;
+ font-size:10.5px;color:var(--ink2)}
+.tk.held{background:var(--pos-h);color:#fff;font-weight:600}
+.spark{display:block}.sp-base{stroke:var(--grid);stroke-width:1}
+.sp-line{fill:none;stroke:var(--series);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sp-dot{fill:var(--series)}
+.spark-cap{font-size:10px;color:var(--muted);text-align:right;margin-top:1px}
+.sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(315px,1fr));gap:11px}
+.sig{background:var(--surface);border:1px solid var(--ring);border-radius:8px;padding:13px 15px}
+.sig-top{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.sig-top .t{font-family:Consolas,monospace;font-weight:700;font-size:15px}
+.sig-top .lb{font-size:11.5px;color:var(--ink2)}
+.gates{display:flex;gap:5px;margin:8px 0 7px;flex-wrap:wrap}
+.gate{font-size:11px;border-radius:5px;padding:2px 8px;border:1px solid var(--grid);color:var(--muted)}
+.gate.on{border-color:var(--good);color:var(--goodtx);font-weight:600}
+.sig .blk{font-size:12px;color:var(--ink2);border-left:2px solid var(--grid);padding-left:8px;margin:7px 0}
+.sig .nx{font-size:11.5px;color:var(--muted)}
+.sig .nx b{color:var(--ink2);font-weight:500}
+.mx-wrap,.dl-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--ring);
+ border-radius:8px;padding:5px}
+table.mx{border-collapse:separate;border-spacing:2px;width:100%;min-width:740px}
+.mx th{font-size:10.5px;color:var(--muted);font-weight:500;padding:4px 5px;text-align:center}
+.mx th.rowh,.mx td.rowh{text-align:left}
+.mx td{text-align:center;font-family:Consolas,monospace;font-size:11.5px;padding:6px 4px;
+ border-radius:4px;background:var(--ncell);color:var(--muted);min-width:60px}
+.mx td.rowh{background:transparent;font-weight:700;color:var(--ink);font-size:12.5px;white-space:nowrap;
+ font-family:inherit}
+.mx td.rowh small{color:var(--muted);font-weight:400}
+.mx .pL{background:var(--pos-l);color:var(--ink)}.mx .pM{background:var(--pos-m);color:var(--ink)}
+.mx .pH{background:var(--pos-h);color:#fff;font-weight:700}
+.mx .nL{background:var(--neg-l);color:var(--ink)}.mx .nM{background:var(--neg-m);color:var(--ink)}
+.mx .nH{background:var(--neg-h);color:#fff;font-weight:700}
+.mx tr.conc td{background:transparent;border-top:2px solid var(--grid);border-radius:0;
+ font-size:11px;color:var(--ink2)}
+.mx tr.conc td.over{color:var(--critical);font-weight:700}
+.mx-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:7px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:3px}
+.posbar{height:7px;background:var(--ncell);border-radius:3px;overflow:hidden;margin-top:2px;width:88px}
+.posbar i{display:block;height:100%;background:var(--series)}
+table.dl{border-collapse:collapse;width:100%;min-width:600px;font-size:12.5px}
+.dl th{font-size:11px;color:var(--muted);font-weight:500;text-align:left;padding:7px 11px;
+ border-bottom:1px solid var(--grid)}
+.dl th.c,.dl td.c{text-align:center}
+.dl td{padding:4px 11px;border-bottom:1px solid var(--grid)}
+.dl tr:last-child td{border-bottom:none}
+.dl td.tick{font-family:Consolas,monospace;font-weight:700}
+.dl td.ax{color:var(--ink2);font-size:12px}
+.gl{font-weight:700}.gl.up{color:var(--goodtx)}.gl.dn{color:var(--critical)}
+.gl.mx{color:var(--serious)}.gl.nu{color:var(--muted);font-weight:400}.gl.none{color:var(--grid)}
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:8px;
+ padding:12px 15px;margin-bottom:9px}
+.card h3{font-size:13px;margin:0 0 3px}
+.card p,.card li{font-size:12px;color:var(--ink2);margin:0}
+.card ul{margin:4px 0 0;padding-left:17px}
+table.q{border-collapse:collapse;width:100%;font-size:12.5px;background:var(--surface);
+ border:1px solid var(--ring);border-radius:8px}
+.q th,.q td{padding:6px 11px;border-bottom:1px solid var(--grid);text-align:left}
+.q tr:last-child td{border-bottom:none}
+.q th{font-size:11px;color:var(--muted);font-weight:500}
+footer{margin-top:40px;border-top:1px solid var(--grid);padding-top:12px;
+ color:var(--muted);font-size:11.5px;line-height:1.7}
+</style></head><body><div class="wrap">
+<header><h1>임계 관제판</h1>
+<div class="meta">생성 2026-09-20T08:01 · 최신 run 20260919_2209
+ · 판단 보조용 — 매수·매도 지시가 아닙니다</div>
+<div class="hero">
+ <div class='tile alert'><div class='k'>최근접 KC</div><div class='v'>KC-1 · 근접도 93%</div><div class='d'>FFR 인상 리스크 — 상세는 ① 참조</div></div>
+ <div class="tile"><div class="k">축 집중도</div><div class="v num">6/8축 초과</div>
+  <div class="d">AI_CAPEX, RATES, CRYPTO, GPU_SUPPLY, POWER_PERMIT, RISK_APPETITE — 단일 포지션 축퇴 여부는 ③ 참조</div></div>
+ <div class="tile"><div class="k">시그널</div><div class="v" style="font-size:15px">🟡IREN 🟡NBIS 🟡CRWV 🟠MU 🔴CRCL 🟠COIN 🟡HOOD</div>
+  <div class="d">as_of 2026-09-05 <span class="b b-stale">⚠ 15일 경과</span></div></div>
+ <div class="tile"><div class="k">승인 대기</div>
+  <div class="v num">0건</div>
+  <div class="d">큐 비어 있음 · provisional KC 5건</div></div>
+</div></header>
+
+<section class="sec"><div class="sec-head"><h2>① KC 이격도 — 임계까지의 거리</h2>
+<span class="note">근접순 정렬 · 막대 채움 = 근접도(본 스크립트 파생 계산※, AND형은 최근접 레그 기준) · 우측 세로선 = 발동 임계 · 판정 근거는 항상 이격 원문</span></div>
+<p style="font-size:12px;color:var(--muted);margin:0 0 10px">run 20260919_2209 · as_of 2026-09-19T22:12 <span class="b b-fresh">1일 경과</span> · draft 제외: -</p>
+<div class="kc near">
+ <div class="kc-top"><span class="kc-id">KC-1</span><span class="kc-name">FFR 인상 리스크</span><span class="b b-touch">🔴 MET</span><span class="b b-near">◮ 근접</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-near" style="width:93%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">FFR 4 &gt; 임계 3.75 — 이격 0.25 (+6.7%)</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,23.0 37.7,23.0 72.3,23.0 107.0,3.0" class="sp-line"/><circle cx="107.0" cy="3.0" r="3" class="sp-dot"/></svg><div class="spark-cap">4개 run ▴</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">CRWV</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): 레버리지 전액 해제 + Edge/Next 50% 축소 검토</div>
+</div>
+<div class="kc near">
+ <div class="kc-top"><span class="kc-id">KC-9</span><span class="kc-name">에너지 쇼크</span><span class="b b-touch">🔴 MET</span><span class="b b-near">◮ 근접</span><span class="b b-prov">provisional</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-near" style="width:91%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">brent 130.80 &gt;= 임계 120 — 이격 10.80 (+9.0%)</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,23.0 20.3,23.0 37.7,23.0 55.0,21.9 72.3,21.5 89.7,14.3 107.0,3.0" class="sp-line"/><circle cx="107.0" cy="3.0" r="3" class="sp-dot"/></svg><div class="spark-cap">7개 run ▴</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">CRWV</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): 에너지+인플레이션 시나리오 검토</div>
+</div>
+<div class="kc watch">
+ <div class="kc-top"><span class="kc-id">KC-3</span><span class="kc-name">크립토 붕괴 + 위험회피 동시</span><span class="b b-watch">△ 주시</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-watch" style="width:59%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">BTC 81,235.10 &lt; 임계 55,000 — 이격 26,235.10 (+47.7%) / VIX 14.81 &gt;= 임계 25 — 이격 10.19 (-40.8%) (AND — 전 레그 동시 충족 필요)</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,23.0 20.3,23.0 37.7,23.0 55.0,13.4 72.3,4.6 89.7,7.4 107.0,3.0" class="sp-line"/><circle cx="107.0" cy="3.0" r="3" class="sp-dot"/></svg><div class="spark-cap">7개 run ▴</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">COIN</span> <span class="tk">CRCL</span> <span class="tk">HOOD</span> <span class="tk held">IREN 95%</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)</div>
+</div>
+<div class="kc watch">
+ <div class="kc-top"><span class="kc-id">KC-4</span><span class="kc-name">유동성 위기 신호</span><span class="b b-watch">△ 주시</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-watch" style="width:59%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">ON_RRP 576.0M &gt;= 임계 200.00B — 이격 199.42B (-99.7%) / VIX 14.81 &gt;= 임계 25 — 이격 10.19 (-40.8%) (AND — 전 레그 동시 충족 필요)</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,23.0 20.3,23.0 37.7,23.0 55.0,22.7 72.3,21.3 89.7,3.0 107.0,21.7" class="sp-line"/><circle cx="107.0" cy="21.7" r="3" class="sp-dot"/></svg><div class="spark-cap">7개 run ▴</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">COIN</span> <span class="tk">CRWV</span> <span class="tk">HOOD</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): 광범위 디리스킹 검토</div>
+</div>
+<div class="kc ">
+ <div class="kc-top"><span class="kc-id">KC-2</span><span class="kc-name">변동성 급등</span><span class="b b-clear">○ 여유</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-clear" style="width:49%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">VIX 14.81 &gt;= 임계 30 — 이격 15.19 (-50.6%)</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,23.0 8.2,23.0 13.4,23.0 18.6,23.0 23.8,23.0 29.0,23.0 34.2,23.0 39.4,23.0 44.6,23.0 49.8,11.6 55.0,11.6 60.2,11.6 65.4,19.5 70.6,19.5 75.8,19.5 81.0,3.0 86.2,3.0 91.4,3.0 96.6,16.0 101.8,16.0 107.0,16.0" class="sp-line"/><circle cx="107.0" cy="16.0" r="3" class="sp-dot"/></svg><div class="spark-cap">21개 run ▴</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">COIN</span> <span class="tk">CRWV</span> <span class="tk">HOOD</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): 레버리지 해제 검토</div>
+</div>
+<div class="kc ">
+ <div class="kc-top"><span class="kc-id">KC-6</span><span class="kc-name">AI 토큰 지출 급감</span><span class="b b-clear">○ 여유</span><span class="b b-prov">provisional</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-clear" style="width:11%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">SDLLMTK_change_pct -3.20 &lt;= 임계 -30 — 이격 26.80 (-89.3%)</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,15.9 37.7,7.4 72.3,3.0 107.0,23.0" class="sp-line"/><circle cx="107.0" cy="23.0" r="3" class="sp-dot"/></svg><div class="spark-cap">4개 run ▾</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">CRWV</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): Base·Edge 전제 재검토</div>
+</div>
+<div class="kc ">
+ <div class="kc-top"><span class="kc-id">KC-5</span><span class="kc-name">TAIEX 음전환 (아시아 리스크 프록시)</span><span class="b b-clear">○ 여유</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-clear" style="width:0%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">TAIEX_vs_20dma_pct 2 &lt; 임계 0 — 이격 2 / TAIEX_1m_return_pct 5 &lt; 임계 0 — 이격 5 (AND — 전 레그 동시 충족 필요)</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,3.0 37.7,23.0 72.3,4.0 107.0,4.4" class="sp-line"/><circle cx="107.0" cy="4.4" r="3" class="sp-dot"/></svg><div class="spark-cap">4개 run ▾</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">COIN</span> <span class="tk">CRWV</span> <span class="tk">HOOD</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): 광범위 디리스킹 검토</div>
+</div>
+<div class="kc ">
+ <div class="kc-top"><span class="kc-id">KC-7</span><span class="kc-name">하이퍼스케일러 합산 FCF 악화</span><span class="b b-clear">○ 여유</span><span class="b b-stale">⚠ 82일 경과</span><span class="b b-prov">provisional</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-clear" style="width:0%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">hyperscaler_fcf_sum 6.83B &lt; 임계 0 — 이격 6.83B</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,13.0 55.0,13.0 107.0,13.0" class="sp-line"/><circle cx="107.0" cy="13.0" r="3" class="sp-dot"/></svg><div class="spark-cap">3개 run →</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">CRWV</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): CapEx 감속 시나리오 검토</div>
+</div>
+<div class="kc ">
+ <div class="kc-top"><span class="kc-id">KC-8</span><span class="kc-name">Microsoft FCF 마이너스 (최후의 보루)</span><span class="b b-clear">○ 여유</span><span class="b b-stale">⚠ 82일 경과</span><span class="b b-prov">provisional</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill f-clear" style="width:0%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">msft_fcf 19.64B &lt; 임계 0 — 이격 19.64B</div></div>
+  <div><svg width="110" height="26" class="spark" role="img" aria-label="run 추이"><line x1="3" y1="23" x2="107" y2="23" class="sp-base"/><polyline points="3.0,13.0 55.0,13.0 107.0,13.0" class="sp-line"/><circle cx="107.0" cy="13.0" r="3" class="sp-dot"/></svg><div class="spark-cap">3개 run →</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk">CRWV</span> <span class="tk held">IREN 95%</span> <span class="tk">MU</span> <span class="tk">NBIS</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): AI CapEx 축 전면 재검토</div>
+</div>
+<div class="kc ">
+ <div class="kc-top"><span class="kc-id">KC-10</span><span class="kc-name">IREN 계약 용량의 10%+ 강제 감축 대상 분류, 또는 보유 사이트 전력접속·인허가 취소·보류 공시</span><span class="b b-clear">◇ 이벤트/산출불가</span><span class="b b-prov">provisional</span></div>
+ <div class="kc-mid">
+  <div><div class="bullet"><div class="fill " style="width:0%"></div><div class="thr"></div></div>
+   <div class="kc-margin num">이벤트형 — 공시 관측으로 판정</div></div>
+  <div><div class="spark-cap" style="text-align:left">이벤트형 — 시계열 없음</div></div>
+ </div>
+ <div class="kc-foot">파급: <span class="tk held">IREN 95%</span> <span class="num">· 포트 파급 95.0%</span> · 발동 시(사전 정의): Edge 마진 전제 재검토</div>
+</div></section>
+
+<section class="sec"><div class="sec-head"><h2>② 시그널 · 상향 게이트</h2>
+<span class="note">상향은 3요건 동시 충족(정량 · 회사 고유 · 매출 인식) · 등급 확정은 사람 — 후보 판정만 표시</span></div>
+<div class="sig-grid">
+<div class="sig">
+ <div class="sig-top"><span>🟡</span><span class="t">IREN</span>
+  <span class="lb">관망 (상향 대기) · since 2026-08-14 · <b>보유 95%</b></span></div>
+ <div class="gates"><span class="gate">게이트 판정 산출물 없음</span></div>
+ <div class="blk"><b>다음 게이트:</b> FY27 Q1 10-Q (2026-11월경, 정확일 미공시) — ASC842 리스 매출 최초 인식 금액(상향 게이트 ⑪ 관측점)·가동 ARR $1.0B→$4.0B 진척·과금 가동률(이월)</div>
+ <div class="nx"><b>다음 관측 · 후보판정 kill_priority_candidate:</b> ① KC-1 재확인(차기 FOMC·FRED DFEDTARU) — 최우선, 사람 확인 대상. ② KC-9 brent duration 확정(1개월 지속 도달 시점). ③ FY27 Q1 10-Q(2026-11월경, 승계). ④ SB6/PUCT 커테일먼트 적용 MW 공시(승계). ⑤ BC Hydro Call for Demand 결과 공표(신규). 전항목 관측 가능한 정량 항목.</div>
+</div>
+<div class="sig">
+ <div class="sig-top"><span>🟡</span><span class="t">NBIS</span>
+  <span class="lb">관망 (신규 커버리지 초기화) · since 2026-08-15</span></div>
+ <div class="gates"><span class="gate ">✗ 정량</span><span class="gate on">✓ 회사 고유</span><span class="gate ">✗ 매출 인식</span></div>
+ <div class="blk"><b>다음 게이트:</b> 멀티플 조정 또는 2027 가이던스 확정</div>
+ <div class="nx"><b>다음 관측 · 후보판정 Kill 우선 트리거(rule 1) — 사람 확인 요청. NBIS 자체 등급(🟡)의 상향/하향 요건은 이번 run 근거로는 미충족(P12) — 본 Kill 후보는 매크로 KC-1 경로이며 종목 고유 KC(KC-NBIS-1~3) 훼손과는 별개(아래 kill_check 참조).:</b> —</div>
+</div>
+<div class="sig">
+ <div class="sig-top"><span>🟡</span><span class="t">CRWV</span>
+  <span class="lb">관망 (신규 커버리지 초기화, Q2 수치 재대조 대기) · since 2026-08-15</span></div>
+ <div class="gates"><span class="gate ">✗ 정량</span><span class="gate ">✗ 회사 고유</span><span class="gate ">✗ 매출 인식</span></div>
+ <div class="blk"><b>다음 게이트:</b> FCF 흑자 전환 + 이자 커버리지 3x + 금리 경로 확정 동시 충족</div>
+ <div class="nx"><b>다음 관측 · 후보판정 Kill 후보 (규칙1 Kill 우선 적용) — 사람 확인 요청. 등급 확정 권한은 사람에게 있다.:</b> FCF 흑자 전환(영업현금흐름-CapEx) + 이자 커버리지 3x(정의: Adj.EBITDA/Interest expense,net 기준 잠정 확정, TTM/분기연환산 채택은 사람 확인 대기) + 금리 경로 확정 동시 충족 — 단, 금리 경로 관련 이번 KC-1 충족은 P6/P13에 따라 상향 근거로 계상하지 않으며 게이트 미충족 사유로만 기록. 최근접 관측점은 Q3 2026 10-Q(구조적으로 2026년 11월 초중순 예상).</div>
+</div>
+<div class="sig">
+ <div class="sig-top"><span>🟠</span><span class="t">MU</span>
+  <span class="lb">주의 (피크 역설 구간) · since 2026-08-14</span></div>
+ <div class="gates"><span class="gate">게이트 판정 산출물 없음</span></div>
+ <div class="blk"><b>다음 게이트:</b> 9/30 Q4 FY26 실적 — 비트그로스 vs ASP 분해·선수금 방향 (회사 공식 확정일, 2026-08-26 보도자료 grade 1)</div>
+ <div class="nx"><b>다음 관측 · 후보판정 kill_priority_candidate — 규칙1(Kill 우선) 적용. 회사 펀더멘털 경로만 보면 maintain(🟠)이었을 것임을 아래 gate_check에 별도로 남긴다.:</b> ① KC-1 재확인(차기 FOMC·FRED DFEDTARU) — 최우선, 사람 확인 대상. ② KC-9 brent duration 확정(1개월 지속 도달 시점). ③ 2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해·선수금 방향(회사 공식 확정일, 2026-08-26 보도자료 grade1). ④ ITC DN 3930 조사개시 공고. ⑤ CDCA 8:26-cv-02167 연장 답변시한. 전항목 관측 가능한 정량 항목.</div>
+</div>
+<div class="sig">
+ <div class="sig-top"><span>🔴</span><span class="t">CRCL</span>
+  <span class="lb">비중 조절 검토 (OUSD 위협) · since 2026-08-14</span></div>
+ <div class="gates"><span class="gate ">✗ 정량</span><span class="gate on">✓ 회사 고유</span><span class="gate ">✗ 매출 인식</span></div>
+ <div class="blk"><b>다음 게이트:</b> Q3&#x27;26 실적(유통량 QoQ 부호·회사 정의 점유율·Reserve Income 지속성) + Q3 10-Q 계약 주석으로 분배계약 조건 불변 최종 확인(11월경)</div>
+ <div class="nx"><b>다음 관측 · 후보판정 maintain:</b> Q3&#x27;26 실적(USDC 유통량 QoQ 부호·회사 정의 점유율%·Reserve Income 지속성) + Q3 10-Q 계약 주석으로 분배계약 조건 불변 최종 확인(11월경) — signals.json 기존 게이트 승계, 변경 없음. 아직 도래하지 않아 등급 유지가 정상 경로(P12).</div>
+</div>
+<div class="sig">
+ <div class="sig-top"><span>🟠</span><span class="t">COIN</span>
+  <span class="lb">주의 (Q2 매출 miss) · since 2026-08-14</span></div>
+ <div class="gates"><span class="gate ">✗ 정량</span><span class="gate ">✗ 회사 고유</span><span class="gate ">✗ 매출 인식</span></div>
+ <div class="blk"><b>다음 게이트:</b> 구독·서비스 비중 방향 + USDC 수익 절대액</div>
+ <div class="nx"><b>다음 관측 · 후보판정 maintain:</b> Q3 2026 실적 — 구독·서비스 매출 절대액 YoY 방향(직전 -12.2%) 지속 여부 + Stablecoin revenue 절대액(직전 $292.147M) + 거래매출 QoQ 부호 + 09-16 수수료 개편 이후 거래대금·테이크레이트 실측치 + platform assets net inflow/outflow(가격효과 제외)</div>
+</div>
+<div class="sig">
+ <div class="sig-top"><span>🟡</span><span class="t">HOOD</span>
+  <span class="lb">관망 (Q2 전면 beat) · since 2026-08-14</span></div>
+ <div class="gates"><span class="gate ">✗ 정량</span><span class="gate on">✓ 회사 고유</span><span class="gate ">✗ 매출 인식</span></div>
+ <div class="blk"><b>다음 게이트:</b> AUA 순유입·mix 지속성</div>
+ <div class="nx"><b>다음 관측 · 후보판정 maintain:</b> ① 2026-10-09 미시간 기존 포지션 청산 기한 실이행 확인 ② Q3 2026 실적의 이벤트 계약 매출 절대액·QoQ(주별 중단 반영 여부, stage=revenue_recognized 재판정) ③ 9월 월간 운영지표(2026-10 중순 예상)의 net deposits·crypto notional 방향</div>
+</div></div></section>
+
+<section class="sec"><div class="sec-head"><h2>③ 노출 매트릭스 — 부호·강도 × 실포지션</h2>
+<span class="note">correlation_matrix.yaml 원본 그대로 · 수치형 상관계수 없음(P14) · 셀에 마우스를 올리면 근거(basis)</span></div>
+
+<p style="font-size:12px;color:var(--muted);margin:0 0 8px">config as_of 2026-08-15 <span class="b b-stale">⚠ 36일 경과</span>
+ · positions as_of 2026-09-19 <span class="b b-fresh">1일 경과</span> — 시가 재평가 아님</p>
+<div class="mx-wrap"><table class="mx">
+ <thead><tr><th class="rowh">종목 · 보유(상단)</th><th title="AI_CAPEX">AI_CAPEX</th><th title="RATES">RATES</th><th title="CRYPTO">CRYPTO</th><th title="REGULATION">REGULATION</th><th title="GPU_SUPPLY">GPU_SUPPLY</th><th title="POWER_PERMIT">POWER_PERMIT</th><th title="RISK_APPETITE">RISK_APPET…</th><th title="USDC_DISTRIBUTION_ECONOMICS">USDC_DISTR…</th></tr></thead>
+ <tbody><tr><td class="rowh">IREN <small class="num">95%</small><div class="posbar"><i style="width:95%"></i></div></td><td class="pH" title="IREN × AI_CAPEX: +상 — MS $9.7B + NVIDIA $3.4B + 신규 $2.8B = TCV ~$15.9B; 480MW 인도 목표">+상</td><td class="nM" title="IREN × RATES: -중 — 건설 CapEx 조달">-중</td><td class="pM" title="IREN × CRYPTO: +중 — BTC 채굴 현금흐름; 재평가 예약: 8/27 실적의 매출 믹스 확인 후 L4가 vector_change_proposal 제안">+중</td><td>·</td><td class="nM" title="IREN × GPU_SUPPLY: -중 — 차세대 GPU 배정 의존, GB300→VR200 대체 조항">-중</td><td class="nH" title="IREN × POWER_PERMIT: -상 — TX SB6 강제 감축·MW당 $50K 담보 (KC-10)">-상</td><td class="pM" title="IREN × RISK_APPETITE: +중 — 고베타 성장주">+중</td><td>·</td></tr><tr><td class="rowh">NBIS <small class="num">0%</small></td><td class="pH" title="NBIS × AI_CAPEX: +상 — FY26 매출 $3.0-3.4B 가이던스, CapEx $20-25B, 연말 5GW 목표">+상</td><td class="nM" title="NBIS × RATES: -중 — CapEx $20-25B vs 현금 $8B — 결국 외부 조달 필요 (KC-NBIS-3 하한 $5B 상향과 일관). 선불금 구조로 3사 중 민감도는 여전히 최저">-중</td><td>·</td><td>·</td><td class="nM" title="NBIS × GPU_SUPPLY: -중 — Blackwell 이후 배정·옥션 가격 의존">-중</td><td>·</td><td class="pM" title="NBIS × RISK_APPETITE: +중 — 고멀티플 성장주 — 디레이팅 민감">+중</td><td>·</td></tr><tr><td class="rowh">CRWV <small class="num">0%</small></td><td class="pH" title="CRWV × AI_CAPEX: +상 — 백로그 ~$104B, FY26 매출 $12.4-13.2B ⚠️갱신 대상">+상</td><td class="nH" title="CRWV × RATES: -상 — 레버리지 건설 모델 — 이자 커버리지 ~2.2x, 차환 의존 (KC-CRWV-3)">-상</td><td>·</td><td>·</td><td class="nH" title="CRWV × GPU_SUPPLY: -상 — GPU 감가 → 담보가치 하락 직결">-상</td><td>·</td><td class="pM" title="CRWV × RISK_APPETITE: +중 — 고베타 + 부채 리스크 프리미엄">+중</td><td>·</td></tr><tr><td class="rowh">MU <small class="num">0%</small></td><td class="pH" title="MU × AI_CAPEX: +상 — HBM 수요가 AI CapEx 직접 연동, SCA 16건. GPU 출하 연동분도 이 축이 포착 (GPU_SUPPLY 축은 부호 양방향 모호로 2026-08-15 제거)">+상</td><td class="nL" title="MU × RATES: -하 — CapEx $50B 계획 — 자체 현금흐름 위주">-하</td><td>·</td><td>·</td><td>·</td><td>·</td><td class="pL" title="MU × RISK_APPETITE: +하 — 사이클주 베타">+하</td><td>·</td></tr><tr><td class="rowh">CRCL <small class="num">0%</small></td><td>·</td><td class="pH" title="CRCL × RATES: +상 — Reserve Income = USDC 유통량 × 이자율 — 금리 하락 시 매출·멀티플 이중 압축">+상</td><td class="pM" title="CRCL × CRYPTO: +중 — USDC 유통량-크립토 활동 연동 가설 — 두 run(20260815_1408·2307) 연속 미검증: 시점 정렬 가능한 고빈도 잔고 계열이 1차 공시로 부재(su_stablecoin_2252_06), Q2&#x27;26 분기말 QoQ -4.8% vs 평잔 +1.7%로 방향 갈림. 구조 논리는 부정되지 않아 강도 유지(P5, 20">+중</td><td class="pH" title="CRCL × REGULATION: +상 — GENIUS·MiCA 선점, SEC Innovation Exemption·CLARITY 게이트">+상</td><td>·</td><td>·</td><td>·</td><td class="nM" title="CRCL × USDC_DISTRIBUTION_ECONOMICS: -중 — 발행자 유통비용 측 — 분배자 몫 확대는 CRCL Reserve Income 마진 압박(KC-CRCL-3 연동). 2026-08-15 신설(vcp_20260815_2307_02 승인): 기존 조건 갱신은 양사 경영진 확인(grade 2)·변경 8-K 부재 EDGAR 확인(grade 1). 수익배분 세부조건 비공개로 크기 ">-중</td></tr><tr><td class="rowh">COIN <small class="num">0%</small></td><td>·</td><td class="pM" title="COIN × RATES: +중 — USDC 연동 수익 연 $1.2B+ — 이자율 연동">+중</td><td class="pH" title="COIN × CRYPTO: +상 — 거래 매출의 BTC·크립토 사이클 종속 (KC-3 연동)">+상</td><td class="pH" title="COIN × REGULATION: +상 — CLARITY Act 수혜 전제">+상</td><td>·</td><td>·</td><td class="pM" title="COIN × RISK_APPETITE: +중 — 리테일 거래 활동 베타">+중</td><td class="pM" title="COIN × USDC_DISTRIBUTION_ECONOMICS: +중 — 분배 수취 측 — USDC 연동 수익 연 $1.2B+의 수취 주체. 유리한 조건 변경은 수익 확대, 불리한 방향만 KC-COIN-4 발동. 2026-08-15 신설 — COIN 수취 절대액 미공시로 잠정 M">+중</td></tr><tr><td class="rowh">HOOD <small class="num">0%</small></td><td>·</td><td class="pM" title="HOOD × RATES: +중 — 이자수입 — 금리 하락 시 감소">+중</td><td class="pM" title="HOOD × CRYPTO: +중 — 크립토 매출 비중 (KC-3 연동)">+중</td><td class="pM" title="HOOD × REGULATION: +중 — CLARITY + 예측시장 규제 명확화">+중</td><td>·</td><td>·</td><td class="pH" title="HOOD × RISK_APPETITE: +상 — 리테일 거래 활동이 위험선호에 직결">+상</td><td>·</td></tr><tr class="conc"><td class="rowh">축 집중도 <small>(임계 60)</small></td><td class="num over">95.0 ⚠</td><td class="num over">95.0 ⚠</td><td class="num over">95.0 ⚠</td><td class="num ">0.0</td><td class="num over">95.0 ⚠</td><td class="num over">95.0 ⚠</td><td class="num over">95.0 ⚠</td><td class="num ">0.0</td></tr></tbody></table></div>
+<div class="mx-legend">
+ <span><span class="sw" style="background:var(--pos-h)"></span>+상</span>
+ <span><span class="sw" style="background:var(--pos-m)"></span>+중</span>
+ <span><span class="sw" style="background:var(--pos-l)"></span>+하</span>
+ <span><span class="sw" style="background:var(--neg-h)"></span>−상</span>
+ <span><span class="sw" style="background:var(--neg-m)"></span>−중</span>
+ <span><span class="sw" style="background:var(--neg-l)"></span>−하</span>
+ <span>· = 매트릭스 미등재</span>
+ <span>집중도 0 = 위험 부재가 아니라 <b>보유 부재</b>의 결과일 수 있음</span></div></section>
+
+<section class="sec"><div class="sec-head"><h2>④ 축별 Delta 추이 — 최근 3개 run</h2></div>
+<div class="dl-wrap"><table class="dl"><thead><tr><th>종목</th><th>축</th><th class="c">09/05</th><th class="c">09/11</th><th class="c">09/19</th></tr></thead><tbody><tr><td class="tick" rowspan="6">IREN</td><td class="ax">ai_cloud_conversion</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">btc_mining</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">execution_delivery</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">funding_dilution</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">margin_structure</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">power_permit</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="tick" rowspan="2">NBIS</td><td class="ax">customer_concentration</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td><td class="c"><span class="gl none">·</span></td></tr><tr><td class="ax">monetization_mix</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="tick" rowspan="7">CRWV</td><td class="ax">backlog_scale</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">customer_concentration</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">funding_access</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">gpu_priority</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">leverage_coverage</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">litigation</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">margin_trend</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="tick" rowspan="6">MU</td><td class="ax">china_supply</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">cycle_position</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">hbm_demand</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl dn" title="weaken">▼</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">ip_litigation_risk</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">sca_defense</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">valuation_paradox</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="tick" rowspan="8">CRCL</td><td class="ax">competition_ousd_consortium</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">competition_yield_bearing</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">diversification</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">regulation_company_licensing</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">regulation_sector_legislation</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl dn" title="weaken">▼</span></td></tr><tr><td class="ax">reserve_income</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">usdc_circulation_scale</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">usdc_market_share</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="tick" rowspan="5">COIN</td><td class="ax">derivatives_base</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td></tr><tr><td class="ax">regulation</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl dn" title="weaken">▼</span></td></tr><tr><td class="ax">subscription_mix</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">trading_cycle</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">usdc_economics</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="tick" rowspan="6">HOOD</td><td class="ax">(card 미대응 — 신규 축 후보)</td><td class="c"><span class="gl nu" title="strengthen (신규 사업계열 존재 확인, 규모는 미미)">●</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td></tr><tr><td class="ax">arpu_mix</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">aua_inflow</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl up" title="strengthen">▲</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">crypto_cycle</td><td class="c"><span class="gl nu" title="neutral (existence only)">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr><tr><td class="ax">prediction_market</td><td class="c"><span class="gl up" title="strengthen">▲</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl dn" title="weaken">▼</span></td></tr><tr><td class="ax">rates_income</td><td class="c"><span class="gl none">·</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td><td class="c"><span class="gl nu" title="neutral">●</span></td></tr></tbody></table></div><p style="font-size:11.5px;color:var(--muted);margin-top:7px"><span class="gl up">▲</span> 강화 · <span class="gl dn">▼</span> 훼손 · <span class="gl mx">◆</span> 혼재 · <span class="gl nu">●</span> 중립 · <span class="gl none">·</span> 해당 run 관측 없음(부재 ≠ 반증, P5) — L2 판정 원문 그대로</p></section>
+
+<section class="sec"><div class="sec-head"><h2>⑤ 촉매·관측점 — thesis card 원문</h2>
+<span class="note">일자 등급은 카드 원문 표기를 따름 · '미확정'은 회사 IR 공식 공지 부재(F1)</span></div>
+<table class="q"><tr><th>종목</th><th>실적 체크포인트 일자</th><th>카드 촉매(원문, 최대 4건)</th></tr><tr><td class="tick mono">IREN</td><td class="num">2026-11 (FY27 Q1 10-Q — 정확일 미공시)</td><td style="font-size:12px;color:var(--ink2)">· FY27 Q1 10-Q (2026년 11월 경) — ASC842 리스 매출 최초 인식 금액. 사전 정의 상향 게이트 ⑪(Horizon 1 인식 금액)의 유일한 관측점<br>· Horizons 2-4 인도 — 역년 Q4 2026 단계 인도 목표, 계약상 유예 2026 Q4 중반~2027 Q2 초<br>· PUCT SB6 최종 규칙 (2026말) — IREN 적용 용량 MW 공개 시 KC-10 임계 대조 성립<br>· 가동 ARR $1.0B → $4.0B 진척 (회사 제시 기한 2026-12-31) / 차세대 GPU 배정 — VR200은 6/30 기준 설치·발주 포트폴리오에 편입 확인</td></tr><tr><td class="tick mono">NBIS</td><td class="num">미확정</td><td style="font-size:12px;color:var(--ink2)">· 2027 가이던스 공식 발표 (&#x27;later this year&#x27;)<br>· Q2 체결 4건 대형 계약(각 $1B+, Reflection·Cohere 등)의 late Q4 온라인 전환<br>· 용량 옥션 가격 (첫 옥션 기존 Blackwell 대비 +15% 클리어)<br>· 자산경량(asset-light) 파트너십 모델 진척</td></tr><tr><td class="tick mono">CRWV</td><td class="num">미확정</td><td style="font-size:12px;color:var(--ink2)">· 차환·리파이낸싱 성공/실패<br>· 금리 경로 (인하 전환 시 생존확률 급상승)<br>· Vera Rubin 최초 배포 일정<br>· 대형 고객(OpenAI·Meta 등) 계약 갱신</td></tr><tr><td class="tick mono">MU</td><td class="num">2026-09-30</td><td style="font-size:12px;color:var(--ink2)">· 9/30 Q4 FY26 실적 — 회사 공식 확정(2026-08-26 보도자료, 2026-09-30 14:30 MT 실적 발표·컨퍼런스콜)<br>· 8/21 Apple CXMT/YMTC 상원 서한 시한<br>· 하이퍼스케일러 Q3 CapEx 가이던스<br>· SK하이닉스·삼성 실적 (peer 멀티플)</td></tr><tr><td class="tick mono">CRCL</td><td class="num">미확정</td><td style="font-size:12px;color:var(--ink2)">· ⚠️소멸 — 이전 항목: &#x27;8/18 Q2 실적 (OUSD 영향 첫 확인)&#x27;. Q2 실적은 2026-08-05 발표 완료. 2026-08-18은 Circle-Coinbase 분배계약 3년 자동 갱신 …<br>· SEC Innovation Exemption 프레임워크 (5/26 이후 신규 일정 없음)<br>· CLARITY Act 상원 경로<br>· FOMC 금리 경로</td></tr><tr><td class="tick mono">COIN</td><td class="num">미확정</td><td style="font-size:12px;color:var(--ink2)">· CLARITY Act 상원 경로<br>· 분기 실적<br>· BTC 가격 사이클<br>· OUSD 출시 및 COIN 분배 조건 공개</td></tr><tr><td class="tick mono">HOOD</td><td class="num">미확정</td><td style="font-size:12px;color:var(--ink2)">· CLARITY Act<br>· 분기 실적 (Q2 전면 beat)<br>· 예측시장 규제 명확화<br>· 신규 상품 출시의 매출 전환</td></tr></table></section>
+
+<section class="sec"><div class="sec-head"><h2>⑥ 승인 대기 큐</h2></div>
+<table class="q"><tr><th>ID</th><th>상태</th><th>생성일</th></tr><tr><td colspan="3">비어 있음 ✓</td></tr></table></section>
+
+<footer><b>본 대시보드는 판단 보조용 요약이며 매수·매도 지시가 아닙니다.</b>
+ 등급 확정·발행 승인·KC 임계 확정·포지션 행동은 전부 사람이 합니다(P12·P15).<br>
+※ 근접도 채움율은 본 스크립트의 파생 계산(|임계|>0이면 1−|이격|/|임계|, 임계=0이면 run 시계열 범위 대비,
+ AND형은 감시 목적상 가장 근접한 레그)으로 원 산출물에 없는 지표입니다 — 판정 근거는 각 막대 아래의 원문 이격 문구입니다.
+ 노출 부호·강도는 config 원본이며 가격 시계열 상관계수가 아닙니다(P14). Delta·게이트 판정은 계층 산출물의 원문 인용입니다.</footer>
+</div></body></html>

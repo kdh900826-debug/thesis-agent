@@ -1,0 +1,15 @@
+{
+  "_comment": "현행 시그널 등급 + 전이 이력. 등급 확정은 사람만 한다. 초기값은 투자_Thesis_Map_v32_20260814.md에서 승계 (NBIS·CRWV는 신규 커버리지 — 🟡 관망 초기화).",
+  "as_of": "2026-08-15",
+  "initialized_from": "투자_Thesis_Map_v32_20260814.md",
+  "grades": {
+    "IREN": {"signal": "🟡", "label": "관망 (상향 대기)", "since": "2026-08-14", "next_gate": "8/27 실적의 과금 가동률·AI Cloud 매출 비중·MW당 매출"},
+    "NBIS": {"signal": "🟡", "label": "관망 (신규 커버리지 초기화)", "since": "2026-08-15", "next_gate": "멀티플 조정 또는 2027 가이던스 확정"},
+    "CRWV": {"signal": "🟡", "label": "관망 (신규 커버리지 초기화, Q2 수치 재대조 대기)", "since": "2026-08-15", "next_gate": "FCF 흑자 전환 + 이자 커버리지 3x + 금리 경로 확정 동시 충족"},
+    "MU":   {"signal": "🟠", "label": "주의 (피크 역설 구간)", "since": "2026-08-14", "next_gate": "9/22 비트그로스 vs ASP 분해·선수금 방향"},
+    "CRCL": {"signal": "🔴", "label": "비중 조절 검토 (OUSD 위협)", "since": "2026-08-14", "next_gate": "8/18 Q2 — USDC 평잔·Reserve Income·OUSD 대응"},
+    "COIN": {"signal": "🟠", "label": "주의 (Q2 매출 miss)", "since": "2026-08-14", "next_gate": "구독·서비스 비중 방향 + USDC 수익 절대액"},
+    "HOOD": {"signal": "🟡", "label": "관망 (Q2 전면 beat)", "since": "2026-08-14", "next_gate": "AUA 순유입·mix 지속성"}
+  },
+  "transitions": []
+}

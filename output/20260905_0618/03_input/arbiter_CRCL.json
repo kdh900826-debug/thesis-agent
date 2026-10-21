@@ -1,0 +1,150 @@
+{
+  "as_of": "2026-09-05T06:18",
+  "ticker": "CRCL",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260905_CRCL_0618_005",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260905_CRCL_0618_001",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "EDGAR 재조회(전문 검색 edgar_fulltext.py, 서식 10-K/10-Q/8-K/S-1, since 2026-08-20: 0건; 보강 조회 since 2026-08-01, 서식 10-K/10-Q/8-K/S-1/4/SCHEDULE 13G/SCHEDULE 13D: 22건, 최신 8-K는 여전히 2026-08-05 Q2 실적 8-K이고 8-K 신규 제출 0건) 결과, Coinbase 분배계약 3년 자동 갱신 발효일(2026-08-18) 이후 SEC가 요구하는 8-K 제출기한(발효 후 4영업일, ~2026-08-24)이 경과한 2026-09-05 현재까지도 Item 1.01/1.02 등 계약변경 8-K가 제출되지 않았다. 2026-08-16(발효일 전)·2026-08-20 19:25(발효일+2일) 관측과 정합적으로 부재가 지속되며, 이번 관측으로 8/24 제출기한 경과 이후 구간(8/24~9/5, 12일)까지 커버함.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_fulltext_and_submissions_api",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001876042&type=8-K&dateb=&owner=include&count=10&output=atom",
+        "filed_at": "2026-09-05",
+        "note": "output/20260905_0618/02_company/_raw_edgar_CRCL.json(0건, since 2026-08-20), _raw_edgar_CRCL_broad.json(22건, since 2026-08-01, 최신 8-K=2026-08-05) 참조"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_CRCL_0618_002",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Figure Technology Solutions(FIGR, $YLDS 발행사)의 Form 10-Q(2026-08-14 제출, 2026-06-30 마감분) 및 동 8-K(2026-08-13 제출) 첨부 보도자료(EX-99.1) 원문에 따르면, '$YLDS in circulation'은 2026-06-30 기준 $556.033백만(2025-12-31 기준 $328.193백만 대비 +69.4%)으로 공시됨. 10-Q 본문(MD&A)은 이 증가를 2025년말 대비 반기 기준으로 서술함.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "10-Q_and_8-K_exhibit",
+        "url": "https://www.sec.gov/Archives/edgar/data/2064124/000162828026057061/figr-20260630.htm",
+        "filed_at": "2026-08-14",
+        "note": "교차확인: https://www.sec.gov/Archives/edgar/data/2064124/000206412426000031/ex991-pressrelease2q26.htm (8-K EX-99.1, filed 2026-08-13). 발행사는 FIGR(타 종목)이나 수치는 CRCL 카드의 competition_ousd 축 위험지표(경쟁 스테이블코인 규모)를 직접 구성하는 CRCL 특정 관측 대상이므로 scope=company_specific으로 태깅."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_CRCL_0618_003",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "동일 발행사(FIGR) Form 8-K(2026-05-12 제출) 첨부 보도자료(EX-99.1, 1Q26 실적) 원문에 따르면, '$YLDS in circulation'은 2026-03-31 기준 $598백만(2025-03-31 기준 $3백만 대비 'n.m.'/의미 없을 정도로 큰 증가)으로 공시됨. 이 수치는 2026-08-15 Run 이후 CRCL 카드 risks 항목에 grade4·confirmed=false로 등재돼 있던 '1Q26 약 $598M'와 동일 값이며, 이번 조회로 1차 공시(grade1)로 격상 확인됨.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K_exhibit",
+        "url": "https://www.sec.gov/Archives/edgar/data/2064124/000206412426000026/ex991-pressrelease1q26.htm",
+        "filed_at": "2026-05-12",
+        "note": "c_20260905_CRCL_0618_002와 결합하면 $YLDS 유통량은 1Q26 $598M -> 2Q26 $556M로 QoQ -7.0% 감소(계산: (556.033-598)/598) — 두 수치 모두 FIGR 자체 1차 공시(grade1)로 확인된 값의 산술 차이."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_CRCL_0618_004",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "웹검색(LLM) 결과, 2026-09-03 시점 온체인/애그리게이터 집계(CoinGecko·CoinMarketCap 등) 기준 USDC 유통량은 약 $73.8~74.2B(공급량 약 73.8~74.0B USDC)로 관측됨. 8월 중 $72.7~73.7B 구간에서 완만히 증가한 것으로 보도됨. 1차 URL 역추적 결과 CRCL·Circle의 공식 1차 공시(10-Q/보도자료)는 확인되지 않았고 애그리게이터 도메인(coingecko.com, coinmarketcap.com)만 확인됨 — sources.yaml 미등재 도메인으로 default_grade=4 적용.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_onchain_estimate",
+        "url": "https://www.coingecko.com/en/coins/usdc",
+        "filed_at": "2026-09-03",
+        "note": "1차 공시 역추적 실패(D15) — confirmed=false 유지. Q2'26 분기말 회사 공시치 $73.3B(grade1, 기존 카드 반영)와 방향상 정합적(완만한 증가 지속)이나 온체인 고빈도 수치는 grade4로 단독 판단 근거 불가(P4)."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260905_CRCL_0618_006",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "SEC EDGAR Form 4 재조회(2026-09-05) 결과, 2026-09-01~09-03 구간 CRCL 임원 7건 제출 확인: CEO Jeremy Allaire(Class A 8,219주 코드F, RSU 원천징수), CFO Jeremy Fox-Geen(코드M 옵션행사 15,000주 + 코드S 15,000주 $92.20 + 코드F 7,426주 + 코드S 8,120주 $87.87), CPTO Nikhil Chandhok(코드F 7,603주 $95.55), Hossein Razzaghi(코드F 6,987주 + 코드S 7,458주 $87.87), Heath Tarbert(코드F 11,382주 $95.55), Tamara L. Schulz(코드F 1,538주 + 코드S 1,194주 $87.87), 이사 Patrick Sean Neville(코드C 옵션전환 5만주 + 코드S 5만주 $92.09, Calico Trust 명의 33,568주 별도 보유). 코드F는 RSU 베스팅 원천징수 매도, 코드S 상당수는 10b5-1 사전계획 매도로 표기됨(각주 참조). 2026-08-21·08-24 Form4(Fox-Geen 10b5-1 매도, 이사 Burns 매도)도 동일 패턴으로 이미 확인.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "form_4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000263/xslF345X06/wk-form4_1788469610.xml",
+        "filed_at": "2026-09-03",
+        "note": "카드 key_metrics '내부자 거래' 및 risks '내부자 매도' 항목의 지속 관측치. 정기적 RSU 베스팅·10b5-1 매도로 판단되며 이번 클러스터 자체는 신규 성격 변화(예: 대량 비정기 매도, 임원 이탈 신호) 근거가 확인되지 않아 축 Delta는 생성하지 않음 — 리스크 모니터링 로그로만 등재."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    }
+  ],
+  "deltas": [
+    {
+      "id": "d_20260905_CRCL_0618_001",
+      "axis": "reserve_income",
+      "direction": "strengthen",
+      "prior_state": "8/24 제출기한 미도래로 '변경 없는 자동 갱신(공시의무 부재)'은 잠정 결론 상태(8/20 Run, u_20260820_CRCL_1932_a)",
+      "new_state": "8/24 기한 경과 후 9/5까지(12일) 8-K 계약변경 공시 0건 지속 확인 — '공시의무 없는 자동 갱신 완료'를 이번 Run 기준 잠정 확정으로 격상. 최종 확정(계약 조건 원문 불변 확인)은 Q3 10-Q 계약 주석 공시 시점까지 보류(P5)",
+      "risk_transfer_to": [
+        "Q3 10-Q 계약 주석 공시 대조(차기 확인 게이트)"
+      ],
+      "supporting_claims": [
+        "c_20260905_CRCL_0618_001"
+      ]
+    },
+    {
+      "id": "d_20260905_CRCL_0618_002",
+      "axis": "competition_ousd",
+      "direction": "strengthen",
+      "prior_state": "$YLDS 유통량 1Q26 $598M(grade4, confirmed=false) — Q4'25 $328M 대비 급성장 추세로만 기록",
+      "new_state": "$YLDS 유통량 2Q26(6/30 기준) $556M로 확인(grade1) — 1Q26 $598M(grade1로 격상 확인) 대비 QoQ -7.0% 감소, Q4'25->Q1'26 고성장 추세가 2Q26 들어 정체·반전. USDC $73.3B(2Q26 분기말) 대비 여전히 1% 미만으로 절대 규모 위협은 미미하며, 이번 감속은 근접 위협의 완화 신호. 다만 카드 기존 서술대로 위협의 실질은 규모가 아니라 CLARITY 이자조항 문언 확정 여부에 조건부이므로(구조적 리스크 자체는 미해소) 방향은 strengthen이나 강도는 medium",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260905_CRCL_0618_002",
+        "c_20260905_CRCL_0618_003"
+      ]
+    },
+    {
+      "id": "d_20260905_CRCL_0618_003",
+      "axis": "usdc_circulation_scale",
+      "direction": "neutral",
+      "prior_state": "Q2'26 분기말(6/30) 공식 공시 $73.3B, +19% YoY(grade1, 8/20 Run 기준 최신)",
+      "new_state": "9/3 시점 온체인/애그리게이터 관측치 약 $73.8~74.2B로 완만한 증가 지속(grade4, confirmed=false) — 방향 전환 없음. 다음 grade1 갱신은 Q3 10-Q(미도래)",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260905_CRCL_0618_004"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "id": "u_20260905_CRCL_0618_a",
+      "topic": "OUSD 공식 출시·실측 유통량",
+      "attempted_search": "웹검색 'OUSD stablecoin official launch circulation September 2026' (2026-09-05)",
+      "reason_for_absence": "2026-06-30 발표(140+사 컨소시엄) 이후 '2026년 하반기 목표(Solana 우선)'만 반복 확인되며 8/20 Run 대비 상태 변화(공식 출시일·실측 유통량) 없음 — noise_filter.yaml#CRCL 기준 '출시 임박 추측'은 비승격 유지"
+    },
+    {
+      "id": "u_20260905_CRCL_0618_b",
+      "topic": "Coinbase 분배계약 자동갱신 — 계약 조건 원문 불변의 최종(1차 공시 기반) 확정",
+      "attempted_search": "d_20260905_CRCL_0618_001 참조 — 8-K 부재는 '공시의무 없음'의 강한 정황이나 계약 조건 자체를 원문으로 재확인한 것은 아님",
+      "reason_for_absence": "계약 주석은 Q3 10-Q(CRCL·COIN 공통, 통상 11월 제출)에서만 확인 가능 — 그 전까지는 '변경 공시 부재'를 조건불변의 정황 근거로만 사용(P5, 정보부재≠반증의 역도 마찬가지로 정보부재가 무변경의 완전한 증명은 아님)"
+    }
+  ]
+}

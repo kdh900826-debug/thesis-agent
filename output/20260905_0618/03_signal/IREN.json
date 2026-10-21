@@ -1,0 +1,238 @@
+{
+ "as_of": "2026-09-05",
+ "run_id": "20260905_0618",
+ "ticker": "IREN",
+ "input_source": "output/20260905_0618/03_input/arbiter_IREN.json",
+ "prior_signal": "🟡",
+ "proposed_signal": "🟡",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "IREN-0905-C01",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "capex_guidance",
+   "summary": "CFO 콜 발언(직접 인용, 4개 독립 전사 삼각검증으로 grade2 수동 부여): FY27 CapEx 가이던스 $25-30bn, 불확실성 명시. 전회차 grade3·unconfirmed(전회차 C22)에서 승격."
+  },
+  {
+   "id": "IREN-0905-C02",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "financing_guidance",
+   "summary": "CFO 발언: 기확보 자금 약 $14bn(현금+약정 GPU파이낸싱+선수금), 잔여 조달 목표 약 $8bn(targeting, 미확정)."
+  },
+  {
+   "id": "IREN-0905-C03",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "financing_structure_reaffirmation",
+   "summary": "Co-CEO 발언: 선수금이 GPU capex의 약 절반, GPU파이낸싱이 약 90% 충당하는 구조 재확인. 수치 자체는 기존 10-K(grade1)와 일치 — 신규 정보는 경영진 프레이밍뿐."
+  },
+  {
+   "id": "IREN-0905-C04",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "delivery_target(pre_revenue_recognition)",
+   "summary": "Co-CEO 발언: Horizon 2-4 전체 '12월 분기(calendar Q4 2026)' 인도 목표로 구두 재확인. 10-K상 계약 유예기간(~2027 Q2 초)은 변경 없음 — 계약존재/이행/매출인식 3단(P7) 중 이행 단계 목표 재확인일 뿐, 매출인식 근거 아님."
+  },
+  {
+   "id": "IREN-0905-C05",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "operational_transition_guidance",
+   "summary": "CFO/Co-CEO 발언: 채굴 사업 2026년 12월 말까지 사실상 중단(decommission) 기대치 최초 제시. 'currently expect' — 확정 실행 아닌 경영진 현재 기대치."
+  },
+  {
+   "id": "IREN-0905-C06",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "qualitative_commentary",
+   "summary": "CCO 발언: Mirantis가 신규 고객군을 연다는 정성적 코멘트. 매출 비중·금액 등 정량 수치 미제시 — P2에 따라 단독 상향 근거 불가."
+  },
+  {
+   "id": "IREN-0905-C07",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "self_assessment",
+   "summary": "CCO 발언: 텍사스 주지사 지시에 회사 사이트가 부합한다는 자체 평가. 회사 자기평가이며 PUCT·ERCOT 독립 감사 확정이 아님 — KC-10 판정 입력으로 단독 사용 불가(P4)."
+  },
+  {
+   "id": "IREN-0905-C08",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "stage": "market_price_context",
+   "summary": "애그리게이터 기준 2026-09-04 종가 $44.68(+7.27%), 시총 약 $17.61bn. 가격 라인 $30/$28(모두 하방 트리거) 모두 미도달 — KC/가격 라인 미발동. grade4·unconfirmed로 단독 판단 근거 아님, 맥락 정보로만 사용."
+  },
+  {
+   "id": "IREN-0905-I01",
+   "claim_type": "inference",
+   "inference_strength": "medium-high",
+   "evidence_grade": 2,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "stage": "financing_guidance",
+   "summary": "회사 자체 제시 잔여 조달 갭(~$8bn, targeting)이 전회차 agent 비공식 추정 상단($16bn)보다 작음 — 개선 신호이나 '목표'로 미확정, 추론이라 P2 상향 게이트(확정 사실) 요건 미충족."
+  },
+  {
+   "id": "IREN-0905-I02",
+   "claim_type": "inference",
+   "inference_strength": "medium",
+   "evidence_grade": 2,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "stage": "delivery_target(pre_revenue_recognition)",
+   "summary": "경영진 목표 시점(12월 분기)과 계약상 최대 허용 지연 시점(~2027 Q2 초) 사이 간극(최대 약 1개 분기)이 이번 회차에도 유지된다는 판정."
+  },
+  {
+   "id": "IREN-0905-I03",
+   "claim_type": "inference",
+   "inference_strength": "medium-high",
+   "evidence_grade": 2,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "stage": "risk_transfer",
+   "summary": "채굴 종료 시점 확정에 따라 '채굴 현금흐름→AI Cloud 조달' 순환에서 채굴 측 기여 소멸이 예정됨 — 리스크의 소멸이 아니라 ai_cloud_conversion 축으로의 완전 이관."
+  },
+  {
+   "id": "IREN-0905-I04",
+   "claim_type": "inference",
+   "inference_strength": "low-medium",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "stage": "kc_determination_input",
+   "summary": "회사 자기평가(C07)는 규제기관 확정을 대체하지 못하며, ERCOT/PUCT 감사는 2026-12-10까지 진행 중 — KC-10 provisional/not_met 판정 유지. 근거 Claim 중 최저 등급(원 sector-scope C10 승계, grade4)을 승계한다고 필터본이 명시 — 단독 근거로 사용하지 않음(P6/P13)."
+  }
+ ],
+ "filter_bug_report": "없음 — arbiter_IREN.json의 claims 12건 전부 scope=company_specific. removed_claims 3건(IREN-0905-C09, C10, I05, scope=sector)은 filter_arbiter_input.py가 P6/P13에 따라 정상적으로 물리적 제거한 것으로 F13 위반 아님. I04는 근거계보상 sector-scope Claim(C10)을 승계했다고 필터본이 스스로 주석 처리했으나, I04 자체의 scope 태그는 company_specific이며 grade4로 강등되어 있어 단독 근거로 사용하지 않도록 이미 제약됨 — 필터 버그 아니라 grade 승계 로직의 정상 표기.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-10(IREN 전력·인허가, event형)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "trigger(계약 용량 10%+ 강제 감축 분류, 또는 접속·인허가 취소·보류 공시) 관측 없음. ERCOT/PUCT 감사는 2026-12-10 완료 목표로 진행 중(sector-scope 관측, 판정 입력에서 배제). C07(회사 자기평가)은 I04에 따라 KC-10 입력으로 사용하지 않음(P4) — 자기평가는 규제기관 확정을 대체 못함."
+   },
+   {
+    "kc_id": "IREN 종목 전용 KC (kill_conditions.yaml#company)",
+    "verdict": "not_defined",
+    "verdict_confidence": "n/a",
+    "note": "발췌본에 IREN 종목 전용 KC(KC-IREN-*) 항목 없음 — CRCL/COIN/HOOD/NBIS/CRWV만 정의됨(P11: 임계 없는 KC는 로드 실패). 전회차와 동일 상태, 변경 없음."
+   },
+   {
+    "kc_id": "price_lines.IREN",
+    "verdict": "not_triggered",
+    "verdict_confidence": "n/a (가격 라인은 KC 아닌 사전정의 액션 라인)",
+    "note": "C08(grade4·unconfirmed): 종가 $44.68 — $30(추가매수 정지)·$28(포지션 리뷰) 모두 미도달, 오히려 8/28 저점 대비 이격 확대."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "규칙1(Kill 우선: KC met AND confirmed) 해당 없음. KC-10은 event형 provisional로 발동 관측 없음, IREN 종목 전용 KC는 정의 자체가 없어 판정 대상 없음, 가격 라인은 미도달. 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향 게이트(quantitative_evidence AND company_specific AND revenue_recognized 전부 충족) 미충족. C01·C02·C03은 quantitative:true·company_specific:true·grade2·confirmed:true이나 대상이 CapEx 가이던스·조달 재원·파이낸싱 구조이지 매출·마진·현금흐름 인식이 아니다(P2 — 상향은 매출·마진·현금흐름·가이던스 '수치'로만 가능하나, 여기서의 가이던스는 CapEx 가이던스이며 revenue_recognized 단계 정보가 아님). C04(인도 목표)·C05(채굴 중단 목표)는 P7의 계약존재/이행/매출인식 3단 분리상 이행(execution) 단계이지 매출인식(revenue_recognized) 단계가 아니다. C06(Mirantis 신규 고객군)·C07(규제 준수 자기평가)은 정성 발언으로 P2에 따라 상향 근거 자체가 부적격 — holding_reinforcement로만 분류(agent 지침 규칙2 후단). C08은 시장가격이며 grade4·unconfirmed — 상향 근거 아님. 결론: 게이트 미충족 → 기본값 등급 유지(P12)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "funding_dilution 축(delta: 혼재/중)을 독립 재판정: 훼손 측 신호(CapEx $25-30bn 공식화로 절대 조달 부담 확정)와 강화 측 신호(잔여 조달 갭이 회사 자체 수치로 ~$8bn까지 축소 제시, 조달구조 재확인)가 병존한다. 그러나 $25-30bn 범위 자체는 전회차에도 이미 agent가 인지하고 있던 추정 범위(전회차 C22, grade3·unconfirmed)와 동일 — 이번 회차의 변화는 '수치의 악화'가 아니라 '동일 범위의 증거등급 상향(3→2)'이다. 신규 정량 악화 사실(예: 범위 상단 초과, 신규 채무 조건 악화 등)이 없으므로 quantitative_impairment로 판정하지 않는다. btc_mining 축(delta: 훼손/하)의 채굴 종료시점 확정(C05)도 delta 자체가 '계획된 전환의 완료이지 돌발 훼손이 아니다'라고 명시하고 있고, 카드가 이미 채굴 축소를 구조적으로 전제하고 있었으므로 신규 악화가 아니라 리스크 이관(ai_cloud_conversion으로, I03)으로 재분류한다.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "C06(Mirantis 신규 고객군)·C07(규제 자기평가)는 evidence_grade 2의 정성 Claim이나 내용상 훼손이 아니라 각각 중립~긍정적 코멘트다. C04(인도 목표 12월 분기 구체화)는 delta상 '강화'로 판정된 항목이다. grade≤2 정성 훼손에 해당하는 신규 Claim이 이번 회차에 없다.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "정량 훼손 미확인(기존 범위의 증거등급 승격일 뿐 신규 악화 아님) 및 evidence_grade≤2 정성 훼손 미해당 — 규칙3(비대칭 하향) 트리거 조건 불성립. 단, funding_dilution 축은 '혼재'로 판정된 close call이며, 실제 신규 조달 실행(예: 희석적 증자, 고금리 신규 채무)이 확정 공시되면 즉시 재판정 대상."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "funding_dilution",
+   "direction_upstream": "혼재(mixed)",
+   "direction_arbiter_assessment": "arbiter도 혼재로 유지 — CapEx 규모 확정(부담↑)과 조달 갭 축소 제시(부담↓)가 상쇄. 상향·하향 게이트 모두 미충족.",
+   "supporting_claims": ["IREN-0905-C01", "IREN-0905-C02", "IREN-0905-C03", "IREN-0905-I01"],
+   "risk_transfer_to": "없음 — 실제 조달 실행 확정치가 후속 분기 10-Q로 이관"
+  },
+  {
+   "axis": "execution_delivery",
+   "direction_upstream": "강화(약)",
+   "direction_arbiter_assessment": "동의 — 다만 P7상 이행(execution) 단계 재확인일 뿐 매출인식 단계 아니므로 상향 근거 불가. 유예기간과의 간극(I02)은 미해소.",
+   "supporting_claims": ["IREN-0905-C04", "IREN-0905-I02"],
+   "risk_transfer_to": "execution_delivery(H2-4 잔여 기간 내부) — H1→H2-4 이관 상태 유지"
+  },
+  {
+   "axis": "btc_mining",
+   "direction_upstream": "훼손(약)",
+   "direction_arbiter_assessment": "arbiter는 신규 돌발 훼손이 아닌 '계획된 전환의 완료 시점 확정'으로 재분류 — 하향 트리거 아님. 리스크는 ai_cloud_conversion으로 완전 이관(I03).",
+   "supporting_claims": ["IREN-0905-C05", "IREN-0905-I03"],
+   "risk_transfer_to": "ai_cloud_conversion"
+  },
+  {
+   "axis": "ai_cloud_conversion",
+   "direction_upstream": "중립",
+   "direction_arbiter_assessment": "동의 — 신규 정량 매출·가동률·MFU 데이터 없음(체크포인트 ①②③ 여전히 unconfirmed). P2에 따라 정성 신호(C06)만으로 축 이동 불가.",
+   "supporting_claims": ["IREN-0905-C05", "IREN-0905-C06", "IREN-0905-I03"],
+   "risk_transfer_to": "없음 — btc_mining으로부터의 이관 리스크가 이 축에 누적 중"
+  },
+  {
+   "axis": "power_permit",
+   "direction_upstream": "중립",
+   "direction_arbiter_assessment": "동의 — C07(회사 자기평가)은 I04에 따라 KC-10 입력 불가(P4). C09·C10(sector-scope)은 이번 산출물에서 물리적으로 배제되어 arbiter가 접근하지 않음(P17). KC-10 provisional/not_met 변경 없음.",
+   "supporting_claims": ["IREN-0905-C07", "IREN-0905-I04"],
+   "risk_transfer_to": "없음"
+  }
+ ],
+ "alert": {
+  "ticker_event": "IREN — 2026-08-27 Q4 FY26 실적콜(전사 게시 2026-08-31) 발언 기반: FY27 CapEx $25-30bn 가이던스 및 잔여 조달 목표 ~$8bn이 grade2(경영진 직접 발언·복수 독립 전사 삼각검증)로 확정, Horizon 2-4 12월 분기 인도 목표 재확인, 채굴 2026년 12월 말 사실상 중단 기대치 최초 제시.",
+  "facts": "① CFO Anthony Lewis: FY27 CapEx 가이던스 $25-30bn, 불확실성 명시 [C01, grade2, confirmed]. ② CFO: 기확보 재원 ~$14bn(현금+약정 GPU파이낸싱·선수금), 잔여 조달 목표 ~$8bn(targeting) [C02, grade2, confirmed]. ③ Co-CEO Daniel Roberts: 선수금 GPU capex 약 절반+GPU파이낸싱 약 90% 구조 재확인 [C03, grade2, confirmed]. ④ Co-CEO: Horizon 2-4 전체 '12월 분기' 인도 목표 [C04, grade2, confirmed] — 10-K 계약 유예기간(~2027 Q2 초)은 미변경. ⑤ CFO/Co-CEO: 채굴 2026-12월 말까지 사실상 중단 기대 [C05, grade2, confirmed]. ⑥ CCO Kent Draper: Mirantis 신규 고객군 정성 코멘트, 정량 수치 없음 [C06]. ⑦ CCO: 텍사스 주지사 지시 부합 자체 평가(회사 자기평가, 규제기관 확정 아님) [C07]. ⑧ 애그리게이터 종가 2026-09-04 $44.68(+7.27%), 가격 라인 $30/$28 모두 미도달 [C08, grade4, unconfirmed].",
+  "inference": "[medium-high, I01] 잔여 조달 갭(~$8bn 목표)이 전회차 agent 비공식 추정 상단($16bn)보다 작아 개선 신호이나 확정 조달 아님. [medium, I02] 인도 목표(12월 분기)와 계약상 최대 유예(~2027 Q2 초) 간 최대 약 1개 분기 간극은 미해소. [medium-high, I03] 채굴 종료 확정으로 카드의 '채굴 현금흐름→AI Cloud 조달' 순환에서 채굴 기여가 소멸 단계 진입 — 리스크는 소멸이 아니라 ai_cloud_conversion 축으로 완전 이관. [low-medium, I04] 회사 자기평가(C07)는 규제기관 확정을 대체하지 못하며 ERCOT/PUCT 감사(sector-scope, 2026-12-10 완료 목표)는 진행 중 — KC-10 provisional 유지.",
+  "classification": "등급 유지(hold, P12). 상향 게이트(P2/P6/P7) 미충족: quantitative·company_specific 신규 확정 수치(C01-C03)는 모두 CapEx/조달 가이던스이지 매출·마진·현금흐름의 revenue_recognized 단계가 아니다. 인도목표(C04)·채굴중단목표(C05)는 이행 단계이지 매출인식이 아니다. 정성 신호(C06 신규고객군, C07 자기평가)는 holding_reinforcement 분류만 가능, 상향 근거 불가. 하향 게이트(규칙3) 미충족: funding_dilution 혼재 신호는 신규 악화가 아닌 증거등급 승격(grade3→2)으로 판정, btc_mining 훼손은 계획된 전환 완료로 재분류 — 둘 다 asymmetric downgrade 트리거 미해당.",
+  "thesis_delta": "funding_dilution(혼재, 中), execution_delivery(강화·약), btc_mining(훼손·약, 리스크는 ai_cloud_conversion으로 완전 이관), ai_cloud_conversion(중립, 신규 정량 데이터 없음), power_permit(중립, KC-10 provisional 유지). 리스크 이관 요약: H1→H2-4 인도 리스크 유지, btc_mining→ai_cloud_conversion 완전 이관(채굴 종료시점 확정에 따라 향후 현금흐름 방어선은 전적으로 AI Cloud 가동률·인도 진척에 의존).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🟡(관망, 상향 대기) 유지 권고(maintain). Kill 게이트: 미충족(KC-10 event형 provisional·발동 관측 없음, IREN 종목 전용 KC 미정의, 가격 라인 미도달). 상향 게이트: 미충족(CapEx/조달/인도/채굴 관련 신규 확정 수치는 모두 revenue_recognized 단계 이전). 하향 게이트: 미충족(신규 정량 악화 아닌 증거등급 승격·계획된 전환으로 판정). 🔴🔴 사람 확인 요청 대상 아님.",
+  "next_check": "① [next_gate 승계, 정량] 과금 가동률·AI Cloud 매출 비중·MW당 매출 — 여전히 unconfirmed(체크포인트 ①②), FY27 1분기 10-Q(2026-11 예상)에서 확인 필요. ② [정량] Mirantis 매니지드서비스 매출 비중(체크포인트 ③) — FY27 1분기 10-Q(Mirantis 첫 연결 분기). ③ [정량] 잔여 조달 목표 $8bn의 실제 확정 조달 실행(형태·조건) — 확정 시 funding_dilution 재판정 필요. ④ [정량] ERCOT/PUCT 감사 결과 공표(~2026-12-10 목표) 및 IREN 사이트별 감축 분류 MW — KC-10 재판정 트리거."
+ },
+ "next_gate": "① 과금 가동률·AI Cloud 매출 비중·MW당 매출(FY27 1Q 10-Q, 기존 게이트 승계) ② Mirantis 매출 비중 확정치(FY27 1Q 10-Q) ③ 잔여 조달 $8bn의 실제 실행 조건 확정 ④ ERCOT/PUCT 감사 결과(~2026-12-10) — 관측 가능한 정량 항목",
+ "unconfirmed_carried": [
+  {"topic": "과금 가동률(billing utilization)", "reason": "이번 회차 콜 전사에서도 수치 미확인 — 전회차와 동일. 1차 자료 미확보(P5 — unconfirmed 적재, 반증 아님)."},
+  {"topic": "MFU", "reason": "동상."},
+  {"topic": "매니지드 서비스 믹스(Mirantis 매출 비중)", "reason": "정성 발언(C06)만 추가, 정량 수치 여전히 없음."},
+  {"topic": "GPU 대체 조항(GB300→VR200 단가 재협상)", "reason": "이번 회차 신규 확인 없음."},
+  {"topic": "Horizon 1 매출 인식 금액", "reason": "이번 회차 콜 전사에서도 미언급."},
+  {"topic": "FY27 CapEx 가이던스 회사 공식 웹캐스트 원본 대조", "reason": "grade2는 4개 독립 전사 삼각검증으로 수동 부여된 것이며, iren.com 공식 리플레이 대조는 이번 세션에서 미실시 — 잔여 캐비어트."},
+  {"topic": "Sweetwater 2 서브스테이션 에너지화 시점(2027년 말)", "reason": "단일 저등급 매체(default grade4) 보도, 10-K는 gross MW만 확인."},
+  {"topic": "IREN 계약 용량 중 SB6/PUCT 감사 대상·강제 감축 분류 MW", "reason": "ERCOT/PUCT 감사 진행 중(2026-12-10 완료 목표), 사이트별 결과 미공표. 회사 자기평가(C07)는 대체 불가(I04)."}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 등급 유지가 P12 기본 경로에 따라 적용됨. 핵심 판단 플래그: (1) funding_dilution 혼재 딜타는 '신규 악화'가 아니라 기존 추정 범위($25-30bn)의 증거등급 승격(3→2)으로 재분류 — close call, 실제 조달 실행 확정 시 재판정 필요. (2) btc_mining 훼손 딜타는 '계획된 전환의 완료'로 재분류해 하향 미트리거, 리스크는 ai_cloud_conversion으로 완전 이관 기록. (3) KC-10 관련 특이사항: 회사 자기평가(C07, 텍사스 주지사 지시 부합)는 규제기관 확정이 아니므로 KC-10 입력에서 명시적으로 배제했다(P4/I04) — ERCOT/PUCT 감사(sector-scope)는 이번 산출물에서 접근하지 않았으며(P17), 결과 공표(~2026-12-10) 시 재판정 필요. (4) 참고사항: 이번 8/29 run earnings의 ThesisPatch 6건이 승인 대기 중이라는 오케스트레이터 안내를 확인했으나, 지침(P17/입력 화이트리스트)에 따라 thesis card·ThesisPatch 원문은 로드하지 않았고 arbiter_IREN.json·signals.json·kill_conditions.yaml 발췌만으로 판정했다 — 판정은 현행 signals.json(등급 🟡) 기준이며 미승인 패치 내용은 반영되지 않았다."
+}

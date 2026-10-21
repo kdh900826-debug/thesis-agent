@@ -1,0 +1,758 @@
+{
+ "group": "g2",
+ "checked_at": "2026-10-20",
+ "window": [
+  "2026-07-07",
+  "2026-10-20"
+ ],
+ "projects": [
+  {
+   "id": "p16",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준, 7/7 이후 이 프로젝트만의 새 소식은 찾지 못함. 다만 기준일 전인 6/9에 후드 카운티가 콘셉트 플랜을 조건 없이 승인해 다음은 부지개발계획 심사 단계다. 자체 가스발전(비하인드더미터)을 쓰므로 9/21 텍사스 TCEQ 데이터센터 인허가 전면 중단 대상으로 보인다(해석).",
+   "holds": [
+    "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석: 자가 가스발전 대기허가 필요)"
+   ],
+   "events": [
+    {
+     "date": "2026-06-09",
+     "kind": "인허가",
+     "title_ko": "(기준일 전) 후드 카운티, 콘셉트 플랜 조건 없이 승인",
+     "detail_ko": [
+      "후드 카운티 커미셔너들이 카운티 규정과 주법상 콘셉트 플랜 단계에서 거부할 근거가 부족하다며 Comanche Circle을 승인했다.",
+      "다음 단계는 부지개발계획 심사로, 공학·배수·상하수도·환경 검토를 통과해야 착공할 수 있다.",
+      "카운티는 2월 등 두 차례 데이터센터 모라토리엄 안을 3대2로 부결했다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "KERA News (2026-06-09)",
+       "u": "https://www.keranews.org/government/2026-06-09/hood-county-approves-comanche-circle-data-center-without-conditions-after-contentious-meeting"
+      },
+      {
+       "t": "CBS Texas (모라토리엄 재부결)",
+       "u": "https://www.cbsnews.com/texas/news/hood-county-commissioners-reject-data-center-moratorium-again-3-2-vote-residents-call-for-resignations/"
+      }
+     ]
+    },
+    {
+     "date": "2026-09-21",
+     "kind": "모라토리엄",
+     "title_ko": "텍사스 주지사, TCEQ에 데이터센터 인허가 발급 전면 중단 지시",
+     "detail_ko": [
+      "ERCOT 감사 등이 끝날 때까지 TCEQ가 데이터센터 관련 허가를 내주지 말라는 지시로, 계통 미연결(자가발전) 시설도 포함된다.",
+      "이 프로젝트는 자가 가스발전을 계획하고 있어 대기허가가 묶일 가능성이 있다(해석, 프로젝트 직접 언급 자료는 없음)."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Troutman Pepper (2026-09-22)",
+       "u": "https://www.troutman.com/insights/governor-abbott-directs-tceq-to-halt-all-data-center-permits-pending-ercot-twdb-audits/"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "텍사스 인허가 동결 영향, 부지개발계획 심사 진행 여부 미확인",
+    "questions": [
+     "후드 카운티 부지개발계획(site development plan) 제출·승인 여부",
+     "자가 가스발전 TCEQ 대기허가 신청 여부와 9/21 동결 적용 여부",
+     "하이퍼스케일 임차인 계약·자금 조달 발표 여부"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "리포트는 '제안 단계(자금·수요 미정)'로 적었지만 6/9 콘셉트 플랜이 카운티 승인을 받아 인허가가 리포트보다 한 단계 앞서 있음(단계 3 범위 안)",
+    "부지 면적 보도 엇갈림: KERA 2,100에이커 vs 다른 매체 2,600에이커"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p17",
+   "found_update": true,
+   "stage_base": "3",
+   "stage_now": "C",
+   "stage_candidate": null,
+   "status_ko": "2026-08-26 핀알 카운티 감독위원회가 4대1로 Vermaland의 용도변경(약 2,393에이커, 일반농촌→산업) 신청을 부결해 현재 안으로는 진행할 수 없다. 2026-10-20까지 개발사의 재신청·소송 소식은 찾지 못했다.",
+   "holds": [
+    "카운티 용도변경 부결(2026-08-26)"
+   ],
+   "events": [
+    {
+     "date": "2026-08-26",
+     "kind": "인허가",
+     "title_ko": "핀알 카운티 감독위원회, La Osa 용도변경 4대1 부결",
+     "detail_ko": [
+      "감독위원회가 Vermaland의 용도변경과 개발계획(PAD 오버레이)을 4대1로 부결했다. 찬성은 3지구 Stephen Q. Miller 1명뿐이었다.",
+      "부결 당시 안은 원안(건물 59동·약 3GW) 대비 80% 줄인 데이터센터 11동, 500MW 가스발전소, 배터리로 총 1GW 수요였다.",
+      "개발사는 5월 이후 담수 사용 연 600에이커피트 상한 등 조건 22개를 추가했지만 통과하지 못했다.",
+      "4월 계획위원회는 7대2로 찬성했었다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "KJZZ (2026-08-26)",
+       "u": "https://www.kjzz.org/text/politics/2026-08-26/pinal-county-rejects-massive-la-osa-data-center-residents-want-more-rules-for-future-projects"
+      },
+      {
+       "t": "Your Valley",
+       "u": "https://www.yourvalley.net/stories/rezoning-for-proposed-data-center-in-pinal-county-defeated,715148"
+      },
+      {
+       "t": "Pinal County 회의 영상(Swagit)",
+       "u": "https://pinalcountyaz.new.swagit.com/videos/352449"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "당국 부결로 단계 C 판정. 재신청·소송·인근 시 편입(엘로이) 등으로 되살아날 수 있어 확인 필요",
+    "questions": [
+     "Vermaland가 재신청·소송·엘로이 시 편입 등을 추진하는지",
+     "핀알 카운티가 데이터센터 전용 조례를 만드는지",
+     "카운티 공식 회의록에서 표결 내용 확인"
+    ],
+    "next_check": "2026-11-17"
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "리포트 용량 3.0GW는 원안 기준. 5월 이후 1GW로 80% 축소된 안이 부결 대상이었음"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p18",
+   "found_update": true,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-07-13 메타와 루이지애나 주지사가 Hyperion을 2GW→5GW, 총투자 500억 달러(400억 달러 추가), 3,200에이커 이상으로 확대한다고 공식 발표했다. 2026-10-20 기준 2단계용 가스발전소 7기에 대한 LPSC 최종 표결(11월 또는 12월 예정)이 남아 있다.",
+   "holds": [],
+   "events": [
+    {
+     "date": "2026-07-13",
+     "kind": "규모",
+     "title_ko": "메타, Hyperion 5GW·500억 달러로 확대 공식 발표",
+     "detail_ko": [
+      "제프 랜드리 주지사와 주 경제개발청이 메타의 400억 달러 추가 투자를 발표해 리치랜드 패리시 총투자가 500억 달러가 됐다.",
+      "두 단계를 합쳐 5GW, 부지 3,200에이커 이상이며 전체 완공은 2036년으로 제시됐다. 건설 인력 약 7,500명, 상시 고용 약 1,000명.",
+      "메타는 도로·상하수도 등 지역 기반시설에 10억 달러 이상을 내기로 했다."
+     ],
+     "grade": 1,
+     "src": [
+      {
+       "t": "WRKF/WWNO (2026-07-14)",
+       "u": "https://www.wrkf.org/2026-07-14/meta-is-investing-40b-more-to-expand-richland-parish-data-center-project"
+      },
+      {
+       "t": "Tom's Hardware",
+       "u": "https://www.tomshardware.com/tech-industry/data-centers/meta-expands-colossal-hyperion-ai-supercluster-plans-to-5gw-pushes-louisiana-investment-past-usd50-billion-as-ai-race-accelerates-says-it-plans-to-invest-over-usd1-billion-in-local-infrastructure-improvements"
+      }
+     ]
+    },
+    {
+     "date": "",
+     "kind": "전력",
+     "title_ko": "엔터지 가스발전소 7기(약 5.2GW) LPSC 최종 표결 대기",
+     "detail_ko": [
+      "엔터지 루이지애나가 3월 2단계용 가스발전소 7기를 신청했고, LPSC는 4/15 4대1로 신속 심사를 결정했다.",
+      "최종 표결은 11월(Fox 8) 또는 12월(WBRZ·KPLC)로 보도가 엇갈린다. 2025년 승인된 3기를 합치면 10기·약 7.5GW다.",
+      "소비자·환경단체가 경쟁입찰 생략과 요금 전가 위험을 들어 반대하고 있다. 7/7 이후 새 결정은 찾지 못했다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Fox 8 (2026-04-15)",
+       "u": "https://www.fox8live.com/2026/04/15/seven-new-power-plants-meta-data-center-northern-louisiana-fast-tracked/"
+      },
+      {
+       "t": "The Lens (2026-03-30)",
+       "u": "https://thelensnola.org/2026/03/30/meta-triples-order-of-gas-fired-power-plants-for-its-ai-campus-in-louisiana/"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "규모 확대(2→5GW) 확정, 2단계 전력 공급을 좌우할 LPSC 최종 표결이 남아 있음",
+    "questions": [
+     "LPSC가 가스발전소 7기를 언제 어떻게 표결하는지(11월 vs 12월)",
+     "2단계 부지(약 1,400에이커 추가)에서 실제 공사가 시작됐는지",
+     "2단계 자금 조달 방식(1단계처럼 Blue Owl 합작·SPV 채권 구조인지)"
+    ],
+    "next_check": "2026-11-18"
+   },
+   "tickers_touched": [
+    "META",
+    "ETR"
+   ],
+   "data_issues": [
+    "리포트의 Phase 2 3.0GW는 7/13 발표(전체 5GW, 기존 2GW) 기준 추가분 3GW와 일치. 발전용량 7.5GW와 IT 부하 5GW를 혼동하지 말 것"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p19",
+   "found_update": false,
+   "stage_base": "2",
+   "stage_now": "2",
+   "stage_candidate": "X",
+   "status_ko": "2026-10-20 기준 7/7 이후 새 소식은 찾지 못함. 최근 보도(6월경)는 카운티 승인 뒤에도 전력계약·자금·임차인이 없고 착공 흔적도 없으며, 착공이 2028년 말로 밀릴 수 있다고 전했다.",
+   "holds": [],
+   "events": [
+    {
+     "date": "",
+     "kind": "기타",
+     "title_ko": "(기준일 전후 불명) 자금·전력계약·임차인 없음, 착공 지연 보도",
+     "detail_ko": [
+      "Fast Company는 전력계약·자금 조달이 확정되지 않았고 공개 임차인도 없으며 착공 활동이 없다고 보도했다. 한 전문가는 실현 확률을 약 15%로 봤다.",
+      "The Logic은 착공 시점이 2028년 말로 밀릴 수 있다고 전했다.",
+      "유타 상원의장 Stuart Adams는 규모를 크게 줄이라는 서한을 보냈다(6월경). 유타 DEQ 대기허가 신청도 아직이라는 프로필 자료가 있다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "RadioWest/KUER (2026-06-11)",
+       "u": "https://radiowest.kuer.org/show/radiowest/2026-06-11/the-evolving-plans-for-the-massive-wonder-valley-data-center"
+      },
+      {
+       "t": "The Logic",
+       "u": "https://thelogic.co/news/the-big-read/wonder-valley-data-centre-alberta-kevin-oleary/"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "자금·전력·임차인 부재와 착공 지연 보도로 X 후보. 단, 7/7 이후 확인 자료 없음",
+    "questions": [
+     "유타 DEQ 대기허가(NOI) 제출 여부",
+     "전력(가스 공급)·임차인·자금 계약 발표 여부",
+     "유타 주 의회의 규모 축소 압박 이후 계획 변경 여부"
+    ],
+    "next_check": "2026-11-03"
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "전체 규모 보도 엇갈림(9GW vs 7.5GW). 리포트 3.0GW는 1단계(Hansel Valley) 기준"
+   ],
+   "searched": false
+  },
+  {
+   "id": "p20",
+   "found_update": true,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "마이크로소프트가 게인즈빌 13490 University Blvd 부지(123에이커)에 'MNZ07 Wellington' 데이터센터 2동과 변전소를 짓기 위해 육군공병대(Norfolk District) 개별허가와 버지니아 DEQ 허가를 신청했다(DEQ 의견수렴 8/7 마감). 2026-10-20 기준 허가 결정·착공 소식은 없다.",
+   "holds": [],
+   "events": [
+    {
+     "date": "",
+     "kind": "인허가",
+     "title_ko": "MNZ07 Wellington, 육군공병대·DEQ 습지 허가 신청",
+     "detail_ko": [
+      "청정수법 개별허가를 신청했으며 하천 955피트, 습지 1.95에이커가 영향을 받는다.",
+      "DEQ 신청은 7월에 접수됐고 공개 의견수렴은 8/7 마감이었다(연도는 2026년으로 추정, 기사 날짜 미확인).",
+      "부지는 카운티 데이터센터 기회구역 오버레이 안이라 데이터센터가 기본 허용되며, 밀도 상향(최대 380만 제곱피트) 용도변경은 별도로 진행 중이다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "DCD",
+       "u": "https://www.datacenterdynamics.com/en/news/microsoft-files-to-build-data-center-campus-in-prince-william-county-virginia/"
+      },
+      {
+       "t": "InsideNoVa",
+       "u": "https://www.insidenova.com/news/prince_william/environmental-public-comment-open-for-planned-microsoft-data-center-near-gainesville/article_6d30cfb2-9e3f-47e1-b11c-d7cb74f453d8.html"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": false
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "프로젝트명 철자 'Gainseville'→'Gainesville'(버지니아 프린스윌리엄 카운티). 일부 DB가 플로리다로 잘못 표기",
+    "리포트 3.0GW는 Cleanview 추정치(2,982MW). 공병대 신청서는 1층 건물 2동+변전소 규모로, 3GW와 차이가 커 재확인 필요"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p21",
+   "found_update": false,
+   "stage_base": "X",
+   "stage_now": "X",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 7/7 이후 새 정보 찾지 못함. 'St. Lawrence Infrastructure' 이름은 트래커(Cleanview 2,795MW, Aterio 매세나 건물 목록 '발표 단계')에만 나오고 언론·공식 자료는 확인되지 않는다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": false
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "개발사·용량 출처가 트래커뿐(1차 자료 없음). 매세나에는 NYDIG(옛 Alcoa East, 635MW), Petawatt 등 별도 프로젝트도 있어 혼동 가능"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p22",
+   "found_update": true,
+   "stage_base": "2",
+   "stage_now": "2",
+   "stage_candidate": "1",
+   "status_ko": "2026-07-08 카운티 제출 서류로 구글(자회사 Jupiter Star Holdings)이 크루소를 대신해 직접 개발하는 것으로 확인됐고 이름도 'Project Tembo'로 바뀌었다. 전력을 맡은 Tallgrass는 6월에 발전소 부지 토목을 시작했다고 밝혔으나, 데이터센터 건물 공사 착수는 2026-10-20 기준 미확인이다.",
+   "holds": [],
+   "events": [
+    {
+     "date": "2026-07-08",
+     "kind": "기타",
+     "title_ko": "구글이 개발 주체로 확인, 크루소 이탈·Project Tembo로 개명",
+     "detail_ko": [
+      "6/30 라라미 카운티에 낸 부지계획 변경서에서 소유주가 구글 자회사 Jupiter Star Holdings로 확인됐다.",
+      "크루소는 고객 요청으로 공사를 '중단'했다고 했으나 보도는 고객이 크루소에 빠지라고 한 것이며 공사는 멈추지 않았다고 전했다.",
+      "716에이커에 데이터홀 4동과 사무·물류·네트워크 건물을 짓고 2031년 완공이 목표다. 전력 2.7GW, 최대 10GW 확장 가능."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Cowboy State Daily (2026-07-08)",
+       "u": "https://cowboystatedaily.com/2026/07/08/google-revealed-as-owner-of-wyomings-largest-data-center-now-project-tembo/"
+      },
+      {
+       "t": "DCD",
+       "u": "https://www.datacenterdynamics.com/en/news/google-is-customer-behind-27gw-data-center-campus-near-cheyenne-wyoming/"
+      }
+     ]
+    },
+    {
+     "date": "2026-08-13",
+     "kind": "인허가",
+     "title_ko": "사무지원시설(32.83에이커) 조건부사용허가 공청회 예정",
+     "detail_ko": [
+      "1월 승인 범위에 없던 사무지원시설에 대해 라라미 카운티 위원회 공청회가 8/13로 잡혔다(의견 마감 7/31).",
+      "공청회 결과는 찾지 못했다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Cowboy State Daily (2026-07-08)",
+       "u": "https://cowboystatedaily.com/2026/07/08/google-revealed-as-owner-of-wyomings-largest-data-center-now-project-tembo/"
+      }
+     ]
+    },
+    {
+     "date": "2026-06-11",
+     "kind": "공사",
+     "title_ko": "(기준일 전) Tallgrass, 발전소 부지 토목 착수·'공사 계속' 발언",
+     "detail_ko": [
+      "Tallgrass는 발전소 건설에 앞서 토목을 시작했고 여름부터 발전기 공사를 단계적으로 늘려 1단계를 2027년 가동한다고 했다.",
+      "데이터센터 고객 서비스 목표는 2028년 초이며, 고객이 발전설비용으로 2억 달러 이상을 환급 가능 조건으로 냈다.",
+      "데이터센터 건물 공사 여부는 언급이 없다."
+     ],
+     "grade": 2,
+     "src": [
+      {
+       "t": "Cowboy State Daily (2026-06-11)",
+       "u": "https://cowboystatedaily.com/2026/06/11/partner-pulling-out-doesnt-slow-huge-2-7gw-cheyenne-project-jade-data-center/"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "개발사 교체(크루소→구글), 발전소 토목 착수로 단계 1 후보",
+    "questions": [
+     "8/13 조건부사용허가 공청회 결과",
+     "데이터센터 건물 기초공사 착수 여부(위성·카운티 건축허가)",
+     "Tallgrass 발전소(BFC Power/Cheyenne Power Hub) 공사 진척과 와이오밍 DEQ 대기허가"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [
+    "GOOGL"
+   ],
+   "data_issues": [
+    "개발사가 Crusoe→Google(Jupiter Star Holdings)로 바뀜, 프로젝트명 Project Tembo로 변경",
+    "2.7GW는 발전용량 기준. 초기 IT 용량은 1.8GW로 보도됨"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p23",
+   "found_update": true,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-01 셰브런 임원이 9월 애벗 주지사의 데이터센터 인허가 중단 탓에 'Project Kilby' 최종투자결정(FID)이 2026년 말에서 2027년으로 밀릴 수 있다고 밝혔다. 첫 전력 공급 2028년 목표는 유지하며 예비 토공이 진행 중이라는 보도가 있다.",
+   "holds": [
+    "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(셰브런이 직접 지연 요인으로 언급)"
+   ],
+   "events": [
+    {
+     "date": "2026-10-01",
+     "kind": "모라토리엄",
+     "title_ko": "셰브런 '주 인허가 중단으로 FID 2027년으로 밀릴 수도'",
+     "detail_ko": [
+      "셰브런 전력솔루션 부사장 Daniel Droog는 인허가·규제 쪽에서 지연이 생겼다며 FID가 2027년으로 넘어갈 수 있다고 했다.",
+      "그는 2028년 첫 전력 생산 일정은 지킬 수 있다고 했다.",
+      "합작 개발사 Joulent의 CFO는 주지사의 허가 전제조건을 충족한다고 자신했고, 예비 토공이 진행 중이며 시공계약이 곧 마무리된다고 했다.",
+      "마이크로소프트는 6월 20년 전력구매계약(PPA)을 맺은 최종 고객이다."
+     ],
+     "grade": 2,
+     "src": [
+      {
+       "t": "Semafor (2026-10-01)",
+       "u": "https://www.semafor.com/article/10/01/2026/texas-politics-could-delay-investment-decision-for-huge-chevron-data-center"
+      },
+      {
+       "t": "World Oil (2026-06-22, PPA)",
+       "u": "https://worldoil.com/news/2026/6/22/chevron-signs-20-year-microsoft-power-deal-for-west-texas-ai-project/"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "텍사스 인허가 동결로 FID 지연 가능성(셰브런 직접 언급)",
+    "questions": [
+     "TCEQ 동결 해제 시점(ERCOT 감사 12월 중순 예상)과 Kilby 대기허가 처리",
+     "셰브런 3분기 실적 발표에서 FID 일정 언급",
+     "시공계약 체결·본공사 착수 여부"
+    ],
+    "next_check": "2026-10-31 (셰브런 3분기 실적 발표 전후)"
+   },
+   "tickers_touched": [
+    "CVX",
+    "MSFT"
+   ],
+   "data_issues": [
+    "프로젝트명 Project Kilby(리브스 카운티, 페코스 인근). 합작 파트너가 Semafor에선 Joulent, 6월 보도에선 Engine No. 1로 나와 관계 확인 필요",
+    "리포트 2.6GW vs 발전용량 약 2.67GW(근사 일치)"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p24",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 7/7 이후 새 정보 찾지 못함. 스토리 카운티 약 8,590에이커 부지(2024년 6,500만 달러 매입)로 데이터센터가 허용되는 산업용지이며, 1단계(1,445에이커) 목표는 2030년으로 트래커에 나온다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": false
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "일부 자료가 위치를 리노로 표기하나 실제는 스토리 카운티(TRIC 인근)"
+   ],
+   "searched": true
+  },
+  {
+   "id": "p25",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 7/7 이후 새 정보 찾지 못함. 3/26 육군이 칼라일과 포트블리스 약 1,384에이커에 대한 독점협상(조건부)을 발표했고, 확정 계약 전이며 NEPA 환경심사는 연내 완료를 목표로 한다는 것이 마지막 확인 내용이다.",
+   "holds": [
+    "텍사스 9/21 TCEQ 데이터센터 인허가 중단이 가스발전 대기허가에 적용될 가능성(해석, 연방 부지라 불확실)"
+   ],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "용어 시트 서명·NEPA 착수 시점 미확인, 텍사스 동결 적용 여부 불확실, 지역 반대·하원의원 문제 제기",
+    "questions": [
+     "육군-칼라일 용어 시트(term sheet) 서명 여부",
+     "NEPA(환경평가) 공고가 연방관보·공병대에 나왔는지",
+     "가스 터빈 자가발전에 TCEQ 허가가 필요한지, 9/21 동결 대상인지"
+    ],
+    "next_check": "2026-11-03"
+   },
+   "tickers_touched": [
+    "CG"
+   ],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p26",
+   "found_update": false,
+   "stage_base": "2",
+   "stage_now": "2",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 7/7 이후 새 정보 찾지 못함. 2024년 용도변경·특별허가를 받았고 도미니언과 첫 변전소 장비를 발주했으며 전력 공급 목표는 2028년이다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": false
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "리포트 7/3 메모 '2027년 완료 목표'와 달리 공개 자료는 첫 부지 전력 공급(energization) 목표를 2028년으로 제시",
+    "별건: 같은 카운티의 Tract 'Mountain Road Technology Park'(430에이커)는 2026년 5월 감독위원회에서 부결됨 — 혼동 주의"
+   ],
+   "searched": false
+  },
+  {
+   "id": "p27",
+   "found_update": true,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": "2",
+   "status_ko": "기준일 전인 2026년 5월 호바트 계획위원회가 750에이커가 넘는 부지계획 2건을 승인했다는 보도가 있다. 8/25 기준 주민들의 시의회 승인절차 소송이 계속되고 있고, 착공 확인은 2026-10-20까지 없다.",
+   "holds": [
+    "주민 소송(레이크 카운티 법원, 시의회 승인절차 위법 주장) 진행 중"
+   ],
+   "events": [
+    {
+     "date": "2026-08-25",
+     "kind": "소송",
+     "title_ko": "정전 계기로 반대 확산, 주민 소송 계속",
+     "detail_ko": [
+      "NPR 보도에 따르면 지역 정전 이후 NIPSCO 전력에 기대는 아마존 데이터센터에 대한 주민 우려가 커졌다.",
+      "주민 Angelita Soriano 등은 시의회가 공개설명회 같은 법정 절차를 빠뜨렸다며 낸 소송을 이어가고 있다(2월 제기, 매립허가 금지명령 신청).",
+      "판결이나 금지명령 결과는 찾지 못했다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "NPR/KOSU (2026-08-25)",
+       "u": "https://www.kosu.org/technology/2026-08-25/indiana-power-outage-raises-concerns-about-data-centers"
+      },
+      {
+       "t": "FOX 32 Chicago (2026-02-08)",
+       "u": "https://www.fox32chicago.com/news/lawsuit-seeks-block-amazon-data-center-permit-hobart-ind"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "5월 부지계획 승인으로 단계 2 후보(단일 출처), 소송 진행 중",
+    "questions": [
+     "5월 호바트 계획위원회 부지계획 승인(750에이커+)을 회의록으로 확인",
+     "레이크 카운티 법원 소송 판결·금지명령 결과",
+     "착공(부지 정지·매립) 시작 여부, NIPSCO GenCo 전력 공급 계약"
+    ],
+    "next_check": "2026-11-03"
+   },
+   "tickers_touched": [
+    "AMZN",
+    "NI"
+   ],
+   "data_issues": [
+    "리포트는 '발표 단계(세부 계획 미정)'로 적었지만 2025년 11월 시와 협약(150억 달러), 2026년 5월 부지계획 승인 보도가 있어 인허가가 더 진척됨"
+   ],
+   "searched": false
+  },
+  {
+   "id": "p28",
+   "found_update": true,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "데이터센터 공사는 계속 중이다(오라클: 누적 2,700명 고용). 다만 2026-10-20 기준 자가 가스발전 대기허가 심리가 여러 번 밀렸고, 8월 주 대법원이 절차를 멈췄다가 이유 없이 풀었으며 새 심리관 아래 10월 말 심리가 잡혀 있다. 주 공유지 가스관 통과는 거부됐다.",
+   "holds": [
+    "NMED 대기허가 미발급(심리 진행 중)",
+    "카운티 승인 관련 NMELC 소송 2건(공개회의법 등) 진행 중"
+   ],
+   "events": [
+    {
+     "date": "2026-07-16",
+     "kind": "인허가",
+     "title_ko": "NMED, 대기허가 공청회를 10/19로 지정(결정 기한 11/23)",
+     "detail_ko": [
+      "뉴멕시코 환경부가 선랜드파크에서 10/19 공청회를 열기로 했고 허가 여부 결정 기한은 11/23이라고 밝혔다.",
+      "이후 일정은 9/14로 당겨졌다가 대법원 정지로 다시 바뀌었다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Source NM (2026-07-16)",
+       "u": "https://sourcenm.com/2026/07/16/nm-environment-department-schedules-october-hearing-for-project-jupiter-air-quality-permit/"
+      }
+     ]
+    },
+    {
+     "date": "2026-07-20",
+     "kind": "전력",
+     "title_ko": "주 공유지청장, 가스관 일부의 주 공유지 통과 거부",
+     "detail_ko": [
+      "Stephanie Garcia Richard 공유지청장이 물·자원 부담을 이유로 Project Jupiter용 천연가스관 일부를 주 공유지에 놓는 안을 거부했다(결정일 미상, 7/20 보도).",
+      "가스관 경로 변경이 필요할 수 있다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Construction Reporter (2026-07-20)",
+       "u": "https://constructionreporter.com/denied-land-for-natural-gas-pipeline-project-jupiter-set-to-be-focus-of-air-quality-hearing/"
+      }
+     ]
+    },
+    {
+     "date": "2026-08-19",
+     "kind": "소송",
+     "title_ko": "주 대법원, 대기허가 절차·긴급 용수 승인 정지 후 해제",
+     "detail_ko": [
+      "New Energy Economy와 생물다양성센터가 주 대법원에 대기허가 심리 정지를 청구했다(8/19 보도).",
+      "대법원은 대기허가 행정절차와 새 우물 긴급 용수 승인을 모두 정지했고 심리관은 회피했다.",
+      "이후 대법원은 설명 없이 정지를 풀고 두 단체의 청구를 기각했다(정확한 날짜 미확인)."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Source NM (2026-08-19)",
+       "u": "https://sourcenm.com/2026/08/19/environmental-group-asks-nm-supreme-court-to-pause-project-jupiters-air-quality-permit-hearing/"
+      },
+      {
+       "t": "KOB 4",
+       "u": "https://www.kob.com/?p=1126008"
+      }
+     ]
+    },
+    {
+     "date": "",
+     "kind": "인허가",
+     "title_ko": "새 심리관(전 연방판사 James Browning), 10/26 기각신청 심리 예정",
+     "detail_ko": [
+      "새로 지명된 심리관이 반대 측 변호인(Nanasi)의 기각신청에 대해 10/26 심리를 열 계획이라는 보도가 있다.",
+      "다른 보도는 10/29 공청회를 언급해 본 공청회 날짜가 확정되지 않았다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Source NM / News From The States",
+       "u": "https://www.newsfromthestates.com/node/433024"
+      },
+      {
+       "t": "Construction Reporter",
+       "u": "https://constructionreporter.com/denied-land-for-natural-gas-pipeline-project-jupiter-set-to-be-focus-of-air-quality-hearing/"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "자가발전 대기허가가 정해진 날짜의 심리에 걸려 있고, 소송 2건과 가스관 경로 문제가 남음",
+    "questions": [
+     "10/26 기각신청 심리와 본 공청회(10/29?) 결과",
+     "NMED 허가 결정 기한(11/23)이 유지되는지",
+     "가스관 경로 변경안과 데이터센터 공사 진척(건물 골조·첫 가동 시점)"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [
+    "ORCL"
+   ],
+   "data_issues": [],
+   "searched": true
+  },
+  {
+   "id": "p29",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 7/7 이후 새 정보 찾지 못함. 스태퍼드 카운티 1,042에이커 부지로, 2026년 4월 카운티 세수 전망에 들어간 승인 캠퍼스 5곳에는 포함되지 않았다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": false
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "위치는 스태퍼드 카운티(Fauquier 아님). 부지에 기존 경공업 용도(450만 제곱피트) 허용분과 주거 위주 용도변경 신청이 함께 있어 데이터센터 2.1GW 실현성 확인 필요"
+   ],
+   "searched": false
+  },
+  {
+   "id": "p30",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": "X",
+   "status_ko": "2026-10-20 기준 7/7 이후 이 프로젝트만의 확인된 새 소식은 없다. 기준일 전 하링겐 시가 120일 데이터센터 신청 중단(5/20경)을 의결했고(부지는 시 경계 바로 밖), 9/21 텍사스 TCEQ 인허가 전면 중단도 적용될 것으로 보인다(해석). 2월 기준 카운티에 정식 신청은 없었다.",
+   "holds": [
+    "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석)",
+    "하링겐 시 120일 모라토리엄(시 경계 밖이라 직접 적용은 불확실, 9월 중순 만료 예정·연장 여부 미확인)"
+   ],
+   "events": [
+    {
+     "date": "2026-05-20",
+     "kind": "모라토리엄",
+     "title_ko": "(기준일 전) 하링겐 시, 데이터센터 신청 120일 중단",
+     "detail_ko": [
+      "하링겐 시 위원회가 물·에너지·환경 영향 검토를 위해 120일간 데이터센터 신청 접수를 멈추기로 했다(반대 1표).",
+      "Eneus 부지(1,785에이커)는 밸리국제공항 동쪽, 시 경계 바로 밖이라 직접 적용 여부는 불확실하다.",
+      "한 트래커는 7/16에 이 프로젝트를 '모라토리엄으로 막힘'으로 표시했다(4등급)."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "GovTech (2026-05-22)",
+       "u": "https://www.govtech.com/artificial-intelligence/south-texas-city-sets-moratorium-amid-data-center-interest"
+      },
+      {
+       "t": "More Than Just Parks 트래커",
+       "u": "https://morethanjustparks.com/data-center-tracker/rgv-data-center-eneus-energy-harlingen-tx--9bd1f4db-9d0c-47b4-964b-bb8c297578ca"
+      }
+     ]
+    },
+    {
+     "date": "",
+     "kind": "소송",
+     "title_ko": "Eneus, 카운티·텍사스 법무장관 상대 기록공개 소송",
+     "detail_ko": [
+      "Eneus가 프로젝트 기록 공개를 막으려고 캐머런 카운티와 켄 팩스턴 법무장관을 상대로 소송 중이라는 보도가 있다(제기일 미확인).",
+      "하링겐 워터웍스는 하루 최대 460만 갤런의 하수처리수를 연 최대 120만 달러에 공급하기로 했다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "Truchas RGV",
+       "u": "https://truchargv.com/how-to-halt-a-data-center-the-harlingen-texas-moratorium/"
+      },
+      {
+       "t": "AN Journal",
+       "u": "https://www.anjournal.com/news-observations/1785-acre-data-center-sets-sight-development-cameron-county"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "주 인허가 동결·시 모라토리엄·정식 신청 부재로 X 후보",
+    "questions": [
+     "하링겐 모라토리엄 연장 또는 데이터센터 조례 제정 여부",
+     "캐머런 카운티에 정식 개발 신청이 들어갔는지",
+     "PUC에 밝힌 1GW 계통연결 확보 주장의 근거(ERCOT 대규모 부하 신청 상태)"
+    ],
+    "next_check": "2026-11-03"
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "'Cameron'은 캐머런 카운티(하링겐 인근, 리오그란데밸리)이며 밀람 카운티의 캐머런 시가 아님",
+    "리포트 2.0GW는 계획 총량. Eneus가 PUC에 밝힌 확보 계통용량은 최대 1GW"
+   ],
+   "searched": false
+  }
+ ],
+ "cross_cutting": [
+  "텍사스: 2026-09-21 애벗 주지사가 TCEQ에 ERCOT·PUC·TWDB 감사가 끝날 때까지 데이터센터 인허가 발급 전면 중단을 지시. 계통 미연결(자가발전) 시설도 포함. TCEQ 이행 보고 기한 10/19, ERCOT 감사 완료는 12월 중순 예상(로펌 해석). 9/14 물 관련 선행 지시도 있었음. 영향 대상: p16 Sailfish, p23 Pecos(셰브런이 FID 지연 요인으로 직접 언급), p25 Fort Bliss(적용 불확실), p30 Eneus. 출처: Troutman Pepper 9/22, Bracewell 9/23, Foley 9월, KXAN.",
+  "가스 자가발전 대기허가가 병목: p28 Jupiter(NMED 심리 지연·대법원 정지/해제), p23 Kilby(TCEQ 동결), p19 Wonder Valley(유타 DEQ 미신청), p22 Tembo(Tallgrass 발전소) — 데이터센터 착공보다 발전 허가가 일정을 좌우하는 사례가 많음.",
+  "지방정부 반대 확산: 애리조나 핀알 카운티 La Osa 부결(8/26), 텍사스 하링겐 120일 모라토리엄(5월), 후드 카운티 모라토리엄 두 차례 부결(3대2), 인디애나 호바트 주민 소송.",
+  "개발사 교체: 와이오밍 Project Jade에서 크루소가 빠지고 구글(Jupiter Star Holdings)이 직접 개발(7/8 확인) — 하이퍼스케일러가 중간 개발사를 건너뛰는 사례.",
+  "조사 한계: 이번 점검 중 세션의 웹 검색 한도(200회)에 도달해 p19·p25·p26·p27·p29·p30의 7/7 이후 추가 검색과 하링겐 모라토리엄 연장 여부, LPSC 표결일 확인을 끝내지 못함. '새 정보 없음' 항목은 반증이 아님."
+ ]
+}

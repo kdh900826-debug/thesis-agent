@@ -1,0 +1,273 @@
+{
+  "as_of": "2026-10-09",
+  "staleness_days": 0,
+  "run_id": "20261009_0920",
+  "ticker": "CRWV",
+  "input_source": "output/20261009_0920/03_input/arbiter_CRWV.json",
+  "kc_excerpt_source": "output/20261009_0920/03_kc_excerpt/CRWV.json (생성 2026-10-09T09:23, make_kc_excerpt.py — 종목 전용 KC 임계 필드 포함본)",
+  "prior_signal": "🔴🔴",
+  "prior_label": "Kill 우선 — KC-1 매크로(FFR>3.75) 확정",
+  "prior_since": "2026-10-03",
+  "prior_next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 ② Q3'26 10-Q 이자커버리지(Adj. EBITDA ÷ Interest expense, net, 분기 연환산 — KC-CRWV-3 경고 1.5x/발동 1.0x) ③ FCF 흑자 전환",
+  "proposed_signal": "🔴🔴",
+  "transition_candidate": "등급 변경 없음 — 🔴🔴 유지 후보 (규칙1 Kill 우선 지속 적용). 이미 2026-10-03 사람이 확정한 등급이며, 본 run은 신규 전이를 제안하지 않는다. 해소(해제) 여부는 사람이 확정한다.",
+  "candidate_disclaimer": "본 산출물은 시그널 등급 '후보' 판정이며 최종 확정 권한은 사람에게 있다. state/signals.json의 CRWV 현행 등급 🔴🔴(since 2026-10-03, trigger_source KC-1)은 사람 확정 상태다. 이번 창(2026-10-07 인도 AdaniConneX 240MW 계획 공시, DDTL 5.5 Cash Trap 조항 재부각)에는 규칙1 해소 조건(KC-1 met 해제)도, 규칙3 하향 근거도, 규칙2 상향 근거도 없다. 따라서 유지 후보이며 자동 실행 없음.",
+  "resolution_conditions": {
+    "to_exit_kill_state": "규칙1 근거인 KC-1(FFR > 3.75)이 not_met AND confirmed(FRED DFEDTARU ≤ 3.75, api 대사)로 전환되고, 다른 KC(매크로 전파·종목 전용)에 met AND confirmed가 없을 때 Kill 후보 사유가 소멸한다. 소멸 후 어느 등급으로 복귀할지, 🔴🔴 해제 자체는 사람이 확정한다(에이전트는 후보까지).",
+    "to_upgrade_after_exit": "해소 후에도 상향은 규칙2 게이트(quantitative==true AND scope==company_specific AND stage==revenue_recognized) 충족이 별도로 필요하다. KC-1 해소는 상향 근거가 아니다(P6/P13).",
+    "current_status": "KC-1 현재 FFR 4.00 > 3.75 (as_of 2026-10-08, api, confirmed) — 해소 조건 미충족."
+  },
+  "rerun_note": null,
+  "filter_bug_report": {
+    "bug_detected": false,
+    "detail": "arbiter_CRWV.json claims 4건(c_20261009_CRWV_1/2/3/4) 전수 scope=company_specific, removed_claims 빈 배열 — F13(scope!=company_specific 혼입) 위반 없음. 열람 파일은 필터본·state/signals.json·03_kc_excerpt/CRWV.json·형식 참고용 과거 산출물(output/20261001_0900/03_signal/CRWV.json) 4개로 한정했다. 02_company/·04_sector/·01_macro_kc.json은 열지 않았다(D7/P17)."
+  },
+  "claims": [
+    {
+      "id": "c_20261009_CRWV_1",
+      "claim_type": "fact",
+      "evidence_grade": 1,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "source_type": "press_release",
+      "filed_at": "2026-10-07",
+      "as_of": "2026-10-07",
+      "staleness_days": 2,
+      "summary": "IR 보도자료: 인도 나비뭄바이 AdaniConneX Taloja 캠퍼스 240MW(80MW×3동, 단독 테넌트) 계획 + 최대 240MW 확장 옵션, 1단계 가용 2028년 중반, Vera Rubin 배치 계획. 투자금액·임대료·계약기간 미공시. P7 1단계(계획/발표) — 이행·매출인식 단계 아님."
+    },
+    {
+      "id": "c_20261009_CRWV_2",
+      "claim_type": "fact",
+      "evidence_grade": 1,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "source_type": "8-K",
+      "filed_at": "2026-08-10",
+      "as_of": "2026-08-10",
+      "staleness_days": 60,
+      "summary": "DDTL 5.5 신용계약(Ex 10.1) Cash Trap(PCVR < 2.40:1 또는 MSA 중대 위반)·Cash Sweep(Trap 3개월 연속) 조항 및 대출 인출 종료 후 DSCR 1.35x 유지 의무 원문 확인. 기공시 조건의 재부각이며 이번 창 트리거·위반 사건 없음. 현재 PCVR 실측 산출 불가."
+    },
+    {
+      "id": "c_20261009_CRWV_3",
+      "claim_type": "fact",
+      "evidence_grade": 1,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "source_type": "press_release",
+      "filed_at": "2026-09-30",
+      "as_of": "2026-09-30",
+      "staleness_days": 9,
+      "summary": "Ennoble Care가 RTX PRO 6000 Blackwell 노드를 CKS 전용·예약 용량으로 배치(실명 고객 신규 포착). 계약기간·금액·GPU 수량·MW 미공시. 창 밖 건이며 Delta 근거로 사용하지 않음."
+    },
+    {
+      "id": "c_20261009_CRWV_4",
+      "claim_type": "inference",
+      "evidence_grade": 1,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "inference_strength": "weak",
+      "source_type": "press_release",
+      "filed_at": "2026-10-07",
+      "as_of": "2026-10-07",
+      "staleness_days": 2,
+      "summary": "인도 240MW 계획은 계약·공급 전력 확장 방향과 일치하나 임대료·투자 분담·기간 미공시로 CapEx·리스 부채 부담 증가 규모는 산출 불가. 레버리지 축 이관은 가능성 수준(c_20261009_CRWV_1 파생)."
+    }
+  ],
+  "kill_check": {
+    "rule": "규칙1(Kill 우선, 변경 금지): KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청. met이어도 provisional이면 발동 요건(confirmed) 미충족.",
+    "triggered": true,
+    "trigger_source": ["KC-1"],
+    "own_company_kc": [
+      {
+        "kc_id": "KC-CRWV-1",
+        "condition": "대형 고객 계약 훼손 ($1B+ 전체)",
+        "trigger": "OpenAI·Meta·MS 및 $1B 이상 계약 고객의 해지·규모 20%+ 축소·재협상 공시",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-10-09",
+        "staleness_days": 0,
+        "basis": "이번 창 1차 Claim 4건에 해지·20%+ 축소·재협상 공시 없음. 인도 건(c_1)은 신규 용량 계획, Ennoble Care(c_3)는 신규 고객이며 모두 trigger 정의 사건 아님. 2026-10-08 2차 매체의 'CEO 주문 감소 없음' 재인용은 1차 미확인(P4)이라 근거에서 제외. 정보 부재를 반증으로 쓰지 않으며(P5) 판정 신뢰도는 provisional."
+      },
+      {
+        "kc_id": "KC-CRWV-2",
+        "condition": "용량·차세대 GPU 배포 지연 (경고/발동 2단)",
+        "warning_trigger": "delivery_delay_quarters >= 1분기 (Vera Rubin 등 공시 일정 대비)",
+        "kill_trigger_any_of": "deployment_delay_months >= 6개월 OR delivery_delay_quarters >= 2분기 연속",
+        "warning_verdict": "not_met",
+        "warning_confidence": "provisional",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-10-09",
+        "staleness_days": 0,
+        "basis": "이번 창 일정 지연 공시 없음. 인도 건의 1단계 가용 시점(2028년 중반)은 신규 계획의 목표일이며 기존 공시 일정 대비 지연이 아니다. 직전 run의 Vera Rubin NVL72 프로덕션 1호 고객 공시(2026-09-30)가 이번 창에 번복되었다는 1차 자료도 없다. 신규 관측이 아니라 지연 공시 부재 기반이므로 confidence는 provisional."
+      },
+      {
+        "kc_id": "KC-CRWV-3",
+        "condition": "이자 커버리지·차환 (경고/발동 2단)",
+        "warning_trigger": "interest_coverage < 1.5x",
+        "kill_trigger_any_of": "interest_coverage < 1.0x OR refinancing_failure_or_covenant_breach == true",
+        "warning_verdict": "not_met",
+        "warning_confidence": "provisional",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-10-09",
+        "staleness_days": 0,
+        "observed_value_reference": {
+          "interest_coverage": 2.36,
+          "period": "Q2'26",
+          "source": "03_kc_excerpt/CRWV.json KC-CRWV-3 note (사용자 확정 산식 = Adj. EBITDA ÷ Interest expense, net, 분기 연환산 — KC config 승계 관측치, 이번 창 신규 관측 아님)"
+        },
+        "basis": "Q2'26 2.36x는 경고(1.5x)·발동(1.0x)을 모두 상회. 이번 창 신규 이자커버리지 수치 없음 → Q3'26 10-Q 대기, confidence provisional. 차환 실패·covenant 위반 공시 없음: 신규 차입·차환·증자 8-K/424B5/S-3 제출 0건이며 2026-10-07/08 애그리게이터의 '$3.0B 전환사채·ATM 35M주' 보도는 2026-09-17 8-K·424B5(전환사채 $4.2B로 증액, 09-22 결제 완료)의 재인용이다. DDTL 5.5 Cash Trap/Sweep·DSCR 1.35x 조항(c_2)은 기공시 조건이며 트리거 사건은 이번 창에 없다. 단 PCVR 분자·분모 미공시로 트리거 근접도는 산출 불가 — 근접도 불명이지 안전의 근거가 아니다(P5)."
+      }
+    ],
+    "macro_kc_propagating": [
+      {
+        "kc_id": "KC-1",
+        "condition": "FFR 인상 리스크 (>3.75)",
+        "verdict": "met",
+        "confidence": "confirmed",
+        "as_of": "2026-10-08",
+        "staleness_days": 1,
+        "note": "FFR 4.00 > 3.75, method api. 규칙1 Kill 트리거 근거이자 현행 🔴🔴 확정(2026-10-03)의 근거."
+      },
+      {
+        "kc_id": "KC-9",
+        "condition": "에너지 쇼크 (brent>=120, 1개월 지속)",
+        "verdict": "met",
+        "confidence": "provisional",
+        "as_of": "2026-10-06",
+        "staleness_days": 3,
+        "note": "brent 125.44 >= 120이나 '1개월 지속' duration 조건은 사람 확인 전까지 confirmed 불가(provisional). 규칙1 발동 요건(met AND confirmed) 미충족 — 단독으로 Kill 후보 근거가 될 수 없으며 신규 trigger_source로 등재하지 않는다. 직전 run(2026-09-29 not_met, brent 113.96) 대비 met로 변화했으므로 지속성 확인 대상으로 사람에게 표기한다."
+      },
+      {"kc_id": "KC-2", "condition": "변동성 급등(VIX>=30)", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-10-08", "staleness_days": 1, "note": "VIX 15.41"},
+      {"kc_id": "KC-4", "condition": "유동성 위기 신호", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-10-08", "staleness_days": 1, "note": "ON_RRP·VIX 모두 임계 미달"},
+      {"kc_id": "KC-5", "condition": "TAIEX 음전환", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-10-07", "staleness_days": 2},
+      {"kc_id": "KC-6", "condition": "AI 토큰 지출 급감", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-07-03", "staleness_days": 98, "note": "입력값 null, duration 조건 — 오래된 입력이므로 not_met은 provisional 한정(P16)"},
+      {"kc_id": "KC-7", "condition": "하이퍼스케일러 합산 FCF 악화", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-06-30", "staleness_days": 101},
+      {"kc_id": "KC-8", "condition": "MSFT FCF 마이너스", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-06-30", "staleness_days": 101}
+    ],
+    "conclusion": "KC-1이 met AND confirmed로 지속되어 규칙1(Kill 우선)이 계속 적용된다 → 현행 🔴🔴 유지 후보. 사람 확정은 2026-10-03에 이미 반영되어 있어 신규 '확정 요청'이 아니라 유지 확인이다. KC-9는 met이나 provisional이므로 규칙1 발동 요건 미충족이며, 종목 전용 KC 3건(KC-CRWV-1/2/3)은 경고 단계 포함 전부 not_met(provisional) — 종목 자체 Kill/경고 트리거는 없다. 회사 고유 재료는 규칙 판정을 뒤집지 않는다."
+  },
+  "gate_check": {
+    "kill_check": {
+      "rule": "규칙1(Kill 우선): KC met AND confirmed → 🔴🔴 후보",
+      "triggered": true,
+      "trigger_source": ["KC-1"],
+      "met_but_not_confirmed": ["KC-9"],
+      "basis": "KC-1 met/confirmed(FFR 4.00 > 3.75, api, 2026-10-08)로 발동. KC-9는 met/provisional로 발동 요건 미충족. 종목 전용 KC-CRWV-1/2/3은 전부 not_met."
+    },
+    "upgrade_gate": {
+      "rule": "규칙2(상향 게이트, P2·P6·P7 전부 충족 시에만): quantitative==true AND scope==company_specific AND stage==revenue_recognized",
+      "conditions": {
+        "quantitative_evidence": false,
+        "company_specific": true,
+        "revenue_recognized": false
+      },
+      "met": false,
+      "basis": "Claim 4건 전부 company_specific이나 quantitative=false. 인도 240MW(c_1)는 용량 계획으로 P7 1단계(계획/발표)이며 구속력 있는 임대계약·금융 조건·매출 인식이 없다. 공급측 전력 지표이며 고객 백로그 금액이 아니다. Ennoble Care(c_3)는 금액 미공시 도입 발표로 P7 1단계. 인도 건은 규칙2 본문에 따라 등급 유지 + holding_reinforcement(약)로만 분류. 상향 근거 부적격(P2·P7). 또한 현재 등급이 🔴🔴(KC-1)이므로 어떤 경우에도 매크로 해소 이전에는 상향 후보가 될 수 없다."
+    },
+    "downgrade_check": {
+      "rule": "규칙3(하향, 비대칭): 정량 훼손 OR evidence_grade<=2의 정성 훼손 시 하향 가능",
+      "quantitative_deterioration": false,
+      "qualitative_deterioration_grade_le_2": false,
+      "met": false,
+      "basis": "이번 창 1차(grade 1) 자료에 정량 훼손 없음: 이자커버리지 신규 관측치 없음(Q2'26 2.36x 승계), 차환 실패·covenant 위반 없음, 가이던스 수정 없음. 인도 건의 레버리지 부담 증가 가능성(c_4)은 weak 추론이며 규칙3 근거 부적격. DDTL 5.5 Cash Trap 조항(c_2)은 기공시 조건의 구조 기록이지 훼손 사건이 아니다. 현재 등급이 이미 최하단 🔴🔴이므로 하향 여지 자체가 없다."
+    }
+  },
+  "thesis_delta_summary": [
+    {
+      "axis": "backlog_scale",
+      "direction": "strengthen",
+      "stage": "약(weak) — 계획/발표(P7 1단계), 이행·매출인식 미확인",
+      "summary": "인도 Taloja 240MW(+240MW 옵션) 계획으로 공급측 스케일 확장 신호이나 구속력 있는 임대계약 여부·금융 조건 미공시. 고객 백로그 금액 갱신은 없으며 백로그 수치 축 판정에는 반영하지 않는다.",
+      "risk_transfer_to": ["leverage_coverage"],
+      "supporting_claims": ["c_20261009_CRWV_1", "c_20261009_CRWV_4"]
+    },
+    {
+      "axis": "funding_access",
+      "direction": "neutral",
+      "stage": "없음",
+      "summary": "신규 차입·차환·증자 공시 없음. 애그리게이터의 전환사채·ATM 신규 보도는 2026-09-17/09-22 기공시 건의 재인용. DDTL 5.5 Cash Trap/Sweep 조항은 구조만 신규 기록.",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20261009_CRWV_2"]
+    }
+  ],
+  "alert": {
+    "ticker_event": "CRWV — 2026-10-07 인도 AdaniConneX Taloja 캠퍼스 240MW 데이터센터 용량 계획 공시(IR 보도자료, 1단계 2028년 중반 가용, 금융 조건 미공시). 아울러 DDTL 5.5 Cash Trap 조항이 2차 매체로 재부각(기공시). KC-1 met/confirmed가 지속되어 🔴🔴 유지 후보(규칙1).",
+    "facts": [
+      {
+        "text": "CoreWeave는 인도 나비뭄바이 AdaniConneX Taloja 캠퍼스에 총 240MW(80MW 건물 3동, CoreWeave 단독 테넌트) 데이터센터 용량을 계획하고 최대 240MW 추가 확장 옵션을 두며, 1단계 가용은 2028년 중반, NVIDIA Vera Rubin 배치 계획이라고 공시했다. 투자금액·임대료·계약기간은 보도자료에 없다.",
+        "source": "arbiter_CRWV.json c_20261009_CRWV_1 (press_release, IR, grade 1)",
+        "timestamp": "2026-10-07"
+      },
+      {
+        "text": "DDTL 5.5 신용계약($26억, 만기 2031-09-01, Term SOFR+5.50%) Ex 10.1에 Cash Trap Event(PCVR < 2.40:1 또는 MSA 중대 위반)·Cash Sweep Event(Trap 3개월 연속) 정의, 8-K에 인출 종료 후 DSCR 1.35x 유지 의무가 있다. 이번 창에 해당 조항의 트리거·위반 공시는 없다.",
+        "source": "arbiter_CRWV.json c_20261009_CRWV_2 (8-K Items 1.01·2.03·7.01, grade 1)",
+        "timestamp": "2026-08-10"
+      },
+      {
+        "text": "FFR 목표범위 상단 4.00%(임계 3.75 초과) — api 대사 confirmed, KC-1 met/confirmed. KC-9 brent 125.44(임계 120 이상)이나 1개월 지속 조건 미확인으로 provisional.",
+        "source": "output/20261009_0920/03_kc_excerpt/CRWV.json KC-1·KC-9 (오케스트레이터 전달, api)",
+        "timestamp": "2026-10-08"
+      }
+    ],
+    "inference": [
+      {
+        "text": "인도 240MW 계획은 계약·공급 전력 확장 방향과 일치하나 임대료·투자 분담·기간 미공시로 CapEx·리스 부채 부담 증가 규모를 산출할 수 없다. 레버리지 축(leverage_coverage)으로의 위험 이관은 가능성 수준이다.",
+        "inference_strength": "weak (c_20261009_CRWV_4 기반)"
+      }
+    ],
+    "classification": "kill_candidate 유지 (규칙1, KC-1) — 등급 변경 없음. 인도 건은 holding_reinforcement(약, P7 1단계 계획/발표). 규칙1이 계속 우선하므로 회사 고유 재료는 등급 유지·상향·하향 어느 쪽 근거로도 작동하지 않는다.",
+    "thesis_delta": "backlog_scale 약한 강화(계획 단계, 수치 판정 미반영, leverage_coverage로 위험 이관 가능성 표기). funding_access 중립. 매크로 해소(KC-1)는 상향 근거로 계상하지 않는다(P6/P13).",
+    "signal_verdict": "🔴🔴 유지 후보 (규칙1 Kill 우선, 근거 KC-1 met AND confirmed). 현행 등급은 2026-10-03 사람이 확정했으며 변경 제안 없음. KC-9는 met이나 provisional이므로 발동 요건 미충족 — 지속성 사람 확인 요청. 규칙2 상향 게이트 미충족, 규칙3 하향 미충족 — 등급 확정은 사람이 한다.",
+    "next_check": [
+      "[사람 확인 필요] KC-9(brent 125.44 >= 120) '1개월 지속' 조건 확인 — 확인 시 confirmed 전환 여부 판정(규칙1 추가 trigger_source 후보)",
+      "차기 FOMC(약 2026-11월경) 결정 후 FRED DFEDTARU ≤ 3.75 여부 — KC-1 해소(Kill 후보 사유 소멸) 관측 지표",
+      "Q3'26 10-Q 이자커버리지 실측치(Adj. EBITDA ÷ Interest expense, net, 분기 연환산) vs 경고 1.5x·발동 1.0x (직전 관측 Q2'26 2.36x)",
+      "Q3'26 10-Q 부채 각주의 DDTL 5.5 Projected Contract Value Ratio 분자·분모(기준 2.40:1)와 DSCR 1.35x 준수 여부",
+      "인도 AdaniConneX 건의 구속력 있는 임대계약 8-K Item 1.01 제출 여부 및 Q3 10-Q 리스 약정 각주(임대료·기간)"
+    ]
+  },
+  "next_gate": "관측 가능 정량 항목: (1) 차기 FOMC 후 FRED DFEDTARU ≤ 3.75 여부(KC-1 met 해제 — 🔴🔴 사유 소멸 관측, 해제 확정은 사람) (2) KC-9 brent ≥ 120 구간의 1개월 지속 여부(지속 시 confirmed 전환 후보) (3) Q3'26 10-Q 이자커버리지(Adj. EBITDA ÷ Interest expense, net, 분기 연환산) vs 경고 1.5x/발동 1.0x (4) Q3'26 10-Q DDTL 5.5 PCVR ≥ 2.40:1 및 DSCR ≥ 1.35x (5) 영업현금흐름-CapEx 기준 FCF 흑자 전환(Q3 10-Q). 상향은 (1)~(5) 해소와 별개로 규칙2(매출 인식 단계 정량 근거)가 필요하다.",
+  "unconfirmed_carried": [
+    {
+      "topic": "인도 AdaniConneX 건 구속력 있는 임대계약 여부·임대료·계약기간·투자금 분담",
+      "detail": "보도자료에 금융 조건 없음. Q3 10-Q 리스 약정 각주 또는 8-K Item 1.01 대조 필요.",
+      "reason": "contract_terms_not_disclosed"
+    },
+    {
+      "topic": "DDTL 5.5 PCVR 현재값 및 Cash Trap 근접도",
+      "detail": "분자(Total Projected Contract Value)·현재 인출 잔액 미공개. 약정 인출기간 2026-12 종료. Q3 10-Q 부채 각주 대조 대기.",
+      "reason": "numerator_denominator_not_disclosed"
+    },
+    {
+      "topic": "계약 전력 정의 차이 (약 3.7GW @2026-06-30 vs 약 4.2GW @2026-08-11 콜)",
+      "detail": "0.5GW 차이가 Q3 초 신규 약정($25B+)에 대응하는지 원문 설명 없음.",
+      "reason": "definition_not_stated"
+    },
+    {
+      "topic": "FY26 매출·CapEx·Q3 가이던스 1차 재대조",
+      "detail": "2Q26 8-K 보도자료에 가이던스 수치 없음(콜에서만 제공). 콜 전사 원문 미확보 — 2차 매체 수치는 판정 근거 불가.",
+      "reason": "guidance_given_on_call_only_transcript_not_secured"
+    },
+    {
+      "topic": "Q3 2026 실적 발표일 공지",
+      "detail": "회사 IR/8-K 공지 미확인. 애그리게이터 표기 일자는 추정 라벨(F1)이라 판정 근거 불가.",
+      "reason": "not_yet_announced_by_company"
+    },
+    {
+      "topic": "이자 커버리지 구성 수치(총이자비용·자본화이자·이자수익) 및 신규 전환사채 결제 후 통합 총부채",
+      "detail": "산식 확정(2026-09-20), 관측치 Q2'26 2.36x. 분리 수치·통합 부채는 Q3 10-Q 대기.",
+      "reason": "awaiting_q3_10q"
+    },
+    {
+      "topic": "CEO 'no reduction in orders' 발언 1차 확인 및 직전 run 이월 고객 계약금액(Cognition·MasterClass·Canva·Ennoble Care 등)",
+      "detail": "이번 창에도 1차 확인 자료 없음.",
+      "reason": "carried_over_from_prior_run"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "as_of": "2026-10-01",
+  "run_id": "20261001_0900",
+  "staleness_days": 0,
+  "ticker": "NBIS",
+  "patch_id": "NBIS_axes_on_demand_effective_b300",
+  "card_field": "axes",
+  "card_field_detail": "axes[on_demand_pricing_power] — 2026-10-01 발효일 관측 주석: B300 단가 grade1 확정(+21.0%), CPU-only 품목별 인상률 1차 확인, 메모리 대조 불가, 과금 전환 미검증",
+  "operation": "annotate",
+  "priority": "medium",
+  "before": "Q3 2026 실적자료의 단가·ARPU·commitment discount 언급]\"}",
+  "after": "Q3 2026 실적자료의 단가·ARPU·commitment discount 언급] [2026-10-01 발효일 관측 주석(annotate, run 20261001_0900) — 위 서술(2026-09-19 원문 + 2026-09-25 주석)은 P9에 따라 삭제하지 않고 보존한다. (1)[fact] 2026-10-01 조회 nebius.com/prices(grade 1, confirmed)에 NVIDIA HGX B300이 처음으로 구체 단가로 게시됨: $7.85→$9.50/GPU-hour(+21.0%). 2026-09-25 주석 (2)의 'B300 Contact sales·비공개' 상태는 이로써 해소되며, 1차 교차검증 SKU가 3종(H100·H200·B200)에서 4종(+B300)으로 확대된다(c_20261001_NBIS_2, c_20261001_NBIS_4). (2)[fact] CPU-only 실제 인상률은 품목별로 상이하다 — AMD EPYC Genoa $0.10→$0.13/hour(+30.0%), Intel Ice Lake $0.05→$0.06/hour(+20.0%)(c_20261001_NBIS_2). 위 원문의 'CPU-only 25%'(grade 3 보도)는 정정하지 않고 병기하며 1차 수치는 본 (2)를 따른다(P9). (3)[fact] 페이지 전체에 메모리 전용 가격 품목이 없어 '메모리 약 41%' 보도는 1차 대조 채널 자체가 부재하다 — 반증이 아니라 대조 불가(unconfirmed, P5). GB300·GB200 NVL72는 현재·발효 후 모두 여전히 비공개. (4)[fact] 발효일 당일에도 페이지가 '현재가'와 'Effective October 1, 2026' 열을 병기하는 구조를 유지해 실제 과금 반영(billing effectuation)은 독립 검증되지 않는다(c_20261001_NBIS_3). (5)[inference:high — 근거등급 판단에 한정] 부호 활성화 조건 중 '신단가 1차 게시'는 4개 SKU로 확대 충족, '2026-10-01 이후 발효 확인'은 발효일이 도래했으나 과금 전환 미검증으로 미충족 유지, 'Q3 2026 실적자료의 단가·ARPU 언급'은 미충족이다. P7 — 가격 고지 ≠ 계약 갱신·체결 ≠ 매출 인식, P2 — 리스트 가격은 상향 근거 부적격(03_signal holding_reinforcement). commitment discount 전가 미확인으로 contract_monetization 축과 부호 분리 유지. 다음 관측점 = nebius.com/prices '현재가' 열 치환 여부 재조회, GB300/GB200 단가 공개, 메모리 과금 품목 신설 여부, Q3 2026 실적자료의 단가·ARPU 및 commitment discount 전가 여부 언급 — 2026-10-01 주석 끝]\"}",
+  "reason": "[fact] state/thesis_cards/NBIS.yaml 전문 106행을 읽고 yaml.safe_load로 목록형 필드를 실제 계수했다 — axes 8 / key_metrics 7 / catalysts 4 / risks 5 / kill_conditions_ref 4 / earnings_checkpoints.items 8 / version_history 10(F20). [fact] on_demand_pricing_power 라벨의 2026-09-25 주석 (2)는 'HGX B300·GB300/GB200 NVL72는 현재·인상 후 단가 모두 Contact sales로 비공개'로 기록돼 있으나 2026-10-01 조회에서 B300이 $7.85→$9.50/GPU-hour(+21.0%)로 회사 페이지에 게시됐다(c_20261001_NBIS_2, grade1·confirmed) — 카드의 B300 상태 서술이 부정확해졌다. [fact] 원문의 'CPU-only 25%'(grade3 보도)는 1차 페이지 기준 품목별 +30.0%/+20.0%로 확인됐다 — 덮어쓰지 않고 병기한다(P9). [fact] 발효일 도래에도 과금 전환은 페이지 구조상 독립 검증 불가(c_3)이므로 부호 활성화 조건의 '발효 확인' 요소를 충족으로 표기하지 않았다. [fact] 축 id·정의·축 수는 변경하지 않는다(라벨 종결부만 before로 잡아 주석을 덧붙임) — 축 추가·분해가 아니므로 axis_naming_standardization 의존 플래그를 부착하지 않았다. [fact] 지시문의 'B300 가격 grade1'은 c_20261001_NBIS_2와 일치한다.",
+  "basis_claims": [
+    "c_20261001_NBIS_2",
+    "c_20261001_NBIS_3",
+    "c_20261001_NBIS_4"
+  ],
+  "basis_claims_note": "[fact] c_2·c_3 grade1·confirmed(회사 공식 가격 페이지 직접 조회). c_4는 c_2·c_3 종합 inference(high — 교차검증 범위 판단에 한정). 03_signal/NBIS.json on_demand_pricing_power basis_claims 3건과 동일.",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] thesis·conclusion·축 정의를 수정하지 않는 관측 주석이다. 가격 결정력 관측은 thesis 방향과 정합하며 역전 요소 없음.",
+  "depends_on_human_decision": null,
+  "apply_order": "순서 무관 — NBIS 2건은 서로 다른 축 행(on_demand_pricing_power 27행 종결부 / capacity_delivery 24행)을 치환하며 counts(axes 8)는 둘 다 불변 검사다. 권장: on_demand → capacity_delivery",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "[2026-10-01 발효일 관측 주석(annotate, run 20261001_0900)",
+      "$7.85→$9.50/GPU-hour(+21.0%)",
+      "AMD EPYC Genoa $0.10→$0.13/hour(+30.0%)",
+      "[2026-09-25 근거등급 격상 주석(annotate, run 20260925_1015)",
+      "CPU-only 25%·메모리 약 41%"
+    ],
+    "not_contains": [
+      "commitment discount 언급]\"}"
+    ],
+    "counts": [
+      {
+        "path": "axes",
+        "n": 8
+      }
+    ]
+  },
+  "source_artifact": "output/20261001_0900/03_signal/NBIS.json#claims,thesis_delta_summary · output/20261001_0900/04_sector/neocloud.json#axis_view · output/20261001_0900/03_input/arbiter_NBIS.json(수치·문구 대조)",
+  "f20_note": "[fact] 27행(on_demand_pricing_power)은 장문 단일 행이다. 1차 드라이런에서 신규 주석 종결부가 원 종결부와 같은 문자열로 끝나 not_contains 자기모순이 검출돼 종결 문구를 수정했다(오류 이력 기록, P9) — 전문을 읽은 뒤 라벨 종결부 문자열이 카드 내 1회 출현함을 확인하고 before로 사용했다(원문 그대로의 부분 문자열). contains 4·5번째는 보존 구간(2026-09-25 주석·2026-09-19 원문의 25%/41% 서술)의 존치를, not_contains는 원 종결부가 이어 붙여져 사라짐을 검증한다."
+}

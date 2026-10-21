@@ -1,0 +1,245 @@
+{
+  "as_of": "2026-10-01T22:00",
+  "kc_status": [
+    {
+      "kc_id": "KC-1",
+      "condition": "FFR 인상 리스크",
+      "inputs": [
+        {
+          "name": "FFR",
+          "operator": ">",
+          "threshold": 3.75,
+          "value": 4.0,
+          "as_of": "2026-10-01",
+          "method": "api"
+        }
+      ],
+      "verdict": "met",
+      "verdict_confidence": "confirmed",
+      "consequence": "레버리지 전액 해제 + Edge/Next 50% 축소 검토"
+    },
+    {
+      "kc_id": "KC-2",
+      "condition": "변동성 급등",
+      "inputs": [
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 30,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "레버리지 해제 검토"
+    },
+    {
+      "kc_id": "KC-3",
+      "condition": "크립토 붕괴 + 위험회피 동시",
+      "inputs": [
+        {
+          "name": "BTC",
+          "operator": "<",
+          "threshold": 55000,
+          "value": 83670.59,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        },
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 25,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)"
+    },
+    {
+      "kc_id": "KC-4",
+      "condition": "유동성 위기 신호",
+      "inputs": [
+        {
+          "name": "ON_RRP",
+          "operator": ">=",
+          "threshold": 200000000000,
+          "value": 11539000000.0,
+          "as_of": "2026-09-30",
+          "method": "api",
+          "stale_days": 1,
+          "stale_limit": 5
+        },
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 25,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "광범위 디리스킹 검토"
+    },
+    {
+      "kc_id": "KC-5",
+      "condition": "TAIEX 음전환 (아시아 리스크 프록시)",
+      "inputs": [
+        {
+          "name": "TAIEX_vs_20dma_pct",
+          "operator": "<",
+          "threshold": 0,
+          "value": 2.92,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 3
+        },
+        {
+          "name": "TAIEX_1m_return_pct",
+          "operator": "<",
+          "threshold": 0,
+          "value": 4.82,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 3
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "광범위 디리스킹 검토"
+    },
+    {
+      "kc_id": "KC-6",
+      "condition": "AI 토큰 지출 급감",
+      "inputs": [
+        {
+          "name": "SDLLMTK_change_pct",
+          "operator": "<=",
+          "threshold": -30,
+          "value": null,
+          "as_of": "2026-07-03",
+          "method": "web_search",
+          "duration": "2주 지속"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "Base·Edge 전제 재검토",
+      "note": "duration 조건 포함 — 지속성은 사람이 확인해야 confirmed 가능"
+    },
+    {
+      "kc_id": "KC-7",
+      "condition": "하이퍼스케일러 합산 FCF 악화",
+      "inputs": [
+        {
+          "name": "hyperscaler_fcf_sum",
+          "operator": "<",
+          "threshold": 0,
+          "value": 6835000000,
+          "as_of": "2026-06-30",
+          "method": "web_search",
+          "duration": "2분기 연속"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "CapEx 감속 시나리오 검토",
+      "note": "duration 조건 포함 — 지속성은 사람이 확인해야 confirmed 가능"
+    },
+    {
+      "kc_id": "KC-8",
+      "condition": "Microsoft FCF 마이너스 (최후의 보루)",
+      "inputs": [
+        {
+          "name": "msft_fcf",
+          "operator": "<",
+          "threshold": 0,
+          "value": 19640000000,
+          "as_of": "2026-06-30",
+          "method": "web_search"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "AI CapEx 축 전면 재검토"
+    },
+    {
+      "kc_id": "KC-9",
+      "condition": "에너지 쇼크",
+      "inputs": [
+        {
+          "name": "brent",
+          "operator": ">=",
+          "threshold": 120,
+          "value": 113.96,
+          "as_of": "2026-09-29",
+          "method": "api",
+          "stale_days": 2,
+          "stale_limit": 3,
+          "duration": "1개월 지속"
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "consequence": "에너지+인플레이션 시나리오 검토",
+      "note": "duration 조건 포함 — 지속성은 사람이 확인해야 confirmed 가능"
+    },
+    {
+      "kc_id": "KC-10",
+      "condition": "IREN 계약 용량의 10%+ 강제 감축 대상 분류, 또는 보유 사이트 전력접속·인허가 취소·보류 공시",
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "inputs": [],
+      "note": "이벤트형 — 지표 피드가 아니라 L2 공시 관측으로 판정. 자동 확정 불가",
+      "consequence": "Edge 마진 전제 재검토"
+    }
+  ],
+  "skipped_draft": [],
+  "_note": "verdict_confidence=provisional은 stale/웹검색/미수집/duration 입력 포함을 의미. not_met은 확정이 아님(F7).",
+  "analyst_intervention": [
+    {
+      "kc_id": "KC-1",
+      "type": "carry_over_reconfirm",
+      "fact": "FRED DFEDTARU 최신 관측치 FFR=4.00 (as_of 2026-10-01, method=api). 직전 run(20260925_1015, as_of 09-24)과 동일값. 2026-09-25~10-01 구간 신규 FOMC 결정 확인 안 됨(다음 정례회의는 통상 10월 하순 — 본 run 시점 기준 미개최).",
+      "inference": "없음. [FFR 4.00 > 임계 3.75] 비교만으로 met 성립.",
+      "record": "🔴🔴 KC-1 met & confirmed — 3개 연속 run(09-19, 09-25, 10-01) 동일 상태 유지. 신규 발생 아닌 재확인. 사람 확인 필요."
+    },
+    {
+      "kc_id": "KC-9",
+      "type": "duration_interpretation_both_recorded",
+      "fact": "FRED DCOILBRENTEU 09-02~09-29 관측(desc): 09-29(113.96,<120) 09-28(119.97,<120) 09-25(116.01,<120) 09-24(120.92,>=120) 09-23(117.45,<120) 09-22(114.89,<120) 09-21(116.15,<120) 09-18(119.66,<120) 09-17(121.18,>=120) 09-16(127.84,>=120) 09-15(130.8,>=120) 09-14(121.25,>=120) 09-11(118.06,<120) 09-10(120.98,>=120).",
+      "inference": "해석A(연속 — 끊김 없이 임계 상회 지속): 최장 연속구간은 09-14~09-17(4거래일), 09-18 하회로 종료. 09-24 1거래일 재상회 후 09-25 재하회 — '1개월 지속' 미충족. 해석B(누적 — 1개월 관측창 내 상회일수 비중): 09-10~09-29(14거래일) 중 상회 6일/14일 — 과반 미달로도 '1개월 지속' 미충족. 두 해석 모두 현 데이터로는 결론 동일(미충족)이나, 정의 자체는 사람 확정 사안(P11)이므로 판정 근거로 자동 확정하지 않음.",
+      "record": "KC-9=not_met/provisional(kc_eval.py 자동 판정, duration 태그로 provisional 유지). duration 정의(연속 vs 누적) 확정은 사람 영역 — config/kill_conditions.yaml 수정 필요 시 제안만 가능(P17/§9)."
+    },
+    {
+      "kc_id": "KC-4",
+      "type": "carry_over_value_update",
+      "fact": "ON_RRP(FRED RRPONTSYD) 현재값 $11,539,000,000 (as_of 2026-09-30). 직전 run($630M, 09-24) 대비 약 18배 증가. 여전히 임계 $200B 대비 1자리 수 이상 낮음.",
+      "inference": "없음 — 방향성 해석(유동성 회복 여부 등) 없이 수치만 기록.",
+      "record": "KC-4 not_met/confirmed 유지(VIX 16.26 <25 동시 미충족). 맥락에서 언급된 '잔고 실제 고갈($576M)' 사안은 이전 run 기록이며 본 run 신규 판단 아님 — 추가 개입 없음."
+    },
+    {
+      "kc_id": "KC-6",
+      "type": "source_conflict_unresolved",
+      "fact": "SDLLMTK 절대수준 인용치가 소스별 상이: cio.com(2026-07-03) '1.62, 5월 고점대비 -20%' / sanj.dev(2026-08 인용) '1.02, 7일간 -9.1%' / x.com 게시물(날짜 불명) '~2.12 급등'. 2주 구간 %변화 직접 수치는 어느 소스에도 없음.",
+      "inference": "없음.",
+      "record": "값 채택 보류 — unconfirmed(P4, P5). KC-6 not_met/provisional 유지(미수집 처리와 동일 효과). 직전 run(09-25)도 동일 공백이었음."
+    }
+  ]
+}

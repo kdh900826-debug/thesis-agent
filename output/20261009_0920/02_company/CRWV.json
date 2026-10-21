@@ -1,0 +1,214 @@
+{
+ "ticker": "CRWV",
+ "run_id": "20261009_0920",
+ "as_of": "2026-10-09",
+ "staleness_days": 1,
+ "underlying_primary_event_date": "2026-10-07",
+ "lookback_window": {
+  "since": "2026-10-01",
+  "until": "2026-10-09",
+  "note": "지시된 창 2026-10-01~2026-10-09(1일 중첩). EDGAR submissions API(CIK 0001769628)를 --since 2026-10-01로 재조회(10-K/10-Q/8-K) 결과 0건. 서식 가정 재검증을 위해 --since 2026-09-20으로 전 서식 목록을 확인한 결과 창 내 제출은 Form 4 11건(2026-10-01~10-08)과 Form 144 1건(2026-10-06)뿐이며 8-K·10-Q·10-K·424B5·S-3 신규 제출은 없다(마지막 8-K는 2026-09-22 전환사채 결제 건, 직전 run들에서 처리). 창 내 신규 1차 자료는 CoreWeave IR(investors.coreweave.com) 보도자료 1건(2026-10-07 인도 진출)이다. 창 밖이지만 직전 run들에서 미포착된 1차 자료 2건(2026-08-07 DDTL 5.5 신용계약 Ex 10.1 / 2026-09-30 Ennoble Care 보도자료)은 out_of_window: true로 기재했다."
+ },
+ "claims": [
+  {
+   "id": "c_20261009_CRWV_1",
+   "ticker": "CRWV",
+   "claim_type": "fact",
+   "text": "CoreWeave는 2026-10-07 IR 보도자료 'CoreWeave Enters India, Expanding AI Cloud Platform With AdaniConneX'를 통해 인도 시장 진출을 공시했다. 내용: 인도 나비뭄바이 AdaniConneX Taloja 캠퍼스에 총 240MW 규모 데이터센터 용량을 계획(80MW 건물 3동, CoreWeave 단독 테넌트), 동일 캠퍼스에 최대 240MW를 추가하는 확장 옵션(최대 480MW), 1단계 가용 시점은 2028년 중반(mid-2028)이며 이후 단계적 추가, NVIDIA Vera Rubin 플랫폼 배치 계획, 직접 액체냉각(DLC) 및 비증발식 냉수 시스템 적용, 인도 법인 설립·현지 채용 계획. 보도자료는 투자금액·임대료·계약기간 등 금융 조건을 공시하지 않았다(AdaniConneX = Adani Enterprises와 EdgeConneX의 50:50 합작은 보일러플레이트 기재). 보도자료는 2026-08-11 실적 콜 시점 계약 전력을 약 4.2GW로 인용했다.",
+   "evidence_grade": 1,
+   "source": {"type": "press_release", "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Enters-India-Expanding-AI-Cloud-Platform-With-AdaniConneX/default.aspx", "filed_at": "2026-10-07"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "noise_filter#CRWV 승격 조건 직접 해당 없음, 단 CLAUDE.md P3 '수주·양산일정'(신규 대형 용량·가용 시점)에 해당해 승격(애매하면 승격). 보도자료는 'plans'·'collaboration' 어휘이며 구속력 있는 임대계약 체결 여부·조건이 원문에 없다 — P7 1단계(계획/발표)이고 이행·매출인식 단계 아님. 용량은 공급측(전력) 지표로 고객 백로그 금액이 아니다. 2차 매체(DCD·aninews·inc42 등)는 10-06/10-07 일자 불일치가 있으나(DCD 10-06, Business Wire 10-07) 1차 IR 일자 10-07을 채택. 참고: 보도자료의 계약 전력 4.2GW는 2026-06-30 기준 약 3.7GW(2Q26 실적 8-K)와 차이가 있으며 8-11 콜 시점의 Q3 초 신규 약정 포함 수치로 보이나 정의 차이는 원문에 설명이 없다(unconfirmed 이월)."
+  },
+  {
+   "id": "c_20261009_CRWV_2",
+   "ticker": "CRWV",
+   "claim_type": "fact",
+   "text": "2026-08-07 체결·2026-08-10 8-K(Items 1.01·2.03·7.01)로 공시된 DDTL 5.5 신용계약(Borrower: CoreWeave Financing DDTL V-V, LLC, $26억 지연인출 대출, 만기 2031-09-01, Term SOFR+5.50%, 미인출 수수료 연 0.50%, 인출 가능 기간 2026-12 종료, 모회사 보증 및 Borrower 자산 담보)의 Ex 10.1 원문에서 현금 보류 조항을 직접 확인했다. (1) 'Cash Trap Event'는 매 월별 지급일 기준 (a) Master Services Agreement 중대한 위반이 존속하며 서면 면제되지 않았고 상대방에게 해지권을 부여하는 경우, 또는 (b) Projected Contract Value Ratio(Total Projected Contract Value ÷ 대출 미상환 원금)가 2.40:1.00 미만인 경우로 정의된다. (2) 'Cash Sweep Event'는 Cash Trap Event가 월별 지급일 3회 연속 지속된 경우이며, 발생 시 5영업일 내 Collateral Accounts 현금 100%로 대출을 조기상환해 PCVR을 2.40:1 초과로 되돌려야 한다(계좌 내 현금 한도). (3) 8-K 본문: 대출 인출 종료 후 월 단위 Debt Service Coverage Ratio 1.35x 이상 유지 의무(위반 기준일 = 약정 소진 또는 2026-12-31 중 이른 시점 이후 첫 완전월), 교차부도·지배권 변경·파산 및 '특정 중요계약 관련 불리한 사건' 부도사유 포함. 2026-10-08 Benzinga·Investing.com 등 2차 매체가 (a)만 부각해 '숨은 조기상환 조항'으로 보도했으나 (b) PCVR 2.40:1 조건은 보도에서 누락됐다.",
+   "evidence_grade": 1,
+   "source": {"type": "8-K", "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000357/ex101creditagreement.htm", "filed_at": "2026-08-10"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": true,
+   "note": "창 밖(공시 2026-08-10, 계약 08-07) 1차 자료이나 2026-10-08 2차 매체 보도로 재부각되어 covenant 관련 공시(noise_filter#CRWV promote_if)로 승격. 신규 사건 아님 — 이번 창에 Cash Trap/Sweep 트리거 발동·covenant 위반·부도 공시는 없다. Total Projected Contract Value(분자) 및 현재 PCVR 실측치는 공개 자료에 없어 트리거 근접도는 산출 불가(unconfirmed). 직전 run들의 DDTL 5.5 서술(만기·금리·한도)은 있으나 Cash Trap/Sweep 정의 원문은 본 run에서 처음 기재."
+  },
+  {
+   "id": "c_20261009_CRWV_3",
+   "ticker": "CRWV",
+   "claim_type": "fact",
+   "text": "CoreWeave는 2026-09-30 자사 뉴스룸에 'Ennoble Care Selects CoreWeave to Power AI Inference Across Its Home-Based Care Network'를 게시했다. 가정 기반 1차·완화·호스피스 케어 제공자이자 ACO인 Ennoble Care가 NVIDIA RTX PRO 6000 Blackwell Server Edition 노드를 CoreWeave Kubernetes Service(CKS)에 전용·예약 용량으로 배치해 임상 AI 추론을 운영한다. 계약기간·금액·GPU 수량·MW는 원문에 공시되지 않았다.",
+   "evidence_grade": 1,
+   "source": {"type": "press_release", "url": "https://coreweave.com/news/ennoble-care-selects-coreweave-to-power-ai-inference-across-its-home-based-care-network", "filed_at": "2026-09-30"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": true,
+   "note": "창 밖(2026-09-30) — 직전 run(20261001_0900)에서 미포착된 신규 실명 고객으로 P3 '고객명'에 해당해 기록하되 이번 창 Delta 근거로는 사용하지 않는다. 계약금액·기간 미공시로 P7 1단계(도입 발표). 같은 기간 미포착 건: Harell Data 다년 계약 보도자료(2026-09-23, 금액 미공시, 웹검색 요약으로만 확인 — 1차 원문 본문 미열람이라 Claim 미생성), Partner Network 출시(2026-09-30, 제품 성격)."
+  },
+  {
+   "id": "c_20261009_CRWV_4",
+   "ticker": "CRWV",
+   "claim_type": "inference",
+   "text": "인도 240MW(+옵션 240MW) 계획(c_20261009_CRWV_1)은 CoreWeave의 계약·공급 전력 확장 방향과 일치하나, 임대료·투자금 분담·계약기간이 미공시이고 1단계 가용이 2028년 중반이라 향후 수년간의 자본지출·리스 부채 부담이 어느 규모로 증가하는지는 이번 자료로 산출할 수 없다. 레버리지 축으로의 이관은 가능성 수준에서만 표기한다.",
+   "evidence_grade": 1,
+   "source": {"type": "press_release", "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Enters-India-Expanding-AI-Cloud-Platform-With-AdaniConneX/default.aspx", "filed_at": "2026-10-07"},
+   "inference_strength": "weak",
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "c_20261009_CRWV_1에서 파생된 해석. 정량 근거 없음 — 시그널 상향 근거 부적격(P2)."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "backlog_scale",
+   "direction": "strengthen",
+   "stage": "약(weak) — 계획/발표(P7 1단계), 이행·매출인식 미확인",
+   "prior_state": "직전 run(20261001_0900): 백로그 금액 관련 신규 1차 공시 없음, 상태 유지(neutral). 카드 기준 백로그 약 $104B(2026-06-30, 2Q26 8-K 보도자료 재확인: '약 $104B', 별도로 Q3 초 순신규 약정 $25B+ 언급).",
+   "new_state": "2026-10-07 IR 공시(c_20261009_CRWV_1)로 인도 Taloja 캠퍼스 240MW(+240MW 옵션, 1단계 2028년 중반) 계획이 확인됐다. 공급측 스케일(계약 전력) 확장 신호이나 구속력 있는 임대계약 여부·금융 조건이 원문에 없고, 고객 백로그 금액 갱신은 없다. 따라서 방향은 약한 강화로 제한하며(정성·미정량, c_20261009_CRWV_4), 백로그 수치 축 판정에는 반영하지 않는다. 2026-10-08 2차 매체의 'CEO 주문 감소 없음' 류 재인용은 1차 미확인으로 근거에서 제외(P4).",
+   "risk_transfer_to": ["leverage_coverage"],
+   "supporting_claims": ["c_20261009_CRWV_1", "c_20261009_CRWV_4"]
+  },
+  {
+   "axis": "funding_access",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run: 2026-09-22 전환사채 $4.2B 결제 완료, 교차부도 문턱 최초 공시 이후 추가 조달 공시 없음.",
+   "new_state": "이번 창 신규 차입·차환·증자 공시 없음(EDGAR 8-K·424B5·S-3 0건). 2026-10-07/08 일부 애그리게이터가 '$3.0B 전환사채 및 최대 35M주 ATM 개시'를 신규 사건처럼 보도했으나, 둘 다 2026-09-17 8-K(Item 7.01/8.01)·424B5 및 09-22 8-K로 이미 공시·결제 완료(전환사채는 $4.2B로 증액)된 기존 사실의 재인용이다(discarded_noise_log 참조). DDTL 5.5 Cash Trap/Sweep 조항(c_20261009_CRWV_2)은 2026-08 기공시 조건으로 이번 창에 트리거·위반 사건 없음 — 조항 구조만 신규 기록. 상태 유지.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20261009_CRWV_2"]
+  },
+  {
+   "axis": "leverage_coverage",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run: KC-CRWV-3 공식 산식(Adj. EBITDA ÷ Interest expense, net·분기 연환산) Q2'26 2.36x(1,510/640).",
+   "new_state": "이번 창 이자비용·Adj. EBITDA 신규 1차 공시 없음(Q3 2026 10-Q 미도래). 2Q26 8-K 재대조: Adj. EBITDA $1,510M·Interest expense, net $640M·마진 59% 일치 확인(산식 값 변동 없음). 참고 대차대조표 합산(recourse 유동 6,235+비유동 25,170, non-recourse 유동 1,278+비유동 2,385 = 약 $35.07B)은 직전 run 기재와 일치. 인도 확장(c_20261009_CRWV_4)의 부채 영향은 미공시로 산출 불가 — 관측치 갱신 없음.",
+   "risk_transfer_to": [],
+   "supporting_claims": []
+  },
+  {
+   "axis": "margin_trend",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "확정 기준(QoQ, 2026-09-20 사용자 결정) Q1'26 56% → Q2'26 59% = +3%p. YoY 참고 -3%p.",
+   "new_state": "이번 창 마진 관련 신규 1차 자료 없음 — 확정 기준·관측치 동일 유지. 재판정 점검: 카드의 '마진 59% 하락 추세' 서술은 key_metrics·risks(2026-09-25) 및 earnings_checkpoints(2026-10-01)에서 이미 정정 반영되었고, 카드 전문 재확인 결과 '하락 추세'를 현재형 사실로 서술한 잔여 문구는 없다(axes margin_trend 라벨은 원문 보존 주석 형태로 YoY/QoQ 병기).",
+   "risk_transfer_to": [],
+   "supporting_claims": []
+  },
+  {
+   "axis": "gpu_priority",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run: Cognition 프로덕션 가동으로 Vera Rubin NVL72 실사용 단계 확인(strengthen/strong).",
+   "new_state": "이번 창 Vera Rubin 생산·GPU 배정 관련 신규 1차 공시 없음. 인도 계획의 Vera Rubin 배치는 2028년 중반 가용 예정 계획 문구뿐이라 배정·공급 확인으로 보지 않는다(c_20261009_CRWV_1). 직전 run 판단 유지, 추가 델타 없음.",
+   "risk_transfer_to": [],
+   "supporting_claims": []
+  },
+  {
+   "axis": "customer_concentration",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run: Cognition·MasterClass·Canva 실명 공시, 금융서비스 고객 백로그 비중 약 10% 공시 — weak strengthen.",
+   "new_state": "이번 창(2026-10-01~)에 신규 실명 고객 공시 없음. 창 밖 2026-09-30 Ennoble Care(c_20261009_CRWV_3)는 계약 조건 미공시이며 이번 창 근거로 쓰지 않는다. 인도 건은 테넌트가 CoreWeave 단독이라는 공급측 정보로 고객 집중도와 무관. 상위 고객 매출 비중 갱신 없음(Q3 10-Q 대기).",
+   "risk_transfer_to": [],
+   "supporting_claims": []
+  },
+  {
+   "axis": "litigation",
+   "direction": "neutral",
+   "stage": "없음",
+   "prior_state": "직전 run: Masaitis v. CoreWeave(D.N.J. 2:26-cv-00355) 리드플레인티프 마감(2026-03-13) 이후 공개 업데이트 미확인.",
+   "new_state": "웹검색 및 CourtListener RECAP 검색 목록 재확인: D.N.J.에 Masaitis(2:26-cv-00355, 목록상 최근 서류 2026-03-30), 주주대표소송 Roy v. Intrator(2:26-cv-01345, 2026-02-16), Smith v. Intrator(2:26-cv-01305, 2026-05-18)가 조회되나 모두 이번 창 이전 서류이며 디스커버리 진전·화해·기각 신결정은 확인되지 않았다. 목록의 '최근 서류' 일자는 RECAP 수록분 기준이라 도켓 전체 최신 상태와 다를 수 있다. P5에 따라 정보 공백을 판단 근거로 사용하지 않음 — neutral.",
+   "risk_transfer_to": [],
+   "supporting_claims": []
+  }
+ ],
+ "unconfirmed": [
+  {
+   "topic": "Q3 2026 실적 발표일 공지",
+   "detail": "[신규 점검] 2026-10-09 시점 CoreWeave IR/8-K에 'Date of Third Quarter 2026 Financial Results and Conference Call' 공지는 확인되지 않았다. 과거 패턴(Q1: 04-17 공지→05-07, Q2: 약 3주 전 공지→08-11)상 10월 말 공지 가능성이 있으나 이는 패턴 관찰이며 사실이 아니다. AJ Bell·EarningsWhispers 등 애그리게이터가 11-10을 표기하나 추정 라벨(F1)로 판정 근거 불가. 카드 earnings_checkpoints.date는 null 유지.",
+   "reason": "not_yet_announced_by_company"
+  },
+  {
+   "topic": "DDTL 5.5 Projected Contract Value Ratio 현재값 및 Cash Trap 근접도",
+   "detail": "[신규] c_20261009_CRWV_2 — PCVR = Total Projected Contract Value ÷ 미상환 원금, 트리거 2.40:1 미만. 분자(계약 예상가치)·현재 인출 잔액이 공개 자료에 없어 현재 비율을 산출할 수 없다. 약정 인출기간은 2026-12 종료. Q3 2026 10-Q 부채 각주 대조 대기.",
+   "reason": "denominator_numerator_not_disclosed"
+  },
+  {
+   "topic": "인도 AdaniConneX 건의 구속력 있는 임대계약 여부·임대료·계약기간·투자금 분담",
+   "detail": "[신규] c_20261009_CRWV_1 — 보도자료에 금융 조건 없음. Q3 10-Q 리스 약정 각주 또는 8-K Item 1.01 제출 여부 대조 필요.",
+   "reason": "contract_terms_not_disclosed"
+  },
+  {
+   "topic": "계약 전력 수치 정의 차이(약 3.7GW @2026-06-30 vs 약 4.2GW @2026-08-11 콜)",
+   "detail": "[신규] 2Q26 8-K 보도자료는 약 3.7GW, 인도 보도자료는 8-11 콜 시점 약 4.2GW로 인용. 차이 0.5GW가 Q3 초 신규 약정($25B+)에 대응하는지 원문에 설명 없음. 8-11 콜 전사 원문(grade 2) 미확보.",
+   "reason": "definition_not_stated"
+  },
+  {
+   "topic": "FY26 매출 가이던스($12.4-13.2B)·CapEx 가이던스($35-39B)·Q3 가이던스의 1차 자료 재대조",
+   "detail": "[이관·진전] 2Q26 8-K 보도자료는 'Business Outlook'에서 가이던스를 실적 콜에서만 제공한다고 명시해 보도자료에 가이던스 수치가 없음을 직접 확인했다(grade 1). 따라서 1차 확인은 콜 전사/프레젠테이션(8-K Ex 99.2 부재 확인) 필요 — 2차 매체는 Q3 가이던스로 매출 $3.45-3.6B·조정영업이익 $200-260M·이자비용 $860-940M·CapEx $11.5-13.5B를 인용하나 grade 3/4로 판정 근거 불가. Task 0 잔여(u_20260815_001).",
+   "reason": "guidance_given_on_call_only_transcript_not_secured"
+  },
+  {
+   "topic": "2026-10-07 애그리게이터 '전환사채 $3.0B·ATM 35M주 개시' 보도의 신규성",
+   "detail": "[신규 점검] 창 내 8-K·424B5·S-3 제출 0건. 동일 내용은 2026-09-17 8-K·424B5로 이미 공시(전환사채 $4.2B 증액·2026-09-22 결제 완료). ATM 실제 매각 수량·평균 단가는 여전히 미공시(Q3 10-Q 대기).",
+   "reason": "aggregator_misdating_primary_confirms_prior_event"
+  },
+  {
+   "topic": "이자 커버리지 잔여 정의 공백 — 총이자비용·자본화이자·이자수익 분리 수치",
+   "detail": "[이관] 산식 확정(2026-09-20), 관측치 Q2'26 2.36x. 분리 수치는 Q3 2026 10-Q 대기.",
+   "reason": "awaiting_q3_10q"
+  },
+  {
+   "topic": "CoreWeave Q2 2026 CapEx 현금흐름표 브리지(회사 정의 $9,352M vs GAAP PP&E 매입액 $6,422M)",
+   "detail": "[이관] 8-K 보도자료에서 PP&E 매입 $6,422M 재확인. 금융리스·미지급 CapEx 브리지는 미공시.",
+   "reason": "not_disclosed_awaiting_q3_10q"
+  },
+  {
+   "topic": "신규 전환사채 결제 후 총부채·미인출 한도·covenant 준수 상태(통합)",
+   "detail": "[이관] 결제 반영 통합 총부채·가중평균 이자율 미공시.",
+   "reason": "no_disclosure_awaiting_q3_10q"
+  },
+  {
+   "topic": "Masaitis v. CoreWeave 및 주주대표소송(Roy·Smith v. Intrator) 진행상황",
+   "detail": "[이관] CourtListener 목록 수준 확인만 수행(최근 서류 모두 창 이전). 도켓 개별 서류(리드플레인티프 지정·통합소장·기각신청) 미열람.",
+   "reason": "docket_entries_not_reviewed"
+  },
+  {
+   "topic": "CEO 'no reduction in orders' 발언 1차 확인 / Related Digital 샤이엔 임대 1차 확인 / Cognition·MasterClass·Canva·Ennoble Care·Caterpillar·CrowdStrike 계약금액",
+   "detail": "[이관] 직전 run 미결 항목 — 이번 창에도 1차 확인 자료 없음.",
+   "reason": "carried_over_from_prior_run"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "title": "Form 4 11건(2026-10-01~10-08 제출; 거래일 2026-09-29~10-06) 및 Form 144 1건(2026-10-06) — CEO Intrator·CSO Venturo·CDO McBee·COO Jain·GC McVeety·CFO Agrawal·PAO Baker·EVP Goldberg·이사 Boone",
+   "reason": "noise_filter#CRWV 'CEO 인사이더 매도 반복 보도(사실은 기록, 반복은 노이즈)'. 사실 기록: 9/29 Intrator S 코드 3개 가격구간 3개 구간 합계 17.6만주 이상($85.86~87.65대, 보유 511,007주로 감소), 9/30 Intrator·McBee·Venturo M(권리행사/RSU)+S 후 보유 감소(Intrator S 78,552주 @ $87.69), 일부 임원 8~9주 소량 S, 10/06 CFO Agrawal S 3주 @ $88.60(footnote (1) 거래계획), 이사 Boone M 1,460주. 보도(Investing.com)의 '$26.6M, 297,692주' 합계는 9/29~9/30 기제출분 포함. 매출·가이던스·마진·현금흐름·고객·수주·일정 변화 없음(P3), 인사이더 지분 변동은 거버넌스 리스크 승격 조건에도 반복 패턴이라 해당 안 됨 — 직전 run(20261001_0900) 폐기 기준과 동일."
+  },
+  {
+   "title": "2026-10-07 StocksToTrade·2026-10-08 Investing.com 등 '전환사채 $3.0B·ATM 35M주 신규 개시로 희석 우려' 보도",
+   "reason": "2026-09-17 8-K·424B5 및 09-22 8-K로 이미 공시·결제 완료된 기존 사실의 재인용(애그리게이터 일자 오기). 유상증자·CB 자체는 promote_if 대상이나 신규 이벤트 아님 — 직전 run 영역에서 Claim 포착 완료이며 이번 창 신규 공시 0건으로 EDGAR 대조 확인(unconfirmed 참조)."
+  },
+  {
+   "title": "CRWV 주가 하락(10/08 종가 약 $81.58, 약 -8%), ARK Invest 보유 증가(10/07), Northland PT 상향·Rosenblatt 신규 커버리지 등 애널리스트 의견",
+   "reason": "noise_filter#common '단순 주가 변동·일간 등락', '애널리스트 PT·투자의견 변경 단독'. 가이던스·현금흐름·고객·수주 변화 없음(P3)."
+  },
+  {
+   "title": "2026-10-02 StocksToTrade 'Nvidia ties deepen, AI cloud backlog soars' 및 Blockfusion Niagara Falls 15년 앵커 임대(2026-09-16 공표) 재인용 기사",
+   "reason": "애그리게이터 재인용(원출처 없는 정량 수치 인용 패턴). Blockfusion 건은 창 이전(09-16) 이벤트이며 Blockfusion 자사 발표·DCD 2차 보도뿐, CoreWeave 1차 공시 미확인(P4) — Claim 미생성, 필요 시 차기 run 1차 역추적."
+  },
+  {
+   "title": "10-08 Investing.com 'little-noticed clause' 보도 자체(AI 생성 보조 기사)",
+   "reason": "조항 내용은 SEC Ex 10.1 원문으로 역추적해 c_20261009_CRWV_2로 1차 확인(보도는 (b) PCVR 조건 누락). 보도 자체는 grade 3/4로 판정 근거 불가."
+  }
+ ],
+ "reused_from": "output/20261001_0900/02_company/CRWV.json",
+ "notes": "P17 컨텍스트 격리 준수 — .claude/agents/company-crwv.md, CLAUDE.md, 스킬 SKILL.md 5종, state/thesis_cards/CRWV.yaml(전문 열람, F20), config/noise_filter.yaml, config/sources.yaml, 자기 종목 과거 산출물(output/*/02_company/CRWV.json, 존재·키워드 대조 및 형식 기준), 자기 출력 경로만 열람했다. 타 종목 카드·산출물, 01_macro_kc.json, 04_sector/*, 03_signal/*, state/signals.json은 열람하지 않았다. 시그널 등급 판정은 하지 않았다.\n\n[이번 창의 성격] EDGAR 정기·수시 공시 0건(Form 4/144만 존재). 핵심 1차 자료는 (1) 2026-10-07 인도 240MW 진출 IR 보도자료(백로그 금액 아닌 공급측 스케일, 금융 조건 미공시)이며, (2) 2026-10-08 2차 매체가 부각한 DDTL 5.5 'Cash Trap' 조항을 SEC Ex 10.1 원문으로 역추적해 보도가 누락한 PCVR 2.40:1 트리거와 DSCR 1.35x 약정을 1차 확인했다(창 밖 기공시, 트리거 발동 사건 없음). funding_access는 신규 사건이 없으므로 neutral — 다만 KC-CRWV-3 '차환 실패·covenant 위반' 서브조건의 정량 관측 기준(교차부도 문턱, DDTL 5.5 Cash Trap/Sweep·DSCR)이 누적되고 있어 카드 risks 주석(annotate) 후보로 상정한다(승인 경로 별도, 본 에이전트는 카드 미수정).\n\n[margin_trend 재판정(확정 정의 적용)] 판정 기준 = 시퀀셜(QoQ): Q1'26 56% → Q2'26 59% = +3%p 개선(2Q26 8-K 보도자료 Adj. EBITDA $1,510M, 마진 59% 재대조 일치). 카드 key_metrics·risks·earnings_checkpoints의 YoY 전제 '하락 추세' 문구는 2026-09-25/10-01 패치로 이미 정정되어 추가 정정 후보는 없다. 이번 창 신규 마진 자료가 없어 방향은 neutral.\n\n[KC 관측 — 판정 아님] KC-CRWV-3: 이번 창 신규 재무 수치 없어 Q2'26 2.36x 유지(재계산 근거 없음), 차환·covenant 위반 사건 없음. KC-CRWV-1: 고객 훼손 공시 없음. KC-CRWV-2(Vera Rubin 지연): 신규 공시 없음. 판정은 signal-arbiter 영역.\n\n[Task 0 진전] 2Q26 8-K 보도자료 직접 대조로 매출 $2,575M·백로그 약 $104B·Adj. EBITDA $1,510M·마진 59%·순이자비용 $640M·PP&E 매입 $6,422M·활성 전력 1.5GW·계약 전력 약 3.7GW 확인. 가이던스 수치는 보도자료에 없고(콜 전용) 1차 재대조 미완."
+}

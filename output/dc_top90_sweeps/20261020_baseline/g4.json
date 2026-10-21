@@ -1,0 +1,280 @@
+{
+  "group": "g4",
+  "checked_at": "2026-10-20",
+  "window": ["2026-07-07", "2026-10-20"],
+  "notes": ["이번 점검 도중 세션 공용 WebSearch 한도(200회)에 걸려 p48 이후 일부 프로젝트는 추가 검색 없이, 이미 찾은 URL을 직접 열어 확인했다. 정보 부재는 반증이 아니다."],
+  "projects": [
+    {
+      "id": "p46",
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "2026-06-04 아이언 카운티 계획위원회 승인 이후 7/7~10/20 사이 착공·소송·추가 인허가 소식은 찾지 못했다(10/20 기준).",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "전력: 리포트는 Grid로 적었지만 보도는 부지 내 천연가스 발전소(완공 시 최대 1.5GW)로 자체 전력 공급. DataCenterMap은 300MW 자가발전으로 적어 수치가 엇갈림",
+        "개발사 표기: 리포트 'Pronghorn Development LLP' / Baxtel 'Pronghorn Development LLC'",
+        "부지: 시더시티 서쪽 Antelope Spring Road, 640에이커, 5개 동 약 135만 sq ft (Baxtel 2026-06-13)"
+      ]
+    },
+    {
+      "id": "p47",
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 추적 사이트는 모두 '계획(planned)' 단계로 표시하고, 7/7 이후 빅토리아 부지에 관한 신규 발표·인허가·착공 소식은 찾지 못했다.",
+      "holds": [],
+      "events": [
+        {"date": "2026-09-18", "kind": "자금", "title_ko": "Crusoe 회사 차원 시리즈 F 39억 달러 조달(빅토리아 부지와 직접 연결 안 됨)", "detail_ko": ["Baxtel 뉴스 목록에 따르면 Crusoe가 9/18 시리즈 F로 39억 달러를 조달했고 기업가치는 309억 달러로 평가됐다.", "빅토리아 프로젝트에 쓰인다는 언급은 없다. 같은 목록에 9/26 Boom Supersonic 가스터빈 12.5억 달러 주문 철회도 있으나 어느 부지용인지 확인하지 못했다."], "grade": 4, "src": [{"t": "Baxtel Crusoe 뉴스", "u": "https://baxtel.com/news/data-centers/crusoe"}]}
+      ],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "전력: 리포트 Grid / 추적 사이트는 Blue Energy와 협력해 2028년 가스 발전으로 시작, 2031년 원자력으로 전환하는 자체 전력 계획으로 설명",
+        "위치: Cleanview는 Calhoun County 약 1,600에이커로 표기(빅토리아 항 인근). 카운티 확인 필요"
+      ]
+    },
+    {
+      "id": "p48",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": "X",
+      "status_ko": "10/20 기준 앵커 임차인이 없다. CoreWeave가 2026년 4월 초 15년 임차(1단계 250MW, 500MW까지 확장 옵션)에서 빠진 뒤, 7/7 이후에도 대체 임차인 계약은 확인되지 않았다. Poolside 자금 조달도 축소돼 2단계(1.5GW)는 사실상 불확실하다.",
+      "holds": ["앵커 임차인 부재·자금 조달 불확실(CoreWeave 철수)", "텍사스 9/21 TCEQ 인허가 중단: 부지 내 가스 발전 대기 허가가 남아 있다면 대상일 수 있음(해석·미확인)"],
+      "events": [
+        {"date": "2026-04-04", "kind": "고객", "title_ko": "(기준선 이전) CoreWeave 앵커 임차 계약 무산, 구글과의 대체 협상도 중단 보도", "detail_ko": ["FT 보도(소식통 5명)를 인용한 Baxtel 기사: 2025년 말 Poolside가 첫 칩 클러스터 배치 일정을 지키지 못하면서 협력이 틀어졌고, CoreWeave는 '전략·일정상 이유로 각자 다른 길을 택했다'고 밝혔다.", "Poolside는 최대 400MW 약정을 놓고 구글 등과 접촉했지만, FT 소식통은 구글이 더 이상 협상하지 않는다고 했다.", "7/7 기준선 리포트(단계 3)에는 이 철수가 반영되지 않은 것으로 보인다."], "grade": 4, "src": [{"t": "Baxtel(FT 인용) 2026-04-04", "u": "https://baxtel.com/news/poolside-pursues-new-partners-for-texas-data-center-following-coreweave-deal-breakdown"}]},
+        {"date": "2026-07-30", "kind": "고객", "title_ko": "7/30 기준 대체 앵커 임차인 서명 없음, 가스터빈 약정·부지 공사 일부 보류 보도", "detail_ko": ["Tech Insider(7/30 갱신)는 대체 앵커 임차인이 없고 Poolside가 일부 가스터빈 약정과 부지 작업, 채용을 멈췄다고 적었다.", "시리즈 C(20억 달러, 프리머니 140억 달러)는 4월 초 무산됐고 약 2.5억 달러 수준의 비확정 약정만 있었다고 한다. 출처 신뢰도가 낮아 확인이 필요하다."], "grade": 4, "src": [{"t": "Tech Insider", "u": "https://tech-insider.org/poolside-ai-project-horizon-coreweave-2gw-texas-collapse-2026/"}]},
+        {"date": "2026-08", "kind": "자금", "title_ko": "Poolside 소규모 전략 투자 유치(130억 달러 평가) 보도, 인프라 약정은 없음", "detail_ko": ["같은 Tech Insider 페이지는 8월 Poolside가 기업가치 130억 달러로 소규모 전략 라운드를 마쳤다고 전했다. 앵커 투자자나 데이터센터 인프라 약정은 공개되지 않았다.", "9월 Caplight 기준 공개 누적 조달액은 6.26억 달러로 적혀 있어, 2GW 캠퍼스를 자체 자금으로 짓기에는 크게 부족하다."], "grade": 4, "src": [{"t": "Tech Insider", "u": "https://tech-insider.org/poolside-ai-project-horizon-coreweave-2gw-texas-collapse-2026/"}]},
+        {"date": "2026-06-30", "kind": "기타", "title_ko": "CoreWeave 2분기 10-Q: 데이터센터 개발사 임차 선급금 1.08억 달러, Poolside 이름은 없음", "detail_ko": ["CoreWeave 10-Q(6/30 분기)는 비연결 데이터센터 개발사 임차와 관련한 최대 손실 노출을 선급금 1.08억 달러로 공시했다.", "검색 요약에서 확인한 범위에는 Poolside·Horizon·Pecos가 언급되지 않아 철수에 따른 손실 처리 여부는 확인하지 못했다."], "grade": 1, "src": [{"t": "CoreWeave 10-Q (2026-06-30)", "u": "https://www.sec.gov/Archives/edgar/data/0001769628/000176962826000366/crwv-20260630.htm"}]}
+      ],
+      "followup": {"needed": true, "why": "앵커 임차인 철수 후 대체 계약이 없고 자금 조달이 불확실해 단계 X 후보. CRWV 백로그·선급금 노출과도 연결된다.", "questions": ["CoreWeave 10-Q/10-K 리스 주석에 Poolside 임차 해지·손실 처리가 나오는가?", "Poolside가 Horizon 대체 임차인(구글 외)이나 인프라 투자자와 계약했는가?", "Pecos County 부지의 가스터빈·대기 허가 상태와 공사 중단 여부(위성사진·카운티 자료)", "1단계 부지 정지 공사(2026년 3월 위성사진)가 이후 멈췄는가?"], "next_check": "2026-11 CoreWeave 3분기 10-Q 공시 시점"},
+      "tickers_touched": ["CRWV", "NVDA"],
+      "data_issues": [
+        "전력: 리포트는 Grid로 적었지만 계획은 부지 내 천연가스 터빈 중심의 계통 미연결(behind-the-meter) 방식에 계통 백업",
+        "규모: 전체 2GW(250MW씩 8단계)이고 리포트의 'Phase 2 1.5GW'는 1단계 500MW를 뺀 나머지로 보임. 부지는 Longfellow Ranch 568에이커",
+        "임차인: CoreWeave 앵커 계약은 2026년 4월 초 무산(FT·CoreWeave 대변인 발언). 기준선은 이 사실을 반영하지 않은 것으로 보임"
+      ]
+    },
+    {
+      "id": "p49",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": "C",
+      "status_ko": "Baxtel은 10/20 확인 시점에 이 프로젝트를 '철회(Withdrawn)·착공 전 취소'로 표시하고 운영사가 고센 프로젝트를 진행하지 않는다고 적었다. 날짜와 1차 자료는 확인하지 못했다.",
+      "holds": ["NIPSCO 계통 연결·송전 증설 분쟁, IURC Cause No. 46183(Baxtel 서술)"],
+      "events": [
+        {"date": "", "kind": "중단", "title_ko": "Baxtel, Takanock 고센 프로젝트 '철회·착공 전 취소'로 표시", "detail_ko": ["Baxtel은 엘크하트 카운티·고센 일대 프로젝트(별칭 'Project Beckham', 250MW~1,500MW, NIPSCO 공급)를 운영사가 진행하지 않는다고 적었다.", "이유로 계통 연결 마찰, NIPSCO와의 송전 증설 분쟁, 인디애나 공공요금위원회(IURC) Cause No. 46183의 다툼을 들었다. 날짜와 원 출처는 페이지에 없다.", "Takanock은 인허가를 마친 부지를 운영사에 파는 모델이라 '철회'가 부지 매각·재포장일 가능성도 있다."], "grade": 4, "src": [{"t": "Baxtel Takanock Goshen", "u": "https://baxtel.com/data-center/takanock-goshen-in"}]}
+      ],
+      "followup": {"needed": true, "why": "취소(C) 후보지만 근거가 애그리게이터 1건이고 날짜가 없다.", "questions": ["고센 시·엘크하트 카운티 회의록에 Takanock 신청 철회 기록이 있는가?", "IURC Cause 46183 도킷에 Takanock·NIPSCO 관련 철회·합의 문서가 있는가?", "부지가 다른 개발사에 넘어갔는가?"], "next_check": "2026-10-27"},
+      "tickers_touched": [],
+      "data_issues": ["용량: Baxtel은 250MW~1,500MW 범위로 표기. 1.5GW는 최대치"]
+    },
+    {
+      "id": "p50",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 공사 중. 2026년 4월 위성사진에서 첫 동 지붕 공사가 확인됐고 첫 동 인도 목표는 2026년 하반기다. 7/7 이후 가동 개시나 중단 소식은 찾지 못했다.",
+      "holds": ["텍사스 9/21 TCEQ 인허가 중단: VoltaGrid 부지 내 가스 마이크로그리드의 추가 대기 허가가 남아 있다면 대상일 수 있음(해석·미확인)"],
+      "events": [
+        {"date": "2026-09-15", "kind": "자금", "title_ko": "Vantage 북미 초기 개발용 20억 달러 회전 신용 확보(Frontier 포함 여부 미확인)", "detail_ko": ["Baxtel에 따르면 Vantage가 북미 초기 단계 개발 자산 3곳을 대상으로 5년 만기 20억 달러 회전 신용을 확보했다.", "Frontier가 그 3곳에 포함되는지는 나오지 않는다."], "grade": 4, "src": [{"t": "Baxtel Vantage Shackelford County", "u": "https://baxtel.com/data-center/vantage-shackelford-county"}]},
+        {"date": "2026-04-17", "kind": "공사", "title_ko": "(기준선 이전 참고) Epoch AI: 첫 동 지붕 공사, 완공 예상 2028년 4분기", "detail_ko": ["Epoch AI는 4/14 위성사진에서 첫 동 지붕 공사를 확인했고, 10개 동 1,200에이커, IT 1.4GW, 전체 완공은 2028년 4분기로 추정했다.", "Vantage는 첫 동을 2026년 말 임차인에게 넘기는 일정을 제시했다."], "grade": 3, "src": [{"t": "Epoch AI", "u": "https://epoch.ai/publications/openai-stargate-where-the-us-sites-stand"}]}
+      ],
+      "followup": {"needed": true, "why": "2026년 하반기 첫 동 인도 예정이라 가동(0) 전환 여부를 확인해야 하고, 자가 가스발전이라 TCEQ 인허가 중단 영향 확인이 필요하다.", "questions": ["첫 동이 OpenAI/Oracle에 인도됐는가(2026년 4분기)?", "VoltaGrid 가스 발전 설비의 TCEQ 대기 허가가 9/21 이전에 모두 나왔는가?"], "next_check": "2026-12-31"},
+      "tickers_touched": ["ORCL"],
+      "data_issues": ["전력: 리포트 Grid / 보도는 VoltaGrid가 짓고 운영하는 부지 내 천연가스 마이크로그리드로 계통 미연결(off-grid)"]
+    },
+    {
+      "id": "p51",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 기초 공사 단계로 보이며(최신 확인 위성사진 2026-03), 7/7 이후 공사 중단이나 인허가 취소는 확인하지 못했다. 습지·전력 계약을 둘러싼 반대와 소송 전략 보도가 이어지고 있다.",
+      "holds": ["습지 훼손 우려(EPA '레드 플래그')와 MPSC의 DTE 특별 전력계약 심사 관련 반대(결정 결과 미확인)"],
+      "events": [
+        {"date": "2026-08-10", "kind": "소송", "title_ko": "블룸버그 법률 브리프, 새 소송 전략 사례로 세일린 'The Barn' 언급", "detail_ko": ["Bloomberg Government 8/10 기사는 반대 측이 지역 피해보다 절차·법 조항에 기대는 소송 전략으로 옮겨가고 있다고 쓰며 세일린 타운십 'The Barn'을 사례로 들었다.", "유료 기사라 소송 제기 일자·법원·청구 내용은 확인하지 못했다."], "grade": 3, "src": [{"t": "Bloomberg Government Texas Brief 2026-08-10", "u": "https://news.bgov.com/construction-labor/new-litigation-tactic-takes-aim-at-data-centers-texas-brief"}]}
+      ],
+      "followup": {"needed": true, "why": "소송·규제 반대가 이어지고 있고 MPSC의 DTE 계약 결정 결과를 확인하지 못했다.", "questions": ["MPSC가 DTE의 1.4GW 특별 계약을 승인했는가(날짜·조건)?", "EGLE/EPA 습지 허가 상태와 새 소송(원고·법원·금지명령 여부)", "1동 철골·지붕 공사 진척(위성사진·건축허가)"], "next_check": "2026-10-27"},
+      "tickers_touched": ["ORCL", "DTE"],
+      "data_issues": []
+    },
+    {
+      "id": "p52",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 Sweetwater 1 변전소는 2026년 5월 ERCOT 계통에 연결됐다. 데이터센터 300MW(총량) 공사는 진행 중이고 인도 목표는 2027년 4분기다. 9/8 Batch Zero에서 2GW 허브가 '조건부 Base Load'로 분류됐지만, 주지사 8/3 감사로 대형 부하 연결 승인이 12/10 검증 보고서 이후로 미뤄진 상태다.",
+      "holds": [
+        "텍사스 주지사 8/3 ERCOT 연결 감사: 검증이 끝날 때까지 대형 데이터센터 연결(가동) 승인 보류. ERCOT 검증 보고서 12/10 제출, PUCT 12/17 논의",
+        "Batch Zero 조건부 Base Load 분류는 감사 미통과나 안정성 평가 실패 시 철회될 수 있음",
+        "IREN 10-K: ERCOT 절차 변경으로 신규·기존 텍사스 프로젝트의 가동 지연이나 가동 전력 수준 변경 가능",
+        "텍사스 9/21 TCEQ 인허가 중단: 예비발전기 대기 허가가 남아 있다면 대상일 수 있음(해석·미확인)"
+      ],
+      "events": [
+        {"date": "2026-08-03", "kind": "모라토리엄", "title_ko": "애벗 주지사, ERCOT 연결 대기 데이터센터 전수 검증·감사 지시", "detail_ko": ["주지사가 PUCT와 ERCOT에 연결 절차 중인 데이터센터를 검증·감사한 뒤에야 연결을 승인하라고 지시했다.", "ERCOT는 Batch Zero 대상 약 250~300건을 감사하고, 검증이 끝날 때까지 대형 데이터센터 가동 승인을 보류한다.", "IREN 10-K도 이 지시를 후속 사건으로 적었다."], "grade": 1, "src": [{"t": "IREN 10-K FY2026", "u": "https://www.sec.gov/Archives/edgar/data/0001878848/000187884826000052/iren-20260630.htm"}, {"t": "Texas Tribune 2026-08-14", "u": "https://www.texastribune.org/2026/08/14/texas-data-center-approval-pause-ercot-power-grid/"}]},
+        {"date": "", "kind": "기타", "title_ko": "IREN FY2026 10-K: Sweetwater 1 1,400MW·2 600MW, ERCOT 변경에 따른 가동 지연 위험 명시", "detail_ko": ["10-K(6/30 결산, 8월 제출 추정)는 Sweetwater 1을 1,400MW, Sweetwater 2를 600MW(총 계획 용량)로 적었다.", "Batch Zero 절차 변경과 주지사 감사 때문에 신규·기존 텍사스 프로젝트의 가동이 늦어지거나 가동 전력 수준이 바뀔 수 있다고 썼다. SB 6 때문에 Sweetwater 계통 연결이 늦어질 수 있다는 문구도 있다.", "마이크로소프트 계약(Horizon 1은 8월 인도·승인, Horizon 2~4는 2026년 4분기 목표)은 문맥상 Childress 부지로 보이며, Sweetwater 임차인은 공시에서 확인되지 않았다."], "grade": 1, "src": [{"t": "IREN 10-K FY2026", "u": "https://www.sec.gov/Archives/edgar/data/0001878848/000187884826000052/iren-20260630.htm"}]},
+        {"date": "2026-08-20", "kind": "모라토리엄", "title_ko": "PUCT, ERCOT의 Batch Zero 분류 기한 예외 승인, 12/10 검증 보고서 일정 제시", "detail_ko": ["PUCT가 8/7 Batch Zero 분류 기한에 대한 ERCOT의 예외 요청을 받아들였다.", "ERCOT 일정: 8~9월 정보 요청, 10~11월 자료 수집·보완, 12/10 적격성 검증 보고서·지역사회 영향 검토 보고서 제출, 12/17 PUCT 회의에서 논의.", "ERCOT 관계자는 2027년 4/9까지 Batch Zero 연구를 끝내지 못할 것이라고 말했다."], "grade": 1, "src": [{"t": "ERCOT Batch Zero Verification and Audit PUCT 발표 2026-08-20", "u": "https://www.ercot.com/files/docs/2026/08/20/Batch-Zero-Verification-and-Audit-PUCT-Presentation.pdf"}, {"t": "Utility Dive 2026-08-21", "u": "https://utilitydive.com/news/ercot-texas-puc-data-center-audit/828472"}]},
+        {"date": "2026-09-08", "kind": "전력", "title_ko": "IREN, 2GW Sweetwater 허브 ERCOT Batch Zero '조건부 Base Load' 포함 발표", "detail_ko": ["IREN은 Sweetwater 1(1,400MW)과 2(600MW)가 Batch Zero에서 조건부 Base Load로 분류됐다고 밝혔다. 이 분류는 추가 승인 절차를 남겨 둔 조건부 상태다.", "Sweetwater 1 고압 변전소는 2026년 초에 이미 가동됐고, 데이터센터 300MW(총량) 공사는 계속돼 2027년 4분기 인도가 목표다.", "최종 연결 승인이나 가동 날짜가 정해진 것은 아니다. 발표 당일 주가는 1.9% 하락했다는 보도가 있다."], "grade": 1, "src": [{"t": "IREN 보도자료 2026-09-08", "u": "https://iren.gcs-web.com/news-releases/news-release-details/irens-2gw-sweetwater-hub-included-base-load-ercot-batch-zero"}, {"t": "The Energy Mag", "u": "https://theenergymag.com/news/market-news/iren-2-gigawatt-sweetwater-base-load-ercot"}]},
+        {"date": "2026-09-14", "kind": "전력", "title_ko": "ERCOT 이사회: Batch Zero 전 부하에 조건부 분류 완료(Base Load 204건 66.4GW)", "detail_ko": ["ERCOT 9월 이사회 자료는 Base Load 204건(66.4GW), Studied Load 158건(127.9GW)에 조건부 분류를 냈다고 밝혔다.", "검증·감사가 Batch Zero 일정에 주는 영향은 '미정(TBD)'으로 적었다. 12/10 감사를 통과해야 Batch Zero 지위가 유지된다."], "grade": 1, "src": [{"t": "ERCOT Batch Zero Update 2026-09", "u": "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf"}]}
+      ],
+      "followup": {"needed": true, "why": "주지사 감사로 연결 승인이 보류돼 있고 12/10 검증 보고서 결과에 따라 Batch Zero 지위와 가동 일정이 정해진다. 데이터센터 공사 300MW 진척과 임차인 확보 여부도 확인해야 한다.", "questions": ["12/10 ERCOT 검증 보고서에서 Sweetwater 허브가 통과했는가?", "12/17 PUCT 회의 이후 대형 부하 가동 승인이 재개되는가?", "IREN 1분기(FY27) 실적에서 Sweetwater 300MW 인도 일정(2027년 4분기)이 유지되는가, 임차인이 생겼는가?", "Oncor 송전 확장(첫 구간 2028년 말) 일정 변화"], "next_check": "2026-12-10"},
+      "tickers_touched": ["IREN", "MSFT"],
+      "data_issues": [
+        "가동 시점: 리포트 7/7 '2026년 4월 전력 공급 완료', 7/3 '2026년 6월 전력 공급 시작'으로 서로 다름. IREN은 2026-05-01 변전소 계통 연결(energization)을 발표했고, IT 부하 가동은 아님",
+        "규모: 1.4GW는 변전소·계통 용량. 실제 공사 중인 데이터센터는 300MW(총량, 2027년 4분기 목표)이고 나머지 약 1.7GW는 2028년 이후 확장",
+        "MSFT 연결은 IREN 회사 단위(Childress Horizon)이며 Sweetwater 임차인으로 확인된 것은 아님"
+      ]
+    },
+    {
+      "id": "p53",
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 추적 사이트 표시는 '계획' 단계이고, 7/7 이후 PAX 부지에 관한 인허가·착공·임차인 소식은 찾지 못했다. 회사 발표 기준 첫 300MW 전력은 2027년 2분기 예정이다.",
+      "holds": [],
+      "events": [
+        {"date": "2026-10-14", "kind": "전력", "title_ko": "LS Electric, '펜실베이니아 데이터센터'용 Bloom 연료전지 배전설비 1.385억 달러 수주(PAX 연결 미확인)", "detail_ko": ["Baxtel의 PAX1 페이지에 LS Electric이 Bloom Energy로부터 펜실베이니아 데이터센터 연료전지용 38kV 개폐기·변압기를 수주했다는 기사가 붙어 있다. 납품은 2027년 4~7월 예정이다.", "기사에 PAX 이름은 없어 이 부지용인지는 확인되지 않았다."], "grade": 4, "src": [{"t": "Baxtel PAX1", "u": "https://baxtel.com/data-center/pennsylvania-digital-i-pax1"}]}
+      ],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": ["위치·규모: 칼라일(컴벌랜드 카운티) 약 693~700에이커, 캠퍼스 3곳 18개 동, 캠퍼스마다 450MW 변전소. 1.35GW에서 1.8GW까지 확장 가능(2025-07-15 발표). 개발은 PowerHouse와 Pennsylvania Data Center Partners의 합작"]
+    },
+    {
+      "id": "p54",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 아직 용도변경(LEGI-2024-0074) 심의 단계다. 2026년 7월 라우던 카운티 계획위원회가 만장일치로 '불허 권고'를 냈고, 군 감독위원회 결정은 남아 있다.",
+      "holds": ["카운티 계획위원회 불허 권고(2026-07), 감독위원회 표결 대기"],
+      "events": [
+        {"date": "2026-07", "kind": "인허가", "title_ko": "라우던 카운티 계획위원회, 용도변경 만장일치 불허 권고", "detail_ko": ["Baxtel 캠퍼스 페이지에 따르면 계획위원회가 2026년 7월 Spring Valley Technology Park 용도변경 신청(LEGI-2024-0074)에 만장일치로 불허를 권고했다.", "감독위원회(Board of Supervisors) 결정은 아직 남아 있다. 정확한 회의 날짜와 1차 회의록은 확인하지 못했다.", "부지는 저밀도 주거 지역으로, 개발사는 가스를 수소 연료전지로 바꾸는 마이크로그리드를 계획한다."], "grade": 4, "src": [{"t": "Baxtel Spring Valley 캠퍼스", "u": "https://baxtel.com/campus/active-infra-spring-valley-campus"}]}
+      ],
+      "followup": {"needed": true, "why": "계획위원회가 불허를 권고했고 감독위원회 표결이 남아 있다. 부결되면 X나 C 후보가 된다.", "questions": ["라우던 카운티 감독위원회 공청회·표결 날짜와 결과", "신청인이 계획을 축소하거나 연기·철회했는가?", "계획위원회 불허 권고의 정확한 날짜와 회의록"], "next_check": "2026-10-27"},
+      "tickers_touched": [],
+      "data_issues": [
+        "전력: 리포트 Grid / 개발사 계획은 천연가스 기반 수소 연료전지 마이크로그리드와 배터리",
+        "규모: 362에이커 350만 sq ft(DCD) 또는 약 325에이커 10개 동 325만 sq ft(Baxtel)로 엇갈림. 1.3GW는 Cleanview 수치뿐"
+      ]
+    },
+    {
+      "id": "p55",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": "3",
+      "status_ko": "7/7 이후 이 캠퍼스에 관한 신규 소식은 찾지 못했다. Baxtel(2026년 4월 기준)은 첫 동 가동을 2027년 1분기로 적고 있어, '1단계 완공 후 2단계 후속 작업'이라는 기준선 설명과 맞지 않는다.",
+      "holds": ["텍사스 8/3 ERCOT 연결 감사: 1단계 500MW는 ERCOT 승인을 받았다고 하지만, 1.8GW 중 나머지 후속 단계가 Batch Zero 대상이면 연결 승인이 보류될 수 있음(해석)"],
+      "events": [],
+      "followup": {"needed": true, "why": "1단계도 아직 가동 전으로 보여, 2단계 '착공(1)' 분류가 근거 약함. 단계 3 후보.", "questions": ["2단계 부지에서 물리적 공사(정지·기초)가 확인되는가?", "첫 동 가동이 2026년 5월에서 2027년 1분기로 미뤄졌는가(회사 확인)?", "후속 단계 부하가 ERCOT Batch Zero 감사 대상인가?"], "next_check": "2026-11-17"},
+      "tickers_touched": [],
+      "data_issues": [
+        "일정: 2025년 발표는 첫 동 2026년 5월 가동, Baxtel 2026년 4월 자료는 2027년 1분기 가동으로 미뤄짐. 1단계 '완공'은 확인 안 됨",
+        "규모: 2025년 발표 768에이커 24개 동 3단계 / Baxtel 810에이커 14개 동 4단계. 엘리스 카운티 북부 881 Miller Rd, Provident과의 합작"
+      ]
+    },
+    {
+      "id": "p56",
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "2026-04-10 DRI 신청과 광역 심의 이후 7/7~10/20 사이 어윈 카운티 표결·용도 허가·조례 확정 소식은 찾지 못했다(10/20 기준).",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "부지: DRI 기준 1,066에이커(첫 신청 546에이커에서 확대), 5개 동 약 422만 sq ft, 1.25GW. 1단계 2030년, 전체 2034년",
+        "경과: 2/26 계획자문위원회 4대0 승인 권고 후 3/2 신청인이 자진 철회했고, 4/10 카운티 정부 명의 DRI #4689로 다시 신청(Vesper OSINT)",
+        "임차인 미공개(구글·QTS설은 확인 안 됨), Georgia Power 공학 연구 진행 중"
+      ]
+    },
+    {
+      "id": "p57",
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "2025년 8월 차베스 카운티 승인 이후 7/7~10/20 사이 공사 착수·자금·임차인 관련 신규 소식은 찾지 못했다(10/20 기준). 앵커 임차인은 아직 공개되지 않았다.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "전력: 리포트 Grid / 계획은 부지 내 태양광, 가스 예비발전, 태양열 하이브리드, 250에이커 배터리를 쓰는 계통 미연결(off-grid) 방식",
+        "용량·일정: 1.24GW, 1.25GW 이상, 1.3GW로 출처마다 다름. 회사는 2027년 11월 전면 가동 목표, Baxtel은 2030년으로 표기",
+        "기준선 '2025년말 태양광+BESS 공사 발표'는 Baxtel에서 공사·조달 진척으로 확인되지 않음"
+      ]
+    },
+    {
+      "id": "p58",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 추적 사이트는 '계획/공사 중'을 함께 표시해 단계가 불분명하다. 2026년 7월 하순 NV Energy가 Tract를 상대로 소송을 내 South Valley·Peru Shelf 전력 인프라 비용 부담을 다투고 있다.",
+      "holds": ["NV Energy 대 Tract 소송(워쇼 카운티): 전력 인프라 비용 분담을 비공개 중재로 정할지, 주 공공요금위원회(PUCN)가 정할지를 다툼"],
+      "events": [
+        {"date": "2026-07-23", "kind": "소송", "title_ko": "NV Energy, Tract 상대 소송 제기(South Valley·Peru Shelf 명시)", "detail_ko": ["SAN 7/30 보도에 따르면 NV Energy가 7/30 기준 '지난주' 워쇼 카운티에서 Tract를 제소했다. 날짜는 대략이다.", "NV Energy는 Tract가 전력 인프라 비용을 다른 요금 납부자에게 떠넘기려 한다며, 비용과 부담 주체는 비공개 중재가 아니라 PUCN이 정해야 한다고 주장한다. 두 프로젝트 합계 용량은 2,025MW다.", "Tract는 '정당한 몫'을 내겠다며 특혜를 받은 적이 없다고 반박했다. 임시 전력으로 합계 400MW 미만의 가스·디젤 자가발전소 2곳도 계획 중이다."], "grade": 3, "src": [{"t": "Straight Arrow News 2026-07-30", "u": "https://san.com/cc/data-centers-want-a-closed-door-deal-nevadas-electric-utility-is-suing-to-stop-it/"}, {"t": "KPTV 2026-07-30", "u": "https://www.kptv.com/video/2026/07/30/nv-energy-sues-tract-over-data-center-regulations/"}]}
+      ],
+      "followup": {"needed": true, "why": "전력 공급 비용을 둘러싼 소송이 진행 중이라 전력 일정과 인허가가 늦어질 수 있다.", "questions": ["워쇼 카운티 법원의 사건번호와 첫 심리·판단 일정", "PUCN에 관련 신청이 올라갔는가?", "Tract 임시 가스·디젤 자가발전소 대기 허가 상태", "South Valley 부지의 물리적 공사(정지·기초)가 시작됐는가?"], "next_check": "2026-10-27"},
+      "tickers_touched": ["BRK.B"],
+      "data_issues": [
+        "위치: 스토리 카운티 Tahoe-Reno Industrial Center. 주소 8500 또는 9000 USA Pkwy로 엇갈림",
+        "용량: Cleanview 1,215MW 1,534에이커 / DataCenterMap 1,200MW 1,500에이커. Peru Shelf와 합쳐 2,025MW(SAN)"
+      ]
+    },
+    {
+      "id": "p59",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/20 기준 그랜버리 주민들이 시의 편입·용도변경(4/7 승인)에 대해 낸 소송이 계속되고 있고, 판결이나 합의 소식은 찾지 못했다. Baxtel은 이 프로젝트를 'In Doubt(소송으로 개발 동결)'로 표시한다.",
+      "holds": ["주민 소송: 공개회의법 위반('걸어서 만든 정족수')과 편입 목적 미고지를 이유로 편입 취소·후속 조치 중단 청구", "텍사스 9/21 TCEQ 인허가 중단: 부지 내 가스 발전(Granbury OpCo 1) 관련 추가 허가가 남아 있다면 대상일 수 있음(해석)"],
+      "events": [
+        {"date": "", "kind": "인허가", "title_ko": "TCEQ, 부지 발전설비 배출 허가 승인 보도(가스터빈 8기·선형 발전기 87기, '7월', 연도 미확인)", "detail_ko": ["검색 요약에 따르면 TCEQ가 '7월'에 단순 사이클 가스터빈 8기와 선형 발전기 87기에 대한 배출 허가를 승인했다.", "원문을 열지 못해 연도가 2026년인지, 공청회·이의 절차가 남았는지 확인하지 못했다. 2026년 7월이면 7/7 이후 사건이다."], "grade": 4, "src": [{"t": "AOL(Fort Worth Star-Telegram 전재)", "u": "https://www.aol.com/news/power-plant-data-center-2-143454310.html"}]},
+        {"date": "", "kind": "소송", "title_ko": "Baxtel, 주민 소송으로 추가 개발이 멈췄다고 표시", "detail_ko": ["Baxtel은 프로젝트(Project Patriot, Hood County)를 'In Doubt'로 분류하고 주민 소송이 진행되는 동안 추가 개발이 묶였다고 적었다. 날짜는 없다.", "소송은 4/7 용도변경 표결 이후 제기됐고(DCD), 시는 '소송 중이라 언급할 수 없다'고 밝혔다."], "grade": 4, "src": [{"t": "Baxtel Project Patriot", "u": "https://baxtel.com/data-center/bilateral-energy-project-patriot"}, {"t": "DCD", "u": "https://www.datacenterdynamics.com/en/news/residents-of-granbury-texas-sue-the-city-after-authorities-rezone-2100-acres-for-potential-data-center-project/"}]}
+      ],
+      "followup": {"needed": true, "why": "소송이 계류 중이고 자가 가스 발전 허가가 TCEQ 중단과 겹칠 수 있다.", "questions": ["후드 카운티 지방법원 사건번호, 임시금지명령·각하 여부", "TCEQ 배출 허가 승인 연도와 이의 신청(contested case) 여부", "그랜버리 시의회의 추가 표결(개발 계약·세제 혜택)"], "next_check": "2026-10-27"},
+      "tickers_touched": [],
+      "data_issues": [
+        "명칭·위치: 'Knox Ranch' 프로젝트는 Project Patriot, 텍사스 후드 카운티 그랜버리(2,100에이커)",
+        "전력: 리포트 Grid / 부지 내 가스 발전(Granbury OpCo 1, 가스터빈·선형 발전기) 계획"
+      ]
+    },
+    {
+      "id": "p60",
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "2025년 8월 킹조지 카운티 감독위원회 만장일치 승인 이후 7/7~10/20 사이 부지계획·계통 연결·착공 소식은 찾지 못했다(10/20 기준). 단계별 공사 일정은 인허가와 계통 연결 협의가 진행되면 발표하겠다는 입장이다.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": ["부지: 485에이커(일부 보도 500에이커), 10개 동 680만 sq ft, IT 1.2GW. 'Dahlgren Innovation Hub'라는 별칭도 있음"]
+    }
+  ],
+  "cross_cutting": [
+    "2026-08-03 텍사스 애벗 주지사가 ERCOT·PUCT에 연결 절차 중인 데이터센터 전수 검증·감사를 지시했다. 검증이 끝날 때까지 대형 데이터센터 연결(가동) 승인은 보류된다. 대상은 Batch Zero 약 250~300건, 약 200GW다(Texas Tribune 2026-08-14, IREN 10-K). p52·p55와 관련 있다.",
+    "2026-08-20 PUCT가 ERCOT의 Batch Zero 분류 기한(8/7) 예외를 승인했다. ERCOT 일정은 12/10 적격성 검증·지역사회 영향 보고서 제출, 12/17 PUCT 회의 논의다. ERCOT는 2027-04-09까지 연구를 끝내지 못한다고 밝혔다(ERCOT 8/20 발표 자료, Utility Dive 8/21).",
+    "2026-09 ERCOT 이사회 자료: Batch Zero 전 부하에 조건부 분류를 냈다(Base Load 204건 66.4GW, Studied Load 158건 127.9GW). 감사 미통과나 안정성 평가 실패 시 철회될 수 있고, 감사가 일정에 주는 영향은 '미정'이다(ERCOT 14-Batch-Zero-Update.pdf).",
+    "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단(지침 제공 사실로, 이번 점검에서 1차 자료를 다시 확인하지는 못함): 부지 내 가스 발전을 쓰는 텍사스 프로젝트(p48 Poolside, p50 Frontier, p59 Knox Ranch, p47 Crusoe Victoria)의 추가 대기 허가에 영향이 있을 수 있다(해석).",
+    "데이터센터 소송 확산: Mayer Brown(2026-07-23)은 환경·토지이용·생활방해·민권 근거 소송이 늘고 있다고 정리했다. Bloomberg Government 텍사스 브리프(2026-08-10)는 공고·절차 위반을 근거로 한 소송 전략이 퍼지고 있다고 보도하며 세일린 'The Barn'(p51)을 사례로 들었다.",
+    "g4 15개 중 리포트가 'Grid'로 적은 프로젝트 가운데 최소 6곳(p46·p47·p48·p50·p54·p57)은 실제로 자가 가스나 연료전지 같은 자체 전력 계획이었다. 전력 유형 필드를 다시 점검할 필요가 있다."
+  ]
+}

@@ -1,0 +1,486 @@
+{
+  "ticker": "HOOD",
+  "cik": "0001783879",
+  "items": [
+    {
+      "id": "edgar_2026-09-04_4_0",
+      "form": "4",
+      "filed_at": "2026-09-04",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000170556026000023/xslF345X06/wk-form4_1788556416.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-04_4_1",
+      "form": "4",
+      "filed_at": "2026-09-04",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000165921126000018/xslF345X06/wk-form4_1788556464.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-03_4_2",
+      "form": "4",
+      "filed_at": "2026-09-03",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000170711226000006/xslF345X06/wk-form4_1788468202.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-03_4_3",
+      "form": "4",
+      "filed_at": "2026-09-03",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000210858926000022/xslF345X06/wk-form4_1788468181.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-03_4_4",
+      "form": "4",
+      "filed_at": "2026-09-03",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000165921126000016/xslF345X06/wk-form4_1788468153.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-03_4_5",
+      "form": "4",
+      "filed_at": "2026-09-03",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000170556026000021/xslF345X06/wk-form4_1788468129.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-02_4_8",
+      "form": "4",
+      "filed_at": "2026-09-02",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000140/xslF345X06/wk-form4_1788380922.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-31_4_10",
+      "form": "4",
+      "filed_at": "2026-08-31",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000138/xslF345X06/wk-form4_1788208207.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-27_4_11",
+      "form": "4",
+      "filed_at": "2026-08-27",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000136/xslF345X06/wk-form4_1787867097.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-25_4_12",
+      "form": "4",
+      "filed_at": "2026-08-25",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000134/xslF345X06/wk-form4_1787689935.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-21_4_13",
+      "form": "4",
+      "filed_at": "2026-08-21",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000132/xslF345X06/wk-form4_1787344265.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-19_4_14",
+      "form": "4",
+      "filed_at": "2026-08-19",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000210858926000020/xslF345X06/wk-form4_1787172165.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-19_4_15",
+      "form": "4",
+      "filed_at": "2026-08-19",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000130/xslF345X06/wk-form4_1787172014.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-18_4_16",
+      "form": "4",
+      "filed_at": "2026-08-18",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000187091426000023/xslF345X06/wk-form4_1787085591.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-17_4_17",
+      "form": "4",
+      "filed_at": "2026-08-17",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000128/xslF345X06/wk-form4_1787000835.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-13_4_19",
+      "form": "4",
+      "filed_at": "2026-08-13",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000126/xslF345X06/wk-form4_1786653495.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-12_3_20",
+      "form": "3",
+      "filed_at": "2026-08-12",
+      "title": "FORM 3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000095010326012262/xslF345X06/ownership.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-11_4_21",
+      "form": "4",
+      "filed_at": "2026-08-11",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000124/xslF345X06/wk-form4_1786481261.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-07_4_22",
+      "form": "4",
+      "filed_at": "2026-08-07",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000122/xslF345X06/wk-form4_1786136396.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-05_4_23",
+      "form": "4",
+      "filed_at": "2026-08-05",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000120/xslF345X06/wk-form4_1785962866.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-05_4_24",
+      "form": "4",
+      "filed_at": "2026-08-05",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000170556026000019/xslF345X06/wk-form4_1785962349.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-03_4_25",
+      "form": "4",
+      "filed_at": "2026-08-03",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000118/xslF345X06/wk-form4_1785797676.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-30_4_26",
+      "form": "4",
+      "filed_at": "2026-07-30",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000116/xslF345X06/wk-form4_1785450506.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-30_10-Q_27",
+      "form": "10-Q",
+      "filed_at": "2026-07-30",
+      "title": "10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-29_8-K_28",
+      "form": "8-K",
+      "filed_at": "2026-07-29",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000113/hood-20260729.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-28_4_29",
+      "form": "4",
+      "filed_at": "2026-07-28",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000104/xslF345X06/wk-form4_1785273623.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-28_4_30",
+      "form": "4",
+      "filed_at": "2026-07-28",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000187091426000021/xslF345X06/wk-form4_1785271065.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-24_4_31",
+      "form": "4",
+      "filed_at": "2026-07-24",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000101/xslF345X06/wk-form4_1784928110.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-22_4_34",
+      "form": "4",
+      "filed_at": "2026-07-22",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000099/xslF345X06/wk-form4_1784753008.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-20_4_35",
+      "form": "4",
+      "filed_at": "2026-07-20",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000097/xslF345X06/wk-form4_1784580144.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-17_4_36",
+      "form": "4",
+      "filed_at": "2026-07-17",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000210858926000018/xslF345X06/wk-form4_1784320925.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-16_4_37",
+      "form": "4",
+      "filed_at": "2026-07-16",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000095/xslF345X06/wk-form4_1784233934.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-14_4_41",
+      "form": "4",
+      "filed_at": "2026-07-14",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000093/xslF345X06/wk-form4_1784062886.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-10_4_43",
+      "form": "4",
+      "filed_at": "2026-07-10",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000091/xslF345X06/wk-form4_1783721789.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-08_4_44",
+      "form": "4",
+      "filed_at": "2026-07-08",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000089/xslF345X06/wk-form4_1783543002.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-08_4_45",
+      "form": "4",
+      "filed_at": "2026-07-08",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000187100626000006/xslF345X06/wk-form4_1783542798.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-08_4_46",
+      "form": "4",
+      "filed_at": "2026-07-08",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000170556026000017/xslF345X06/wk-form4_1783542762.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-07_4_47",
+      "form": "4",
+      "filed_at": "2026-07-07",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000165921126000014/xslF345X06/wk-form4_1783458186.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-07_4_48",
+      "form": "4",
+      "filed_at": "2026-07-07",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000181742526000009/xslF345X06/wk-form4_1783458145.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-07_4_49",
+      "form": "4",
+      "filed_at": "2026-07-07",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000187052926000008/xslF345X06/wk-form4_1783458110.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_4_51",
+      "form": "4",
+      "filed_at": "2026-07-02",
+      "title": "OWNERSHIP DOCUMENT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000110465926080449/xslF345X06/tm2619621-2_4seq1.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_4_53",
+      "form": "4",
+      "filed_at": "2026-07-02",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000205953126000009/xslF345X06/wk-form4_1783027016.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_4_54",
+      "form": "4",
+      "filed_at": "2026-07-02",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000161216326000009/xslF345X06/wk-form4_1783026981.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_4_55",
+      "form": "4",
+      "filed_at": "2026-07-02",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000109796326000009/xslF345X06/wk-form4_1783026943.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_4_56",
+      "form": "4",
+      "filed_at": "2026-07-02",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000120952226000013/xslF345X06/wk-form4_1783026912.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_4_57",
+      "form": "4",
+      "filed_at": "2026-07-02",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000187091426000019/xslF345X06/wk-form4_1783026873.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_3_58",
+      "form": "3",
+      "filed_at": "2026-07-02",
+      "title": "FORM 3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000170711226000004/xslF345X06/wk-form3_1783026822.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-01_4_62",
+      "form": "4",
+      "filed_at": "2026-07-01",
+      "title": "FORM 4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000087/xslF345X06/wk-form4_1782941527.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

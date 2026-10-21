@@ -1,0 +1,105 @@
+{
+ "_note": "오케스트레이터가 생성한 KC 발췌본(P17). signal-arbiter는 이 파일과 03_input/arbiter_{T}.json, state/signals.json 외에는 읽지 않는다. 매크로 KC는 config/correlation_matrix.yaml의 노출 벡터상 해당 종목이 불리 방향으로 노출된 축에 연결된 것만 발췌했다.",
+ "run_id": "20260911_2308",
+ "as_of": "2026-09-12T09:51",
+ "ticker": "CRCL",
+ "own_company_kc": [
+  "KC-CRCL-1",
+  "KC-CRCL-2",
+  "KC-CRCL-3",
+  "KC-CRCL-4"
+ ],
+ "macro_kc_propagating_to_ticker": [
+  "KC-3"
+ ],
+ "kc_status": [
+  {
+   "kc_id": "KC-CRCL-1",
+   "condition": "USDC 유통량 수축 (경고/발동 2단)",
+   "inputs": [
+    {
+     "name": "usdc_circulation_30d_avg_vs_90d_peak",
+     "operator": "<=",
+     "threshold": -20,
+     "value": null,
+     "status": "unconfirmed"
+    },
+    {
+     "name": "reserve_income_qoq_declines",
+     "operator": ">=",
+     "threshold": 2,
+     "value": null,
+     "status": "unconfirmed"
+    }
+   ],
+   "verdict": "not_met",
+   "verdict_confidence": "provisional",
+   "consequence": "경고: 알림 + 관측 강화 / 발동: Next 진입 보류 + 포지션 리뷰"
+  },
+  {
+   "kc_id": "KC-CRCL-2",
+   "condition": "점유율 잠식 (OUSD·이자부 코인 포함)",
+   "inputs": [
+    {
+     "name": "usdc_stablecoin_share_qoq",
+     "operator": "<=",
+     "threshold": -3,
+     "value": null,
+     "status": "unconfirmed"
+    }
+   ],
+   "verdict": "not_met",
+   "verdict_confidence": "provisional",
+   "consequence": "'파이 성장 > 침식' 전제 재검토"
+  },
+  {
+   "kc_id": "KC-CRCL-3",
+   "condition": "분배율 상향·구조 변경 공시 발생 (경중 불문 즉시)",
+   "verdict": "not_met",
+   "verdict_confidence": "provisional",
+   "inputs": [],
+   "note": "이벤트형 — 지표 피드가 아니라 L2 공시 관측으로 판정. 자동 확정 불가",
+   "consequence": "Reserve Income 마진 재산출 + 포지션 리뷰 (KC-COIN-4 교차 참조)"
+  },
+  {
+   "kc_id": "KC-CRCL-4",
+   "condition": "OCC·NYDFS 인가의 취소·정지·중대 영업 제한(consent order·C&D 포함) 공시, 또는 GENIUS Act 발행자 인가 거부·철회 확정",
+   "verdict": "not_met",
+   "verdict_confidence": "provisional",
+   "inputs": [],
+   "note": "이벤트형 — 지표 피드가 아니라 L2 공시 관측으로 판정. 자동 확정 불가",
+   "consequence": "경고: 알림 + 관측 강화 / 발동: '규제 선점' 전제 재검토 + regulation_company_licensing 축 재평가"
+  },
+  {
+   "kc_id": "KC-3",
+   "condition": "크립토 붕괴 + 위험회피 동시",
+   "inputs": [
+    {
+     "name": "BTC",
+     "operator": "<",
+     "threshold": 55000,
+     "value": 77252.675,
+     "as_of": "2026-09-12",
+     "method": "api",
+     "stale_days": 0,
+     "stale_limit": 2
+    },
+    {
+     "name": "VIX",
+     "operator": ">=",
+     "threshold": 25,
+     "value": 15.84000015258789,
+     "as_of": "2026-09-11",
+     "method": "api",
+     "stale_days": 0,
+     "stale_limit": 2
+    }
+   ],
+   "verdict": "not_met",
+   "verdict_confidence": "confirmed",
+   "consequence": "IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)"
+  }
+ ],
+ "summary": "본 run 기준 전체 KC 27건(매크로 10 + 종목 17) 전건 verdict=not_met. met 판정 0건 — 규칙1(Kill 우선) 발동 대상 없음.",
+ "caution": "KC-1(FFR>3.75)은 이격 0.00pp의 경계 접촉 상태이며 2026-09-16 FOMC가 예정돼 있으나, 현 시점 판정은 not_met이다. 확률·전망을 근거로 met로 취급하지 마라(F1·P5)."
+}

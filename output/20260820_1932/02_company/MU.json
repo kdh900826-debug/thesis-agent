@@ -1,0 +1,144 @@
+{
+  "ticker": "MU",
+  "run_id": "20260820_1932",
+  "as_of": "2026-08-20",
+  "staleness_days": 0,
+  "lookback_window": {"since": "2026-08-15", "until": "2026-08-20", "focus": "직전 run(20260815_1408) 이후 신규 1차 자료 중심(P3)"},
+
+  "source_ingest": {
+    "edgar": {
+      "cik": "0000723125",
+      "forms_searched": ["10-K", "10-Q", "8-K"],
+      "since": "2026-08-15",
+      "items_found": 0,
+      "note": "조회 기간 내 신규 EDGAR full-text 공시 없음 (원본: output/20260820_1932/02_company/MU_edgar_raw.json)"
+    },
+    "web_search_raw_count": 11
+  },
+
+  "noise_triage_log": [
+    {
+      "title": "UBS reiterates Buy, $1,625 PT on MU (Aug 18, 2026)",
+      "domain": "stockstotrade.com / timothysykes.com",
+      "promote": false,
+      "reason": "애널리스트 PT 단독 유지 — common.noise '애널리스트 PT·투자의견 변경 단독'. 매출·가이던스·마진·현금흐름 변화 없음"
+    },
+    {
+      "title": "BofA reiterates Buy, $1,550 PT on MU citing SanDisk Investor Day $93.9B backlog (Aug 17, 2026)",
+      "domain": "thestreet.com / techtimes.com",
+      "promote": false,
+      "reason": "애널리스트 코멘트 + 타사(SanDisk) 데이터 — MU 고유 지표 아님(sector-memory 참조 영역). promote_if 미충족"
+    },
+    {
+      "title": "SanDisk 'In Focus' 2026 Investor Day — $93.9B backlog (Aug 13, 2026)",
+      "domain": "fool.com / finance.yahoo.com",
+      "promote": false,
+      "reason": "타사(SanDisk) 실적·백로그 데이터 — P17 컨텍스트 격리상 MU 종목 에이전트가 Claim화할 대상 아님. sector-memory 경량 참조 영역으로 안내만"
+    },
+    {
+      "title": "MU stock -7.02% on Aug 18, 2026 (closed $940.76)",
+      "domain": "stockinvest.us / tipranks.com",
+      "promote": false,
+      "reason": "단순 주가 변동 — common.noise. 하락 원인(Netlist 소송)은 별도 1차 자료(prnewswire.com)로 독립 Claim화하여 아래 c_20260820_MU_01에 반영. 주가 변동 자체는 판정 근거 아님"
+    }
+  ],
+
+  "claims": [
+    {
+      "id": "c_20260820_MU_01",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Netlist Inc.가 2026-08-12 미국 국제무역위원회(ITC)에 Micron·Supermicro·HPE·Lenovo를 상대로 특허침해 조사를 청원(특허 10,025,731 / 10,217,523 / 12,373,366 / 12,675,407, DDR5 RDIMM·MRDIMM 대상)했고, 동시에 미 연방 캘리포니아 중부지법(CDCA)에 Micron 단독 상대 특허침해 소송(특허 10,217,523 / 12,675,407)을 제기했다. 청구는 수입배제명령(exclusion order)·중지명령(cease and desist order)이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_press_release",
+        "url": "https://www.prnewswire.com/news-releases/netlist-files-patent-infringement-action-against-micron-in-the-us-international-trade-commission-302849003.html",
+        "filed_at": "2026-08-12"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_MU_02",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "미 상무장관 Howard Lutnick이 2026-08-14 애플 신규 제조시설(휴스턴) 방문 후 인터뷰에서 'The Trump administration is not in favor of that(트럼프 행정부는 이를 지지하지 않는다)'고 발언, Apple의 CXMT·YMTC産 메모리 소싱 추진에 행정부가 반대 입장이며 이를 Apple에 '분명히(plainly)' 전달했다고 밝혔다. 단, 해당 소싱을 금지하는 구속력 있는 규정은 존재하지 않는다(원문: 'It has no rule that stops it').",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news_interview_quote",
+        "url": "https://9to5mac.com/2026/08/14/commerce-secretary-says-us-opposes-apple-buying-chinese-memory-chips/",
+        "filed_at": "2026-08-14"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20260820_MU_03",
+      "ticker": "MU",
+      "claim_type": "inference",
+      "text": "Lutnick의 공개 반대 표명(c_20260820_MU_02)은 8/21 상원 서한 마감 시점에서 Apple이 CXMT·YMTC 배제를 공약할 가능성을 높이는 방향으로 작용할 수 있으나, 구속력 있는 규정이 아니므로 실제 소싱 결정에 대한 강제력은 불확실하다 — china_supply 축의 방향 판단에는 8/21 이후 Apple의 실제 응답 확인이 필요하다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news_interview_quote",
+        "url": "https://9to5mac.com/2026/08/14/commerce-secretary-says-us-opposes-apple-buying-chinese-memory-chips/",
+        "filed_at": "2026-08-14"
+      },
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false
+    }
+  ],
+
+  "deltas": [
+    {
+      "axis": "china_supply",
+      "direction": "neutral",
+      "prior_state": "카드상 CXMT·YMTC 공급 확대가 핵심 리스크로 등재. 8/21 상원 서한(Schumer·Banks 등) 마감 대기 중, Apple의 CXMT/YMTC 채택 여부 미확정",
+      "new_state": "미 상무장관이 8/14 공개적으로 Apple의 중국산 메모리 소싱에 반대 입장을 표명(c_20260820_MU_02, grade4/confirmed:false, 1차 소스 역추적 실패)했으나 구속력 있는 규정은 없다는 점도 동시에 확인됨(원문 명시). 행정부 압박은 china_supply 축에 방어적 방향(우호)으로 작용할 잠재력이 있으나, 비구속적 발언 + 미확인 소스라는 이중 제약으로 방향성을 'strengthen'으로 확정하지 않고 'neutral' 유지 — 8/21 Apple 실제 응답이 확정 신호",
+      "risk_transfer_to": ["규제 강제력 부재로 인한 결과 불확실성이 8/21 Apple 공식 응답 및 향후 실제 규정화(수출통제·라이선스 등) 여부로 이관됨"],
+      "supporting_claims": ["c_20260820_MU_02", "c_20260820_MU_03"]
+    }
+  ],
+
+  "axis_proposals": [
+    {
+      "proposed_axis_id": "ip_litigation_risk",
+      "label": "특허침해 소송·수입배제명령 리스크 (Netlist 등)",
+      "reason": "c_20260820_MU_01(Netlist의 ITC·CDCA 제소, DDR5 RDIMM/MRDIMM 대상 수입배제명령 청구)은 카드의 기존 5개 축(hbm_demand/sca_defense/cycle_position/china_supply/valuation_paradox) 중 어느 것에도 해당하지 않음. 임의로 기존 축에 편입시키지 않고 thesis-delta 규칙(P8)에 따라 신규 축 제안으로 전환 — 사람 판단으로 에스컬레이션 필요. ITC 수입배제명령이 실제 인용될 경우 미국 내 RDIMM/MRDIMM 공급·인도 일정에 영향 가능(양산·인도 일정 변화 promote_if와 연결될 잠재력)",
+      "status": "escalation_pending_human_decision",
+      "supporting_claims": ["c_20260820_MU_01"]
+    }
+  ],
+
+  "unconfirmed": [
+    {
+      "topic": "8/21 Apple CXMT/YMTC 상원 서한 응답",
+      "status": "마감(8/21)이 run 시점(8/20) 기준 익일 — Apple의 공식 회신/공약 여부 아직 미확인. 8/14 Lutnick 발언(c_20260820_MU_02)은 행정부 압박 강화 근거이나 결과 자체는 아님. 8/21 이후 재조회 필요"
+    },
+    {
+      "topic": "Netlist ITC 조사 개시 여부 및 CDCA 소송 진행상황",
+      "status": "2026-08-12 청원 제기만 확인됨(1차 자료 확보). ITC의 조사 개시(institution) 결정, 소송 대응(Micron측 답변) 등 후속 절차는 미확인 — 다음 run에서 추적 필요"
+    },
+    {
+      "topic": "HBM 마진 vs 범용 마진 ('HBM이 장기계약 대가로 마진이 더 낮다' 가설)",
+      "status": "이번 조회 기간(8/15~8/20) 내 신규 확인 자료 미확보. 카드상 미검증 가설 상태 유지, 9/22 Q4 FY26 실적에서 직접 확인 대상"
+    },
+    {
+      "topic": "비트그로스 vs ASP 분해 (MU 고유 데이터, '순수 P 사이클' 가설 검증)",
+      "status": "이번 조회 기간 내 Micron 자체 공시·IR을 통한 비트그로스/ASP 분해 데이터 미확보. 9/22 실적 체크포인트에서 확인 예정"
+    },
+    {
+      "topic": "EDGAR full-text 신규 공시",
+      "status": "10-K/10-Q/8-K 대상 2026-08-15 이후 검색 결과 0건 (원본: MU_edgar_raw.json)"
+    },
+    {
+      "topic": "SCA 신규 체결·조건 변경",
+      "status": "이번 조회 기간 내 신규 SCA 체결·기존 조건 변경 확인 자료 없음. 전 run에서 제기된 'SCA 상한가격 시장가 연동 전환설'(TrendForce, grade4, confirmed:false)의 1차 자료 재확인도 이번 기간 내 실패 — 9/22 실적 'SCA 가이던스' 체크포인트에서 재확인 필요"
+    }
+  ]
+}

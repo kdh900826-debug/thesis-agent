@@ -1,0 +1,260 @@
+{
+ "as_of": "2026-09-19",
+ "run_id": "20260919_2209",
+ "ticker": "MU",
+ "input_source": "output/20260919_2209/03_input/arbiter_MU.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🔴🔴",
+ "transition_candidate": "kill_priority_candidate — 규칙1(Kill 우선) 적용. 회사 펀더멘털 경로만 보면 maintain(🟠)이었을 것임을 아래 gate_check에 별도로 남긴다.",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다. 규칙1(Kill 우선)에 따른 후보이며, 회사 고유 6축(ip_litigation_risk·hbm_demand·sca_defense·cycle_position·china_supply·valuation_paradox) 경로만 보면 상향·하향 게이트 모두 미충족으로 maintain(🟠)이 정상 경로였다.",
+ "claims": [
+  {
+   "id": "c_20260919_MU_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "edgar_api",
+   "filed_at": "2026-09-19",
+   "stage": "no_new_filing",
+   "summary": "[P1] EDGAR CIK 0000723125 조회, 조사 창(09-10~09-19) 내 신규 1차 공시(8-K/10-Q/10-K) 0건. 3개 회차(0905·0911·0919) 연속 공시 공백. 매출·마진·현금흐름·가이던스 수치 자체가 없어 상향·하향 어느 근거도 되지 못함(P2)."
+  },
+  {
+   "id": "c_20260919_MU_2_3_4",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company_ir_newsroom",
+   "filed_at": "2026-09-15",
+   "stage": "no_revenue_disclosure",
+   "summary": "[P1] 창 내 회사 명의 보도자료 2건 — 512GB DDR5 RDIMM 발표(양산 2027년 하반기, 고객명·수주금액·계약가격 미공개)와 Deirdre Hanford Micron Research Labs 대표 선임(Item 5.02 8-K로 이어지지 않음). 둘 다 매출·마진·가이던스 수치 없음, P7 3단 분리상 계약 존재 이전 단계."
+  },
+  {
+   "id": "c_20260919_MU_5",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "federal_court_opinion_pdf",
+   "filed_at": "2026-09-02",
+   "out_of_window": true,
+   "stage": "litigation_outcome_not_revenue",
+   "summary": "[P1] CAFC가 2026-09-02 Netlist v. Micron 항소 3건(1건 선례적)을 전부 인용(AFFIRMED) — Netlist 특허 5건(10,949,339/11,016,918/11,232,054/8,787,060/9,318,160) 쟁점 청구항 전부 무효. 판결문 원문 직접 확인, grade1(수동 부여, cafc.uscourts.gov는 sources.yaml 미등재). 법률적 승소이며 매출·마진·현금흐름·가이던스로 이어지는 수치가 아니다 — stage=litigation_outcome, revenue_recognized 아님."
+  },
+  {
+   "id": "c_20260919_MU_6",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "inference_strength": "moderate",
+   "source_type": "cross_reference_of_primary_documents",
+   "filed_at": "2026-09-19",
+   "stage": "no_claim_extinguished",
+   "summary": "[P1][moderate] 9/2 무효 인용 특허 5건은 2026-08-12 ITC·CDCA 제소의 주장 특허 4건(10,025,731/10,217,523/12,373,366/12,675,407)과 겹치지 않는다 — 9/2 판결이 신규 2건 소송의 청구를 직접 소멸시키지 않는다. 효과는 'IPR 이력상 Netlist 특허군이 반복 무효 판단을 받아왔다'는 함의에 한정."
+  },
+  {
+   "id": "c_20260919_MU_7",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "federal_register_official_api",
+   "filed_at": "2026-08-17",
+   "stage": "no_institution_notice_yet",
+   "summary": "[P1] 연방관보 공식 API 대사 — Netlist 2026-08-12 ITC 제소는 DN 3930으로 특정, 접수공고(2026-08-17) 게재 확인. 2026-09-19 시점 관보 게재분(USITC 09-01~09-19 전수 27건)에 조사개시(institution) 공고는 미게재. P5 — 부재는 미표결의 반증이 아니다."
+  },
+  {
+   "id": "c_20260919_MU_8",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "court_docket_mirror",
+   "filed_at": "2026-09-19",
+   "stage": "single_source_unconfirmed",
+   "summary": "[P1] CourtListener/RECAP — CDCA 사건은 8:26-cv-02167로 특정(제소일 08-10). 09-02 엔트리 #16으로 09-10 답변시한이 30일 이내로 연장됨. RECAP 미등재 도메인·PACER 미러 단독 소스로 grade4, 단독 근거 불가(P4)."
+  },
+  {
+   "id": "c_20260919_MU_9",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": true,
+   "source_type": "court_docket_mirror",
+   "filed_at": "2026-09-19",
+   "stage": "single_source_unconfirmed_newly_surfaced",
+   "summary": "[P1] D.Del 1:26-cv-01014 — Micron이 2026-08-10 Netlist 상대 비침해 확인의 소 선제 제기(신규 편입, 카드 미기재). grade4 단독, 대상 특허·ITC 조사개시 시 §1659 정지 여부 미확인."
+  },
+  {
+   "id": "c_20260919_MU_11",
+   "claim_type": "fact",
+   "evidence_grade": 3,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "secondary_media_wire",
+   "filed_at": "2026-09-15",
+   "stage": "single_source_unconfirmed",
+   "summary": "[P1] Reuters(Investing.com 유통) — 대만 Taoyuan·Taichung 노조(임직원 약 80%+ 대표) 조정 절차 진행 중, 09-04 협상 결렬, 2차 조정 09-21 지정, 결렬선언 기준일 09-18·09-21. 회사 1차공시(8-K·IR)에는 미등재(c_1,c_2). 금액이 직전 회차 보도와 불일치 — 정량 근거로 미사용, grade3·confirmed:false 단독."
+  },
+  {
+   "id": "c_20260919_MU_12",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "scope_note_primary_channels",
+   "filed_at": "2026-09-19",
+   "stage": "no_disclosure_in_window",
+   "summary": "[P1] noise_filter.yaml#MU promote_if 3항목 표적 점검 — ① SCA 신규 체결·조건변경 없음 ② 비트그로스 vs ASP 분해 신규 수치 없음(기준선 FY26 Q3 10-Q 그대로) ③ Apple CXMT/YMTC 서한 결과 확정 문서 없음. P5 — 미확보이지 변동 부존재의 증명 아님."
+  },
+  {
+   "id": "c_20260919_MU_13",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company_press_release",
+   "filed_at": "2026-08-26",
+   "stage": "no_change_confirmed",
+   "summary": "[P1] FY26 Q4 실적발표일 2026-09-30(산악시간 14:30 컨퍼런스콜)이 조사 창 종료 시점까지 변경·연기 공지 없이 유지. 실적 수치·컨센서스는 추정하지 않는다(지시 §5 준수)."
+  }
+ ],
+ "filter_bug_report": "없음(F13 위반 아님) — arbiter_MU.json claims 13건 전부 scope=company_specific, removed_claims 0건.",
+ "kill_check": {
+  "rule": "규칙1(Kill 우선, 변경 금지): KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청. 회사 KC·매크로 전파 KC 구분 없이 동일 적용.",
+  "own_company_kc": {
+   "verdict": "not_defined",
+   "verdict_confidence": "n/a",
+   "note": "kill_conditions.yaml#company에 MU 전용 active KC 미정의(발췌본 확인). 판정 대상 자체 없음(P11)."
+  },
+  "kc_reference": [
+   {
+    "kc_id": "KC-1",
+    "condition": "FFR 인상 리스크 (FFR > 3.75)",
+    "value": "4.00 (목표범위 상단, 2026-09-16 FOMC 25bp 인상, 표결 12-0)",
+    "verdict": "met",
+    "verdict_confidence": "confirmed",
+    "as_of": "2026-09-19",
+    "staleness_days": 0,
+    "note": "[P1] FRED DFEDTARU API 대사로 confirmed. 직전 4개 회차 연속 '이격 0.00pp 경계 접촉' 상태였던 항목이 본 회차 최초로 임계 초과. MU는 correlation_matrix상 RATES 축 불리(-) 노출 종목(kc_excerpt.macro_kc_propagating_to_ticker에 KC-1 포함) — 규칙1은 회사 펀더멘털과 무관하게 매크로 오버레이로 적용된다. 사후 확정 수치이며 확률·전망 서술이 아니다(F14 저촉 아님)."
+   },
+   {
+    "kc_id": "KC-9",
+    "condition": "에너지 쇼크 (brent >= 120, 1개월 지속)",
+    "value": "130.8 (2026-09-15)",
+    "verdict": "met",
+    "verdict_confidence": "provisional",
+    "as_of": "2026-09-15",
+    "staleness_days": 3,
+    "note": "[P1] 임계 자체는 초과했으나 최초 상회일 2026-09-10로부터 연속 2거래일에 불과해 duration('1개월 지속') 미충족. verdict_override_proposal=not_met(실질은 경고 수준). confirmed가 아니므로 규칙1의 'met AND confirmed' 요건을 충족하지 않는다 — 이번 Kill 트리거의 근거에서 제외하되 별도 모니터링 항목으로 기록한다."
+   },
+   {
+    "kc_id": "KC-2, KC-4~8",
+    "condition": "매크로 KC-2(변동성)·4(유동성)·5(TAIEX)·6(AI토큰)·7(하이퍼스케일러 FCF)·8(MSFT FCF)",
+    "verdict": "not_met (전건)",
+    "verdict_confidence": "혼재(KC-2/4/5=confirmed, KC-6/7/8=provisional이나 not_met 방향 자체는 이견 없음)",
+    "note": "발췌본 kc_status 상 전건 not_met. Kill 트리거 해당 없음."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": true,
+  "trigger_source": "KC-1 단독",
+  "reason": "규칙1(Kill 우선: KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청)의 문언은 매크로 KC의 MU 전파 여부(kc_excerpt.macro_kc_propagating_to_ticker에 KC-1 명시)를 통해 개별 종목에도 적용된다. KC-1이 met AND confirmed를 그대로 충족하므로 회사 펀더멘털 상태(ip_litigation_risk 강화 포함)와 무관하게 규칙1이 발동한다. KC-9는 met이나 provisional(사람 override 제안=not_met, duration 미충족)이라 'AND confirmed' 요건을 충족하지 못해 트리거 근거에 포함하지 않는다 — 경고 수준 관찰 항목으로 별도 명시. MU 전용 KC는 미정의로 판정 대상 없음."
+ },
+ "gate_check": {
+  "quantitative_evidence": false,
+  "company_specific": true,
+  "revenue_recognized": false,
+  "upgrade_gate_result": "not_met",
+  "upgrade_gate_reason": "P2/P6/P7 상향 게이트(quantitative_evidence AND company_specific AND revenue_recognized 전부 충족)는 이번 창에서 성립하지 않는다. 이번 회차 6축 중 유일한 방향성 재료는 ip_litigation_risk=strengthen(c_5, 2026-09-02 CAFC가 Netlist 항소 3건 전부 Micron 승소 인용)이나, 이는 법률 사건의 결과이지 확정된 매출·마진·현금흐름·가이던스 수치가 아니다 — stage=litigation_outcome이며 revenue_recognized가 아니다. company_specific=true는 성립하나(c_5는 MU 자체 소송), 매출인식 단계 진술이 아니므로 quantitative_evidence는 '재무적으로 정량화된 증거'라는 실질 의미에서 false로 판정한다(원claim 태그상 quantitative:true는 텍스트 내 특허번호·사건번호 존재를 뜻할 뿐 매출·마진 수치가 아님). 또한 c_6(특허 비중첩 추론)은 evidence_grade 1이나 inference·moderate이며 방향을 강화 이상으로 끌어올리는 재무 수치가 아니다. c_7(ITC 관보 미게재)·c_8(CDCA 답변시한 연장)·c_9(D.Del 확인의소)는 진행 상태 관측일 뿐 결론이 아니며 c_8·c_9는 grade4 단독으로 P4상 자격 미달. 결론: revenue_recognized=false → 상향 게이트 미충족. 규칙2(P12)에 따라 게이트 미충족은 실패가 아니라 등급유지 + holding_reinforcement 분류가 정상 경로다 — CAFC 승소는 holding_reinforcement로 분류한다(등급 유지 근거 강화 기록일 뿐 상향 후보 아님).",
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "없음 — 이번 창에 매출·마진·현금흐름·가이던스를 직접 악화시키는 확정 수치 없음.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "hbm_demand 축 관련 대만 노사분쟁 신규분(c_11)은 evidence_grade=3·confirmed:false — 규칙3 하향 자격 기준(evidence_grade≤2)에 미달. ip_litigation_risk·sca_defense·cycle_position·china_supply·valuation_paradox 5축은 방향이 strengthen(ip_litigation_risk) 또는 neutral이며 훼손 방향 자체가 없음.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "규칙3(비대칭 하향: 정량 훼손 또는 grade≤2 정성 훼손)에 해당하는 사실이 이번 창에 없다. 회사 펀더멘털 경로만으로는 하향 사유도 없다."
+  },
+  "note": "회사 펀더멘털 6축 경로(상향/하향 게이트)는 둘 다 미충족 → P12 정상 경로는 maintain(🟠)이다. 그러나 kill_check.triggered=true이므로 규칙1이 이 경로에 우선 적용되어 proposed_signal=🔴🔴로 override 된다(전이 규칙1 '우선' 문언)."
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "ip_litigation_risk",
+   "direction": "strengthen",
+   "note": "[P1] 2026-09-02 CAFC가 Netlist v. Micron 항소 3건(1건 선례적) 전부 Micron 승소 인용, 특허 5건 쟁점 청구항 전부 무효(c_5, grade1). 단 무효 특허 5건은 2026-08-12 신규 제소 주장 특허 4건과 겹치지 않아 신규 소송 청구 자체는 살아있다(c_6, moderate). CDCA 답변시한 연장(c_8)·Micron의 D.Del 선제 확인의소(c_9)는 grade4 단독. ITC DN 3930 조사개시 공고는 09-19 시점 미게재(c_7, 부재≠반증). P2 상향 게이트 부적격(법률 결과이지 매출·마진·현금흐름·가이던스 수치 아님) → holding_reinforcement로 분류.",
+   "supporting_claims": ["c_20260919_MU_5", "c_20260919_MU_6", "c_20260919_MU_7", "c_20260919_MU_8", "c_20260919_MU_9"],
+   "risk_transfer_to": ["ITC DN 3930 조사개시 표결·관보 공고", "CDCA 8:26-cv-02167 연장된 답변시한 및 답변 내용", "D.Del 1:26-cv-01014 진행 상태", "CAFC 2025-1936 판결 선고"]
+  },
+  {
+   "axis": "hbm_demand",
+   "direction": "neutral",
+   "note": "[P1] 대만 노사분쟁은 조정 절차 내(파업 미선언). 신규 확정 사실은 협상 일정 구체화(09-04 결렬, 2차 조정 09-21)뿐이며 핵심 소스가 grade3·confirmed:false — 정량 근거로 미사용. 생산·출하·가이던스 영향 확정 단계 아님.",
+   "supporting_claims": ["c_20260919_MU_11"],
+   "risk_transfer_to": ["2026-09-18·09-21 조정 결과 및 파업투표 실시 여부", "2026-09-30 FY26 Q4 실적 — HBM 비중·마진·HBM4 램프"]
+  },
+  {
+   "axis": "sca_defense",
+   "direction": "neutral",
+   "note": "[P1] 창 내 SEC 공시·회사 보도자료 어디에도 SCA 신규 체결·조건변경 없음(c_12①). no_change 이월.",
+   "supporting_claims": ["c_20260919_MU_12"],
+   "risk_transfer_to": ["2026-09-30 FY26 Q4 실적 — SCA 가이던스·LTA 비중·선수금/계약부채 잔액"]
+  },
+  {
+   "axis": "cycle_position",
+   "direction": "neutral",
+   "note": "[P1] 비트그로스 vs ASP 분해 신규 수치 없음, 기준선 FY26 Q3 10-Q 그대로(c_12②). 512GB DDR5 RDIMM(c_3)은 2027년 하반기 양산이라 FY26~FY27 상반기 공급·ASP 믹스에 미반영.",
+   "supporting_claims": ["c_20260919_MU_12", "c_20260919_MU_2_3_4"],
+   "risk_transfer_to": ["2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해"]
+  },
+  {
+   "axis": "china_supply",
+   "direction": "neutral",
+   "note": "[P1] Apple CXMT/YMTC 소싱 허용 검토 관련 확정 문서 창 내 미확보(c_12③). 2026-09-24 미중 정상회담이 다음 분기점.",
+   "supporting_claims": ["c_20260919_MU_12"],
+   "risk_transfer_to": ["2026-09-24 미중 정상회담 및 후속 상무부 입장", "Apple 공식 발표"]
+  },
+  {
+   "axis": "valuation_paradox",
+   "direction": "neutral",
+   "note": "[P1] 판정 입력(비트/ASP 분해·선수금 방향) 모두 창 내 갱신 없음. 저 P/E 단독 서술은 noise_filter 위반으로 미사용(지시 준수 — 저 P/E를 밸류 근거로 쓰지 않음).",
+   "supporting_claims": ["c_20260919_MU_12"],
+   "risk_transfer_to": ["2026-09-30 FY26 Q4 실적 — 선수금·계약부채 잔액 방향, 비트/ASP 분해"]
+  }
+ ],
+ "alert": {
+  "ticker_event": "[P1] MU — 매크로 KC-1(FFR 인상)이 met+confirmed로 최초 임계 돌파(2026-09-16 FOMC, 25bp 인상 → 목표범위 3.75~4.00%, 표결 12-0, 1차 공시), MU는 RATES 축 불리 노출 종목. 동시에 회사 고유 재료로는 2026-09-02 CAFC의 Netlist 특허 5건 무효 인용(창 밖, 09-19 확인)이 유일한 강화 방향이나 P2 상향 게이트 부적격. 대만 노사분쟁은 조정 단계 지속, FY26 Q4 실적일(9/30)은 변경 없음.",
+  "facts": "[P1][출처·시각] ① FRED DFEDTARU API 대사 FFR=4.00%(목표 상단) > KC-1 임계 3.75%, as_of 2026-09-19, confirmed [grade1]. ② brent=130.8(2026-09-15, stale 3일) > KC-9 임계 120이나 duration 미충족, provisional, 사람 override 제안=not_met [grade1]. ③ CAFC 판결문 3건 원문 직접 확인(2026-09-02, 창 밖) — Netlist 특허 5건 쟁점 청구항 전부 무효 인용, 선례적 판결 1건 포함 [c_5, grade1, confirmed]. ④ 무효 특허 5건과 2026-08-12 신규 제소 주장 특허 4건은 번호 비중첩 [c_6, grade1, moderate]. ⑤ 연방관보 API — ITC DN 3930 조사개시 공고 09-19 시점 미게재 [c_7, grade1, confirmed]. ⑥ CDCA 8:26-cv-02167 답변시한 09-02자로 연장, D.Del 1:26-cv-01014(Micron 선제 확인의소) 신규 확인 [c_8·c_9, grade4, confirmed:false, 단독소스]. ⑦ EDGAR·IR 조회, 조사 창 내 신규 1차 공시 0건·매출성 보도자료 0건 [c_1·c_2_3_4, grade1, confirmed]. ⑧ 대만 노조 조정 절차 지속, 파업 미선언 [c_11, grade3, confirmed:false]. ⑨ FY26 Q4 실적일 2026-09-30 변경 없음 [c_13, grade1, confirmed].",
+  "inference": "[moderate, c_20260919_MU_6] CAFC 무효 인용은 신규 2건 소송의 청구를 직접 소멸시키지 않으며 IPR 이력상 함의에 한정. [high, 판정근거] KC-1의 met+confirmed는 규칙1 문언을 그대로 충족하는 매크로 오버레이 트리거이며 종목 펀더멘털과는 별개 경로다. [weak, c_20260919_MU_11] 대만 노사분쟁은 실행리스크 신호이나 grade3 단독이라 매출·가이던스 영향 확정 아님.",
+  "classification": "규칙1(Kill 우선) 트리거 — kill_priority_candidate. 회사 펀더멘털 경로만 보면 ip_litigation_risk=strengthen이 유일한 방향성 재료이나 P2 상향 게이트(quantitative_evidence·revenue_recognized) 부적격 — holding_reinforcement로 분류(P12). 하향 게이트도 미충족(hbm_demand 유일 훼손 후보가 grade3, 규칙3 기준 evidence_grade≤2 미달). 즉 펀더멘털 정상 경로는 maintain(🟠)이었을 것이나, 규칙1이 이를 우선한다.",
+  "thesis_delta": "ip_litigation_risk: strengthen(P2 부적격, holding_reinforcement). hbm_demand·sca_defense·cycle_position·china_supply·valuation_paradox: neutral(no_change). 축간 리스크 이관 없음. 신규 사항: 개별 축 이관이 아닌 포트폴리오 레벨 매크로 오버레이가 부과됨 — KC-1 consequence(레버리지 전액 해제 + Edge/Next 50% 축소 검토)는 회사 펀더멘털 6축 구조 자체를 변경하지 않으며 포지션 전체 재검토 트리거로 별도 존재한다.",
+  "signal_verdict": "🔴🔴 후보(규칙1 Kill 우선) — 사람 확인 요청. 현행 🟠(주의, 피크 역설)에서 재분류 후보로 상정. 펀더멘털만 보면 maintain(🟠)이 정상 경로였으나(ip_litigation_risk 강화는 P2 게이트 부적격, holding_reinforcement) KC-1 met+confirmed가 이를 우선한다. KC-9(브렌트)는 met이나 provisional·사람 override 제안=not_met(지속성 미충족)이므로 이번 트리거에는 불포함, 별도 경고 수준 관찰 항목으로 플래그.",
+  "next_check": "① [정량, 최우선] KC-1 재확인 — 차기 FOMC 및 FRED DFEDTARU 갱신치(현 4.00%, 임계 3.75% 상회 지속 여부). ② [정량] KC-9 brent 지속성 확정(현재 2거래일, duration 요건 1개월). ③ [정량, next_gate] 2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해·선수금 방향. ④ [정량] ITC DN 3930 조사개시 표결·관보 공고. ⑤ [정량] CDCA 8:26-cv-02167 연장된 답변시한 확정일·답변 내용. ⑥ [정량] CAFC 2025-1936(Netlist v. Micron Technology Texas) 판결 선고."
+ },
+ "next_gate": "① KC-1 재확인(차기 FOMC·FRED DFEDTARU) — 최우선, 사람 확인 대상. ② KC-9 brent duration 확정(1개월 지속 도달 시점). ③ 2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해·선수금 방향(회사 공식 확정일, 2026-08-26 보도자료 grade1). ④ ITC DN 3930 조사개시 공고. ⑤ CDCA 8:26-cv-02167 연장 답변시한. 전항목 관측 가능한 정량 항목.",
+ "unconfirmed_carried": [
+  {"topic": "ITC DN 3930 조사개시(institution) 표결 결과", "reason": "no_official_publication_yet"},
+  {"topic": "CDCA 8:26-cv-02167 연장된 답변시한의 정확한 날짜와 답변 제출 여부", "reason": "docket_mirror_incomplete"},
+  {"topic": "D.Del 1:26-cv-01014(Micron→Netlist 확인의소) 대상 특허·진행상태", "reason": "newly_surfaced_out_of_window"},
+  {"topic": "CAFC 2025-1936(Netlist v. Micron Technology Texas) 원심·쟁점·선고시점", "reason": "insufficient_case_metadata"},
+  {"topic": "대만 노사분쟁 2026-09-18·09-21 조정 결과 및 회사 1차 자료", "reason": "primary_source_unavailable"},
+  {"topic": "SCA 신규 체결·조건변경 및 선수금·계약부채 잔액 방향", "reason": "no_disclosure_in_window"},
+  {"topic": "비트그로스 vs ASP 분해('순수 P 사이클' 가설)", "reason": "carried_over_from_prior_run"},
+  {"topic": "Apple CXMT/YMTC 소싱 허용 여부 및 8/21 상원 서한 결과", "reason": "carried_over_from_prior_run"},
+  {"topic": "512GB DDR5 RDIMM 고객·수주·계약가격 및 Netlist 주장 특허와의 관계", "reason": "no_disclosure"}
+ ],
+ "human_confirmation_required": true,
+ "note_for_orchestrator": "🔴🔴 판정 — 규칙1(Kill 우선) 트리거로 사람 확인 필요. 핵심 판단 플래그: (1) 트리거 근거는 KC-1(FFR>3.75, 값 4.00, confirmed) 단독이며 MU 종목 전용 KC는 미정의 — 이 후보는 종목 고유 리스크가 아니라 매크로 오버레이다. (2) KC-9(brent 130.8>120)는 met이나 provisional이고 사람 override 제안이 not_met(지속성 미충족)이므로 트리거 근거에서 제외 — 사람 최종 확인 시 경고 수준으로만 반영 요망. (3) CAFC 9/2 판결(ip_litigation_risk strengthen)은 P2 상향 게이트 3요건(quantitative/company_specific/revenue_recognized) 중 revenue_recognized 불충족으로 부적격 판정 — holding_reinforcement 분류, 상향 후보 아님(지시 §'엄격히 판정' 준수). (4) F13(필터 버그) 없음 — 필터본 claims 13건 전부 company_specific. (5) 규칙1이 규칙2(상향)·규칙3(하향)에 우선 적용된다는 것이 이번 판정의 핵심 논리이며, 두 게이트 모두 미충족(정상 경로 maintain)이었음을 gate_check에 남겨 사람이 대조할 수 있게 했다. (6) MU 종목 전용 KC가 3회 연속 미정의 — KC 신설 필요성 재상정 권고(직전 회차 플래그 유지)."
+}

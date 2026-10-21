@@ -1,0 +1,511 @@
+{
+  "as_of": "2026-08-15T14:05",
+  "run_id": "20260815_1330",
+  "pair_overlap": [
+    {
+      "pair": [
+        "COIN",
+        "CRCL"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "CRYPTO",
+        "REGULATION",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "CRWV"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs CRWV - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "HOOD"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "CRYPTO",
+        "REGULATION",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "IREN"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "CRYPTO"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs IREN - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "MU"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs MU - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "NBIS"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs NBIS - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "CRWV"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "상",
+          "note": "CRCL + vs CRWV - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "HOOD"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "CRYPTO",
+        "REGULATION",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "IREN"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "CRYPTO"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRCL + vs IREN - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "MU"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRCL + vs MU - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "NBIS"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRCL + vs NBIS - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "HOOD"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRWV - vs HOOD + — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "IREN"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "AI_CAPEX",
+        "GPU_SUPPLY",
+        "RATES",
+        "RISK_APPETITE"
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "MU"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "AI_CAPEX",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "NBIS"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "AI_CAPEX",
+        "GPU_SUPPLY",
+        "RATES",
+        "RISK_APPETITE"
+      ]
+    },
+    {
+      "pair": [
+        "HOOD",
+        "IREN"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "CRYPTO"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "HOOD + vs IREN - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "HOOD",
+        "MU"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "HOOD + vs MU - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "HOOD",
+        "NBIS"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "HOOD + vs NBIS - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "IREN",
+        "MU"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "AI_CAPEX"
+      ]
+    },
+    {
+      "pair": [
+        "IREN",
+        "NBIS"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "AI_CAPEX",
+        "GPU_SUPPLY",
+        "RATES",
+        "RISK_APPETITE"
+      ]
+    },
+    {
+      "pair": [
+        "MU",
+        "NBIS"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "AI_CAPEX"
+      ]
+    }
+  ],
+  "kc_propagation": [
+    {
+      "kc_id": "KC-1",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-2",
+      "affected": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-3",
+      "affected": [
+        "COIN",
+        "CRCL",
+        "HOOD",
+        "IREN"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-4",
+      "affected": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-5",
+      "affected": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-6",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-7",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-8",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0
+    },
+    {
+      "kc_id": "KC-10",
+      "affected": [
+        "IREN"
+      ],
+      "count": 1,
+      "weight_pct_upper": 95.0
+    }
+  ],
+  "axis_concentration": [
+    {
+      "axis": "AI_CAPEX",
+      "tickers": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "RATES",
+      "tickers": [
+        "COIN",
+        "CRCL",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 7,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "CRYPTO",
+      "tickers": [
+        "COIN",
+        "CRCL",
+        "HOOD",
+        "IREN"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "REGULATION",
+      "tickers": [
+        "COIN",
+        "CRCL",
+        "HOOD"
+      ],
+      "count": 3,
+      "weight_pct_upper": 0.0,
+      "threshold_breach": false,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "GPU_SUPPLY",
+      "tickers": [
+        "CRWV",
+        "IREN",
+        "NBIS"
+      ],
+      "count": 3,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "POWER_PERMIT",
+      "tickers": [
+        "IREN"
+      ],
+      "count": 1,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "RISK_APPETITE",
+      "tickers": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    }
+  ],
+  "vector_change_proposals": [],
+  "coefficient_used": false,
+  "disclaimer": "본 상관은 구조적 노출 판정이며 실제 가격 동조화를 예측하지 않는다. 축 노출이 낮아도 유동성 이벤트에서 동반 하락할 수 있다. 노출 벡터는 사람이 편집한 correlation_matrix.yaml에 의존하므로, 벡터의 정확성이 곧 이 레이어의 정확성 상한이다."
+}

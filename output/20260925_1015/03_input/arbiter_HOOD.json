@@ -1,0 +1,258 @@
+{
+  "as_of": "2026-09-25",
+  "ticker": "HOOD",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260925_HOOD_6",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260925_HOOD_1",
+      "ticker": "HOOD",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions를 2026-09-25 시점 재조회한 결과, Robinhood Markets(CIK 0001783879)가 2026-09-01~09-25 구간에 제출한 8-K·10-Q·10-K는 0건이다(edgar_fulltext.py --ticker HOOD --forms 8-K 10-Q 10-K --since 2026-09-01 → 0건). 같은 구간 Form 4는 2026-09-23 Vladimir Tenev 명의 1건이 추가 확인됐다(2026-09-21 실행분, 약 $32.5M 상당 매도, 사전신고 거래계획(10b5-1) 기반, 2026년 세 번째 처분).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "edgar_api / edgar_fulltext.py",
+        "url": "https://data.sec.gov/submissions/CIK0001783879.json",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "직전 run과 동일하게 창 내 8-K/10-Q/10-K 신규 제출 없음을 재확인. Tenev 매도는 정형 10b5-1 계획·유사 규모 반복(직전 2건과 동일 패턴)이라 promote_if 미해당으로 노이즈 처리(discarded_noise_log)."
+    },
+    {
+      "id": "c_20260925_HOOD_2",
+      "ticker": "HOOD",
+      "claim_type": "fact",
+      "text": "회사 공식 'August 2026 Operating Data'(2026-09-10 배포, GlobeNewswire/투자자 IR 페이지)에는 직전 run이 적재하지 않은 예측시장 전용 지표가 포함돼 있다: Event Contracts Traded(월간 계약 체결 건수) 47억 건 — 전월 대비 -23%, 전년동기 대비 +15배. Average Daily Volumes(일평균 계약 건수) 1.52억 건 — 전월 대비 -23%, 전년동기 대비 +14배. 그 외 지표(Total Platform Assets $383.7B, 월간 순입금 $4.0B, Funded Customers 28.6M, 크립토 명목거래액 $17.5B, 옵션 계약 2.925억 건, Margin Balances $21.5B, 증권대차수익 $36M)는 직전 run(c_20260919_HOOD_2)이 이미 적재한 값과 일치한다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company press release (GlobeNewswire distribution / investors.robinhood.com)",
+        "url": "https://www.globenewswire.com/news-release/2026/09/10/3359962/0/en/robinhood-markets-inc-reports-august-2026-operating-data.html",
+        "filed_at": "2026-09-10"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true,
+      "note": "발표일(09-10)은 직전 run 창(09-10~09-19) 안이었으나 Event Contracts Traded·Average Daily Volumes 항목은 두 차례 회차 모두 미포착이었다 — 본 run 소급 스윕에서 원문 재대조로 확보. 08-28 소급 기준의 '카드 축에 직접 대응하는 미포착 정량 지표'에 해당해 out_of_window: true로 적재한다(P9 — 직전 run 기록을 대체하지 않고 보완). 계약 '건수'는 매출이 아니다(P7) — 카드 기준선(Q2'26 이벤트 계약 매출 $156M, 분기 13.6B건)과 단위·기간이 달라 직접 비교 불가."
+    },
+    {
+      "id": "c_20260925_HOOD_3",
+      "ticker": "HOOD",
+      "claim_type": "fact",
+      "text": "Robinhood는 2026-09-10 미국 연방대법원에 상고허가신청(petition for a writ of certiorari)을 제출했고, 동 사건은 2026-09-14 No. 26-338로 정식 등재됐다(응답 기한 2026-10-14). 직전 run이 미확정으로 남겼던 도켓번호가 본 창에서 확정됐다. 별건인 뉴저지의 상고(No. 26-299, 2026-09-08 접수)와는 별개 사건이다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "federal court docket (원문 직접 fetch 확인)",
+        "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/26-338.html",
+        "filed_at": "2026-09-14"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "supremecourt.gov 원문을 직접 fetch해 도켓 엔트리(제출일 09-10·응답기한 10-14·등재일 09-14)를 확인했으나 sources.yaml 미등재 도메인이라 기계적으로 grade 4·confirmed=false를 부여한다(P4, 직전 run c_20260919_HOOD_4·10과 동일 규칙 적용 — 원문 확인 성공 여부와 무관). 2026-09-28 long conference에서의 처리 여부는 창 밖 다음 관측점으로 이월한다."
+    },
+    {
+      "id": "c_20260925_HOOD_4",
+      "ticker": "HOOD",
+      "claim_type": "fact",
+      "text": "2026-09-11 제출된 CFTC의 D. Conn. 예비적 금지명령 신청과 Robinhood의 소송참가(intervene) 신청은 2026-09-25 조회 시점까지 어느 쪽도 법원의 인용·기각 결정이 나지 않은 계류 상태다. 코네티컷주는 Robinhood의 소송참가에 반대하지 않는다는 입장을 유지하고 있다. 동일 소송 계열에서 별도로 Underdog(경쟁사)가 2026-09-17 코네티컷주를 상대로 직접 제소했다는 보도가 있으나 Robinhood 관련 사실이 아니므로 본 카드 축의 근거로 사용하지 않는다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "2차 매체 종합 (D.Conn. 도켓 원문 미대조)",
+        "url": "https://www.gamblinginsider.com/news/195374/prediction-markets-supreme-court-nfl-gambling-sponsors",
+        "filed_at": "2026-09-2x"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "직전 run(c_20260919_HOOD_5)의 계류 상태에서 변화 없음을 확인하는 이월 확인 Claim. grade 4·confirmed=false — 단독 판단 근거 불가(P4). Underdog 자체 제소 건은 scope=sector로도 채택하지 않음(HOOD 비관련 당사자)."
+    },
+    {
+      "id": "c_20260925_HOOD_5",
+      "ticker": "HOOD",
+      "claim_type": "fact",
+      "text": "Kalshi의 제9순회항소법원 전원재판부(en banc) 재심리 신청(2026-09-09 제출)은 2026-09-25 조회 시점까지 인용·기각 결정 없이 계류 상태다. 법원이 네바다주에 답변을 요구했는지 여부는 확인되지 않았다. 미시간·코네티컷·미주리의 Robinhood 대상 조치에 대해서는 09-18~09-25 구간에 신규 이행·불이행 확정 보도가 확인되지 않았다 — 미시간 기존 포지션 청산 기한(2026-10-09)과 미주리 30일 기한(2026-10-16 전후)은 모두 창 밖(미래)이다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "2차 매체 종합",
+        "url": "https://www.ingame.com/ninth-circuit-states-plan-predictions-stopped/",
+        "filed_at": "2026-09-16"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "카드 하위축(state_enforcement·federal_jurisdiction)의 '다음 관측점' 상태를 재확인하는 carry-over Claim. 신규 사실 없음이며, 직전 회차 판정을 뒤집지 않는다."
+    },
+    {
+      "id": "c_20260925_HOOD_7",
+      "ticker": "HOOD",
+      "claim_type": "fact",
+      "text": "회사는 2026-09-23 16:05 EDT 'Robinhood: 5 Years Since IPO' 제목의 보충 투자자 프레젠테이션(투자자 IR 사이트 게시)을 발표했다. investors.robinhood.com 원문은 반복 접속 시도(WebFetch)가 모두 60초 타임아웃으로 실패해 본문 대조를 완료하지 못했다 — 2차 매체 요약을 통해 8월 운영지표(c_20260925_HOOD_2와 동일 수치) 재인용과 Robinhood Chain 누적 거래량 $10억+ 언급을 확인했으나, 신규 정량 수치(매출·마진·가이던스)는 확인되지 않았다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "2차 매체 요약 (1차 IR 페이지 접속 실패)",
+        "url": "https://www.fool.com/investing/2026/09/21/prediction-robinhood-will-launch-tokenized-stock-trading-in-the-u-s-before-the-end-of-2027/",
+        "filed_at": "2026-09-23"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "investors.robinhood.com/events, /news-releases 두 URL 모두 WebFetch 60s timeout(직전 run의 investors.robinhood.com 접속 실패 전례와 동일). 1차 자료 미확보로 unconfirmed 병행 적재(P5)."
+    },
+    {
+      "id": "c_20260925_HOOD_8",
+      "ticker": "HOOD",
+      "claim_type": "inference",
+      "text": "c_20260925_HOOD_2의 Event Contracts Traded MoM -23%(8월, 7월 대비)는 카드가 남겨둔 '월드컵 계절성 여부' 관측점에 대한 최초의 정량적 반대 신호다 — 계약 건수 기준으로는 7월 대비 감소가 확인돼, 이전 회차의 누적치 서술(8월까지 누적 300억 건 이상)이 시사하던 지속 성장 인상과 달리 월간 활동은 정점 통과 가능성을 시사한다. 다만 건수는 매출이 아니며(P7), YoY +15배로 기저 자체는 여전히 매우 높다 — Q3 실적의 이벤트 계약 매출 절대액·QoQ가 확인되기 전까지는 방향 판정을 유보한다.",
+      "evidence_grade": null,
+      "source": null,
+      "inference_strength": "medium",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "근거는 grade1 회사 공시(c_20260925_HOOD_2)이나 건수→매출 환산은 본 계층이 수행하지 않는다(P5, P7)."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "prediction_market",
+      "direction": "neutral",
+      "stage": "existence_metric_update (건수 지표 갱신, 매출 미확인)",
+      "prior_state": "직전 run(0919): direction=weaken — 규제 리스크 경로에 실제 상품 제공 중단(미시간) 확정 사례가 처음 발생했다는 사실에 근거. 단, 2026-09-19 ThesisPatch(decompose)로 규제 리스크의 방향 판정은 하위 축(state_enforcement·federal_jurisdiction)으로 이관됐고 본 축은 매출 기여 기준선(Q2'26 $156M·13.6B건) 보유 축으로 존치됐다.",
+      "new_state": "본 창에서 축 판정에 새로 반영할 매출 데이터는 없다. 다만 소급 스윕으로 확보한 8월 Event Contracts Traded(4.7B건, MoM -23%, YoY +15배)와 Average Daily Volumes(1.52억 건, MoM -23%, YoY +14배)는 카드가 명시한 '월드컵 계절성 여부' 관측점에 대응하는 최초의 하락 신호다(c_20260925_HOOD_2·8). 건수는 매출이 아니므로(P7) 이를 근거로 강화/훼손 방향을 부여하지 않고 neutral로 유지하되, Q3 실적 확인 전까지 지속성 미검증 상태가 이어진다는 점을 명기한다. 규제 리스크 방향은 여전히 하위 축에서만 판정한다(P8, 축 분해 유지).",
+      "risk_transfer_to": [
+        "Q3 실적의 이벤트 계약 매출 절대액·QoQ (World Cup 계절성 검증)",
+        "9월 운영지표(통상 10월 중순)의 Event Contracts Traded MoM 방향"
+      ],
+      "supporting_claims": [
+        "c_20260925_HOOD_2",
+        "c_20260925_HOOD_8"
+      ]
+    },
+    {
+      "axis": "prediction_market_state_enforcement",
+      "direction": "neutral",
+      "stage": "no_status_change (미시간·코네티컷·미주리 모두 이행 확정 보도 없음)",
+      "prior_state": "직전 run(0919): 미시간(신규 제공 09-09 중단·기존 포지션 10-09 청산 확정), 코네티컷(09-10 C&D·소환장), 미주리(09-16 기산 30일 C&D)를 grade4·confirmed=false로 적재. 코네티컷·미주리는 이행 여부 미확인 상태.",
+      "new_state": "09-18~09-25 구간에 코네티컷·미주리의 실제 이행/불이행이나 신규 주(州) 조치는 확인되지 않았다(c_20260925_HOOD_5). 미시간 청산 기한(10-09)과 미주리 기한(약 10-16)은 모두 창 밖 미래 시점이라 관측 대상 자체가 아직 도래하지 않았다. 상태를 변경할 근거가 없어 이전 판정을 그대로 이월한다.",
+      "risk_transfer_to": [
+        "2026-10-09 미시간 청산 기한 실이행 여부",
+        "미주리 기한(약 2026-10-16) 도과 후 조치",
+        "코네티컷 이행 여부"
+      ],
+      "supporting_claims": [
+        "c_20260925_HOOD_5"
+      ]
+    },
+    {
+      "axis": "prediction_market_federal_jurisdiction",
+      "direction": "neutral",
+      "stage": "docket_confirmed_no_ruling (도켓번호 확정, 실체 판단 없음)",
+      "prior_state": "직전 run(0919): CFTC의 D.Conn. 예비적 금지명령 신청·Robinhood 소송참가 신청 계류(09-11), Robinhood·Crypto.com SCOTUS 상고 제출(제출일 매체 불일치, 도켓번호 미부여, 첫 검토 기회 2026-09-28 long conference).",
+      "new_state": "Robinhood 상고 사건이 No. 26-338로 정식 등재(2026-09-14, 응답기한 10-14)돼 직전 회차의 '도켓번호 미부여' 불확실성이 해소됐다(c_20260925_HOOD_3) — 절차적 확정일 뿐 실체 판단은 아니다. D.Conn. 예비적 금지명령·소송참가 신청은 여전히 계류(c_20260925_HOOD_4), Kalshi의 9순회 en banc 신청도 계류(c_20260925_HOOD_5)다. 2026-09-28 long conference는 창 밖(미래)이라 처리 결과는 다음 회차 관측 대상이다.",
+      "risk_transfer_to": [
+        "2026-09-28 SCOTUS long conference에서 No. 26-338·No. 26-299 처리 여부",
+        "D. Conn. 예비적 금지명령·소송참가 인용 여부",
+        "제9순회 en banc 신청 인용 여부"
+      ],
+      "supporting_claims": [
+        "c_20260925_HOOD_3",
+        "c_20260925_HOOD_4",
+        "c_20260925_HOOD_5"
+      ]
+    },
+    {
+      "axis": "aua_inflow",
+      "direction": "neutral",
+      "stage": "no_new_primary_data",
+      "prior_state": "직전 run(0919): 8월 운영지표(Total Platform Assets $383.7B, 월간 순입금 $4.0B, Funded Customers 28.6M) grade1로 strengthen 판정 후 이월.",
+      "new_state": "본 창(09-18~09-25)에 AUA·순유입 관련 신규 1차 자료는 확인되지 않았다(c_20260925_HOOD_1). 9월분 운영지표는 통상 10월 중순 공개 예정이며 아직 창 밖이다.",
+      "risk_transfer_to": [
+        "9월 월간 운영지표(2026-10 중순 예상)",
+        "Q3 실적의 거래매출 QoQ"
+      ],
+      "supporting_claims": [
+        "c_20260925_HOOD_1"
+      ]
+    },
+    {
+      "axis": "crypto_cycle",
+      "direction": "neutral",
+      "stage": "no_new_primary_data (가스비 보조금 종료일 도래 전)",
+      "prior_state": "직전 run(0919): 8월 크립토 명목거래액 $17.5B(MoM +61%, YoY -38%) — 09-29 종료 예정 가스비 보조금 구간 중 반등이라 지속성 미검증, neutral 유지.",
+      "new_state": "본 창에 크립토 매출·거래액 관련 신규 1차 자료는 확인되지 않았다. 가스비 보조금 종료 예정일(2026-09-29)은 창 밖(4일 후)이며, 연장·조건 변경 공지도 확인되지 않았다 — 종료 예정일은 직전 회차와 동일하게 유지된다(unconfirmed 적재). 2026-09-29~30 HOOD Summit에서 관련 발표 가능성이 있으나 아직 발생하지 않은 미래 이벤트라 본 회차 판정에 반영하지 않는다.",
+      "risk_transfer_to": [
+        "2026-09-29 가스비 보조금 종료 후 거래액 잔존율",
+        "2026-09-29~30 HOOD Summit 발표 내용",
+        "Q3 실적의 크립토 매출 절대액·비중"
+      ],
+      "supporting_claims": [
+        "c_20260925_HOOD_1"
+      ]
+    },
+    {
+      "axis": "rates_income",
+      "direction": "neutral",
+      "stage": "no_company_statement",
+      "prior_state": "직전 run(0919): Margin Book $21.5B(MoM +4%, YoY +72%)와 증권대차수익 $36M(MoM -10%, YoY -32%)의 방향 혼재로 neutral 유지.",
+      "new_state": "본 창에 이자수입·순이자수익과 금리를 명시적으로 연결한 회사 1차 발언·공시는 확인되지 않았다. 매크로 재료(금리 동향)는 P6·P13에 따라 개별 축 판정 근거로 사용하지 않으며 자체 추정도 수행하지 않는다(P5). 축 상태는 직전 회차 그대로 이월한다.",
+      "risk_transfer_to": [
+        "Q3 실적의 순이자수익 항목 및 경영진 금리 민감도 발언"
+      ],
+      "supporting_claims": [
+        "c_20260925_HOOD_1"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "코네티컷·미주리에서 Robinhood의 sports event contract 실제 중단 여부",
+      "detail": "09-18~09-25 구간에도 코네티컷(09-10 명령)·미주리(09-16 기산 30일)의 이행·불이행을 특정하는 신규 보도를 확보하지 못했다. 미시간만 법원 승인 합의로 상태가 확정돼 있다.",
+      "reason": "not_found"
+    },
+    {
+      "topic": "2026-09-28 SCOTUS long conference 처리 결과",
+      "detail": "조회 시점(09-25) 기준 아직 도래하지 않은 미래 일정이라 결과 자체가 존재하지 않는다. No. 26-338·No. 26-299 모두 해당.",
+      "reason": "event_not_yet_occurred"
+    },
+    {
+      "topic": "'Robinhood: 5 Years Since IPO' 투자자 프레젠테이션 원문",
+      "detail": "investors.robinhood.com/events, /news-releases 접속이 반복적으로 60초 타임아웃 처리돼 원문 대조를 완료하지 못했다. 2차 매체 요약만 확보(c_20260925_HOOD_7).",
+      "reason": "primary_url_not_retrievable"
+    },
+    {
+      "topic": "Q3 2026 실적 발표일",
+      "detail": "thesis card earnings_checkpoints.date가 여전히 null이다. 애그리게이터(tipranks 등)는 2026-11-04 발표를 추정하나 회사 IR 공식 공지로 확정하지 못해 채택하지 않는다(F1).",
+      "reason": "aggregator_estimate_only"
+    },
+    {
+      "topic": "가스비 보조금(2026-09-29 종료 예정) 연장·조건 변경 공지",
+      "detail": "본 창 내 회사의 종료일 변경 공지를 확인하지 못했다. 직전 회차와 동일 상태.",
+      "reason": "not_announced_within_window"
+    },
+    {
+      "topic": "SEC 'Innovation Exemption' 보도자료의 sources.yaml 등급 일치 여부",
+      "detail": "sec.gov 도메인이 grade_1 목록에 EDGAR 하위경로(efts.sec.gov 등) 위주로 등재돼 있어 newsroom 경로 보도자료가 동일 등급으로 기계 매핑되는지 스크립트 대조를 완료하지 못했다. 원문 직접 fetch 성공을 근거로 confirmed=true를 유지했다.",
+      "reason": "grade_mapping_ambiguous"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "as_of": "2026-09-19",
+  "run_id": "20260919_2209",
+  "ticker": "IREN",
+  "card_field": "earnings_checkpoints",
+  "operation": "annotate",
+  "priority": "medium",
+  "before": "    - \"AI Cloud 부문 감가상각 배분 (자체 ~14% vs 임차 ~5% 전제 검증용)\"",
+  "after": "    - \"AI Cloud 부문 감가상각 배분 (자체 ~14% vs 임차 ~5% 전제 검증용)\"\n    # 2026-09-19 ThesisPatch(annotate, run 20260919_2209) — 관측점 1건 신규 추가. 항목 수 13개 → 14개(state/thesis_cards/IREN.yaml 전문 136행 기준 계수, F20). 기존 13개 항목은 문구·순서 모두 불변이며 삭제·수정분 없음(P9).\n    # ⚠️P4 한계 명시 — 추가 근거 c_20260919_IREN_3은 evidence_grade 3·confirmed=false(2차 매체 + 규제기관 페이지, 1차 URL 역추적 실패·수치 확인 실패)이고, c_20260919_IREN_4는 그 등급을 승계한 inference(strength low)다. 따라서 아래 항목은 '확인된 사실'이 아니라 '확인 대상(관측점)'으로만 등재한다 — 단독으로 축 판정·시그널 등급·KC 판정의 근거가 될 수 없다(P4·P13).\n    # ⚠️F20 전문 확인 결과 — 기존 항목 ⑤ \"전력 단위원가 $/MWh (부문별 전력비는 확보, 소비 MWh 미공시 — 이월)\"는 카드에 이미 존재하며 소비 MWh 관측점이 이월 상태로 정상 유지되고 있다. 따라서 해당 건은 신규 추가·수정 대상이 아니며 본 패치는 손대지 않는다(절단 관측에 의한 허위 결손 생성 방지 — 2026-08-16 ap_20260816_0010 전례).\n    - \"BC Hydro 2026 Call for Demand 결과 공표 — 선정 결과·선정자 명단 공표 여부, IREN 신청 여부, 기존 BC 계통 접속분에 대한 영향 여부. 배분 한도는 AI 300MW + 데이터센터 100MW(2년 단위, 별도 수소 수출 200MW), 접수 15건·약 800MW(한도의 약 2배), 제시된 선정자 통보 시점 2026-09 중순 — 2026-09-19 현재 결과·명단 미공표(unconfirmed, P5). IREN의 BC 노출은 Canal Flats 30 + Prince George 50 + Mackenzie 80 = 160MW(gross, 포트폴리오 5,610MW의 약 2.9%)이며 Mackenzie 공랭 확장은 $2.4bn GPU 파이낸싱의 명시 용도다. ⚠️근거 등급 3·confirmed=false이므로 확인 대상일 뿐 확인된 사실이 아니다(P4). TX ERCOT/SB6와 별개 관할·별개 절차라 KC-10 조건문에 현 시점 직접 대응하지 않으며, 160MW는 gross 계획 용량이라 기준이 달라 KC-10 '계약 용량 10%+' 임계의 분모로 사용 불가(F3)\"",
+  "reason": "[fact] state/thesis_cards/IREN.yaml 전문 136행을 읽고 earnings_checkpoints.items를 실제 계수한 결과 현재 13개다(①과금 가동률 ②MFU ③매니지드 서비스 믹스 ④Horizon 건설원가 ⑤전력 단위원가 $/MWh ⑥GPU 대체 조항 ⑦ASC842 리스 매출 인식 ⑧가동 ARR 진척률 ⑨Horizon 2-4 인도 ⑩완전희석 주수 range ⑪FY27 capex ⑫SB6 적용 용량 MW ⑬AI Cloud 감가상각 배분). 본 패치 적용 후 기대값은 14개다. [fact] 같은 전문 확인에서 L4 후보의 두 번째 의도인 '전력 단위원가($/MWh) 산출용 소비 MWh 관측점 이월'은 이미 항목 ⑤로 존재함을 확인했다 — 신규 항목 생성이 아니라 존치 확인이므로 패치를 만들지 않았다(F20 — 부분 읽기 상태에서 없는 결손을 만들지 않는다). [fact] 02_company/IREN.json의 c_20260919_IREN_3은 BC 산업용 전력 배분 프레임워크 하 2026 Call for Demand(2026-01-30 공고·02-01 개시, 2년 한도 AI 300MW + DC 100MW, 접수 15건 약 800MW, 선정자 통보 2026-09 중순 제시)를 기록하며, 2026-09-19 시점까지 선정 결과·명단은 검색되지 않았다. [fact] 해당 Claim은 evidence_grade 3·confirmed=false·scope=sector·out_of_window=true이며, 1차 URL(news.gov.bc.ca 2026ECS0005-000095)은 인증서 검증 실패, bchydro.com 보도자료에는 수치가 없어 1차 확인에 실패했다. [fact] c_20260919_IREN_4(inference, strength low, grade 3 승계, scope=company_specific)는 IREN의 BC 3개 사이트 160MW(gross) 노출과 Mackenzie 공랭 확장의 $2.4bn GPU 파이낸싱 용도를 근거로 (a)신청 여부 (b)선정·탈락 (c)기존 접속분 영향 세 항목이 모두 미특정임을 지적하고, 이것이 축 판정 변경 근거가 아니라 unconfirmed 신규 편입임을 명시한다. [fact] 02_company/IREN.json의 power_permit Delta는 direction=neutral·stage=없음이고, 03_signal/IREN.json의 thesis_delta_summary[power_permit]도 중립이며 gate_check.upgrade_gate_result=not_met이다 — 본 패치는 등급·축 판정을 건드리지 않고 관측점만 기입한다(P13). [inference|low] 따라서 근거 등급상 가능한 유일한 반영 형태는 '사실 서술 추가'가 아니라 '확인 대상 관측점 등재'이며, 다음 관측점은 BC Hydro 결과 공표 또는 FY27 Q1 10-Q다.",
+  "basis_claims": [
+    "c_20260919_IREN_3",
+    "c_20260919_IREN_4"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] thesis 본문(수직 통합 마진 우위 + BTC 채굴→AI Cloud 전환)의 어느 문장도 수정하지 않으며, 시그널 등급·KC 판정을 포함하지 않는다. [fact] 추가 항목은 관측 공백의 등재일 뿐이어서 상향·하향 어느 방향의 근거로도 쓰일 수 없는 형태로 문안을 구성했다(P2·P4·P6).",
+  "downstream_note": "[fact] earnings_checkpoints.date(\"2026-11 (FY27 Q1 10-Q — 정확일 미공시)\")는 수정하지 않았다 — BC Hydro 결과 공표는 실적 일정과 독립 사건이며 항목 본문에 별도 관측 시점을 적었다. [fact] axes.power_permit 라벨은 2026-09-12 패치로 ERCOT Batch Zero 관측점이 이미 병기돼 있고 이번 재료는 별개 관할이라 축 라벨을 건드리지 않았다(P9 — 기존 서술 보존). [fact] risks의 'TX SB6 / ERCOT — … 적용 MW 미공시' 항목과 catalysts의 'PUCT SB6 최종 규칙(2026말)'도 별개 트랙이므로 수정 대상이 아니다. [fact] KC-10의 조건·임계 수정은 config/kill_conditions.yaml 소관이며 사용자 영역이다(CLAUDE.md §9).",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "2026-09-19 ThesisPatch(annotate, run 20260919_2209)",
+      "BC Hydro 2026 Call for Demand 결과 공표",
+      "배분 한도는 AI 300MW + 데이터센터 100MW",
+      "근거 등급 3·confirmed=false이므로 확인 대상일 뿐 확인된 사실이 아니다(P4)",
+      "전력 단위원가 $/MWh (부문별 전력비는 확보, 소비 MWh 미공시 — 이월)"
+    ],
+    "not_contains": [],
+    "counts": [
+      {
+        "path": "earnings_checkpoints.items",
+        "n": 14
+      },
+      {
+        "path": "axes",
+        "n": 6
+      },
+      {
+        "path": "key_metrics",
+        "n": 8
+      },
+      {
+        "path": "catalysts",
+        "n": 4
+      },
+      {
+        "path": "risks",
+        "n": 8
+      }
+    ]
+  },
+  "source_artifact": "output/20260919_2209/02_company/IREN.json#claims[c_20260919_IREN_3,c_20260919_IREN_4] · #deltas[power_permit] · #unconfirmed[BC Hydro 2026 Call for Demand] / output/20260919_2209/03_signal/IREN.json#claims[c_20260919_IREN_4] · #thesis_delta_summary[power_permit]",
+  "f20_note": "[fact] state/thesis_cards/IREN.yaml 전문 136행을 행 제한 없이 읽은 뒤 PyYAML 파싱으로 목록형 필드를 실계수했다 — axes 6 / key_metrics 8 / catalysts 4 / risks 8 / kill_conditions_ref 3 / earnings_checkpoints.items 13 / version_history 10. [fact] 본 패치가 건드리는 목록형 필드는 earnings_checkpoints.items 하나이며 13→14로 변한다. 나머지 4개 목록 필드는 불변 검증용으로 expected_after.counts에 그대로 고정했다. [fact] before 문자열('    - \"AI Cloud 부문 감가상각 배분 …\"')은 카드 내 1회만 출현함을 확인했고(grep -c = 1), after는 before를 그대로 포함한 뒤 주석 3행 + 신규 항목 1행을 덧붙이는 append 형태이므로 기존 항목 삭제가 발생하지 않는다 — not_contains는 비운다(제거 대상 문자열 없음). [fact] 2026-08-16 ap_20260816_0010은 부분 읽기로 체크포인트 ⑧~⑬ 누락을 오인해 적용 후 즉시 원복된 건이며(version_history 2026-08-16 항목), 본 패치는 그 재발 방지 절차를 그대로 따랐다.",
+  "excluded_candidates": [
+    {
+      "item": "전력 단위원가($/MWh) 산출용 소비 MWh 관측점 이월 확인",
+      "decision": "패치 미생성(존치 확인으로 종결)",
+      "reason": "[fact] 카드 전문 확인 결과 earnings_checkpoints.items ⑤에 '전력 단위원가 $/MWh (부문별 전력비는 확보, 소비 MWh 미공시 — 이월)'이 이미 존재한다. 결손이 없으므로 추가·수정 패치는 중복이며, 억지 패치 생성은 금지 경로다(F20·SKILL.md '근거 부족 → 패치 제외')."
+    },
+    {
+      "item": "power_permit 축 라벨에 BC 관할 관측점 병기",
+      "decision": "패치 미생성",
+      "reason": "[fact] 근거가 grade 3·confirmed=false뿐이어서 축 라벨(판정 기준선)에 기입할 등급이 아니다(P4). [fact] 02_company/IREN.json은 이 재료를 unconfirmed 신규 편입으로만 처리했고 Delta direction=neutral이다 — 축 서술 변경 사유가 없다(P5)."
+    },
+    {
+      "item": "risks에 'BC 배분 탈락 시 Mackenzie 확장 접속 제약' 항목 추가",
+      "decision": "패치 미생성",
+      "reason": "[fact] 신청 여부조차 미확인이며 탈락·제약은 전부 미발생 가정이다. 정보 공백을 추론으로 메우는 행위에 해당하므로 unconfirmed 적재로 종결한다(P5·CLAUDE.md §1)."
+    }
+  ],
+  "queue_note": "[fact] 본 산출물은 state/pending_approvals.json에 스스로 등재하지 않았다 — 큐 등재는 오케스트레이터가 순차 수행한다. state/thesis_cards/IREN.yaml은 읽기만 했고 수정하지 않았다(F17)."
+}

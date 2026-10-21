@@ -1,0 +1,50 @@
+# ThesisPatch — MU / axes[hbm_demand] — 축 정의 분해(리스크 유형과 축 차원의 불일치) / decompose
+
+- **Run**: 20260919_2209 · as_of 2026-09-19 · 스킬 `thesis-refine`(S7)
+- **patch_id**: `MU_axes_hbm_demand_decompose` · priority: medium
+- **대상 필드**: `axes` (expected_after.counts: axes=7 — F20)
+- **승인 필요**: 예 (requires_human_approval: true, F17) / **핵심 논거 역전**: 아니오
+- **사전 확인**: `state/thesis_cards/MU.yaml` **전문 71행** 열람 후 before 문자열 원문 일치·목록형 필드 실계수 확인 (F20 — 부분 읽기 기반 판정 없음)
+- **카드 현재 계수(전문 기준)**: axes 6 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / earnings_checkpoints.items 7
+
+> 🚨 **선행 인간 결정 의존 — `depends_on_human_decision: axis_naming_standardization`**
+> 축 명명 표준화 결정이 **선행되지 않으면 이 패치는 승인 부적절**하다. 3섹터 모두 종목 간 공유 축이 **0개**(neocloud 0/14, stablecoin 0/18)인 상태에서 개별 카드의 축 수만 늘리면 **공유 축 0이 고착**돼 섹터 결합 문제가 악화된다.
+> 패치 자체는 생성했으나, **순서 결정은 사람 영역**이다(CLAUDE.md §9). 표준화 결정 확정 전 `approve` 금지.
+
+## diff
+
+```diff
+--- state/thesis_cards/MU.yaml (before)
++++ state/thesis_cards/MU.yaml (after 제안)
+-  - {id: hbm_demand,       label: "HBM 매출 비중·마진 (AI CapEx 연동)"}
++  # 2026-09-19 ThesisPatch(decompose, run 20260919_2209) — 이전 축: {id: hbm_demand, label: "HBM 매출 비중·마진 (AI CapEx 연동)"}(P9 보존, 삭제 아님). 수요 강·약 차원과 생산 가동 연속성 차원을 분리한다(P8 준용). 축 수 6 → 7(전문 71행 기준 계수). 🚨선행 인간 결정 의존: depends_on_human_decision = axis_naming_standardization. 축 명명 표준화 결정이 선행되지 않으면 본 분해는 섹터 결합 문제를 악화시킬 수 있다 — 3섹터 모두 종목 간 공유 축이 0개(neocloud 0/14, stablecoin 0/18)인 상태에서 축 수만 늘리면 공유 축 0이 고착되기 때문이다. 순서 결정은 사람 영역이므로 선행 결정 없이 본 패치를 승인하는 것은 부적절하다.
++  - {id: hbm_demand_strength, label: "HBM 수요 강·약 — HBM 매출 비중·마진 (AI CapEx 연동). 분해 전 hbm_demand 축의 원래 방향 차원을 그대로 승계한다. 방향 판정은 확정된 매출·마진·현금흐름·가이던스 수치로만 한다(P2). 2026-09-19 시점 창 내 신규 수치 없음(c_20260919_MU_12) — 관측점: 2026-09-30 FY26 Q4 실적의 HBM 비중·마진(미도래, 추정 금지)"}
++  - {id: production_continuity, label: "생산 가동 연속성 — 수요와 무관하게 공급 실행이 끊길 수 있는 차원(대만 Taoyuan·Taichung 노사 조정 절차 등). 분해 사유: 대만 노사 리스크가 hbm_demand 축 아래 기록돼 왔으나 그 축의 방향(수요 강·약)과 리스크의 성격(가동 연속성)은 서로 다른 차원이며, 직전 회차 이월 항목이 본 회차에도 미해소다. ⚠️현재 유일 소스가 grade 3·confirmed=false(Reuters 재게재본, 회사 1차 공시 미등재, c_20260919_MU_11)이므로 이 축의 존재 근거는 '축 구조 문제'에 한정되며 방향(강화·훼손) 판정은 부여하지 않는다(P4 — 단독 판단 근거 불가). 03_signal/MU.json도 규칙3 하향 자격 기준(grade≤2) 미달로 판정했다. 관측점: 2026-09-21 2차 조정 결과, 파업투표 실시 여부, 본 사안의 회사 1차 자료(8-K·IR) 등재 여부"}
+```
+
+## 왜
+
+[fact] state/thesis_cards/MU.yaml 전문 71행을 읽고 계수한 결과 axes는 6개이며 hbm_demand 축의 라벨은 'HBM 매출 비중·마진 (AI CapEx 연동)' 단문으로 수요 강·약 차원만 표현한다(F20). 본 패치 적용 시 axes는 7개가 된다. [fact] 그럼에도 대만 노사 리스크는 hbm_demand 축 아래 기록돼 왔다 — 03_signal/MU.json의 thesis_delta_summary가 c_20260919_MU_11을 axis=hbm_demand로 귀속시키고 있다. 축 방향(수요의 강·약)과 리스크 성격(생산 가동의 연속성)은 서로 다른 차원이며, 직전 회차 이월 항목이 본 회차에도 미해소다. [inference:medium] 성격이 다른 두 차원이 한 슬롯에 있으면 축 방향의 시계열 해석이 왜곡된다 — 가동 중단 리스크 증가를 'HBM 수요 약화'로 읽는 오독이 대표적이다. [fact] 본 분해는 P8의 엄격 요건(새 1차 자료가 기존 축 판정을 뒤집음)을 충족하지 않는다 — 축 판정이 뒤집힌 것이 아니라 축이 담는 대상이 갈라진 사례이며, 근거 재료 c_20260919_MU_11 자체가 grade 3·confirmed=false다. 따라서 이 claim은 축 구조 논거로만 사용하고 어떤 사실 주장이나 방향 판정의 근거로도 쓰지 않았다(P4). [fact] 하위 축 어느 쪽에도 방향(강화·훼손) 판정을 부여하지 않으며 이전 축 서술은 주석으로 보존한다(P9). [fact] 🚨선행 결정 의존성 — L4 기록에 따르면 축 명명 표준화 결정이 선행되지 않으면 개별 카드의 축 분해가 섹터 결합 문제를 악화시킨다. 3섹터 모두 종목 간 공유 축이 0개(neocloud 0/14, stablecoin 0/18)인 상태에서 축 수를 늘리면 공유 축 0이 고착되기 때문이다. 순서 결정은 사람 영역이므로(CLAUDE.md §9) 패치는 생성하되 선행 결정 없는 승인은 부적절하다 — depends_on_human_decision 필드로 고정 표기했다. [fact] 2026-09-30 FY26 Q4 실적은 미도래이며 어떤 추정치도 반영하지 않았다. 저 P/E를 밸류 근거로 쓰는 서술도 포함하지 않았다.
+
+**역전 판정 주석**: [fact] thesis 본문(HBM 수요의 AI CapEx 연동 + SCA·LTA·선수금 방어구조)의 참·거짓 판정을 포함하지 않는다. [fact] 관측 단위를 둘로 나눌 뿐이며 하위 축 어느 쪽에도 방향 판정을 부여하지 않는다 — 핵심 논거 역전 패치가 아니므로 에스컬레이션 대상이 아니다.
+
+**후속 주의**: [fact] key_metrics의 'HBM 매출 비중·마진'과 'HBM 마진 vs 범용 마진' 항목은 hbm_demand_strength 하위 축에 그대로 대응하므로 수정하지 않는다. [fact] production_continuity 하위 축에 대응하는 key_metric·KC는 존재하지 않는다 — 정량 임계 신설은 사람 영역이며(P11·§9) 본 패치는 add_kc를 포함하지 않는다. [fact] 미채택 시 대안은 축을 유지하고 hbm_demand 라벨에 '가동 연속성 재료는 수요 방향 판정의 근거가 아니다'라는 주석만 다는 annotate이며, 사용자 지시 시 재생성한다. [fact] 적용 순서: 후보 A(axes counts=6 전제)와 동일 필드를 건드리므로, 두 건 모두 승인될 경우 A → B 순서로 적용하라.
+
+## 하위 축 (P8)
+
+| id | 차원 | 관측 가능 | 방향 판정 | 활성화 조건 |
+|---|---|---|---|---|
+| `hbm_demand_strength` | 수요 강·약 | 예 | 미부여 | 확정된 매출·마진·가이던스 수치(회사 실적·1차 공시)로만 방향 판정(P2) |
+| `production_continuity` | 생산 가동 연속성 | 아니오 | 미부여 | 회사 1차 자료(8-K·IR) 또는 grade≤2 소스로 조정 결렬·파업 개시·가동 영향이 확인될 때 부호 활성화. 현재 근거는 grade 3 단독이라 미활성 |
+
+## 근거 Claim
+
+c_20260919_MU_11
+
+[fact] c_20260919_MU_11은 evidence_grade 3·confirmed=false(Reuters 기사의 Investing.com 재게재본, reuters.com 원문 역추적 실패, 회사 1차 공시 미등재)다. P4에 따라 사실 주장이나 방향 판정의 단독 근거로 쓸 수 없으므로 '축 구조가 서로 다른 차원을 한 슬롯에 담고 있다'는 구조 논거로만 사용했다. 금액 표기가 직전 회차 보도와 불일치한다는 점도 02_company/MU.json에 기록돼 있어 정량 근거로 사용하지 않았다.
+
+출처: `output/20260919_2209/02_company/MU.json#claims[c_20260919_MU_11] · output/20260919_2209/03_signal/MU.json#thesis_delta_summary[hbm_demand]`
+
+**F20 주석**: [fact] state/thesis_cards/MU.yaml 전문 71행을 읽은 뒤 before 문자열의 원문 일치(다중 공백 정렬 'hbm_demand,' 뒤 7칸 포함)와 axes 6개 계수를 확인했다. 적용 후 기대 개수는 7개이며 expected_after.counts로 고정했다(F20). [fact] P9 보존 주석 안의 이전 축 표기는 '{id: hbm_demand, label: ...}' 단일 공백 형태이므로 not_contains(원문 다중 공백 정렬)와 충돌하지 않는다.
+
+> 이 패치는 제안이며 자동 반영되지 않는다(F17). 적용은 사람의 `approve <id>` 이후 `approvals.py`가 수행한다(백업 → 적용 → expected_after 자동 대조 → 실패 시 원복).

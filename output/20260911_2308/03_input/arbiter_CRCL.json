@@ -1,0 +1,151 @@
+{
+  "as_of": "2026-09-12",
+  "ticker": "CRCL",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260911_CRCL_4",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260911_CRCL_1",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "EDGAR 재조회(CIK 0001876042, 조회구간 2026-08-28~2026-09-12) 결과 이번 창의 신규 8-K는 1건(2026-09-08 제출, crcl-20260904.htm, Item 1.01/3.02/7.01/9.01 — Tazapay 인수계약, c_20260911_CRCL_2)뿐이며 Coinbase 분배계약 관련 Item 1.01/1.02 공시는 이번 창에서도 0건이다. 직전 run(2026-09-05, since 2026-08-20 0건/since 2026-08-01 22건 확인)과 정합적으로 부재가 지속되며, 8/24 제출기한 경과 후 관측 구간이 2026-09-12까지 약 19일로 연장된다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_fulltext_and_submissions_api",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001876042&type=8-K&dateb=&owner=include&count=10&output=atom",
+        "filed_at": "2026-09-12",
+        "note": "output/20260911_2308/02_company/_raw_edgar_CRCL.json 참조(사전 수집분, 재수집 없이 판독)"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260911_CRCL_2",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle Internet Group의 Form 8-K(2026-09-08 제출, 사건일 2026-09-04) 원문에 따르면 Circle이 싱가포르 소재 크로스보더 결제 기업 Tazapay Pte. Ltd. 인수를 위한 확정 계약(definitive agreement)을 체결했다. 대금은 전액 Circle Class A 보통주로 약 $400M 상당(거래종결 시 주가 기준 조정), 배상 담보용 에스크로(5%·3% 물량), 핵심직원 유지 요건(75% 이상), 규제 승인 전제, 최대 15개월 거래종결 기한 포함. Item 1.01(중요 계약 체결)·3.02(미등록 지분 발행)·7.01(Reg FD)·9.01 공시.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000267/crcl-20260904.htm",
+        "filed_at": "2026-09-08"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "카드 axes에 명시적 대응 슬롯 없음 — diversification(비이자 매출 다각화 ARC·CPN) 축과 인접하나 ARC/CPN과는 별개의 신규 M&A 채널. 계약 체결≠거래 종결≠매출 인식(P7) — 규제승인·최대 15개월 종결 전제."
+    },
+    {
+      "id": "c_20260911_CRCL_3",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "FIGR($YLDS 발행사, CIK 0002064124)의 Form 8-K(2026-09-01 제출) 원문 확인 결과 Item 2.01 — Kiavi, Inc. 인수완료(대금 약 $590M 현금, 2031년 만기 8.5% 시니어노트 $600M 발행으로 조달) 공시이며 '$YLDS' 및 유통량 수치는 언급되지 않는다. 이번 창(2026-08-28~2026-09-12)에서 FIGR의 $YLDS 관련 신규 1차 공시는 확인되지 않아, 직전 run(2026-09-05)에서 확정한 2Q26(6/30 마감) 유통량 $556.033M(1Q26 $598M 대비 QoQ -7.0%)이 이번 회차 최신 grade1 관측치로 유지된다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226040931/form8-k.htm",
+        "filed_at": "2026-09-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "발행사는 FIGR(타 종목)이나 competition_yield_bearing 축 위험지표 구성 대상으로 CRCL 특정 관측 대상 취급(9/5 run과 동일 관례). Kiavi 인수 자체(대출업)는 CRCL 판정과 무관 — 정보로만 기록."
+    },
+    {
+      "id": "c_20260911_CRCL_5",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "SEC EDGAR CIK 0001876042 조회 결과 2026-09-09·2026-09-10에 신규 Form 4가 각 1건씩 추가 제출됨 — 직전 9/5 run에서 확인된 2026-09-01~09-03 클러스터(7건, c_20260905_CRCL_0618_006) 이후의 정기 제출로 관측됨.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "form_4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000271/xslF345X06/wk-form4_1789074349.xml",
+        "filed_at": "2026-09-10"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "웹검색·WebFetch 예산 제약(총 8회 제한)으로 이번 run은 개별 XML(제출자·거래유형·수량) 판독을 수행하지 않았다 — 제출 사실(건수 2건·일자)만 확인. 카드 '내부자 거래' key_metric 모니터링 로그로만 등재, 축 Delta 미생성(9/5 run과 동일 패턴 — 비정기 대량매도·경영진 이탈 등 성격변화 신호 부재)."
+    }
+  ],
+  "deltas": [
+    {
+      "id": "d_20260911_CRCL_1",
+      "axis": "diversification",
+      "direction": "strengthen",
+      "stage": "중(보통)",
+      "prior_state": "카드 key_metrics 'ARC·CPN 등 비이자 매출 다각화 진척' — 정량 진척 관측 부재(직전 run 갱신 없음)",
+      "new_state": "2026-09-04 체결(2026-09-08 공시)된 Tazapay(싱가포르, 크로스보더 결제 인프라) 인수 확정계약 — 대금 전액($400M 상당) Circle Class A 보통주, 규제 승인·최대 15개월 종결 기한 조건부(c_20260911_CRCL_2). 비이자 매출(결제 인프라) 다각화 전략상 신규 M&A 이벤트로 최초 확인됐으나, 계약 체결 단계이며 거래 종결·매출 인식 이전이다(P7). ARC/CPN과는 별개의 신규 채널이라 카드 key_metrics·diversification 축 서술이 현재 이 사건을 포함하지 않음 — ThesisPatch(diversification 축 서술에 M&A/신규 채널 하위항목 추가) 후보.",
+      "risk_transfer_to": [
+        "거래 종결 공시(최대 15개월 내, 규제 승인 전제)",
+        "종결 후 매출 기여 정량화(차기 10-Q/10-K)"
+      ],
+      "supporting_claims": [
+        "c_20260911_CRCL_2"
+      ]
+    },
+    {
+      "id": "d_20260911_CRCL_2",
+      "axis": "reserve_income",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "8/24 제출기한 경과 후 9/5까지(12일) Coinbase 분배계약 변경 8-K 0건 — '공시의무 없는 자동 갱신 완료'를 잠정 확정으로 격상(d_20260905_CRCL_0618_001)",
+      "new_state": "이번 창(9/5~9/12)에도 Coinbase 분배계약 관련 8-K 신규 0건 지속 — 관측 구간이 8/24 기한 경과 후 약 19일로 연장. 이번 창의 유일한 신규 8-K는 Tazapay 인수(무관, c_20260911_CRCL_2)이므로 기존 잠정 확정 상태에 변화 없음(방향은 유지, 신규 강화 신호는 아니라 neutral로 기록).",
+      "risk_transfer_to": [
+        "Q3 10-Q 계약 주석 공시 대조(차기 확인 게이트, 통상 11월)"
+      ],
+      "supporting_claims": [
+        "c_20260911_CRCL_1"
+      ]
+    },
+    {
+      "id": "d_20260911_CRCL_4",
+      "axis": "competition_yield_bearing",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "2Q26(6/30) $YLDS 유통량 $556.033M, QoQ -7.0%(grade1, 9/5 run 확정)",
+      "new_state": "이번 창 FIGR 신규 1차 공시(9/1 8-K)는 $YLDS와 무관(Kiavi 인수, c_20260911_CRCL_3) — 유통량 갱신 없음. 2Q26 수치가 최신 관측치로 유지되며 다음 갱신은 FIGR 3Q26 공시(미도래) 시점.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260911_CRCL_3"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "OUSD 공식 출시·실측 유통량",
+      "detail": "2026-06-30 발표(140+사, Open Standard) 이후 상태 변화 없음 — '2026년 하반기 목표(Solana 우선)'만 반복 확인. 이번 창 웹검색에서도 공식 출시일·실측 유통량 데이터 신규 확인 없음. noise_filter.yaml#CRCL 승격 요건(공식 출시 및 실측 유통량) 미충족으로 비승격 유지.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "'21개 은행 참여 USD 스테이블코인 컨소시엄' 보도(2026-09-02, cryptonomist.ch)",
+      "detail": "제목상 OUSD(Open Standard, 140+사, competition_ousd_consortium 축)와 동일한 것인지 별개의 신규 컨소시엄인지 미확인. 원문 WebFetch 시도가 HTTP 403으로 차단돼 발행사·발표일·유통량 데이터를 확보하지 못했다. 1차 자료·공식 발표 미확보 상태로 noise_filter.yaml#CRCL 승격 요건(공식 출시·실측 유통량) 미충족 — 비승격 유지, 차기 run에서 원문 확인 재시도 필요.",
+      "reason": "access_blocked"
+    },
+    {
+      "topic": "CLARITY Act 이자부 스테이블코인 조항 문언 확정 여부",
+      "detail": "카드 기존 서술대로 SOFR 연동 이자 지급 등 이자부 스테이블코인의 법적 취급 문언은 여전히 미확정 — 9/15는 절차(클로처) 표결이며, 불법금융·법집행 보호 조항, 이자·보상(yield/rewards) 조항, 대통령 가상자산 보유 관련 정부윤리 조항 등 협상은 계속 진행 중(coindesk 등 2차 보도, 판정 근거 불가·컨텍스트 참고용).",
+      "reason": "negotiation_ongoing"
+    },
+    {
+      "topic": "Coinbase 분배계약 조건 원문의 최종(1차 공시 기반) 확정",
+      "detail": "8-K 부재가 지속되나(c_20260911_CRCL_1) 계약 조건 자체를 원문으로 재확인한 것은 아니다. 계약 주석 대조는 Q3 10-Q(CRCL·COIN 공통, 통상 11월 제출) 시점에만 가능 — 정보부재를 무변경의 완전한 증명으로 사용하지 않는다(P5).",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "Tazapay 인수 거래 종결 시점·규제 승인 진행 상황",
+      "detail": "c_20260911_CRCL_2 공시는 계약 체결(9/4) 단계이며 규제 승인·최대 15개월 종결 기한 조건부다. 종결 여부·시점·최종 대가(주가 조정 후 실제 주식 수) 미확정.",
+      "reason": "deal_not_closed"
+    }
+  ]
+}

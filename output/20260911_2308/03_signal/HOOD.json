@@ -1,0 +1,169 @@
+{
+ "as_of": "2026-09-12",
+ "run_id": "20260911_2308",
+ "ticker": "HOOD",
+ "input_source": "output/20260911_2308/03_input/arbiter_HOOD.json",
+ "prior_signal": "🟡",
+ "proposed_signal": "🟡",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260911_HOOD_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company press release (GlobeNewswire distribution)",
+   "filed_at": "2026-09-10",
+   "summary": "8월 운영지표: Total Platform Assets $383.7B(MoM+8%, YoY+26%), Net Deposits 월간 $4.0B(TTM $74.1B, YoY 자산대비 +24%), Funded Customers 28.6M(MoM+약12만).",
+   "axis": "aua_inflow",
+   "note": "grade1 확정 수치. 단, 순입금·AUA는 자산유입(운영지표)이며 매출·마진·현금흐름·가이던스 수치가 아님 — stage=revenue_recognized 요건과 별개."
+  },
+  {
+   "id": "c_20260911_HOOD_2",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company press release (GlobeNewswire distribution)",
+   "filed_at": "2026-09-10",
+   "summary": "8월 운영지표: Equity Notional Trading Volume $335.4B(MoM+1%, YoY+68%). Crypto Notional Trading Volume(총) $17.5B(MoM+61%, YoY-38%; App $7.4B MoM+72%/YoY-46%, Bitstamp $10.1B MoM+53%/YoY-30%).",
+   "axis": "crypto_cycle",
+   "note": "명목거래액(volume) 지표 — 수수료·매출 수치 아님. arpu_mix/매출 연동 판정에는 Q3 매출인식 공시가 별도 필요."
+  },
+  {
+   "id": "c_20260911_HOOD_3",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company press release (GlobeNewswire distribution)",
+   "filed_at": "2026-09-10",
+   "summary": "8월 운영지표: Margin Book $21.5B(MoM+4%, YoY+72%) vs Total Securities Lending Revenue $36M(MoM-10%, YoY-32%) — 방향 혼재.",
+   "axis": "rates_income",
+   "note": "이자수입 기초자산 확대와 증권대차수익 축소가 동시 관측 — 방향 혼재로 축 단독 강화/훼손 판정 근거로 사용하지 않음(종목 특이 주의사항)."
+  },
+  {
+   "id": "c_20260911_HOOD_4",
+   "claim_type": "inference",
+   "evidence_grade": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": null,
+   "filed_at": null,
+   "summary": "크립토 명목거래액 MoM+61%는 09-29 종료예정 가스비 무료보조금 시행 기간 중 발생 — YoY-38%(App -46%) 다년 하락 사이클은 유지, 구조적 mix 강화로 볼 근거 부족.",
+   "axis": "crypto_cycle",
+   "inference_strength": "medium",
+   "note": "종목 특이 주의사항(매출 mix 변화=이익의 질 변화, 합산 수치 단독 강화 판정 금지) 준용."
+  }
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_HOOD.json의 claims 4건(c_20260911_HOOD_1~4) 전부 scope==company_specific 확인. removed_claims 2건(c_20260911_HOOD_5, c_20260911_HOOD_6, 둘 다 scope=sector)은 정상적으로 물리 제거됨(P6/P13 필터 정상 작동).",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-HOOD-1 (거래매출 감소 + 고객기반 동반훼손)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "trading_revenue_qoq value=null(unconfirmed) — 이번 8월 운영지표는 명목거래액·순입금 등 선행 지표만 제공하며 회사 공식 '거래매출' 수치는 미포함. 입력 부재로 not_met."
+   },
+   {
+    "kc_id": "KC-HOOD-2 (순입금 유출전환, 경고/발동 2단)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "net_deposits_outflow_quarters value=null이나 c_20260911_HOOD_1의 8월 순입금 $4.0B(양수, TTM +24%)는 유출과 반대 방향 — 유출전환 정황 없음."
+   },
+   {
+    "kc_id": "KC-HOOD-3 (예측시장 연방/CFTC 금지 또는 상위3개주 동시금지)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "이벤트형 KC. 03_kc_excerpt 상 not_met 유지, 이번 filtered 입력에는 관련 신규 Claim 없음(섹터 스코프로 제거된 c_HOOD_5/6이 예측시장 관련일 가능성 있으나 본 에이전트는 미열람)."
+   },
+   {
+    "kc_id": "macro KC-2 (변동성 급등, VIX>=30)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "VIX 15.84(2026-09-11, stale 0일) — 임계 대비 여유."
+   },
+   {
+    "kc_id": "macro KC-3 (크립토 붕괴+위험회피 동시, BTC<55000 & VIX>=25)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "BTC 77,252.68(2026-09-12) — 임계 상회, 붕괴 아님."
+   },
+   {
+    "kc_id": "macro KC-4 (유동성 위기, ON_RRP>=200B & VIX>=25)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "ON_RRP $5.255B — 임계 대비 크게 낮음."
+   },
+   {
+    "kc_id": "macro KC-5 (TAIEX 음전환)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "TAIEX 20dma 대비 +2.03%, 1개월 +3.12% — 음전환 아님."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "own_company_kc(KC-HOOD-1~3) 및 propagating macro KC(KC-2~5) 전부 verdict=not_met — met AND confirmed 조합 0건. Kill 후보(규칙1) 해당 없음. 03_kc_excerpt.json summary와도 일치(전체 27건 중 met 0건)."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "세 요건 개별 판정: (1) quantitative_evidence=true — c_20260911_HOOD_1~3 모두 quantitative=true(순입금·Total Platform Assets·명목거래액·마진북·증권대차수익, 전부 grade1 확정 수치). (2) company_specific=true — 세 Claim 모두 scope=company_specific. (3) revenue_recognized=false — 이번 8월 월간 운영지표는 회사가 자발적으로 공개하는 '운영 데이터(operating data)'로, 자료 자체가 비감사·잠정치(unaudited)이며 순입금·AUA·명목거래액·마진북은 매출이 발생하기 전 단계의 선행 투입량(volume/asset base)일 뿐 확정된 매출·마진·현금흐름·가이던스 수치가 아니다. P2는 상향 근거를 '확정된 매출·마진·현금흐름·가이던스 수치'로 한정하는데, 이번 입력에는 그러한 수치(예: 거래수수료 매출, 순이익, FCF, 회사 가이던스)가 전혀 포함되지 않았다. 운영지표(선행 투입량)를 매출 인식으로 등치하지 않는다 — 매출 인식은 회사가 정식 실적(10-Q/8-K 실적발표)을 통해 확정 수치를 공시하는 Q3 2026 실적(next_gate)에서 별도로 확인되어야 한다. 3요건 중 revenue_recognized가 미충족이므로 P2/P6/P7 전부 충족 조건 불성립 — result=not_met."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "c_20260911_HOOD_3(Margin Book MoM+4%/YoY+72% 확대 vs Total Securities Lending Revenue MoM-10%/YoY-32% 축소)는 방향이 혼재된 quantitative 데이터로, note에 명시된 대로 rates_income 축 단독 강화/훼손 판정 근거로 사용하지 않는다(종목 특이 주의사항 준용) — 따라서 훼손으로 '탐지됨'으로 확정하지 않음. c_20260911_HOOD_2의 크립토 명목거래액 YoY-38%(App -46%)는 직전 run에서도 이미 확인된 다년 하락 사이클의 연속(신규 악화 정보 아님)이며, 09-29 종료예정 가스비 보조금발 MoM 반등(+61%)이 겹쳐 있어 이번 run 신규 정량 훼손으로 채택하지 않음.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "asymmetric_downgrade_triggered": false,
+   "reason": "정량 훼손: 위 impairment_basis 사유로 미탐지. 정성 훼손(evidence_grade<=2): 유일한 정성적 훼손 시사 Claim은 c_20260911_HOOD_4(inference)이며 evidence_grade가 부여되지 않음(null, 등급 체계상 grade<=2 조건에 해당 안 됨) 및 confirmed=false — P4상 단독 하향 근거 불가. 두 경로 모두 하향 트리거 미충족."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "aua_inflow",
+   "direction": "strengthen",
+   "grade_impact": "없음(상향 게이트 3요건 중 revenue_recognized 미충족 — 운영지표는 매출인식이 아니므로 등급 변경 근거로 사용하지 않음)",
+   "risk_transfer_to": ["9월분 운영지표(통상 10월 중순 공개) 및 Q3 실적(거래매출 QoQ)에서 추세 지속 여부 확인으로 이관"]
+  },
+  {
+   "axis": "crypto_cycle",
+   "direction": "neutral",
+   "grade_impact": "없음(P2·종목특이주의사항 — 보조금발 MoM 반등을 구조적 mix 강화로 등치하지 않음, YoY 다년 하락 지속으로 강화 미판정, 중립 유지)",
+   "risk_transfer_to": ["2026-09-29 가스비 보조금 종료 후 9월 운영지표에서 거래액 잔존율 확인 시점으로 이관"]
+  },
+  {
+   "axis": "rates_income",
+   "direction": "neutral",
+   "grade_impact": "없음(방향 혼재로 단일 강화/훼손 판정 근거 부족, 중립 유지)",
+   "risk_transfer_to": ["Q3 실적(이자수입 항목 전체) 공시 시점으로 세부 판정 이관"]
+  }
+ ],
+ "alert": {
+  "ticker_event": "HOOD — 2026-09-10 'August 2026 Operating Data'(8월 월간 운영지표) 신규 공개. company_specific Claim 4건(c_20260911_HOOD_1~4), 전부 grade1 회사 공식 자료 기반(1건은 파생 추론).",
+  "facts": "[출처: c_20260911_HOOD_1, evidence_grade 1, filed 2026-09-10, GlobeNewswire] Total Platform Assets $383.7B(MoM+8%, YoY+26%), Net Deposits 8월 단월 $4.0B(TTM $74.1B, YoY 자산대비 +24%), Funded Customers 28.6M(MoM+약12만, YoY+약190만). [출처: c_20260911_HOOD_2] Equity Notional Trading Volume $335.4B(MoM+1%, YoY+68%); Crypto Notional Trading Volume $17.5B(MoM+61%, YoY-38%; App $7.4B MoM+72%/YoY-46%, Bitstamp $10.1B MoM+53%/YoY-30%). [출처: c_20260911_HOOD_3] Margin Book $21.5B(MoM+4%, YoY+72%) vs Total Securities Lending Revenue $36M(MoM-10%, YoY-32%). 자료 자체는 비감사·잠정치(unaudited)임을 회사가 명시.",
+  "inference": "[강도: medium] c_20260911_HOOD_4 — 크립토 명목거래액 MoM+61% 급증은 09-29 종료예정 가스비 무료보조금 시행 기간 중 발생했고 YoY-38%(App -46%) 다년 하락 사이클은 유지 중이라, 이번 반등을 크립토 mix의 구조적 강화로 해석할 근거는 부족하다. 보조금 종료 후 9월 지표에서 거래액 잔존 여부가 관건.",
+  "classification": "행동 없음(P12 기본 경로, holding_reinforcement 성격) — 상향 게이트 3요건 중 quantitative_evidence·company_specific은 충족하나 revenue_recognized 불충족(운영지표≠매출인식 확정 수치)으로 P2/P6/P7 전부 충족 조건 불성립. 하향 트리거(정량 훼손 또는 grade<=2 정성 훼손)도 불성립. 🔴🔴(사람 확인 요청) 대상 아님.",
+  "thesis_delta": "aua_inflow 축 strengthen(risk_transfer: 9월 운영지표·Q3 실적 거래매출 QoQ 확인 시점으로 이관) / crypto_cycle 축 neutral 유지(risk_transfer: 09-29 보조금 종료 후 9월 지표 잔존율 확인 시점으로 이관) / rates_income 축 neutral 유지(risk_transfer: Q3 실적 이자수입 항목 전체 공시로 이관). 세 축 delta 모두 P2·종목특이주의사항에 따라 등급(🟡) 변경 근거로 사용되지 않음.",
+  "signal_verdict": "등급 유지 후보(🟡 관망 → 🟡 관망, maintain). Kill 후보 해당 없음 — KC-HOOD-1~3 및 propagating macro KC-2~5 전부 not_met. 상향 후보 아님(revenue_recognized 미충족). 하향 후보 아님(정량·정성 훼손 미탐지).",
+  "next_check": "① 9월 월간 운영지표(예상 공개 10월 중순): net deposits growth·크립토 명목거래액 MoM(가스비 보조금 09-29 종료 후 잔존율) 확정치 확인 ② Q3 2026 실적(발표일 미확정, IR 공식 공지 대기)에서 거래매출 QoQ·마진·가이던스 등 확정 매출인식 수치 최초 확인(stage=revenue_recognized 충족 여부 재판정, KC-HOOD-1 재판정) ③ Total Securities Lending Revenue 추가 하락 지속 여부(rates_income 축 방향 명확화)."
+ },
+ "next_gate": "9월 월간 운영지표(예상 공개 10월 중순)의 net deposits growth·크립토 명목거래액 MoM 잔존율 + Q3 2026 실적에서 거래매출 QoQ 등 확정 매출인식 수치 최초 공식 확인",
+ "unconfirmed_carried": [
+  {"topic": "Robinhood Chain 가스비 무료 보조금(2026-09-29 종료 예정) 연장·변경 공시", "reason": "not_yet_announced_within_window"},
+  {"topic": "Kalshi의 SCOTUS 상고 응답 기한(약 10/8로 일부 매체 보도)", "reason": "single_low_grade_source_unverified"},
+  {"topic": "9순회항소법원 KalshiEX v. Assad(2026-08-28) 판결 자체에 대한 SCOTUS 상고 여부", "reason": "not_found"},
+  {"topic": "Q3 2026 실적 발표일", "reason": "aggregator_estimate_only"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 이번 run 핵심 특이사항: (1) 8월 월간 운영지표 신규 공개(grade1, 3건)로 aua_inflow 축은 사실상 강화 방향이나, 운영지표(순입금·Total Platform Assets·명목거래액)는 매출·마진·현금흐름·가이던스 확정 수치가 아니므로 revenue_recognized 게이트를 충족시키지 않는다 — 상향 게이트 오판(운영지표=매출인식 등치) 방지 필요를 판정 근거에 명시함. (2) rates_income 축(마진북 확대 vs 증권대차수익 축소)은 방향 혼재로 중립 유지 — 향후 단독 지표로 축을 판정하지 않도록 유의. (3) crypto_cycle 축 MoM+61% 반등은 09-29 종료예정 가스비 보조금 효과로 판단, YoY 다년 하락 지속 중이라 강화 미판정. filter_bug_report 없음."
+}

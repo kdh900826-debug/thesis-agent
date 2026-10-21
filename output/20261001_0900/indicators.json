@@ -1,0 +1,71 @@
+{
+  "yield_30y": {
+    "value": 5.59,
+    "as_of": "2026-09-29",
+    "source_url": "https://fred.stlouisfed.org/series/DGS30",
+    "method": "api"
+  },
+  "ON_RRP": {
+    "value": 11539000000.0,
+    "as_of": "2026-09-30",
+    "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+    "method": "api"
+  },
+  "brent": {
+    "value": 113.96,
+    "as_of": "2026-09-29",
+    "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+    "method": "api"
+  },
+  "FFR": {
+    "value": 4.0,
+    "as_of": "2026-10-01",
+    "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
+    "method": "api"
+  },
+  "BTC": {
+    "value": 83670.59,
+    "as_of": "2026-10-01",
+    "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "method": "api"
+  },
+  "VIX": {
+    "value": 16.260000228881836,
+    "as_of": "2026-10-01",
+    "source_url": "yfinance:^VIX",
+    "method": "api"
+  },
+  "TAIEX_vs_20dma_pct": {
+    "value": 2.92,
+    "as_of": "2026-10-01",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "TAIEX_1m_return_pct": {
+    "value": 4.82,
+    "as_of": "2026-10-01",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "SDLLMTK_change_pct": {
+    "value": null,
+    "as_of": "2026-07-03",
+    "source_url": "https://www.cio.com/article/4192834/ai-token-prices-are-cooling-but-why-2.html",
+    "method": "web_search",
+    "note_raw": "신뢰 가능한 2주 구간 %변화 수치 미확인(직전 run과 동일한 공백). 절대수준 인용 소스 간 불일치 확인: cio.com(2026-07-03 발행)은 '1.62, 5월 고점 대비 -20%'; sanj.dev(2026-08 데이터 인용)는 '1.02, 7일간 -9.1%'; x.com/grok(날짜 미상)는 '~2.12로 급등'. 세 소스 모두 as_of가 본 run staleness 한도(14일) 초과 또는 날짜 불명 — method=web_search 특성상 어차피 provisional이나, 추가로 절대수준 자체도 소스 간 미정합이라 값 채택 보류(unconfirmed, P4 — 2차 매체/애그리게이터 단독 판단 불가)."
+  },
+  "hyperscaler_fcf_sum": {
+    "value": 6835000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.investing.com/news/stock-market-news/microsoft-only-us-hyperscaler-with-positive-free-cash-flow-as-ai-capex-bites-93CH-4846663",
+    "method": "web_search",
+    "note_raw": "직전 run(20260925_1015)과 동일값 — 캘린더 Q3'26(7-9월) 실적 미발표(MSFT는 2026-10-28 발표 예정, 10-Q 전). 신규 분기 공시 확인 전까지 carry-over."
+  },
+  "msft_fcf": {
+    "value": 19640000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.investing.com/news/stock-market-news/microsoft-only-us-hyperscaler-with-positive-free-cash-flow-as-ai-capex-bites-93CH-4846663",
+    "method": "web_search",
+    "note_raw": "MSFT FY26 Q4(2026-06-30 종료) FCF=19.64B — 직전 run과 동일값 carry-over. FY27 Q1(2026-09-30 종료) 실적은 2026-10-28 발표 예정, 본 run 시점 미공시."
+  }
+}

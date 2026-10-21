@@ -1,0 +1,187 @@
+{
+  "as_of": "2026-10-09",
+  "run_id": "20261009_0920",
+  "ticker": "NBIS",
+  "input_source": "output/20261009_0920/03_input/arbiter_NBIS.json",
+  "kc_excerpt_source": "output/20261009_0920/03_kc_excerpt/NBIS.json",
+  "prior_signal": "🔴🔴",
+  "prior_label": "Kill 우선 — KC-1 매크로(FFR>3.75) 확정",
+  "prior_since": "2026-10-03",
+  "prior_next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 ② on-demand 가격 실과금 전환 재조회 ③ AIB 50MW 계약 금액·가동 시점(6-K) ④ 2027 가이던스",
+  "prior_next_gate_source": "state/signals.json — NBIS 항목(2026-10-03 사용자 확정, trigger_source=KC-1, transitions[] 이력 보존)",
+  "proposed_signal": "🔴🔴",
+  "transition_candidate": "유지 후보 — 현행 🔴🔴(사람 확정 2026-10-03) 그대로 유지. 신규 전이 없음. 규칙 1(Kill 우선: KC-1 met AND confirmed)이 이번 run에도 성립해 유지 사유가 지속된다. 해소 조건은 KC-1 not_met(FFR ≤ 3.75) 관측이며, 해소 관측 시의 등급 재판정은 다시 사람이 한다(signals.json transitions[].note). 종목 자체 상향/하향 요건은 미충족(P12).",
+  "candidate_disclaimer": "본 판정은 후보(candidate)이며 최종 등급 확정 권한은 사람에게 있다(v1 §9-2, CLAUDE.md §9). signal-arbiter는 격리 컨텍스트에서 필터본·state/signals.json·KC 발췌만 근거로 판정했다.",
+  "claims": [
+    {"id": "c_20261009_NBIS_1", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "6-K Exhibit 99.1 (Nebius 보도자료)", "filed_at": "2026-10-01", "as_of": "2026-10-09", "staleness_days": 8, "summary": "Inferize 인수(추론 최적화, Token Factory 편입). 인수 대금·매출 기여 비공개. 자본배분·제품 사건이나 정량 부재."},
+    {"id": "c_20261009_NBIS_2", "claim_type": "inference", "inference_strength": "weak", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "c_20261009_NBIS_1 종합", "filed_at": "2026-10-01", "as_of": "2026-10-09", "staleness_days": 8, "summary": "Inferize는 소프트웨어 수익화 레이어 보강이나 매출·마진·가이던스로 환산할 정량 근거 부재(강도 weak = 정량 근거 부재 판단의 확신도)."},
+    {"id": "c_20261009_NBIS_3", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "회사 공식 가격 페이지 (nebius.com/prices)", "filed_at": "2026-10-09", "as_of": "2026-10-09", "staleness_days": 0, "summary": "발효일 8일 후에도 4개 SKU 가격표 불변: B300 $7.85→$9.50, B200 $7.15→$8.50, H200 $4.50→$5.40, H100 $3.85→$4.50. 신규 변화 없음(지속 확인). RTX PRO 6000·L40S 불변. GB300/GB200 NVL72 비공개."},
+    {"id": "c_20261009_NBIS_4", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "회사 공식 가격 페이지 서술", "filed_at": "2026-10-09", "as_of": "2026-10-09", "staleness_days": 0, "summary": "commitment discount 최대 35%(복수개월 예약 클러스터), spot 상한 = on-demand − 1센트. $1B+ 대형 계약 적용 여부·폭은 페이지에 없음."},
+    {"id": "c_20261009_NBIS_5", "claim_type": "inference", "inference_strength": "medium", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "c_20261009_NBIS_3·4 종합", "filed_at": "2026-10-09", "as_of": "2026-10-09", "staleness_days": 0, "summary": "현재가/발효 후가 병기 구조가 8일 후에도 유지돼 실과금 전환(billing effectuation)은 독립 검증되지 않음. 병기 유지가 미적용의 증거도 아님(P5). 가격 고지 ≠ 계약 갱신 ≠ 매출 인식(P7)."},
+    {"id": "c_20261009_NBIS_6", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "AIB 8-K Exhibit 99.1 (카운터파티 공시)", "filed_at": "2026-10-01", "as_of": "2026-10-09", "staleness_days": 8, "summary": "AIB 자회사와 Nebius Inc. 간 MCSA: 50MW critical IT, 초기 12년. 금액·선급금·가동 시점 미기재, Item 7.01(FD). Nebius 측 6-K에는 해당 계약 문서 없음. P7 1단(체결)."},
+    {"id": "c_20261009_NBIS_7", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "AIB 투자자 프레젠테이션 (카운터파티 자료, 전향적 진술)", "filed_at": "2026-09-30", "as_of": "2026-10-09", "staleness_days": 9, "summary": "AIB 주장: ESA 개시 2026-10-01, hall 1(25MW) 약 Month 10, hall 2(25MW) 약 Month 14. 프로젝트 부채·우선주 미조달. Nebius 미확인. 창 밖 자료."},
+    {"id": "c_20261009_NBIS_8", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "AIB 투자자 프레젠테이션 (카운터파티 자료)", "filed_at": "2026-09-30", "as_of": "2026-10-09", "staleness_days": 9, "summary": "AIB 가정 계약가치 약 $1.32B(12년·50MW), 자금조달 도식에 'Guaranty from Nebius — Expected'. 보증 체결·금액 미기재. 모두 AIB 진술이며 Nebius 미확인. 창 밖 자료."},
+    {"id": "c_20261009_NBIS_9", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "AIB 8-K Exhibit 99.1 (CEO 서한)", "filed_at": "2026-10-07", "as_of": "2026-10-09", "staleness_days": 2, "summary": "AIB CEO가 MCSA 50MW·12년·5년 갱신 옵션 2회 재확인, 고객 선급금이 초기 개발의 의미 있는 부분을 충당할 것으로 기대. 신규 금액·가동일·보증 금액 없음."},
+    {"id": "c_20261009_NBIS_10", "claim_type": "inference", "inference_strength": "medium", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "c_20261009_NBIS_7·8 종합", "filed_at": "2026-09-30", "as_of": "2026-10-09", "staleness_days": 9, "summary": "AIB 주장 적용 시 첫 hall 인도 ≈2027-08, 둘째 ≈2027-12(±1개월)로 FY2026 가동분 없음. 인도 리스크가 AIB 자금조달·건설 실행으로 이관, 보증 체결 시 leverage_burden 우발 의무 후보. 카운터파티 주장 기반 — 판정 근거 아님."},
+    {"id": "c_20261009_NBIS_11", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "SEC Form 4 / Form 144", "filed_at": "2026-10-06", "as_of": "2026-10-09", "staleness_days": 3, "summary": "COO·이사 Ophir Nave 2026-10-05 Class A 500,000주 처분(약 $117.8M, 10b5-1 표시), 잔여 직접 보유 454,685주. 매출·가이던스·마진·현금흐름·수주·일정 불변 — P3 노이즈 성격, 8축 매핑 없음."},
+    {"id": "c_20261009_NBIS_12", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "SEC Form 4", "filed_at": "2026-10-05", "as_of": "2026-10-09", "staleness_days": 4, "summary": "2026-10-01 RSU 베스팅 원천징수 충당 자동 처분(CEO·CTO·CIO, @$234.16) 및 이사 1인 10b5-1 하 50주. 재량 거래 아님 — 신호 가치 없음."},
+    {"id": "c_20261009_NBIS_13", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "회사 IR·뉴스룸 페이지", "filed_at": "2026-10-09", "as_of": "2026-10-09", "staleness_days": 0, "summary": "IR 이벤트 페이지 'No upcoming events yet'. Q3 2026 실적일·2027 가이던스 발표일 공지 부재(미확정, 일정 없음의 반증 아님). 애그리게이터 10-22/11-10 상충 — F1상 근거 불가."},
+    {"id": "c_20261009_NBIS_14", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "SEC EDGAR 제출 목록", "filed_at": "2026-10-09", "as_of": "2026-10-09", "staleness_days": 0, "summary": "10-01~10-09 제출 8건(6-K 1, Form 4 5, Form 144 1, SC 13G/A 1[Goldman Sachs 5.1%]). 424B5·F-3·424B3·424B1·20-F 제출 없음. 신규 조달 공시 미관측(반증 아님, P5)."}
+  ],
+  "filter_bug_report": {
+    "bug_detected": false,
+    "checked_count": 14,
+    "non_company_specific_found": 0,
+    "note": "F13 — arbiter_NBIS.json claims 14건 전건 scope=company_specific, removed_claims 0건. 필터 버그 없음. 참고: c_20261009_NBIS_7·8·10은 out_of_window=true(제출 2026-09-30, 창 밖)이나 scope 요건과는 별개이며 카운터파티 주장으로 취급해 판정 근거로 쓰지 않았다."
+  },
+  "kill_check": {
+    "triggered": true,
+    "trigger_source": ["KC-1"],
+    "rule_applied": "rule 1 (Kill 우선: KC met AND confirmed)",
+    "candidate": "🔴🔴 유지 (현행 등급과 동일 — 사람 확정 2026-10-03)",
+    "own_company_kc": [
+      {
+        "kc_id": "KC-NBIS-1",
+        "condition": "대형 고객 계약 훼손 ($1B+ 전체)",
+        "type": "event",
+        "trigger_text": "Meta·MS 및 $1B 이상 계약 고객(Reflection·Cohere 등 Q2 신규 4사 포함)의 해지·규모 20%+ 축소·재협상 공시",
+        "warning_defined": false,
+        "verdict": "not_met",
+        "verdict_confidence": "provisional",
+        "basis": "P1/P4 — 필터본 14건 claims 중 trigger 대상 고객군의 해지·20%+ 축소·재협상 공시 없음. AIB MCSA(c_6)는 별개 신규 체결이며 trigger 대상 고객군이 아니다."
+      },
+      {
+        "kc_id": "KC-NBIS-2",
+        "condition": "용량 인도 지연 (경고/발동 2단)",
+        "type": "metric",
+        "warning_threshold": "delivery_delay_quarters >= 1분기",
+        "kill_threshold_any_of": "capacity_delivery_delay_months >= 6개월 OR delivery_delay_quarters >= 2분기 연속",
+        "warning_verdict": "not_met",
+        "warning_verdict_confidence": "provisional",
+        "kill_verdict": "not_met",
+        "kill_verdict_confidence": "provisional",
+        "basis": "P1/P5 — delivery_delay_quarters·capacity_delivery_delay_months 관측값이 필터본에 없다. AIB hall 인도 목표(≈2027-08/2027-12, c_7·c_10)는 카운터파티 주장이며 late Q4 온라인 전환·연말 5GW 목표 대비 지연 공시가 아니다. Vineland 공사중지명령 해제 여부는 신규 자료 없이 carried. 관측값 부재 → 경고·발동 모두 not_met/provisional.",
+        "next_gate_metrics_needed": ["delivery_delay_quarters", "capacity_delivery_delay_months"]
+      },
+      {
+        "kc_id": "KC-NBIS-3",
+        "condition": "조달 조건 악화",
+        "type": "metric",
+        "warning_defined": false,
+        "kill_threshold_any_of": "cash_balance < $5,000,000,000 OR new_debt_spread_vs_prior_bp >= 300bp",
+        "verdict": "not_met",
+        "verdict_confidence": "provisional",
+        "basis": "P1/P5 — cash_balance·new_debt_spread_vs_prior_bp 관측값이 필터본에 없다. 창 내 EDGAR에 신규 채무·증자 서류(424B5·F-3 등) 미관측(c_14). AIB 도식의 'Nebius 보증 Expected'(c_8)는 체결·금액 미확인이라 조달 조건 악화 근거가 아님. 관측값 부재 → not_met/provisional.",
+        "next_gate_metrics_needed": ["cash_balance", "new_debt_spread_vs_prior_bp"]
+      }
+    ],
+    "macro_kc_propagating": {
+      "checked_ids": ["KC-1", "KC-2", "KC-4", "KC-5", "KC-6", "KC-7", "KC-8", "KC-9"],
+      "kc_1": {
+        "verdict": "met",
+        "verdict_confidence": "confirmed",
+        "basis": "P1 — FFR 4.0 > 3.75 임계, method=api, as_of 2026-10-08, confirmed. 규칙 1 요건(met AND confirmed) 충족. 2026-10-03 사람 확정 이후 해소 관측 없음(FFR 여전히 임계 초과). 리스크는 포트폴리오 레버리지/북 레벨 조치(KC-1 consequence)이며 NBIS 종목 고유 KC 훼손이 아니다(P6/P13)."
+      },
+      "kc_9": {
+        "verdict": "met",
+        "verdict_confidence": "provisional",
+        "rule_1_satisfied": false,
+        "basis": "KC-9(에너지 쇼크): brent 125.44 ≥ 120 (as_of 2026-10-06, stale_days 3 = stale_limit 3 — 한도 초과는 아님), 그러나 duration '1개월 지속' 조건의 지속성은 사람이 확인해야 confirmed 가능(발췌 note). verdict_confidence=provisional이므로 규칙 1의 발동 요건(met AND confirmed) 미충족 — Kill 트리거로 사용하지 않는다. 참고(자기 계층 직전 산출물): 2026-09-29 brent 113.96 < 120이었으므로 1개월 연속 초과는 아직 형성되지 않았을 가능성이 높다. 임계 초과가 1개월 지속되고 사람이 지속성을 확인하면 confirmed 승격 후 별도 Kill 경로가 될 수 있다."
+      },
+      "verdict_summary": "KC-2/4/5는 not_met(confirmed), KC-6/7/8은 not_met(provisional, duration 조건), KC-9는 met(provisional — 규칙 1 미충족). met AND confirmed는 KC-1 1건뿐."
+    },
+    "basis": "P1/P12 — KC-1 met AND confirmed가 유지되고 NBIS는 RATES 축 불리 노출로 macro_kc_propagating_to_ticker에 포함된다. 현행 🔴🔴(2026-10-03 사람 확정)와 동일한 후보이므로 등급 변화는 없다. KC-9 met/provisional은 규칙 1 요건 미충족이라 참고 관측으로만 기록한다. 종목 고유 KC 3건은 전건 not_met이다(관측값 부재 포함)."
+  },
+  "gate_check": {
+    "kill_check": {
+      "triggered": true,
+      "rule": "rule 1",
+      "trigger_source": ["KC-1"],
+      "result": "triggered — 🔴🔴 유지 후보",
+      "reason": "KC-1 met AND confirmed(FFR 4.0 > 3.75, as_of 2026-10-08). KC-9는 met이나 provisional(duration 1개월 지속 미확인)이라 규칙 1 불성립. 종목 고유 KC-NBIS-1~3은 not_met/provisional."
+    },
+    "upgrade_gate": {
+      "quantitative_evidence": true,
+      "company_specific": true,
+      "revenue_recognized": false,
+      "result": "not_met (revenue_recognized 미충족)",
+      "reason": "P2/P6/P7 — c_3·c_4가 quantitative·company_specific·grade 1이나 가격 고지·할인 서술 단계이며 확정 매출·마진·가이던스 수치가 아니다. 실과금 전환은 독립 검증되지 않았고(c_5) Q3 실적자료 미발표. AIB MCSA(c_6)는 P7 1단(체결)이고 quantitative=false, 인도·매출 인식은 미확인. Inferize(c_1·2)는 정량 부재. 현 등급이 이미 🔴🔴이므로 상향은 KC-1 해소(사람 재판정)가 선행 조건이며, 상향은 어떤 경우에도 3요건 동시 충족이 필요하다."
+    },
+    "downgrade_check": {
+      "rule": "rule 3 (비대칭 하향 — 정량 훼손 또는 evidence_grade<=2의 정성 훼손)",
+      "quantitative_deterioration": false,
+      "qualitative_deterioration_grade_le_2": false,
+      "result": "not_triggered",
+      "reason": "P3 — 이번 창 deltas 6축 전부 neutral. 가격표 불변(지속 확인), 신규 조달·계약 훼손 공시 없음. 내부자 처분(c_11·c_12)은 매출·가이던스·마진·현금흐름·수주·일정 중 어느 것도 바꾸지 않는 노이즈 성격이며 c_12는 세금 충당 자동 처분이다. AIB 측 부채·우선주 미조달과 'Nebius 보증 Expected'는 카운터파티 진술로 Nebius 확인 전이며 훼손 확정이 아니다. 또한 🔴🔴는 등급 척도의 최하단이라 추가 하향 대상이 없다."
+    }
+  },
+  "thesis_delta_summary": [
+    {
+      "axis": "rates_exposure (macro, KC-1 propagation)",
+      "direction": "weaken (RATES 축 불리 노출 지속)",
+      "basis_claims": [],
+      "risk_transfer_to": ["portfolio_leverage_book", "Edge/Next 축소 검토"],
+      "note": "P6/P13 — 매크로 재료라 NBIS 개별 thesis 축 상향/하향 근거로 쓰지 않는다. 규칙 1 유지 사유."
+    },
+    {
+      "axis": "capacity_delivery",
+      "direction": "neutral (holding_reinforcement 이어받음 — 상향 근거 아님)",
+      "basis_claims": ["c_20261009_NBIS_6", "c_20261009_NBIS_7", "c_20261009_NBIS_9", "c_20261009_NBIS_10"],
+      "risk_transfer_to": ["AIB(3자 개발사)의 프로젝트 부채·우선주 조달 완료 및 건설·인도 실행", "NBIS 보증 체결 시 leverage_burden으로 일부 이관(미확인)"],
+      "note": "P7 1단 유지. 인도 목표는 AIB 주장이며 FY2026 연결 전력 목표 기간 내 가동분이 아니다. 5GW 산정 포함 여부는 회사 미확인."
+    },
+    {
+      "axis": "on_demand_pricing_power",
+      "direction": "neutral (holding_reinforcement 유지)",
+      "basis_claims": ["c_20261009_NBIS_3", "c_20261009_NBIS_4", "c_20261009_NBIS_5"],
+      "risk_transfer_to": [],
+      "note": "가격표 불변(지속 확인), 실과금 전환 미검증. spot 상한이 on-demand에 연동됨을 1차 확인. 리스트 가격은 P2상 상향 근거 부적격."
+    },
+    {
+      "axis": "contract_monetization",
+      "direction": "neutral",
+      "basis_claims": ["c_20261009_NBIS_1", "c_20261009_NBIS_2", "c_20261009_NBIS_4"],
+      "risk_transfer_to": [],
+      "note": "commitment discount 최대 35% 서술의 $1B+ 계약 적용 여부 미확인. on_demand_pricing_power와 부호 분리 유지."
+    },
+    {
+      "axis": "leverage_burden / funding_access / margin_transition",
+      "direction": "neutral",
+      "basis_claims": ["c_20261009_NBIS_8", "c_20261009_NBIS_10", "c_20261009_NBIS_14"],
+      "risk_transfer_to": ["Nebius 보증 체결 시 우발 의무(미확인)"],
+      "note": "신규 조달 서류 미관측. 보증은 AIB 진술 단계이며 방향 판정 없음."
+    }
+  ],
+  "alert": {
+    "ticker_event": "NBIS — 현행 🔴🔴(KC-1 매크로, 사람 확정 2026-10-03) 유지 후보. KC-1(FFR 4.0 > 3.75)이 met AND confirmed로 지속된다(규칙 1). 이번 창 종목 이벤트는 Inferize 인수(10-01), AIB MCSA 세부(카운터파티 문서), 가격표 불변 지속 확인이며 등급 전이 사유는 없다.",
+    "facts": [
+      {"text": "P1 — KC-1: FFR 4.0 > 임계 3.75, method=api, verdict met / confirmed.", "source": "output/20261009_0920/03_kc_excerpt/NBIS.json (KC-1, as_of 2026-10-08)", "timestamp": "2026-10-08"},
+      {"text": "P1/P16 — KC-9(에너지 쇼크): brent 125.44 ≥ 120, verdict met이나 verdict_confidence=provisional(duration 1개월 지속은 사람 확인 필요). 규칙 1의 confirmed 요건 미충족.", "source": "output/20261009_0920/03_kc_excerpt/NBIS.json (KC-9, as_of 2026-10-06, stale_days 3/한도 3)", "timestamp": "2026-10-06"},
+      {"text": "P1 — KC-2/4/5 not_met(confirmed), KC-6/7/8 not_met(provisional). 종목 고유 KC-NBIS-1~3 전건 not_met/provisional(대형 고객 해지·축소 공시 없음, 인도 지연·조달 지표 관측값 부재).", "source": "output/20261009_0920/03_kc_excerpt/NBIS.json, output/20261009_0920/03_input/arbiter_NBIS.json", "timestamp": "2026-10-09"},
+      {"text": "P4 — nebius.com/prices 2026-10-09 재조회: 발효일 8일 후에도 현재가/발효 후가 병기, B300 $7.85→$9.50(+21.0%) 등 4개 SKU 값 불변. commitment discount 최대 35% 서술, spot 상한 = on-demand − 1센트.", "source": "c_20261009_NBIS_3, c_20261009_NBIS_4 (https://nebius.com/prices)", "timestamp": "2026-10-09T09:24"},
+      {"text": "P4/P7 — AIB 8-K: Nebius Inc.와 MCSA 50MW·초기 12년. 금액·선급금·가동 시점은 8-K 본문에 없고, 투자자 프레젠테이션(2026-09-30)의 인도 목표·계약가치 약 $1.32B 가정·'Nebius 보증 Expected'는 AIB 측 진술이다. Nebius 6-K에는 해당 계약 문서가 없다.", "source": "c_20261009_NBIS_6, c_20261009_NBIS_7, c_20261009_NBIS_8 (sec.gov AIB 8-K)", "timestamp": "2026-10-01"},
+      {"text": "P1 — Inferize 인수 6-K(2026-10-01): Token Factory 편입, 인수 대금 비공개. 창 내 EDGAR 제출 8건에 신규 조달(424B5·F-3 등) 없음. Q3 실적일은 회사 미공지.", "source": "c_20261009_NBIS_1, c_20261009_NBIS_13, c_20261009_NBIS_14", "timestamp": "2026-10-09"},
+      {"text": "P3 — COO Ophir Nave 2026-10-05 500,000주 처분(약 $117.8M, 10b5-1 표시), 10-01 임원 RSU 세금 충당 자동 처분. 8축 매핑 없음.", "source": "c_20261009_NBIS_11, c_20261009_NBIS_12 (SEC Form 4/144)", "timestamp": "2026-10-06"}
+    ],
+    "inference": [
+      {"text": "P1 — 규칙 1 문언에 예외가 없고 NBIS는 RATES 축 불리 노출이므로 KC-1 지속은 🔴🔴 유지 후보를 뒷받침한다.", "inference_strength": "high — 규칙 문언·노출 매핑·confirmed 판정이 모두 명시적"},
+      {"text": "KC-9 met/provisional은 지속성(1개월) 확인 전이라 Kill 근거가 아니다. 자기 계층 직전 산출물의 brent 113.96(09-29)을 고려하면 duration 충족 가능성은 낮으나 확정할 수 없다.", "inference_strength": "medium — 직전 단일 관측치와 이번 관측치 간 중간 값은 입력에 없음"},
+      {"text": "가격표 불변 지속은 신규 정보가 아니라 지속 확인이며, 실과금 전환과 매출 인식은 별개 단계다(P7). 상향 게이트는 vacuous에 가깝다.", "inference_strength": "medium — 병기 구조의 해석(미적용의 증거도 아님)에 한정"},
+      {"text": "AIB 건은 인도 리스크가 Nebius 자사 건설에서 AIB의 자금조달·건설 실행으로 이관된다. 보증이 체결되면 leverage_burden 우발 의무가 생길 수 있다. 카운터파티 주장에 기반한 구조적 추정이다.", "inference_strength": "medium — Nebius 확인 전"}
+    ],
+    "classification": "kill_priority_maintain (rule 1, KC-1 met AND confirmed) — 현행 🔴🔴 유지 후보, 신규 사람 확정 요청 사항 없음(등급 변화 없음). 상향 게이트: not_met(revenue_recognized 미충족). 하향 게이트: not_triggered. KC-9는 met이나 provisional이라 규칙 1 비해당(관측만). 이번 창 종목 이벤트는 holding_reinforcement(가격 지속·AIB 계약 세부) 또는 노이즈(내부자 처분)로 분류. P12 — 게이트 미충족은 정상 경로.",
+    "thesis_delta": "rates_exposure(매크로) 축: 리스크가 종목 thesis에서 포트폴리오 레버리지/Edge·Next 북 레벨로 이관 지속. capacity_delivery 축: 신규 방향 없음, 인도 실행 리스크가 AIB의 부채·우선주 조달 및 건설로 이관되고 Nebius 보증 체결 시 leverage_burden으로 일부 재이관 가능(미확인). on_demand_pricing_power·contract_monetization·margin_transition·funding_access·leverage_burden 축: neutral. 종목 고유 KC 3건은 독립적으로 not_met 유지 — 사람 확인 시 병기할 것.",
+    "signal_verdict": "🔴🔴 유지 후보(규칙 1: KC-1 met AND confirmed). 해소 조건: KC-1 not_met, 즉 FRED DFEDTARU ≤ 3.75 관측 — 해소 시 등급 재판정은 다시 사람이 한다. KC-9는 met/provisional으로 규칙 1 발동 요건(confirmed) 미충족. 종목 자체 상향/하향 요건 미충족(P12). 최종 등급은 사람이 확정한다.",
+    "next_check": [
+      "next_gate(정량·관측가능): KC-1 해소 — 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 (현재 4.00, 임계 3.75 초과)",
+      "next_gate(정량·관측가능): KC-9 지속성 — brent ≥ 120 (현재 125.44, as_of 2026-10-06)이 1개월 연속 유지되는지 및 사람의 duration 확인 여부 (confirmed 승격 조건)",
+      "next_gate(정량·관측가능): Q3 2026 실적자료(날짜 회사 미공지 — investor-events·newsroom 공지 대기)의 GPU-hour 단가·ARPU·ARR 및 가이던스 수치로 실과금 전환·commitment discount 전가 대조",
+      "next_gate(정량·관측가능): AIB MCSA의 Nebius 측 확인 — 계약금액(AIB 가정 약 $1.32B 대조)·선급금 규모·Nebius 보증 체결 금액·hall 인도 시점(첫 hall ≈2027-08 주장)을 Nebius 6-K/Q3 자료 또는 AIB 10-Q(2026-11 예상)에서 확인",
+      "next_gate(정량·관측가능): KC-NBIS-2 경고/발동 관측값 delivery_delay_quarters(≥1 경고, 2분기 연속 발동)·capacity_delivery_delay_months(≥6 발동) — Vineland 공사중지명령 해제 여부와 연말 5GW·late Q4 온라인 전환 일정",
+      "next_gate(정량·관측가능): KC-NBIS-3 관측값 cash_balance(< $5B)·new_debt_spread_vs_prior_bp(≥ 300bp) — 차기 20-F/6-K, ATM 잔여 12.3M주 사용 여부",
+      "[carried] GB300/GB200 NVL72 단가 공개 여부, 메모리 약 41% 인상 보도의 1차 대조 채널, Inferize 인수 대금"
+    ]
+  },
+  "human_confirmation_required": true,
+  "note_for_orchestrator": "1) 현행 🔴🔴(2026-10-03 사람 확정) 유지 후보 — 등급 변화 없음, 규칙 1은 KC-1(FFR 4.0, confirmed)로 성립. 2) KC-9는 met이나 provisional(duration 1개월 지속 사람 확인 전)이라 규칙 1 요건 미충족 — Kill 사유로 올리지 말 것. 3) F13 필터 버그 없음(14건 전건 company_specific, removed 0). out_of_window=true인 c_7·c_8·c_10은 카운터파티 주장으로만 취급. 4) 상향 게이트 revenue_recognized 미충족, 하향 게이트 미트리거, 이번 run 종목 자체 등급 이동 근거 없음(P12). 5) 종목 고유 KC 3건 not_met/provisional은 '관측값 부재' 포함 — 훼손 없음의 증명이 아니라 미관측(P5)임을 사람 확인 시 병기."
+}

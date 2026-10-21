@@ -1,0 +1,92 @@
+{
+  "as_of": "2026-08-15",
+  "run_id": "20260815_1408",
+  "ticker": "CRWV",
+  "input_source": "output/20260815_1408/03_input/arbiter_CRWV.json",
+  "prior_signal": "🟡",
+  "prior_label": "관망 (신규 커버리지 초기화, Q2 수치 재대조 대기)",
+  "prior_since": "2026-08-15",
+  "proposed_signal": "🟡",
+  "proposed_label": "관망 (Q2 재대조 완료 — 강화·훼손 재료 공존, 이자커버리지 3x 게이트 미충족)",
+  "transition_candidate": "유지 (변경 없음) — 사람 확정 대기",
+  "claims_reviewed": {
+    "company_specific_count": 22,
+    "sector_scope_removed_count": 0,
+    "removed_ids": [],
+    "note": "arbiter_CRWV.json은 filter_arbiter_input.py로 이미 company_specific만 필터된 상태(removed_claims=[]). 22건 전부 scope=company_specific, quantitative=true. Q2 실적(8-K)·10-Q·DDTL 5.5 차환 공시가 조회기간 신규 재료."
+  },
+  "gate_check": {
+    "quantitative_evidence": true,
+    "company_specific": true,
+    "revenue_recognized": true,
+    "basis": "일반 P2/P6/P7 게이트(quantitative==true AND scope==company_specific AND stage==revenue_recognized) 자체는 c_001(Q2 매출 $2,575M 실적, 이미 인식된 매출) 등 다수 Claim이 충족. 그러나 CRWV의 현행 next_gate는 signals.json에 'FCF 흑자 전환 + 이자 커버리지 3x + 금리 경로 확정' 동시 충족으로 명시된 복합 조건이며, 이번 입력으로 이 복합 조건 중 어느 하나도 충족되지 않음을 확인: (1) 이자커버리지 — H1 누적 Adj.EBITDA/순이자비용 ≈2.27x(c_009, 단일 Q2 기준 최대치로 봐도 ≈2.36x), 3x 미달. (2) FCF — H1 영업현금흐름 $3.7B < H1 부채상환 현금흐름 $6.2B(c_017)이고 Q2 CapEx($9.4B 또는 GAAP CF상 $6.422M)를 반영하면 FCF는 여전히 큰 폭 마이너스. (3) 금리 경로 — KC-1(FFR>3.75) not_met/provisional로 미확정. 3조건 동시 충족 요건 중 이자커버리지 미달이 가장 명확한 차단 사유이므로 상향 불가."
+  },
+  "kill_check": {
+    "kc_1": {
+      "label": "FFR > 3.75 (고레버리지 CRWV 금리 민감 경로)",
+      "verdict": "not_met",
+      "confidence": "provisional",
+      "basis": "오케스트레이터 전달: 미수집 — provisional 강제(P16)"
+    },
+    "kc_2": {
+      "label": "VIX >= 30 (위험회피 국면)",
+      "verdict": "not_met",
+      "confidence": "confirmed",
+      "basis": "VIX 14.25 @2026-08-14 (임계 30 미달) — 신선 지표로 confirmed"
+    },
+    "kc_6_7_8": {
+      "label": "AI CapEx 체인 (하이퍼스케일러 지출 축소·둔화)",
+      "verdict": "not_met",
+      "confidence": "provisional",
+      "basis": "오케스트레이터 전달: 미수집/provisional. 오히려 이번 입력(c_005~008, c_022)은 반대 방향 — CoreWeave 자체 FY26 CapEx 가이던스 상향($31-35B→$35-39B) 및 OpenAI·Meta 대형 주문서 재확인으로, AI CapEx 체인 둔화 신호는 이번 조회기간 CRWV 측 자료에서는 관측되지 않음."
+    },
+    "event_kc": {
+      "label": "종목 이벤트형 KC",
+      "verdict": "not_met",
+      "confidence": "confirmed",
+      "basis": "오케스트레이터 전달: 발동 관측 없음. 이번 입력의 DDTL 5.5 차환·10-Q 소송 각주도 covenant 위반·소송 확대 등 이벤트형 KC 발동 요건에 해당하지 않음(covenant 전건 준수, 소송은 정지 상태 유지)."
+    },
+    "kill_priority_triggered": false,
+    "basis": "KC 4종(1/2/6-7-8/이벤트형) 중 met & confirmed 조건 충족 건 없음 — 전이 규칙 1(Kill 우선) 비해당. KC-2만 confirmed이나 not_met이므로 발동 아님."
+  },
+  "downgrade_check": {
+    "quantitative_deterioration": true,
+    "qualitative_deterioration_grade_le_2": false,
+    "basis": "정량 훼손(evidence_grade 1, P4 기준 최고등급) 독립 평가 결과 하향 검토 대상 확인: ①총부채가 6개월간 $21.37B→$35.07B로 +$13.7B(+64%) 급증(c_010). ②Q3 이자비용 가이던스 $860-940M은 Q2 실제 $640M 대비 QoQ +34~47% 급증(c_008). ③H1 부채상환 현금흐름($6.2B)이 H1 영업현금흐름($3.7B)을 초과하여 신규 조달 의존이 10-Q 자체 위험요인으로 명시(c_017). 이 3건은 rule 3(정량 훼손 시 하향 가능)의 적용 대상이 맞음. 정성 훼손(evidence_grade≤2)은 소송(c_020, neutral·grade1)·CapEx 수치 불일치(c_019, unconfirmed 이관)뿐으로 하향 사유에 해당하지 않음(false). 단, 동일 조회기간에 정량적 강화 재료가 병존: FY26 가이던스 전 지표 상향(매출·조정영업이익·exit ARR, c_005~007, evidence_grade 2 이나 CFO 직접발언 확정치), 백로그 재대조+신규 $25B 파이프라인(c_003), DDTL 5.5 오버서브스크라이브 차환 성공+조달비용 300bp 하락(c_012·018, grade1), 전 DDTL covenant 준수(c_014, grade1), RCF 무차입 개선(c_016, grade1). 부채 급증 자체는 이미 알려진 성장형 CapEx 조달 구조(next_gate가 원래 이자커버리지 3x 미달을 전제로 설정된 상태)의 연장선이며 신규 이탈 신호라기보다 기존 리스크의 정량적 재확인에 가까움."
+  },
+  "decision_basis_P12": "상향 게이트(복합 3조건) 미충족 + 하향 검토 대상(총부채 급증·이자비용 가이던스 급증) 존재가 동시에 성립하나, 같은 조회기간에 grade1 정량 강화 재료(가이던스 전면 상향, 차환 성공·조달비용 하락, covenant 준수, 백로그 확장)가 병존함. 강화·훼손 재료 공존 시 등급 유지 + 사유 기록도 정당한 결론(P12) — CRWV 🟡 관망 유지가 이번 run의 정합적 결과. 등급 확정은 사람이 한다.",
+  "alert": {
+    "ticker_event": "CRWV — 2026-08-11 Q2 FY2026 실적(8-K)·2026-08-10 DDTL 5.5 차환 클로징·2026-08-12 10-Q, 1차 자료 재대조 완료",
+    "facts": [
+      {"text": "Q2 2026 매출 $2,575M, +112.5% YoY", "source": "8-K Ex.99.1", "timestamp": "2026-08-11"},
+      {"text": "Adj. EBITDA margin Q2 59%(YoY 62%→59%), H1 누적 57%(YoY 62%→57%)", "source": "8-K Ex.99.1", "timestamp": "2026-08-11"},
+      {"text": "GAAP 영업손실 $(49)M, 순손실 $(626)M, 순이자비용 $(640)M(Q2 2025 $(267)M 대비 급증)", "source": "8-K Ex.99.1", "timestamp": "2026-08-11"},
+      {"text": "백로그 ~$104B(6/30 기준); Q3 초입 $25B+ 신규 커밋먼트는 미반영", "source": "8-K Ex.99.1", "timestamp": "2026-08-11"},
+      {"text": "FY26 가이던스 상향: 매출 $12.4-13.2B, CapEx $35-39B, 조정영업이익 $960M-1.15B, exit ARR $18.5-19.5B", "source": "Earnings call transcript (CFO 직접발언)", "timestamp": "2026-08-11"},
+      {"text": "Q3 가이던스: 매출 $3.45-3.6B, 조정영업이익 $200-260M, 이자비용 $860-940M, CapEx $11.5-13.5B", "source": "Earnings call transcript (CFO 직접발언)", "timestamp": "2026-08-11"},
+      {"text": "총부채 $21.37B(2025-12-31)→$35.07B(2026-06-30), +$13.7B/6개월", "source": "8-K Ex.99.1 balance sheet", "timestamp": "2026-08-11"},
+      {"text": "현금 $5,524M, 순부채 약 $29.5B", "source": "8-K Ex.99.1 balance sheet", "timestamp": "2026-08-11"},
+      {"text": "신규 $2.6B DDTL 5.5 텀론 오버서브스크라이브 클로징(SOFR+5.50%, Ba2/BB+, 만기 2031-09)", "source": "8-K Item 1.01/7.01", "timestamp": "2026-08-10"},
+      {"text": "전 DDTL covenant 준수(위반 없음), RCF 무차입·잔여한도 $2.0B", "source": "10-Q Note(Debt)", "timestamp": "2026-08-12"},
+      {"text": "H1 부채상환 현금흐름 ~$6.2B > H1 영업현금흐름 $3.7B — 미래 차입 가용성 의존 위험요인 자체 명시", "source": "10-Q MD&A/Risk Factors", "timestamp": "2026-08-12"},
+      {"text": "Vera Rubin NVL72 업계 최초 bring-up/validation 완료, Caterpillar 대상 physical AI 실배포 개시", "source": "8-K Ex.99.1 + earnings call", "timestamp": "2026-08-11"},
+      {"text": "OpenAI 최대 ~$6.5B(~2031-05)·Meta 최초 ~$21.0B(~2032-12) 주문서 금액 10-Q로 최초 정량 재확인, 합산 약 26%가 백로그 구성", "source": "10-Q (Customer Concentration)", "timestamp": "2026-08-12"},
+      {"text": "증권집단소송(Masaitis) 계속 진행, 관련 대표소송은 통합 후 절차 정지 상태 유지 — 신규 악화 없음", "source": "10-Q Note 9 (Litigation)", "timestamp": "2026-08-12"}
+    ],
+    "inference": [
+      {"text": "H1 누적 기준 이자커버리지(Adj.EBITDA/순이자비용) ≈2.27x로 계산됨(thesis card ~2.2x와 근사 정합). Q2 단독 기준으로는 ≈2.36x. 어느 기준으로도 next_gate의 3x 문턱에는 미달", "inference_strength": "strong"},
+      {"text": "Q3 이자비용 가이던스($860-940M)가 Q2 실제($640M) 대비 QoQ +34~47% 급증하는 것은 지속적인 부채 확대(CapEx 조달) 구조의 연장으로 해석되며, 카드가 이미 전제한 '고레버리지·금리민감' 리스크의 새로운 이탈이라기보다 기존 리스크의 정량적 확인에 가까움", "inference_strength": "moderate"},
+      {"text": "Q2 CapEx 수치 불일치($9.4B CFO 발언 vs $6.422M GAAP CF표)는 확보된 1차 자료로 재대조 불가 — unconfirmed 이관, 반증으로 사용하지 않음(P5)", "inference_strength": "low — unconfirmed"}
+    ],
+    "classification": "강화·훼손 재료 공존 → holding_reinforcement(가이던스 전면 상향·백로그 확장·차환 성공·조달비용 하락·covenant 준수·Vera Rubin 촉매 진행) + 하향 검토 대상(총부채 급증·Q3 이자비용 가이던스 급증·FCF 미달, 독립 평가 결과 정량 훼손 rule 3 해당) 동시 성립 → 등급 유지 + 사유 기록(P12)",
+    "thesis_delta": "backlog_scale: strengthen(재대조 완료 + Q3 초입 $25B 추가 파이프라인 미반영). debt_refinancing: strengthen(조달 접근성·covenant 준수·조달비용 하락)과 weaken(레버리지·커버리지 악화)이 한 축에서 상반 방향으로 공존 — P8에 따라 '자금조달 접근성' vs '레버리지·커버리지' 두 하위축 분해를 thesis-refine에 제안(자동 반영 아님, 사람 검토 필요). risk_transfer_to: margin_trend(이자비용 증가→향후 순이익 압박). margin_trend: weaken(YoY EBITDA margin 62%→57%) — 단 FY26 내 시퀀셜은 반대로 개선 추세(Q1 ~56%→Q2 59%, CFO는 Q4 low-teens% 전망 언급)이므로 축 정의(YoY vs 시퀀셜) 명시를 thesis-refine 검토 후보로 제안. gpu_priority: strengthen(Vera Rubin 촉매 진행 확인). customer_concentration: neutral(정성 리스크의 정량적 재확인, 방향 전환 아님). litigation: neutral(신규 악화 없음).",
+    "signal_verdict": "🟡 관망 유지 — 상향 3게이트 중 이자커버리지 3x 게이트가 명확히 미달(H1 ~2.27x, Q2 단독 ~2.36x)하여 복합 next_gate 미충족, FCF도 여전히 마이너스, 금리경로(KC-1)도 미확정으로 상향 불가. 하향 검토 대상(총부채 +64%, Q3 이자비용 가이던스 QoQ +34~47%, H1 부채상환>영업현금흐름)은 정량 훼손 rule 3에 해당하나, 동일 시점 grade1 강화 재료(가이던스 전면 상향, 차환 성공, covenant 준수, 백로그 확장)가 병존하여 하향도 보류 — 등급 유지가 정합적 결론(P12). KC 4종 모두 met&confirmed 아님(kill 비해당). 등급 확정은 사람이 한다.",
+    "next_check": [
+      "next_gate(정량, 관측 가능, 3조건 동시 충족 필요 — 기존 signals.json 유지): FCF 흑자 전환(영업현금흐름-CapEx, 특히 $9.4B vs $6.422M CapEx 수치 불일치 해소 포함) + 이자커버리지 3x + 금리 경로(KC-1 FFR) 확정",
+      "Q3 2026 실적(차기 조회): 이자비용 실제치의 가이던스($860-940M) 상단 초과 여부, Adj.EBITDA/이자비용 커버리지의 3x 방향 개선 여부",
+      "신규 $25B+ 커밋먼트가 정식 백로그 수치에 반영되는 시점 확인",
+      "KC-1(FFR>3.75) 경로 확정 여부 — 현재 provisional, macro-kc 재실행 시 갱신 필요",
+      "증권집단소송(Masaitis)·대표소송 디스커버리 진행상황 공개 여부(현재 미확보, P5 — 정보부재≠반증)"
+    ]
+  }
+}

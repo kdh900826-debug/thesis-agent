@@ -1,0 +1,190 @@
+{
+  "as_of": "2026-10-01",
+  "ticker": "NBIS",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261001_NBIS_5",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261001_NBIS_6",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261001_NBIS_1",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-09-30 GlobeNewswire 보도자료(AIB Data Centers Inc., NYSE American: AIB) — AIB와 NBIS 간 바인딩 계약 체결: 미국 남동부(Southeastern US) 소재 AIB 시설에서 50MW의 critical IT capacity를 NBIS가 임차, 최초 12년 계약기간(갱신 옵션으로 총 계약가치 확대 가능). 해당 50MW는 AIB의 기존 65MW 전력공급계약(15년 Electric Service Agreement)에 기반한다. NBIS 측 Chief Product and Infrastructure Officer Andrey Korolenko 인용: 'Time-to-power is the binding constraint on AI infrastructure today'. 용도는 training and inference workloads. 달러 금액은 공시되지 않음.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "GlobeNewswire 보도자료 (sources.yaml grade_1 등재 도메인)",
+        "url": "https://www.globenewswire.com/news-release/2026/09/30/3371855/0/en/aib-data-centers-signs-contract-with-nebius-for-ai-data-center-capacity.html",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "P7 1단(계약 체결)만 확인 — 인도·온라인 전환·매출 인식은 별개 단계이며 본 창에서 확인되지 않는다. NBIS 자사 소유·운영이 아닌 3자(AIB) 호스팅 리스 모델로, Vineland(자사 주도 건설) 외 두 번째 유형의 용량 조달 경로다."
+    },
+    {
+      "id": "c_20261001_NBIS_2",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-10-01(as_of 당일) nebius.com/prices 직접 조회(원문 HTML __NEXT_DATA__ JSON 파싱) 결과: (1) NVIDIA HGX B300이 이번 창에서 처음으로 구체 단가로 게시됨 — 현재 $7.85/GPU-hour → 2026-10-01 발효 $9.50/GPU-hour(+21.0%). 직전 run(09-19·09-25 조회)에서는 B300도 'Contact us'로 비공개였다. (2) GB300 NVL72·GB200 NVL72는 여전히 현재·발효 후 가격 모두 'Contact us'로 비공개 상태 유지. (3) CPU-only 테이블: AMD EPYC Genoa $0.10→$0.13/hour(+30.0%), Intel Ice Lake $0.05→$0.06/hour(+20.0%) — 품목별 인상률이 상이하다. (4) 페이지 전체(가격·스토리지·네트워킹 섹션 포함)에 'Memory'·'RAM pricing'·'GB-month' 등 메모리 전용 가격 테이블 자체가 존재하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "회사 공식 가격 페이지 (nebius.com)",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "2026-09-17 보도(grade3) 'CPU-only 25%' 서술은 실제로는 품목별 30%/20%의 평균적 서술이었던 것으로 1차 자료가 보여준다(교정). '메모리 약 41%' 보도는 대응하는 1차 가격 품목 자체가 없어 대조 불가 — confirmed:false 유지가 아니라 대조 채널 부재(P5, unconfirmed로 적재)."
+    },
+    {
+      "id": "c_20261001_NBIS_3",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "발효일(2026-10-01) 당일 조회한 가격 페이지도 'On-demand, GPU-hour'(현재가) 열과 'GPU-hour (Effective October 1, 2026)'(인상 후가) 열을 여전히 병기하는 구조를 유지하고 있으며, 단일 '현재가' 열로 치환되지 않았다. 즉 페이지 콘텐츠 구조만으로는 실제 과금 시스템상 신단가 적용(billing effectuation) 여부를 독립적으로 확인할 수 없다 — 페이지는 '발효 예정' 고지를 계속 게시 중인 상태와, 이미 발효되어 과금에 반영된 상태를 문자열만으로는 구분해주지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "회사 공식 가격 페이지 (nebius.com) 원문 구조 관찰",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "다음 관측점: 수일 내 재조회해 '현재가' 열 자체가 신단가로 치환되는지 확인, 또는 Q3 2026 실적자료의 ARPU·단가 언급 대조."
+    },
+    {
+      "id": "c_20261001_NBIS_4",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "c_20261001_NBIS_2로 B300이 grade3(2차 매체 추정치)→grade1(회사 1차 페이지 확정)로 격상됨에 따라, on_demand_pricing_power 축의 1차 교차검증 대상 GPU SKU는 기존 3종(H100·H200·B200)에서 4종(+B300)으로 확대된다. 다만 (i) 2026-10-01 발효일 도래는 c_20261001_NBIS_3에서 보듯 페이지 구조상 독립 검증되지 않고, (ii) 가격 고지는 P2상 확정 매출·마진·가이던스 수치가 아니므로 시그널 상향의 단독 근거가 될 수 없으며, (iii) GB300/GB200 NVL72는 여전히 미공개, (iv) 메모리 인상률은 대조할 1차 채널 자체가 없어 '확인됨'도 '반증됨'도 아닌 unconfirmed로 유지된다. commitment discount의 $1B+ 계약 전가 여부도 본 창에서 확인되지 않아 contract_monetization 축과는 부호 분리를 유지한다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "c_20261001_NBIS_2·c_20261001_NBIS_3 종합 — 별도 대조 자료 없음",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": "high",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "inference_strength high는 '1차 교차검증 범위가 넓어졌다'는 등급 판단에 한정 — 매출·마진 영향 크기에 대한 판단이 아니다."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "capacity_delivery",
+      "direction": "strengthen",
+      "stage": "계약 체결 단계(P7 1단) — 3자 호스팅 리스 신규 계약. 인도·online 전환·매출 인식은 별개 단계이며 미확인",
+      "prior_state": "연말 5GW 계약전력 목표, late Q4 online 전환 대상 Q2 체결 4건 대형계약($1B+) 진행 중. 용량 조달은 주로 자사 주도(Vineland 등) 건설형 모델",
+      "new_state": "2026-09-30 AIB Data Centers와 미국 남동부 50MW·12년 바인딩 임차 계약 체결(c_20261001_NBIS_1) — 5GW 목표에 기여 가능한 신규 계약 용량이나, 금액 미공개·인도 시점 미확정이며 3자 호스팅 모델이라는 점에서 Vineland(자사 건설) 모델과는 집행 리스크 성격이 다르다. 조달 경로가 다변화됐다는 사실 자체가 강화 근거이며, 매출 인식이나 online 전환이 당겨졌다는 의미는 아니다.",
+      "risk_transfer_to": [
+        "AIB(3자 개발사) 인도 실행 리스크로 일부 이관 — Vineland 단일 경로 집중 리스크는 완화되나 신규 카운터파티 의존 리스크가 추가됨"
+      ],
+      "supporting_claims": [
+        "c_20261001_NBIS_1"
+      ]
+    },
+    {
+      "axis": "on_demand_pricing_power",
+      "direction": "strengthen",
+      "stage": "가격 고지 1차 교차검증 확대 단계(P7 1단 지속) — 발효일(2026-10-01) 도래했으나 실제 과금 전환은 페이지 구조상 독립 검증 불가, 매출 인식과는 별개",
+      "prior_state": "직전 run(20260925_1015) 기준 H100·H200·B200 3개 SKU만 회사 1차 가격 페이지로 grade1 확정(2026-09-25 조회). B300·GB300·CPU·메모리는 2차 매체(grade3, confirmed:false) 또는 미확인 상태",
+      "new_state": "2026-10-01 조회로 B300이 추가 확정(grade1, 4개 SKU 교차검증)되고 CPU-only 두 품목의 실제 인상률(EPYC +30%, Ice Lake +20%)이 1차로 확인돼 2차 매체의 'CPU 25%' 단순화 서술을 교정했다(c_20261001_NBIS_2). GB300/GB200 NVL72는 여전히 비공개, 메모리(~41%) 인상은 대응 품목 자체가 회사 페이지에 없어 1차 대조 채널 부재 상태로 unconfirmed 유지(c_20261001_NBIS_4). P2상 리스트 가격 게시는 확정 매출·마진·가이던스 수치가 아니므로 시그널 상향 근거로는 여전히 부적격 — holding_reinforcement로만 분류",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_NBIS_2",
+        "c_20261001_NBIS_3",
+        "c_20261001_NBIS_4"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "nebius.com/prices 신단가의 실제 과금 시스템 반영(billing effectuation) 여부",
+      "reason": "2026-10-01(발효일 당일) 조회에서도 페이지가 '현재가/발효 후가' 병기 구조를 유지해 문자열만으로는 실제 전환 여부를 독립 검증할 수 없었다(c_20261001_NBIS_3).",
+      "next_check": "수일 후 nebius.com/prices 재조회로 '현재가' 열 자체의 치환 확인, Q3 2026 실적자료의 ARPU·단가 언급 대조",
+      "related_claims": [
+        "c_20261001_NBIS_3",
+        "c_20261001_NBIS_4"
+      ]
+    },
+    {
+      "item": "GB300 NVL72·GB200 NVL72 단가 및 인상률",
+      "reason": "회사 가격 페이지에서 현재·발효 후 모두 'Contact us'로 비공개 상태가 지속된다.",
+      "next_check": "nebius.com/prices 재조회, Q3 실적자료의 신규 SKU 가격 공개 여부",
+      "related_claims": [
+        "c_20261001_NBIS_2"
+      ]
+    },
+    {
+      "item": "메모리(RAM) 가격 약 41% 인상 보도의 1차 대조",
+      "reason": "회사 가격 페이지 전체에 메모리/RAM 전용 가격 품목 자체가 없어 대조할 1차 채널이 부재하다 — 반증이 아니라 대조 불가 상태다(P5).",
+      "next_check": "회사가 메모리 과금을 별도 품목으로 신설·공개하는지, Q3 실적자료·IR 질의응답에서 언급 여부",
+      "related_claims": [
+        "c_20261001_NBIS_2"
+      ]
+    },
+    {
+      "item": "AIB 50MW 계약의 금액·실제 인도(가동) 시점",
+      "reason": "2026-09-30 보도자료에 달러 금액·구체 가동일이 공시되지 않았다.",
+      "next_check": "NBIS 후속 6-K, AIB 측 10-K/10-Q 각주의 계약 조건 공개 여부",
+      "related_claims": [
+        "c_20261001_NBIS_1"
+      ]
+    },
+    {
+      "item": "[carried] Q3 2026 실적 발표일",
+      "reason": "이번 창에서도 nebius.com/newsroom·웹검색 모두에서 회사 IR 공식 공지를 확보하지 못했다. 애그리게이터 상충 지속(11/10 추정 등) — F1상 판정 근거 불가.",
+      "next_check": "nebius.com/investor-hub 또는 newsroom의 공식 일정 공지 확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] Vineland 공사중지명령(08-06 LNG 탱크/08-10 Bloom Energy 연료전지)의 해제 여부",
+      "reason": "이번 창 재검색에서도 명령 해제·허가 취득을 보도한 신규 1차·2차 자료를 확보하지 못했다(P5). 2차 매체는 NJDEP가 해당 발전기들에 허가를 발급한 적이 없다는 입장을 재확인했다고 보도하나, 이는 기존 상태의 재확인이지 창 내 신규 변화는 아니다.",
+      "next_check": "vinelandcity.org Planning Board/Construction Office 회의록, 회사 6-K·Q3 실적자료의 Vineland 진척 언급",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] ATM 잔여 12.3M주 실사용 여부·금액",
+      "reason": "이번 run EDGAR 조회(전 서식, since 2026-08-01)에서도 신규 424B5·F-3 제출을 확인하지 못했다.",
+      "next_check": "차기 20-F/6-K 재무제표·자본조달 각주, 424B5 추가 제출 여부",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] $800M 기존 전환사채(2029·2031년물) 지분교환(~15.8M주) 실제 주식 인도 완료 시점",
+      "reason": "창 내 EDGAR 제출목록에 관련 후속 6-K가 없다.",
+      "next_check": "차기 20-F/6-K 각주의 발행주식수·전환사채 잔액 변동",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] 2027 공식 가이던스 발표 시점",
+      "reason": "이번 창 회사 공지·보도에서 'later this year' 이상의 구체 일자 언급을 확보하지 못했다.",
+      "next_check": "Q3 실적 공지·IR 일정 확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] KC-NBIS-2(용량 인도 지연) 경고/발동 임계 판정",
+      "reason": "Vineland 상태 미확정이 지속되고, 신규 AIB 계약은 아직 P7 1단(체결)에 불과해 인도 지연 여부 판단 대상이 아니다.",
+      "next_check": "회사 6-K·Q3 실적자료의 Vineland/Microsoft/AIB 트랜치 인도 일정, 연말 5GW 목표 재확인",
+      "related_claims": [
+        "c_20261001_NBIS_1"
+      ]
+    }
+  ]
+}

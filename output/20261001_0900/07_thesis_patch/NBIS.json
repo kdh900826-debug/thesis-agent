@@ -1,0 +1,60 @@
+{
+  "as_of": "2026-10-01",
+  "run_id": "20261001_0900",
+  "staleness_days": 0,
+  "ticker": "NBIS",
+  "layer": "thesis_patch_index",
+  "skill": "thesis-refine (S7) — L4 cio-portfolio 절차 4",
+  "patch_count": 2,
+  "patches": [
+    "NBIS_axes_on_demand_effective_b300.json",
+    "NBIS_axes_capacity_delivery_aib_50mw.json"
+  ],
+  "apply_artifacts": [
+    "output/20261001_0900/07_thesis_patch/NBIS_axes_on_demand_effective_b300.md",
+    "output/20261001_0900/07_thesis_patch/NBIS_axes_capacity_delivery_aib_50mw.md"
+  ],
+  "requires_human_approval": true,
+  "apply_ready": false,
+  "apply_note": "[fact] 본 파일은 묶음 인덱스이며 approvals.py 적용 대상이 아니다(큐 미등재). 개별 패치 파일만 승인 큐에 등재한다.",
+  "basis_claims": [
+    "c_20261001_NBIS_2",
+    "c_20261001_NBIS_3",
+    "c_20261001_NBIS_4",
+    "c_20261001_NBIS_1"
+  ],
+  "card_full_read": {
+    "path": "state/thesis_cards/NBIS.yaml",
+    "lines": 106,
+    "yaml_parse": "ok",
+    "counts": {
+      "axes": 8,
+      "key_metrics": 7,
+      "catalysts": 4,
+      "risks": 5,
+      "kill_conditions_ref": 4,
+      "version_history": 10,
+      "earnings_checkpoints.items": 8
+    }
+  },
+  "approval_order": "[fact] 두 패치는 서로 다른 축 행을 치환하고 axes 8 불변 검사만 한다 — 순서 무관(드라이런 정순·역순 모두 PASS).",
+  "dry_run": "[fact] scratchpad 사본에 approvals.py 동일 절차 적용 후 verify_after_apply — 단독·정순·역순 모두 PASS. 병합 미리보기: NBIS_dryrun_merged_preview.yaml. 실카드 미수정.",
+  "excluded_candidates": [
+    {
+      "candidate": "earnings_checkpoints.date(Q3 2026 실적일) 확정",
+      "decision": "skipped_logged",
+      "reason": "[fact] 회사 IR 공식 공지 미확보, 애그리게이터 추정(11/10 등)은 F1상 근거 불가 — date: null 유지."
+    },
+    {
+      "candidate": "contract_monetization 축 — AIB 계약 MW당 가치 반영",
+      "decision": "skipped_logged",
+      "reason": "[fact] 계약 금액 미공시로 MW당 계약가치 산출 불가(04_sector neocloud su_2)."
+    },
+    {
+      "candidate": "rates_exposure(매크로 KC-1) 축 반영",
+      "decision": "rejected",
+      "reason": "[fact] 03_signal에 기재된 매크로 의사 축이며 카드 축이 아니다 — 매크로 재료로 종목 thesis 축을 변경하지 않는다(P6·P13)."
+    }
+  ],
+  "kc_context": "[fact] 03_signal/NBIS.json proposed_signal 🔴🔴(규칙1, KC-1 매크로 경로, 3회 연속) — 종목 KC 3건은 전건 not_met. 본 패치는 등급과 무관."
+}

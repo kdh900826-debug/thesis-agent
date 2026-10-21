@@ -1,0 +1,434 @@
+{
+ "ticker": "MU",
+ "run_id": "20261009_0920",
+ "as_of": "2026-10-09",
+ "staleness_days": 0,
+ "underlying_primary_event_date": "2026-10-07",
+ "lookback_window": {
+  "since": "2026-10-01",
+  "until": "2026-10-09",
+  "primary_window": {
+   "since": "2026-10-01",
+   "until": "2026-10-09"
+  },
+  "note": "지시 창 2026-10-01~2026-10-09(직전 run 20261001_0900의 until과 1일 중첩). edgar_fulltext.py --ticker MU --forms 10-K 10-Q 8-K --since 2026-10-01 결과 0건이며 submissions API 교차 조회에서도 창 내 신규 Form 4 3건(이사 주식보상 부여)뿐이다(c_1). 최우선 계류 점검: FY26 10-K 제출(미등재), Netlist 2차 ITC 제소 조사개시(미확인), 337-TA-1523(공고문 원문 직접 확인), D.Del·CDCA·CAFC(신규 확인 불가), 대만 노사(파업투표 결과 확인 c_2). 창 내 최대 신규 사실은 2026-10-05 Netlist-Micron 합의(Netlist 8-K 2026-10-06 제출, c_3). 창 밖 재료(337-TA-1523 공고 9/25, YMTC 제소 9/15, CXMT 마진 9/11)는 out_of_window:true로 표기했다."
+ },
+ "claims": [
+  {
+   "id": "c_20261009_MU_1",
+   "ticker": "MU",
+   "claim_type": "fact",
+   "text": "SEC EDGAR submissions API(CIK 0000723125)와 edgar_fulltext.py(--forms 10-K 10-Q 8-K --since 2026-10-01) 조회 시점(2026-10-09) 기준, 2026-10-01 이후 신규 등재된 Form 10-K·10-Q·8-K는 0건이다. 최근 등재 8-K는 2026-09-30(Item 2.02·9.01, accession 0000723125-26-000018)이 마지막이다. 창 내 신규 등재는 2026-10-02자 Form 4 3건(이사 Liu Teyin M·Bjorlin Alexis·Swan Robert Holmes, 전건 이사 지위·거래코드 A=부여/취득)뿐이다. FY26(2026-09-03 종료) Form 10-K는 이 시점 EDGAR API에 미등재다. API 색인 지연 가능성이 있어 10-K 미제출의 확정 증거는 아니다(P5).",
+   "evidence_grade": 1,
+   "source": {
+    "type": "EDGAR_submissions_API",
+    "url": "https://data.sec.gov/submissions/CIK0000723125.json",
+    "filed_at": "2026-10-09",
+    "secondary_url": "output/20261009_0920/02_company/_raw_edgar_MU.json"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "카드 계류 관측점 '10-K 제출 여부' 확인 결과. 10-K 각주(소송·우발부채)·SCA/선수금·RPO 원문 대조는 10-K 등재 시점으로 이월. 이사 Form 4(코드 A)는 정기 주식보상 부여 성격으로 P3 7개 항목 불변 — 노이즈 로그에 기록."
+  },
+  {
+   "id": "c_20261009_MU_2",
+   "ticker": "MU",
+   "claim_type": "fact",
+   "text": "대만 Taoyuan 노조(Micron Taiwan)가 2026-10-07 기자회견에서 파업 찬반투표 결과를 발표했다: 투표 자격 조합원 2,258명 중 2,012명 투표, 찬성 1,994명(투표자의 99%)·반대 14명·무효 4명. 노조 서기 Chen Yen-kai는 조합원이 '파업권을 법적으로 획득하고 피켓라인을 설치할 권리를 얻었다'고 밝혔다. 노조위원장 Jerry Lin은 파업 일자는 미정이며 '문자 메시지로 기습 파업'을 소집할 수 있다고 언급했고, 10월 8~9일(미국시간) Micron 이사회 이후 회사의 '구체적 제안'을 요구했으며 그 후 '정식 파업 진입'을 판단하겠다고 했다. Taichung 노조(약 11,000명)는 예정대로 협상을 계속한다고 AFP에 밝혔다. 요구안은 FY26 일회성 보너스 약 83개월분과 FY27부터 영업이익 15% 분기 배분이며, 회사 제시안은 최대 68개월분이다. Micron의 대만 생산 비중은 50~60%로 AFP가 보도했다. 보도 시점 기준 실제 파업 개시·생산 차질 보도는 없다.",
+   "evidence_grade": 3,
+   "source": {
+    "type": "news_wire_Reuters_AFP",
+    "url": "https://asia.nikkei.com/business/tech/semiconductors/micron-taiwan-union-wins-mandate-to-strike-over-bonus-dispute",
+    "filed_at": "2026-10-07",
+    "secondary_url": "https://www.malaymail.com/news/money/2026/10/07/micron-workers-vote-to-strike-despite-offer-worth-up-to-68-months-salary/238123"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": false,
+   "note": "Reuters(Nikkei 재게재)와 AFP(Malay Mail 재게재) 2개 독립 통신사가 투표 수치를 교차 일치 — 삼각검증(D15). 그러나 회사 8-K·IR 1차 자료 부재, 노조 발표의 2차 전달이므로 grade3·confirmed=false 유지(P4). 이전 회차 c_20261001_MU_12의 '10월 초 투표 예고'가 실행된 결과(예고→실시 확인). 파업권 확보 ≠ 파업 개시 ≠ 생산 차질 ≠ 매출 영향(P7)."
+  },
+  {
+   "id": "c_20261009_MU_3",
+   "ticker": "MU",
+   "claim_type": "fact",
+   "text": "Netlist, Inc.(상대방 당사자)가 SEC에 제출한 Form 8-K(2026-10-06 제출, 사건일 2026-10-05, accession 0001104659-26-113897, Item 1.01·3.02·8.01·9.01)에 따르면 Netlist와 Micron Technology, Inc.는 2026-10-05 ① Settlement and Release Agreement(양사 간 '그 계약에 특정된 모든 계류 중 법적 절차'를 합의 종결·상호 면책), ② Patent License Agreement(Netlist의 전 세계 특허 포트폴리오 전체에 대한 전 세계·비독점·양도불가·재실시허락불가 5년 기간 라이선스), ③ Securities Purchase Agreement(Micron이 Netlist 보통주 1,000만주를 총 $1M 현금에 매입, 매각제한 20%씩 1~4주년 해제·잔여 5주년 해제)와 Lock-up and Release Agreement를 체결했다. 라이선스 대가는 Micron이 2026년 4분기부터 2031년 3분기까지 20개 역년분기 동안 분기당 $30M, 총 $600M을 Netlist에 지급하는 구조다. Netlist 보도자료(8-K Ex-99.1, 2026-10-06)는 라이선스 대상에 '서버 DIMM 및 HBM(High Bandwidth Memory) 기술 특허'가 포함된다고 밝혔다. 8-K 본문은 어떤 소송이 '계약에 특정된' 절차에 포함되는지 건별로 열거하지 않는다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "8-K_Netlist_counterparty",
+    "url": "https://www.sec.gov/Archives/edgar/data/1282631/000110465926113897/tm2626949d1_8k.htm",
+    "filed_at": "2026-10-06",
+    "secondary_url": "https://www.sec.gov/Archives/edgar/data/1282631/000110465926113897/tm2626949d1_ex99-1.htm"
+   },
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": false,
+   "note": "발행 주체는 Netlist(상대방)이나 SEC 제출 공시이므로 grade1(1차 공시) 적용 — 합의 사실 자체의 1차 자료. 단, Micron 측 8-K·IR은 EDGAR 조회 시점 0건(c_1)이므로 Micron 측 확인·회계처리(비용 인식 시점·금액·현금흐름)는 미확인(P5). 계약 체결 ≠ 지급 이행 ≠ 비용·현금흐름 영향(P7) — $30M 분기 지급은 2026 역년 4분기부터 시작하는 약정이며 첫 지급 이행 여부와 Micron 회계분기 대응·비용 인식 방식(일시 vs 분기)은 미확인이다."
+  },
+  {
+   "id": "c_20261009_MU_4",
+   "ticker": "MU",
+   "claim_type": "fact",
+   "text": "USITC가 Investigation No. 337-TA-1523(Certain Dynamic Random Access Memory (DRAM) Devices, Products Containing the Same, and Components Thereof (III))의 조사개시 공고문(Notice of Institution)에서 '2026-09-22 위원회가 조사개시를 ORDERED'했다고 기재했고(Federal Register 공시 예정일 2026-09-25, FR 문서번호 2026-19697, public-inspection PDF 원문 직접 확인), 대상 특허는 US 10,025,731(청구항 1-13·16-18) / 10,217,523(1-15·17·18) / 12,373,366(1-14·16-28) / 12,675,407(1-20), 피조사자는 Micron Technology, Inc.·Micron Semiconductor Products, Inc.·Hewlett Packard Enterprise Co.·Lenovo Group Ltd.·Lenovo (United States) Inc.·Super Micro Computer, Inc. 6개사, 조사 대상 제품은 'DDR5 generation DIMM 및 이를 포함한 제품(서버·컴퓨팅·스토리지 시스템)과 그 부품'이다. 청구 구제는 제한적 배제명령·중지명령이다. 담당 ALJ는 Chief ALJ가 추후 지정하며 공고문에는 ALJ·target date가 기재되지 않았다. 응답서는 소장·조사개시 공고 송달 후 20일 내 제출 대상이다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "federal_register_notice_USITC",
+    "url": "https://public-inspection.federalregister.gov/2026-19697.pdf",
+    "filed_at": "2026-09-25"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "out_of_window": true,
+   "note": "조사개시일 표기 3종이 병존한다 — 공고문 원문 'ORDERED' 일자 2026-09-22(본 Claim, grade1) / Netlist·USITC 보도자료 URL 패턴(er0923)·복수 매체 2026-09-23(c_20261001_MU_11, grade3) / 최초 적재 2026-09-24(c_20260925_MU_3). 어느 쪽도 정정·삭제하지 않고 병기한다(P9). 공고문 원문이 grade1이므로 '위원회 명령일 2026-09-22'가 1차 근거이며, 09-23은 보도·공표일 가능성이 있으나 이 해석은 추론이며 본 Claim의 사실 부분이 아니다. 본 Claim 시점(2026-10-09)에 ALJ·target date 미지정 — 조사개시 후 45일 내 target date 설정이 관행이라는 점은 USITC 일반 절차이며 본 건 일정 사실이 아니다(P5)."
+  },
+  {
+   "id": "c_20261009_MU_5",
+   "ticker": "MU",
+   "claim_type": "inference",
+   "text": "Netlist 8-K(c_3)와 Ex-99.1 보도자료는 합의 대상을 '양사 간 모든 계류 중 법적 절차(8-K 본문: 합의서에 identified된 것)'로만 기술하고 건별(ITC 337-TA-1523, 2026-09-29 신규 HBM ITC 제소, CDCA 8:26-cv-02167, D.Del 1:26-cv-01014, CAFC 2025-1936 등)로 열거하지 않는다. 따라서 이들 건이 합의 범위에 포함됐을 개연성은 높으나, 개별 사건의 종결(ITC 조사 종료 신청·위원회 종료 결정, 법원 소취하·기각 서류)은 이번 창에서 어떤 1차 자료로도 확인되지 않았다. 신규 HBM ITC 제소는 2026-10-09 시점까지 조사개시(institution) 공지도 확인되지 않았다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "inference_from_c3",
+    "url": "https://www.sec.gov/Archives/edgar/data/1282631/000110465926113897/tm2626949d1_8k.htm",
+    "filed_at": "2026-10-09"
+   },
+   "inference_strength": "medium",
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": false,
+   "note": "추론 근거: c_3(합의 범위 문구)·c_4(337-TA-1523 계류)·c_20261001_MU_10(HBM 2차 제소 2026-09-29). 반증 가능 조건: EDIS 종료 결정 또는 소송 취하 서류 확인 시 fact로 승격. 개별 사건 종결 확인 전까지 '종결'로 서술 금지(P5·P7). confirmed=false."
+  },
+  {
+   "id": "c_20261009_MU_6",
+   "ticker": "MU",
+   "claim_type": "fact",
+   "text": "Reuters(2026-10-06, Blake Brittain, The Star 재게재)는 Netlist 발표에 따른 합의 보도에서 Micron 대변인이 논평 요청에 즉시 응하지 않았다고 전했다. EDGAR 조회(2026-10-09 시점)에서 Micron 명의 8-K·보도자료성 공시는 합의와 관련해 등재되지 않았다(c_1). 따라서 Micron 측의 합의 확인·회계처리(비용 인식 시점, 기존 $445M 평결 관련 충당·지급 정산 여부)·현금흐름 영향은 모두 미확인이다.",
+   "evidence_grade": 3,
+   "source": {
+    "type": "news_wire_Reuters",
+    "url": "https://www.thestar.com.my/tech/tech-news/2026/10/06/micron-enters-600-million-settlement-of-netlist-patent-dispute",
+    "filed_at": "2026-10-06"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": false,
+   "note": "P5 — Micron 측 부재는 합의 부존재의 반증이 아니다(상대방 SEC 공시 c_3가 1차). 다음 확인점: FY26 10-K(소송·우발부채·후속사건 각주), FQ1-27 실적."
+  },
+  {
+   "id": "c_20261009_MU_7",
+   "ticker": "MU",
+   "claim_type": "inference",
+   "text": "Netlist 8-K(c_3)의 분기 $30M 라이선스료를 Micron의 FQ1-27 매출 가이던스 $61.5B(c_20261001_MU_3, grade1)와 비교하면 분기 지급액은 약 0.05%, 5년 총액 $600M은 FQ4-26 한 분기 조정 FCF $33.20B(c_20261001_MU_2, grade1) 대비 약 1.8%, 분기 지급액 $30M은 같은 분기 조정 FCF 대비 약 0.09% 수준이다. 따라서 합의의 금액 규모는 Micron의 매출·마진 가이던스를 변화시킬 만한 크기가 아니다. 다만 합의 비용의 GAAP 인식 방식(계약 시점 일시 인식 vs 분기별 인식)과 과거 평결 관련 충당 정산 여부는 미확인이라 FQ1-27 손익 영향의 방향·크기는 단정하지 않는다.",
+   "evidence_grade": 1,
+   "source": {
+    "type": "computed_from_primary",
+    "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+    "filed_at": "2026-10-09",
+    "secondary_url": "https://www.sec.gov/Archives/edgar/data/1282631/000110465926113897/tm2626949d1_8k.htm"
+   },
+   "inference_strength": "strong",
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": false,
+   "note": "산술: 30/61,500=0.049%, 600/33,200=1.8%, 30/33,200=0.09%. 두 분모는 직전 run 적재된 Micron 8-K Ex-99.1 수치(grade1)이고 분자는 Netlist 8-K(grade1). inference이므로 confirmed=false 표기하나 입력 수치는 모두 grade1이다. 매출 가이던스 대비 비교이며 밸류에이션 서술이 아니다."
+  },
+  {
+   "id": "c_20261009_MU_8",
+   "ticker": "MU",
+   "claim_type": "fact",
+   "text": "Micron이 2026-09-15 아이다호 연방지법(D. Idaho)에 Yangtze Memory Technologies(YMTC)를 상대로 소를 제기했다는 보도가 2026-10-02~10-06에 다수 나왔다. 보도에 따르면 Micron은 전직 엔지니어(Hongbin Zhu 등 8명 명시)가 YMTC로 이직해 Micron 3D NAND 제조 노하우를 바탕으로 한 특허를 출원했다고 주장하며, 미국 특허 4건의 소유권 이전과 금지명령·손해배상을 청구했다. YMTC는 2023-11 N.D. Cal.에서 Micron을 상대로 먼저 소를 제기한 바 있다. 소장 원문·도켓은 미확보이며 YMTC 측 반응은 확인되지 않았다.",
+   "evidence_grade": 4,
+   "source": {
+    "type": "news_secondary_docket_mirror",
+    "url": "https://www.tomshardware.com/pc-components/ssds/micron-lawsuit-claims-chinese-memory-maker-ymtc-poached-its-engineers-then-sued-it-using-its-own-stolen-tech-ex-employees-hid-roles-on-linkedin-patented-micron-tech-and-won-a-german-injunction",
+    "filed_at": "2026-10-05",
+    "secondary_url": "https://winbuzzer.com/2026/10/05/micron-sues-memory-rival-ymtc-patent-ownership-xcxwbn/"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "out_of_window": true,
+   "note": "제소일 2026-09-15는 조사 창(2026-10-01~) 밖 — out_of_window. 보도 시점만 창 내이며 grade4 단독 소스(P4)라 확인 대상으로만 둔다. NAND·중국 경쟁사 대상 소송이며 DRAM/HBM 공급·가격·고객에 변화를 준 정보가 아니므로 axes 방향 판정 근거로 쓰지 않는다(P3 경계, 승격은 '고객/규제 확정' 아닌 확인 대상 보존 목적)."
+  },
+  {
+   "id": "c_20261009_MU_9",
+   "ticker": "MU",
+   "claim_type": "fact",
+   "text": "Nikkei Asia(2026-09-11, QUICK·FactSet·각사 공시 기반)는 CXMT의 2026년 4~6월 분기 영업이익률(EBIT 기준)을 82%로 보도했고, 같은 비교표에서 Micron 80%(3~5월)·SanDisk 78%·SK hynix 76%·Kioxia 74%·삼성전자 반도체 70%로 제시했다. CXMT 매출은 전년 동기 약 10배인 약 2.3조엔, 영업이익은 약 1.9조엔(전년 동기 약 -290억엔)으로 보도됐으며 이익률 개선 요인은 범용 DRAM 가격 급등으로 서술됐다. 비교 기간(분기 구분)이 회사별로 달라 동일 조건 비교가 아니다.",
+   "evidence_grade": 3,
+   "source": {
+    "type": "news_secondary_Nikkei_via_Herald",
+    "url": "https://biz.heraldcorp.com/article/10870794",
+    "filed_at": "2026-09-11",
+    "secondary_url": "https://asia.nikkei.com/business/tech/semiconductors/china-s-cxmt-tops-sk-hynix-micron-to-take-memory-profit-margin-crown"
+   },
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "sector",
+   "confirmed": false,
+   "out_of_window": true,
+   "note": "조사 창(2026-10-01~) 밖 — out_of_window (Herald Business 재게재 기사가 Nikkei 보도일을 2026-09-11(금)로 명기). CXMT는 경쟁사이므로 scope=sector. 경쟁사 수익성 보도이지 Micron 매출·가이던스·SCA 조건을 바꾼 정보가 아니다 — 방향 판정 근거로 쓰지 않는다."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "hbm_demand_strength",
+   "direction": "neutral",
+   "stage": "monitor",
+   "prior_state": "직전 run(20261001_0900): 2026-09-30 실적에서 HBM 매출 성장률이 전사 상회·2027 HBM 가격 인상 계약 '대부분' 완료(경영진 직접 발언)·Cloud Memory BU 매출총이익률 83% — strengthen 표기(c_20261001_MU_4·5).",
+   "new_state": "창(2026-10-01~10-09) 내 HBM 매출·비중·마진·가이던스를 바꾸는 신규 1차 수치는 없다. 실적 후 10-K는 EDGAR 미등재(c_1)라 HBM 세그먼트 추가 공시도 없다. 접점은 라이선스 범위 하나다 — Netlist 라이선스에 HBM 기술 특허가 포함됐다(c_3). 이는 HBM 공급 경로의 법적 불확실성 변화이며 수요 강·약 수치가 아니므로 이 축 방향에는 반영하지 않고 ip_litigation_risk 축에 귀속한다.",
+   "risk_transfer_to": [
+    "FQ1-27 실적·10-K의 HBM 비중·마진 추가 공개 여부",
+    "2027 캘린더 HBM 계약 이행(약정 ≠ 매출 인식, P7)"
+   ],
+   "supporting_claims": [
+    "c_20261009_MU_3"
+   ],
+   "inference_strength_overall": null,
+   "caveat": "무뉴스 축 neutral 기재. 직전 run strengthen은 이월 서술이며 본 run 신규 판정이 아니다."
+  },
+  {
+   "axis": "production_continuity",
+   "direction": "neutral",
+   "stage": "monitor",
+   "prior_state": "직전 run(20261001_0900): 파업투표 '10월 초' 예고만 존재, 소스 grade3·confirmed=false, 카드 제약에 따라 방향 미부여(neutral).",
+   "new_state": "예고된 파업투표가 실시됐다 — 2026-10-07 Taoyuan 노조 발표: 투표 2,012명 중 찬성 1,994(99%)·반대 14·무효 4, 노조는 파업권을 법적으로 획득했다고 밝혔다. 파업 일자는 미정이며 '문자 기습 파업' 가능성이 언급됐고, 노조는 10월 8~9일(미국시간) Micron 이사회 후 '구체적 제안'을 요구했다. Taichung 노조(약 11,000명)는 예정대로 협상 지속(10-22 3차 조정)이다. Micron의 대만 생산 비중은 AFP 기준 50~60%, 투표를 보도한 Reuters(Nikkei 재게재)는 대만을 DRAM·HBM 핵심 생산지로 서술했다. 실제 파업 개시·생산 차질·출하 영향 보도는 창 내 없고(P5), Micron 1차 공시(8-K·IR)도 없다. 투표 수치는 Reuters·AFP 2개 통신사가 교차 일치하나 둘 다 grade3·노조 발표의 전달이므로 카드의 P4 제약(회사 1차 자료 부재 시 방향 미부여)을 그대로 적용해 neutral을 유지한다.",
+   "risk_transfer_to": [
+    "Micron 이사회(10/8-9) 후 회사 구체안·IPP 공개 여부",
+    "파업 개시일·범위(문자 기습 파업)",
+    "10-22 Taichung 3차 조정",
+    "회사 8-K·IR·10-K 등재"
+   ],
+   "supporting_claims": [
+    "c_20261009_MU_2"
+   ],
+   "inference_strength_overall": "moderate",
+   "caveat": "에스컬레이션 대상: 이 축의 상태는 '절차상 쟁의권 확보'로 이전 run 대비 한 단계 진전됐으나 방향 판정은 카드 제약(1차 자료 부재)으로 부여하지 않았다. 카드 제약 유지·완화는 사람 영역이다. 파업권 확보 ≠ 파업 개시 ≠ 생산 차질 ≠ 매출 영향(P7). 시그널 등급 판정 아님(P13)."
+  },
+  {
+   "axis": "sca_defense",
+   "direction": "neutral",
+   "stage": "monitor",
+   "prior_state": "직전 run(20261001_0900): SCA 누적 26건·RPO 약 $150B·고객 재무약정 $32B(2026-09-30 CFO 발언) — strengthen 표기.",
+   "new_state": "창 내 신규 SCA 체결·조건 변경·RPO·선수금 수치는 없다. 10-K(RPO·선수금·계약부채 각주) 미등재(c_1).",
+   "risk_transfer_to": [
+    "FY26 10-K의 SCA·RPO·계약부채 원문 대조",
+    "26건 기준 커버리지 비율 공개 여부"
+   ],
+   "supporting_claims": [
+    "c_20261009_MU_1"
+   ],
+   "inference_strength_overall": null,
+   "caveat": "무뉴스 축 neutral. 10-K 대조는 등재 시점으로 이월(P5)."
+  },
+  {
+   "axis": "cycle_position",
+   "direction": "neutral",
+   "stage": "monitor",
+   "prior_state": "직전 run(20261001_0900): DRAM 비트 QoQ 중간 한자릿수%·가격 고10%대, NAND 비트 약 10%·가격 약 30% — 가격 주도, 해석 양방향(strengthen 표기는 이월).",
+   "new_state": "창 내 비트그로스·ASP 분해 신규 수치 없음. 외부 계약가격 자료는 1차 자료가 아니어서 적재하지 않았다.",
+   "risk_transfer_to": [
+    "FQ1-27 비트/ASP 재분해"
+   ],
+   "supporting_claims": [
+    "c_20261009_MU_1"
+   ],
+   "inference_strength_overall": null,
+   "caveat": "무뉴스 축 neutral."
+  },
+  {
+   "axis": "china_supply",
+   "direction": "neutral",
+   "stage": "monitor",
+   "prior_state": "직전 run(20261001_0900): 변화 없음(no_change), 9/30 보도자료·콜에서 CXMT·YMTC 언급 0건.",
+   "new_state": "창 내 CXMT·YMTC의 공급 확대·고객 채택·규제(Entity List 등)에 대한 신규 1차 자료는 없다. 참고 자료 2건은 확인 대상 수준이다 — Micron의 YMTC 상대 아이다호 소송(제소 2026-09-15, 창 밖, grade4, c_8)과 Nikkei의 CXMT 영업이익률 보도(2026-09-11, 창 밖, grade3, c_9). 둘 다 공급량·가격·고객 계약 변화가 아니므로 방향에 반영하지 않는다. 8/21 Apple 서한 결과도 창 내 신규 자료가 없다.",
+   "risk_transfer_to": [
+    "Apple CXMT/YMTC 서한 결과(이월)",
+    "CXMT HBM 양산 일정",
+    "미 Entity List 조치 여부"
+   ],
+   "supporting_claims": [
+    "c_20261009_MU_8",
+    "c_20261009_MU_9"
+   ],
+   "inference_strength_overall": null,
+   "caveat": "P5 - 자료 부재는 반증 아님. 방향 미부여."
+  },
+  {
+   "axis": "valuation_paradox",
+   "direction": "neutral",
+   "stage": "monitor",
+   "prior_state": "직전 run(20261001_0900): FQ4-26 실적·FQ1-27 가이던스 적재, neutral.",
+   "new_state": "창 내 밸류에이션 분자·분모 변동을 직접 서술할 1차 자료는 없다. Netlist 합의 비용은 FQ1-27 매출 가이던스 대비 약 0.05%, FQ4 조정 FCF 대비 약 0.09%(분기분)로 크기가 작아 이익 수준 분모를 바꾸지 않는다(c_7, inference). 판정 축은 비트/ASP 분해·선수금 방향이다.",
+   "risk_transfer_to": [
+    "FQ1-27 실적에서 합의 비용 인식 방식 확인"
+   ],
+   "supporting_claims": [
+    "c_20261009_MU_7"
+   ],
+   "inference_strength_overall": "strong",
+   "caveat": "분자(주가)·분모(이익) 분해 서술은 해당 없음(주가 변동 미적재)."
+  },
+  {
+   "axis": "ip_litigation_risk",
+   "direction": "strengthen",
+   "stage": "L2_draft",
+   "prior_state": "직전 run(20261001_0900): Netlist 2차 ITC 제소(2026-09-29, HBM3E·HBM4·HBM4E 대상, 배제·중지명령 청구)로 weaken 표기. 337-TA-1523(DDR5, 조사개시), CDCA·D.Del·CAFC 계류, 9/30 실적 자료 소송 무언급.",
+   "new_state": "Netlist의 SEC 8-K(2026-10-06 제출, c_3, grade1)에 따르면 Micron과 Netlist는 2026-10-05 (1) 양사 간 계류 중 법적 절차를 합의 종결·상호 면책하는 Settlement and Release Agreement, (2) Netlist 전 세계 특허 포트폴리오(서버 DIMM·HBM 기술 특허 포함) 5년 비독점 라이선스, (3) Micron의 Netlist 주식 1,000만주 $1M 매입을 체결했다. 라이선스료는 2026 역년 4Q~2031 3Q 20개 분기 x $30M = $600M이다. 이로써 2026-08 이후 이 축의 핵심이던 Netlist 다중 전선(337-TA-1523·HBM 2차 ITC 제소·CDCA·D.Del)이 소멸할 경로가 열렸다. 그러나 (a) 합의 범위가 건별로 열거되지 않고 개별 사건 종결 서류(ITC 종료 결정·취하)는 창 내 미확인(c_5), (b) Micron 명의 공시·논평 0건(c_1·c_6)이라 Micron 측 확인이 없으며, (c) 비용 규모는 작지만(c_7) 인식 방식은 미확인이다. 337-TA-1523 조사개시 일자는 공고문 원문 기준 위원회 명령일 2026-09-22(c_4)로 확인돼 09-23/09-24 표기와 병기한다(P9). YMTC 소송(c_8, Micron이 원고)은 NAND·중국 경쟁사 건으로 이 축 방향에 반영하지 않는다.",
+   "risk_transfer_to": [
+    "합의 범위 내 개별 사건 종결 확인(337-TA-1523 종료, HBM 2차 제소 철회·종결, CDCA·D.Del 취하)",
+    "분기 $30M 지급 이행(2026 역년 4Q 첫 지급)",
+    "Micron FY26 10-K 소송·우발부채·후속사건 각주",
+    "YMTC 등 제3자 IP 전선(YMTC N.D. Cal·독일 등)"
+   ],
+   "supporting_claims": [
+    "c_20261009_MU_3",
+    "c_20261009_MU_4",
+    "c_20261009_MU_5",
+    "c_20261009_MU_6",
+    "c_20261009_MU_7"
+   ],
+   "inference_strength_overall": "moderate",
+   "caveat": "P2 - 법률 절차의 결과이지 매출·마진·현금흐름·가이던스 변화를 일으킨 확정 수치가 아니므로 시그널 등급 상향 근거로 쓸 수 없다(이 delta는 thesis 축 서술 갱신에 한정). 합의 체결 ≠ 개별 사건 종결 ≠ 지급 이행 ≠ 손익 인식(P7). Netlist 상대방 SEC 공시 단일 경로이며 Micron 측 미확인(P5). 직전 weaken(소송 전선 HBM 확장)은 삭제하지 않고 이월 서술로 보존(P9) - 방향 전환 판정은 사람 확인 대상."
+  }
+ ],
+ "earnings_checkpoint_comparison": {
+  "checkpoint_date": "2026-12 (FQ1-27 실적 - 정확일 미공시, 회사 공식 확정 공지 전 가정)",
+  "method": "신규 실적 발표 없음 - S2E 재실행 대상 아님. 카드 earnings_checkpoints 9개 중 이번 창에 증분이 생긴 항목만 갱신하고 나머지는 이월한다. 판정 분류는 시그널 등급이 아니다(P13).",
+  "items": [
+   {
+    "item": "소송 공시 기술 (ITC 337-TA-1523, HBM 2차 제소, FY26 10-K 각주)",
+    "verdict": "판단불가(10-K 미등재)",
+    "detail": "FY26 10-K는 2026-10-09 EDGAR API에 미등재(c_1). Micron 명의 합의 관련 공시 0건(c_1·c_6) - Netlist 8-K(c_3)가 유일한 1차 근거. 10-K 후속사건·소송 각주에 Netlist 합의와 HBM 2차 제소가 어떻게 기재되는지가 다음 게이트.",
+    "claims": [
+     "c_20261009_MU_1",
+     "c_20261009_MU_3",
+     "c_20261009_MU_6"
+    ]
+   },
+   {
+    "item": "SCA 가이던스 / LTA 비중 / 선수금·계약부채",
+    "verdict": "이월(증분 없음)",
+    "detail": "창 내 신규 수치 없음. 10-K RPO·선수금·계약부채 각주 대조 대기.",
+    "claims": [
+     "c_20261009_MU_1"
+    ]
+   },
+   {
+    "item": "$50B CapEx 계획 / FQ1-27 가이던스 대조 / 비트 vs ASP / HBM 마진 vs 범용 마진 / CXMT·YMTC 대응",
+    "verdict": "이월(증분 없음)",
+    "detail": "FQ1-27 실적(2026-12 추정) 이전 신규 공식 수치 없음.",
+    "claims": []
+   }
+  ]
+ },
+ "unconfirmed": [
+  {
+   "topic": "FY26 Form 10-K 제출 여부·일자",
+   "detail": "EDGAR API 조회(2026-10-09) 기준 미등재. 색인 지연 가능성이 있어 미제출 확정이 아니다.",
+   "reason": "filing_not_yet_indexed"
+  },
+  {
+   "topic": "Netlist 합의 범위 내 개별 사건 종결(337-TA-1523, HBM 2차 ITC 제소, CDCA 8:26-cv-02167, D.Del 1:26-cv-01014, CAFC 2025-1936)",
+   "detail": "8-K는 '합의서에 특정된 모든 계류 절차'로만 기술(c_3). ITC 종료 결정·소취하 서류 미확인(c_5). USITC EDIS·법원 도켓 직접 접근 불가(usitc.gov 403, Justia 403).",
+   "reason": "primary_docket_unavailable"
+  },
+  {
+   "topic": "Netlist 2차 ITC 제소(HBM, 2026-09-29)의 조사개시 여부",
+   "detail": "2026-10-09 시점까지 조사개시 공지·관보 게재 미확인. 합의로 철회·종결됐는지는 c_5 참조(미확인).",
+   "reason": "future_itc_vote_or_withdrawal"
+  },
+  {
+   "topic": "Micron 측 합의 확인·회계처리(비용 인식 시점·금액, 기존 $445M 평결 충당 정산)",
+   "detail": "Micron 8-K·IR·논평 0건(c_6). Reuters는 Micron 대변인이 즉시 응답하지 않았다고만 보도.",
+   "reason": "company_disclosure_absent"
+  },
+  {
+   "topic": "337-TA-1523 ALJ 배정·target date·증거개시 일정",
+   "detail": "공고문에 미기재(c_4). 합의로 무의미해질 수 있음.",
+   "reason": "not_yet_scheduled_or_moot"
+  },
+  {
+   "topic": "D.Del 1:26-cv-01014 2026-10-01 Netlist 답변·1659 정지 신청 여부",
+   "detail": "Justia 도켓 접근 403, 검색 결과에 후속 엔트리 없음.",
+   "reason": "primary_docket_unavailable"
+  },
+  {
+   "topic": "CAFC 2025-1936 선고",
+   "detail": "창 내 선고 보도 없음. 합의 범위에 포함됐다면 소멸 가능.",
+   "reason": "pending_decision_or_moot"
+  },
+  {
+   "topic": "대만 Taoyuan 파업 개시일·범위, Micron 이사회(10/8-9) 후 회사 구체안·IPP 공개, 생산·출하 영향",
+   "detail": "투표 결과(c_2)까지만 확인. 이후 회사 공지·파업 실행 보도 없음. Taichung 3차 조정은 2026-10-22 예정.",
+   "reason": "future_event_and_primary_source_absent"
+  },
+  {
+   "topic": "Micron의 대만 생산 비중 50~60% 수치의 1차 근거",
+   "detail": "AFP 보도 문구뿐이며 회사 공시 수치는 창 내 미확인.",
+   "reason": "secondary_only"
+  },
+  {
+   "topic": "8/21 Apple CXMT/YMTC 서한 결과",
+   "detail": "창 내 신규 자료 없음(이월).",
+   "reason": "no_new_material"
+  },
+  {
+   "topic": "YMTC 아이다호 소송(제소 2026-09-15) 소장·도켓 원문",
+   "detail": "보도 2차 소스(c_8, grade4)뿐.",
+   "reason": "primary_docket_unavailable"
+  }
+ ],
+ "discarded_noise_log": [
+  {
+   "dedup_key": "mu_form4_director_grants_1002",
+   "title": "Form 4 3건(2026-10-02, 이사 Liu Teyin M·Bjorlin Alexis·Swan Robert Holmes, 거래코드 A 부여)",
+   "reason": "P3 7개 항목 불변 - 이사 정기 주식보상 부여. 경영진 지분 처분·거버넌스 이벤트 아님"
+  },
+  {
+   "dedup_key": "mu_analyst_pt_da_davidson_1007",
+   "title": "D.A. Davidson 목표가 $2,100 -> $3,000 상향 (10-07)",
+   "reason": "common '애널리스트 PT·투자의견 변경 단독'"
+  },
+  {
+   "dedup_key": "mu_price_quote_1006_1008",
+   "title": "MU 주가·일간 등락·가격 전망 기사 다수(FX Leaders 등)",
+   "reason": "common '단순 주가 변동·일간 등락'"
+  },
+  {
+   "dedup_key": "mu_netlist_nlst_stock_surge_1006",
+   "title": "Netlist 주가 13~18% 급등 보도(MarketScreener·Benzinga 등)",
+   "reason": "주가 반응 보도 - 합의 사실 자체는 c_3로 별도 적재"
+  },
+  {
+   "dedup_key": "mu_dividend_exdate_1014",
+   "title": "분기배당 $0.15 기준일 2026-10-14 (Yahoo Finance)",
+   "reason": "2026-09-30 보도자료(c_20261001_MU_2)에 이미 적재된 기확정 사항, 신규 정보 없음"
+  },
+  {
+   "dedup_key": "mu_ddr5_contract_price_outlook",
+   "title": "TrendForce 등 DRAM 계약가 전망 2차 요약본(KuCoin·iconnect007 등)",
+   "reason": "원출처 없는 정량 인용 또는 일자 불명 - 비트/ASP 1차 분해 데이터 아님"
+  },
+  {
+   "dedup_key": "mu_cxmt_ipo_capacity_models",
+   "title": "CXMT 상장·캐파 추정(Citrini 모델 등)",
+   "reason": "추정 모델·테마 보도, 8/21 서한 결과나 SCA 조건 변경과 무관"
+  }
+ ],
+ "notes": "창 내 최우선 신규 사실은 Netlist의 SEC 8-K(2026-10-06 제출)가 확인한 Micron-Netlist 합의(2026-10-05; 분기 $30M x 20분기 = $600M, 5년 포트폴리오 라이선스에 HBM 특허 포함, 계류 절차 합의 종결·상호 면책; c_3)다. Micron 측 8-K·IR·논평은 0건이고(c_1·c_6), 개별 사건(337-TA-1523, HBM 2차 ITC 제소 등) 종결은 1차 자료로 미확인이다(c_5). 금액 규모는 FQ1-27 매출 가이던스 대비 약 0.05%(c_7)이나 회계 인식 방식은 미확인이다. 두 번째는 대만 Taoyuan 노조 파업투표 실시·가결 결과(2026-10-07, 찬성 99%)로, Reuters·AFP 교차 일치이나 grade3·회사 1차 자료 부재라 production_continuity는 카드 제약대로 neutral 유지하고 에스컬레이션한다(c_2). 세 번째로 337-TA-1523 조사개시 공고문 원문(FR 2026-19697)을 직접 확보해 위원회 명령일을 2026-09-22로 확인했다(c_4); 09-23/09-24 표기와 병기(P9). FY26 10-K는 EDGAR 미등재(c_1). 방향이 neutral이 아닌 축은 ip_litigation_risk(strengthen) 1개이며 직전 weaken 서술은 이월 보존했다. 정의 파일(company-mu.md)의 hbm_demand 5축 표기는 stale이라 카드 실제 7축 기준으로 작업했다(패치 미생성). 소스 등급 메모: investors.netlist.com·federalregister.gov·nikkei.com·thestar.com.my는 sources.yaml 미등재(config 수정 제안만, 직접 수정 안 함) - 공식 FR 공고와 Netlist의 SEC 제출 8-K는 grade1로 처리했다. 수집 경로: edgar_fulltext.py 1회 + submissions API(MU, Netlist) + Netlist 8-K/Ex-99.1, FR 공고 PDF 직접 파싱 + WebSearch 다수 + Nikkei/Malay Mail/CLB 본문 직접 확보(usitc.gov, Justia 403).",
+ "generated_by": "company-mu (L2)"
+}

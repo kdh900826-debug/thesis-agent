@@ -1,0 +1,33 @@
+# 신선도 한도 (P16, D9 단위 이원화)
+# unit: trading_days = 미국 시장 거래일(주말·연방 휴장일 미산입) / calendar_days = 달력일
+schema_version: 1
+
+limits:
+  # 시장 지표 — 거래일 기준
+  VIX:        {limit: 2,   unit: trading_days}
+  yield_30y:  {limit: 3,   unit: trading_days}
+  brent:      {limit: 3,   unit: trading_days}
+  ON_RRP:     {limit: 5,   unit: trading_days}
+  TAIEX_vs_20dma_pct:  {limit: 3, unit: trading_days}
+  TAIEX_1m_return_pct: {limit: 3, unit: trading_days}
+  # 24/7 거래 지표 — 달력일 기준
+  BTC:        {limit: 2,   unit: calendar_days}
+  # 저빈도 지표
+  FFR_prob:   {limit: 7,   unit: calendar_days}     # 웹검색[LLM] 수집 — provisional 기본
+  SDLLMTK:    {limit: 14,  unit: calendar_days}
+  FCF:        {limit: 100, unit: calendar_days}
+  # 계층 산출물
+  ClaimSet:          {limit: 3,  unit: calendar_days}
+  DeltaSet:          {limit: 3,  unit: calendar_days}
+  SignalDecision:    {limit: 5,  unit: calendar_days}
+  SectorConsensus:   {limit: 7,  unit: calendar_days}
+  CorrelationView:   {limit: 30, unit: calendar_days}
+  ThesisCard:        {limit: 90, unit: calendar_days}
+  # 사용자 입력 상태
+  Positions:         {limit: 30, unit: calendar_days}
+  PendingApproval:   {limit: 14, unit: calendar_days}
+
+# 규칙 (state-audit·kc-eval이 적용):
+# - 한도 초과 입력에 근거한 KC 판정은 예외 없이 provisional. "미충족" 확정 금지.
+# - stale 캐시 재사용 시 reused_from + staleness_days 표기 필수. 미표기는 validate-output이 거부.
+# - 미국 휴장일은 주말만 근사 반영(연방 공휴일 미반영 — 알려진 한계, 판정은 보수 방향인 provisional로 기움).

@@ -1,0 +1,16 @@
+{
+  "ticker": "MU",
+  "cik": "0000723125",
+  "items": [
+    {
+      "id": "edgar_2026-09-30_8-K_0",
+      "form": "8-K",
+      "filed_at": "2026-09-30",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/mu-20260930.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

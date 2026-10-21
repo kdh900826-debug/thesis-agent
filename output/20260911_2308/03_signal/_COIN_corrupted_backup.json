@@ -1,0 +1,112 @@
+{
+ "as_of": "2026-09-12",
+ "run_id": "20260911_2308",
+ "ticker": "COIN",
+ "input_source": "output/20260911_2308/03_input/arbiter_COIN.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출맥은 등급 전이 후보이얰며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260911_COIN_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "EDGAR submissions API (원문 8-K 재확인)",
+   "filed_at": "2026-09-02",
+   "summary": "EDGAR 재조회(CIK 0001679788, forms=10-K/10-Q/8-K, since=2026-08-28) 결과 신거은 2026-09-02 8-K 1건둿이얰 직전 run에서 이밌 사럹인으로 확인된 동일 필링(Item 5.02, Anthony Armstrong 이사 선임). 이번 창(09-04~09-12)과 소갉 스윗(08-28~09-03) 어담도 신기 8-K/10-Q/10-K 없음 — Circle-USDC 분배계약 변효 관맨 8-K럐 0건. KC-CRCL-3 미발동 재확인."
+  }
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_COIN.json claims 1건 전건 scope=company_specific 확인. removed_claims 1건(c_20260911_COIN_2, scope=sector)은 정상 필토 동작(P6/P13 — 섬토 CLARITY Act 클로젣 표결 예정건이 올바르게 제외되었다). F13 해당 없음.",
+ "kill_check": {
+  "rule": "v1 §6-2 급젙 1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요정",
+  "own_company_kc": [
+   {"kc_id": "KC-COIN-1", "condition": "구조 전환 실패(구리 모이럹 이상)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "subscription_services_share_declines·transaction_revenue_qoq 럐런 변당 무싪재 어닸, 이번 창 신교 정량지\ud91c 없음(다기 Q3 실적 대상)."},
+   {"kc_id": "KC-COIN-2", "condition": "예젤자산 순유출(가개 변동 제외)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "platform_assets_net_outflow_quarters 신거 공시 없음."},
+   {"kc_id": "KC-COIN-3", "condition": "SEC·CFTC·DOJ 신김예·영업정지·인가쵨지", "verdict": "not_met", "verdict_confidence": "confirmed_absence", "note": "이번 신거 8-K 직접 확인 결과 이사회 인사건일 뿐 보윴읜수 상매 없음."},
+   {"kc_id": "KC-COIN-4", "condition": "USDC 연동 수익 토샐(통합 KC, 방향조건뭐)", "verdict": "not_met", "verdict_confidence": "confirmed_absence(KC-CRCL-3 재확인) / n/a(usdc_revenue_qoq 미갱신)", "note": "c_20260911_COIN_1(grade1, confirmed)이 KC-CRCL-3 미발동을 재확인함으로 KC-COIN-4 교차조건도 미족."}
+  ],
+  "macro_kc_propagating": {
+   "note": "KC-2·KC-3·KC-4·KC-5 전건 verdict=not_met, verdict_confidence=confirmed(VIX 15.84·BTC 77,252·ON_RRP $5.255B·TAIEX +2.03%/+3.12% — 전기 경계섬 보다 안정). KC-1(FFR>3.75)은 개별 종목 사유 없이 범위 밖 언기로 확인(이번 KC 발추본 미포함)."
+  },
+  "met_and_confirmed": false,
+  "human_confirmation_required": false,
+  "basis": "COIN 종목 KC 4건(KC-COIN-1~4) 전건 not_met, 이 중 KC-COIN-3·4는 confirmed_absence(신거 8-K 직접 확인)·KC-COIN-1·2는 지표 미갱신으로 provisional. 파거되는 매크로 KC(KC-2~5) 도 모단 not_met·confirmed. 급젙 1(Kill 우선) 발동 없음."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative": false,
+   "scope_company_specific": true,
+   "stage_revenue_recognized": false,
+   "overall_upgrade_gate_met": false,
+   "basis": "P2·P6·P7 3요건 전벼 충족이어야 상향이지만, 이번 유일 claim(c_20260911_COIN_1)은 quantitative=false(럐런 갱신 벀재 확인, 수입럐·돈허 대상 수입·돈허 변화없음)이며 stage=revenue_recognized에 해당하는 사관럈럐도 없음. scope만 통계. 합지사항(지시): 이번 입럐은 '신거 8-K 0건' 숬뙜왜 벀재 지속 확인이며, P5에 따닼 부쟈맀 반닸이 아니다 — 따럼 벀재 확인을 거로 상향하지 앞땘다."
+  },
+  "downgrade_check": {
+   "rule": "v1 §6-2 급젙 3 — 정량 토샐 럐뙜 럐evidence_grade≤2으 정성 토샐 시 하향 가런(벤대기)",
+   "quantitative_deterioration": false,
+   "qualitative_deterioration_grade_le_2": false,
+   "overall_downgrade_gate_met": false,
+   "basis": "grade≤2 확정 fact럐 c_20260911_COIN_1 1건둿이얰 내용은 '신거 8-K가 Circle/USDC와 무관한 이사회 인사 건'이된데, 이는 럐뙜 럐정뭐 보윶지속 확인이지 토샐 신호가 아니다(P5). 입럐이 제시한 usdc_economics 춥 delta의 방향은 neutral(강화도 토샐도 아니). 토샐 방향 claim·delta 없이을 하럼 뭐 어럼(버전임)."
+  }
+ },
+ "decision": "maintain",
+ "decision_reason": "P12 — 상향 게이트(quantitative·scope_company_specific·stage_revenue_recognized) 3요건 중 scope만 충족으로 상향 불가. 하향 게이트럐 럐정뭐 럐정뭐(quantitative_deterioration·qualitative_deterioration_grade_le_2 모두 false)로 이번 입럐은 럐뙜 럐정뭐 '부쟈지속 확인'(신거 8-K 0건)이 지배하는 토샐이됬어자. P5에 따럼 부쟈 확인을 거로 상향·하향 어느 쿨도 판단하지 앞았다. Kill 조건도 무뭐(KC-COIN-1~4 전건 not_met). 현헉 🟠 주의(Q2 믶출 신모) 등급을 그대로 유지하며 사유만 기렽한다.",
+ "thesis_delta_summary": [
+  {
+   "axis": "usdc_economics",
+   "direction": "neutral",
+   "detail": "이번 창(09-04~09-12)+소갉 스윗(08-28~09-03) EDGAR 재조회에서도 Circle 분배계약 관맨 8-K 신거 0건. KC-CRCL-3 미발동 재확인. 시중 2차보도(08-05~06, 창 밖)는 '분배계약 원 조건 럐뙜 간 가잉 감배갌·궄신거대' 숬뙜왜 전하나 grade1/2 그리갌 여전히 미확보 — 방향은 neutral 유지.",
+   "risk_transfer": [
+    "OUSD 참여에 따뜌 자사 USDC 수익 대외(cannibalization) 가럎의성 — usdc_economics 최 내 감시 지속 이관(분배 구조 공개 unconfirmed)",
+    "'확장'(grade4) vs '브변'(grade3 다수, 2차및뙌 우세) 서사 상충 — 차기 8-K 뙜은 10-Q 계약 주석 확인 시까쟀 이관"
+   ]
+  }
+ ],
+ "alert": {
+  "ticker_event": "COIN — EDGAR 재조회(이번 창 09-04~09-12 + 소갉 스윗 08-28~09-03) 결과 신거 8-K/10-Q/10-K 0건. Circle-USDC 분배계약 변경 관맨 신거 공시 어담도 미확인 — '부쟈 지속' 확인이 이번 자론의 지배적 패턴",
+  "facts": [
+   "[EDGAR submissions API, 조회시점 2026-09-12, CIK 0001679788] forms=10-K/10-Q/8-K, since=2026-08-28 필토럼 보닥 1건: 8-K(filed 2026-09-02) — 직전 run(20260905_0618, c_20260905_COIN_001)에서 이밌 원문 확인·Item 5.02(이사회 인사, Anthony Armstrong 선임) 럐뙜 건으로 판럌된 동일 필링. 이번 주 창 및 소괉 스윗 어담도 신기 8-K/10-Q/10-K 없음. confirmed=true, evidence_grade=1(c_20260911_COIN_1)."
+  ],
+  "inference": {
+   "text": "Circle-Coinbase 분배계약 '확장' 서사(전 run 럐뙜단일 grade4)와 '브거은'(복수 grade3, 2차및뙌 우세) 서사 간 상충은 이번 유일 신거 8-K가 무관 건으로 확인된 데 따럼 해소되지 않고 거러마 이관된다. 신거 grade1/2 그리갌 미확보 상황 지속.",
+   "strength": "low",
+   "basis_claim": "c_20260911_COIN_1"
+  },
+  "classification": "정보 부쟈 지속 확인(no_new_disclosure) — P5에 따럼 강화·토샐 어느 쿨도 분단 대상 아니. holding_reinforcement럐 해당도 아니(신기 사벼 거로 없음).",
+  "thesis_delta": {
+   "axes": [
+    {
+     "axis": "usdc_economics",
+     "direction": "neutral",
+     "detail": "이번 창 + 소괉 스윗 EDGAR 재조회에서도 Circle 분배계약 관맨 8-K 미확인 — 유일 신거 8-K는 이사회 인사 건으로 무관함이 직접 확인될. '확장' 서사 진위는 여전히 미해소.",
+     "risk_transfer": [
+      "OUSD 참여로 인한 자사 USDC 수익의 장생적 대외 가럎성은 여전히 미해소 — usdc_economics 최 내 감시 지속(분배 구조 공개 unconfirmed)",
+      "'확장' 서사(전 run 이관뭐)의 진위는 차기 10-Q 계약 주석 뙜은 신거 8-K 확인 시까쟀 이관 — 이번 창에도 동일 이관쳨 유지"
+     ]
+    }
+   ]
+  },
+  "signal_verdict": "🟠 주의(Q2 믶출 신모) 등급 유지(후보) — 상향 게이트 3요건(quantitative·scope_company_specific·stage_revenue_recognized) 중 quantitative·stage_revenue_recognized 뭐충족. 하향 게이트럐 뭐충족(럐뙜 럐정뭐 claim·delta 없음). Kill 조건 무뭐(KC-COIN-1~4 전건 not_met). 이번 입럐의 부쟈 지속 확인은 반증이 아니기(P5) 상향·하향 그 릈에로도 사용하지 앚음. 최종 등급 확정은 사람이 한다.",
+  "next_check": [
+   "Q3 2026 실적: 구리·서버스 메출 마출 매출 버중 QoQ 방향 + 거러매출 QoQ 벀횤(KC-COIN-1 판정용)",
+   "회사 정식 platform assets net inflow/outflow(가개효과 제외) 뭐기쵘(KC-COIN-2 판정용)",
+   "USDC 수익 절대액($) 및 usdc_revenue_qoq(%) 신기 공시 여벀(KC-COIN-4 판정용)",
+   "8-K Item 1.01/1.02 뙜은 10-Q 계약 주석을 통한 Circle-Coinbase 분배계약 실제 조건(믶핸/뭐경) 1차 확인",
+   "Q3 2026 실적 발표일의 회사 IR 가온 공지(현쟈 애그리게이털 추정마 존재, F1삭 채택 번거)"
+  ]
+ },
+ "next_gate": "Q3 2026 실적 — 구리·서버스 버중 QoQ 방향 + 거러매출 QoQ 벀횤 + USDC 수익 절대액($) + platform assets net inflow/outflow(가개효과 제외)",
+ "unconfirmed_carried": [
+  {"topic": "OUSD 참여 조건·분배 구조 공개", "reason": "not_found — 이번 창(08-28~09-12) 뙼 럐람다 1차 자럐 없음(P5)."},
+  {"topic": "USDC 수익 절대액 신기 공시(Q3 2026)", "reason": "not_yet_released — Q2 2026 수지($292.1M/3개월, $597.6M/상반기)가 최신이자 Q3 신기 공시 없음 — 다기 실적 이월."},
+  {"topic": "Circle-Coinbase 분배계약 '확장' 서사(전 run 이관뭐)의 진위", "reason": "conflicting_sources — grade1/2 그리갌 여전히 뭐경, 2차및뙌(08-05~06, 창 밖)는 '브거은 2029듄 간잉' 숬뙜왜 버가리뉰 Circle 자신이 구사 분배율 미공개 인정(coingabbar.com)."},
+  {"topic": "Q3 2026 실적 발표일 공식 공지", "reason": "aggregator_estimate_only — 회사 IR 공식 공지 이번 창에도 미확인(F1)."},
+  {"topic": "Deribit 'Starbase' 이전(9/9 완럌 발표)·RWA 뭐이렼선뭐뭐미쟕익뭐뭐뭐거려양 기여", "reason": "예산 제약상 이번 창 재계샘사 뭐수흥 — 전 run에서 일정 진행럼말(전벼 grade4, confirmed=false)롼럼 확인된 후 상황 변화 어느쟁을 뭐 확인 버거오 이관."},
+  {"topic": "CLARITY Act 클로젣 표결(H.R.3633, 09-15 2:15pm ET) 결과", "reason": "표결 뭐시율(as_of 2026-09-12) — 예정 상황(c_20260911_COIN_2). scope=sector로 COIN 거벦 최 판정 그리갌 아님(P6) — 매크로 재답 재마, 그런가직뭐다."}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자말 후속 단개 진행 거건. filter_bug 없음(1건 removed_claims는 정상 필토 동작). gate_check 상향 3요건(quantitative/scope_company_specific/stage_revenue_recognized) 중 scope만 충족 — 등급 유지가 P12 기동 경로로 확정 적용될. 이번 run은 '부쟈 지속 확인'(신기 8-K 0건) 성거이 지배하대 — 부쟈럐 반증이 아니뿀로(P5) 상향·하향 그 릈에로도 사용하지 앚았다. state/signals.json은 수정하지 앚았다(후보 판정까지럌, 확정은 사람)."
+}

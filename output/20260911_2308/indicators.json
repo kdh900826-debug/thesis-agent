@@ -1,0 +1,98 @@
+{
+  "yield_30y": {
+    "value": 5.37,
+    "as_of": "2026-09-10",
+    "source_url": "https://fred.stlouisfed.org/series/DGS30",
+    "method": "api"
+  },
+  "ON_RRP": {
+    "value": 5255000000.0,
+    "as_of": "2026-09-11",
+    "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+    "method": "api"
+  },
+  "brent": {
+    "value": 109.51,
+    "as_of": "2026-09-09",
+    "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+    "method": "api"
+  },
+  "BTC": {
+    "value": 77252.675,
+    "as_of": "2026-09-12",
+    "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "method": "api"
+  },
+  "VIX": {
+    "value": 15.84000015258789,
+    "as_of": "2026-09-11",
+    "source_url": "yfinance:^VIX",
+    "method": "api"
+  },
+  "TAIEX_vs_20dma_pct": {
+    "value": 2.03,
+    "as_of": "2026-09-10",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "TAIEX_1m_return_pct": {
+    "value": 3.12,
+    "as_of": "2026-09-10",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "FFR": {
+    "value": 3.75,
+    "as_of": "2026-07-29",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+    "method": "web_search",
+    "note": "FOMC 2026-07-29 결정 유지 — target range 3.50-3.75%, 값은 상단(upper limit). 다음 FOMC 2026-09-16(본 run as_of 이후, 미개최). fred_fetch.py SERIES 미포함 — 웹검색 수집(D3: 수치·출처·시각만). KC-1 임계(>3.75)와 경계 접촉 — 4회 run 연속 이격 0.00pp"
+  },
+  "FFR_prob": {
+    "value": 66.4,
+    "as_of": "2026-09-10",
+    "source_url": "https://centralbank.watch/federal-reserve/",
+    "method": "web_search",
+    "note": "2026-09-16 FOMC '인상(hike)' 확률(%) — centralbank.watch 페이지 표시값(CME FedWatch 인용 집계), 데이터 타임스탬프 2026-09-10. 방향 주의: 전 run(20260905_0618)의 58.6%는 '동결(hold)' 확률이었으므로 직접 비교 불가 계열(동일 페이지 현재 hold=33.6%). 2026-09-11 CPI 발표 직후 2차 매체(Benzinga·검색집계)는 69~69.3% 인상 확률을 인용하나 1차 표시값이 아니므로 미채택(P4). KC-1 any 조건에서 직접 참조되지 않음(KC-1은 FFR 실측값만) — 감사 추적용 부기"
+  },
+  "SDLLMTK_change_pct": {
+    "value": 11.2,
+    "as_of": "2026-09-09",
+    "source_url": "https://www.silicondata.com/products/silicon-index/llm-token-expenditure-index",
+    "method": "web_search",
+    "note": "7일 변화율(%), 1차 소스(Silicon Data 자체 페이지) 직접 표시값. 인덱스 수준 $1.08/M tokens. 방향은 증가(+11.2%) — KC-6은 감소(<=-30%) 조건이므로 부호 반대. 전 run(9/3) $0.97 저점·+8.0% 대비 수준·변화율 모두 상승"
+  },
+  "msft_fcf": {
+    "value": 19640000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+    "method": "web_search",
+    "reused_from": "output/20260905_0618/indicators.json",
+    "staleness_days": 73,
+    "note": "MSFT FY2026 Q4(캘린더 2026-04~06월) FCF — 2026-07-29 발표. 분기 공시 기반이라 신규 관측 없음(다음 FY27Q1 실적 10월 하순 예정). FCF staleness 한도 100일 이내(73일) — 재사용(P16)"
+  },
+  "hyperscaler_fcf_sum": {
+    "value": 6835000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm ; https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/GOOG-10-Q-Q2-2026.pdf ; https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-06302026xexhibit991.htm ; https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+    "method": "web_search",
+    "reused_from": "output/20260905_0618/indicators.json",
+    "staleness_days": 73,
+    "note": "캘린더 2026 Q2 4개사(MSFT·GOOGL·AMZN·META) FCF 합산 +6.84B. 분기 공시 기반 — 신규 관측 없음. KC-7 '2분기 연속' duration 조건으로 자동 판정 불가(needs_manual), 전분기(2026 Q1) 수치 미수집(unconfirmed 유지)"
+  },
+  "_context_cpi_2026M08": {
+    "headline_yoy_pct": 3.4,
+    "headline_mom_sa_pct": 0.4,
+    "core_yoy_pct": 2.4,
+    "core_mom_sa_pct": 0.3,
+    "energy_mom_sa_pct": 2.1,
+    "energy_yoy_pct": 16.3,
+    "gasoline_mom_sa_pct": 3.9,
+    "gasoline_yoy_pct": 27.4,
+    "as_of": "2026-09-11",
+    "reference_month": "2026-08",
+    "source_url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+    "method": "primary_release",
+    "note": "BLS Consumer Price Index Summary, 2026-09-11 08:30 ET 발표(1차 공시, grade 1). KC 조건에 직접 참조되는 지표 아님 — KC-1(FFR)·KC-9(brent) 판정의 맥락으로만 기록(D3: 수치·출처·시각만, 논평 배제)"
+  }
+}

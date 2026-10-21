@@ -1,0 +1,220 @@
+{
+  "sector": "stablecoin",
+  "label": "스테이블코인",
+  "layer": "sector",
+  "as_of": "2026-08-15T14:26+09:00",
+  "staleness_days": 0,
+  "run_id": "20260815_1408",
+  "members": ["CRCL", "COIN", "HOOD"],
+  "missing_inputs": [],
+  "single_ticker_view": false,
+
+  "inputs_used": {
+    "company": [
+      "output/20260815_1408/02_company/CRCL.json",
+      "output/20260815_1408/02_company/COIN.json",
+      "output/20260815_1408/02_company/HOOD.json"
+    ],
+    "arbiter_decisions": [
+      "output/20260815_1408/03_signal/CRCL.json",
+      "output/20260815_1408/03_signal/COIN.json",
+      "output/20260815_1408/03_signal/HOOD.json"
+    ],
+    "code_aggregate": "output/20260815_1408/04_sector/stablecoin_aggregate.json",
+    "p17_note": "[fact] 본 산출물은 위 구조화 산출물만을 입력으로 사용했다. L2 수집 원문(_raw_*·*_edgar_raw.json), 타 섹터 산출물(04_sector/memory_aggregate.json), 01_macro_kc.json 서사부는 로드하지 않았다(P17)."
+  },
+
+  "aggregation_method_note": "[fact] consensus_aggregate.py는 종목별 DeltaSet의 axis 문자열을 그대로 키로 삼아 집계한다. [fact] 본 섹터 3사의 축 명칭은 종목별로 상이해 11개 축 중 10개가 단일 종목 지지(supporter 1건)이며, 공통 지지를 받은 축은 regulation(CRCL·COIN) 1개뿐이다. [inference (강도: strong)] 따라서 스크립트가 부여한 dispersion=low는 '전원 일치'가 아니라 '비교 대상 부재'를 의미하며, 그대로 읽으면 섹터 일치도를 과대평가하게 된다. 아래 common_axes_view는 coverage.yaml이 정의한 섹터 공통 축 3개를 기준으로 종목별 축을 재매핑해 일치·분산을 재판정한 결과다.",
+
+  "common_axes_view": [
+    {
+      "axis": "금리(이자수입)",
+      "axis_key": "rates_interest_income",
+      "direction": "strengthen",
+      "supporters": {
+        "strengthen": ["CRCL"],
+        "weaken": [],
+        "neutral": [],
+        "not_observed": ["COIN", "HOOD"]
+      },
+      "dispersion": "not_computable",
+      "dispersion_basis": "관측 1/3 — 분산 계산 요건(2개 이상 관측) 미충족",
+      "supporting_deltas": ["CRCL:reserve_income"],
+      "interpretation": "[fact] 이번 window에서 이자수입 축의 정량 관측은 CRCL 1건뿐이다 — Q2'26 Reserve Income $668M(+5% YoY) 대비 유통·거래·기타비용 $412M(+1% YoY), Adjusted EBITDA $143M(+8% YoY)로 수익 증가율이 비용 증가율을 상회했다(grade1, confirmed). [fact] COIN은 USDC 수익 절대액을 이번 기간 공시하지 않아 Delta가 생성되지 않았고, HOOD는 이자수입 특정 신규 1차 자료를 확보하지 못해 Delta 미생성(등급 유지)으로 처리했다. [fact] 금리 지표 자체는 L1(macro-kc) 소관이라 본 에이전트는 접근하지 않았다(P17). [inference (강도: strong)] 결론적으로 이 축은 일치도 분산도 판정할 수 없다 — 섹터 요인(금리) 지배 여부는 이번 run에서 검증되지 않았으며, CRCL 단독 관측치를 섹터 방향으로 일반화하는 것은 근거 부적격이다."
+    },
+    {
+      "axis": "규제 확정(CLARITY·SEC 면제)",
+      "axis_key": "regulation_finalization",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": ["CRCL", "COIN", "HOOD"],
+        "not_observed": []
+      },
+      "dispersion": "low",
+      "dispersion_basis": "3사 전원 neutral — 방향 일치",
+      "supporting_deltas": ["CRCL:regulation", "COIN:regulation", "HOOD:prediction_market(별개 규제 트랙)"],
+      "interpretation": "[fact] CRCL·COIN 모두 CLARITY Act 축을 neutral로 판정했다. [fact] 판정 근거가 된 사실은 동일 입법 절차이며, 두 종목의 자료 간 시점 차가 존재한다 — CRCL 측 근거는 '8/8 여름 휴회 전 표결 없이 산회, 9/14 복귀 후 절차 표결 예고'(coindesk 8/6, grade3, confirmed=false), COIN 측 근거는 '8/8 클로처 제출 완료, 9/15 클로처 표결 일정 확정, 60표 문턱'(coindesk 8/8, grade3, confirmed=false)이다. [inference (강도: strong)] 이는 두 종목 간 판단 상충이 아니라 관측 시점(8/6 vs 8/8) 차이에서 온 정보 비대칭이며, COIN 측 자료가 2일 더 최신이고 절차 단계가 더 구체적이다. 양쪽 모두 1차 소스(congress.gov) 접근이 403으로 차단돼 미확인 상태이므로 어느 쪽도 확정 사실로 승격할 수 없다(P4·P5) — 아래 sector_unconfirmed로 이관한다. [fact] HOOD의 규제 재료는 CFTC의 2026-08-12 예측시장 인센티브 프로그램 자기인증 자문(grade4, scope=sector, confirmed=false)으로, CLARITY와 다른 규제 트랙이며 HOOD 산출물 자체가 '규제 명확화도 규제 금지도 아닌 절차적 성격'으로 neutral 판정했다. [inference (강도: strong)] 이 축의 일치는 명백한 섹터 요인 지배다 — 동일한 외부 입법 이벤트가 3사에 동일 방향으로 작용했고 개별 실행 차이가 개입할 여지가 없다. 다만 일치의 내용은 '섹터 촉매 긍정'이 아니라 '섹터 촉매가 아직 발화하지 않음(게이트가 열리지도 닫히지도 않음)'이다. [fact] 규제 진전은 scope=sector 재료이므로 어떤 개별 종목의 등급 근거도 될 수 없다(P6·P13·F13). 본 산출물은 이를 개별 종목 판정에 전이하지 않는다."
+    },
+    {
+      "axis": "크립토 사이클",
+      "axis_key": "crypto_cycle",
+      "direction": "diverge",
+      "supporters": {
+        "strengthen": ["CRCL"],
+        "weaken": ["HOOD"],
+        "neutral": [],
+        "not_observed": ["COIN"]
+      },
+      "dispersion": "high",
+      "dispersion_basis": "방향 상충 — 관측 2건이 정반대(1:1)",
+      "supporting_deltas": ["CRCL:usdc_circulation", "HOOD:crypto_cycle"],
+      "interpretation": "[fact] HOOD는 7월 크립토 명목거래액 $109억(MoM -33%, YoY -62%, grade1 confirmed)으로 weaken, CRCL은 Q2'26 분기말 USDC 유통량 $73.3B(+19% YoY, 평잔 +25% YoY, grade1 confirmed)로 strengthen을 기록했다. [fact] COIN은 이번 window에 거래 사이클 관련 Delta를 생성하지 않았다(신규 정량 공시 부재). [inference (강도: strong)] 이 분산의 1차 원인은 종목별 실행 차이가 아니라 관측 시점·측정 단위의 불일치다. 원인 축 3개를 지목한다 — (1) 시점 불일치: CRCL 실측은 6/30 분기말 스냅샷이고 HOOD 실측은 7월 월간이다. CRCL 산출물이 함께 적재한 분기 후 온체인 관측(8/6 기준 약 $71.8B, 30일간 -2%/약 -$1.5B)은 HOOD의 7월 위축과 방향이 일치한다 — 즉 시점을 정렬하면 분산이 축소될 가능성이 있으나, 이 관측은 grade4·confirmed=false이므로 단독 근거로 사용할 수 없다(P4). (2) 측정 대상 불일치: HOOD 지표는 거래 플로우(명목거래액), CRCL 지표는 잔고 스톡(유통량)이다. 플로우 위축이 스톡 축소로 전이되는지는 이번 자료로 확정할 수 없다. (3) 종목 내부 mix 재편: HOOD의 크립토 위축은 같은 달 주식 명목거래액 +59% YoY와 공존한다 — 이 부분은 섹터 크립토 사이클이 아니라 HOOD 플랫폼 내부의 활동 이동일 수 있으며, HOOD 산출물 자체가 crypto_cycle의 리스크를 arpu_mix·prediction_market으로 이관 표기했다. [inference (강도: medium)] 종합하면 이 축을 '개별 실행 요인 지배'로 단정할 수 없고 '섹터 요인 지배'로도 단정할 수 없다 — 현재 확보된 정량치로는 방향 판정 자체가 불가능하며, 시점이 정렬된 지표(CRCL Q3 평균 유통량, HOOD 8월 운영지표, COIN Q3 거래 매출)가 확보되기 전까지 섹터 크립토 사이클 방향은 미확정으로 유지한다."
+    }
+  ],
+
+  "ticker_axis_rollup": {
+    "note": "[fact] consensus_aggregate.py가 산출한 11개 축의 원시 집계. 축 명칭이 종목별로 달라 대부분 단일 지지이며, 아래 coverage 필드는 해당 축을 관측한 종목 수를 표기한다. dispersion 값은 스크립트 원본이며 coverage=1인 축에서는 비교 대상 부재를 뜻한다.",
+    "axes": [
+      {"axis": "usdc_circulation", "owner": ["CRCL"], "direction": "strengthen", "coverage": 1, "script_dispersion": "low", "sector_comparable": false},
+      {"axis": "reserve_income", "owner": ["CRCL"], "direction": "strengthen", "coverage": 1, "script_dispersion": "low", "sector_comparable": false},
+      {"axis": "competition_ousd", "owner": ["CRCL"], "direction": "neutral", "coverage": 1, "script_dispersion": "low", "sector_comparable": false, "cross_ref": "structural_inverse_exposure[1]"},
+      {"axis": "regulation", "owner": ["CRCL", "COIN"], "direction": "neutral", "coverage": 2, "script_dispersion": "low", "sector_comparable": true},
+      {"axis": "diversification", "owner": ["CRCL"], "direction": "strengthen", "coverage": 1, "script_dispersion": "low", "sector_comparable": false, "cross_ref": "convergent_pattern[0]"},
+      {"axis": "derivatives_base", "owner": ["COIN"], "direction": "strengthen", "coverage": 1, "script_dispersion": "low", "sector_comparable": false, "cross_ref": "convergent_pattern[0]"},
+      {"axis": "usdc_economics", "owner": ["COIN"], "direction": "strengthen", "coverage": 1, "script_dispersion": "low", "sector_comparable": false, "cross_ref": "structural_inverse_exposure[0]"},
+      {"axis": "aua_inflow", "owner": ["HOOD"], "direction": "strengthen", "coverage": 1, "script_dispersion": "low", "sector_comparable": false},
+      {"axis": "crypto_cycle", "owner": ["HOOD"], "direction": "weaken", "coverage": 1, "script_dispersion": "low", "sector_comparable": false},
+      {"axis": "arpu_mix", "owner": ["HOOD"], "direction": "neutral", "coverage": 1, "script_dispersion": "low", "sector_comparable": false, "cross_ref": "convergent_pattern[0]"},
+      {"axis": "prediction_market", "owner": ["HOOD"], "direction": "neutral", "coverage": 1, "script_dispersion": "low", "sector_comparable": false}
+    ]
+  },
+
+  "structural_inverse_exposure": [
+    {
+      "id": "sie_usdc_distribution_economics",
+      "label": "USDC 분배 경제구조 — CRCL 유통비용 ↔ COIN 분배수익",
+      "tickers": {"CRCL": "발행자(비용 측)", "COIN": "분배자(수익 측)", "HOOD": "노출 없음(이번 window Delta 부재)"},
+      "classification": "structural_inverse_exposure — 분산 아님",
+      "evidence": [
+        "[fact] CRCL Q2'26 유통·거래·기타비용 $412M(+1% YoY) (CRCL c_20260815_CRCL_004, grade1, confirmed)",
+        "[fact] CRCL CFO(8/5 콜): Coinbase 배포 계약이 기존 조건대로 자동 3년 연장되어 2029년까지 유지, 수익배분 세부 경제조건은 비공개 (CRCL c_20260815_CRCL_008, grade2, confirmed)",
+        "[fact] COIN CFO(7/30 콜): 갱신 조건은 이미 충족되었고 동일 조건으로 갱신될 것 — 2023-08-18 발효 계약이 2026-08-18에 3년 자동 갱신 예정 (COIN c_20260815_COIN_004, grade2, confirmed)",
+        "[fact] CRCL CFO(8/5 콜): Hyperliquid 관련 USDC 잔고의 약 90%가 Coinbase 플랫폼에, 약 10%가 Circle 플랫폼에 분기말 기준 보유되어 있으며 이 배분 구조의 유통비용 영향은 Q3부터 반영된다 (CRCL c_20260815_CRCL_012, grade2, confirmed)"
+      ],
+      "reading": "[inference (강도: strong)] CRCL의 유통·거래·기타비용과 COIN의 USDC 분배수익은 동일 계약의 양면이며 구조상 제로섬이다 — 배분 비율이 변하면 같은 사건이 두 종목에 반대 부호로 나타난다. [fact] 이번 window에서 두 종목의 관련 Delta가 모두 strengthen으로 기록된 것은 경제 조건이 양측 모두에게 개선되었기 때문이 아니라, '계약 재편·해지 불확실성이 해소되었다'는 공통 효과 때문이다(CRCL은 KC-CRCL-3의 '조건 변경' 미발생 확인, COIN은 usdc_economics의 근시일 갱신 리스크 해소). [inference (강도: strong)] 따라서 이 동일 방향은 분산 없음의 증거로도, 두 종목의 이해가 일치한다는 증거로도 사용할 수 없다 — 역노출 축의 부호가 이번 기간에 활성화되지 않았을 뿐이다. [inference (강도: medium)] Hyperliquid 잔고 90/10 배분의 유통비용 반영이 Q3부터 시작된다는 CFO 발언은, 동일 사실이 Q3에 CRCL 비용 증가 / COIN 수익 증가로 갈릴 여지를 시사한다. 다만 수익배분 세부 경제조건이 비공개이고 COIN의 USDC 수익 절대액도 미공시라 정량 대사가 불가능하다.",
+      "consumer_note": "cio-portfolio 참고 — CRCL·COIN 쌍은 이 축에서 동조 노출이 아니라 역노출로 취급해야 한다. 축 공유도 판정 시 '공유 축이나 부호 반대'로 표기 필요(P14의 inverse_axes 항목 해당)."
+    },
+    {
+      "id": "sie_ousd_consortium",
+      "label": "OUSD 컨소시엄 — CRCL 정면 위협 ↔ COIN 양면 노출",
+      "tickers": {"CRCL": "피경쟁 발행자(부정 방향)", "COIN": "참여사 겸 USDC 분배 수혜자(양면)", "HOOD": "노출 없음(Delta 부재)"},
+      "classification": "structural_inverse_exposure(비대칭) — 분산 아님",
+      "evidence": [
+        "[fact] CRCL은 competition_ousd 축을 neutral로 유지했다 — OUSD는 2026-08 현재 공식 출시·실측 유통량 데이터가 없는 출시 전 단계로, noise_filter의 승격 기준(공식 출시 및 실측 유통량)을 충족하지 못했다(CRCL c_20260815_CRCL_011, grade4, confirmed=false). 리스크는 해소가 아니라 미실현 상태로 유지된다",
+        "[fact] CRCL CEO(8/5 콜): Circle은 이미 150개 이상의 경제적 인센티브 기반 유통 파트너십을 보유하고 있으며 OUSD 참여사의 약 70%가 이미 Circle 네트워크와 협력 중이다 (CRCL c_20260815_CRCL_010, grade2, confirmed) — 경영진 자기평가이며 독립 검증치는 아니다",
+        "[fact] COIN은 usdc_economics 축의 risk_transfer로 'OUSD 참여의 장기적 자사 USDC 수익 대체(cannibalization) 가능성은 미해소'를 명기했고, OUSD 참여 조건·분배 구조는 unconfirmed로 유지했다"
+      ],
+      "reading": "[inference (강도: strong)] OUSD 출시라는 단일 이벤트는 CRCL에는 발행 점유 잠식이라는 단방향 위협이지만, COIN에는 컨소시엄 참여 지분에서 오는 upside와 자사 USDC 분배수익 잠식이라는 downside가 동시에 걸린 양면 노출이다. 같은 이벤트에 대해 종목별 부호가 다르므로 축별 방향 집계에서 이를 '분산'으로 처리하면 오독이 발생한다 — 구조적 역노출(비대칭 노출)로 분류한다. [fact] 두 종목 모두 이번 window에서 이 축을 방향 전환 없이 '미해소·감시 지속'으로 처리했으며, 이는 OUSD가 아직 출시되지 않아 양쪽 부호 어느 것도 관측되지 않았기 때문이다(P5 — 자료 부재는 반증이 아니다).",
+      "consumer_note": "cio-portfolio 참고 — OUSD는 CRCL·COIN이 공유하는 축이나 부호가 반대이며, COIN 측은 부호가 확정되지 않은 양면 노출이다. 섹터 단일 방향으로 합산 불가."
+    }
+  ],
+
+  "convergent_pattern": [
+    {
+      "id": "cp_adjacent_expansion_without_revenue",
+      "label": "3사 공통 — 인접 사업 확장 진행 중이나 증분 매출 수치는 전무",
+      "supporters": ["CRCL", "COIN", "HOOD"],
+      "direction": "strengthen(정성) / not_observed(정량)",
+      "dispersion": "low",
+      "evidence": [
+        "[fact] CRCL: Arc 메인넷 퍼블릭 런칭일 2026-09-16 확정, founding validator 11개 기관(BlackRock·DTCC·Mastercard·Visa 등) 확보(grade1, confirmed). Q2 Other Revenue $34M(+41% YoY, grade1). FY26 Other Revenue 가이던스 $310-330M 상향은 2차 소스로만 확인(grade4, confirmed=false)",
+        "[fact] COIN: 영국 전문투자자 대상 170+ 파생상품 계약 접근 개시(8/11, 원문 열람 403으로 confirmed=false), Abu Dhabi FSRA로부터 Financial Services Permission 취득 및 국제 토큰화 허브 설립(8/13, grade1, confirmed). 두 공시 모두 증분 매출 수치를 포함하지 않는다",
+        "[fact] HOOD: Robinhood Ventures Fund II(RVII) 등록신고서 8/12 발효, $25/주 800만주 공모, 8/13 NYSE 상장, 펀드 규모 $2.255억(grade1, confirmed). HOOD 산출물은 이를 'P7 1단계 — 채널 존재만 확인, 매출 인식 전환 미확인'으로 분류했다"
+      ],
+      "interpretation": "[inference (강도: strong)] 이것이 이번 window에서 섹터 3사가 가장 뚜렷하게 일치하는 패턴이다 — 세 종목 모두 크립토 거래활동 의존도를 낮추는 인접 사업(결제 인프라·토큰화 증권·자산운용)을 동시에 확장하고 있다. [inference (강도: strong)] 그러나 일치의 두 번째 층위가 더 중요하다: 세 종목 모두 해당 사업의 증분 매출 수치를 공시하지 않아 전부 P7 3단 분리의 1~2단계(존재 확인 / 계약·인가 취득)에 머물러 있고 '매출 인식' 단계에 도달한 항목이 하나도 없다. [inference (강도: medium)] 이 동시성 자체는 개별 실행 역량의 차이가 아니라 섹터 공통의 사업 전개 방향(거래 수수료 의존 축소)을 시사하나, 정량 검증 수단이 3사 모두 동일하게 부재하므로 섹터 수준에서 방향의 강도를 판정할 수 없다. [fact] 본 항목은 어떤 개별 종목의 등급 근거로도 사용될 수 없다(P2 — 정성 논거는 상향 근거 부적격, P13)."
+    }
+  ],
+
+  "sector_unconfirmed": [
+    {
+      "id": "su_stablecoin_01",
+      "topic": "OUSD 실측 유통량 및 공식 출시일",
+      "detail": "[fact] CRCL은 2026-08 현재 OUSD가 출시 전 단계이며 실측 유통량 데이터가 없다고 적재했고(grade4, confirmed=false), COIN은 OUSD 참여 조건·분배 구조 공개가 조회 기간 내 없었다고 적재했다. [inference (강도: strong)] 이 공백은 섹터 최대 교차 축(sie_ousd_consortium)의 부호를 CRCL·COIN 양쪽 모두에서 미확정으로 묶어두는 단일 최대 결측이다. [fact] 자료 부재를 위협 소멸의 반증으로 해석하지 않는다(P5).",
+      "affects": ["CRCL", "COIN"],
+      "blocking_axis": "sie_ousd_consortium"
+    },
+    {
+      "id": "su_stablecoin_02",
+      "topic": "$YLDS 등 이자부 스테이블코인의 실측 규모",
+      "detail": "[fact] CRCL 산출물은 $YLDS(Figure Markets, SEC 등록 이자부 증권형 스테이블코인, SOFR-50bp 이자)가 계속 운영 중이나 8/8~8/15 구간 내 신규 개발사항은 확인되지 않았고, 리스크 등록부 누락 상태가 ThesisPatch 후보로 유지된다고 기록했다. [fact] COIN·HOOD 산출물에는 이자부 스테이블코인 관련 Claim이 없다. [inference (강도: medium)] CLARITY Act의 스테이블코인 유휴잔고 이자·수익 지급 금지 조항과 직결되는 축임에도 섹터 3사 어느 산출물에서도 실측 규모(발행잔액·성장률)가 확보되지 않아, 규제 확정 축과 금리 축을 연결하는 고리가 정량적으로 비어 있다.",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "규제 확정(CLARITY·SEC 면제) × 금리(이자수입)"
+    },
+    {
+      "id": "su_stablecoin_03",
+      "topic": "CLARITY Act 상원 절차의 최신 상태 — 소스 간 불일치",
+      "detail": "[fact] CRCL 근거(8/6)는 '9/14 복귀 후 절차 표결 예고', COIN 근거(8/8)는 '8/8 클로처 제출 완료, 9/15 클로처 표결 확정'이다. 양쪽 모두 grade3·confirmed=false이며 1차 소스(congress.gov 법안 액션 페이지)는 403으로 접근이 차단되었다. [inference (강도: strong)] COIN 측 자료가 2일 더 최신이고 절차 단계가 더 구체적이나, grade3 단독으로는 확정 근거가 될 수 없다(P4). 섹터 공통 축의 다음 검증 시점(9월 중순)이 이 불일치에 의존한다.",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "규제 확정(CLARITY·SEC 면제)"
+    },
+    {
+      "id": "su_stablecoin_04",
+      "topic": "Circle-Coinbase 계약 2026-08-18 실제 갱신 발효 확인",
+      "detail": "[fact] 양사 CFO 발언(CRCL 8/5 grade2, COIN 7/30 grade2)만 존재하며 갱신 발효일 8/18은 본 산출물의 as_of(8/15) 기준 미도래다. [fact] 갱신 실행 자체를 확인하는 공시는 어느 쪽에서도 확보되지 않았다. [inference (강도: medium)] 역노출 축 sie_usdc_distribution_economics의 기준선(기존 조건 유지)이 이 확인에 의존한다.",
+      "affects": ["CRCL", "COIN"],
+      "blocking_axis": "sie_usdc_distribution_economics"
+    },
+    {
+      "id": "su_stablecoin_05",
+      "topic": "COIN의 USDC 수익 절대액 미공시 — 교차축 정량 대사 불가",
+      "detail": "[fact] COIN 산출물은 조회 기간 내 USDC 수익 절대액의 신규 수치 공시가 없었다고 적재했다. [fact] CRCL은 유통·거래·기타비용 $412M을 공시했으나 이는 Coinbase 외 파트너를 포함한 합산치이며 수익배분 세부 경제조건은 비공개다. [inference (강도: strong)] 양측 수치를 대사할 수 없어 역노출 축의 크기(제로섬 규모)를 정량화할 수 없다 — 방향만 구조적으로 확정되고 크기는 미확정이다.",
+      "affects": ["CRCL", "COIN"],
+      "blocking_axis": "sie_usdc_distribution_economics"
+    },
+    {
+      "id": "su_stablecoin_06",
+      "topic": "USDC 유통량 온체인 실측치의 원자료 출처",
+      "detail": "[fact] CRCL 산출물은 8/6 기준 약 $71.8B(30일간 -2%, 약 -$1.5B) 관측을 적재했으나 데이터 제공처가 불명이고 2차 인용(grade4, confirmed=false)만 확보했으며, 회사 공시치와 관측시각·소스가 상이할 가능성을 별도 주의사항으로 표기했다. [inference (강도: strong)] 이 값은 섹터 크립토 사이클 축에서 CRCL·HOOD의 시점 불일치를 정렬할 수 있는 유일한 고빈도 관측치인데 소스가 검증 불가라, 크립토 사이클 축의 diverge를 해소하지 못하는 직접 원인이다.",
+      "affects": ["CRCL", "HOOD"],
+      "blocking_axis": "크립토 사이클"
+    },
+    {
+      "id": "su_stablecoin_07",
+      "topic": "인접 사업 3건의 증분 매출 기여 수치 — 3사 공통 부재",
+      "detail": "[fact] CRCL Arc, COIN 토큰화 허브·UK 파생상품, HOOD RVII·예측시장 모두 증분 매출·마진 수치가 공시되지 않았다. [fact] HOOD의 예측시장은 회사 공식 거래량·매출 수치가 없고 애널리스트 추정치만 존재해 근거로 사용되지 않았다. [inference (강도: strong)] 섹터 공통 수렴 패턴(cp_adjacent_expansion_without_revenue)의 강도를 정량 판정할 수 없게 만드는 공통 결측이다.",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "convergent_pattern[0]"
+    },
+    {
+      "id": "su_stablecoin_08",
+      "topic": "3사 차기 실적 발표일이 전부 미확정 — 섹터 차기 검증 시점 부재",
+      "detail": "[fact] COIN Q3 발표일은 애그리게이터 추정(10/29)만, HOOD Q3 발표일도 애그리게이터 추정(11/4)만 존재하며 회사 IR 공식 공지는 어느 쪽도 확인되지 않았다. [fact] CRCL은 Q2 실적이 8/5에 이미 발표되어 기존 게이트(8/18)가 소멸했고, 8/18에 별도 회사 이벤트가 있는지는 미확인이다. [fact] 애그리게이터 캘린더의 자동 추정 라벨은 등급과 무관하게 판정 근거로 사용할 수 없다(F1). [inference (강도: strong)] 그 결과 이번 run에서 미확정으로 남긴 축들(크립토 사이클 방향, 인접 사업 매출 인식, 역노출 크기)의 해소 시점을 섹터 수준에서 특정할 수 없다.",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "전 축 공통 — 검증 스케줄"
+    },
+    {
+      "id": "su_stablecoin_09",
+      "topic": "금리 축 관측 커버리지 1/3",
+      "detail": "[fact] 이자수입 축의 정량 관측은 CRCL 1건뿐이며, COIN은 USDC 수익 절대액 미공시, HOOD는 이자수입 특정 신규 자료 미확보로 Delta를 생성하지 않았다. [fact] 금리 지표 자체는 L1 소관이라 본 에이전트는 접근하지 않았다(P17). [inference (강도: strong)] 섹터 정의상 3사 공통 축인 '금리→이자수입 민감도'가 이번 run에서는 섹터 축으로 기능하지 못했다 — 일치·분산 판정 불가.",
+      "affects": ["COIN", "HOOD"],
+      "blocking_axis": "금리(이자수입)"
+    }
+  ],
+
+  "sector_verdict": {
+    "dominant_factor": "mixed — 축별로 상이",
+    "summary": "[inference (강도: strong)] 규제 확정 축은 섹터 요인 지배가 명확하다 — 동일 입법 이벤트가 3사에 동일하게 '미발화·지연'으로 작용했고 개별 실행 차이가 개입할 여지가 없다. [inference (강도: strong)] 크립토 사이클 축은 방향 상충(diverge, dispersion high)이 나타났으나 그 원인은 개별 실행 요인이 아니라 관측 시점(6/30 스냅샷 vs 7월 월간)과 측정 단위(잔고 스톡 vs 거래 플로우)의 불일치로 지목된다 — 시점을 정렬하면 방향이 수렴할 가능성이 있으나 정렬에 필요한 관측치가 grade4·미확인이라 확정 불가다. [inference (강도: strong)] 금리 축은 관측 커버리지 1/3로 섹터 축 기능을 하지 못했다. [inference (강도: strong)] 이번 window에서 섹터 3사가 실질적으로 가장 강하게 수렴한 지점은 coverage.yaml의 공통 축 3개가 아니라, 정의된 축 밖에 있는 '인접 사업 확장의 동시성과 그 매출 인식 부재'였다. [inference (강도: strong)] CRCL·COIN 사이의 USDC 분배 경제구조와 OUSD 노출은 분산이 아니라 구조적 역노출로 분류했으며, 이번 기간에는 계약 조건 유지로 부호가 활성화되지 않았다."
+  },
+
+  "constraints_observed": {
+    "P13": "[fact] 본 산출물은 개별 종목의 시그널 등급을 변경하거나 변경을 제안하지 않는다. signal_mutation은 null이며, 상대비교·컨센서스 결과는 개별 시그널로 전이되지 않는다.",
+    "P6_F13": "[fact] 규제 진전(CLARITY·SEC 면제)과 섹터 수렴 패턴은 scope=sector 재료이므로 어떤 개별 종목의 등급 상향 근거로도 사용되지 않았다. '규제 훈풍이므로 3사 동반 상향' 류의 서술을 포함하지 않는다.",
+    "P17": "[fact] 입력은 inputs_used에 열거한 3사 02_company·03_signal 구조화 산출물로 한정했다. L2 수집 원문, 타 섹터 산출물, 매크로 서사에는 접근하지 않았다.",
+    "P5": "[fact] 미확인 항목은 sector_unconfirmed에 적재했으며, 자료 부재를 어떤 축의 반증으로도 사용하지 않았다.",
+    "P1": "[fact] 모든 주장 문장은 [fact] 또는 [inference (강도: …)]로 태깅했다."
+  },
+
+  "signal_mutation": null
+}

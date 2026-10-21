@@ -1,0 +1,568 @@
+{
+  "group": "g1",
+  "checked_at": "2026-10-20",
+  "window": ["2026-07-07", "2026-10-20"],
+  "projects": [
+    {
+      "id": "p01",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-09-09 보도 기준 '공사 중'이며 1단계 가스 연결 공사가 진행 중이다. 일정 지연 보도는 없고, 확인된 임차인은 여전히 BluSky AI(최대 50MW)뿐이다.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-09-09",
+          "kind": "공사",
+          "title_ko": "현장 공사 중, 1단계 가스 연결 공사 진행 + 물 회수 기술 GIGAWATER 발표",
+          "detail_ko": [
+            "Creekstone은 Delta 부지가 공사 중이고 천연가스 연결 1단계 공사를 하고 있다고 밝혔다.",
+            "가스발전 배기에서 수증기를 회수하는 특허 출원 기술(GIGAWATER)을 발표했다. 유타대 검증이 끝나면 연 약 4,000에이커피트의 물을 얻을 수 있다고 주장하지만, 대규모 실용화는 몇 년 뒤라고 회사가 말했다.",
+            "전력 가동 시점(2027년 상반기 가스 300MW+ 목표)은 이번 기사에서 새로 확인되지 않았다."
+          ],
+          "grade": 3,
+          "src": [{"t": "KPCW (2026-09-09)", "u": "https://www.kpcw.org/state-regional/2026-09-09/developer-of-delta-data-center-announces-revolutionary-tech-to-turn-natural-gas-into-water"}]
+        }
+      ],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 전력 방식을 Grid로 적었지만 회사·업계 자료는 계통과 분리된 자가발전(behind-the-meter) 설계로 설명한다.",
+        "리포트 용량 9.7GW vs 회사 마스터플랜 10GW+(장기 목표치)."
+      ]
+    },
+    {
+      "id": "p02",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-08-17 OpenAI가 약 8GW(IT 기준)를 20년 임차하기로 하면서 고객이 확정됐다. 첫 800MW는 2028년, 전체 완공은 2032년 예정(2026-10-20 기준 추가 공사 진척 보도는 찾지 못함).",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-08-17",
+          "kind": "고객",
+          "title_ko": "OpenAI, PORTS-Pike 캠퍼스 약 8GW(IT) 20년 임차 합의",
+          "detail_ko": [
+            "SB Energy가 짓고 운영하며 OpenAI에 20년간 임대한다. 1차 4.25GW(IT), 나머지 3.75GW는 옵션이다.",
+            "첫 800MW는 2028년, 전체는 2032년 완공 목표. OpenAI는 지역 기금 4,000만 달러를 내겠다고 했다.",
+            "SB Energy·SoftBank는 최소 10GW 신규 발전설비를 짓는 계획이다."
+          ],
+          "grade": 2,
+          "src": [
+            {"t": "OpenAI 발표", "u": "https://openai.com/index/openai-joins-ports-pike-project"},
+            {"t": "StorageReview", "u": "https://www.storagereview.com/news/nvidia-openai-and-sb-energy-detail-the-8-it-gw-ports-pike-technology-campus-and-its-105-billion-credit-backstop"}
+          ]
+        },
+        {
+          "date": "2026-08-17",
+          "kind": "자금",
+          "title_ko": "NVIDIA, SB Energy에 15억 달러 투자 + 임차 신용보강 최대 1,050억 달러",
+          "detail_ko": [
+            "NVIDIA가 캠퍼스의 독점 AI 연산 공급자가 되고, SB Energy에 15억 달러를 직접 투자한다.",
+            "OpenAI 임차 의무에 대해 1차 4.25GW분 신용보강을 제공하고 나머지로 확대할 옵션이 있다. 증권 공시 기준 보증 규모는 최대 1,050억 달러로 보도됐다(공시 원문은 직접 확인 못함).",
+            "총사업비는 비공개. NYT가 최대 5,000억 달러로 보도했다는 2차 인용이 있으나 미확인."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "BetaNews", "u": "https://betanews.com/article/openai-nvidia-8gw-ohio-data-center-deal/"},
+            {"t": "REBusinessOnline", "u": "https://rebusinessonline.com/openai-signs-20-year-lease-at-nvidia-backed-data-center-development-in-pike-county-ohio/"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "단일 임차인(OpenAI) 장기 계약과 NVIDIA 대규모 보증이 새로 생겨 상장사 노출이 커졌다.",
+        "questions": [
+          "NVIDIA 10-Q/8-K에 보증 1,050억 달러가 어떤 조건(단계별 발동·한도)으로 적혀 있나?",
+          "가스발전 9.2GW 인허가(오하이오 EPA·OPSB) 진행 상황은?",
+          "2028년 첫 800MW 일정에 맞춘 현장 공사 진척은?"
+        ],
+        "next_check": "2026-11 NVIDIA 3분기 실적·10-Q"
+      },
+      "tickers_touched": ["NVDA", "9984.T"],
+      "data_issues": [
+        "리포트 9.2GW는 DOE가 밝힌 가스발전 용량이고, IT 용량은 약 8GW(1차 4.25GW + 옵션 3.75GW)다."
+      ]
+    },
+    {
+      "id": "p03",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 마지막 확인 사실은 2026-01 TCEQ 7.65GW 대기 허가 취득(2027년 상반기 첫 전력 목표).",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 핵심 대기 허가는 1월에 이미 발급돼 직접 영향은 작을 수 있으나, 추가 허가·물 관련 승인은 묶일 수 있음"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "텍사스 9/21 동결이 이미 발급된 허가에는 미치지 않는 것으로 보이나, 추가 승인 필요 여부와 착공·임차인 상황이 확인되지 않았다.",
+        "questions": [
+          "부지정지 이후 실제 발전설비 공사가 시작됐나?",
+          "임차인(하이퍼스케일러)이나 프로젝트 파이낸싱이 발표됐나?",
+          "9/21 동결로 보류된 추가 TCEQ 승인(물·변경허가)이 있나?"
+        ],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 Grid로 적었지만 회사는 ERCOT와 연결되지 않는 자체 전력망(off-grid) 사업으로 설명한다."
+      ]
+    },
+    {
+      "id": "p04",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 날짜가 확인된 신규 정보는 찾지 못함. 부속 가스발전소(약 613MW) TCEQ 대기 허가 신청(183046/PSDTX170, 2026-02-17 행정 완료)의 발급 여부가 확인되지 않아, 미발급이면 9/21 동결에 묶였을 수 있다.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — Nexus Hubbard Power 대기 허가가 미발급 상태라면 해당"
+      ],
+      "events": [
+        {
+          "date": "",
+          "kind": "기타",
+          "title_ko": "Nexus, Hill County 세금감면 협약 철회(날짜 미확인)",
+          "detail_ko": [
+            "지역 방송 보도에 따르면 Nexus는 Hill County 세금감면 협약 신청을 철회했지만 171번 도로 인근 데이터센터 건설 계획은 유지한다.",
+            "주민들은 소음 문제를 제기해 왔다. 기사 날짜를 확인하지 못해 7/7 이후 사건인지 불확실하다."
+          ],
+          "grade": 3,
+          "src": [{"t": "KXXV", "u": "https://www.kxxv.com/news/local-news/in-your-neighborhood/nexus-data-center-withdraws-tax-break-agreement"}]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "자가발전 대기 허가가 9/21 동결 전에 발급됐는지에 따라 가동 일정이 달라진다.",
+        "questions": [
+          "TCEQ 허가 183046/PSDTX170이 9/21 이전에 발급됐나?",
+          "Anthropic 임차·Google 자금지원 보도가 회사 발표로 확인됐나?",
+          "TDLR에 등록된 HB1·HB2 건물 공사가 실제로 진행 중인가?"
+        ],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 Grid로 적었지만 TCEQ 신청과 보도는 현장 가스발전으로 계통과 별도 운영한다고 설명한다.",
+        "리포트 7.2GW vs 확인되는 공식 서류는 가스발전 약 613MW, 건물 2동(각 약 4억 달러) 수준."
+      ]
+    },
+    {
+      "id": "p05",
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 마지막 확인 사실은 2025-11 Lea County 약 3,500에이커 토지 옵션 계약(첫 전력 2028년 목표).",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p06",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 6월 보도 기준 공사 중이며 인근 주택 매입(53채 중 약 15채)과 6/30 채용 박람회가 있었다. Microsoft 1.35GW는 아직 의향서(MOU/LOI) 수준.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 Grid로 적었지만 회사는 주 인증 자체 전력망(마이크로그리드)으로 설명한다.",
+        "리포트 6.0GW vs 회사 발표 초기 2GW(2028년 상반기) → 약 8GW(2031년) 확장 계획."
+      ]
+    },
+    {
+      "id": "p07",
+      "found_update": true,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": "X",
+      "status_ko": "2026-10-01 기사 기준 O'Leary 측은 '사전 개발 단계이며 중단 아님'이라고 하지만, 8/15 1단계를 1.5GW로 줄이겠다고 했고 주민 소송·MIDA 절차 소송이 걸려 있다. 확장(Phase 2) 단계의 진행은 불확실해졌다.",
+      "holds": [
+        "주민단체 BEAR의 주민투표 청원 거부 불복 소송",
+        "MIDA 승인 절차를 다투는 소송"
+      ],
+      "events": [
+        {
+          "date": "2026-08-15",
+          "kind": "규모",
+          "title_ko": "O'Leary 사과 영상, 1단계를 1.5GW로 축소하겠다고 발표",
+          "detail_ko": [
+            "Kevin O'Leary가 소통 부족을 사과하며 1단계를 1.5GW로 줄이고, 재활용 후 물 사용량을 하루 90만 갤런 미만으로 낮추겠다고 했다.",
+            "당초 초기 3GW·장기 9GW 계획에서 크게 줄어든 것이다. 수정된 물 사용권 신청을 낼 예정이다."
+          ],
+          "grade": 4,
+          "src": [{"t": "Ecosistema Startup (Benzinga·KSL 등 인용, 2026-10-01)", "u": "https://ecosistemastartup.com/stratos-en-utah-como-oleary-perdio-el-data-center-gigante/"}]
+        },
+        {
+          "date": "",
+          "kind": "소송",
+          "title_ko": "주민투표 거부·MIDA 승인 절차를 둘러싼 소송 진행",
+          "detail_ko": [
+            "카운티가 5/11 주민투표 청원을 거부하자 주민단체 BEAR가 법원에 불복했다.",
+            "별도로 MIDA 승인 절차를 다투는 소송이 있다. 제기 날짜와 심리 일정은 확인하지 못했다."
+          ],
+          "grade": 4,
+          "src": [{"t": "Ecosistema Startup (ABC4 인용)", "u": "https://ecosistemastartup.com/stratos-en-utah-como-oleary-perdio-el-data-center-gigante/"}]
+        },
+        {
+          "date": "",
+          "kind": "기타",
+          "title_ko": "O'Leary Digital CEO '사전 개발 단계, 중단 아님' / MIDA 수장 교체",
+          "detail_ko": [
+            "CEO Paul Palandjian은 KSL에 프로젝트가 사전 개발 단계이며 멈추지 않았다고 말했다.",
+            "MIDA는 Paul Morris 은퇴 후 전 주상원의원 Dan Hemmert를 사무총장으로 임명했고, Cox 주지사는 MIDA 대개혁을 요구했다."
+          ],
+          "grade": 4,
+          "src": [{"t": "Ecosistema Startup (KSL·Utah News Dispatch 인용)", "u": "https://ecosistemastartup.com/stratos-en-utah-como-oleary-perdio-el-data-center-gigante/"}]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "규모 축소 발표와 소송·정치 반발로 확장 단계가 실제로 진행될지 불확실하다. 근거가 애그리게이터(grade 4)뿐이라 1차 자료 확인이 필요하다.",
+        "questions": [
+          "축소안(1단계 1.5GW)이 MIDA·카운티에 정식으로 제출됐나?",
+          "BEAR 소송·MIDA 절차 소송의 법원·사건번호와 다음 심리일은?",
+          "수정 물 사용권 신청이 유타 수자원청에 접수됐나?",
+          "MIDA 지도부 교체 후 Stratos 협약이 재검토되나?"
+        ],
+        "next_check": "2026-10-27"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 Grid로 적었지만 회사는 Ruby 파이프라인 가스를 이용한 현장 발전으로 설명한다.",
+        "리포트 Phase 2 6.0GW vs 8/15 발언 기준 1단계 1.5GW로 축소(장기 9GW 목표의 유지 여부 불명)."
+      ]
+    },
+    {
+      "id": "p08",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-08-13 2분기 실적 기준 1단계 발전설비 6곳 기초 굴착이 끝났고 약 200MW 상업 전력을 6개월 안에 낼 계획이다. 8/10 첫 구속력 있는 임차 계약(TensorWave 222MW)을 맺었지만, 회사는 현금이 12개월 운영에 부족하다고 밝혔다.",
+      "holds": [
+        "자금 부족(회사가 추가 자금 없이는 12개월 운영 불가 명시)",
+        "텍사스 9/21 TCEQ 인허가 중단 — 6GW 대기 허가는 2월 발급돼 직접 대상 아님(해석), 추가 발전설비 허가는 묶임"
+      ],
+      "events": [
+        {
+          "date": "2026-08-10",
+          "kind": "고객",
+          "title_ko": "TensorWave와 15년 65억 달러 임차 계약(222MW) — 첫 구속력 있는 고객",
+          "detail_ko": [
+            "자회사 Fermi Campus 1이 TensorWave TEX1과 222MW 시설을 15년(5년 연장 옵션 2회) 임대한다. 계약 매출은 약 65억 달러로 추산된다.",
+            "2027년 하반기부터 단계적으로 인도하며 AMD Instinct GPU를 쓴다. 추가 2개 시설 옵션을 쓰면 650MW 이상이 된다.",
+            "계약은 프로젝트 파이낸싱과 보증을 조건으로 한다. 회사 자료에 AMD 의무가 공사 완료·임대 개시 후 시작된다는 문구가 있어 AMD가 보증 주체로 보인다(해석)."
+          ],
+          "grade": 1,
+          "src": [
+            {"t": "Fermi 8-K (Item 7.01, 임대 팩트시트)", "u": "https://www.sec.gov/Archives/edgar/data/0002071778/000121390026109227/ea0308546-8k_fermi.htm"},
+            {"t": "ABC7 Amarillo (2026-08-10)", "u": "https://abc7amarillo.com/news/local/fermi-america-signs-six-point-five-billion-dollar-lease-for-worlds-largest-data-center-after-months-of-turmoil-tensorwave-amarillo-texas-carson-county-water-city-council-greg-abbott-audir"}
+          ]
+        },
+        {
+          "date": "2026-08-13",
+          "kind": "공사",
+          "title_ko": "2분기 실적: 1단계 굴착 완료, 200MW 6개월 내·1.5GW 18~24개월 목표",
+          "detail_ko": [
+            "1단계 발전설비 6곳 기초 굴착 완료, Primoris가 주변 설비 공사 중이며 최종 EPC 계약은 협상 중이다. 2단계 Siemens 터빈 3기가 7월 휴스턴항에 도착했다.",
+            "약 200MW를 6개월 안에, 약 1.5GW를 18~24개월 안에 공급할 계획(고객 계약·승인 조건부).",
+            "6월 말 현금 9,170만 달러, 부채 5억 2,010만 달러. 7월 4억 3,125만 달러 전환사채를 발행했다."
+          ],
+          "grade": 1,
+          "src": [{"t": "Fermi 8-K 2Q26 실적 보도자료(2026-08-13)", "u": "https://www.sec.gov/Archives/edgar/data/0002071778/000207177826000046/fermiq22026erex_991.htm"}]
+        },
+        {
+          "date": "2026-10-12",
+          "kind": "기타",
+          "title_ko": "애널리스트 '텍사스 허가 동결로 불확실성 증가' 매도 의견",
+          "detail_ko": [
+            "Seeking Alpha 기고는 기존 6GW 대기 허가와 off-grid 모델에도 텍사스 동결이 불확실성을 키운다고 봤다. 얇은 재무구조와 하이퍼스케일러 임차인 부재도 위험으로 꼽았다(개인 의견)."
+          ],
+          "grade": 4,
+          "src": [{"t": "Seeking Alpha", "u": "https://seekingalpha.com/article/4953520-fermi-risks-still-rising"}]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "자금 부족 경고, 계약이 파이낸싱 조건부, 추가 발전 허가는 텍사스 동결에 묶여 있다.",
+        "questions": [
+          "TensorWave 계약의 보증 주체(AMD 여부)와 프로젝트 파이낸싱이 확정됐나?",
+          "200MW 첫 상업 전력이 2027년 2월 전후로 나오나?",
+          "전 CEO Neugebauer 소송 진행 상황은?"
+        ],
+        "next_check": "2026-11 Fermi 3분기 실적(10-Q)"
+      },
+      "tickers_touched": ["FRMI", "AMD"],
+      "data_issues": [
+        "Amarillo·Carson County는 ERCOT가 아닌 SPP 지역이라 8/3 ERCOT 감사 직접 대상은 아닐 수 있다(해석)."
+      ]
+    },
+    {
+      "id": "p09",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": "X",
+      "status_ko": "'Matador East'라는 이름은 자료에서 찾지 못했다. 이를 2026-03-27 접수한 추가 5GW 대기 허가 신청으로 보면, 2026-10-20 기준 미발급 상태이고 9/21 TCEQ 동결로 발급이 멈춰 있다(해석).",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 미발급 5GW 대기 허가",
+        "Fermi 자금 부족(p08과 공통)"
+      ],
+      "events": [
+        {
+          "date": "2026-09-21",
+          "kind": "모라토리엄",
+          "title_ko": "TCEQ, 데이터센터 관련 대기·물 허가 발급 전면 중단 → 추가 5GW 허가 신청도 멈춤(해석)",
+          "detail_ko": [
+            "주지사 지시로 TCEQ가 데이터센터를 지원하는 설비의 대기·물 허가 발급을 멈췄다. 자가발전(off-grid) 시설도 포함된다.",
+            "Fermi의 추가 5GW 허가 신청(3/27 접수)은 아직 발급 전으로 보여 동결 대상이 된다. 회사 실적자료도 6GW를 넘는 확장은 추가 허가에 달려 있다고 적었다.",
+            "동결은 ERCOT 감사가 끝나는 12월 중순까지 이어질 전망이다."
+          ],
+          "grade": 1,
+          "src": [
+            {"t": "Bracewell 법률 분석(2026-09-23)", "u": "https://www.bracewell.com/resources/governor-abbott-orders-tceq-to-pause-all-permit-issuance-for-data-center-projects/"},
+            {"t": "Texas Public Radio(2026-09-21)", "u": "https://www.tpr.org/news/2026-09-21/gov-abbott-orders-tceq-to-pause-environmental-permits-for-data-centers-until-audit-is-complete"},
+            {"t": "Fermi 2Q26 실적(2026-08-13)", "u": "https://www.sec.gov/Archives/edgar/data/0002071778/000207177826000046/fermiq22026erex_991.htm"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "남은 인허가가 주정부 동결에 직접 묶여 있다.",
+        "questions": [
+          "리포트의 'Matador East'가 3/27 접수한 5GW 추가 허가 신청과 같은 것인가?",
+          "TCEQ가 10/19 주지사실에 낸 이행 보고에 진행 중 신청 처리(기술검토 계속 여부)가 어떻게 적혔나?",
+          "동부 부지 토지 확보 계약이 마무리됐나(회사는 미확정 인수 가능성 언급)?"
+        ],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점"
+      },
+      "tickers_touched": ["FRMI"],
+      "data_issues": [
+        "'Project Matador East' 명칭은 회사 자료·보도에서 확인되지 않음. 5GW 추가 허가 신청과의 대응은 해석이다."
+      ]
+    },
+    {
+      "id": "p10",
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": "X",
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 2025-03 발표 이후 자금·인허가·착공 관련 독립 보도가 없고, 추적 사이트들은 '제안/계획' 상태로 둔다.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 계통 분리형 현장 가스발전에 필요한 대기 허가"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "건설 자금 미확보 상태에서 1년 넘게 진척 보도가 없고, 필요한 대기 허가가 텍사스 동결에 걸린다.",
+        "questions": [
+          "Webb County 현장 가스발전 TCEQ 허가 신청이 있나?",
+          "1단계 300MW(2026년 목표) 자금 조달이 발표됐나?"
+        ],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 Grid로 적었지만 회사는 ERCOT와 분리된(islanded) 자가발전 단지로 설명한다.",
+        "리포트 4.7GW vs 회사 발표 5GW(1단계 300MW)."
+      ]
+    },
+    {
+      "id": "p11",
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-08-28 Amazon Data Services가 Indiana County에 건물 36동 예비 개발계획(PIT100 Masterplan)을 내 AWS가 예상 최종 사용자로 드러났다. 2026-10-20 기준 카운티 심의 결과는 미확인.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-08-28",
+          "kind": "고객",
+          "title_ko": "Amazon, 데이터센터 36동 예비 개발계획 제출 — AWS가 예상 최종 사용자",
+          "detail_ko": [
+            "Amazon Data Services가 Indiana County 계획위원회에 PIT100 Masterplan을 냈다. 6개 부지에 2층 건물 36동(각 약 22.5만 sq ft)을 짓는 계획이다.",
+            "4단계로 2026년 12월 착공, 마지막 단계 2032년 1월 시작, 2036년 6월 완공 목표.",
+            "전력은 Homer City 4.5GW 가스발전에서 받고 1GW 이상은 계통에 보낸다. 8월 시점 Amazon은 '협의 중, 확정 계약 없음'이라고 했다.",
+            "카운티 개발조례 개정 논의와 주민 반발이 있다."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "DCD", "u": "https://datacenterdynamics.com/en/news/aws-plans-36-building-data-center-campus-in-indiana-county-pennsylvania"},
+            {"t": "Baxtel (2026-10-07)", "u": "https://baxtel.com/news/aws-files-36-building-data-center-plan-at-4-5gw-homer-city-campus"},
+            {"t": "Indiana Gazette", "u": "https://www.indianagazette.com/local_news/three-page-amazon-narrative-is-proposed-for-county-planning-commission/article_8f3e5c2f-8c5b-4822-9b6d-d7b88ce1168f.html"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "임차인(AWS)이 사실상 드러났고, 카운티 개발계획 심의라는 다음 결정이 남아 있다.",
+        "questions": [
+          "Indiana County 계획위원회가 PIT100 예비계획을 언제 표결하나?",
+          "AWS와 Homer City Redevelopment 간 확정 계약이 발표됐나?",
+          "가스발전소 첫 전력 일정(2027년 말~2028년 초)이 유지되나?"
+        ],
+        "next_check": "Indiana County 계획위원회 다음 정례회의(날짜 미확인)"
+      },
+      "tickers_touched": ["AMZN"],
+      "data_issues": [
+        "리포트는 BTM으로 적었지만 AWS는 FirstEnergy를 통해 전력을 받고 현장 발전소가 뒷받침하는 구조라고 설명하며, 1GW 이상을 계통에 보낸다."
+      ]
+    },
+    {
+      "id": "p12",
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 착공 시점이 자료마다 엇갈리고(2025-11 착공 vs 2026년 봄 예정), 데이터센터 조건부사용허가(CUP) 최종 승인과 가스관 개발협약(Z-2026-026) 결과도 확인되지 않았다.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "기준선의 '공사 중' 판단을 뒷받침할 1차 자료가 약하고, 회사 웹사이트상 규모가 12GW로 커졌다.",
+        "questions": [
+          "Millard County가 CUP(Z-2025-048)과 가스관 협약(Z-2026-026)을 최종 승인했나?",
+          "2026년 4분기 455MW 목표에 맞춘 실제 장비 반입·공사가 있나?"
+        ],
+        "next_check": "2026-10-27"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 Grid로 적었지만 회사·추적 자료는 완전 off-grid 자가발전으로 설명한다.",
+        "리포트 4.0GW vs 회사 웹사이트 최종 12GW."
+      ]
+    },
+    {
+      "id": "p13",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "2026-07-28 DeSoto County가 데이터센터 1년 모라토리엄을 통과시켰지만 DCIP의 기존 재지정 신청(800에이커+)은 제외해 계속 심사된다. 2026-10-20 기준 추가 재지정 표결은 확인 못함.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-07-28",
+          "kind": "모라토리엄",
+          "title_ko": "카운티 1년 데이터센터 모라토리엄 통과 — DCIP 진행 중 신청은 제외",
+          "detail_ko": [
+            "카운티 위원회가 4대0(1명 회피)으로 1년 모라토리엄을 승인했다.",
+            "계획위원회는 7/7에 DCIP 신청까지 포함하고 2년으로 하자고 권고했지만, 위원회는 변호사 의견에 따라 기존 신청을 제외했다.",
+            "한 위원은 1년 뒤 연장 가능성을 언급했다. 주민 반대는 계속되고 있다."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Suncoast Searchlight", "u": "https://suncoastsearchlight.org/desoto-county-approves-data-center-moratorium-dcip-group/"},
+            {"t": "WGCU (2026-07-29)", "u": "https://www.wgcu.org/top-story/2026-07-29/desoto-approves-data-center-moratorium-but-controversial-project-can-advance"},
+            {"t": "WUSF (2026-07-29)", "u": "https://www.wusf.org/politics-issues/2026-07-29/desoto-approves-data-center-moratorium-but-controversial-project-can-advance"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "확장 부지(800에이커+) 재지정 표결이 남아 있고, 모라토리엄 연장 가능성이 있다.",
+        "questions": [
+          "800에이커+ 재지정 신청의 계획위원회·카운티 위원회 심리일은?",
+          "첫 34에이커 부지의 부지계획 승인·착공 신청이 있었나?"
+        ],
+        "next_check": "DeSoto County 위원회 재지정 심리(날짜 미확인)"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트는 Grid로 적었지만 개발사는 Florida Gas Transmission 가스관을 이용한 자가발전으로 지역 계통을 쓰지 않겠다고 했다.",
+        "확정 인허가는 34에이커(첫 시설)뿐이며 4GW는 1,300에이커 장기 구상 기준."
+      ]
+    },
+    {
+      "id": "p14",
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": "X",
+      "status_ko": "7/7 이후 신규 정보 찾지 못함. 계통(Bluebonnet·LCRA 변전소, 첫 250MW 2028년 1분기)에 연결하는 대형 부하라 8/3 ERCOT 연결 승인 중단·감사 대상으로 보이고, 계획 중인 현장 가스발전은 9/21 TCEQ 동결 대상이다(해석).",
+      "holds": [
+        "텍사스 8/3 ERCOT 대형부하(75MW+) 신규 연결 승인 중단·감사 대상(해석)",
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 현장 가스발전"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "착공 전 단계에서 계통 연결과 자가발전 허가가 모두 주정부 동결에 걸릴 수 있다.",
+        "questions": [
+          "Tract 부지가 ERCOT 감사 대상 대형부하 대기열에 있나?",
+          "현장 가스발전 TCEQ 신청이 접수돼 있나?",
+          "임차인이나 착공 발표가 있었나?"
+        ],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트 4.0GW vs 2025년 보도 2GW+(3,000에이커 확장 후 DCD가 최대 4GW로 보도)."
+      ]
+    },
+    {
+      "id": "p15",
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-09-10 Aligned가 Shippingport 'Project Phoenix'(2GW, 3개 시설) 착공을 발표해 공사 단계로 넘어갔다(2026-10-20 기준). 임차인은 아직 공개되지 않았다.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-09-10",
+          "kind": "착공",
+          "title_ko": "Aligned, Shippingport 'Project Phoenix' 2GW 캠퍼스 착공",
+          "detail_ko": [
+            "옛 Bruce Mansfield 석탄발전소 부지(약 660에이커)의 Shippingport 산업단지에 3개 시설을 짓는다. 지역 투자 약 100억 달러로 보도됐다.",
+            "지역 계통 대신 전용 현장 전력(가스)을 쓰고, 나중에 남는 전력을 계통에 공급할 계획이다.",
+            "시공은 Holder Construction·Kokosing. CEO Andrew Schaap 발언이 함께 나왔다. 임차인·첫 가동 시점은 공개되지 않았다."
+          ],
+          "grade": 2,
+          "src": [
+            {"t": "DCD", "u": "https://www.datacenterdynamics.com/en/news/aligned-breaks-ground-on-gigawatt-scale-data-center-campus-in-pennsylvania/"},
+            {"t": "Baxtel (2026-09-17)", "u": "https://baxtel.com/news/aligned-begins-construction-on-gigawatt-scale-data-center-campus-in-pennsylvania"},
+            {"t": "Construction Review Online", "u": "https://constructionreviewonline.com/2-gw-project-phoenix-data-center-campus-breaks-ground-in-pennsylvania/"},
+            {"t": "HotAir/Salena Zito (2026-09-26)", "u": "https://hotair.com/salena-zito/2026/09/26/ground-broken-on-a-rust-belt-powerhouse-shippingports-data-hub-rises-in-the-age-of-ai-anxiety-n3819303"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "단계가 3→1로 바뀌었고, 임차인과 현장 가스발전 허가가 아직 확인되지 않았다.",
+        "questions": [
+          "임차인(하이퍼스케일러)이 발표됐나?",
+          "현장 가스발전의 펜실베이니아 DEP 대기 허가는 받았나?",
+          "첫 가동 목표 시점은?"
+        ],
+        "next_check": "2026-11-17"
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "리포트 3.6GW vs 회사 발표 2GW(3개 시설).",
+        "리포트는 Grid로 적었지만 회사는 전용 현장 전력을 쓴다고 발표했다."
+      ]
+    }
+  ],
+  "cross_cutting": [
+    "텍사스 2026-08-03: Abbott 주지사가 PUCT·ERCOT에 연결 대기열 데이터센터 감사와 신규 승인 중단을 지시. ERCOT는 75MW 이상 신규 연결만 멈출 수 있다고 밝혔고, 자가발전 프로젝트는 당시 제외됐다(Texas Public Radio 2026-09-21, Bracewell 2026-09-23).",
+    "텍사스 2026-09-14: TWDB에 ERCOT 감사 협력과 물 사용 조사 강제 지시. 조사에 응하지 않은 데이터센터는 TCEQ 물 허가를 받을 수 없게 됨(Bracewell 2026-09-23).",
+    "텍사스 2026-09-21: TCEQ에 데이터센터 관련 모든 허가 발급 중단 지시. TCEQ는 대기·물 허가 등 데이터센터 지원 설비 승인을 모두 멈췄다고 확인했고, 계통과 분리된 자가발전 시설도 포함된다. 이미 발급된 허가는 직접 대상이 아닌 것으로 해석됨. TCEQ 이행 보고 기한 10/19(결과 미확인), ERCOT 감사 완료 예정 12월 중순(Bracewell, Foley, Texas Public Radio). g1에서 영향 가능: p03·p04·p08·p09·p10·p14.",
+    "리포트의 'Grid' 표기 다수 불일치: g1의 Grid 표기 12건 가운데 최소 9건(p01·p03·p04·p06·p07·p10·p12·p13·p15)은 회사가 현장 가스 자가발전·off-grid로 설명한다. 텍사스 9/21 동결은 off-grid도 포함하므로 Grid/BTM 구분만으로 규제 노출을 판단하면 안 된다.",
+    "유타: Stratos(Wonder Valley) 반발 이후 Cox 주지사가 MIDA 대개혁을 요구했고, MIDA 사무총장이 Dan Hemmert로 교체됐다. Senate 의장 Stuart Adams는 6월 예비선거에서 패배(Ecosistema Startup 2026-10-01, grade 4 — 1차 확인 필요).",
+    "조사 한계: 이번 점검 중 세션 공유 웹검색 한도(200회)가 소진돼 p07·p12·p14 등은 추가 검색을 못 했다. 신규 정보가 없다는 것은 반증이 아니다."
+  ]
+}

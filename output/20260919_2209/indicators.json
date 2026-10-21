@@ -1,0 +1,100 @@
+{
+  "yield_30y": {
+    "value": 5.29,
+    "as_of": "2026-09-17",
+    "source_url": "https://fred.stlouisfed.org/series/DGS30",
+    "method": "api"
+  },
+  "ON_RRP": {
+    "value": 576000000.0,
+    "as_of": "2026-09-18",
+    "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+    "method": "api"
+  },
+  "brent": {
+    "value": 130.8,
+    "as_of": "2026-09-15",
+    "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+    "method": "api"
+  },
+  "BTC": {
+    "value": 81235.105,
+    "as_of": "2026-09-19",
+    "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "method": "api"
+  },
+  "VIX": {
+    "value": 14.8100004196167,
+    "as_of": "2026-09-18",
+    "source_url": "yfinance:^VIX",
+    "method": "api"
+  },
+  "TAIEX_vs_20dma_pct": {
+    "value": 2.0,
+    "as_of": "2026-09-18",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "TAIEX_1m_return_pct": {
+    "value": 5.0,
+    "as_of": "2026-09-18",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "FFR": {
+    "value": 4.0,
+    "as_of": "2026-09-19",
+    "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
+    "method": "api",
+    "note": "FFR 목표범위 상단(upper limit). 2026-09-19 수집 경로 승격: FRED DFEDTARU [CODE] 수집(method=api) — 종전 웹검색 경로는 KC-1을 상시 provisional로 강등시켰다. 삼각검증 1차 공시: FOMC 2026-09-16 14:00 EDT 보도자료 https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm — target range 3-3/4 to 4 percent(3.75~4.00%), 25bp 인상, 표결 12-0 반대 0. 직전 값 3.75(2026-07-29 유지분) → +0.25pp. FRED 시리즈와 1차 공시 값 일치(대사 완료).",
+    "corroborating_source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+    "grade": 1
+  },
+  "FFR_prob": {
+    "value": 95.2,
+    "as_of": "2026-09-18",
+    "source_url": "https://centralbank.watch/federal-reserve/",
+    "method": "web_search",
+    "note": "2026-10-28 FOMC '인상(hike)' 확률(%) — centralbank.watch 표시값(전 run과 동일 계열·동일 방향 라벨, 직전 66.4%는 9/16 회의 대상). 동일 시점 hold 4.9%·cut 0.0%. 참고: CME FedWatch 직접 계열은 9/17 기준 55.1%로 방법론 차이가 큼(2차 검색 집계 경유라 미채택, P4). KC-1 판정에 직접 참조되지 않음(KC-1은 FFR 실측값만) — 감사 추적용 부기."
+  },
+  "SDLLMTK_change_pct": {
+    "value": -3.2,
+    "as_of": "2026-09-17",
+    "source_url": "https://www.silicondata.com/products/silicon-index/llm-token-expenditure-index",
+    "method": "web_search",
+    "sign_confidence": "inferred",
+    "note": "7일 변화율(%). 1차 소스 표시값은 '3.2% (7D)'로 부호가 추출본에 포착되지 않음 — 지수 수준이 전 run 9/9 $1.08 → 9/17 $0.96(-11.1%)으로 하락한 사실에 근거해 부호를 음(-)으로 기입(inference). 부호 미확정 항목으로 unconfirmed 동시 적재. KC-6 임계(<=-30%, 2주 지속) 대비로는 부호 어느 쪽이든 미달이라 판정 결론 불변."
+  },
+  "msft_fcf": {
+    "value": 19640000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+    "method": "web_search",
+    "reused_from": "output/20260911_2308/indicators.json",
+    "staleness_days": 81,
+    "note": "MSFT FY2026 Q4(캘린더 2026-04~06월) FCF — 2026-07-29 발표. [2026-09-19 재사용] 분기 공시 기반 — 신규 관측 없음(MSFT FY27Q1 10월 하순 예정). FCF staleness 한도 100일 이내(81일) 재사용(P16)."
+  },
+  "hyperscaler_fcf_sum": {
+    "value": 6835000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm ; https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/GOOG-10-Q-Q2-2026.pdf ; https://www.sec.gov/Archives/edgar/data/1326801/000162828026050596/meta-06302026xexhibit991.htm ; https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+    "method": "web_search",
+    "reused_from": "output/20260911_2308/indicators.json",
+    "staleness_days": 81,
+    "note": "캘린더 2026 Q2 4개사(MSFT·GOOGL·AMZN·META) FCF 합산 +6.84B. [2026-09-19 재사용] 분기 공시 기반 — 신규 관측 없음(MSFT FY27Q1 10월 하순 예정). FCF staleness 한도 100일 이내(81일) 재사용(P16)."
+  },
+  "_context_fomc_20260916": {
+    "target_range_pct": [
+      3.75,
+      4.0
+    ],
+    "change_bp": 25,
+    "vote": "12-0",
+    "dissents": 0,
+    "release_ts": "2026-09-16T14:00:00-04:00",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+    "method": "primary_release",
+    "grade": 1,
+    "note": "KC-1 판정 입력의 1차 근거 원본. 성명서 서술·SEP 점도표·기자회견 발언은 전망 서사이므로 미기록(D3)."
+  }
+}

@@ -1,0 +1,21 @@
+# 포지션 비중 — 사용자 직접 기입 (D13, R3). 정확한 비중이 아니라 "범위"로만 기입한다.
+# weight_range: [하한, 상한] (포트폴리오 대비 비율). 축 집중도는 범위 "상단" 합 기준 보수적으로 판정.
+# 2026-08-15 사용자 기입: IREN 90% / 현금 10% / 나머지 미보유.
+# 2026-09-19 사용자 확인(run 20260919_2209): 비중 변동 없음 — as_of만 갱신. 이전 as_of 2026-08-15(35일 경과, 한도 30일 초과 해소).
+# 밴드 폭: IREN은 집중 포지션 변동성 감안 ±5%p. 리밸런싱·신규 진입 시 갱신하고 as_of를 바꿀 것.
+schema_version: 1
+as_of: "2026-09-19"
+
+positions:
+  IREN: {tier: Edge, weight_range: [0.85, 0.95]}   # v32: 258주 @평단 $39.29
+  MU:   {tier: Base, weight_range: [0.0, 0.0]}     # 미보유 (Base 후보 분류만 유지)
+  NBIS: {tier: null, weight_range: [0.0, 0.0]}     # 미보유
+  CRWV: {tier: null, weight_range: [0.0, 0.0]}     # 미보유
+  CRCL: {tier: Next, weight_range: [0.0, 0.0]}     # 미보유 (Next 후보)
+  COIN: {tier: Next, weight_range: [0.0, 0.0]}     # 미보유 (Next 후보)
+  HOOD: {tier: Next, weight_range: [0.0, 0.0]}     # 미보유 (Next 후보)
+
+cash_weight_range: [0.05, 0.15]
+
+# 티어 정의 (v32 승계): Base = 방어 자산 / Edge = 집중 포지션 / Next = 후보·소규모
+# 참고: v32의 "Base 현금 대비 40% 상한" 레버리지 규칙은 현재 Base 미보유 상태라 비활성.

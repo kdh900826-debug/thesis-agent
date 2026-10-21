@@ -1,0 +1,45 @@
+{
+  "as_of": "2026-08-29T10:46",
+  "run_id": "20260829_1046",
+  "ticker": "IREN",
+  "card_field": "earnings_checkpoints",
+  "operation": "amend",
+  "before": "earnings_checkpoints:\n  date: \"2026-08-27\"\n  items:\n    - \"과금 가동률\"\n    - \"MFU\"\n    - \"매니지드 서비스 믹스\"\n    - \"Horizon 건설원가 실측\"\n    - \"전력 단위원가 실측\"\n    - \"GPU 대체 조항 (GB300→VR200 단가 재협상)\"\n    - \"고객 다변화\"\n    - \"ARR 실현율 vs 가이던스\"\n    - \"현금흐름\"\n    - \"완전희석 주수 확정\"\n    - \"Horizon 1 매출 인식 시점·금액 (FY26 결산 기간 외 — 가이던스·콜 발언에서 확인)\"\n    - \"Horizons 2-4 구체 일정\"\n    - \"SB6 적용 용량\"",
+  "after": "earnings_checkpoints:\n  # 2026-08-29 ThesisPatch(amend, run 20260829_1046) — 2026-08-27 체크포인트 세트 소진.\n  # 대조 결과는 output/20260829_1046/02E_earnings/IREN_checkpoints_20260827.md에 보존(P9).\n  # 이전: date \"2026-08-27\", items 13개(과금 가동률 / MFU / 매니지드 서비스 믹스 / Horizon 건설원가 실측 /\n  #   전력 단위원가 실측 / GPU 대체 조항 / 고객 다변화 / ARR 실현율 / 현금흐름 / 완전희석 주수 확정 /\n  #   Horizon 1 매출 인식 시점·금액 / Horizons 2-4 구체 일정 / SB6 적용 용량)\n  # 이 중 미확인 5건·상충 2건·부분 확인 4건을 이월하고, 신규 관측 대상 2건을 추가해 13개를 유지한다.\n  date: \"2026-11 (FY27 Q1 10-Q — 정확일 미공시)\"\n  items:\n    - \"과금 가동률 (8/27 미공개 — 이월)\"\n    - \"MFU (8/27 미공개 — 이월)\"\n    - \"매니지드 서비스 믹스 (Mirantis 첫 연결 분기)\"\n    - \"Horizon 건설원가 실측 (8/27 미공개 — 이월)\"\n    - \"전력 단위원가 $/MWh (부문별 전력비는 확보, 소비 MWh 미공시 — 이월)\"\n    - \"GPU 대체 조항 단가 재협상 (GB300→VR200, 8/27 미공개 — 이월)\"\n    - \"ASC842 리스 매출 최초 인식 금액 — Horizon 1분 분리 여부 [사전 정의 상향 게이트 ⑪]\"\n    - \"가동 중 ARR $1.0B → $4.0B 진척률 및 가동 MW\"\n    - \"Horizon 2-4 인도·인수 완료 여부 (유예 2027 Q2 초 소진 여부)\"\n    - \"완전희석 주수 range 갱신 (하한 394.06M / 상한 558.72M+)\"\n    - \"FY27 capex 확정치 및 조달 구성 (2차 매체 $25-30B — 등급 1·2 대조 필요)\"\n    - \"SB6 적용 용량 MW (KC-10 임계 대조 분모)\"\n    - \"AI Cloud 부문 감가상각 배분 (자체 ~14% vs 임차 ~5% 전제 검증용)\"",
+  "reason": "[fact] 카드의 earnings_checkpoints.date는 '2026-08-27'이고 그 이벤트는 발생·처리 완료됐다. 소진된 체크포인트 세트를 남겨두면 다음 run의 state-audit이 과거 게이트를 현재 게이트로 읽는다. [fact] 13항목 대조 결과 미확인 5건(① ② ④ ⑥ ⑪ 금액), 상충 2건(⑧ ⑩), 부분 확인 4건(③ ⑤ ⑦ ⑬), 확인 2건(⑨ ⑫)이다. [inference:strong] 미확인·상충·부분 확인 항목은 그대로 다음 관측점으로 이월돼야 하며, 확인 완료된 ⑨ 현금흐름·⑫ 일정은 신규 관측 대상(리스 매출 인식 금액, 가동 ARR 진척, 감가상각 배분)으로 교체하는 것이 정합적이다. [fact] 이전 date·13항목 전문은 주석에 보존했고 대조표 원본은 02E_earnings에 별도 보존된다(P9). 항목 수 13개 불변.",
+  "basis_claims": [
+    "IREN-2608-C10",
+    "IREN-2608-C14",
+    "IREN-2608-C15",
+    "IREN-2608-C16",
+    "IREN-2608-C19",
+    "IREN-2608-C22",
+    "IREN-2608-C23",
+    "IREN-2608-C25",
+    "IREN-2608-I02",
+    "IREN-2608-I04",
+    "IREN-2608-I06",
+    "IREN-2608-I12"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 관측 항목 목록의 갱신이며 판정을 포함하지 않는다.",
+  "downstream_note": "[fact] 이 패치가 승인되면 다음 run의 state-audit이 참조하는 next earnings gate가 FY27 Q1으로 이동한다. 정확한 발표일은 회사 공지 후 별도 amend로 확정해야 한다.",
+  "expected_after": {
+    "contains": [
+      "date: \"2026-11 (FY27 Q1 10-Q — 정확일 미공시)\"",
+      "ASC842 리스 매출 최초 인식 금액 — Horizon 1분 분리 여부 [사전 정의 상향 게이트 ⑪]",
+      "SB6 적용 용량 MW (KC-10 임계 대조 분모)",
+      "2026-08-29 ThesisPatch(amend, run 20260829_1046)"
+    ],
+    "not_contains": [
+      "  date: \"2026-08-27\""
+    ],
+    "counts": [
+      {
+        "path": "earnings_checkpoints.items",
+        "n": 13
+      }
+    ]
+  }
+}

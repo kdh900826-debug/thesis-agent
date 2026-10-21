@@ -1,0 +1,187 @@
+{
+  "as_of": "2026-10-01",
+  "ticker": "IREN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261001_IREN_3",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261001_IREN_4",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261001_IREN_5",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261001_IREN_6",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261001_IREN_1",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "EDGAR full-text 검색(edgar_fulltext.py --ticker IREN --forms 8-K 10-Q 10-K 424B5 424B7 S-8 \"SCHEDULE 13G\" --since 2026-09-24)과 submissions API(CIK 0001878848) 재조회 결과, 조사 창(2026-09-24~2026-10-01) 내 IREN 관련 신규 공시는 SCHEDULE 13G 1건(filed 2026-09-30)뿐이다. 해당 13G는 Citadel Securities LLC·Citadel Securities Group LP·Citadel Advisors LLC·Citadel Advisors Holdings LP·Citadel GP LLC·Kenneth Griffin의 공동 제출이며 Item 5 'Ownership of 5 Percent or Less of a Class'에 표기돼 있다 — 시장조성(market-making) 성격의 수동적 지분이 5% 미만으로 하락했음을 보고하는 통상적 공시다. 8-K·10-Q·10-K·424B5·424B7·S-8 신규 공시는 0건이며, 이로써 IREN 고유의 신규 실질 1차 공시 부재 상태가 6개 회차(0905·0911·0919·0925·이번) 연속으로 이어진다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "edgar_api",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000110465926112411/xslSCHEDULE_13G_X02/primary_doc.xml",
+        "secondary_url": "https://data.sec.gov/submissions/CIK0001878848.json",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "13G 자체는 P3의 7개 변화 항목(매출·가이던스·마진·현금흐름·고객명·수주·양산일정) 어느 것도 건드리지 않아 축 판정에는 쓰지 않는다(아래 discarded_noise_log 중복 로그 참조). Claim은 '창 내 신규 공시 전수 확인' 결과를 보존하기 위한 것이다."
+    },
+    {
+      "id": "c_20261001_IREN_2",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "회사 IR 뉴스 페이지(iren.com/investors/news) 조회 결과 조사 창 내 신규 발행된 회사 보도자료는 0건이다(마지막 보도자료는 2026-09-08 'Sweetwater Hub ERCOT Batch Zero'로 직전 회차들에서 이미 반영됨). FY27 Q1 실적일에 대한 회사 공식 발표도 창 내에서 확인되지 않았다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_ir_newsroom",
+        "url": "https://iren.com/investors/news",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "FY27 Q1 실적일 애그리게이터 추정치(TipRanks '2026-12-01', 일부 소스 '11/5~11/6')가 창 내 발견됐으나 F1(애그리게이터 자동추정 라벨 판정 근거 불가)에 따라 Claim화하지 않고 unconfirmed로만 적재한다."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "power_permit",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0925): Sweetwater Batch Zero 조건부 Base Load 지위·SB6 적용 MW 미공시(KC-10 분모 공백)·ERCOT 감사 진행 상태 불변. BC Hydro 선정 결과는 목표 시점(9월 중순) 경과에도 미공표.",
+      "new_state": "이번 창에서 IREN 고유 1차 전력·인허가 공시는 없다(c_20261001_IREN_1, _2). 다만 (a) PUCT가 2026-09-18 ERCOT 대형부하 상호접속 표준화 규칙(16 TAC §25.194)을 채택했다는 복수 2차 소스 보도를 포착했으나 1차 원문 접근 실패로 confirmed=false(c_20261001_IREN_3) — 일반 규제 프레임워크는 구체화됐으나 IREN 고유 적용 MW·보증금은 여전히 미공시라 KC-10 분모 공백은 그대로다. (b) 사용자 주입 자료(한국 대미 에너지 투자, Project Star 6,472MW 가스발전)를 처리한 결과 IREN 직접 연관 1차 공시는 없으며(c_20261001_IREN_4), 부지도 IREN 노출 카운티와 상이해 scope=sector로만 태깅한다(c_20261001_IREN_5). BC Hydro 결과는 여전히 미공표(c_20261001_IREN_6). 세 갈래 모두 direction을 움직일 만한 company_specific·confirmed 근거가 없어 neutral 유지(P6).",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_IREN_1",
+        "c_20261001_IREN_2"
+      ]
+    },
+    {
+      "axis": "execution_delivery",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0925): Horizon 1 인도·인수 완료. Horizons 2-4는 calendar Q4 2026 목표, 10-K 계약 유예(2026 Q4 중반~2027 Q2 초) 유지. Horizon 2 인도·인수 완료 여부 unconfirmed.",
+      "new_state": "창 내 신규 1차 공시·보도자료 0건(c_20261001_IREN_1, _2). IREN 공식 SNS(X) 게시물에서 'Horizon 2 데이터홀 건설 중, Horizon 3-4 토목 착수' 서술이 발견됐으나 구체 일정·MW 수치 변화가 없어 noise-triage promote_if 미충족 — Claim화하지 않고 노이즈 로그에만 남긴다(P3). P7 3단 분리 상태 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_IREN_1",
+        "c_20261001_IREN_2"
+      ]
+    },
+    {
+      "axis": "ai_cloud_conversion",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0925): Q4 FY26 AI Cloud 매출 비중 51.4% 역전(FY26 연간 18.2%), 과금 가동률·MFU unconfirmed. 가동 ARR $1.0B 대 계약 ARR $4.0B 갭, 해소 기한 2026-12-31.",
+      "new_state": "창 내 과금 가동률·MFU·가동 ARR 진척에 관한 신규 공시·경영진 발언 0건(c_20261001_IREN_1, _2). FY27 Q1 실적일에 관해 애그리게이터 간 상충 추정(TipRanks '12/1' vs 타 소스 '11/5~11/6')만 발견 — 회사 공식 확인 없어 F1에 따라 근거로 사용하지 않는다.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_IREN_1",
+        "c_20261001_IREN_2"
+      ]
+    },
+    {
+      "axis": "margin_structure",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0925): 신규 정량 자료 없음. MW당 매출은 계약 단가 기준만 존재(F3).",
+      "new_state": "창 내 신규 정량 자료 0건. AI Cloud 부문 감가상각 배분 검증 재료는 FY27 Q1 체크포인트로 이월 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_IREN_1",
+        "c_20261001_IREN_2"
+      ]
+    },
+    {
+      "axis": "funding_dilution",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0925): 완전희석 주수 range(394,058,648~558,718,254+) 유지(F9). 신규 발행·차환 공시 0건.",
+      "new_state": "창 내 유일한 신규 공시는 SCHEDULE 13G(c_20261001_IREN_1) — 이는 Citadel의 수동적 지분(시장조성 포지션) 보고로 신주 발행·전환·상환과 무관하다. 완전희석 주수 range 갱신 근거 없음. 424B5/424B7/S-8 등 조달 관련 신규 공시도 0건.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_IREN_1"
+      ]
+    },
+    {
+      "axis": "btc_mining",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0925): CFO 발언(grade2, 8/27)으로 채굴 종료 목표 2026-12월 말 제시. 리스크는 ai_cloud_conversion으로 완전 이관.",
+      "new_state": "창 내 신규 경영진 발언·월간 채굴 실적 업데이트·1차 공시 0건(c_20261001_IREN_1, _2). 종료 목표 시점·리스크 이관 상태 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_IREN_1",
+        "c_20261001_IREN_2"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "BC Hydro 2026 Call for Demand — 선정 결과·IREN 신청 여부 [갱신]",
+      "detail": "2026-10-01 시점까지 선정 결과·명단 미공표 — 목표 통보 시점('9월 중순')이 2주 이상 경과. IREN의 BC 노출(Canal Flats 30 + Prince George 50 + Mackenzie 80 = 160MW gross)과 신청·선정 여부의 연결은 여전히 미확인. 다음 관측점: BC Hydro 결과 공표 또는 FY27 Q1 10-Q.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "SB6/PUCT 적용 MW (KC-10 첫 조건 분모) [갱신]",
+      "detail": "2026-09-18 PUCT가 ERCOT 대형부하(75MW+) 상호접속 표준화 규칙(16 TAC §25.194)을 채택했다는 복수 2차 보도가 확인됐으나(c_20261001_IREN_3) 1차 원문 대조 실패로 confirmed=false. 일반 규칙의 구체화와 별개로, IREN 계약 용량 중 SB6 비상 커테일먼트 적용 MW는 여전히 미공시 — KC-10 분모 공백 지속. PUCT 송전요금 배분 방법론 개정(별도 트랙) 시한 2026-12-31도 미도래.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "FY27 Q1 실적일 확정",
+      "detail": "카드 기준선은 '2026-11 경, 정확일 미공시'. 창 내 애그리게이터 소스 간 상충 발견(TipRanks '2026-12-01 장마감 후' vs 일부 소스 '11/5~11/6') — 회사 IR·GlobeNewswire 공식 확인 없음, F1에 따라 근거로 사용하지 않음.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "Governor Abbott 지시 ERCOT 데이터센터 감사 최종 결과",
+      "detail": "2026-12(경) 완료 목표로 진행 중. Project Star 보도자료가 동일 지침을 재확인했으나 IREN 사이트별 개별 감사 결과는 여전히 미공표.",
+      "reason": "audit_in_progress"
+    },
+    {
+      "topic": "Horizon 2 인도·인수 완료 여부",
+      "detail": "8/27 콜 기준 commissioning 진행 중, Horizon 3-4는 late-stage construction, calendar Q4 2026 인도 목표. 회사 SNS가 진행 중이라는 정성 서술을 제공했으나 구체 일정·MW 변화는 없음 — P7 2단(이행) 미확인 상태 유지.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "과금 가동률(billing utilization) / MFU",
+      "detail": "8/27 FY26 실적에서 미공개. 창 내 신규 자료 없음. 다음 관측점 FY27 Q1 10-Q.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "완전희석 주수 갱신치 (8/14 이후)",
+      "detail": "창 내 신규 EDGAR 공시가 13G(지분보고) 1건뿐이라 카드 range(하한 394,058,648 ~ 상한 558,718,254+) 갱신 불가. F9 range 유지, 단일값 사용 금지.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "매니지드 서비스 믹스(Mirantis 매출 비중) 정량치",
+      "detail": "Mirantis는 2026-08-03/04 종결로 FY26 미반영. FY27 Q1이 첫 연결 분기이며 창 내 정량·정성 신규 언급 없음.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "한국 대미 에너지 투자(Project Star)의 IREN 직접 연관 여부 [신규 처리]",
+      "detail": "사용자 주입 자료 처리 완료(output/20261001_0900/00_user_sources/korea_us_energy_investment_20260930.json). 1차 소스(prnewswire.com 경유 newsroom.nexteraenergy.com 원문, commerce.gov 팩트시트) 역추적 성공. IREN·Iris Energy·Sweetwater·Childress에 대한 언급은 어느 1차·2차 소스에도 없음 — 현재는 노이즈가 아니라 scope=sector의 confirmed Claim(c_20261001_IREN_4)으로 적재하되 IREN 축 상향·하향 근거로는 사용하지 않는다(P6). 향후 IREN이 테넌트·공급 관계로 직접 언급되는 1차 공시가 나오면 company_specific으로 재평가 대상.",
+      "reason": "sector_scope_no_company_link"
+    },
+    {
+      "topic": "신규 축 제안",
+      "detail": "이번 회차에서 카드 6개 축 밖의 신규 축 제안 사유는 발생하지 않았다.",
+      "reason": "not_applicable"
+    }
+  ]
+}

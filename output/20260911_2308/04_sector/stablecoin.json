@@ -1,0 +1,515 @@
+{
+  "sector": "stablecoin",
+  "label": "스테이블코인·크립토 플랫폼",
+  "layer": "sector",
+  "as_of": "2026-09-12",
+  "run_id": "20260911_2308",
+  "members": ["CRCL", "COIN", "HOOD"],
+  "missing_inputs": [],
+  "single_ticker_view": false,
+  "reused_from": null,
+  "staleness_days": 0,
+
+  "inputs_used": {
+    "company": [
+      "output/20260911_2308/02_company/CRCL.json",
+      "output/20260911_2308/02_company/COIN.json",
+      "output/20260911_2308/02_company/HOOD.json"
+    ],
+    "arbiter_decisions": [
+      "output/20260911_2308/03_signal/CRCL.json",
+      "output/20260911_2308/03_signal/COIN.json",
+      "output/20260911_2308/03_signal/HOOD.json"
+    ],
+    "code_aggregate": "output/20260911_2308/04_sector/stablecoin_aggregate.json",
+    "prior_sector_lineage_only": "output/20260905_0618/04_sector/stablecoin.json",
+    "input_vintage_note": "[fact] COIN·HOOD의 02_company 산출물은 reused_from이 각각 직전 run 경로·null이고 staleness_days=0이며 as_of는 2026-09-12다. [fact] CRCL의 02_company 산출물은 reused_from='output/20260905_0618/02_company/CRCL.json'·staleness_days=7로 표기돼 있으나 as_of는 2026-09-12이고 이번 조회로 생성된 신규 Claim 5건(c_20260911_CRCL_1~5)을 포함한다. [inference:strong] 이 staleness_days=7은 관측의 노후도가 아니라 직전 run으로부터의 경과일수를 표기한 것으로 읽히며, 3사의 실제 관측 종료 시각은 2026-09-12로 정렬돼 있다 — 이번 회차의 축 부호 차이는 관측 시각 비대칭의 산물이 아니다. [fact] 동일한 표기 문제를 직전 run이 esc_0618_04로 이관했고 이번 run에도 재발했으므로 재이관한다(esc_2308_05).",
+    "coverage_note": "[fact] 이번 run은 3사 모두가 Delta를 생성했고 총 9건이다 — CRCL 4건, COIN 1건, HOOD 4건이다. [fact] 직전 run은 8건(CRCL 4·COIN 2·HOOD 2)이었다. [fact] 9건이 매핑된 축은 서로 다른 9개이며 2개 이상 종목이 공유하는 축은 0개다.",
+    "excluded_by_instruction": "[fact] output/20260911_2308/03_signal/_COIN_corrupted_backup.json은 인코딩 손상으로 폐기된 이전 판정본이라는 오케스트레이터 고지에 따라 열람하지 않았다 — COIN 판정의 유효본은 03_signal/COIN.json만 사용했다.",
+    "p17_note": "[fact] 본 산출물의 입력은 위 3사 02_company·03_signal 구조화 산출물과 [CODE] 집계본으로 한정했다. [fact] 직전 run의 섹터 산출물은 구조적 역노출 3건·미확정 항목·스키마 대조 목적(오케스트레이터 지시)에 한해 동일 섹터 자기 계열 산출물로 열람했다. [fact] config/coverage.yaml의 섹터 정의(members·common_axes)와 consensus_aggregate.py 소스는 집계 감사 목적으로 확인했다. [fact] L2 수집 원문(_raw_edgar_*), 타 섹터 산출물(IREN·NBIS·CRWV·MU), 01_macro_kc*.json, thesis card 원문, ThesisPatch·승인 큐에는 접근하지 않았다."
+  },
+
+  "code_output_audit": {
+    "verdict": "no_correction_needed — 스크립트 출력과 수기 재계산이 전 항목 일치",
+    "manual_recount": "[fact] 3사 02_company의 deltas 배열을 직접 계수한 결과는 다음과 같다 — CRCL: diversification=strengthen, reserve_income=neutral, regulation_sector_legislation=neutral, competition_yield_bearing=neutral(4건). COIN: usdc_economics=neutral(1건). HOOD: aua_inflow=strengthen, crypto_cycle=neutral, rates_income=neutral, prediction_market=neutral(4건). [fact] 총 9건·9개 축이며 한 종목이 같은 축에 복수 Delta를 낸 사례는 없다 — 종목 단위 dedup 로직이 작동할 입력 자체가 없었다. [fact] 9개 축 전부 coverage_count=1이고 스크립트는 전부 dispersion='single_ticker'로 표기했다(과거 결함이던 'low' 오표기는 발생하지 않았다). [fact] 스크립트 출력의 축·방향·supporters·coverage_tickers·coverage_count·dispersion·intra_ticker_dispersion 전 항목이 수기 재계산과 동일하다. [inference:strong] 따라서 이번 집계본은 수기 보정으로 대체할 필요가 없다.",
+    "manual_fallback_used": false,
+    "single_ticker_view_flag_note": "[fact] 집계본의 single_ticker_view=false는 '섹터 구성 종목 중 산출물이 존재하는 종목이 2개 이상'이라는 뜻이며(스크립트 소스: members 수에서 missing을 뺀 값이 1 이하일 때만 true), '축이 2개 이상 종목의 지지를 받는다'는 뜻이 아니다. [inference:strong] 이 두 의미를 혼동하면 이번 집계가 종목 간 비교를 수행한 것으로 오독된다 — 실제로는 9개 축 전부가 single_ticker다.",
+    "residual_deviation": "[fact] 직전 두 run에서 지적한 잔여 편차가 이번에도 동일하게 존재한다 — 스크립트는 config/coverage.yaml의 common_axes로 축을 선별하지 않고 종목 Delta의 axis 문자열 전체를 집계한다(SKILL 절차의 '공통 축 관련 Delta 추출'과 부분 불일치). [fact] stablecoin 섹터의 common_axes는 '금리(이자수입)·규제 확정(CLARITY·SEC 면제)·크립토 사이클'이라는 한국어 서술 라벨이고 종목 Delta의 axis는 영문 키여서 기계적 매핑 관계가 config에 존재하지 않는다. [inference:strong] 이 불일치는 이번 run의 산술 결과에는 영향을 주지 않는다 — 9개 축 전부 coverage_count=1이므로 어떤 선별 기준을 적용해도 종목 간 컨센서스는 산출되지 않는다. [inference:strong] 그러나 불일치의 성질은 이번 run에서 달라졌다 — 아래 axis_naming_discontinuity 및 escalation esc_2308_01에서 기술하듯, 매핑 부재는 단순한 스크립트 편차가 아니라 섹터 컨센서스를 세 run 연속 측정 불가 상태로 묶어두는 원인으로 판정된다. [fact] 매핑 테이블 신설은 config 영역이므로 제안만 하고 수정하지 않는다.",
+    "axis_naming_discontinuity": "[fact] 이번 run에 CRCL의 축 명칭 하나가 직전 run과 달라졌다 — 직전 run의 competition_ousd가 이번 run에는 competition_yield_bearing으로 나타난다. [fact] 두 축의 이번·직전 근거는 동일 계열이다(FIGR의 $YLDS 유통량, 2Q26 $556.033M). [inference:strong] 즉 축이 교체된 것이 아니라 같은 감시 대상의 축 라벨이 변경된 것이며, 이는 직전 run이 su_20260905_12로 지적한 '한 축 슬롯에 OUSD와 $YLDS라는 성질이 다른 두 위협원이 혼재' 문제를 이름 층위에서 정리한 결과로 읽힌다. [inference:strong] 다만 그 결과 OUSD를 담던 전용 축 슬롯이 사라졌고, 이번 run에 OUSD는 어떤 축에도 매핑되지 않은 채 CRCL·COIN 양측의 unconfirmed 항목으로만 남았다 — 라벨 정리가 새로운 커버리지 결손을 만들었다(esc_2308_03). [fact] 축 라벨 변경은 카드 소유 계층(L2·사람)의 영역이며 본 에이전트는 카드·config를 수정하지 않는다."
+  },
+
+  "axis_view": [
+    {
+      "axis": "diversification",
+      "direction": "strengthen",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3, 종목 간 비교 대상 부재",
+      "coverage_tickers": ["CRCL"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": ["CRCL"], "weaken": [], "neutral": [], "break": []},
+      "divergence_cause": "not_applicable — 단일 종목 축",
+      "interpretation": "[fact] CRCL 단독 축이며 직전 run에 휴면이던 축이 이번 run에 활성화됐다. [fact] 근거는 Circle의 Form 8-K(2026-09-08 제출, 사건일 2026-09-04, grade1 confirmed)로, 싱가포르 크로스보더 결제사 Tazapay Pte. Ltd. 인수 확정계약 체결이다 — 대금은 전액 Circle Class A 보통주 약 $400M 상당(종결 시 주가 기준 조정), 배상 담보용 에스크로(5%·3% 물량), 핵심직원 유지 요건(75% 이상), 규제 승인 전제, 최대 15개월 종결 기한이 포함됐고 Item 1.01·3.02·7.01·9.01로 공시됐다. [fact] CRCL 02_company는 이 사건이 카드의 diversification 축 서술(ARC·CPN 등 비이자 매출 다각화)에 명시적 대응 슬롯이 없는 별개의 신규 M&A 채널이라고 기록하고 ThesisPatch 후보로만 남겼다. [fact] 03_signal의 arbiter는 동일 사실에 대해 quantitative_evidence=true·company_specific=true이나 revenue_recognized=false로 판정해 상향 게이트를 미충족 처리했고 등급을 유지했다. [inference:strong] 즉 이 축의 strengthen은 P7 3단 분리상 1단계(계약 존재)에 대한 방향 표기이며 매출 인식과는 두 단계 떨어져 있다 — 다각화의 '실행'이 아니라 '착수'가 관측된 것이다. [fact] 이 축에 대응하는 COIN·HOOD Delta는 없다.",
+      "cross_ticker_note": "[fact] 이번 창에 COIN·HOOD도 각각 인접 사업 확장 재료를 갖고 있으나(COIN의 파생상품 이전은 이번 회차 미갱신, HOOD의 Robinhood Chain은 노이즈 처리) 어느 쪽도 diversification 축에 매핑되지 않았다 — 세 종목의 확장 재료가 세 개의 다른 축 이름으로 흩어진다. [inference:strong] 이 흩어짐 자체가 이번 회차의 측정 불능을 만든 기제 중 하나이며 convergent_pattern의 cp_2308_no_revenue_stage에서 게이트 층위로 다시 묶어 기술한다."
+    },
+    {
+      "axis": "reserve_income",
+      "direction": "neutral",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3",
+      "coverage_tickers": ["CRCL"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["CRCL"], "break": []},
+      "divergence_cause": "not_applicable — 단일 종목 축",
+      "interpretation": "[fact] CRCL 단독 축이며 근거는 c_20260911_CRCL_1(grade1 confirmed)이다 — EDGAR 재조회(조회구간 2026-08-28~2026-09-12) 결과 Coinbase 분배계약 관련 Item 1.01·1.02 공시가 이번 창에도 0건이고, 8-K 제출기한(약 2026-08-24) 경과 후 부재 관측 구간이 약 19일로 연장됐다. [fact] 이번 창의 유일한 신규 8-K는 Tazapay 인수 건으로 분배계약과 무관하다. [fact] 직전 run에서 이 축의 방향은 strengthen이었고 근거는 동일한 '8-K 부재'(당시 12일)였다. [inference:strong] 이번 회차에 부호가 strengthen에서 neutral로 바뀐 것은 새 사실의 등장이나 판정 번복이 아니라, 같은 비(非)사건을 2회차에 다시 강화로 계상하지 않는다는 처리 방침의 결과다 — CRCL 02_company가 '방향은 유지, 신규 강화 신호는 아니므로 neutral'이라고 명기했다. [inference:strong] 따라서 이 축의 시계열을 strengthen→neutral의 약화로 읽으면 오독이다. [fact] 03_signal의 arbiter는 KC-CRCL-3(분배율 상향·구조 변경 공시)을 'met 자체 미성립'으로 판정하고 P5에 따라 최종 확인을 Q3'26 10-Q 계약 주석(통상 11월)까지 보류했다. [fact] 섹터 common_axes의 '금리(이자수입)' 축에 이 축 이름이 대응하지만, 이번 회차 이 축의 실제 내용물은 금리가 아니라 계약 이코노믹스다 — 금리 수준·경로에 관한 사실관계는 이 축의 근거에 포함돼 있지 않다. [fact] 금리 지표 자체는 L1 소관이므로 본 에이전트는 접근하지 않았다(P17).",
+      "cross_ticker_note": "[fact] 이 축의 근거 사실(계약변경 8-K 부재)은 COIN:usdc_economics의 근거 사실과 동일한 사건이며 이번 회차에는 양측 모두 neutral로 매핑됐다 — 직전 run의 strengthen 대 neutral 부호 차이가 사라졌다. [inference:strong] 그러나 이 부호 일치를 종목 간 수렴으로 읽어서는 안 된다. 양측이 같은 부호를 갖게 된 경로가 다르기 때문이다 — CRCL은 이미 격상해 둔 잠정 결론을 재계상하지 않아 neutral이 됐고, COIN은 강화·훼손 근거를 모두 확보하지 못해 neutral을 유지했다. [inference:strong] 집계 층위에서는 두 축 이름이 달라 애초에 같은 축으로 묶이지도 않았다 — 상세는 sie_usdc_distribution_economics 및 interpretation.measurability_verdict 참조."
+    },
+    {
+      "axis": "regulation_sector_legislation",
+      "direction": "neutral",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3. 단, 같은 사실을 COIN도 Claim으로 확보했으므로 '관측 부재'가 아니라 '축 미생성'에 의한 미계상이다(아래 cross_ticker_note)",
+      "coverage_tickers": ["CRCL"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["CRCL"], "break": []},
+      "divergence_cause": "not_applicable(집계 기준) — 규제 재료의 종목 간 대조 불가 사유는 cross_ticker_note 참조",
+      "interpretation": "[fact] CRCL 단독 축이며 근거 Claim(c_20260911_CRCL_4)은 scope=sector·evidence_grade=3·confirmed=false로 태깅됐다. [fact] 내용은 2026-08-08 만장일치 동의(UC agreement)에 따라 H.R.3633(CLARITY Act)의 motion to proceed에 대한 클로처 표결이 2026-09-15(화) 오후 2:15 ET로 예정된 상태가 이번 창에도 변경 없이 유지된다는 것이다. [fact] 이는 본회의 심의 착수를 위한 절차 표결(60표 문턱)이며 법안 최종 통과 표결이 아니다. [fact] 1차 자료(congress.gov 법안 액션 페이지·Congressional Record Daily Digest) 직접 확인은 HTTP 403으로 두 차례 차단됐고, 그 때문에 등급이 3에 머물고 confirmed=false가 유지됐다. [fact] scope=sector 재료이므로 어떤 개별 종목의 등급 근거로도 사용될 수 없다(P6·P13). [fact] 본 산출물은 규제 절차 진전을 이유로 한 3사 동반 상향 서술을 생성하지 않는다(F13). [fact] CRCL 02_company는 자사가 발행자 인가(regulation_company_licensing 축)를 이미 선점한 상태라 이 축의 개별 종목 영향은 낮다고 기록했다. [inference:strong] 따라서 이 축의 neutral은 '재료가 없다'가 아니라 '재료는 있으나 절차 단계이고 종목 등급으로 전이될 수 없다'는 뜻이다.",
+      "cross_ticker_note": "[fact] 같은 사실을 COIN도 독립적으로 확보했다 — c_20260911_COIN_2는 Thune 원내대표가 2026-08-07 클로처를 신청했고 표결이 2026-09-15 오후 2:15 ET에 ripen하도록 예정돼 있으며 60표가 필요하고 클로처는 통과가 아닌 토론 개시 결정이라고 기록했다(evidence_grade=3·scope=sector·confirmed=false, congress.gov는 동일하게 403). [fact] 그럼에도 COIN은 P6를 이유로 regulation 축 Delta를 생성하지 않았고, 그 결과 집계에는 CRCL 1표만 남았다. [fact] HOOD는 CLARITY 관련 Claim을 이번 창에 생성하지 않았다. [inference:strong] 즉 이 축의 coverage_count=1은 관측의 비대칭이 아니라 같은 관측을 축으로 승격할지에 대한 처리 방침의 비대칭에서 나왔다 — 두 종목이 같은 날짜·같은 등급·같은 취지의 사실을 확보했는데 집계상으로는 한 종목 축으로 보인다. [inference:strong] 이는 이번 회차 측정 불능의 두 번째 기제이며, 첫 번째 기제(축 이름 불일치)와 성질이 다르다."
+    },
+    {
+      "axis": "competition_yield_bearing",
+      "direction": "neutral",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3",
+      "coverage_tickers": ["CRCL"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["CRCL"], "break": []},
+      "divergence_cause": "not_applicable — 단일 종목 축",
+      "interpretation": "[fact] CRCL 단독 축이며 직전 run의 competition_ousd 축과 같은 감시 대상($YLDS)을 다루되 축 라벨이 달라졌다(code_output_audit.axis_naming_discontinuity 참조). [fact] 근거는 c_20260911_CRCL_3(grade1 confirmed)으로, FIGR($YLDS 발행사)의 Form 8-K(2026-09-01 제출)가 Item 2.01 Kiavi, Inc. 인수완료(대금 약 $590M 현금, 2031년 만기 8.5% 시니어노트 $600M 발행으로 조달) 공시이며 $YLDS 및 유통량 수치를 담고 있지 않다는 사실이다. [fact] 그에 따라 직전 run에서 확정한 2Q26(6/30 마감) 유통량 $556.033M(1Q26 $598M 대비 QoQ -7.0%)이 이번 회차에도 최신 grade1 관측치로 유지된다. [fact] 다음 갱신 시점은 FIGR 3Q26 공시(미도래)로 특정됐다. [inference:strong] 이 축의 neutral은 경쟁 압력의 변화 없음이 아니라 관측치의 갱신 없음이다 — 분기 계열 지표를 주간 창에서 재확인한 결과이므로 방향 정보를 담고 있지 않다. [fact] 발행사 FIGR는 커버리지 밖 종목이나 CRCL 카드의 축 위험지표를 직접 구성한다는 이유로 CRCL 특정 관측(scope=company_specific)으로 취급됐다 — 직전 run과 동일한 관례다.",
+      "cross_ticker_note": "[inference:strong] $YLDS 계열은 sie_yield_bearing_stablecoin_clause(조건부 역노출)의 유일한 정량 감시 계열이기도 하다 — 이번 회차에 계열 자체는 갱신되지 않았고 CLARITY 이자·보상 조항 문언도 미확정이므로 부호는 여전히 부여할 수 없다. [fact] COIN·HOOD에는 이 축에 대응하는 Delta가 없다."
+    },
+    {
+      "axis": "usdc_economics",
+      "direction": "neutral",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3",
+      "coverage_tickers": ["COIN"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["COIN"], "break": []},
+      "divergence_cause": "not_applicable — 단일 종목 축",
+      "interpretation": "[fact] COIN 단독 축이며 근거는 c_20260911_COIN_1(grade1 confirmed)이다 — EDGAR submissions API 재조회(CIK 0001679788, 10-K/10-Q/8-K, since 2026-08-28) 결과 반환은 1건(8-K, 2026-09-02)뿐이고 이는 직전 run에서 이미 원문 확인된 Item 5.02 이사회 인사(Anthony Armstrong 선임) 단독 건이다. [fact] 이번 주 창과 소급 스윕 구간 어디에도 Circle 분배계약 변경·갱신 관련 8-K는 없다. [fact] COIN 02_company는 시중 2차 보도(2026-08-05~06, 창 밖, 전부 grade4)가 '분배계약이 2023-08-18 원 조건대로 2029년까지 갱신됐다'는 취지로 전하나 SEC 공시를 인용하지 않고 Circle 스스로 구체 분배율 미공개를 인정한다는 점을 들어 채택하지 않았다. [fact] 그 결과 직전 run에서 이월된 '확장'(grade4 단독) 대 '불변'(grade3 다수) 서사 상충은 이번 회차에도 해소되지 않았다. [fact] 03_signal의 arbiter는 이번 입력을 '부재 지속 확인(no_new_disclosure)'으로 분류하고 P5에 따라 상향·하향 어느 쪽 근거로도 사용하지 않았으며 등급을 유지했다. [inference:strong] 이 축의 neutral은 관측의 질이 낮아서가 아니라 사건 자체가 발생하지 않았기 때문이며, 부재의 관측 자체는 grade1으로 확보됐다.",
+      "cross_ticker_note": "[fact] 이 축의 근거 사실은 CRCL:reserve_income의 근거 사실과 동일한 사건이며 양사가 각각 grade1으로 독립 확인했다 — 이번 회차 3사를 통틀어 두 종목이 같은 사건을 같은 등급으로 확보한 유일한 사례다. [inference:strong] 그럼에도 두 축의 이름이 달라 집계 층위에서는 별개의 single_ticker 축 두 개로 분해됐다 — 이번 회차 측정 불능의 첫 번째 기제를 보여주는 직접 증거다. [inference:strong] 다만 두 종목의 노출 방향은 원래 반대이므로(발행자 비용 측 대 분배자 수익 측), 설령 축 이름이 통일돼 한 축으로 묶였더라도 그 결과는 '방향 일치'가 아니라 '구조적 역노출'로 읽혀야 한다 — sie_usdc_distribution_economics 참조."
+    },
+    {
+      "axis": "aua_inflow",
+      "direction": "strengthen",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3",
+      "coverage_tickers": ["HOOD"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": ["HOOD"], "weaken": [], "neutral": [], "break": []},
+      "divergence_cause": "not_applicable — 단일 종목 축",
+      "interpretation": "[fact] HOOD 단독 축이며 직전 run에 휴면이던 축이 활성화됐다. [fact] 근거는 2026-09-10 공개된 'August 2026 Operating Data'(c_20260911_HOOD_1, grade1 confirmed, globenewswire.com은 config/sources.yaml grade_1 등재 도메인)다 — Total Platform Assets $383.7B(MoM +8%, YoY +26%), 8월 단월 순입금 $4.0B, 순입금 TTM $74.1B, Funded Customers 28.6M(MoM 약 +12만명, YoY 약 +190만명). [fact] 자료 자체가 비감사·잠정치(unaudited, subject to completion of financial closing procedures)임을 회사가 명시했다. [fact] 직전 run에서 이 축은 8월 지표 미발표를 이유로 휴면이었고, 섹터 층위에서는 su_20260905_08로 '회사 공식 고빈도 관측원 부재'가 지적돼 있었다 — 이번 회차에 그 결측이 해소됐다. [fact] 03_signal의 arbiter는 순입금·AUA·명목거래액을 매출 발생 이전 단계의 선행 투입량으로 보아 revenue_recognized=false로 판정하고 상향 게이트를 미충족 처리했다. [inference:strong] 따라서 이 축의 strengthen은 자산·고객 기반의 확대를 뜻하며 매출·마진의 확정 개선을 뜻하지 않는다 — 두 층위를 등치하면 상향 게이트 오판이 된다.",
+      "cross_ticker_note": "[fact] 이번 회차 3사 중 회사 공식 grade1 정량 계열을 새로 확보한 종목은 HOOD뿐이다 — CRCL의 grade1은 8-K 사건 공시와 부재 확인이고, COIN은 신규 정량 공시가 없다. [inference:strong] 관측원의 질과 빈도가 종목별로 계통적으로 다르므로, 축 방향의 분포를 종목 간 비교로 읽을 때는 자료 접근 비대칭을 먼저 통제해야 한다."
+    },
+    {
+      "axis": "crypto_cycle",
+      "direction": "neutral",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3",
+      "coverage_tickers": ["HOOD"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["HOOD"], "break": []},
+      "divergence_cause": "not_applicable — 단일 종목 축",
+      "interpretation": "[fact] HOOD 단독 축이며 근거는 c_20260911_HOOD_2(grade1 confirmed)와 c_20260911_HOOD_4(inference, 강도 medium)다. [fact] 8월 크립토 명목거래액은 총 $17.5B(MoM +61%, YoY -38%)이고 세부는 Robinhood App $7.4B(MoM +72%, YoY -46%), Bitstamp $10.1B(MoM +53%, YoY -30%)다. [fact] 같은 자료의 주식 명목거래액은 $335.4B(MoM +1%, YoY +68%)다. [fact] HOOD 02_company는 MoM 반등이 2026-07-01 개시·2026-09-29 종료 예정인 Robinhood Chain 가스비 무료 보조금 시행 기간 중에 발생했고 YoY 기준 다년 하락 사이클이 유지된다는 점을 들어 강화로 판정하지 않고 중립을 유지했다. [fact] 명목거래액은 매출(수수료) 수치가 아니며 매출 인식은 Q3 실적에서 별도로 확인돼야 한다(P7). [fact] 직전 run에서 이 축의 관측은 전부 제3자 온체인 추정치(grade3·4)였고 섹터 층위에서 su_20260905_08·su_20260905_11로 기록돼 있었다. [inference:strong] 이번 회차에 관측원이 회사 공식 자료로 전환됐다는 점은 실질 개선이나, 그 첫 공식 수치가 한시 보조금 기간과 겹쳐 있어 사이클 판정에는 아직 쓸 수 없다 — 2026-09-29 보조금 종료 후 9월 지표(통상 10월 중순 공개)가 분리 관문이다.",
+      "cross_ticker_note": "[fact] 섹터 common_axes의 '크립토 사이클'에 이 축이 직접 대응하지만 CRCL·COIN에는 이번 회차 대응 Delta가 없다 — CRCL의 USDC 유통량 축(usdc_circulation_scale)은 휴면이고 COIN의 거래·파생 축도 휴면이다. [inference:strong] 사이클은 세 종목에 모두 작용하는 대표적 공통 드라이버인데도 두 run 연속 커버리지 1/3에 머물러 섹터 축으로 기능하지 않는다."
+    },
+    {
+      "axis": "rates_income",
+      "direction": "neutral",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3",
+      "coverage_tickers": ["HOOD"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["HOOD"], "break": []},
+      "divergence_cause": "not_applicable(집계 기준) — 단, 종목 내부 지표 간 부호 혼재가 존재한다(아래)",
+      "interpretation": "[fact] HOOD 단독 축이며 직전 run에 휴면이던 축이 활성화됐다. [fact] 근거는 c_20260911_HOOD_3(grade1 confirmed)으로 Margin Book $21.5B(MoM +4%, YoY +72%)와 Total Securities Lending Revenue $36M(MoM -10%, YoY -32%)이다. [fact] HOOD 02_company와 03_signal 모두 마진북(이자수입 기초자산) 확대와 증권대차수익 축소가 동시에 관측돼 방향이 혼재되므로 단일 강화·훼손 판정 근거로 사용하지 않는다고 기록했다. [fact] 세부 판정은 Q3 실적의 이자수입 항목 전체 공시로 이관됐다. [inference:strong] 주목할 점은 이 혼재가 집계본에는 남지 않는다는 것이다 — 종목이 내부에서 상쇄해 하나의 neutral Delta로 제출했기 때문에 스크립트의 intra_ticker_dispersion에도 포착되지 않았다. [inference:medium] 즉 이번 회차 집계의 '분산 0'은 종목 간뿐 아니라 종목 내부에서도 상쇄가 선행된 결과이며, 집계본만 보면 이자수입 축에 방향 충돌이 있었다는 사실 자체가 보이지 않는다.",
+      "cross_ticker_note": "[fact] 섹터 common_axes의 '금리(이자수입)'에는 이 축과 CRCL:reserve_income이 함께 대응한다 — 두 축을 같은 드라이버(금리→이자수입)의 종목별 표현으로 볼 수 있는지에 대한 판정은 escalation esc_2308_01의 매핑 테이블에 기술했다. [inference:strong] 요지는 상위 드라이버는 같으나 기초자산이 다르다는 것이다 — CRCL은 준비금(단기 국채 계열)의 이자수입이고 HOOD는 고객 마진대출·증권대차의 이자·수수료 수입이다. [inference:medium] 따라서 금리 방향이 같아도 두 종목의 부호가 반드시 같지는 않으며, 이번 회차처럼 CRCL 측 축의 실제 내용물이 금리가 아닌 계약 이코노믹스인 경우에는 두 축을 한 축으로 합산하면 오히려 드라이버가 섞인다."
+    },
+    {
+      "axis": "prediction_market",
+      "direction": "neutral",
+      "dispersion": "single_ticker",
+      "dispersion_reassessed": "not_computable — 커버리지 1/3",
+      "coverage_tickers": ["HOOD"],
+      "coverage_count": 1,
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["HOOD"], "break": []},
+      "divergence_cause": "not_applicable — 단일 종목 축",
+      "interpretation": "[fact] HOOD 단독 축이며 근거는 c_20260911_HOOD_5(evidence_grade 4, confirmed=false)와 c_20260911_HOOD_6(inference, 강도 medium)이다. [fact] 뉴저지주(도박단속국장 Mary Jo Flaherty 및 주 법무장관)가 2026-09-02 제3순회항소법원 KalshiEX, LLC v. Flaherty 판결(도드-프랭크법이 CFTC 등록 스포츠 이벤트계약에 대한 주 도박규제를 선점한다는 취지, Kalshi 승소)에 대해 연방대법원에 상고장을 제출했고 2026-09-08 사건번호 No. 26-299로 정식 접수됐다. [fact] 상고 쟁점은 도드-프랭크법의 주 규제 선점 여부 단일 쟁점이다. [fact] 이 건은 제9순회 Assad 건이 아니라 제3순회 Flaherty 건에 대한 상고이며 HOOD 02_company가 혼동 주의를 명기했다. [fact] 근거의 실질은 소송당사자 1차 원문(njoag.gov 게시 PDF)이나 njoag.gov·courtlistener.com이 config/sources.yaml 미등재여서 기계적으로 grade4가 부여됐다. [fact] 직전 run에서 이 축의 방향은 weaken이었고 근거는 제9순회·제3순회 간 circuit split 성립이었다. [inference:strong] 이번 회차의 neutral은 리스크 완화가 아니라 사건의 성질 변화다 — 상고 접수는 결론을 정하는 사건이 아니라 심리 절차의 개시이며, 파기 시 주 규제 우위가 전국화되고 인용 시 연방 선점이 강화되는 양방향이 모두 열려 있다. [fact] 03_signal의 arbiter는 KC-HOOD-3(연방·CFTC 차원 금지 또는 상위 3개 주 이상 동시 금지) 트리거 미충족을 유지했다.",
+      "cross_ticker_note": "[fact] 이 축의 재료는 scope=sector로 태깅됐으나 CRCL·COIN에는 대응 관측이 없다 — 예측시장·이벤트계약 규제는 CLARITY·GENIUS의 디지털자산 시장구조 트랙과 별개의 규제 트랙이다. [inference:strong] 따라서 섹터 common_axes의 '규제 확정'에 이 축을 그대로 합산하면 서로 다른 두 규제 트랙이 한 축에 섞인다 — esc_2308_01의 매핑 테이블에서 하위 트랙 분리를 제안한다."
+    }
+  ],
+
+  "dormant_axes_vs_prior_run": {
+    "note": "[fact] 직전 run(20260905_0618)에 Delta가 있던 8개 축 중 이번 run에도 갱신된 축은 4개다 — CRCL:reserve_income, CRCL:regulation_sector_legislation, COIN:usdc_economics, HOOD:prediction_market. [fact] 1개 축은 라벨이 바뀐 채 실질 갱신됐다 — CRCL:competition_ousd가 CRCL:competition_yield_bearing으로 나타났고 근거 계열($YLDS)은 동일하다. [fact] 이번 run에 휴면으로 전환된 축은 2개다 — CRCL:usdc_circulation_scale(USDC 유통량 신규 관측 없음)과 COIN:derivatives_base(Deribit·Starbase·RWA 무기한선물 재조사를 이번 회차에 수행하지 않음). [fact] 이번 run에 새로 활성화된 축은 3개다 — CRCL:diversification(Tazapay 인수), HOOD:aua_inflow(8월 운영지표), HOOD:rates_income(마진북·증권대차). [fact] 여전히 휴면인 축 슬롯은 CRCL:usdc_market_share·regulation_company_licensing, COIN:regulation, HOOD:arpu_mix다.",
+    "reason": "[fact] CRCL은 USDC 유통량·점유율의 신규 grade1 자료를 이번 창에 확보하지 않았고 다음 갱신 시점을 Q3 10-Q로 특정했다. [fact] COIN은 웹검색·WebFetch 총 6회 예산 안에서 CLARITY·OUSD·USDC 수익 확인을 우선했고 Deribit 관련 항목은 '이번 창에서는 예산 제약상 재검색을 수행하지 않음 — 상태 변화 여부 미확인 채 이월'로 명기했다. [fact] HOOD는 8월 운영지표 공개로 두 축이 새로 열렸다. [inference:strong] 따라서 휴면 축의 증감은 판정 변화가 아니라 관측 배분의 결과이며 직전 판정이 승계 유지된 상태로 읽어야 한다(P5·P12). [inference:medium] 특히 COIN:derivatives_base의 휴면은 자료 부재가 아니라 조사 미수행에서 비롯됐다는 점이 명시돼 있어, 다른 휴면 축들과 성질이 다르다 — 다음 회차에 우선 재조사 대상으로 이관한다.",
+    "common_axes_coverage": "[fact] config/coverage.yaml이 정의한 섹터 공통 축 3개의 이번 run 커버리지는 다음과 같다 — 금리(이자수입): 축 이름 기준 2/3(CRCL:reserve_income, HOOD:rates_income)이나 CRCL 축의 이번 회차 내용물은 금리가 아닌 계약 이코노믹스이므로 드라이버 기준으로는 1/3이다. 규제 확정(CLARITY·SEC 면제): 1/3(CRCL:regulation_sector_legislation) — COIN은 같은 사실을 Claim으로 확보하고도 축을 생성하지 않았고, HOOD:prediction_market은 별개 규제 트랙이다. 크립토 사이클: 1/3(HOOD:crypto_cycle). [fact] 직전 run은 각각 1/3·1/3·1/3이었다. [inference:strong] 세 공통 축 중 어느 것도 두 run 연속으로 2개 이상 종목의 지지를 얻지 못했다 — 다만 이번 회차에는 '금리' 축에서 두 종목이 이름상 대응 축을 동시에 가동한 첫 사례가 나왔고, 이것이 매핑 테이블을 제안할 근거가 된다(esc_2308_01)."
+  },
+
+  "structural_inverse_exposure": [
+    {
+      "id": "sie_usdc_distribution_economics",
+      "label": "USDC 분배 경제구조 — CRCL 유통비용 대 COIN 분배수익(제로섬)",
+      "update_status": "updated — 계약변경 8-K 부재가 SEC 제출기한(약 2026-08-24) 경과 후 약 19일까지 양사에서 각각 grade1으로 확인됨. 부호는 이번 window에도 활성화되지 않았고 규모 프록시도 갱신되지 않았다",
+      "shared_axes": ["CRCL:reserve_income", "COIN:usdc_economics"],
+      "axis_label_note": "[fact] USDC 분배 경제구조는 종목 축 두 개를 잇는 섹터 계층의 교차 축 라벨이며 종목 산출물이나 config에 동명의 축 키는 존재하지 않는다.",
+      "exposure_by_ticker": {
+        "CRCL": "발행자·비용 측 — Distribution and transaction costs 라인에 계상(Coinbase 귀속분이 10-Q 각주로 분리 공시됨)",
+        "COIN": "분배자·수익 측 — USDC 준비금수입 배분으로 계상(절대액 여전히 미공시)",
+        "HOOD": "노출 없음 — 이번 run에도 관련 Claim·Delta 부재"
+      },
+      "classification": "structural_inverse_exposure — 분산 아님",
+      "sign_activated_this_window": false,
+      "evidence": [
+        "[fact] CRCL: EDGAR 재조회(조회구간 2026-08-28~2026-09-12) 결과 이번 창 신규 8-K는 Tazapay 인수 건 1건뿐이고 Coinbase 분배계약 관련 Item 1.01·1.02 공시는 0건이다 — 제출기한 경과 후 부재 관측 구간이 약 19일로 연장됐다(c_20260911_CRCL_1, grade1 confirmed).",
+        "[fact] COIN: EDGAR submissions API 재조회(since 2026-08-28) 결과 반환 1건은 직전 run에 원문 확인된 2026-09-02 Item 5.02 이사회 인사 건이며, 이번 주 창과 소급 스윕 어디에도 신규 8-K·10-Q·10-K가 없다(c_20260911_COIN_1, grade1 confirmed).",
+        "[fact] 규모 프록시(Coinbase 귀속 유통비용 3개월 $324.6M·6개월 $655.3M, 직전 run 확보분)는 이번 창에 갱신 자료가 없어 그대로 유지된다 — 신선도는 직전 run 기준으로 관리해야 한다.",
+        "[fact] COIN 측 USDC 분배수익 절대액은 이번 구간에도 미공시이며 Q3 실적으로 이관됐다.",
+        "[fact] '기존 조건 불변'(복수 grade3) 대 '확장'(grade4) 서사 상충은 이번 구간에도 판별 근거가 등장하지 않아 미해소로 재이월됐다(양측 confirmed=false).",
+        "[fact] 03_signal의 COIN arbiter는 KC-COIN-4의 'kc_crcl_3_adverse_to_coin' 조건이 KC-CRCL-3 미발동에 따라 미충족임을 확인했다."
+      ],
+      "reading": "[inference:strong] CRCL이 Coinbase에 지급하는 유통비용과 COIN이 인식하는 USDC 분배수익은 동일 계약의 양면이며 구조상 제로섬이다 — 배분 조건이 변하면 같은 사건이 두 종목에 반대 부호로 나타난다. 이 구조는 이번 run에도 변하지 않았다. [fact] 이번 회차의 관측상 변화는 부재 구간이 12일에서 약 19일로 연장된 것 하나이며, 그 이상의 새 사실은 양측 어디에도 없다. [fact] 부호 표기에는 변화가 있었다 — 직전 run의 CRCL:strengthen 대 COIN:neutral이 이번 회차에는 양측 neutral로 정렬됐다. [inference:strong] 그러나 이 정렬은 두 종목의 이해가 수렴했다는 뜻이 아니다. CRCL은 직전 run에 이미 '공시의무 없는 자동 갱신 완료'를 잠정 확정으로 격상해 두었고 이번 회차에는 같은 비사건을 재계상하지 않아 neutral이 됐을 뿐이며, COIN은 두 run 연속 강화·훼손 근거를 모두 확보하지 못해 neutral을 유지했다. [inference:strong] 즉 같은 부호가 서로 다른 사유에서 나왔으므로 이를 방향 일치의 증거로 상위 계층에 전달하면 오독이 된다. [inference:medium] 직전 run이 관측한 성질 — '조건 변경'은 제로섬이지만 '조건 불변'은 두 종목에 동일한 부호로 작용하지 않는다 — 은 이번 회차에도 반증되지 않았다. 다만 이번에는 양측이 모두 부호를 비우면서 그 비대칭 자체가 표면에서 보이지 않게 됐다. [fact] 정보 부재는 계약 조건 원문의 불변을 증명하지 않으며(P5), 양사 산출물 모두 최종 확인을 Q3'26 10-Q 계약 주석(통상 11월)으로 보류했다. [fact] 제로섬의 크기는 세 run 연속으로 발행자 측 단면에서만 관측 가능하다.",
+      "consumer_note": "cio-portfolio 참고 — ① CRCL·COIN 쌍은 이 축에서 동조 노출이 아니라 역노출로 취급해야 하며 축 공유도 판정 시 '공유 축이나 부호 반대'로 표기해야 한다(P14의 inverse 항목). ② 이번 run에 양사가 모두 neutral을 기록한 것을 부호 수렴으로 읽으면 오독이다 — 같은 부호가 서로 다른 사유에서 나왔다. ③ 두 종목의 근거 사실이 동일 사건임에도 축 이름이 달라 집계본에는 별개 축 두 개로 나타난다 — 집계본만으로 이 쌍을 식별할 수 없으므로 근거 Claim ID(c_20260911_CRCL_1, c_20260911_COIN_1)까지 확인해야 한다. ④ 규모 프록시는 직전 run 값 그대로이며 갱신되지 않았다. ⑤ 계약 조건 원문의 최종 확인 지점은 양사 Q3'26 10-Q 계약 주석(통상 11월)이다. ⑥ 본 항목의 어떤 관측도 개별 종목 등급 근거로 사용될 수 없다(P13)."
+    },
+    {
+      "id": "sie_ousd_consortium",
+      "label": "OUSD 컨소시엄 — CRCL 정면 위협 대 COIN 양면 노출(비대칭)",
+      "update_status": "not_updated_and_slot_lost — OUSD 실체는 4 run 연속 무변화(미출시·실측 유통량 부재)이며, 이번 회차에는 이 항목을 담던 CRCL 축 슬롯의 라벨까지 competition_yield_bearing으로 바뀌어 OUSD가 어떤 축에도 매핑되지 않는 상태가 됐다",
+      "shared_axes": ["CRCL:competition_yield_bearing(라벨 변경 — OUSD는 이번 회차 이 축의 근거에 포함되지 않음)", "COIN:usdc_economics(risk_transfer 항목)"],
+      "exposure_by_ticker": {
+        "CRCL": "피경쟁 발행자 — 단방향 부정 노출",
+        "COIN": "컨소시엄 참여사 겸 USDC 분배 수혜자 — 참여 지분 upside와 자사 USDC 분배수익 잠식 downside가 병존하는 양면 노출",
+        "HOOD": "노출 없음 — 이번 run에도 관련 Claim·Delta 부재"
+      },
+      "classification": "structural_inverse_exposure(비대칭) — 분산 아님",
+      "sign_activated_this_window": false,
+      "evidence": [
+        "[fact] CRCL: 'OUSD 공식 출시·실측 유통량'을 미확인 항목으로 유지했다 — 2026-06-30 발표(140+사, Open Standard) 이후 '2026년 하반기 목표(Solana 우선)' 반복 확인만 있고 이번 창 웹검색에서도 공식 출시일·실측 유통량 신규 확보가 없어 noise_filter 기준 비승격을 유지했다.",
+        "[fact] CRCL: 2026-09-02 cryptonomist.ch의 '21개 은행 참여 USD 스테이블코인 컨소시엄' 보도를 새로 포착했으나 원문 WebFetch가 HTTP 403으로 차단돼 이것이 OUSD와 동일한 컨소시엄인지 별개의 신규 컨소시엄인지 판별하지 못했고 발행사·발표일·유통량도 확보하지 못했다 — unconfirmed(access_blocked)로 적재됐다.",
+        "[fact] COIN: 'OUSD 참여 조건·분배 구조 공개'를 unconfirmed로 유지했고 promote_if 트리거 미충족을 명기했다.",
+        "[fact] COIN: usdc_economics 축의 리스크 이관 항목으로 'OUSD 참여의 장기적 자사 USDC 수익 대체·재편 가능성'을 소멸이 아닌 유지로 표기했다.",
+        "[fact] CRCL의 competition_yield_bearing 축 Delta 근거는 OUSD가 아니라 FIGR의 $YLDS이며, 이번 회차에는 그 $YLDS조차 갱신되지 않아 축 방향이 neutral이다."
+      ],
+      "reading": "[inference:strong] OUSD 출시라는 단일 이벤트는 CRCL에는 발행 점유 잠식이라는 단방향 위협이지만 COIN에는 컨소시엄 참여 지분의 upside와 자사 USDC 분배수익 잠식의 downside가 동시에 걸린 양면 노출이므로, 축별 방향 집계에서 분산으로 처리하면 오독이 발생한다 — 이 구조는 이번 run에도 변하지 않았다. [fact] OUSD 자체의 관측은 4 run 연속으로 미출시·실측 유통량 부재에서 진전이 없다. [fact] 부호가 발생할 사건 자체가 아직 없으므로 이번 window에도 부호는 활성화되지 않았고, 자료 부재를 위협 소멸의 반증으로 해석하지 않는다(P5). [inference:strong] 이번 회차의 새 관측은 두 가지다. 첫째, 직전 run이 지적한 '한 축 슬롯에 OUSD와 $YLDS가 혼재'하는 문제가 축 라벨을 competition_yield_bearing으로 바꾸는 방식으로 이름 층위에서 정리됐으나, 그 결과 OUSD 전용 슬롯이 사라져 OUSD 위협이 어떤 축에도 매핑되지 않는 새 결손이 생겼다 — 카드 층위에서 이 위협을 어디에 담을지는 사람의 판단 영역이다(esc_2308_03). 둘째, '21개 은행 컨소시엄' 보도가 기존 OUSD와 같은 실체인지 판별되지 않아, 위협원의 수가 하나인지 둘인지조차 확정되지 않은 상태다. [inference:medium] 두 관측을 합치면 이 항목은 이번 회차에 실체 진전 없이 관측 구조만 약해졌다 — 감시 대상은 그대로인데 그것을 담는 슬롯과 식별이 함께 흐려졌다.",
+      "consumer_note": "cio-portfolio 참고 — ① OUSD는 CRCL·COIN이 공유하는 노출이나 부호가 반대이고 COIN 측은 부호 자체가 미확정인 양면 노출이므로 섹터 단일 방향으로 합산할 수 없다. ② 이번 run의 CRCL 축 라벨 변경(competition_ousd → competition_yield_bearing)을 축 교체로 읽으면 안 된다 — 같은 $YLDS 계열의 라벨 변경이며 OUSD 관측은 무변화다. ③ OUSD가 이번 회차에 어떤 축에도 매핑되지 않았으므로 축 공유도 판정에서 이 위협이 누락될 수 있다 — 근거 Claim ID가 아니라 unconfirmed 항목(CRCL·COIN 양측)을 확인해야 한다. ④ '21개 은행 컨소시엄' 보도의 실체가 확인되기 전까지 위협원 수를 하나로 가정하지 않는 편이 안전하다."
+    },
+    {
+      "id": "sie_yield_bearing_stablecoin_clause",
+      "label": "이자부 스테이블코인 취급 — CLARITY 이자·보상 조항 결과에 따른 조건부 역노출",
+      "update_status": "not_updated — 조항 문언·상원 절차 모두 무변화(9/15 절차 표결이 as_of 기준 3일 후로 미도래, 일정 변경 없음)이며 정량 감시 계열($YLDS)도 이번 회차에 갱신되지 않았다. 다만 감시 계열과 축 라벨이 competition_yield_bearing으로 정렬된 것은 구조상 개선이다",
+      "shared_axes": ["CRCL:competition_yield_bearing", "CRCL:regulation_sector_legislation", "COIN:regulation(휴면)"],
+      "exposure_by_ticker": {
+        "CRCL": "무이자 발행자 — 이자부 경쟁재 확산은 부정, 이자 지급 제한은 긍정",
+        "COIN": "분배·거래 플랫폼 — 이자부 상품의 유통·거래 기회 측면과 USDC 분배 경제성 측면이 반대로 작동할 수 있음",
+        "HOOD": "노출 미매핑 — 이번 회차 CLARITY 관련 Claim·Delta 부재"
+      },
+      "classification": "conditional_inverse_exposure — 부호 미확정, 감시 대상",
+      "sign_activated_this_window": false,
+      "conditional_handling_rule": "[fact] 조건부 항목은 축 공유도 산정에는 포함하되 방향(부호)을 부여하지 않으며 어떤 종목의 방향 판정에도 사용하지 않는다 — 직전 두 run의 취급 규칙을 그대로 유지한다.",
+      "evidence": [
+        "[fact] CRCL은 CLARITY 9/15 오후 2:15 ET 클로처 표결 일정이 이번 창에도 변경 없이 유지됨을 c_20260911_CRCL_4(grade3, confirmed=false)로 기록했고 congress.gov 1차 확인은 2회 모두 403으로 차단됐다.",
+        "[fact] COIN은 같은 일정을 c_20260911_COIN_2(grade3, confirmed=false)로 기록했고 congress.gov 직접 확인이 403으로 실패해 상원 일간기록과 The Block 교차확인으로 대체했으며, scope=sector이므로 축 Delta를 생성하지 않았다.",
+        "[fact] HOOD 02_company에는 CLARITY 관련 Claim이 없다.",
+        "[fact] CRCL은 '이자부 스테이블코인 조항 문언 확정 여부'를 unconfirmed(negotiation_ongoing)로 유지하며 불법금융·법집행 보호 조항, 이자·보상 조항, 정부윤리 조항 협상이 계속 진행 중이라고 기록했다.",
+        "[fact] $YLDS 유통량은 2Q26(6/30) $556.033M이 최신 grade1 관측치로 유지되며 이번 창 FIGR 8-K(2026-09-01)는 Kiavi 인수 건으로 $YLDS를 언급하지 않는다 — 다음 갱신은 FIGR 3Q26 공시다.",
+        "[fact] 이자·보상 지급 조항의 문언 자체에 관한 사실관계는 이번 회차 3사 어느 산출물에도 포함되지 않았다."
+      ],
+      "reading": "[fact] 이 항목의 전제 — 이자부 스테이블코인의 법적 취급이 CRCL과 COIN에 같은 부호로 작용하지 않을 개연성 — 은 이번 run에도 변경되지 않았다. [fact] 상원 절차와 조항 문언은 이번 창에 아무 진전이 없다. [fact] 직전 run에 최초 확보된 정량 감시 계열($YLDS)도 이번 회차에는 갱신되지 않았다. [inference:strong] 따라서 이 항목의 이번 회차 상태는 '전제·절차·계열 3개 모두 무변화'로 정리된다 — 부호를 부여할 근거가 늘지도 줄지도 않았다. [inference:medium] 구조상의 유일한 개선은 이 항목의 감시 계열($YLDS)과 그것을 담는 CRCL 축 라벨(competition_yield_bearing)이 이번 회차에 이름상 정렬됐다는 점이다 — 다음 회차부터는 축 이름만으로 이 항목의 계열을 식별할 수 있다. [fact] 2026-09-15 절차 표결은 as_of 기준 3일 후이며 최종 통과 표결이 아니다 — 클로처 가결·부결 어느 쪽도 조항 문언을 확정하지 않는다. [inference:strong] 그러므로 9/15 결과가 나오더라도 이 항목의 부호는 곧바로 정해지지 않으며, 부호 판정은 조항 문언이 확정되는 시점 이후로 남는다. [fact] 입력에 없는 사실은 추론으로 메우지 않는다(P5).",
+      "consumer_note": "cio-portfolio 참고 — ① 부호 미확정 조건부 항목이며 축 공유도 산정에는 포함하되 방향 부여는 유보한다. ② 2026-09-15은 절차 표결이며 이 항목의 부호를 정하지 않는다 — 표결 결과를 조항 확정으로 읽지 말아야 한다. ③ 정량 감시 계열은 $YLDS 유통량(1Q26 $598M → 2Q26 $556.033M, grade1)이며 이번 회차 갱신 없음, 다음 갱신은 FIGR 3Q26 공시다. ④ 3사의 CLARITY 노출 경로가 서로 다르다는 점은 interpretation.clarity_sector_exposure에 정리했다 — 섹터 단일 부호로 합산할 수 없다."
+    }
+  ],
+
+  "convergent_pattern": [
+    {
+      "id": "cp_2308_no_revenue_stage",
+      "label": "[신규] 이번 창 3사의 신규 재료가 전부 매출 인식 단계 이전에 머물러 3사 동시 등급 유지로 귀결",
+      "update_status": "new — 이번 회차에 3/3 지지로 처음 관측된 패턴이며, 축 층위가 아니라 상향 게이트 층위에서 성립한다",
+      "supporters_this_run": ["CRCL", "COIN", "HOOD"],
+      "mapped_axes": ["CRCL:diversification", "HOOD:aua_inflow", "COIN:usdc_economics"],
+      "direction": "not_applicable — 게이트 판정의 공통 구조에 관한 관측이며 축 방향 재료가 아님",
+      "evidence": [
+        "[fact] CRCL: Tazapay 인수는 quantitative=true·company_specific=true이나 확정 계약 체결 단계이며 규제 승인·최대 15개월 종결 기한 조건부여서 arbiter가 revenue_recognized=false로 판정했다 — 상향 게이트 미충족, 🔴 유지.",
+        "[fact] HOOD: 8월 운영지표는 grade1 정량이나 순입금·AUA·명목거래액·마진북이 매출 발생 이전의 선행 투입량이고 자료 자체가 비감사·잠정치여서 arbiter가 revenue_recognized=false로 판정했다 — 상향 게이트 미충족, 🟡 유지.",
+        "[fact] COIN: 이번 창 유일 Claim이 부재 지속 확인이어서 quantitative=false이며 매출 인식 사항이 없다 — 상향 게이트 미충족, 🟠 유지.",
+        "[fact] 3사 arbiter 모두 하향 트리거도 미성립으로 판정했고 human_confirmation_required=false다."
+      ],
+      "interpretation": "[fact] 이번 회차에 2개 이상 종목이 공유한 유일한 구조는 축이 아니라 게이트 판정의 사유다 — 3사 전부 상향 게이트의 revenue_recognized(또는 quantitative) 요건에서 걸렸다. [inference:strong] 이는 P7의 3단 분리가 이번 창의 재료 성격과 맞물린 결과다. Tazapay는 계약 존재 단계, HOOD 운영지표는 매출 이전의 투입량, COIN은 사건 자체의 부재로, 세 재료의 성질은 서로 다르지만 매출 인식에 도달하지 못했다는 점에서 같은 위치에 있다. [inference:strong] 이 패턴은 섹터의 기초 체력에 관한 진술이 아니라 검증 타이밍에 관한 진술이다 — 3사 모두 다음 확정 수치가 Q3 실적·10-Q(통상 10~11월)에 몰려 있어, 그 전까지의 주간 창은 구조적으로 상향 게이트를 통과시킬 수 없는 구간이다. [fact] 직전 run의 cp_adjacent_expansion_without_revenue(지지 2/3: COIN·HOOD)는 이번 회차에 지지 구성이 바뀌었다 — COIN:derivatives_base가 휴면이 되고 CRCL이 Tazapay로 합류해 CRCL·HOOD 2/3가 됐다. [inference:medium] 두 패턴은 같은 뿌리를 공유하되 본 항목이 더 넓다 — 인접 사업만이 아니라 본업 지표까지 포함해 매출 인식 이전 단계에 머물렀기 때문이다. [fact] 본 항목은 어떤 개별 종목의 등급 근거로도 사용될 수 없다(P2·P13)."
+    },
+    {
+      "id": "cp_2308_primary_source_access_blocked",
+      "label": "1차 자료 접근 차단·도메인 매핑 결손이 3사 전부에서 동시 관측 — 직전 run 패턴의 확대 재확인",
+      "update_status": "reconfirmed_and_widened — 직전 run의 도메인 미등재 2건(federalregister.gov·cdn.ca9.uscourts.gov)에 더해 이번 회차에는 HTTP 403 차단 4건과 미등재 도메인 3건이 3사에 걸쳐 관측됐다",
+      "supporters_this_run": ["CRCL", "COIN", "HOOD"],
+      "mapped_axes": ["CRCL:regulation_sector_legislation", "HOOD:prediction_market"],
+      "direction": "not_applicable — 자료 등급 산정 구조의 관측이며 축 방향 재료가 아님",
+      "evidence": [
+        "[fact] CRCL: congress.gov 법안 액션 페이지·Congressional Record Daily Digest 직접 접근을 2회 시도해 모두 HTTP 403으로 차단됐고, 그 결과 CLARITY 일정이 grade3·confirmed=false로만 기록됐다.",
+        "[fact] CRCL: cryptonomist.ch의 '21개 은행 컨소시엄' 보도 원문 WebFetch도 403으로 차단돼 사실관계 판별에 실패했다.",
+        "[fact] COIN: congress.gov 법안 페이지 WebFetch가 403으로 실패했고, 대체 확인에 쓴 dailypress.senate.gov가 config/sources.yaml 미등재(default_grade=4)여서 The Block(grade3)을 대표 소스로 채택했다.",
+        "[fact] HOOD: 상고장 원문 PDF(njoag.gov 게시)와 도켓 교차확인(courtlistener.com)이 모두 미등재 도메인이어서 실질이 소송당사자 1차 원문임에도 기계적으로 grade4가 부여됐다.",
+        "[fact] HOOD: Kalshi의 상고 응답 기한 관련 확인에서 gamblinginsider.com이 403으로 차단돼 단독 저등급 소스 미검증으로 unconfirmed 처리됐다.",
+        "[fact] 반대 사례로 HOOD의 8월 운영지표 배포처(globenewswire.com)는 grade_1 등재 도메인이어서 grade1이 정상 부여됐다."
+      ],
+      "interpretation": "[inference:strong] 이 패턴은 종목 재료가 아니라 판정 인프라의 구조적 편향에 관한 것이다 — 스테이블코인·크립토 플랫폼 섹터의 규제 축은 의회·정부·법원이 핵심 1차 자료원인데, 그 도메인들이 봇 차단으로 접근되지 않거나 grade_1 목록에 없어 해당 재료가 등급 규칙상 삼각검증용(단독 판단 근거 불가)에 머문다. [inference:strong] 이번 회차에 그 영향이 특히 뚜렷하다 — 섹터 최대 이벤트인 CLARITY 9/15 표결이 두 종목에서 모두 grade3·confirmed=false로 기록됐고, 예측시장 상고 건은 소송당사자 원문을 확보하고도 grade4가 됐다. [inference:medium] 접근 차단(403)과 도메인 미등재는 원인이 다르다 — 전자는 config 수정으로 해결되지 않고 후자는 config 수정으로 해결된다. 이번 회차에는 두 원인이 같은 재료(CLARITY)에 동시에 작용했다. [fact] config는 사용자 직접 편집 영역이므로 제안만 하고 수정하지 않는다(esc_2308_02). [fact] 본 항목은 어떤 종목의 등급 근거로도 사용되지 않는다."
+    },
+    {
+      "id": "cp_adjacent_expansion_without_revenue",
+      "label": "인접 사업 확장은 진행되나 증분 매출 수치는 여전히 전무 — 지지 구성 교체",
+      "update_status": "reconfirmed_with_membership_change — 직전 run 지지 2/3(COIN·HOOD)에서 이번 run 2/3(CRCL·HOOD)로 구성원이 바뀌었다",
+      "supporters_this_run": ["CRCL", "HOOD"],
+      "mapped_axes": ["CRCL:diversification", "HOOD:crypto_cycle"],
+      "direction": "not_observed(정량) / 판정 보류(정성)",
+      "evidence": [
+        "[fact] CRCL: Tazapay 인수 확정계약이 grade1으로 확보됐으나 규제 승인·최대 15개월 종결 기한 조건부이며 종결 후 매출 기여 정량화는 차기 10-Q·10-K로 이관됐다.",
+        "[fact] HOOD: Robinhood Chain 관련 온체인 수수료·DEX 거래량 보도는 전부 회사 공식 공시가 아닌 제3자 재가공으로 noise 처리됐고, 공식 8월 지표의 크립토 명목거래액은 매출(수수료) 수치가 아니다.",
+        "[fact] COIN: Deribit Starbase 이전·RWA 무기한선물은 이번 창에 재조사가 수행되지 않아 상태 변화 미확인으로 이월됐다 — 지지에서 빠진 사유가 '매출 확인'이 아니라 '관측 미수행'이다."
+      ],
+      "interpretation": "[fact] 세 종목 모두 인접·신규 채널의 매출 인식 단계에 이번 회차에도 도달하지 않았다. [inference:strong] 지지 구성이 바뀐 것은 패턴의 약화가 아니라 관측 배분의 이동이다 — COIN이 빠진 사유가 매출 확인이 아니라 재조사 미수행이므로, 패턴의 반증으로 읽을 수 없다(P5). [inference:medium] CRCL의 합류로 이 패턴은 세 종목 전부가 최근 3개 run 안에서 한 번 이상 지지한 항목이 됐다 — 다만 동시 지지가 아니라 순차 지지이므로 섹터 공통 축으로 승격할 근거는 되지 않는다. [fact] 본 항목은 어떤 개별 종목의 등급 근거로도 사용될 수 없다(P2·P13)."
+    }
+  ],
+
+  "sector_unconfirmed": [
+    {
+      "id": "su_2308_01",
+      "topic": "[최상위] 종목별 축 명명 불일치로 섹터 컨센서스가 세 run 연속 측정 불가",
+      "status": "unresolved_and_worsened — 공유 축 수가 직전 run 0/8에서 이번 run 0/9로 유지되는 한편, 같은 사실을 두 종목이 grade1으로 확보하고도 축 이름이 달라 분해된 사례가 이번 회차에 처음 명시적으로 확인됐다",
+      "detail": "[fact] 이번 회차 9개 축 전부 coverage_count=1이며 2개 이상 종목이 공유하는 축은 0개다. [fact] 그럼에도 두 종목이 같은 사건을 각각 grade1으로 확보한 사례가 1건(Circle-Coinbase 분배계약 8-K 부재 — CRCL:reserve_income, COIN:usdc_economics), 같은 사실을 같은 등급으로 확보하고 한쪽만 축을 생성한 사례가 1건(CLARITY 9/15 — CRCL은 축 생성, COIN은 P6를 이유로 미생성) 존재한다. [inference:strong] 따라서 '공유 축 0개'는 종목들이 서로 다른 것을 본 결과가 아니라, 같은 것을 보고도 서로 다른 이름으로 적거나 한쪽이 적지 않은 결과가 섞인 값이다. [fact] config/coverage.yaml의 common_axes는 한국어 서술 라벨이고 종목 Delta의 axis는 종목 카드가 정한 영문 키여서 둘 사이에 기계적 매핑이 존재하지 않는다. [fact] 매핑 테이블 제안은 esc_2308_01에 기술했으며 config는 수정하지 않았다.",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "전 축 공통 — 컨센서스 측정 가능성 자체"
+    },
+    {
+      "id": "su_2308_02",
+      "topic": "Circle-Coinbase 분배계약 조건 원문의 불변 최종 확인",
+      "status": "unresolved — 부재 관측 구간이 제출기한 경과 후 약 19일로 연장됐으나 확인 지점은 Q3'26 10-Q 계약 주석(통상 11월)으로 유지",
+      "detail": "[fact] 양사가 각각 grade1으로 계약변경 8-K 부재를 확인했고 이번 회차에는 CRCL 측이 유일한 신규 8-K(Tazapay)를 열어 무관함을 확인했다. [fact] 03_signal의 CRCL arbiter는 KC-CRCL-3을 'met 자체 미성립'으로 판정했고 COIN arbiter는 KC-COIN-4의 연동 조건 미충족을 확인했다. [inference:strong] 정보 부재는 무변경의 완전한 증명이 아니므로(P5) 이 항목은 해소가 아니라 관측 구간 연장으로만 기록한다.",
+      "affects": ["CRCL", "COIN"],
+      "blocking_axis": "sie_usdc_distribution_economics / reserve_income × usdc_economics",
+      "next_observation": "CRCL·COIN Q3'26 10-Q 계약 주석(통상 11월)"
+    },
+    {
+      "id": "su_2308_03",
+      "topic": "COIN의 USDC 분배수익 절대액 미공시 — 제로섬 규모의 반대편 단면 부재",
+      "status": "unresolved — 세 run 연속 미공시이며 발행자 측 프록시도 두 run 연속 미갱신",
+      "detail": "[fact] COIN은 이번 구간에도 USDC 수익 절대액을 공시하지 않았고 Q3 실적으로 이관했다(Q2 2026 3개월 $292.1M·상반기 $597.6M이 최신치). [fact] 발행자 측 프록시(Coinbase 귀속 유통비용 3개월 $324.6M·6개월 $655.3M)는 새 분기 자료가 없어 유지된다. [inference:strong] 제로섬의 크기는 여전히 한쪽 단면에서만 관측 가능하며 양측 인식액의 총액·시점 일치를 검증할 수단이 없다.",
+      "affects": ["CRCL", "COIN"],
+      "blocking_axis": "sie_usdc_distribution_economics"
+    },
+    {
+      "id": "su_2308_04",
+      "topic": "OUSD 공식 출시일·실측 유통량, 그리고 '21개 은행 컨소시엄' 보도와의 동일성",
+      "status": "unresolved_and_identification_uncertain — OUSD는 4 run 연속 무변화이며, 이번 회차에는 별개 컨소시엄일 가능성이 있는 보도가 접근 차단으로 판별되지 않아 위협원의 수조차 확정되지 않았다",
+      "detail": "[fact] CRCL은 OUSD 출시일·실측 유통량을 비승격 unconfirmed로 유지했고 COIN은 참여 조건·분배 구조 공개가 없어 unconfirmed를 유지했다. [fact] 2026-09-02 cryptonomist.ch의 '21개 은행 참여 USD 스테이블코인 컨소시엄' 보도는 원문 WebFetch가 403으로 차단돼 OUSD와 동일 실체인지 별개인지 판별되지 않았다. [inference:strong] 섹터 최대 교차 축의 부호를 CRCL·COIN 양쪽에서 미확정으로 묶어두는 최대 결측이 네 run 연속 유지되며, 이번 회차에는 식별 불확실성이 추가됐다. [fact] 자료 부재를 위협 소멸의 반증으로 해석하지 않는다(P5).",
+      "affects": ["CRCL", "COIN"],
+      "blocking_axis": "sie_ousd_consortium"
+    },
+    {
+      "id": "su_2308_05",
+      "topic": "CLARITY Act 상원 절차 결과 및 이자·보상 조항 최종 문언",
+      "status": "unresolved — 2026-09-15 오후 2:15 ET 절차 표결이 as_of 기준 3일 후로 미도래, 일정 변경 없음",
+      "detail": "[fact] CRCL·COIN이 각각 grade3·confirmed=false로 같은 일정을 기록했고 congress.gov 1차 확인은 양측 모두 403으로 차단됐다. [fact] 9/15은 motion to proceed에 대한 클로처(60표 문턱) 표결이며 법안 최종 통과 표결이 아니다. [fact] 이자·보상 조항 문언은 협상 진행 중으로 미확정이다. [inference:strong] 조건부 역노출 항목의 부호는 이 관문 이후에도 곧바로 정해지지 않으며 조항 문언 확정 시점이 별도로 필요하다. [fact] scope=sector 재료이므로 개별 종목 등급 근거로 사용될 수 없다(P6·P13).",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "sie_yield_bearing_stablecoin_clause / regulation_sector_legislation"
+    },
+    {
+      "id": "su_2308_06",
+      "topic": "예측시장 규제 — SCOTUS No. 26-299의 cert 심리 여부·결과 및 제9순회 Assad 건의 별도 상고 여부",
+      "status": "new_procedural_stage — 상고 접수(2026-09-08)는 확인됐으나 심리 승인 여부·결과는 미정이며 Kalshi 응답 기한도 단독 저등급 소스로만 존재",
+      "detail": "[fact] 뉴저지가 2026-09-02 제3순회 Flaherty 판결에 상고했고 2026-09-08 No. 26-299로 접수됐다(실질 1차 원문이나 도메인 미등재로 grade4·confirmed=false). [fact] 제9순회 Assad 건 당사자의 별도 상고 여부는 이번 창 자료로 확인되지 않았다. [fact] Kalshi 응답 기한이 2026-10-08이라는 언급은 애그리게이터 종합 검색 결과에만 존재해 P4상 단독 근거로 쓸 수 없다. [inference:strong] 이 트랙은 CLARITY·GENIUS와 별개의 규제 트랙이며 현재는 결론이 양방향으로 열린 절차 단계다. [fact] KC-HOOD-3 트리거는 미충족 상태다.",
+      "affects": ["HOOD"],
+      "blocking_axis": "prediction_market"
+    },
+    {
+      "id": "su_2308_07",
+      "topic": "config/sources.yaml의 정부·의회·사법부 1차 도메인 미등재 및 봇 차단 — 규제 축의 계통적 등급 과소평가",
+      "status": "unresolved_and_widened — 이번 회차에 congress.gov 403(2사), dailypress.senate.gov·njoag.gov·courtlistener.com 미등재가 추가 관측됐다",
+      "detail": "[fact] 직전 run의 home.treasury.gov·federalregister.gov·cdn.ca9.uscourts.gov에 이번 회차 3개 도메인이 추가됐고, 별도로 congress.gov는 등재 여부와 무관하게 403으로 접근 자체가 차단됐다. [inference:strong] 그 결과 섹터 최대 규제 이벤트가 두 종목 모두에서 confirmed=false로만 기록됐다. [inference:medium] 접근 차단은 config 수정으로 해결되지 않으므로 대체 1차 경로(예: 상원·하원 공식 일정 피드, 관보 대체 열람 경로)의 지정이 별도로 필요하다. [fact] config는 사용자 직접 편집 영역이므로 제안만 한다(esc_2308_02).",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "regulation_sector_legislation / prediction_market"
+    },
+    {
+      "id": "su_2308_08",
+      "topic": "HOOD 가스비 무료 보조금(2026-09-29 종료 예정) 이후 크립토 거래액 잔존율",
+      "status": "unresolved — 종료 예정일이 as_of 이후이며 연장·변경 공시는 이번 창에 확인되지 않았다",
+      "detail": "[fact] 8월 크립토 명목거래액 $17.5B(MoM +61%, YoY -38%)은 보조금 시행 기간 중 수치이며 회사 공식 자료다. [fact] 보조금 종료일 변경·연장 공시는 이번 창 자료로 확인되지 않았다(2026-08-07 최소 적용액 $5→$0.50 조정은 창 밖 사건이며 종료일 변경이 아니다). [inference:strong] 9월 운영지표(통상 10월 중순 공개)가 크립토 사이클 축을 회사 공식 수치로 판정할 수 있게 하는 첫 분리 관문이다. [fact] 어떤 개별 종목의 등급 근거로도 사용될 수 없다(P13).",
+      "affects": ["HOOD"],
+      "blocking_axis": "crypto_cycle"
+    },
+    {
+      "id": "su_2308_09",
+      "topic": "Tazapay 인수 거래의 규제 승인 진행·종결 시점 및 종결 후 매출 기여",
+      "status": "new — 계약 체결만 확인, 종결·매출 인식 모두 미도래",
+      "detail": "[fact] 2026-09-04 확정 계약 체결(9/8 공시)이며 규제 승인 전제·최대 15개월 종결 기한 조건부다. [fact] 대금은 전액 주식 약 $400M 상당이며 종결 시 주가 기준 조정이 있어 최종 발행 주식 수가 확정되지 않았다. [inference:strong] P7 3단 분리상 1단계에 있으므로 다각화의 매출 기여는 종결 이후 10-Q·10-K에서만 확인 가능하다. [fact] CRCL 카드 axes에 이 채널에 대응하는 명시적 슬롯이 없어 ThesisPatch 후보로만 남아 있다 — 카드 수정은 사람의 승인 영역이다(F17).",
+      "affects": ["CRCL"],
+      "blocking_axis": "diversification"
+    },
+    {
+      "id": "su_2308_10",
+      "topic": "COIN 파생상품 축(Deribit Starbase 이전·RWA 무기한선물)의 상태 — 이번 회차 조사 미수행",
+      "status": "carried_without_observation — 자료 부재가 아니라 관측 미수행으로 이월된 항목",
+      "detail": "[fact] COIN 02_company는 해당 항목을 '이번 창에서는 예산 제약상 재검색을 수행하지 않음 — 상태 변화 여부 미확인 채 이월'로 명기했다. [fact] 직전 run에서 확인된 이전 완료 목표일(2026-09-09)은 이번 창 안에 포함돼 있었다. [inference:strong] 따라서 이 항목은 다른 휴면 축과 달리 관측 기회가 있었으나 사용되지 않은 경우이며, 다음 회차 조사 우선순위에서 상위에 두어야 한다. [fact] 미관측을 상태 변화 없음으로 해석하지 않는다(P5).",
+      "affects": ["COIN"],
+      "blocking_axis": "derivatives_base / cp_adjacent_expansion_without_revenue"
+    },
+    {
+      "id": "su_2308_11",
+      "topic": "3사 차기 실적 발표일 — 섹터 차기 검증 시점 세 run 연속 미특정",
+      "status": "unresolved — 세 run 연속 동일",
+      "detail": "[fact] COIN·HOOD 모두 Q3 발표일이 애그리게이터 추정치로만 존재하고 회사 IR 공식 공지는 확인되지 않았다(HOOD 카드의 earnings_checkpoints.date는 여전히 null). [fact] CRCL의 Q3 발표일도 어느 산출물에서도 1차 자료로 확인되지 않았고 03_signal은 차기 게이트를 'Q3'26 10-Q(통상 11월)'로만 표기했다. [fact] 애그리게이터 캘린더의 자동 추정 라벨은 등급과 무관하게 판정 근거로 사용할 수 없다(F1). [inference:strong] 이번 회차에 3사가 동시에 상향 게이트를 매출 인식 요건에서 미충족 처리했으므로(cp_2308_no_revenue_stage), 검증 시점 미특정은 섹터 전체의 해소 일정을 불확정으로 만드는 단일 최대 일정 결손이다.",
+      "affects": ["CRCL", "COIN", "HOOD"],
+      "blocking_axis": "전 축 공통 — 검증 스케줄"
+    },
+    {
+      "id": "su_2308_12",
+      "topic": "OUSD 위협의 축 슬롯 소실 — 라벨 변경 후 매핑 대상 부재",
+      "status": "new — 축 정의 관찰. 에이전트는 카드·config를 수정하지 않는다",
+      "detail": "[fact] 직전 run의 CRCL:competition_ousd가 이번 회차 competition_yield_bearing으로 나타났고 근거 계열은 $YLDS로 동일하다. [fact] 그 결과 OUSD는 이번 회차에 어떤 축에도 매핑되지 않았고 CRCL·COIN 양측의 unconfirmed 항목으로만 남았다. [inference:strong] 직전 run이 지적한 축 슬롯 혼재 문제는 이름 층위에서 정리됐으나, 정리 과정에서 위협원 하나가 축 체계 밖으로 밀려났다 — 축 방향 집계만 보는 상위 계층에서는 이 위협이 보이지 않게 된다. [fact] 축 신설·분해는 카드 소유 계층(L2·사람)의 판단 영역이며 본 에이전트는 관찰만 기록한다(P8의 하위 축 분해 요건에도 해당하지 않는다 — 새 자료가 축 판정을 뒤집은 것이 아니라 축이 담던 대상이 축 밖으로 나간 사례다).",
+      "affects": ["CRCL", "COIN"],
+      "blocking_axis": "sie_ousd_consortium"
+    },
+    {
+      "id": "su_2308_13",
+      "topic": "HOOD 관련 과거 run 미포착 정황 3건 — 2026-07-29 실적콜 예측시장 매출 발언, RVII IPO(8/13), UK 크립토 출시(8/10)",
+      "status": "carried_over — 직전 run 이관분, 이번 회차에도 해소 근거 미등장",
+      "detail": "[fact] 직전 run이 esc_0618_03으로 이관한 항목이며 이번 회차 HOOD 02_company는 RVII 관련 사항을 '지시에 따라 카드 미반영·감시만 유지, 이번 run에서 별도 조사하지 않음'으로 기록했다. [inference:medium] 사실이라면 HOOD 축 판정이 일부 재료를 누락한 상태로 이뤄져 왔을 개연성이 있다. [fact] 본 에이전트는 과거 run 산출물·카드·config를 재작성할 권한이 없어 이관을 유지한다(F17).",
+      "affects": ["HOOD"],
+      "blocking_axis": "arpu_mix / prediction_market"
+    }
+  ],
+
+  "interpretation": {
+    "consensus_verdict": "[fact] 이번 run에서 2개 이상 종목의 지지를 받은 축은 0개이며 9개 축 전부 coverage_count=1이다. [fact] 축 수는 직전 run 8개에서 9개로 늘었고 3사 모두 Delta를 생성했다(CRCL 4·COIN 1·HOOD 4). [inference:strong] 그러나 축이 늘어난 방식이 '같은 축에 종목이 모이는' 것이 아니라 '서로 다른 축이 하나씩 추가되는' 것이었으므로 방향 일치도·분산은 어느 축에서도 산출되지 않는다 — 'dispersion: single_ticker'는 전원 일치(low)가 아니라 비교 대상 부재를 뜻한다. [fact] 한 종목이 같은 축에 복수 Delta를 낸 사례가 없어 intra_ticker 분산도 발생하지 않았다. [inference:strong] 그러므로 이번 섹터 집계는 종목 간 컨센서스 측정이 아니라 3사 신규 관측 9건의 축별 분해이며, 섹터 방향을 산출할 수 있는 상태가 아니다.",
+    "measurability_verdict": "[fact] 오케스트레이터가 판정을 요구한 쟁점은 '종목 간 실질 이견 0건·개별 실행 요인 지배'라는 기존 결론이 실제 수렴의 증거인지 아니면 축 명명 차이로 생긴 측정 불능인지다. [inference:strong] 이번 회차의 판정은 '측정 불능이 지배적이며, 수렴은 사실관계 층위에서 1건만 제한적으로 확인된다'이다. 근거는 다음 네 가지다. [fact] 첫째, 9개 축 전부 단일 종목 커버로 축 내부에서 부호가 대립할 구조 자체가 없으므로 이견도 합의도 산출되지 않는다. [fact] 둘째, 두 종목이 같은 사건을 각각 grade1으로 확보한 사례가 1건 존재한다 — Circle-Coinbase 분배계약 변경 8-K의 부재로, CRCL은 이를 reserve_income에, COIN은 usdc_economics에 매핑했고 이번 회차에는 양측 부호가 모두 neutral이다. [inference:strong] 이 1건은 사실관계 층위의 정합(두 종목의 관측이 상충하지 않음)을 보여주지만 축 방향의 수렴을 보여주지는 않는다 — 두 종목의 노출 방향이 원래 반대인 역노출 쌍이고, 같은 neutral도 서로 다른 사유(CRCL은 재계상 회피, COIN은 근거 부재)에서 나왔기 때문이다. [fact] 셋째, 같은 사실을 같은 등급으로 확보하고도 한쪽만 축을 생성한 사례가 1건 존재한다 — CLARITY 9/15 일정으로, CRCL은 regulation_sector_legislation을 생성했고 COIN은 P6를 이유로 생성하지 않았으며 HOOD는 Claim 자체가 없다. [inference:strong] 따라서 '공유 축 0개'라는 값에는 최소 두 종류의 인공물이 섞여 있다 — 축 이름 불일치(기제 1)와 축 승격 방침 비대칭(기제 2)이다. [fact] 넷째, 나머지 7개 축은 다른 종목에 대조 관측 자체가 없어 이견 판별 대상이 아니다. [inference:strong] 결론적으로 '실질 이견 0건'은 유지되나 그 의미는 '이견이 없다'가 아니라 '이견을 측정할 수단이 이번 회차에 존재하지 않는다'이며, '개별 실행 요인 지배'라는 결론도 섹터 요인의 부재를 입증하지 않는다 — 이번 회차 섹터 성격 재료(CLARITY, 예측시장 상고)는 3사 중 각각 1~2사에서만 관측·축화됐고 그 비대칭 자체가 명명·방침의 산물이기 때문이다. [fact] 이 판정을 escalation의 최상위 항목(esc_2308_01)으로 올린다.",
+    "real_disagreement_verdict": "[inference:strong] 종목 간 실질 이견은 이번 run에서도 0건이며, 이번에는 그 0건이 '측정 불능에 의한 0'임을 위 measurability_verdict에서 명시적으로 구분했다. [fact] 3사가 독립 확인한 사실관계는 상충하지 않는다 — 분배계약 8-K 부재는 양사 관측이 일치하고, CLARITY 일정은 양사 기록이 같은 날짜·같은 성격(절차 표결)으로 일치한다. [inference:strong] 따라서 사실관계 층위에서는 상충 없음이 확인되며, 이는 직전 run과 동일한 결론이다. [fact] 축 방향 층위에서는 직전 run에 존재했던 유일한 부호 차이(CRCL:reserve_income strengthen 대 COIN:usdc_economics neutral)가 이번 회차에 사라졌다. [inference:strong] 그러나 이 소멸은 이견의 해소가 아니라 CRCL이 같은 비사건을 재계상하지 않은 결과이므로, 부호 차이를 만들던 구조적 역노출은 그대로 남아 있다 — 부호가 사라진 것이지 구조가 사라진 것이 아니다.",
+    "dominant_factor": "measurement_not_available — 이번 회차에는 개별 실행 요인 지배 여부를 판정할 수단이 없다(직전 run의 individual_execution_dominant 판정을 승계하지 않고 보류한다)",
+    "sector_vs_idiosyncratic": "[fact] 이번 window에서 축 부호를 만든 재료는 두 건뿐이며 둘 다 개별 종목 재료다 — CRCL의 Tazapay 인수(diversification strengthen)와 HOOD의 8월 운영지표(aua_inflow strengthen)다. [fact] 섹터 성격 재료는 두 건 있었다 — CLARITY 9/15 절차 표결(CRCL·COIN이 각각 scope=sector로 태깅, CRCL만 축 생성·방향 neutral)과 예측시장 SCOTUS 상고(HOOD가 scope=sector로 태깅, 종목 축에서는 neutral)다. [fact] 두 섹터 재료 모두 어떤 종목에서도 부호를 만들지 않았다. [inference:strong] 그러나 이를 '섹터 요인이 작동하지 않았다'로 읽어서는 안 된다 — 두 재료 모두 확정 이전의 절차 단계여서 부호를 만들 수 없는 성질이고, 게다가 두 재료의 3사 간 관측 여부 자체가 비대칭이다. [fact] 섹터 공통 축 3개의 커버리지는 드라이버 기준으로 금리 1/3·규제 확정 1/3·크립토 사이클 1/3이다. [inference:strong] 그러므로 개별 실행 요인 지배라는 결론은 이번 회차에 유보하며, 섹터 요인의 작동 여부는 축 명명 정합이 확보된 이후에만 판정 가능하다(P5 — 측정 부재를 부재의 증거로 사용하지 않는다).",
+    "clarity_sector_exposure": "[fact] CLARITY 9/15 재료는 scope=sector이며 grade3·confirmed=false이므로 어떤 개별 종목의 등급 근거로도 사용될 수 없다(P6·P13). [fact] 본 항목은 3사에 대한 노출 경로의 차이만 기술하며 방향의 크기나 등급 영향을 산출하지 않는다. [fact] 발행자(CRCL): 자사 발행 인가를 이미 선점한 상태이며 CRCL 02_company가 이 축의 개별 종목 영향을 낮다고 기록했다 — CLARITY의 직접 대상은 발행 인가가 아니라 디지털자산 시장구조이기 때문이다. [inference:medium] 다만 법안의 이자·보상 조항 문언은 무이자 발행자인 CRCL에 양방향으로 작용할 수 있다 — 이자 지급이 제한되면 이자부 경쟁재 축소라는 이득, 허용되면 경쟁 확대라는 손실이다. [fact] 거래소·분배자(COIN): 시장구조 명확화는 상장·수탁·거래 영업 범위에 직접 관련되며, COIN은 이번 회차에 같은 사실을 Claim으로 기록하고도 P6를 이유로 축 Delta를 생성하지 않았다. [inference:medium] 이자부 상품 취급 가능 여부는 상품 라인 확대와 USDC 분배 경제성 잠식이라는 반대 방향 두 경로를 동시에 만들 수 있다. [fact] 브로커(HOOD): 이번 창에 CLARITY 관련 Claim이 0건이며, HOOD의 규제 재료는 도드-프랭크 선점 쟁점을 다투는 예측시장 트랙(SCOTUS No. 26-299)으로 별개다. [inference:strong] 따라서 같은 섹터 재료의 3사 노출은 방향뿐 아니라 관측 여부부터 비대칭이며, 발행자·거래소·브로커의 노출 경로가 서로 달라 섹터 단일 부호로 합산할 수 없다. [inference:strong] 9/15 표결 결과가 나오더라도 그것은 심의 착수 여부만 정하므로 세 종목 어디에도 조항 문언 수준의 부호를 부여하지 않는다.",
+    "prior_run_deltas": "[fact] 직전 run(20260905_0618) 대비 변화는 여섯 가지다. ① 축 수가 8개에서 9개로 늘었으나 공유 축은 두 run 연속 0개다. ② HOOD가 8월 운영지표로 회사 공식 grade1 계열을 확보해 직전 run의 결측(su_20260905_08)이 해소됐고 두 축(aua_inflow·rates_income)이 새로 열렸다. ③ CRCL이 Tazapay 인수로 diversification 축을 처음 활성화했다. ④ CRCL의 competition_ousd 축 라벨이 competition_yield_bearing으로 바뀌면서 OUSD가 축 체계 밖으로 나갔다. ⑤ COIN의 Delta가 2건에서 1건으로 줄었고 derivatives_base는 조사 미수행으로 휴면이 됐다. ⑥ 1차 자료 접근 제약이 도메인 미등재 2건에서 403 차단 4건·미등재 3건으로 확대됐다. [inference:strong] 종합하면 관측의 질(HOOD 공식 계열 확보)은 개선됐고 관측의 접근성(규제 1차 자료)은 악화됐으며, 섹터 축으로 기능하는 축의 수는 세 run 연속 0개다.",
+    "risk_of_misreading": "[inference:strong] 상위 계층이 주의해야 할 오독은 여섯 가지다. 첫째, dispersion=single_ticker를 '이견 없음'으로 읽는 것 — 9개 축 전부 비교 대상 부재이며 합의가 측정된 것이 아니다. 둘째, 집계본의 single_ticker_view=false를 '종목 간 비교가 수행됐다'로 읽는 것 — 이 플래그는 산출물이 2개 이상 존재한다는 뜻일 뿐이다. 셋째, CRCL:reserve_income의 strengthen→neutral을 약화로 읽는 것 — 같은 비사건을 재계상하지 않은 결과다. 넷째, HOOD:prediction_market의 weaken→neutral을 리스크 완화로 읽는 것 — 상고 접수는 결론이 아니라 절차 개시이며 양방향이 열려 있다. 다섯째, HOOD:aua_inflow의 strengthen을 매출·마진 개선으로 읽는 것 — 근거는 비감사 운영지표이고 arbiter는 매출 인식 미충족으로 판정했다. 여섯째, CRCL:competition_yield_bearing을 OUSD 축의 연속으로 읽는 것 — 근거 계열은 $YLDS이며 이번 회차에는 그 계열조차 갱신되지 않았다.",
+    "next_verification_points": "[fact] 이번 run 미확정 항목의 해소는 다음 관측에 의존한다 — 2026-09-15 CLARITY Act 상원 절차 표결, 2026-09-29 전후 HOOD 가스비 보조금 종료 및 9월 운영지표(통상 10월 중순), 2026-10-19 재무부 GENIUS NPRM 의견수렴 마감, FIGR 3Q26 $YLDS 유통량 공시, OUSD 공식 출시·실측 유통량 최초 공개 및 '21개 은행 컨소시엄' 보도의 실체 확인, SCOTUS No. 26-299의 Kalshi 응답·cert 심리 여부, Tazapay 거래 종결 공시(최대 15개월 내), 3사 Q3 실적 및 CRCL·COIN Q3 10-Q 계약 주석(통상 11월). [fact] 이 중 3사 Q3 실적일은 어느 종목도 1차 자료로 확정되지 않았다(F1).",
+    "p13_boundary": "[fact] 본 산출물은 개별 종목의 등급을 변경하거나 변경을 제안하지 않는다 — signal_mutation은 null이며 컨센서스·역노출·상대비교 결과는 개별 종목 판정으로 전이되지 않는다(P13). [fact] CLARITY 절차 표결과 예측시장 상고는 scope=sector 재료이므로 어떤 개별 종목의 상향·하향 근거로도 사용되지 않았고, 규제 이벤트를 이유로 한 3사 동반 상향 서술을 생성하지 않았다(P6·F13). [fact] 섹터 계층에서 도출한 관측(측정 불능 판정, 축 명명 분석, 역노출 갱신 등)은 개별 종목 판정에 사용될 수 없다 — 근거는 하위에서 상위로만 흐른다. [fact] 3사 시그널 후보(CRCL 🔴 maintain, COIN 🟠 maintain, HOOD 🟡 maintain)는 03_signal 산출물의 판정을 그대로 두었으며 본 산출물은 이를 재해석하지 않는다. [fact] 매크로 전망 내러티브와 수치형 상관 지표는 생성하지 않았다(D3·P14)."
+  },
+
+  "escalation": {
+    "human_confirmation_required": false,
+    "blocking": false,
+    "note": "[fact] KC met AND confirmed 판정은 3사 어디에도 없고(3사 03_signal 모두 human_confirmation_required=false), signal_mutation은 null이며 신규 축 제안도 없다 — 진행 차단 사유는 없다. [fact] 아래 6건은 차단 사유가 아니라 사람 확인·config 편집·다음 계층 소비를 위한 이관 항목이며, esc_2308_01이 최상위 항목이다.",
+    "items": [
+      {
+        "id": "esc_2308_01",
+        "type": "measurement_capability_defect",
+        "priority": "top",
+        "summary": "[최상위] 축 명명 불일치와 축 승격 방침 비대칭으로 섹터 컨센서스가 세 run 연속 측정 불가 — '이견 0건'은 수렴의 증거가 아니라 측정 불능의 결과다",
+        "detail": "[fact] 이번 회차 9개 축 전부 coverage_count=1이며 공유 축은 0개다. [fact] 그럼에도 두 종목이 같은 사건을 각각 grade1으로 확보한 사례(분배계약 8-K 부재)와 같은 사실을 같은 등급으로 확보하고 한쪽만 축을 생성한 사례(CLARITY 9/15)가 각각 1건씩 존재한다. [inference:strong] 따라서 공유 축 0개라는 값에는 기제 1(종목 카드마다 축 이름이 달라 같은 드라이버가 다른 키로 기록됨)과 기제 2(scope=sector 재료의 축 승격 여부가 종목마다 다름)의 인공물이 섞여 있으며, 이 상태에서는 방향 일치·분산 어느 것도 측정할 수 없다. [inference:strong] 8/15 회차 이래 유지돼 온 '종목 간 실질 이견 0건·개별 실행 요인 지배'라는 결론은 이번 회차 판정상 실제 수렴의 증거로 볼 수 없으며, 사실관계 층위의 정합(상충 없음)만 유지된다. [fact] 해소에는 두 가지가 필요하다 — ① config/coverage.yaml의 common_axes(한국어 서술 라벨)와 종목 카드 축 키(영문) 사이의 매핑 테이블 신설, ② scope=sector 재료를 축으로 승격할지에 대한 종목 간 통일 규칙. [fact] 둘 다 config·카드 영역이므로 제안만 하고 수정하지 않았다.",
+        "proposed_mapping_table": {
+          "rule_note": "[fact] 아래는 제안이며 config를 수정하지 않았다. [fact] 공유도는 P14에 따라 상/중/하 등급으로만 표기하고 수치형 지표를 산출하지 않는다. [fact] 공유도 등급의 의미는 상=같은 드라이버가 같은 기초자산·같은 부호 경로로 작용, 중=같은 드라이버이나 기초자산 또는 부호 경로가 다름, 하=드라이버가 인접할 뿐 별개 트랙이다.",
+          "mappings": [
+            {
+              "common_axis": "금리(이자수입)",
+              "ticker_axes": ["CRCL:reserve_income", "HOOD:rates_income", "COIN:usdc_economics(간접)"],
+              "shared_grade": "중",
+              "judgment": "[inference:strong] HOOD:rates_income과 CRCL:reserve_income은 '금리→이자수입'이라는 같은 상위 드라이버의 종목별 표현이 맞다 — 오케스트레이터가 제기한 질문에 대한 판정은 '같은 드라이버, 다른 기초자산'이다. [fact] CRCL의 기초자산은 USDC 준비금(단기 국채 계열)이고 HOOD의 기초자산은 고객 마진대출(Margin Book $21.5B)과 증권대차다. [inference:medium] 기초자산이 다르므로 금리 방향이 같아도 두 종목의 부호가 반드시 같지는 않으며, HOOD의 경우 금리 하락이 이자수입을 줄이는 동시에 거래·자산 유입을 늘릴 수 있어 내부 상쇄가 존재한다(이번 회차 마진북 확대 대 증권대차수익 축소의 혼재가 그 예다). [inference:strong] COIN:usdc_economics는 준비금 이자수입의 배분분을 다루므로 같은 드라이버의 하류에 있으나, 이번 회차 이 축의 실제 내용물은 금리가 아니라 계약 조건이어서 간접으로만 분류한다. [fact] 주의: 이번 회차에는 CRCL:reserve_income의 내용물도 금리가 아니라 계약 이코노믹스였다 — 축 이름과 그 회차의 내용물이 다를 수 있으므로 매핑은 이름이 아니라 근거 Claim으로 최종 확인해야 한다.",
+              "basis_claims": ["c_20260911_CRCL_1", "c_20260911_HOOD_3", "c_20260911_COIN_1"]
+            },
+            {
+              "common_axis": "규제 확정(CLARITY·SEC 면제) — 하위 트랙 A: 디지털자산 시장구조 입법",
+              "ticker_axes": ["CRCL:regulation_sector_legislation", "COIN:regulation(휴면 — 이번 회차 Claim은 있으나 축 미생성)", "HOOD:미매핑"],
+              "shared_grade": "중",
+              "judgment": "[fact] CRCL과 COIN은 이번 회차에 같은 사실(9/15 클로처 표결 예정)을 같은 등급(grade3·confirmed=false)으로 확보했다. [inference:strong] 따라서 이 트랙의 실제 관측 커버리지는 2/3이며 축 커버리지 1/3은 승격 방침 차이의 결과다 — 이 불일치를 해소하려면 scope=sector 재료의 축 승격 규칙을 통일해야 한다. [fact] 승격 규칙을 통일하더라도 P6·P13에 따라 개별 종목 등급 근거로는 여전히 사용할 수 없다 — 통일의 목적은 등급 전이가 아니라 섹터 커버리지 측정이다.",
+              "basis_claims": ["c_20260911_CRCL_4", "c_20260911_COIN_2"]
+            },
+            {
+              "common_axis": "규제 확정(CLARITY·SEC 면제) — 하위 트랙 B: 이벤트계약·예측시장 규제",
+              "ticker_axes": ["HOOD:prediction_market", "CRCL:미노출", "COIN:미노출"],
+              "shared_grade": "하",
+              "judgment": "[fact] 이 트랙의 쟁점은 도드-프랭크법의 주 규제 선점 여부이며 CLARITY·GENIUS의 디지털자산 시장구조 트랙과 법원·쟁점·당사자가 모두 다르다. [inference:strong] 따라서 트랙 A와 B를 하나의 '규제 확정' 공통 축에 합산하면 서로 다른 두 규제 체계가 한 축에 섞여 커버리지가 실제보다 높아 보인다 — 공통 축을 두 하위 트랙으로 분해할 것을 제안한다. [fact] 현재 이 트랙에 노출된 종목은 HOOD 단독이다.",
+              "basis_claims": ["c_20260911_HOOD_5", "c_20260911_HOOD_6"]
+            },
+            {
+              "common_axis": "크립토 사이클",
+              "ticker_axes": ["HOOD:crypto_cycle", "COIN:derivatives_base(휴면)", "CRCL:usdc_circulation_scale(휴면)"],
+              "shared_grade": "중",
+              "judgment": "[inference:strong] 사이클은 세 종목에 모두 작용하는 드라이버이나 종목별 관측 대리변수가 다르다 — HOOD는 명목거래액, COIN은 거래·파생 활동, CRCL은 USDC 유통량이다. [fact] 이번 회차에는 HOOD 축만 활성이며 나머지 두 축은 휴면이다. [inference:medium] 대리변수가 다르므로 부호의 크기는 종목별로 다르게 나타날 수 있으나 부호의 방향은 같은 경로로 움직일 개연성이 있다 — 다만 이번 회차 HOOD 관측은 한시 보조금 효과가 섞여 있어 사이클 판정에 사용할 수 없다.",
+              "basis_claims": ["c_20260911_HOOD_2", "c_20260911_HOOD_4"]
+            },
+            {
+              "common_axis": "[신설 제안] USDC 분배 경제구조",
+              "ticker_axes": ["CRCL:reserve_income", "COIN:usdc_economics"],
+              "shared_grade": "상(부호 반대 — 역노출)",
+              "judgment": "[inference:strong] 이 쌍은 공유도가 가장 높으면서도 부호가 반대인 역노출이므로, 공통 축으로 묶되 방향 합산 대상에서 제외하고 역노출 표기를 병기해야 한다(sie_usdc_distribution_economics). [fact] 현재 config의 common_axes 3개에는 이 쌍을 담을 항목이 없어 섹터 최대 교차 구조가 공통 축 체계 밖에 있다. [fact] HOOD는 이 축에 노출되지 않는다.",
+              "basis_claims": ["c_20260911_CRCL_1", "c_20260911_COIN_1"]
+            },
+            {
+              "common_axis": "[신설 제안] 이자부 경쟁재·컨소시엄 위협",
+              "ticker_axes": ["CRCL:competition_yield_bearing", "COIN:usdc_economics(risk_transfer)"],
+              "shared_grade": "중(COIN 측 부호 미확정 — 양면 노출)",
+              "judgment": "[fact] 이번 회차 축 라벨 변경으로 OUSD가 어떤 축에도 매핑되지 않는 상태가 됐다(su_2308_12). [inference:strong] 위협원이 둘($YLDS 계열과 OUSD·은행 컨소시엄 계열)이고 성질이 다르므로 한 축에 담으면 시계열 해석이 왜곡된다 — 두 계열을 구분해 담을 것을 제안한다. [fact] 축 신설·분해는 카드 소유 계층의 판단 영역이다.",
+              "basis_claims": ["c_20260911_CRCL_3"]
+            }
+          ]
+        },
+        "owner": "user"
+      },
+      {
+        "id": "esc_2308_02",
+        "type": "config_suggestion",
+        "summary": "config/sources.yaml의 정부·의회·사법부 1차 도메인 미등재 + congress.gov 봇 차단 — 규제 축의 계통적 등급 과소평가가 확대",
+        "detail": "[fact] 이번 회차 신규 관측은 다음과 같다 — congress.gov 직접 접근이 CRCL 2회·COIN 1회 모두 HTTP 403으로 차단됐고, dailypress.senate.gov·njoag.gov·courtlistener.com이 미등재로 default_grade=4 처리됐다. [fact] 직전 run의 home.treasury.gov·federalregister.gov·cdn.ca9.uscourts.gov 사례가 그대로 유지된다. [inference:strong] 그 결과 섹터 최대 규제 이벤트(CLARITY 9/15)가 두 종목 모두에서 grade3·confirmed=false로만 기록됐고, 예측시장 상고는 소송당사자 원문을 확보하고도 grade4가 됐다. [inference:medium] 접근 차단과 도메인 미등재는 해결 경로가 다르다 — 전자는 대체 1차 경로 지정이 필요하고 후자는 grade_1 목록 보강으로 해결된다. [fact] config는 사용자 직접 편집 영역이므로 제안만 한다.",
+        "owner": "user"
+      },
+      {
+        "id": "esc_2308_03",
+        "type": "axis_definition_observation",
+        "summary": "CRCL 축 라벨 변경(competition_ousd → competition_yield_bearing)으로 OUSD 위협이 축 체계 밖으로 밀려남",
+        "detail": "[fact] 직전 run이 su_20260905_12로 지적한 축 슬롯 혼재 문제가 라벨 변경으로 이름 층위에서 정리됐다. [inference:strong] 그러나 그 결과 OUSD 전용 슬롯이 사라져 이번 회차에 OUSD는 어떤 축에도 매핑되지 않았고 CRCL·COIN 양측의 unconfirmed 항목으로만 남았다 — 축 방향 집계만 보는 상위 계층에서는 섹터 최대 교차 위협이 보이지 않게 된다. [fact] 여기에 2026-09-02 '21개 은행 컨소시엄' 보도가 403 차단으로 OUSD와 동일 실체인지 판별되지 않아 위협원의 수조차 확정되지 않았다. [fact] 축 신설·분해는 카드 소유 계층(L2·사람)의 판단 영역이며 본 에이전트는 카드를 수정하지 않는다(F17).",
+        "owner": "user"
+      },
+      {
+        "id": "esc_2308_04",
+        "type": "cross_layer_observation",
+        "summary": "구조적 역노출 3건의 이번 run 상태 — cio-portfolio의 축 공유도 판정 입력",
+        "detail": "[fact] ① sie_usdc_distribution_economics(updated): 8-K 부재가 제출기한 경과 후 약 19일까지 양사 grade1으로 확인됐고, 직전 run에 있던 CRCL:strengthen 대 COIN:neutral 부호 차이가 이번 회차에는 양측 neutral로 사라졌다 — 다만 같은 부호가 서로 다른 사유에서 나온 것이므로 수렴으로 읽어서는 안 되며 역노출 구조 자체는 그대로다. 규모 프록시는 직전 run 값 유지. ② sie_ousd_consortium(not_updated_and_slot_lost): OUSD 실체 4 run 연속 무변화에 더해 축 슬롯까지 소실됐고 위협원 식별 불확실성이 추가됐다. ③ sie_yield_bearing_stablecoin_clause(not_updated): 조항·절차·정량 계열 3개 모두 무변화이며, 감시 계열과 축 라벨이 정렬된 것만이 구조상 개선이다. [fact] 세 항목 모두 sign_activated_this_window=false다. [fact] 축 공유도는 상/중/하와 공유 축·근거 Claim ID로만 표기해야 하며 수치형 지표를 생성해서는 안 된다(P14). [fact] 본 관측은 어떤 종목의 등급 근거로도 사용될 수 없다(P13).",
+        "owner": "cio-portfolio(다음 계층 소비) + 사람 확인"
+      },
+      {
+        "id": "esc_2308_05",
+        "type": "schema_observation",
+        "summary": "CRCL 02_company의 reused_from·staleness_days=7 표기가 as_of(2026-09-12) 및 신규 Claim 5건과 정합하지 않음 — 직전 run esc_0618_04의 재발",
+        "detail": "[fact] CRCL 02_company는 reused_from='output/20260905_0618/02_company/CRCL.json'과 staleness_days=7을 표기하면서도 as_of는 2026-09-12이고 이번 조회로 생성된 신규 Claim 5건을 포함한다. [fact] COIN은 reused_from을 표기하되 staleness_days=0, HOOD는 reused_from=null·staleness_days=0이다. [inference:strong] staleness_days=7은 캐시 노후도가 아니라 직전 run으로부터의 경과일수로 읽히며 실제 관측 시각은 3사가 2026-09-12로 정렬돼 있어 이번 섹터 판정에 왜곡을 주지 않는다. [fact] 직전 run이 같은 문제를 이관했고 이번 회차에도 재발했으므로 표기 규약 확정을 재이관한다.",
+        "owner": "user"
+      },
+      {
+        "id": "esc_2308_06",
+        "type": "carried_over_gap",
+        "summary": "직전 run 이관분 중 미해소 2건 — HOOD 과거 run 미포착 정황 3건, 3사 Q3 실적일 미특정",
+        "detail": "[fact] HOOD 관련 과거 run 미포착 정황(2026-07-29 실적콜 예측시장 매출 발언, RVII IPO 2026-08-13, UK 크립토 출시 2026-08-10)은 이번 회차에도 조사되지 않았고 HOOD 02_company가 '카드 미반영·감시만 유지'로 기록했다. [fact] 3사 Q3 실적일은 세 run 연속 1차 자료로 확정되지 않았고 애그리게이터 추정치만 존재한다(F1상 채택 불가). [inference:strong] 이번 회차에 3사가 동시에 매출 인식 요건에서 상향 게이트를 미충족 처리했으므로(cp_2308_no_revenue_stage), 실적일 미특정은 섹터 전체 해소 일정을 불확정으로 만드는 단일 최대 일정 결손이다. [fact] 본 에이전트는 과거 run 산출물·카드·config를 재작성할 권한이 없어 이관을 유지한다(F17).",
+        "owner": "user"
+      }
+    ]
+  },
+
+  "constraints_observed": {
+    "P1": "[fact] 모든 주장 문장을 [fact] 또는 [inference:강도]로 태깅했다.",
+    "P4": "[fact] grade3·4 근거는 전부 confirmed=false 상태 그대로 인용했고 단독 판단 근거로 사용하지 않았다. 도메인 매핑 결손이나 봇 차단으로 저등급이 부여된 정부·의회·법원 자료도 등급을 임의로 상향해 취급하지 않았다.",
+    "P5": "[fact] 미확인 항목은 sector_unconfirmed 13건으로 적재했고 자료 부재를 어떤 축의 반증으로도 사용하지 않았다. 8-K 부재를 계약 조건 불변의 증명으로 취급하지 않았고, COIN 파생상품 축의 조사 미수행을 상태 변화 없음으로 해석하지 않았으며, 공유 축 0개를 섹터 요인 부재의 증거로 사용하지 않았다.",
+    "P6_F13": "[fact] CLARITY 9/15 절차 표결과 예측시장 SCOTUS 상고를 개별 종목 등급 근거로 사용하지 않았고 '규제 훈풍이므로 3사 동반 상향' 류 서술을 생성하지 않았다. 절차·발의는 확정과 구분해 표기했고 클로처가 최종 통과 표결이 아님을 반복 명시했다.",
+    "P7": "[fact] Tazapay 인수를 계약 존재 단계로, HOOD 운영지표를 매출 인식 이전의 선행 투입량으로 각각 분리 표기했다.",
+    "P8": "[fact] 이번 회차 자료는 기존 축 판정을 뒤집지 않았으므로 하위 축 분해를 수행하지 않았고, 축 라벨 변경 건은 관찰로만 기록해 카드 소유 계층에 이관했다.",
+    "P13": "[fact] signal_mutation은 null이며 개별 종목 등급 변경·제안을 포함하지 않는다. 섹터 계층에서 도출한 관측이 개별 종목 판정에 사용될 수 없음을 명시했다.",
+    "P14": "[fact] 수치형 상관계수를 산출하지 않았다 — 역노출은 부호·구조로만 기술했고 매핑 테이블의 공유도는 상/중/하 등급으로만 표기했다.",
+    "P16": "[fact] 최상위 as_of·staleness_days를 기재하고 입력 산출물의 재사용·staleness 표기를 inputs_used.input_vintage_note에 기록했으며 불일치는 escalation으로 이관했다.",
+    "P17": "[fact] 입력은 3사 02_company·03_signal 구조화 산출물과 [CODE] 집계본으로 한정했고, 동일 섹터 자기 계열의 직전 run 섹터 산출물을 역노출 3건·미확정 항목·스키마 대조 목적으로만 열람했다(오케스트레이터 지시). config/coverage.yaml과 집계 스크립트 소스는 집계 감사 목적으로 확인했다. L2 수집 원문·타 섹터 산출물·01_macro_kc*.json·thesis card 원문·ThesisPatch·승인 큐에는 접근하지 않았고, 폐기 통보된 03_signal/_COIN_corrupted_backup.json도 열람하지 않았다.",
+    "S4_code_audit": "[fact] 스크립트 출력을 3사 02_company의 deltas 배열 직접 계수로 검산했고 9개 축·9건 전 항목이 일치해 수기 집계로 대체하지 않았다 — 검산 내역과 single_ticker_view 플래그의 의미 구분을 code_output_audit에 기록했다.",
+    "D3": "[fact] 매크로 전망 내러티브를 생성하지 않았다 — 금리 지표 자체는 L1 소관으로 접근하지 않았고 향후 금리 경로나 표결 결과 예단에 관한 서술을 포함하지 않았다."
+  },
+
+  "signal_mutation": null
+}

@@ -1,0 +1,36 @@
+{
+  "ticker": "CRWV",
+  "cik": "0001769628",
+  "items": [
+    {
+      "id": "edgar_2026-09-22_8-K_3",
+      "form": "8-K",
+      "filed_at": "2026-09-22",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/crwv-20260917.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-17_8-K_9",
+      "form": "8-K",
+      "filed_at": "2026-09-17",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000429/crwv-20260917.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-09-17_424B5_10",
+      "form": "424B5",
+      "filed_at": "2026-09-17",
+      "title": "424B5",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000162828026062362/coreweave-424b5.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-09-05T08:30",
+  "run_id": "20260905_0618",
+  "ticker": "NBIS",
+  "card_field": "thesis",
+  "operation": "amend",
+  "before": "  순현금 재무구조 + 최고 성장률 + 고객 선불금 기반 저희석 확장. Full-stack + 소프트웨어\n  (Token Factory, Echo) 보유로 MW당 수익화에서 bare-metal 대비 우위. NVIDIA·Meta 엔도스먼트.",
+  "after": "  대규모 자본시장 접근성 + 최고 성장률 + 고객 선불금 기반 확장 — 단 재무구조는 이자부 부채 > 현금으로\n  전환(6/30/26 확정)됐고, 확장의 조달 형태는 부채성·조건부 잠재 희석이 병존한다. Full-stack + 소프트웨어\n  (Token Factory, Echo) 보유로 MW당 수익화에서 bare-metal 대비 우위. NVIDIA·Meta 엔도스먼트.\n  [✍ 2026-09-05 재작성(run 20260905_0618) — 사용자 결정: esc_20260905_0618_nbis_thesis_rewrite 선택지 A 채택.\n  이전 문장(P9 보존): \"순현금 재무구조 + 최고 성장률 + 고객 선불금 기반 저희석 확장.\" 재작성 근거는 아래 (1)~(4)\n  재대조·결제 확정 주석과 동일 — \"순현금\" 불성립(6/30 Debt $8,545.7M > 현금 $8,042.1M, 8/24 결제로 원금 격차 확대 방향),\n  \"저희석\" 미성립(ATM $2.8B·12.7M주 기집행 + $800M 교환 ~15.8M주 + 전환사채 원금 ~$15.0B의 조건부 잠재 희석 —\n  단 신규분 전환 프리미엄 +40~45%로 즉시 희석은 아님, P7). 조달 접근성 자체는 2026-08-24 $5.75B 클로징(그린슈\n  전액 행사)으로 실증. 이로써 아래 주석 말미의 '사람 결정 대기'는 본 재작성으로 해소됨]",
+  "reason": "[fact] 에스컬레이션 esc_20260905_0618_nbis_thesis_rewrite에 대해 2026-09-05 사용자가 선택지 A(재작성)를 채택했다. [fact] \"순현금 재무구조\"는 6/30/26 기준 Debt $8,545.7M > 현금 $8,042.1M로 상각후·원금 어느 기준으로도 불성립하며, 8/24 결제는 원금 기준 격차를 확대하는 방향이다(grade 1, c_20260905_NBIS_01·c_20260820_NBIS_02). [fact] \"저희석 확장\"은 ATM $2.8B(12.7M주) 기집행 + $800M 부채→지분 교환 ~15.8M주 + 전환사채 원금 ~$15.0B의 조건부 잠재 희석과 병존해 단독 서술로 부정확하다. [fact] 반대 방향 사실(funding_access 강화 — launch 대비 +27.8% 결제 완결)도 재작성 문장과 주석에 함께 보존한다(상충 프레임 유지). [fact] 이전 문장은 [✍] 주석에 원문 인용으로 보존한다(P9).",
+  "basis_claims": [
+    "c_20260905_NBIS_01",
+    "c_20260905_NBIS_02",
+    "c_20260905_NBIS_03",
+    "c_20260820_NBIS_01",
+    "c_20260820_NBIS_02"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": true,
+  "reverses_core_thesis_note": "[fact] 핵심 논거 문장의 재작성이다 — 다만 에이전트 판단이 아니라 에스컬레이션에 대한 사용자 결정(선택지 A)의 집행이며, thesis-refine의 자동 패치 금지 규칙은 사용자 결정으로 해제됐다. 시그널 등급 판정은 포함하지 않는다.",
+  "downstream_note": "[fact] conclusion의 '재무 건전성' 표현 동반 정정은 별도 패치(NBIS_conclusion_health_rewrite)로 분리. [fact] 확정 원금·현금·순조달액은 Q3 2026 재무제표에서 재검증 — 확정치 확보 시 [✍] 주석의 추정치 문구가 후속 amend 대상이다.",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "대규모 자본시장 접근성 + 최고 성장률 + 고객 선불금 기반 확장",
+      "선택지 A 채택",
+      "이전 문장(P9 보존): \"순현금 재무구조 + 최고 성장률 + 고객 선불금 기반 저희석 확장.\""
+    ],
+    "not_contains": [
+      "저희석 확장. Full-stack + 소프트웨어\n  (Token Factory"
+    ]
+  },
+  "source_artifact": "output/20260905_0618/07_thesis_patch/NBIS_escalation_thesis_rewrite.md · output/20260905_0618/02_company/NBIS.json#claims[c_20260905_NBIS_01/02/03]"
+}

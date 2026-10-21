@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run Report 20260820_1932</title>
+<style>
+:root{
+  --surface-1:#fcfcfb; --page:#f9f9f7;
+  --ink-1:#0b0b0b; --ink-2:#52514e; --ink-muted:#898781;
+  --grid:#e1e0d9; --baseline:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --series-1:#2a78d6;
+  --status-good:#0ca30c; --status-warn:#fab219; --status-serious:#ec835a; --status-critical:#d03b3b;
+  --good-text:#006300;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink-1);
+  font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif;line-height:1.55;font-size:15px}
+.wrap{max-width:1060px;margin:0 auto;padding:28px 20px 48px}
+h1{font-size:22px;margin:0 0 4px}
+h2{font-size:17px;margin:36px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--grid)}
+h3{font-size:14.5px;margin:0 0 6px}
+.sub{color:var(--ink-2);font-size:13.5px;margin:0 0 2px}
+.banner{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;
+  padding:10px 14px;margin:14px 0 0;color:var(--ink-2);font-size:13px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{background:var(--surface-1);border:1px solid var(--ring);border-radius:999px;
+  padding:5px 12px;font-size:13px;color:var(--ink-2)}
+.badge b{color:var(--ink-1)}
+/* pipeline */
+.pipe{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin-top:8px}
+.stage{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;
+  padding:9px 12px;min-width:118px;flex:1}
+.stage .nm{font-weight:600;font-size:13.5px}
+.stage .dt{color:var(--ink-2);font-size:12.5px;margin-top:2px}
+.stage .ok{color:var(--good-text);font-size:12.5px;margin-top:4px;font-weight:600}
+.arrow{align-self:center;color:var(--ink-muted);font-size:15px;padding:0 1px}
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:8px}
+.tile{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;padding:12px 14px}
+.tile .hd{display:flex;justify-content:space-between;align-items:baseline}
+.tile .tk{font-weight:700;font-size:15px}
+.tile .gr{font-size:13px;color:var(--ink-2)}
+.tile .st{font-size:12.5px;color:var(--ink-2);margin-top:3px}
+.tile .pt{font-size:13px;margin-top:7px;border-top:1px dashed var(--grid);padding-top:7px}
+.keep{display:inline-block;font-size:11.5px;color:var(--ink-2);border:1px solid var(--grid);
+  border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px}
+/* tables */
+table{border-collapse:collapse;width:100%;background:var(--surface-1);font-size:13.5px}
+th,td{border:1px solid var(--grid);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:#f2f1ee;font-weight:600;color:var(--ink-2)}
+td.num{font-variant-numeric:tabular-nums}
+.prov{color:var(--ink-2)}
+.hl td{background:#fdf6ee}
+/* bar chart */
+.chart{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;padding:16px 18px 10px;margin-top:8px}
+.chart .cap{font-size:12.5px;color:var(--ink-muted);margin:10px 0 2px}
+.row{display:grid;grid-template-columns:250px 1fr 118px;align-items:center;gap:10px;padding:4px 0}
+.axname{font-size:13px;color:var(--ink-1);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.axname small{color:var(--ink-muted)}
+.track{position:relative;height:16px;background:transparent;border-left:2px solid var(--baseline)}
+.bar{position:absolute;left:0;top:1px;height:14px;border-radius:0 4px 4px 0;background:var(--series-1)}
+.bar.over{background:var(--status-serious)}
+.thresh{position:absolute;top:-4px;bottom:-4px;width:0;border-left:2px dashed var(--ink-muted)}
+.val{font-size:13px;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.val b{color:var(--ink-1)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);
+  border-top:1px solid var(--grid);margin-top:10px;padding-top:8px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+/* findings */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:8px}
+.card{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;padding:13px 15px}
+.card .src{font-size:11.5px;color:var(--ink-muted);margin-top:8px}
+.card p{margin:6px 0 0;font-size:13.5px}
+.tag{display:inline-block;font-size:11.5px;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.tag.fact{background:#e8f1fc;color:#184f95;border:1px solid #b7d3f6}
+.tag.inf{background:#f4f3f0;color:var(--ink-2);border:1px solid var(--grid)}
+/* queue */
+ol.q{margin:8px 0 0;padding-left:22px}
+ol.q li{margin:7px 0;font-size:13.5px}
+.due{font-size:12px;color:var(--status-critical);font-weight:600;border:1px solid var(--status-critical);
+  border-radius:4px;padding:0 6px;margin-right:6px}
+footer{margin-top:40px;color:var(--ink-muted);font-size:12.5px;border-top:1px solid var(--grid);padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Run Report — 전체 워크플로우 <span style="color:var(--ink-muted);font-weight:400">run 20260820_1932</span></h1>
+<p class="sub">실행: 2026-08-20 19:32 KST 시작 · L1→L2×7→arbiter×7→L3×3→L4 완주 · 전 계층 validate PASS</p>
+
+<div class="badges">
+  <span class="badge">기본 판정 <b>no_action</b></span>
+  <span class="badge">KC 발동 <b>0건</b> (🔴🔴 없음)</span>
+  <span class="badge">시그널 <b>7종목 전건 유지 후보</b></span>
+  <span class="badge">승인 대기 큐 <b>0건</b></span>
+  <span class="badge">ThesisPatch 후보 <b>4건</b> (refine 이관)</span>
+</div>
+
+<h2>① 파이프라인 실행 흐름</h2>
+<div class="pipe">
+  <div class="stage"><div class="nm">S0 state-audit</div><div class="dt">승인 0 · config 오류 0</div><div class="ok">✓ 통과</div></div>
+  <div class="arrow">→</div>
+  <div class="stage"><div class="nm">L1 macro-kc</div><div class="dt">KC 10건 판정</div><div class="ok">✓ PASS</div></div>
+  <div class="arrow">→</div>
+  <div class="stage"><div class="nm">L2 ×7</div><div class="dt">종목 리서치 (병렬)</div><div class="ok">✓ PASS ×7</div></div>
+  <div class="arrow">→</div>
+  <div class="stage"><div class="nm">arbiter ×7</div><div class="dt">필터본 격리 판정</div><div class="ok">✓ PASS ×7</div></div>
+  <div class="arrow">→</div>
+  <div class="stage"><div class="nm">L3 ×3</div><div class="dt">memory · neocloud · stablecoin</div><div class="ok">✓ PASS ×3</div></div>
+  <div class="arrow">→</div>
+  <div class="stage"><div class="nm">L4 cio-portfolio</div><div class="dt">상관 + 포트폴리오 뷰</div><div class="ok">✓ PASS ×2</div></div>
+</div>
+
+<h2>② 시그널 등급 후보 <small style="color:var(--ink-muted);font-weight:400">— 확정은 사람 (전건 등급 유지)</small></h2>
+<div class="tiles">
+  <div class="tile"><div class="hd"><span class="tk">🟡 IREN</span><span class="gr">유지<span class="keep">close call</span></span></div>
+    <div class="st">관망 (상향 대기) · 포지션 90%</div>
+    <div class="pt">424B7로 완전희석 구성요소 최초 계량 — 상한 ~566.7M주, 카드 range(495~508M) 초과 가능성. 하향 미적용(방법론 차이 판정), <b>8/27 실적서 재판정</b></div></div>
+  <div class="tile"><div class="hd"><span class="tk">🟡 NBIS</span><span class="gr">유지</span></div>
+    <div class="st">관망 · ThesisPatch 후보 플래그</div>
+    <div class="pt">전환사채 원금 <b>$10.0B</b> 확인(카드 $4.3B는 부분치). 8/20 $5.0B 업사이즈 프라이싱, 결제 8/24. 6/30 기준 부채&gt;현금</div></div>
+  <div class="tile"><div class="hd"><span class="tk">🟡 CRWV</span><span class="gr">유지</span></div>
+    <div class="st">관망</div>
+    <div class="pt">검토기간 내 신규 1차 공시 0건 — P12 기본 경로(등급 유지 + 사유 기록)</div></div>
+  <div class="tile"><div class="hd"><span class="tk">🟠 MU</span><span class="gr">유지</span></div>
+    <div class="st">주의 (피크 역설 구간)</div>
+    <div class="pt">Netlist ITC·CDCA 특허소송(8/12, grade1) — 기존 5축 미매핑, 신규 축 <b>ip_litigation_risk</b> 제안 계류. next: 9/22 실적</div></div>
+  <div class="tile"><div class="hd"><span class="tk">🔴 CRCL</span><span class="gr">유지</span></div>
+    <div class="st">비중 조절 검토 (OUSD 위협)</div>
+    <div class="pt">유통비용 $410M/$412M 불일치 해소(표기 차이). Coinbase 8-K 부재 3차 관측 — KC-CRCL-3 미발동, <b>8/24 기한</b></div></div>
+  <div class="tile"><div class="hd"><span class="tk">🟠 COIN</span><span class="gr">유지</span></div>
+    <div class="st">주의 (Q2 매출 miss)</div>
+    <div class="pt">Coinbase 귀속 유통비용 분리 공시 확보(Q2 $324.6M) — 역노출 규모 프록시 최초. derivatives_base 강화(단 grade4)</div></div>
+  <div class="tile"><div class="hd"><span class="tk">🟡 HOOD</span><span class="gr">유지</span></div>
+    <div class="st">관망 (Q2 전면 beat)</div>
+    <div class="pt">신규 1차 자료 0건(8월 운영지표 미발표). next: 월간 지표 + Q3 실적일 공식 공지</div></div>
+</div>
+
+<h2>③ 매크로 KC 판정 <small style="color:var(--ink-muted);font-weight:400">— as_of 2026-08-20, met 0 / not_met 10 (provisional 6)</small></h2>
+<table>
+  <tr><th style="width:70px">KC</th><th>내용</th><th style="width:120px">판정</th><th style="width:110px">확신도</th><th>이번 run 특기</th></tr>
+  <tr class="hl"><td>KC-1</td><td>FFR 임계</td><td>미충족</td><td class="prov">provisional</td><td><b>경계 접촉</b> — 값 3.75 = 임계(&gt;3.75 strict). 웹검색 수집·staleness 22일</td></tr>
+  <tr><td>KC-2</td><td>—</td><td>미충족</td><td>confirmed</td><td></td></tr>
+  <tr><td>KC-3</td><td>파급: IREN·COIN·HOOD·CRCL</td><td>미충족</td><td>confirmed</td><td></td></tr>
+  <tr class="hl"><td>KC-4</td><td>ON RRP</td><td>미충족</td><td>confirmed</td><td>⚠️ 단위 정합 의심 재확인 — 값 317,000,000 vs 임계 200,000,000,000 (약 631배)</td></tr>
+  <tr><td>KC-5</td><td>TAIEX 중심</td><td>미충족</td><td>confirmed</td><td>1개월 레그 이격 0.24p · 20dma 레그 2.10p — 가장 좁은 축</td></tr>
+  <tr><td>KC-6</td><td>SDLLMTK</td><td>미충족</td><td class="prov">provisional</td><td>7일 +1.9%(부호 반대) · duration 조건</td></tr>
+  <tr><td>KC-7</td><td>hyperscaler FCF</td><td>미충족</td><td class="prov">provisional</td><td>지표 미수집 — 분기 공시 수동 확인 필요</td></tr>
+  <tr><td>KC-8</td><td>MSFT FCF</td><td>미충족</td><td class="prov">provisional</td><td>지표 미수집</td></tr>
+  <tr><td>KC-9</td><td>Brent</td><td>미충족</td><td class="prov">provisional</td><td>duration(1개월) 미확인 · KC_AXIS 미매핑(파급 미산출)</td></tr>
+  <tr><td>KC-10</td><td>IREN 전력·인허가 (event형)</td><td>미충족</td><td class="prov">provisional</td><td>ERCOT 예외 신청 8/10 · PUCT 8/20 회의 결과 미공개</td></tr>
+</table>
+
+<h2>④ 축 집중도 <small style="color:var(--ink-muted);font-weight:400">— 비중 상단 합(%) vs 임계 60</small></h2>
+<div class="chart">
+  <div class="row"><div class="axname">AI_CAPEX <small>· 4종목</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar over" style="width:95%"></span></div><div class="val"><b>95.0</b> ⚠️ 초과</div></div>
+  <div class="row"><div class="axname">RATES <small>· 7종목</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar over" style="width:95%"></span></div><div class="val"><b>95.0</b> ⚠️ 초과</div></div>
+  <div class="row"><div class="axname">CRYPTO <small>· 4종목</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar over" style="width:95%"></span></div><div class="val"><b>95.0</b> ⚠️ 초과</div></div>
+  <div class="row"><div class="axname">GPU_SUPPLY <small>· 3종목</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar over" style="width:95%"></span></div><div class="val"><b>95.0</b> ⚠️ 초과</div></div>
+  <div class="row"><div class="axname">POWER_PERMIT <small>· IREN 단독</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar over" style="width:95%"></span></div><div class="val"><b>95.0</b> ⚠️ 초과</div></div>
+  <div class="row"><div class="axname">RISK_APPETITE <small>· 6종목</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar over" style="width:95%"></span></div><div class="val"><b>95.0</b> ⚠️ 초과</div></div>
+  <div class="row"><div class="axname">REGULATION <small>· 3종목(미보유)</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar" style="width:0%"></span></div><div class="val"><b>0.0</b></div></div>
+  <div class="row"><div class="axname">USDC_DISTRIB_ECON <small>· 2종목(미보유)</small></div><div class="track"><span class="thresh" style="left:60%"></span><span class="bar" style="width:0%"></span></div><div class="val"><b>0.0</b></div></div>
+  <div class="legend">
+    <span><span class="sw" style="background:var(--status-serious)"></span>임계 60 초과</span>
+    <span><span class="sw" style="background:var(--series-1)"></span>임계 이내</span>
+    <span><span style="border-left:2px dashed var(--ink-muted);padding-left:5px">임계 60</span></span>
+  </div>
+  <div class="cap">비중 상단&gt;0 종목이 IREN 하나뿐이라 지표가 "IREN 노출 축인가"의 이진 지표로 축퇴 — 6축이 동일하게 95.0이며 비중 지표의 판별력이 없음(L4 명기). 0.0인 2축은 위험 부재가 아니라 <b>보유 부재</b>의 결과.</div>
+</div>
+
+<h2>⑤ 이번 run 핵심 발견</h2>
+<div class="cards">
+  <div class="card"><h3>NBIS — 카드 부채 가정 2.3배 과소<span class="tag fact">fact · grade1</span></h3>
+    <p>전환사채 원금 <b>$10,041.8M</b>(6개 시리즈) — 카드의 $4,337.5M은 3월 발행분 부분치. 6/30 기준 부채 $8,545.7M &gt; 현금 $8,042.1M. 8/19~20 $5.0B 신규 전환사채 업사이즈 프라이싱 + $800M 지분 교환(결제 8/24).</p>
+    <p><span class="tag inf">inference · medium</span> 결제 완료 시 원금 ~$14.2~15.0B 전망. "순현금·저희석" thesis 문장 재작성 근거 확보 — 판단은 사람.</p>
+    <div class="src">출처: SEC 6-K (Claim 11건 전건 grade1)</div></div>
+  <div class="card"><h3>MU — Netlist 특허소송 (축 미매핑)<span class="tag fact">fact · grade1</span></h3>
+    <p>8/12 ITC·CDCA에 DDR5 RDIMM/MRDIMM 특허침해 제소, 수입배제명령 청구. 피신청인은 MU + 고객사뿐 — 삼성은 8월 합의로 종결, 하이닉스는 라이선스 보유.</p>
+    <p><span class="tag inf">L3 근거 기록</span> 섹터 공통축이 아닌 <b>MU 고유 노출축</b> 배치가 관측과 정합 → 신규 축 ip_litigation_risk 신설 여부는 사람 계류.</p>
+    <div class="src">출처: PR Newswire (grade1) · L3 memory 구분 근거</div></div>
+  <div class="card"><h3>IREN — 완전희석 구성 최초 계량<span class="tag fact">fact · grade1</span></h3>
+    <p>8/4 424B7에서 basic 357.4M주 + 옵션/RSU/전환사채 구성요소 확인 — 합산 상한 <b>~566.7M주</b>로 카드 range(495~508M) 상단 초과 가능성.</p>
+    <p><span class="tag inf">arbiter 판정</span> 신규 희석이 아닌 기존 구조의 최초 계량 = "방법론 차이"로 하향 미적용(근소한 판단). 8/27 실적의 확정치 공시가 재판정 트리거.</p>
+    <div class="src">출처: SEC 424B7 · 8/27 실적 D-7</div></div>
+  <div class="card"><h3>CRCL·COIN — 역노출 규모 프록시 확보<span class="tag fact">fact · grade1</span></h3>
+    <p>CRCL 10-Q 각주가 Coinbase 귀속 유통비용을 분리 공시 — Q2 <b>$324.6M</b>(3개월 -2.3% YoY / 6개월 +3.1% YoY, 부호 구간 의존). $410M/$412M run간 불일치는 세부항목 vs 소계 표기 차이로 해소.</p>
+    <p><span class="tag inf">상관 갱신</span> CRCL·COIN을 「자연 헤지」→「공유 축·부호 반대(제로섬 이전)」로 갱신. 쌍 등급 「상」은 3축 동조 기반이라 상쇄 해석 금지. 양 종목 비중 0으로 실효 상쇄 없음.</p>
+    <div class="src">출처: CRCL 10-Q (sec.gov) · 05_correlation.json</div></div>
+</div>
+
+<h2>⑥ 사람 판단 대기 항목</h2>
+<ol class="q">
+  <li><span class="due">8/24</span><b>CRCL 8-K 제출기한</b> — Coinbase 분배계약 변경 공시 최종 부재 시 "변경 없는 자동 갱신 완료" 잠정 결론 회부 (KC-CRCL-3 최종판정)</li>
+  <li><span class="due">8/24</span><b>NBIS $5.0B 전환사채 결제</b> — 완료 여부 + 결제 후 확정 원금·현금 잔액 (next_gate)</li>
+  <li><span class="due">8/27</span><b>IREN FY26 실적</b> (17:00 ET, 최대 분수령) — 체크포인트 13항목 대조 + 완전희석 주수 확정치. 예약 태스크 등록 완료(8/28 09:00 KST)</li>
+  <li><b>ThesisPatch 후보 4건</b> — NBIS 부채 가정 / IREN 주수 range·방법론 / CRWV 이자커버리지·CapEx $3.0B 불일치 / MU 신규 축. <code>refine thesis &lt;TICKER&gt;</code> 경로로 이관(패치 파일 미생성, 승인 큐 비어 있음)</li>
+  <li><b>KC-4 ON RRP 단위 확인</b> — 값 대비 임계 약 631배 차이(config 사용자 편집 영역)</li>
+  <li><b>config 제안 2건</b> — coverage.yaml: NBIS는 실제 20-F/6-K 체계(10-K 오기) / sources.yaml: home.treasury.gov 미등재로 정부 1차 공시가 grade4 과소평가</li>
+  <li><b>MU 종목 전용 KC 부재</b> — kill_conditions.yaml에 MU 항목 없음(IREN은 매크로 KC-10로 커버). 신설 여부는 사용자 영역</li>
+</ol>
+
+<footer>본 리포트는 판단 보조용 요약이며 매수·매도 지시가 아닙니다. 등급 확정·버전 발행 승인·KC 임계 확정·포지션 행동은 전부 사람이 합니다. 모든 수치는 각 산출물(01_macro_kc / 03_signal / 04_sector / 05_correlation / 06_portfolio)의 as_of 기준이며, provisional 표기 항목은 stale·웹검색 수집 입력을 포함합니다. — run 20260820_1932 · 생성 2026-08-20 22:11 KST</footer>
+
+</div>
+</body>
+</html>

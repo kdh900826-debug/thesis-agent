@@ -1,0 +1,103 @@
+{
+ "checked_at": "2026-10-21",
+ "method_note_ko": "WebSearch(standard) 15회 + WebFetch 4회. 10/20~21 창에서 텍사스(TCEQ 10/19 이행 보고·ERCOT 감사)·FERC·PJM·주 모라토리엄 법안·OK OCC·VA SCC·11/3 투표 안건은 새 소식 찾지 못함. 지난 기준선 점검이 놓친 9월 사실 2건(DOE 202(c) 판결, NY GEIS 범위)을 보충.",
+ "policies": [
+  {
+   "id": "pol-us-doe-202c",
+   "scope": "US",
+   "title_ko": "DOE 202(c) 비상명령으로 퇴역 예정 화력 유지(DC 수요 근거 명시)",
+   "effect": "support",
+   "applies_to_ko": "직접 DC 규제 아님. PJM·플로리다 공급력 유지로 신규 DC 전력 여유에 간접 영향, 비용은 요금으로 전가 가능",
+   "status_ko": "반복 연장 중이나 법원 제동(2026-10-21 기준). 9/11 D.C. 연방항소법원이 미시간 Campbell 첫 명령(2025-05)을 '비상 아님'으로 무효화 — 비상은 즉시 조치가 필요한 계통 위험에 한정, 중장기 공급 우려는 해당 안 됨. 다만 따로 내려진 Campbell 현행 명령(8/17~11/14)은 이번 소송 대상이 아니어서 유지 중. 플로리다 Stanton 1호기 11/30까지, 펜실베이니아 Eddystone 11/20까지",
+   "timeline": [
+    {
+     "date": "2026-09-11",
+     "what_ko": "D.C. 연방항소법원(판사 3명 만장일치, 사건 25-1159 미시간주 대 DOE), DOE의 Campbell 석탄발전소 첫 202(c) 명령(2025-05)을 위법으로 무효화. 주 PSC·MISO가 이미 폐쇄를 승인한 점을 짚음. 8/17~11/14 현행 명령은 이번 판결 대상 아님",
+     "grade": 1,
+     "src": [
+      {
+       "t": "미시간 법무장관실 보도자료(2026-09-11)",
+       "u": "https://www.michigan.gov/ag/news/press-releases/2026/09/11/federal-appeals-court-vacates-first-doe-order-forcing-operation-of-jh-campbell-coal-plant"
+      },
+      {
+       "t": "Earthjustice(2026-09-11)",
+       "u": "https://earthjustice.org/press/2026/trump-administration-loses-first-court-case-challenging-doe-orders-for-coal-plants"
+      }
+     ]
+    }
+   ],
+   "next": [
+    {
+     "date": "2026-11-14",
+     "what_ko": "Campbell 현행 명령 만료 — 판결 뒤 재발령 여부"
+    },
+    {
+     "date": "2026-11-20",
+     "what_ko": "Eddystone 명령 재연장 여부"
+    },
+    {
+     "date": "2026-11-30",
+     "what_ko": "Stanton 1호기 명령 재연장 여부"
+    },
+    {
+     "date": "",
+     "what_ko": "DOE 재심(전원합의체) 청구 여부, 다른 명령(인디애나·콜로라도·워싱턴) 소송에 판결 적용 여부"
+    }
+   ]
+  },
+  {
+   "id": "pol-ny-eo-moratorium",
+   "scope": "NY",
+   "title_ko": "호컬 주지사 행정명령: 50MW 이상 DC 주 환경허가 최대 1년 보류",
+   "effect": "freeze",
+   "applies_to_ko": "명령 전 계류·미완성 신청 포함 50MW 이상 DC 신설·증설의 DEC 재량 허가. 필요한 허가를 이미 받은 사업은 제외. 지방 인허가는 대상 아님. 제조·의료·교육·연구 주용도 시설 제외",
+   "status_ko": "발효 중(2026-07-14 발효, 2026-10-21 기준). 환경영향평가(GEIS) 첫 단계 진행: PSC가 9/17 '중대 영향 가능' 판단·초안 범위를 냈고 의견 접수는 10/20 마감. 다음은 최종 범위 확정 → GEIS 초안. 최종본 제출 시 종료, 최장 약 1년(~2027-07)",
+   "timeline": [
+    {
+     "date": "2026-09-17",
+     "what_ko": "PSC(사건 26-E-0045), 대형 부하 연결 개편·DC 건설·운영의 환경 영향을 다룰 GEIS 착수 결정(positive declaration)과 초안 범위 공개 — 물·대기·소음·기후법 부합·취약지역 영향, 용량 기반 요금·자체 발전·감축 같은 완화책 포함",
+     "grade": 1,
+     "src": [
+      {
+       "t": "NY PSC 보도자료 pr26085(2026-09-17)",
+       "u": "https://content.govdelivery.com/attachments/NYSDPSPO/2026/09/17/file_attachments/3784596/pr26085-PSC%20Adopts%20Draft%20Scope%20for%20Environmental%20Review%20Of%20Data%20Centers%20and%20Large%20Electric%20Loads%20.pdf"
+      },
+      {
+       "t": "NY DEC 환경공고(2026-09-30)",
+       "u": "https://dec.ny.gov/news/environmental-notice-bulletin/2026-09-30/seqr/statewide-interconnection-reforms-for-large-loads-including-data-centers"
+      }
+     ]
+    },
+    {
+     "date": "2026-10-20",
+     "what_ko": "GEIS 초안 범위 서면 의견 접수 마감",
+     "grade": 1,
+     "src": [
+      {
+       "t": "NY PSC 보도자료 pr26085",
+       "u": "https://content.govdelivery.com/attachments/NYSDPSPO/2026/09/17/file_attachments/3784596/pr26085-PSC%20Adopts%20Draft%20Scope%20for%20Environmental%20Review%20Of%20Data%20Centers%20and%20Large%20Electric%20Loads%20.pdf"
+      }
+     ]
+    }
+   ],
+   "next": [
+    {
+     "date": "",
+     "what_ko": "PSC 최종 범위 확정 → GEIS 초안 공개·공청회 일정"
+    },
+    {
+     "date": "2026-11-03",
+     "what_ko": "호컬 재선 여부 — 명령 유지·연장에 영향"
+    },
+    {
+     "date": "2026-12-31",
+     "what_ko": "의회 통과 DC 법안(S10642/A11560) 주지사 처리 기한(2차 보도, 1차 미확인)"
+    },
+    {
+     "date": "2027-07",
+     "what_ko": "최장 1년 만료 시점(GEIS 완료 시 조기 종료 가능)"
+    }
+   ]
+  }
+ ]
+}

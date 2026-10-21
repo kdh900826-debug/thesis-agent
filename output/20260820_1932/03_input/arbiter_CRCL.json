@@ -1,0 +1,98 @@
+{
+  "as_of": "2026-08-20T19:32",
+  "ticker": "CRCL",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260820_CRCL_1932_005",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260820_CRCL_1932_001",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "10-Q(2026-08-05 제출, 2026-06-30 마감분) 원문 재확인 결과, Q2'26 GAAP 손익계산서의 유통비용 관련 항목은 세 줄로 구성됨: 'Distribution and transaction costs' $410,414천(Q2'25: $406,472천) + 'Other costs' $2,056천(Q2'25: $470천) = 'Total distribution, transaction and other costs' $412,470천(Q2'25: $406,942천, +1.36% YoY). 이전 Run들에서 관측된 '$410M vs $412M' 수치 불일치는 동일 손익계산서 내 서로 다른 레벨(세부 항목 vs 소계)을 각각 인용한 것으로, 상충되는 데이터가 아니라 표기 granularity 차이임을 1차 공시 원문으로 확인·해소함.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm",
+        "filed_at": "2026-08-05"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_CRCL_1932_002",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "동일 10-Q 각주(Distribution, transaction and other costs)에 따르면, Coinbase와의 Collaboration Agreement(executory contract로 회계처리, Distribution and transaction costs 라인에 반영)에 따른 유통비용은 3개월 기준 Q2'26 $324.6M(Q2'25 $332.3M, -2.3% YoY), 6개월 기준 Q2'26 $655.3M(Q2'25 $635.5M, +3.1% YoY)로 공시됨.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm",
+        "filed_at": "2026-08-05"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_CRCL_1932_003",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "2026-08-20 19:32 KST 시점 EDGAR(CIK 0001876042) 재조회 결과, CRCL 최신 8-K는 여전히 2026-08-05(Q2 실적)이며 2026-08-06~2026-08-20 구간 신규 8-K 제출 0건. Coinbase 분배계약 3년 자동 갱신 발효일(2026-08-18) 경과 후 2일 시점까지 Item 1.01/1.02 등 계약변경 공시 부재가 지속됨 — 8/16 관측(output/20260816_0843, 발효일 전) 및 8/20 19:25 관측(output/20260820_1925/8k_watch_observation_2.md, 발효일 후) 결과와 정합.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_fulltext_and_submissions_api",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001876042&type=8-K&dateb=&owner=include&count=10&output=atom",
+        "filed_at": "2026-08-20"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_CRCL_1932_004",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "data.sec.gov submissions API(CIK 0001876042) 2026-08-20 재조회 결과, 2026년 8월 Form 4 제출은 총 11건(제출일: 08-04×6, 08-07×2, 08-12, 08-14 각 1건)이며 최신 제출은 2026-08-14(CFO Fox-Geen 8/13 매도분, 2026-08-15 Run에서 이미 확인)로 동일 — 2026-08-15 Run 이후(8/15~8/20) 신규 Form 4 제출 없음.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_submissions_api",
+        "url": "https://data.sec.gov/submissions/CIK0001876042.json",
+        "filed_at": "2026-08-20"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    }
+  ],
+  "deltas": [],
+  "unconfirmed": [
+    {
+      "id": "u_20260820_CRCL_1932_a",
+      "topic": "Coinbase 분배계약 자동갱신의 8-K 공시의무 최종 소멸 여부",
+      "attempted_search": "EDGAR CIK 0001876042 8-K 피드 2026-08-20 재조회, output/20260820_1925/8k_watch_observation_2.md 대조",
+      "reason_for_absence": "8-K 제출 기한(발효 후 4영업일, ~2026-08-24)이 아직 경과하지 않아 '공시의무 부재'를 최종 결론으로 확정하기에는 이르다. 8/24 경과 후 재조회 필요."
+    },
+    {
+      "id": "u_20260820_CRCL_1932_b",
+      "topic": "CPN 연환산 거래액 $23B(2026-07-31 기준, 8/15 Run에서 웹검색으로만 확인된 후속 수치)의 1차 출처",
+      "attempted_search": "circle.com/blog/cpn-momentum-and-upcoming-roadmap 직접 접속·확인",
+      "reason_for_absence": "circle.com 블로그 원문에는 해당 수치가 게재되어 있지 않았다. Q2'26 공식 실적 발표(circle.com/pressroom)의 1차 확정 수치는 $14.7B(2026-06-30 마감 30일 연환산, +76% QoQ)이며 이는 8/15 Run에서 이미 grade1로 확인됨. $23B 수치는 이번 Run에서 별도 grade1 원문을 확인하지 못해 등재하지 않음."
+    },
+    {
+      "id": "u_20260820_CRCL_1932_c",
+      "topic": "OUSD 공식 출시·실측 유통량",
+      "attempted_search": "웹검색 'OUSD stablecoin launch August 2026 official circulation' (2026-08-20)",
+      "reason_for_absence": "2026년 하반기 중 출시 목표(Solana 우선 발행 후 Base·Stellar·Polygon·Tempo 순)만 반복 보도되며, 8/15 Run 대비 상태 변화(공식 출시·실측 유통량) 없음 — noise_filter.yaml#CRCL의 '출시 임박 추측'은 공식 출시·유통량 데이터 없는 한 노이즈로 유지, 승격하지 않음."
+    }
+  ]
+}

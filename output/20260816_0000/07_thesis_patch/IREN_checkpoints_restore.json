@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-08-16T00:20",
+  "run_id": "20260816_0000",
+  "ticker": "IREN",
+  "card_field": "earnings_checkpoints",
+  "operation": "amend",
+  "before": "    - \"고객 다변화\"",
+  "after": "    - \"고객 다변화\"\n    # 2026-08-16 ThesisPatch(amend) — 설계서 v1 §5-1의 13개 체크포인트 중 카드 기계 판독본 초기화 시 누락된 ⑧~⑬ 6개 복원. S2E 성공 기준(체크포인트 전 항목 분류)의 커버리지 결손 정정\n    - \"ARR 실현율 vs 가이던스 (ARR $4.0B 중 미계약 ~$600M 실행 갭)\"\n    - \"현금흐름\"\n    - \"완전희석 주수 확정 (495M vs 508M 충돌 해소 — 단일값 사용 금지, F9 range 유지)\"\n    - \"Horizon 1 매출 인식 시점·금액 (FY26 결산 기간 외 사건 — 가이던스·콜 발언에서 확인. 유일한 revenue_recognized 상향 게이트 후보, P2·P7)\"\n    - \"Horizons 2-4 구체 일정\"\n    - \"SB6 적용 용량 (KC-10·power_permit 축 연결)\"",
+  "reason": "[fact] 설계서 v1 §5-1은 IREN 8/27 실적 체크포인트를 13개(①과금 가동률~⑬SB6 적용 용량)로 정의한다. [fact] 카드 기계 판독본(2026-08-15 초기화)의 earnings_checkpoints.items는 ①~⑦의 7개만 담고 있어 ⑧ARR 실현율 ⑨현금흐름 ⑩완전희석 주수 확정 ⑪Horizon 1 매출 인식 시점·금액 ⑫Horizons 2-4 구체 일정 ⑬SB6 적용 용량 6개가 누락됐다. [fact] company-iren.md 에이전트 정의는 '카드의 체크포인트 13개 항목별 대조표 작성(S2E)'을 지시하고 있어 정의와 카드가 불일치한다. [fact] S2E 성공 기준은 '카드의 체크포인트 전 항목이 확인/미확인/상충으로 분류됨'(설계서 v2 §5)이므로, 카드가 6개를 누락한 채 8/27 run earnings를 실행하면 커버리지 결손이 무감지로 통과된다. [inference:strong] 특히 ⑪(Horizon 1 매출 인식)은 시그널 상향 3중 게이트의 revenue_recognized 조건을 충족할 수 있는 유일한 후보 항목이므로, 이 누락은 상향 판정 경로 자체를 막는 결손이다. [fact] 본 패치는 설계서 원문 항목의 복원이며 새 판정·방향을 추가하지 않는다. 기존 7개 항목은 변경하지 않는다(P9).",
+  "basis_claims": [
+    "docs/에이전트시스템_설계계획서_v1_20260815.md#§5-1 실적 체크포인트(8/27) 13항목",
+    ".claude/agents/company-iren.md#종목 특이 주의(체크포인트 13개)",
+    "docs/에이전트시스템_설계계획서_v2_20260815.md#S2E 성공 기준(체크포인트 전 항목 분류)"
+  ],
+  "basis_claims_note": "근거가 run 산출물이 아니라 설계 문서 자체인 정합성 복원 패치 — L2 Claim ID가 존재하지 않는 유형이다. 실적일(8/27 17:00 ET)은 회사 공식 발표(GlobeNewswire 2026-08-13, 8-K exhibit, grade 1)로 재확인 완료.",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "thesis·축·방향을 건드리지 않는다 — 실적 대조표의 관측 커버리지를 설계 원문대로 복원하는 정합성 정정이다.",
+  "downstream_note": "승인 시 company-iren.md(13개)와 카드(13개)가 정합된다. 8/27 run earnings IREN의 대조표가 13항목 전건 분류를 요구하게 된다. 카드의 key_metrics·risks는 이미 ⑧~⑬ 관련 수치(ARR 갭, 주수 충돌, SB6)를 보유하고 있어 추가 수정 불요."
+}

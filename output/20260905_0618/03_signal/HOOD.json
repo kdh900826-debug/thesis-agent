@@ -1,0 +1,96 @@
+{
+ "as_of": "2026-09-05",
+ "run_id": "20260905_0618",
+ "ticker": "HOOD",
+ "input_source": "output/20260905_0618/03_input/arbiter_HOOD.json",
+ "prior_signal": "🟡",
+ "proposed_signal": "🟡",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {"id": "c_20260905_HOOD_2", "claim_type": "inference", "evidence_grade": null, "quantitative": false, "scope": "company_specific", "confirmed": false, "axis": "prediction_market"},
+  {"id": "c_20260905_HOOD_3", "claim_type": "fact", "evidence_grade": 3, "quantitative": true, "scope": "company_specific", "confirmed": false, "axis": "crypto_cycle", "note": "온체인 추정치 단독 소스 — P4 단독 판단 근거 불가"},
+  {"id": "c_20260905_HOOD_4", "claim_type": "fact", "evidence_grade": 4, "quantitative": true, "scope": "company_specific", "confirmed": false, "axis": "crypto_cycle", "note": "애그리게이터급 재보도 — P4 단독 판단 근거 불가"},
+  {"id": "c_20260905_HOOD_5", "claim_type": "inference", "evidence_grade": null, "quantitative": false, "scope": "company_specific", "confirmed": false, "axis": "crypto_cycle"}
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_HOOD.json의 claims 4건 전부 scope==company_specific 확인. removed_claims 1건(c_20260905_HOOD_1, scope=sector)은 정상적으로 물리 제거됨(P6/P13 필터 정상 작동).",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-HOOD-1 (거래매출감소+고객기반동반훼손)",
+    "verdict": "not_met",
+    "verdict_confidence": "insufficient_data",
+    "note": "trading_revenue_qoq·net_deposits_growth 관련 회사 공식 수치 미확보 — 8월 월간 운영지표 미발표(unconfirmed 적재, reason=not_yet_released). 판정 대상 자체 부재로 not_met 처리."
+   },
+   {
+    "kc_id": "KC-HOOD-2 (순입금 유출전환, 경고/발동 2단)",
+    "verdict": "not_met",
+    "verdict_confidence": "insufficient_data",
+    "note": "동일 사유 — 8월 순입금 수치 미공개."
+   },
+   {
+    "kc_id": "KC-HOOD-3 (예측시장 규제 금지, 이벤트형)",
+    "verdict": "not_met",
+    "verdict_confidence": "active",
+    "note": "c_20260905_HOOD_2는 2026-08-28 제9순회항소법원의 Kalshi 관련 판례(주 도박법 적용·CEA 연방선점 불인정)에 대한 Robinhood 간접노출 추론(inference, confirmed=false, evidence_grade 미부여)일 뿐, KC-HOOD-3 발동 요건(연방/CFTC 차원 금지 또는 매출 기여 상위 3개 주 이상 동시 금지)에 해당하는 확정 사실이 아님. 발동 아님 — 다만 Nevada 등 9순회 관할 개별주 집행 재개 리스크로 관측 강화 필요."
+   },
+   {
+    "kc_id": "macro KC-1~10",
+    "verdict": "out_of_scope_this_run",
+    "note": "본 run 입력 화이트리스트(P17/D7)에 macro KC 상태·01_macro_kc.json이 포함되지 않아 접근하지 않음 — kill_check 판정에서 제외."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "HOOD 종목 KC 3건 모두 미발동. KC-HOOD-1·2는 판정에 필요한 회사 공식 수치 자체가 이번 조회기간 내 미공개(not_met/insufficient_data). KC-HOOD-3(예측시장 규제 금지)는 9순회 Kalshi 판례로 간접노출이 확인되나 발동 요건(연방 금지 또는 상위 3개 주 동시 금지)에 미달 — not_met. Kill 후보(규칙1) 해당 없음."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "정량 Claim 2건(c_20260905_HOOD_3, c_20260905_HOOD_4) 존재하나 둘 다 stage=revenue_recognized 요건 미충족 — Robinhood Chain 체인수수료는 회사 자체 공시가 아닌 애널리스트(Deutsche Bank Bedell)의 온체인 데이터 추정치(3자 재보도)이며, 회사의 확정 매출 인식·가이던스가 아님(P7 상 계약존재/이행 단계에도 못 미치는 관측 단계). 추가로 두 Claim 모두 evidence_grade 3·4 & confirmed=false로 P4(및 본 지침 4항)상 단독 판단 근거 불가 — 이중으로 상향 게이트 불충족. P2/P6/P7 3종 전부 충족 아니므로 result=not_met."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "c_20260905_HOOD_4(quantitative=true, evidence_grade=4, confirmed=false)가 매출 mix 실질(밈코인 97%·전략상품 3%·보조금 종료 임박)에 대한 훼손성 정보를 담고 있으나, evidence_grade=4·confirmed=false로 P4상 단독 판단 근거 불가하여 '탐지됨(detected)'으로 확정하지 않음.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "asymmetric_downgrade_triggered": false,
+   "reason": "하향 트리거 조건(정량 훼손 또는 evidence_grade≤2 정성 훼손) 중 어느 쪽도 P4 통과 기준(단독 근거 가능한 등급·확인상태)을 충족하지 못함. c_20260905_HOOD_4는 grade4·미확인, c_20260905_HOOD_2(prediction_market 정성 훼손 시사)는 evidence_grade 자체가 없는 inference이며 마찬가지로 confirmed=false — 두 경로 모두 단독 하향 근거 불가."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "prediction_market",
+   "direction": "weaken",
+   "grade_impact": "없음(P4·P6 — 단독 확정 아닌 판례·간접노출 추론이 등급 변경 근거로 사용되지 않음)",
+   "risk_transfer_to": ["Nevada 등 9순회 관할 개별주 집행 재개 리스크로 구체화", "3순회(Flaherty)와 circuit split → SCOTUS 심리 결과로 이관(2027년 이후 예상)"]
+  },
+  {
+   "axis": "crypto_cycle",
+   "direction": "neutral",
+   "grade_impact": "없음(P2·P4 — 애널리스트 온체인 추정치 단독 근거로 강화 판정하지 않음, 중립 유지)",
+   "risk_transfer_to": ["2026-09-29 가스비 보조금 종료 후 트래픽·수수료 잔존율 확인 시점으로 이관", "스톡토큰(전략상품) 채택 비중(현재 약 3%) 개선 여부 모니터링"]
+  }
+ ],
+ "alert": {
+  "ticker_event": "HOOD — 이번 조회기간(직전 run 20260820_1932 이후~2026-09-05) 신규 company_specific Claim 4건. 핵심: (a) 제9순회항소법원 Kalshi 판례상 Robinhood Derivatives 예측시장 축 간접노출 시사(추론) (b) Robinhood Chain 온체인 체인수수료 급증(애널리스트 추정, 단독 미확정) (c) 급증 배경이 전략상품(스톡토큰)이 아닌 밈코인·한시 가스비보조금일 가능성 시사.",
+  "facts": "[출처: c_20260905_HOOD_3, evidence_grade 3, filed 2026-09-04, CNBC(Deutsche Bank 재보도)] Robinhood Chain 일별 체인수수료 2026-08-27 약 $179,815 → 2026-09-02 $4.01M(약 22배), 08-28~09-02 5일 누적 체인수익 $10.8M(HOOD 귀속 추정 약 $5.4M), 최근 30일 누적 온체인 거래량 약 $150억(글로벌 5위). [출처: c_20260905_HOOD_4, evidence_grade 4, filed 2026-09-04, crypto.news] 동 거래량 대다수 Pons·GMGN 등 밈코인 플랫폼 경유, 토큰화주식 거래는 전체의 약 3%; 2026-07-01 개시 90일 가스비 무료보조금 종료예정일 약 2026-09-29. [출처: c_20260905_HOOD_2, 확인 2026-09-05] 2026-08-28 제9순회항소법원, Kalshi 상대 원심(예비적 금지명령 기각) 인용 — 스포츠 이벤트계약에 주 도박법 적용·CEA 연방선점 불인정. Robinhood Derivatives는 2025-08-19 Nevada 게임위원회 상대 유사소송 당사자였고 2025-11-25 TRO 기각 이력 있음.",
+  "inference": "[강도: medium] c_20260905_HOOD_5 — 현재 체인 수익 급증은 전략상품(스톡토큰)이 아닌 가스비보조금발 밈코인 투기 트래픽에 주로 기인하며, 2026-09-29 보조금 종료가 실질 매출전환 확인의 분기점(현 수치만으로 mix 개선 판정 불가). [강도: medium] c_20260905_HOOD_2 — 9순회 판례로 Nevada 등 관할 내 간접 규제노출이 존재하나 연방 전면금지가 아니고 3순회(Flaherty)와의 circuit split으로 SCOTUS 상고 시 결론이 뒤집힐 여지 있음.",
+  "classification": "행동 없음(P12 기본 경로) — 상향 게이트(P2/P6/P7) 3종 전부 미충족(회사 매출 인식 미확정 + P4상 단독근거 불가로 이중 실패), 하향 트리거도 P4 기준(단독 근거 가능 등급·확인상태) 미충족으로 불성립. holding_reinforcement 분류 대상도 아님(정량 상향 근거 부재). 🔴🔴(사람 확인 요청) 대상 아님.",
+  "thesis_delta": "prediction_market 축 weaken(risk_transfer: Nevada 등 9순회 관할 개별주 집행재개 리스크로 구체화, 3순회와 circuit split→SCOTUS 이관 2027년 이후 예상) / crypto_cycle 축 neutral 유지(risk_transfer: 09-29 보조금종료 후 실제 리텐션 확인 시점 및 스톡토큰 채택비중(현 약3%) 개선 여부로 이관). 두 축 delta 모두 P4·P6에 따라 등급(🟡) 변경 근거로 사용되지 않음.",
+  "signal_verdict": "등급 유지 후보(🟡 관망 → 🟡 관망, maintain). Kill 후보 해당 없음 — KC-HOOD-1·2는 판정 자료(8월 운영지표) 미공개로 not_met, KC-HOOD-3(예측시장 금지)은 발동 요건(연방 금지 또는 매출 상위 3개 주 동시 금지) 미충족.",
+  "next_check": "① 2026-09-29 가스비 보조금 종료 후 Robinhood Chain 일별 체인수수료·거래량의 회사 공식(1차) 수치 및 스톡토큰 실거래 비중 변화 확인 ② 8월 월간 운영지표(순입금·AUA·크립토/주식 명목거래액) 공개 시 net_deposits_growth·trading_revenue_qoq 확인(KC-HOOD-1·2 재판정) ③ 제9순회 판례에 대한 SCOTUS 상고 여부 및 Nevada 주정부의 Robinhood Derivatives 대상 실제 집행조치(공식 공시) 개시 여부."
+ },
+ "unconfirmed_carried": [
+  {"topic": "Q3 2026 실적 발표일", "reason": "aggregator_estimate_only"},
+  {"topic": "8월(August) 2026 월간 운영지표(순입금·AUA·크립토/주식 명목거래액)", "reason": "not_yet_released"},
+  {"topic": "Robinhood Ventures Fund II(RVII) IPO", "reason": "out_of_window_but_flagged_for_user_review"},
+  {"topic": "UK 크립토 거래 출시(Bitstamp UK 경유)", "reason": "out_of_window_but_flagged_for_user_review"},
+  {"topic": "MT Newswires(2026-08-28) 'Robinhood·Kalshi·Crypto.com Lose Appeals ... Nevada Gaming Control Board' 보도", "reason": "paywall_verification_failed — Robinhood이 동일 판결일 Nevada 항소에서 별도 패소했는지 여부 미확정, c_20260905_HOOD_1/2와 별개 확정 불가"},
+  {"topic": "이자수입(rates_income) 축 신규 1차 자료", "reason": "not_found — 매크로 지표는 L1 소관, 본 에이전트 미접근(P17)"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 이번 run 핵심 특이사항 2건: (1) KC-HOOD-3 관련 규제환경 변화 — 9순회 Kalshi 패소 판례(주정부 규제우위 성립)로 Robinhood Derivatives 간접노출 존재, 발동 미충족이나 3순회 circuit split→SCOTUS 이관 여부를 다음 run에서 계속 추적 권고. (2) Robinhood Chain 수익 급증 관련 grade3·4 단독 Claim 2건은 P4상 상향·하향 어느 방향으로도 근거 채택 불가 — 2026-09-29 가스비 보조금 종료 후 회사 공식 수치 확보가 crypto_cycle 축 재판정의 전제조건. MT Newswires 유료장벽 건(Nevada 패소 시사)은 원문 확인 시 별도 Claim화 필요."
+}

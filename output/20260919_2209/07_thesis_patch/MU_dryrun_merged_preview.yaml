@@ -1,0 +1,73 @@
+# Thesis Card — MU (v1 §5-4 기계 판독본)
+ticker: MU
+sector: memory
+tier: Base
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-4"
+version_history:
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(axes/amend) — 근거: c_20260905_MU_03,c_20260905_MU_04,c_20260905_MU_05 / 이전: - / {id: / valuation_paradox, / label: / "P/E / 피크 / 역설 / (저 / P/E / ≠ / 밸류)"}...'}
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(earnings_checkpoints/amend) — 근거: c_20260905_MU_02,c_20260905_MU_12,c_20260905_MU_13 / 이전: date: / "2026-09-22"...'}
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(catalysts/amend) — 근거: c_20260905_MU_02 / 이전: - / "9/22 / Q4 / FY26 / 실적"...'}
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화"}
+
+axes:
+  # 2026-09-19 ThesisPatch(decompose, run 20260919_2209) — 이전 축: {id: hbm_demand, label: "HBM 매출 비중·마진 (AI CapEx 연동)"}(P9 보존, 삭제 아님). 수요 강·약 차원과 생산 가동 연속성 차원을 분리한다(P8 준용). 축 수 6 → 7(전문 71행 기준 계수). 🚨선행 인간 결정 의존: depends_on_human_decision = axis_naming_standardization. 축 명명 표준화 결정이 선행되지 않으면 본 분해는 섹터 결합 문제를 악화시킬 수 있다 — 3섹터 모두 종목 간 공유 축이 0개(neocloud 0/14, stablecoin 0/18)인 상태에서 축 수만 늘리면 공유 축 0이 고착되기 때문이다. 순서 결정은 사람 영역이므로 선행 결정 없이 본 패치를 승인하는 것은 부적절하다.
+  - {id: hbm_demand_strength, label: "HBM 수요 강·약 — HBM 매출 비중·마진 (AI CapEx 연동). 분해 전 hbm_demand 축의 원래 방향 차원을 그대로 승계한다. 방향 판정은 확정된 매출·마진·현금흐름·가이던스 수치로만 한다(P2). 2026-09-19 시점 창 내 신규 수치 없음(c_20260919_MU_12) — 관측점: 2026-09-30 FY26 Q4 실적의 HBM 비중·마진(미도래, 추정 금지)"}
+  - {id: production_continuity, label: "생산 가동 연속성 — 수요와 무관하게 공급 실행이 끊길 수 있는 차원(대만 Taoyuan·Taichung 노사 조정 절차 등). 분해 사유: 대만 노사 리스크가 hbm_demand 축 아래 기록돼 왔으나 그 축의 방향(수요 강·약)과 리스크의 성격(가동 연속성)은 서로 다른 차원이며, 직전 회차 이월 항목이 본 회차에도 미해소다. ⚠️현재 유일 소스가 grade 3·confirmed=false(Reuters 재게재본, 회사 1차 공시 미등재, c_20260919_MU_11)이므로 이 축의 존재 근거는 '축 구조 문제'에 한정되며 방향(강화·훼손) 판정은 부여하지 않는다(P4 — 단독 판단 근거 불가). 03_signal/MU.json도 규칙3 하향 자격 기준(grade≤2) 미달로 판정했다. 관측점: 2026-09-21 2차 조정 결과, 파업투표 실시 여부, 본 사안의 회사 1차 자료(8-K·IR) 등재 여부"}
+  - {id: sca_defense,      label: "SCA·LTA·선수금 방어구조 (CXMT/YMTC 침식 방어)"}
+  - {id: cycle_position,   label: "사이클 위치 — 비트그로스 vs ASP 분해 ('순수 P 사이클' 가설)"}
+  - {id: china_supply,     label: "CXMT·YMTC 공급 확대"}
+  - {id: valuation_paradox, label: "P/E 피크 역설 (저 P/E ≠ 밸류)"}
+  # 2026-09-05 ThesisPatch(amend, run 20260905_0618) — 신규 축 추가. 축 수 5 → 6(전문 기준 계수). 직전 run(20260820)과 이번 run 2회 연속 계류된 L2 axis_proposal이며 L3(memory)는 본 재료를 MU 단독 귀착으로 판정했다. 관측 단위 신설이며 방향(강화·훼손) 판정은 포함하지 않는다.
+  # 2026-09-19 ThesisPatch(annotate, run 20260919_2209) — 이전 축 서술은 아래 라벨 앞부분에 그대로 보존하고 관측점만 덧붙인다(P9, 삭제 없음). 축 수 6개 불변(전문 71행 기준 계수: hbm_demand·sca_defense·cycle_position·china_supply·valuation_paradox·ip_litigation_risk). ⚠️본 패치는 리스크 해소 기록이 아니다 — 2026-09-02 CAFC 무효 인용 특허 5건과 2026-08-12 신규 제소 주장 특허 4건은 번호가 겹치지 않는다. ⚠️CDCA 8:26-cv-02167·D.Del 1:26-cv-01014 두 식별자는 grade 4·confirmed=false 단독 소스이므로 사실 확정이 아니라 확인 대상으로 기재했다(P4).
+  - {id: ip_litigation_risk, label: "특허소송 리스크 — Netlist가 2026-08-12 ITC에 Micron 포함 4개사를 상대로 특허 4건(US 10,025,731 / 10,217,523 / 12,373,366 / 12,675,407, DDR5 RDIMM·MRDIMM) 침해 제소하며 배제명령·중지명령 청구, 별도로 캘리포니아중부지법(CDCA)에 Micron 단독 제소(특허 2건). 배경: 2026-02-20 CAFC 별건 판결로 $445M 배상 확정 이력. ITC 배제명령은 미국向 수입·매출 인식에 직접 작용하는 경로로 hbm_demand·sca_defense·china_supply 어디에도 매핑되지 않는 독립 리스크다. 2026-09-05 기준 ITC 조사개시(institution) 공지는 확인되지 않았으며 자료 부재는 반증이 아니다(P5). 추적점: ITC institution 투표, CDCA 답변 시한(2026-09-10, grade 4 미확인). 2026-09-19 관측점 갱신(ThesisPatch annotate, run 20260919_2209) — ① [fact · grade 1 · confirmed] 2026-09-02 CAFC가 Netlist v. Micron 항소 3건(24-1707 선례적 / 24-1859·24-1863 / 24-2240·24-2241)을 전부 인용(AFFIRMED)해 Netlist 특허 5건(US 10,949,339 / 11,016,918 / 11,232,054 / 8,787,060 / 9,318,160)의 쟁점 청구항이 무효 판단을 받았다(c_20260919_MU_5, 판결문 원문 직접 확인). ⚠️무효 5건은 2026-08-12 ITC·CDCA 신규 제소의 주장 특허 4건(10,025,731 / 10,217,523 / 12,373,366 / 12,675,407)과 번호가 겹치지 않는다 — 신규 소송의 청구는 소멸되지 않았으며 본 판결은 이 축의 리스크 해소가 아니다(c_20260919_MU_6, inference·moderate). 법률 사건의 결과이지 매출·마진·현금흐름·가이던스 수치가 아니므로 상향 근거로 쓸 수 없다(P2). ② [fact · grade 1 · confirmed] ITC 절차 식별자는 DN 3930으로 특정되고 접수공고(2026-08-17) 관보 게재까지 확인되나, 2026-09-19 시점 조사개시(institution) 공고는 관보 미게재다 — 부재는 미표결의 반증이 아니다(P5, c_20260919_MU_7). ③ [확인 대상 · grade 4 · confirmed=false · 단독 근거 부적격(P4)] CDCA 사건 식별자는 8:26-cv-02167(도켓상 제소일 2026-08-10)로 조회되며, 2026-09-02자 엔트리 #16에 답변기한 연장이 기록됐으나 연장 후 새 시한 날짜는 미특정이다(c_20260919_MU_8). 도켓상 제소일은 본 축이 기재한 2026-08-12와 불일치하나 어느 쪽도 정정하지 않고 병기한다(P9). ④ [확인 대상 · grade 4 · confirmed=false · 단독 근거 부적격(P4)] Micron이 Netlist를 상대로 제기한 비침해 확인의 소 D.Del 1:26-cv-01014(도켓상 제소일 2026-08-10)가 본 회차에 처음 포착됐다 — 대상 특허, ITC 조사개시 시 28 U.S.C. §1659 정지 해당 여부 모두 미확인이며 리스크 경감 근거로 단독 사용하지 않는다(c_20260919_MU_9). ③④는 사건 식별자 자체가 PACER 미러 단독 소스이므로 확정 사실이 아니라 확인 대상으로만 둔다. 추적점(갱신): ITC DN 3930 institution 표결·관보 공고 / CDCA 8:26-cv-02167 연장 답변시한 확정일과 답변 내용(grade 4 확인 대상) / D.Del 1:26-cv-01014 진행 상태·대상 특허(grade 4 확인 대상) / CAFC 2025-1936(Netlist v. Micron Technology Texas) 선고"}
+
+thesis: >
+  HBM 수요가 AI CapEx에 직접 연동되는 구간에서, SCA(장기공급계약)·take-or-pay·최소가격 보장
+  구조를 통해 CXMT/YMTC發 commodity DRAM 침식을 구조적으로 방어하고 매출 가시성을 확보한다.
+
+key_metrics:
+  - "HBM 매출 비중·마진"
+  - "SCA 건수 및 커버리지 (16건, DRAM 20%+ / NAND 1/3)"
+  - "LTA 비중 및 선수금·계약부채 잔액"
+  - "비트그로스 vs ASP 분해 ('순수 P 사이클' 가설 검증)"
+  - "HBM 마진 vs 범용 마진 (⚠️'HBM이 장기계약 대가로 마진이 더 낮다'는 미검증 가설 — 직접 확인 대상)"
+  - "NTM Forward P/E (~5.95-6.9x)"
+  - "CapEx $50B 계획"
+
+catalysts:
+  # 2026-09-05 ThesisPatch(amend, run 20260905_0618) — 이전: "9/22 Q4 FY26 실적". 9/22는 카드 v1 초기화 시점의 가정일이며 회사 공식 확정 공지에 근거하지 않는다(F1). 항목 수 4개 불변.
+  - "9/30 Q4 FY26 실적 — 회사 공식 확정(2026-08-26 보도자료, 2026-09-30 14:30 MT 실적 발표·컨퍼런스콜)"
+  - "8/21 Apple CXMT/YMTC 상원 서한 시한"
+  - "하이퍼스케일러 Q3 CapEx 가이던스"
+  - "SK하이닉스·삼성 실적 (peer 멀티플)"
+
+risks:
+  - "사이클 피크 역설 — 저 P/E가 밸류가 아니라 이익 피크 신호일 수 있음"
+  - "CXMT·YMTC 공급 확대"
+  - "AI CapEx 감속 (KC-6·KC-7 연동)"
+  - "레버리지 (SOXL·단일종목 2x) decay"
+
+kill_conditions_ref: ["KC-1", "KC-2", "KC-6", "KC-7", "비트그로스+ASP 동반 하락 시 사이클 전환 판정"]
+noise_filter_ref: "config/noise_filter.yaml#MU"
+
+earnings_checkpoints:
+  # 2026-09-05 ThesisPatch(amend, run 20260905_0618) — 이전: date: "2026-09-22"(가정일). 회사 공식 확정일 2026-09-30으로 정정(c_20260905_MU_02, grade 1). items 7개는 전건 미확인 상태로 불변 이월.
+  date: "2026-09-30"
+  items:
+    - "SCA 가이던스"
+    - "$50B CapEx 계획"
+    - "CXMT/YMTC 대응 (8/21 서한 결과 연계)"
+    - "LTA 비중 및 방향"
+    - "선수금·계약부채 잔액 (고객 신용 리스크 선제 회수 구조)"
+    - "비트그로스 vs ASP 분해"
+    - "HBM 마진 vs 범용 마진 직접 확인"
+
+valuation:
+  primary: "Forward P/E + HBM 비중"
+  secondary: "EV/EBITDA + LTA 비중·선수금"
+  caution: "NTM P/E ~5.95-6.9x는 '피크 역설 구간'. 저 P/E를 밸류로 읽지 말 것"
+
+conclusion: >
+  방어 논거(SCA·LTA·선수금)는 강화 추세이나 밸류에이션 지표가 사이클 피크를 동시에 시사.
+  P/E가 아니라 비트/ASP 분해와 선수금 잔액의 방향이 판정 축이다.

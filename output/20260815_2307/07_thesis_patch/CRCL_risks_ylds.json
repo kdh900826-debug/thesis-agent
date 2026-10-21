@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-08-15T23:07",
+  "run_id": "20260815_2307",
+  "ticker": "CRCL",
+  "card_field": "risks",
+  "operation": "amend",
+  "before": "  - \"이자부 스테이블코인 경쟁자 ($YLDS 등) — 리스크 등록부 누락, 패치 대기\"",
+  "after": "  # 2026-08-15 ThesisPatch(amend, run 20260815_2307) — 이전: \"이자부 스테이블코인 경쟁자 ($YLDS 등) — 리스크 등록부 누락, 패치 대기\". 실측 규모가 최초 확보돼 '패치 대기' 상태를 해소한다(P9 — 이전 서술은 삭제하지 않고 주석 보존)\n  - \"이자부 스테이블코인 경쟁자 — $YLDS(Figure 발행, SEC 등록, SOFR 연동 이자 지급, Provenance·Solana·Stellar 상장) 유통량 1Q26 약 $598M (grade 4, confirmed=false). USDC 분기말 $73.3B 대비 1% 미만. [inference:medium] 현 규모만으로는 점유율 위협으로 판정되지 않으며, 위협의 실질은 규모가 아니라 이자부 스테이블코인의 법적 취급(CLARITY 이자조항 문언)에 조건부다 — 2026-09-15 절차 표결은 최종 표결이 아니고 조항 문언은 미확정이다. grade 4 단독으로는 방향 판정 근거가 될 수 없으므로(P4) 정량 감시 항목으로만 등재한다\"",
+  "reason": "[fact] CRCL 카드의 risks 항목은 '$YLDS 등 — 리스크 등록부 누락, 패치 대기'라는 미완 상태 표기를 그대로 유지하고 있다. [fact] 2026-08-15 run 20260815_2252의 섹터 산출물은 $YLDS 유통량 1Q26 약 $598M을 최초로 수치화해 적재했고(grade 4, confirmed=false), 이를 USDC 분기말 $73.3B 대비 1% 미만으로 병기했다. [fact] 동일 산출물은 이 재료를 신규 구조적 역노출 항목(sie_yield_bearing_stablecoin_clause)으로 등재하면서 분류를 'conditional_inverse_exposure — 부호 미확정, 감시 대상'으로 명시했고, 현 시점에서 어떤 종목의 방향 판정에도 사용하지 않는다고 기록했다. [inference:strong] '등록부 누락, 패치 대기'라는 문구는 관측이 존재하지 않던 시점의 절차 상태를 기술한 것이므로, 실측치가 확보된 이후에는 카드가 관측 상태를 부정확하게 표기하게 된다 — 리스크의 존재 여부가 아니라 관측 가능 여부에 대한 표기가 낡았다. [fact] 본 패치는 리스크의 방향·강도를 판정하지 않는다. grade 4·confirmed=false 표기와 P4 제약을 문구 안에 함께 적재해 단독 판단 근거로 오용되지 않도록 한다. [fact] 본 건은 2026-08-15 검토 세션에서 '$YLDS 실측 확보 시 S7 패치 후보'로 명시 이관된 미결 항목이다.",
+  "basis_claims": [
+    "output/20260815_2307/04_sector/stablecoin.json#structural_inverse_exposure[sie_yield_bearing_stablecoin_clause]",
+    "output/20260815_2307/04_sector/stablecoin.json#axis_view[competition_ousd]",
+    "output/20260815_2307/04_sector/stablecoin.json#sector_unconfirmed[su_stablecoin_2252_02]"
+  ],
+  "basis_claims_note": "[fact] L4는 P17에 따라 02_company 산출물을 로드하지 않으므로 L2 Claim ID 대신 구조화 산출물 경로를 근거 포인터로 기재한다. [fact] 근거 자료의 원등급은 grade 4·confirmed=false이며 패치 문구 안에 그대로 표기했다(P4).",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 카드 thesis 문장('규제 선점 + 준비자산 이자 수입, 파이 성장이 경쟁 침식을 상쇄한다는 구조')의 참·거짓을 판정하지 않는다. 리스크 등록부의 미완 표기를 실측 상태로 갱신할 뿐이며 축 판정·시그널 등급을 변경하지 않는다(P13).",
+  "downstream_note": "[fact] 승인 시 kill_conditions.yaml 수정은 불요하다 — $YLDS는 KC-CRCL-2(점유율 -3%p QoQ)의 판정 대상에 포함될 수 있으나 분모 정의가 미명시 상태이므로 별도 에스컬레이션(esc_20260815_2307_kccrcl2_denominator)으로 분리했다. [fact] 재평가 트리거는 2026-09-15 CLARITY 절차 표결 이후 이자조항 문언 확정 시점이다."
+}

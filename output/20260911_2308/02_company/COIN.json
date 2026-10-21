@@ -1,0 +1,116 @@
+{
+  "ticker": "COIN",
+  "run_id": "20260911_2308",
+  "as_of": "2026-09-12",
+  "staleness_days": 0,
+  "lookback_window": {
+    "since": "2026-09-04",
+    "until": "2026-09-12"
+  },
+  "claims": [
+    {
+      "id": "c_20260911_COIN_1",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API 재조회(CIK 0001679788, forms=10-K/10-Q/8-K, since=2026-08-28, 조회 시점 2026-09-12)에서 반환된 필터링은 정확히 1건: 8-K filed 2026-09-02 (https://www.sec.gov/Archives/edgar/data/1679788/000167978826000101/coin-20260901.htm) — 직전 run(20260905_0618, c_20260905_COIN_001)에서 이미 원문 확인·Item 5.02(이사회 인사, Anthony Armstrong 선임) 단독 건으로 판명된 동일 필링이다. 이번 주 창(2026-09-04~09-12) 및 소급 스윕 구간(2026-08-28~09-03) 어디에도 신규 8-K/10-Q/10-K는 존재하지 않으며, 특히 Circle과의 USDC 분배계약 변경·갱신을 알리는 8-K는 이번 조회에서도 0건이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "EDGAR submissions API (원문 8-K 재확인)",
+        "url": "https://data.sec.gov/submissions/CIK0001679788.json",
+        "filed_at": "2026-09-02"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "KC-CRCL-3(Circle 분배계약 변경 공시) 트리거 부재 확인 — 따라서 KC-COIN-4의 'kc_crcl_3_adverse_to_coin' 조건 미충족. 이사회 인사건 자체는 매출·가이던스·마진 변화 없어 노이즈(P3), 축 매핑 대상 아님."
+    },
+    {
+      "id": "c_20260911_COIN_2",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "U.S. Senate Daily Press(dailypress.senate.gov, 정부 공식 의사일정 기록) 및 The Block(2026-08-08 보도, 원 소스는 Majority Leader Thune 사무실의 클로처 신청 공지) 교차 확인: Majority Leader Thune이 2026-08-07 H.R.3633(Digital Asset Market Clarity Act)에 대한 motion-to-proceed 클로처를 신청했고, 해당 클로처 표결은 2026-09-15(화) 2:15pm ET에 'ripen'하도록 예정되어 있다. 클로처 가결에는 60표(공화 53석으로는 최소 민주/무소속 7표 필요)가 필요하며, 클로처는 법안 통과가 아니라 토론 개시(motion to proceed) 여부만 결정한다. 2026-09-12(as_of) 현재까지 해당 표결은 아직 실시되지 않았다(예정 상태 유지, 일정 변경 없음). congress.gov 해당 법안 페이지(H.R.3633)는 직접 WebFetch 시도 결과 HTTP 403으로 원문 재확인 실패.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "news (1차 의사일정 기록 교차확인)",
+        "url": "https://www.theblock.co/news/regulation/2026-08-08-majority-leader-thune-files-cloture-on-clarity-act-setting-up-sept-15-senate-vote-411211",
+        "filed_at": "2026-08-08"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false,
+      "note": "scope=sector 재료 — P6에 따라 COIN 개별 축(regulation) 상향 근거로 사용하지 않음. dailypress.senate.gov는 sources.yaml 미등재 도메인(default_grade=4)이라 The Block(grade3)을 대표 소스로 채택, validate_output 규칙상 grade3 fact는 confirmed=true 불가(단독 근거 불가)이므로 confirmed=false 유지. 언론의 '통과 전망' 서술(예: Yahoo Finance 인용 Armstrong CEO 발언 'It will pass')은 D3 위반 소지로 배제 — noise 처리(하단 discarded_noise_log)."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "usdc_economics",
+      "direction": "neutral",
+      "prior_state": "20260905 run: Circle 분배계약 관련 8-K 부재 지속, 유일 신규 8-K(9/2)는 이사회 인사 건으로 무관 확인됨. '확장' 서사(단일 grade4) vs '불변' 서사(복수 grade3) 상충 미해소 — neutral 유지.",
+      "new_state": "본 주 창(09-04~09-12) + 소급 스윕(08-28~09-03) EDGAR 재조회(c_20260911_COIN_1)에서도 Circle 분배계약 관련 8-K는 신규 0건. KC-CRCL-3 미발동 확인. 시중에는 2026-08-05~06(창 밖, 이미 알려진 구간) 발행된 2차 보도들이 'Circle-Coinbase USDC 수익배분 계약이 2023-08-18 원 조건(플랫폼 보유분 100%+역외 유통분 50%) 그대로 2029년까지 갱신됐다'고 전하나, 해당 보도들은 SEC 공시를 인용하지 않고 Circle 실적발표 자료·2차 매체 요약에 근거하며 분배율 자체를 Circle이 명시적으로 공개하지 않았다고 스스로 밝힘(coingabbar.com 확인) — grade1/2 근거 부재로 여전히 미확정. OUSD 참여조건·분배구조 공개, USDC 수익 절대액 신규공시 모두 이번 창에서도 미확보. 방향은 neutral 유지(강화·훼손 근거 모두 신규 미확보, 상충도 미해소).",
+      "risk_transfer_to": [
+        "OUSD 참여의 장기적 자사 USDC 수익 대체·재편 가능성 — usdc_economics 축 내 감시 지속 이관(분배 구조 공개 unconfirmed)",
+        "'확장'(grade4) vs '불변'(grade3 다수, 2차보도 우세) 서사 상충 — 차기 8-K 또는 10-Q 계약 주석 확인 시까지 이관"
+      ],
+      "supporting_claims": ["c_20260911_COIN_1"]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "OUSD 참여 조건·분배 구조 공개",
+      "reason": "조회 기간(08-28~09-12) 내 COIN 특정 분배 조건·수익 배분 비율 공개 없음 — promote_if 트리거 미충족 지속.",
+      "next_check": "OUSD 라이브 출시(Base 등 EVM 체인 확장 시점) 또는 COIN 8-K/10-Q 신규 공시",
+      "related_claims": ["c_20260911_COIN_1"]
+    },
+    {
+      "item": "USDC 수익 절대액 신규 공시(Q3 2026)",
+      "reason": "Q2 2026 수치(3개월 $292.1M, 상반기 $597.6M)가 가장 최근이며 이번 창 내 Q3 신규 공시 없음(다음 실적 대상 이월).",
+      "next_check": "Q3 2026 실적 발표(회사 IR 공식 공지 필요 — 애그리게이터 추정일 F1상 판정 근거 불가)",
+      "related_claims": []
+    },
+    {
+      "item": "Circle-Coinbase 분배계약 '확장' 서사(전 run 이월)의 진위",
+      "reason": "grade1/2(8-K·직접인용) 근거 여전히 부재. 이번 창에서 확인한 2차보도(08-05~06, 창 밖)는 '원 조건 불변 2029년 갱신' 쪽에 무게가 실리나, Circle 스스로 구체 분배율 미공개를 인정(coingabbar.com) — grade4 단독 근거로 confirmed=true 불가.",
+      "next_check": "COIN 10-Q 관계사 계약 주석 또는 신규 8-K",
+      "related_claims": ["c_20260911_COIN_1"]
+    },
+    {
+      "item": "Q3 2026 실적 발표일 공식 공지",
+      "reason": "회사 IR 공식 공지 이번 창에도 미확인(애그리게이터 추정치만 존재, F1상 판정 근거 불가).",
+      "next_check": "investor.coinbase.com 공식 공지",
+      "related_claims": []
+    },
+    {
+      "item": "Deribit 'Starbase' 이전(9/9 완료 목표)·RWA 무기한선물의 실제 매출·거래량 기여",
+      "reason": "전 run에서 일정 진행만 확인(전부 grade4, confirmed=false)되었고 이번 창에서는 예산 제약상 재검색을 수행하지 않음 — 상태 변화 여부 미확인 채 이월. 신규 근거 없음.",
+      "next_check": "Q3 실적 또는 COIN 자체 공시의 파생상품 매출 세부 공개",
+      "related_claims": []
+    },
+    {
+      "item": "CLARITY Act 클로처 표결(H.R.3633, 09-15 2:15pm ET) 결과",
+      "reason": "as_of(2026-09-12) 시점 표결 미실시 — 예정 상태(c_20260911_COIN_2). scope=sector로 COIN 개별 축 판정 근거 아님(P6).",
+      "next_check": "2026-09-15 표결 이후 congress.gov/senate.gov 공식 기록",
+      "related_claims": ["c_20260911_COIN_2"]
+    }
+  ],
+  "discarded_noise_log": [
+    {
+      "item": "Yahoo Finance 보도(발행일 확인 필요, 09-04~09-12 구간 재인용) — Coinbase CEO Brian Armstrong 'CLARITY Act가 통과할 것' 발언 인용",
+      "reason": "noise_filter.yaml#COIN의 '규제 임박 추측 보도'에 정확히 해당 — 경영진 발언이라도 미래 입법 결과에 대한 추측성 전망이며 D3(전망 서사 배제)·P4(단독 발언은 grade2 대상이나 사실 확정이 아닌 예측 진술) 위반 소지. 표결 자체는 아직 실시되지 않은 상태(c_20260911_COIN_2)로 결과 예단 배제.",
+      "action": "discard"
+    },
+    {
+      "item": "Circle-Coinbase USDC 수익배분 계약 '2029년까지 갱신' 2차보도 다수(kucoin.com, coingabbar.com, coinotag.com — 발행일 2026-08-05~06)",
+      "reason": "발행일이 이번 주 창(09-04~09-12) 및 소급 스윕(08-28~09-03) 모두를 벗어남(08-05~06) — 신규성 없음. 또한 전부 grade4(sources.yaml 미등재) 단독 소스로 SEC 공시 인용 없이 Circle 실적발표 자료 재인용에 불과. usdc_economics 축 unconfirmed 항목에 참고 메모로만 반영, 별도 claim/신규 axis 상향 근거로는 사용하지 않음(P2·P4).",
+      "action": "discard"
+    },
+    {
+      "item": "8-K filed 2026-09-02 (Item 5.02, Anthony Armstrong 이사 선임) 원문 재확인",
+      "reason": "전 run(20260905_0618)에서 이미 노이즈 판정 완료(이사회 인사 변경만, 매출·가이던스 무관, P3). 이번 창에서는 Circle/USDC 부재 재확인용으로만 참조(c_20260911_COIN_1), 별도 노이즈 로그 반복 기재 불필요하나 감사 추적을 위해 기록.",
+      "action": "discard"
+    }
+  ],
+  "reused_from": "output/20260905_0618/02_company/COIN.json",
+  "notes": "run_id=20260911_2308는 09-11 야간 시작, 실제 리서치 수행은 09-12 — as_of를 2026-09-12로 기록(지시사항 명시). 사전 확보된 _raw_edgar_COIN.json(1건, 09-02 8-K)을 먼저 검토했고, since=2026-08-28로 재조회(_raw_edgar_COIN_refresh.json)하여 창 전체(소급 스윕 포함)를 커버 — 신규 8-K 미검출 확인. 웹검색/WebFetch는 총 6회 사용(효율 지침 8회 이내 준수): CLARITY Act 절차표결 1차/준1차 확인 2회(WebSearch+WebFetch, congress.gov는 403으로 직접 확인 실패해 senate.gov 일간기록+The Block 교차확인으로 대체), OUSD/Circle 분배계약 현황 확인 2회(WebSearch+WebFetch), USDC 수익 신규공시 확인 1회, CLARITY 최신 동향(09-10~12) 확인 1회. regulation 축은 scope=sector 재료(P6)로 이번 run에서 axis delta를 갱신하지 않음(전 run과 동일 패턴) — c_20260911_COIN_2로 사실만 기록. usdc_economics만 neutral delta 갱신. KC-COIN-1·2(구조전환실패·예치자산유출)는 신규 분기 데이터 없어 판정 불가(not_met, 데이터 부재), KC-COIN-3(중대 규제소송)은 신규 이벤트 미관측(not_met), KC-COIN-4(USDC수익 훼손/KC-CRCL-3 연동)는 KC-CRCL-3 미발동 확인됨에 따라 not_met."
+}

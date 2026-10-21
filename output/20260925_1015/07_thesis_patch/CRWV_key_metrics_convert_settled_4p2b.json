@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-09-25",
+  "run_id": "20260925_1015",
+  "ticker": "CRWV",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "axis_decomposition": null,
+  "f20_note": "[fact] state/thesis_cards/CRWV.yaml 전문(80행)을 읽고 before 문자열을 원문에서 직접 추출했으며 카드 내 출현 횟수 1회를 python str.count로 확인했다. 전체 파일 기준 계수: axes 7·key_metrics 10·risks 5·catalysts 4·kill_conditions_ref 4·earnings_checkpoints.items 8(F20).",
+  "patch_id": "tp_20260925_CRWV_key_metrics_convert_settled_4p2b",
+  "source_candidate": "orchestrator 지시(카드 조달·전환사채 금액 $3.7B→$4.2B 점검) — 06_portfolio tpc 목록 외 신규",
+  "priority": "low",
+  "card_field": "key_metrics",
+  "card_field_detail": "key_metrics[6] ('이자 커버리지' 항목) 말미 — 2026-09-20 산식 확정 주석 뒤",
+  "operation": "annotate",
+  "before": "확정 주체: 사람(P11, §9, U4)]\"",
+  "after": "확정 주체: 사람(P11, §9, U4)] [ℹ️ 2026-09-25 전환사채 결제 확정 주석(run 20260925_1015) — 위 (4)의 '$3.7B/2.875%' 전제는 가격결정 단계 수치이며, 2026-09-22 8-K로 결제가 완료됐다: 추가매입옵션 $500M 전액 행사로 확정 발행규모 $4.2B(2.875%, 2033 만기), 순수취금 $4,137.0M, capped call 실비 약 $566.2M(c_20260925_CRWV_1, grade 1 fact). 확정 규모로 재계산한 연 추가이자 약 $120.75M을 TTM 분모에 정태 가산하면 약 2.21x(종전 $3.7B 가정 2.22x 대비 -0.01x, c_20260925_CRWV_2, inference:weak — 운용 이자수익·DDTL 5.5 이자·EBITDA 증가분 미반영 예시). 공식 산식(분기 연환산) 실측치는 Q3 2026 10-Q 대기. (4)의 원 서술은 당시 시점 기록으로 삭제하지 않고 보존한다(P9)]\"",
+  "reason": "[fact] 카드 내 '$3.7B'는 key_metrics '이자 커버리지' 항목의 2026-09-19 병기 주석 (4)에 1회만 등장하며, 이는 당시(가격결정 단계) 시점 기록이다. [fact] 2026-09-22 8-K로 옵션 $500M 전액 행사·결제 완료, 확정 규모 $4.2B·순수취금 $4,137.0M·capped call 실비 약 $566.2M(c_20260925_CRWV_1, grade 1). [inference:weak] 확정 규모 반영 TTM 정태 커버리지 약 2.21x(c_20260925_CRWV_2). [fact] 기록 시점 주석을 덮어쓰면 P9(오류 이력 삭제 금지·시점 기록 보존) 위반이므로 amend가 아닌 annotate로 말미에 확정치를 병기한다. [fact] 카드의 다른 조달 금액 서술(catalysts '차환·리파이낸싱 성공/실패', axes[funding_access] 라벨)에는 금액이 없어 정정 대상 없음.",
+  "basis_claims": [
+    "c_20260925_CRWV_1",
+    "c_20260925_CRWV_2"
+  ],
+  "reverses_core_thesis_note": "[fact] 수치 확정 병기. KC-CRWV-3 판정(not_met) 및 thesis 논거 불변.",
+  "expected_after": {
+    "contains": [
+      "2026-09-25 전환사채 결제 확정 주석(run 20260925_1015)",
+      "확정 발행규모 $4.2B(2.875%, 2033 만기)",
+      "신규 전환사채 $3.7B/2.875%"
+    ],
+    "not_contains": [],
+    "counts": [
+      {
+        "path": "key_metrics",
+        "n": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "yield_30y": {
+    "value": 5.4,
+    "as_of": "2026-09-23",
+    "source_url": "https://fred.stlouisfed.org/series/DGS30",
+    "method": "api"
+  },
+  "ON_RRP": {
+    "value": 630000000.0,
+    "as_of": "2026-09-24",
+    "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+    "method": "api"
+  },
+  "brent": {
+    "value": 114.89,
+    "as_of": "2026-09-22",
+    "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+    "method": "api"
+  },
+  "FFR": {
+    "value": 4.0,
+    "as_of": "2026-09-24",
+    "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
+    "method": "api"
+  },
+  "BTC": {
+    "value": 84653.665,
+    "as_of": "2026-09-25",
+    "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+    "method": "api"
+  },
+  "VIX": {
+    "value": 15.670000076293945,
+    "as_of": "2026-09-24",
+    "source_url": "yfinance:^VIX",
+    "method": "api"
+  },
+  "TAIEX_vs_20dma_pct": {
+    "value": 3.44,
+    "as_of": "2026-09-23",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "TAIEX_1m_return_pct": {
+    "value": 7.58,
+    "as_of": "2026-09-23",
+    "source_url": "yfinance:^TWII",
+    "method": "api"
+  },
+  "SDLLMTK_change_pct": {
+    "value": null,
+    "as_of": "2026-09-01",
+    "source_url": "https://www.silicondata.com/products/silicon-index/llm-token-expenditure-index",
+    "method": "web_search",
+    "note_raw": "level=0.97 USD/M tokens (2026-09-01, record low, down >50% from summer peak). No confirmed %-change figure found for a 2-week window ending near 2026-09-24/25 in this search pass."
+  },
+  "hyperscaler_fcf_sum": {
+    "value": 6835000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.investing.com/news/stock-market-news/microsoft-only-us-hyperscaler-with-positive-free-cash-flow-as-ai-capex-bites-93CH-4846663",
+    "method": "web_search",
+    "note_raw": "Unchanged from prior run (20260919_2209) — no new quarter reported since. Q2 2026 (calendar) component reads: MSFT FCF +19.64B (FY26 Q4, ended 2026-06-30), Alphabet FCF -5.9B (Q2 2026), Meta FCF +0.784B (Q2 2026), Amazon quarterly FCF not separately disclosed this pass (only TTM -7.6B available) — sum carried from prior run value."
+  },
+  "msft_fcf": {
+    "value": 19640000000,
+    "as_of": "2026-06-30",
+    "source_url": "https://www.investing.com/news/stock-market-news/microsoft-only-us-hyperscaler-with-positive-free-cash-flow-as-ai-capex-bites-93CH-4846663",
+    "method": "web_search",
+    "note_raw": "MSFT FY26 Q4 (ended 2026-06-30) FCF = 19.64B, -23% YoY. Next quarter (FY27 Q1, ended 2026-09-30) not yet reported as of run date 2026-09-25."
+  }
+}

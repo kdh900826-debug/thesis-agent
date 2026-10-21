@@ -1,0 +1,34 @@
+{
+  "sector": "memory",
+  "as_of": "2026-08-20T19:44",
+  "run_id": "20260820_1932",
+  "members": [
+    "MU"
+  ],
+  "missing_inputs": [],
+  "single_ticker_view": true,
+  "axis_view": [
+    {
+      "axis": "china_supply",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "MU"
+        ],
+        "break": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "MU"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    }
+  ],
+  "sector_unconfirmed": [],
+  "signal_mutation": null,
+  "_note": "단일 종목 뷰 — 분산 계산 스킵(설계서 S4)"
+}

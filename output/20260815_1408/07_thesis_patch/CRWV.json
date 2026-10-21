@@ -1,0 +1,25 @@
+{
+  "as_of": "2026-08-15T14:50",
+  "run_id": "20260815_1408",
+  "ticker": "CRWV",
+  "card_field": "axes",
+  "operation": "decompose",
+  "before": "  - {id: debt_refinancing,  label: \"부채·차환·이자 커버리지 (생존 조건)\"}",
+  "after": "  # 2026-08-15 ThesisPatch(decompose, P8) — 이전 축: {id: debt_refinancing, label: \"부채·차환·이자 커버리지 (생존 조건)\"}\n  - {id: funding_access,     label: \"조달 접근성 — 신규 차입 성사 여부·조달 스프레드·covenant 준수·미인출 한도\"}\n  - {id: leverage_coverage,  label: \"레버리지·커버리지 — 총부채 잔액·이자비용·이자 커버리지·부채상환 대비 영업활동현금흐름\"}",
+  "reason": "[fact] 이번 Run에서 debt_refinancing 축은 direction=diverge·dispersion=high로 집계되었으나, 04_sector/neocloud.json은 그 분산이 종목 간 상충이 아니라 CRWV 단일 종목이 같은 축에 strengthen·weaken 두 Delta를 동시에 제출한 종목 내(intra-ticker) 분산이라고 판정했다. [fact] strengthen 다리는 $2.6B DDTL 5.5의 오버서브스크라이브 클로징(2026-08-10, SOFR+5.50%, Ba2/BB+, 만기 2031-09), 가중평균 조달비용 1년간 약 300bp 하락(연 약 $1.1B 이자 절감 효과, CFO 직접 발언), 전 DDTL covenant 준수(10-Q), RCF 무차입·잔여한도 $2.0B다. [fact] weaken 다리는 총부채 $21.37B→$35.07B(6개월 +$13.7B), H1 순이자비용 $1,176M, Q3 이자비용 가이던스 $860~940M(Q2 실제 $640M 대비 QoQ +34~47%), H1 부채상환 현금흐름 약 $6.2B가 H1 영업활동현금흐름 $3.7B를 초과한다는 10-Q 자체 위험요인 기재다. [inference:strong] 두 다리가 상반되는 이유는 사실 간 모순이 아니라 축 정의가 '조달 접근성(가격·채널)'과 '레버리지 부담(잔액·커버리지)'이라는 상반 가능한 두 하위 개념을 한 축에 묶고 있기 때문이다 — 한 축의 단일 방향으로는 두 사실을 동시에 표현할 수 없다. [fact] L2가 P8을 근거로 이 분해를 thesis-refine에 명시적으로 제안했고, 04_sector/neocloud.json은 이를 이번 사이클 섹터 분산의 형식적 원인으로 지목했다. [fact] 기존 서술은 삭제하지 않고 주석으로 보존한다(P9).",
+  "basis_claims": [
+    "04_sector/neocloud.json#axis_view[debt_refinancing]",
+    "04_sector/neocloud.json#interpretation.dispersion_cause_axes",
+    "04_sector/neocloud.json#interpretation.dispersion_detail",
+    "04_sector/neocloud.json#sector_unconfirmed[su_20260815_neocloud_05]"
+  ],
+  "basis_claims_note": "[fact] L4는 P17에 따라 02_company 산출물을 로드하지 않으므로 L2 Claim ID 대신 구조화 산출물의 경로 포인터를 근거로 기재한다. 위 항목의 원 근거는 CRWV 10-Q 및 실적 콜(grade1~2)이다.",
+  "requires_human_approval": true,
+  "axis_decomposition": [
+    {"id": "funding_access", "label": "조달 접근성", "observables": ["신규 차입 성사 여부", "조달 스프레드(SOFR+bp)", "covenant 준수 여부", "RCF 등 미인출 한도"], "this_run_direction": "strengthen"},
+    {"id": "leverage_coverage", "label": "레버리지·커버리지", "observables": ["총부채 잔액", "분기 이자비용", "이자 커버리지", "부채상환 현금흐름 대비 영업활동현금흐름"], "this_run_direction": "weaken"}
+  ],
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 카드 thesis('대규모 백로그를 레버리지로 건설하고 매출로 상환하는 모델')와 conclusion('재무 리스크도 최상위')의 방향을 바꾸지 않는다. 한 축에 묶여 있던 두 관측을 분리해 각각의 방향을 표현 가능하게 만드는 구조 변경이다.",
+  "downstream_note": "[fact] 승인 시 KC-CRWV-3(이자 커버리지·차환)은 leverage_coverage 축에, KC-CRWV-1(대형 고객 계약 훼손)은 기존대로 customer_concentration 축에 연결된다. kill_conditions.yaml 자체의 수정은 이 패치에 포함되지 않는다."
+}

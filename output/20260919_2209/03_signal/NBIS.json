@@ -1,0 +1,176 @@
+{
+  "as_of": "2026-09-19",
+  "run_id": "20260919_2209",
+  "ticker": "NBIS",
+  "input_source": "output/20260919_2209/03_input/arbiter_NBIS.json",
+  "prior_signal": "🟡",
+  "prior_label": "관망 (신규 커버리지 초기화)",
+  "prior_since": "2026-08-15",
+  "prior_next_gate": "멀티플 조정 또는 2027 가이던스 확정",
+  "prior_next_gate_source": "state/signals.json (0911 run이 제안한 세분화 next_gate는 사람 승인 미확인 상태로 state 파일에 미반영 — 그 값은 인용하지 않음, D7)",
+  "proposed_signal": "🔴🔴",
+  "transition_candidate": "Kill 우선 트리거(rule 1) — 사람 확인 요청. NBIS 자체 등급(🟡)의 상향/하향 요건은 이번 run 근거로는 미충족(P12) — 본 Kill 후보는 매크로 KC-1 경로이며 종목 고유 KC(KC-NBIS-1~3) 훼손과는 별개(아래 kill_check 참조).",
+  "candidate_disclaimer": "본 판정은 후보(candidate)이며 최종 등급 확정 권한은 사람에게 있다(v1 §9-2, CLAUDE.md §9). signal-arbiter는 격리 컨텍스트에서 필터본·state/signals.json·KC 발췌만 근거로 판정했다.",
+  "claims": [
+    {
+      "id": "c_20260919_NBIS_1",
+      "claim_type": "fact",
+      "evidence_grade": 1,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "source_type": "회사 공식 가격 페이지 (nebius.com/prices)",
+      "filed_at": "2026-09-19",
+      "as_of": "2026-09-19",
+      "staleness_days": 0,
+      "summary": "P1 — 2026-09-19 조회 시점 on-demand 단가: H100 $3.85 / H200 $4.50 / B200 $7.15(회사 공식, grade1). 10/1 가격 변경 고지 문구는 페이지에 게시돼 있지 않음. ACV/MW 3단 계약가격 체계와 별개 레이어(혼용 금지)."
+    },
+    {
+      "id": "c_20260919_NBIS_2",
+      "claim_type": "fact",
+      "evidence_grade": 3,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "source_type": "2차 매체 (Reuters/investing.com 전재 + Bloomberg)",
+      "filed_at": "2026-09-17",
+      "as_of": "2026-09-19",
+      "staleness_days": 2,
+      "summary": "P4 — 2026-10-01 발효 on-demand 가격 인상 고지 보도: GPU 17~21%·CPU-only 25%·메모리 약41%. grade3 단독으로 확정 근거 불가(confirmed=false). 회사 뉴스룸·EDGAR 6-K에 대응 1차 공시 없음."
+    },
+    {
+      "id": "c_20260919_NBIS_3",
+      "claim_type": "inference",
+      "evidence_grade": 1,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "inference_strength": "high (기준선 일치라는 대조 결과에 한정 — 인상 발효 사실 자체의 확실성 아님)",
+      "source_type": "c1(grade1)×c2(grade3) 대조",
+      "filed_at": "2026-09-19",
+      "as_of": "2026-09-19",
+      "staleness_days": 0,
+      "summary": "P4 — 보도된 '인상 전' 단가 3개 모델이 회사 공식 페이지와 정확히 일치해 기준선만 1차 교차검증됨. '인상 후' 단가·발효 사실은 미검증. P7 — 가격 고지 단계이며 매출 인식과 분리."
+    },
+    {
+      "id": "c_20260919_NBIS_4",
+      "claim_type": "fact",
+      "evidence_grade": 4,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": true,
+      "source_type": "2차·지역 매체 교차보도 (grade4, sources.yaml 미등재)",
+      "filed_at": "2026-08-14",
+      "as_of": "2026-09-19",
+      "staleness_days": 36,
+      "summary": "P5 — Vineland DataOne 공사중지명령 2건(2026-08-06·08-10). grade4 단독이므로 axis Delta 미생성, claim+unconfirmed로만 적재. Kill/게이트 판정 근거로 사용 안 함."
+    }
+  ],
+  "filter_bug_report": {
+    "bug_detected": false,
+    "checked_count": 4,
+    "non_company_specific_found": 0,
+    "note": "F13 — arbiter_NBIS.json claims 4건 전건 scope=company_specific, removed_claims=[]. 필터 버그 없음."
+  },
+  "kill_check": {
+    "rule_applied": "rule 1 (Kill 우선: KC met AND confirmed)",
+    "own_company_kc": [
+      {
+        "kc_id": "KC-NBIS-1",
+        "condition": "대형 고객 계약 훼손 ($1B+ 전체)",
+        "verdict": "not_met",
+        "verdict_confidence": "provisional",
+        "basis": "P1 — 발췌본(03_kc_excerpt)에 own KC 개별 verdict 필드 자체가 기재돼 있지 않음(description/consequence만 제공) — '발췌본을 그대로 따르라'는 지시상 발췌본이 제공하지 않는 verdict를 임의 산정하지 않는다. 03_input 4건 claims 중 대형 계약 해지·축소·재협상을 다루는 것은 0건 — 훼손 근거 없어 not_met 유지."
+      },
+      {
+        "kc_id": "KC-NBIS-2",
+        "condition": "용량 인도 지연 (경고/발동 2단)",
+        "verdict": "not_met",
+        "verdict_confidence": "provisional",
+        "basis": "P5 — 03_input unconfirmed 목록에 '경고 임계(1분기 지연) 충족 판정' 자체가 이번 run 1차 자료로 불가능하다고 명시됨(회사 vs DA Davidson 양측 모두 grade4, 1차 공시 없음). 판정 보류 상태를 met으로 격상할 근거 없음."
+      },
+      {
+        "kc_id": "KC-NBIS-3",
+        "condition": "조달 조건 악화 (현금<$5B 또는 신규부채 스프레드≥300bp)",
+        "verdict": "not_met",
+        "verdict_confidence": "provisional",
+        "basis": "P5 — 03_input unconfirmed 목록: 창 내 신규 채무 발행 없어 스프레드 비교 대상 자체 부재, 현금잔고도 Q3 재무제표 전까지 미확정. 임계 근접을 시사하는 1차 관측치 없음."
+      }
+    ],
+    "macro_kc_propagating": {
+      "checked_ids": ["KC-1", "KC-2", "KC-4", "KC-5", "KC-6", "KC-7", "KC-8", "KC-9"],
+      "kc_1": {
+        "verdict": "met",
+        "verdict_confidence": "confirmed",
+        "basis": "P1 — 2026-09-16 FOMC 25bp 인상(12-0 표결, 1차 공시)으로 FFR 4.00%>3.75% 임계 초과, FRED DFEDTARU api 대사로 confirmed. 직전 4개 run 연속 경계 접촉 항목이 본 run 최초 임계 초과. correlation_matrix상 NBIS는 RATES 축 불리(-) 노출 종목으로 macro_kc_propagating_to_ticker 목록에 KC-1이 명시 포함됨."
+      },
+      "kc_9": {
+        "verdict": "met",
+        "verdict_confidence": "provisional",
+        "basis": "P16 — brent 130.8(as_of 2026-09-15, stale_days 3)로 임계 120 초과이나 '1개월 지속' duration 미충족(최초 상회 2026-09-10, 연속 2거래일). 오케스트레이터 verdict_override_proposal=not_met 지시대로 실질 경고 수준으로만 취급하고 confirmed가 아니므로 규칙1 Kill 트리거 요건 미충족."
+      },
+      "verdict_summary": "KC-2/4/5/8은 not_met(각 confirmed/provisional 혼재), KC-6/7은 not_met/provisional(duration 미충족). met 판정은 KC-1(confirmed)·KC-9(provisional) 2건 — 규칙1 문언(met AND confirmed) 충족은 KC-1 1건뿐."
+    },
+    "kill_priority_triggered": true,
+    "basis": "P1/P12 — KC-1이 met AND confirmed이고 NBIS가 correlation_matrix RATES 축에 불리 노출된 종목으로 macro_kc_propagating_to_ticker에 명시 포함되어 있어 rule 1 문언(예외 조항 없음)상 트리거 대상이다. 단, KC-1의 정의된 consequence는 '레버리지 전액 해제 + Edge/Next 50% 축소 검토'로 포트폴리오/북 레벨 조치이며, KC-NBIS-1(대형 고객계약 훼손)의 consequence인 '포지션 리뷰'와는 성격이 다르다 — 즉 이번 Kill 트리거는 NBIS 종목 고유 thesis(대형 계약·인도·조달)의 훼손이 아니라 매크로 금리 경로 현실화에 따른 것이다. 이 구분을 사람 확인 시 반드시 인지해야 한다(P5 — 종목 KC 3건은 독립적으로 not_met 유지 중이므로 NBIS 개별 thesis 자체는 이번 run 근거로는 무결)."
+  },
+  "gate_check": {
+    "upgrade_gate": {
+      "quantitative_evidence": true,
+      "company_specific": true,
+      "revenue_recognized": false,
+      "result": "not_met (vacuous — revenue_recognized 미충족)",
+      "reason": "P2/P6/P7 — c_20260919_NBIS_1(grade1, quantitative, company_specific, confirmed)은 존재하나 이는 baseline 가격 스냅샷일 뿐 매출 인식 단계 수치가 아니다(stage=price_notice). c_20260919_NBIS_2(가격 인상 보도)는 quantitative=true·company_specific=true이나 confirmed=false·grade3 단독으로 P4상 판단 근거 불가. 3요건 중 revenue_recognized 미충족 — 상향 게이트 불성립. monetization_mix delta는 방향(strengthen) 표기에 그치고 상향 근거로 사용하지 않음(입력 파일 자체 명시)."
+    },
+    "downgrade_check": {
+      "rule": "rule 3 (비대칭 하향 — 정량 훼손 또는 evidence_grade<=2의 정성 훼손)",
+      "quantitative_deterioration": false,
+      "qualitative_deterioration_grade_le_2": false,
+      "result": "not_triggered",
+      "reason": "P3 — 이번 run 종목 고유 claims 중 방향이 훼손(deterioration)인 것은 없음(c1~c3은 가격 강화 방향이나 미확정, c4는 grade4 단독으로 하향 트리거 자격 미달). 종목 자체 정량 지표 훼손·grade<=2 정성 훼손 어느 쪽도 해당 사항 없음 — rule 3 미해당."
+    }
+  },
+  "thesis_delta_summary": [
+    {
+      "axis": "monetization_mix",
+      "direction": "strengthen (방향만, 상향 근거 불가)",
+      "basis_claims": ["c_20260919_NBIS_1", "c_20260919_NBIS_2", "c_20260919_NBIS_3"],
+      "risk_transfer_to": [],
+      "note": "P2/P7 — 2026-10-01 발효 예정 on-demand 가격 인상(grade3, confirmed=false) 방향은 강화이나 (i) 단독 판단 불가 증거등급, (ii) ACV/MW 계약가격과 다른 레이어, (iii) commitment discount로 대형계약 전가 여부 미확인, (iv) 매출 인식 이전 단계 — 상향 근거로 사용하지 않고 관측만 지속."
+    },
+    {
+      "axis": "rates_exposure (macro, KC-1 propagation)",
+      "direction": "weaken (매크로 RATES 축 불리 실현)",
+      "basis_claims": [],
+      "risk_transfer_to": ["portfolio_leverage_book", "Edge/Next 축소 검토"],
+      "note": "P6/P13 — 매크로 재료이므로 NBIS 개별 thesis 축 변경·상향/하향 근거로 사용하지 않음. 다만 rule 1 Kill 우선 판정의 근거이며, 리스크는 종목 thesis가 아니라 포트폴리오 레버리지/북 관리 레벨로 이관된다."
+    }
+  ],
+  "alert": {
+    "ticker_event": "NBIS — 2026-09-16 FOMC 25bp 인상으로 FFR 4.00%(KC-1) met&confirmed 도달, RATES 축 불리 노출 종목으로 Kill-priority(🔴🔴) 후보 트리거(rule 1). 별도로 2026-10-01 발효 예정 자체 가격 인상 고지(grade3, unconfirmed)가 진행 중이나 이는 이번 Kill 판정과 무관한 별도 트랙.",
+    "facts": [
+      {"text": "P1 — 2026-09-16 FOMC에서 FFR 목표범위 25bp 인상(3.75~4.00%), 표결 12-0, 1차 공시. FRED DFEDTARU api 대사로 confirmed(as_of 2026-09-19). KC-1 임계(>3.75) 최초 초과 — 직전 4개 run 연속 경계 접촉.", "source": "output/20260919_2209/03_kc_excerpt/NBIS.json (KC-1)", "timestamp": "2026-09-19T22:15"},
+      {"text": "P16 — brent 130.8(as_of 2026-09-15, staleness_days 3) > 120 임계이나 duration(1개월 지속) 미충족(최초 상회 09-10, 연속 2거래일) — KC-9 met/provisional, verdict_override_proposal=not_met. 규칙1 Kill 트리거 요건(confirmed) 미충족.", "source": "output/20260919_2209/03_kc_excerpt/NBIS.json (KC-9)", "timestamp": "2026-09-19T22:15"},
+      {"text": "P1 — NBIS 종목 고유 KC(KC-NBIS-1~3) 3건 전건 not_met/provisional — 대형계약 훼손·인도지연·조달악화 어느 것도 이번 run 1차 근거로 확인되지 않음.", "source": "output/20260919_2209/03_input/arbiter_NBIS.json (unconfirmed)", "timestamp": "2026-09-19"},
+      {"text": "P1 — nebius.com/prices 2026-09-19 조회 기준 H100 $3.85/H200 $4.50/B200 $7.15(grade1, confirmed). Reuters/Bloomberg(2026-09-17, grade3, confirmed=false)는 2026-10-01부터 GPU 17~21%·CPU 25%·메모리 약41% 인상 고지 보도. 인상 전 단가는 회사 1차자료와 정확히 일치(P4 삼각검증).", "source": "c_20260919_NBIS_1, c_20260919_NBIS_2, c_20260919_NBIS_3", "timestamp": "2026-09-19 / 2026-09-17"}
+    ],
+    "inference": [
+      {"text": "P1 — rule 1 문언(KC met AND confirmed)에는 매크로/종목 구분 예외가 없고, correlation_matrix가 NBIS를 RATES 축 불리 노출로 명시하므로 KC-1은 NBIS에 대해 Kill-priority를 트리거한다.", "inference_strength": "high — 규칙 문언과 노출 매핑이 명시적"},
+      {"text": "다만 KC-1의 predefined consequence는 포트폴리오 레버리지/Edge·Next 북 조치이며 KC-NBIS-1의 '포지션 리뷰'와 성격이 다르다 — 종목 thesis 자체(대형계약·인도·조달)는 이번 run 근거로 무결하다.", "inference_strength": "medium — 규칙 해석의 뉘앙스, 최종 판단은 사람 몫"}
+    ],
+    "classification": "kill_priority_candidate (rule 1) — 사람 확인 요청(🔴🔴). 상향 게이트(P2/P6/P7): not_met(vacuous, revenue_recognized 미충족). 하향 게이트(rule 3): not_triggered. P12 — 종목 자체 상향/하향 요건 미충족은 정상 경로이며 실패가 아니다.",
+    "thesis_delta": "rates_exposure(매크로) 축: 리스크가 종목 thesis에서 포트폴리오 레버리지/Edge·Next 북 레벨로 이관(risk_transfer_to=[portfolio_leverage_book, Edge/Next 축소 검토]). monetization_mix 축: strengthen 방향이나 미확정 — 상향 근거 아님(risk_transfer_to=[]). NBIS 개별 KC(대형계약·인도·조달) 3건은 이번 run 독립적으로 not_met 유지.",
+    "signal_verdict": "🔴🔴 Kill-priority 후보 — 사람 확인 요청. 사유: KC-1 met&confirmed + RATES 축 불리 노출(rule 1, 예외 없음). 단 이는 매크로/포트폴리오 경로이며 NBIS 종목 고유 KC 3건은 전건 not_met — 종목 자체 🟡 등급의 승격/강등 요건은 이번 run 근거로 미충족(P12). 최종 등급·포트폴리오 조치는 사람이 확정한다.",
+    "next_check": [
+      "next_gate(정량·관측가능): 차기 FOMC/FRED DFEDTARU 갱신 — FFR 인하 전환 또는 추가 인상 여부(KC-1 지속성 재확인)",
+      "next_gate(정량·관측가능): brent 종가 120 초과 상태가 최초 상회일(2026-09-10) 기준 1개월(~2026-10-10)까지 유지되는지 — KC-9 provisional→confirmed 전환 관측점",
+      "next_gate(정량·관측가능): 2026-10-01 이후 nebius.com/prices 재조회로 가격 인상 발효분 1차 확인, Q3 2026 실적자료의 가격·ARPU 언급 대조",
+      "[carried] Q3 2026 실적 발표일 — 애그리게이터 상충(marketbeat 11/10 vs tipranks 10/22) 지속, 회사 IR 공식 공지 미확보",
+      "[carried] Vineland 공사중지명령(08-06/08-10)의 1차 확인·해제 여부 — 6-K/Q3 실적자료 대조",
+      "[carried] KC-NBIS-3 조달 조건 — 신규 채무 발행 시 스프레드, Q3 재무제표 현금잔고"
+    ]
+  },
+  "human_confirmation_required": true,
+  "note_for_orchestrator": "1) F13 필터 버그 없음(claims 4건 전건 company_specific). 2) rule 1 Kill 우선 트리거(KC-1 met&confirmed, RATES 축 불리 노출) — 🔴🔴 후보로 사람 확인 요청. 3) 이 Kill은 매크로/포트폴리오 경로이며 NBIS 종목 고유 KC 3건(대형계약·인도·조달)은 전건 not_met으로 독립 유지 — 종목 thesis 자체는 이번 run 근거로 무결함을 사람 확인 시 반드시 병기할 것. 4) KC-9(에너지)는 met이나 provisional·override_proposal=not_met으로 Kill 미기여, 경고 수준으로만 기록. 5) 상향 게이트 vacuous(revenue_recognized 미충족), 하향 게이트 미트리거 — 종목 자체 등급 이동 근거는 이번 run 없음(P12). 6) monetization_mix(가격 인상) 축은 관측 지속 대상이며 상향/holding_reinforcement 어느 분류에도 아직 넣지 않음 — grade3·confirmed=false이므로 신뢰도 부족."
+}

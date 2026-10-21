@@ -1,0 +1,29 @@
+{
+  "as_of": "2026-09-05T08:30",
+  "run_id": "20260905_0618",
+  "ticker": "NBIS",
+  "card_field": "conclusion",
+  "operation": "amend",
+  "before": "conclusion: >\n  3사 중 재무 건전성·마진 전환 속도가 가장 명확하나 밸류에이션이 성장률을 상당 부분 반영.\n  진입 판단 게이트는 멀티플 조정 또는 2027 가이던스 확정 중 하나.",
+  "after": "# 2026-09-05 ThesisPatch(amend, run 20260905_0618) — 이전 conclusion(P9 보존): \"3사 중 재무 건전성·마진 전환 속도가 가장 명확하나 밸류에이션이 성장률을 상당 부분 반영. 진입 판단 게이트는 멀티플 조정 또는 2027 가이던스 확정 중 하나.\" — '재무 건전성' 표현은 thesis 재작성(선택지 A)과 동반 재검토 대상으로 에스컬레이션 참고 항목에 명시돼 있었음. 6/30/26 부채>현금 확정으로 단독 표현 부정확.\nconclusion: >\n  3사 중 마진 전환 속도가 가장 명확하고 자본시장 접근성은 8/24 $5.75B 클로징으로 실증됐으나,\n  재무구조는 이자부 부채 > 현금으로 전환됐고(6/30/26 확정) 밸류에이션이 성장률을 상당 부분 반영.\n  진입 판단 게이트는 멀티플 조정 또는 2027 가이던스 확정 중 하나(완전희석 기준 필수 — valuation.caution).",
+  "reason": "[fact] 에스컬레이션 esc_20260905_0618_nbis_thesis_rewrite 참고 항목이 'conclusion의 재무 건전성 표현도 A 선택 시 동반 재검토 대상'으로 명시했고, 2026-09-05 사용자가 선택지 A를 채택했다. [fact] 6/30/26 기준 Debt $8,545.7M > 현금 $8,042.1M 확정으로 '재무 건전성이 가장 명확'이라는 단독 표현은 부정확하다 — 마진 전환 속도(Q2 41%)와 자본시장 접근성(8/24 실증)은 사실로 유지되므로 분리 서술로 재작성한다. [fact] 진입 판단 게이트는 변경하지 않으며, 이전 문장은 주석으로 보존한다(P9).",
+  "basis_claims": [
+    "c_20260905_NBIS_01",
+    "c_20260820_NBIS_02"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] thesis 재작성(선택지 A)의 동반 정정이다 — conclusion의 사실 서술을 thesis와 정합시키며 진입 게이트·등급 판정은 변경하지 않는다.",
+  "downstream_note": "[fact] Q3 2026 재무제표로 확정 원금·현금 확보 시 표현 재검토 대상.",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "마진 전환 속도가 가장 명확하고 자본시장 접근성은 8/24 $5.75B 클로징으로 실증",
+      "이전 conclusion(P9 보존)"
+    ],
+    "not_contains": [
+      "3사 중 재무 건전성·마진 전환 속도가 가장 명확하나 밸류에이션이 성장률을 상당 부분 반영.\n  진입 판단 게이트"
+    ]
+  },
+  "source_artifact": "output/20260905_0618/07_thesis_patch/NBIS_escalation_thesis_rewrite.md#참고"
+}

@@ -1,0 +1,157 @@
+{
+ "as_of": "2026-08-20",
+ "run_id": "20260820_1932",
+ "ticker": "COIN",
+ "input_source": "output/20260820_1932/03_input/arbiter_COIN.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260820_COIN_001",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "confirmed": true
+  },
+  {
+   "id": "c_20260820_COIN_002",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 3,
+   "quantitative": true,
+   "confirmed": false
+  },
+  {
+   "id": "c_20260820_COIN_003",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 3,
+   "quantitative": false,
+   "confirmed": false
+  },
+  {
+   "id": "c_20260820_COIN_004",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "confirmed": false
+  },
+  {
+   "id": "c_20260820_COIN_005",
+   "scope": "company_specific",
+   "claim_type": "inference",
+   "evidence_grade": 3,
+   "inference_strength": "medium",
+   "quantitative": false,
+   "confirmed": true
+  },
+  {
+   "id": "c_20260820_COIN_006",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "confirmed": false
+  }
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_COIN.json의 claims 6건 전건 scope=company_specific 확인. removed_claims 0건. F13 해당 없음.",
+ "kill_check": {
+  "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+  "kc_reference": [
+   {
+    "kc_id": "KC-1~10(macro, 전건)",
+    "verdict": "not_met",
+    "verdict_confidence": "mixed(provisional 6건 포함, run 20260820_1932 L1) — 오케스트레이터 발췌 기준, 개별 KC 정의 미접근(P17)"
+   },
+   {
+    "kc_id": "COIN 종목 KC 4건",
+    "verdict": "active",
+    "verdict_confidence": "active",
+    "note": "이번 L2 조회기간 내 발동 조건 해당 신규 관측 없음. Circle 분배계약은 발효일(8/18) 경과 후 양사 8-K 0건 — 조건 변경 자체가 미확인이므로 '유리한 변경'도 발동하지 않은 상태(오케스트레이터 유의사항). c_004(그레이드4, '확장' 서사)는 이 미발동 상태를 뒤집을 근거로 사용하지 않는다."
+   }
+  ],
+  "met_and_confirmed": false,
+  "human_confirmation_required": false,
+  "basis": "macro KC-1~10 전건 not_met(일부 provisional). COIN 종목 KC 4건은 active이나 이번 조회기간 내 met 전이 관측 없음. Kill 조건(규칙1) 해당 없음."
+ },
+ "gate_check": {
+  "quantitative_evidence": false,
+  "company_specific": true,
+  "revenue_recognized": false,
+  "overall_upgrade_gate_met": false,
+  "basis": "P2 — c_002(quantitative=true)는 Circle-Coinbase 분배비율(100%/50%)이 '2023년 원계약 조항의 반복 인용'이며 2026년 신규 수치가 아님(note 명시) + confirmed=false + evidence_grade=3(단독 판단 근거 불가, P4) — 매출·마진·현금흐름·가이던스를 변화시키는 신규 정량 근거로 불인정. P6 — 전건 scope=company_specific으로 이 조건만 충족. P7 — Circle 계약은 '갱신 발효'(계약 존재 지속) 단계이며 8-K 등 1차 공시로 확인된 '이행'·'매출 인식' 단계 아님(c_001: 8-K 0건, grade1 confirmed). Deribit RWA 무기한선물·Starbase 이전(c_006)은 8/31~9/9 '출시 예정'으로 미집행 상태이며 grade4·confirmed=false, 매출 기여 미공시. 3게이트 중 quantitative_evidence·revenue_recognized 미충족 → 상향 불가."
+ },
+ "downgrade_check": {
+  "rule": "v1 §6-2 규칙3 — 정량 훼손 또는 evidence_grade<=2 정성 훼손 시 하향 가능(비대칭)",
+  "quantitative_deterioration": false,
+  "qualitative_deterioration_grade_le_2": false,
+  "overall_downgrade_gate_met": false,
+  "basis": "grade≤2 확정 fact는 c_001 1건뿐이며 내용은 '8-K 미제출 지속'이라는 정보 부재 관측으로, 정보 부재는 반증이 아니다(P5) — 훼손 근거로 사용 불가. usdc_economics 축 delta는 방향=neutral(강화도 훼손도 아님), derivatives_base 축 delta는 방향=strengthen. 훼손 방향 claim·delta 없음 → 하향 근거 없음."
+ },
+ "decision": "maintain",
+ "decision_reason": "P12 — 상향 게이트(quantitative_evidence·company_specific·revenue_recognized) 3종 중 2종 미충족으로 상향 불가. 하향 게이트도 미충족. Kill 조건 미해당(KC 전건 not_met/active, met 전이 없음). 현행 🟠 주의(Q2 매출 miss) 등급을 그대로 유지하며 사유를 기록한다. Deribit RWA 파생상품 출시·Starbase 엔진 이전 발표(c_006)는 '인도 완료·인증·파트너십'류 사업 확장 발표에 해당 — 등급 유지 + holding_reinforcement 분류만 부여(규칙2 단서). Circle 계약 갱신 관련 claim(c_002~005)은 방향 neutral(기존 8/15 예상과 실질적 차이 없음)로 별도 강화 분류 없이 유지.",
+ "classification_note": "c_006(Deribit RWA 무기한선물 8/31 출시 예정 + INTX Starbase 이전 9/9 목표, 125+계약)은 상품군·거래 인프라 확장류 — holding_reinforcement로만 분류(전이 규칙 v1 §6-2 규칙2 단서). 단, 전건 grade4·단독소스·confirmed=false(1차 소스 support.deribit.com 403 차단)로 강화 확신도는 제한적이며 매출 기여 미공시. c_002~005(Circle 계약 갱신)는 강화/훼손 어느 쪽도 아닌 neutral — 8/15 시점 예상(CFO 조건충족 발언 기반 자동갱신 '예정')에서 벗어난 신규 정보 없음, '확장' 서사(c_004)는 단일 grade4 vs 복수 grade3('불변') 상충으로 미확정(unconfirmed) 유지.",
+ "alert": {
+  "ticker_event": "COIN — Circle-Coinbase USDC 분배계약 갱신 발효(2026-08-18) 경과 후 양사 8-K 미제출 지속 확인 + Deribit RWA 무기한선물(최대 50x, USDC 결제)·Starbase 매칭엔진 이전 발표(2026-08-31~09-09 예정)",
+  "facts": [
+   "[regulatory_api, SEC EDGAR submissions API, 조회시각 2026-08-20 19:32 KST] Coinbase Global Inc.(CIK 0001679788) 대상 10-K/10-Q/8-K, since 2026-08-15 검색 결과 0건 — Circle Collaboration Agreement 갱신(발효 2026-08-18) 관련 8-K 포함 부재. confirmed=true, evidence_grade=1. 직전 관측(20260816_0843, 20260820_1925)과 동일 결과 재확인."
+  ],
+  "inference": {
+   "text": "복수 매체(6개 아웃렛)가 CFO Haas(7/30)·Circle CEO Allaire(8/5) 양측 발언을 인용해 '기존 조건 불변(100%/50% 분배, 2029년까지)'을 보도(grade3)하는 반면, 단일 매체(CoinReporter, grade4)만 '확장(더 유리한 조건)'을 주장 — grade1/2 1차 공시 부재 상태에서 '불변' 서사가 현재 더 우세하나, '확장' 보도가 별개의 OUSD 통합 약정을 Circle 갱신 자체와 혼동했을 가능성도 배제 못함. 최종 판정 아님 — 신규 8-K 또는 10-Q 계약 주석 확인 시까지 잠정.",
+   "strength": "medium",
+   "basis_claim": "c_20260820_COIN_005"
+  },
+  "classification": "holding_reinforcement (derivatives_base 축, c_006 근거 — 확신도 제한적: grade4/단독소스/confirmed=false) — usdc_economics 축은 neutral(강화·훼손 아님, 상향/하향 분류 대상 아님)",
+  "thesis_delta": {
+   "axes": [
+    {
+     "axis": "usdc_economics",
+     "direction": "neutral",
+     "detail": "발효일 경과 후에도 새 정보 없음 — 8/15 시점 예상('동일 조건 자동 갱신 예정')에서 벗어나지 않음. '확장' 서사(c_004)는 상충·미확정.",
+     "risk_transfer": [
+      "OUSD 참여로 인한 자사 USDC 수익의 장기적 대체(cannibalization) 가능성은 여전히 미해소 — usdc_economics 축 내 감시 지속(분배 구조 공개 unconfirmed)",
+      "'확장' 서사(c_004)의 진위는 차기 10-Q 계약 주석 또는 신규 8-K 확인 시까지 이관 — 소멸 아님"
+     ]
+    },
+    {
+     "axis": "derivatives_base",
+     "direction": "strengthen",
+     "detail": "Deribit RWA 무기한선물(미국 대형주·ETF·상품·프리IPO, 최대 50x, USDC 결제) 출시 예정(8/31) + INTX 파생상품의 Starbase 엔진 완전 이전(9/9 목표, 125+계약) — 상품군·지역 확장 추가 관측. 전건 grade4·단독소스·confirmed=false(1차 소스 접근 403 차단), 매출·거래량 기여 미공시.",
+     "risk_transfer": []
+    }
+   ]
+  },
+  "signal_verdict": "🟠 주의(Q2 매출 miss) 등급 유지(후보) — 상향 게이트 3종(quantitative_evidence/company_specific/revenue_recognized) 중 quantitative_evidence·revenue_recognized 미충족. 하향 게이트도 미충족(훼손 방향 claim·delta 없음). Kill 조건 미해당(macro KC-1~10 not_met, COIN 종목 KC 4건 active·신규 met 전이 없음). 최종 등급 확정은 사람이 한다.",
+  "next_check": [
+   "8-K Item 1.01/1.02 또는 6-K 등 1차 공시로 Circle-Coinbase 계약 실제 조건(불변/변경) 확인 여부",
+   "차기 10-Q 계약 주석에서 USDC 분배 비율·수익 절대액($) 공시 여부",
+   "구독·서비스 매출 비중(%) 방향 (Q3 2026 실적)",
+   "Deribit Starbase 엔진 이전 완료(9/9 목표) 및 실제 상장 계약 수(목표 125+) 1차 확인, RWA 무기한선물 거래량·매출 기여 최초 공시 여부",
+   "Q3 2026 실적 발표일의 회사 IR 공식 공지(현재 애그리게이터 추정 10/29만 존재, F1상 채택 불가)"
+  ]
+ },
+ "unconfirmed_carried": [
+  {
+   "topic": "OUSD 참여 조건·분배 구조 공개",
+   "reason": "not_found — 조회기간 내 신규 1차 자료 없음(P5)"
+  },
+  {
+   "topic": "USDC 수익 절대액 공시",
+   "reason": "not_yet_released — 차기 Q3 실적 발표 대상"
+  },
+  {
+   "topic": "Circle-Coinbase 계약 '확장' 서사(c_20260820_COIN_004)의 진위",
+   "reason": "conflicting_sources — 단일 grade4 vs 복수 grade3('불변') 상충, grade1/2 근거 부재"
+  },
+  {
+   "topic": "Q3 2026 실적 발표일",
+   "reason": "aggregator_estimate_only — 회사 IR 공식 공지 미확인(F1)"
+  }
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. filter_bug 없음. gate_check 3종(quantitative_evidence/company_specific/revenue_recognized) 중 company_specific만 충족 — 등급 유지가 P12 기본 경로로 확정 적용됨."
+}

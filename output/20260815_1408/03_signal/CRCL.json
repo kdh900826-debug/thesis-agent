@@ -1,0 +1,108 @@
+{
+  "as_of": "2026-08-15",
+  "run_id": "20260815_1408",
+  "ticker": "CRCL",
+  "staleness_days": 10,
+  "staleness_note": "핵심 재무 Claim(002~006,012)의 as_of=2026-08-05(Q2 실적발표일), staleness_days=10. 온체인/내부자매도 관련 Claim(007,016)은 as_of=2026-08-08~08-10, staleness_days=5~7.",
+  "input_file": "output/20260815_1408/03_input/arbiter_CRCL.json",
+  "kc_excerpt_used": {
+    "KC-3": {
+      "definition": "크립토 붕괴+위험회피 동시 (BTC<55000 AND VIX>=25), 파급: IREN·COIN·HOOD·CRCL",
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "observed": "BTC 63,060 @2026-08-15 (<55,000 임계 미충족); VIX 14.25 @2026-08-14 (<25 임계 미충족)"
+    },
+    "event_kc": "종목 이벤트형 KC 발동 관측 없음"
+  },
+  "input_claims": [
+    {"id": "c_20260815_CRCL_001", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "confirmed": true},
+    {"id": "c_20260815_CRCL_002", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "confirmed": true},
+    {"id": "c_20260815_CRCL_003", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "confirmed": true},
+    {"id": "c_20260815_CRCL_004", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "confirmed": true},
+    {"id": "c_20260815_CRCL_005", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "confirmed": true},
+    {"id": "c_20260815_CRCL_006", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "confirmed": true},
+    {"id": "c_20260815_CRCL_007", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 4, "quantitative": true, "confirmed": false},
+    {"id": "c_20260815_CRCL_008", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 2, "quantitative": false, "confirmed": true},
+    {"id": "c_20260815_CRCL_009", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 2, "quantitative": false, "confirmed": true},
+    {"id": "c_20260815_CRCL_010", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 2, "quantitative": true, "confirmed": true},
+    {"id": "c_20260815_CRCL_011", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "confirmed": false},
+    {"id": "c_20260815_CRCL_012", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 2, "quantitative": true, "confirmed": true},
+    {"id": "c_20260815_CRCL_013", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 4, "quantitative": true, "confirmed": false},
+    {"id": "c_20260815_CRCL_014", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "confirmed": true},
+    {"id": "c_20260815_CRCL_016", "scope": "company_specific", "claim_type": "fact", "evidence_grade": 4, "quantitative": true, "confirmed": false}
+  ],
+  "filter_bug_check": {
+    "non_company_specific_claims_found": 0,
+    "note": "arbiter_CRCL.json의 claims[] 15건 전건 scope=company_specific 확인. removed_claims(c_015, scope=sector)는 정상 제거됨 — 필터 버그 없음(F13 해당 없음)."
+  },
+  "kill_check": {
+    "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+    "met_and_confirmed": false,
+    "basis": "KC-3(크립토 붕괴+위험회피, 파급 CRCL 포함) not_met/confirmed — BTC 63,060(>55,000 임계 미충족), VIX 14.25(<25 임계 미충족), 두 조건 모두 미해당. 종목 이벤트형 KC 발동 관측 없음. Kill 조건 미해당.",
+    "human_confirmation_required": false
+  },
+  "gate_check": {
+    "quantitative_evidence": true,
+    "company_specific": true,
+    "revenue_recognized": true,
+    "gate_technically_passed": true,
+    "upgrade_warranted": false,
+    "basis": "Q2'26 재무 Claim(002~006, evidence_grade=1, confirmed=true, company_press_release)은 매출·Reserve Income·유통비용·EBITDA 등 '이미 인식된' 실측 수치로 P2·P7 3단 분리상 '매출 인식(revenue_recognized)' 단계에 해당 — quantitative/company_specific/revenue_recognized 3종 게이트는 기술적으로 전부 충족(gate_technically_passed=true). 그러나 게이트 충족은 상향의 필요조건일 뿐 충분조건이 아니다: 현행 🔴 등급의 근거는 재무 실적이 아니라 'OUSD 컨소시엄 경쟁 위협'이며, 이 축(competition_ousd)에 대한 delta 판정은 'neutral'(risk 유지, 미해소)이다. OUSD는 2026-08 현재 공식 출시·실측 유통량 데이터 없음(c_011, evidence_grade=4, confirmed=false, pre-launch). CEO의 위협 축소평가 발언(c_010)은 quantitative=true로 태깅되어 있으나 실질은 경영진 자기평가 코멘트(evidence_grade=2, 독립 검증 없음)로 OUSD 리스크의 '매출 인식' 단계 반증이 아니다 — 즉 Q2 실적 자체가 OUSD 출시 이전 기간의 실적이므로 OUSD 경쟁 영향이 원천적으로 반영될 수 없는 수치다. 따라서 등급을 결정한 원인 축에 한정하면 실질적 게이트(해당 리스크의 revenue_recognized 근거)는 미충족 — 상향 미실행(upgrade_warranted=false)."
+  },
+  "downgrade_check": {
+    "rule": "v1 §6-2 규칙3 — 정량 훼손 또는 evidence_grade<=2 정성 훼손 시 하향 가능(비대칭)",
+    "quantitative_deterioration": false,
+    "qualitative_deterioration_grade_le_2": false,
+    "overall_downgrade_gate_met": false,
+    "basis": "부정적 신호 후보 3건 모두 evidence_grade=4·confirmed=false로 P4('③④는 삼각검증용, 단독 판단 근거 불가') 위반 소지 — 단독 하향 근거로 사용하지 않음: (1) 온체인 USDC 유통량 8/6 기준 -2%(~$1.5B) 감소 관측(c_007, 2차 인용, 회사 공시 대차대조표 아님), (2) 내부자 3인 합산 약 109,000주 매도(c_016, SEC 원문 직접조회 403 차단, 2차 집계만), (3) FY26 가이던스 상향 수치(c_013, 회사 원문 PDF 이미지라 1차 대조 실패, 2차 소스만). evidence_grade<=2의 정성 훼손 Claim은 없음(CFO/CEO 발언은 전부 긍정 또는 중립 논조). 하향 게이트 미충족."
+  },
+  "prior_signal": "🔴",
+  "proposed_signal": "🔴",
+  "decision": "maintain",
+  "decision_reason": "P12 — 상향 게이트는 재무 실적 자체(quantitative/company_specific/revenue_recognized)로는 기술적으로 충족되나, 현행 🔴의 근거인 OUSD 경쟁 위협 축은 미해소(neutral, OUSD pre-launch)이므로 실질적 상향 근거 부적격 → 등급 유지. 하향 게이트도 미충족(부정 신호 전건 evidence_grade=4·unconfirmed, P4상 단독 근거 불가) → 하향도 부적격. Kill 조건(KC-3) not_met/confirmed로 해당 없음. 재무 강세(Reserve Income/EBITDA/USDC 유통량 확장, Arc 9/16 런칭)는 holding_reinforcement로만 분류하고 상향 근거로 사용하지 않는다.",
+  "classification_note": "c_002~006(Q2 재무), c_014(Arc 런칭 확정)는 실측·확정 사실이나 현재 등급을 규정한 리스크(OUSD)와 직접 연결되지 않아 holding_reinforcement로 분류. c_008(Coinbase 계약 기존조건 갱신 확인)·c_009(배당계획 없음)는 기존 리스크 해소성 정보이나 OUSD와 무관한 별개 리스크(KC-CRCL-3)에 대한 것 — 별도 holding_reinforcement.",
+  "thesis_card_flag": {
+    "trigger": "P8 — 신규 1차 공시가 기존 축 판정을 정면 반박",
+    "detail": "thesis card 전제(usdc_circulation 축소 추세)와 Q2 1차 공시(유통량 $73.3B, +19% YoY 확장)가 상충. 입력 delta의 flags에서 하위 축 분해 제안(usdc_circulation_yoy_trend vs usdc_circulation_intraquarter) 확인됨. 이는 signal-arbiter 권한 범위 밖(P17) — thesis-refine 에스컬레이션 대상으로만 기록하고 본 판정에는 반영하지 않음.",
+    "escalate_to": "thesis-refine"
+  },
+  "next_gate_state_check": {
+    "current_state_next_gate": "8/18 Q2 — USDC 평잔·Reserve Income·OUSD 대응",
+    "validity": "invalid_stale",
+    "reason": "state/signals.json의 next_gate가 지시한 'Q2 실적(8/18)'은 이미 2026-08-05에 발표 완료(c_001, evidence_grade=1, confirmed=true) — 게이트 전제 자체가 소멸. 8/18에 별도 회사 이벤트가 존재하는지는 조회기간 내 미확인(u_20260815_CRCL_f) — 애그리게이터 캘린더 추정 라벨은 근거 불가(F1)이므로 회사 IR 공지 재확인 필요. 갱신 필요."
+  },
+  "alert": {
+    "ticker_event": "CRCL — Q2'26 실적 실측치 확인(발표일 2026-08-05, run 전제상 '8/18' 대비 10일 선행) 및 OUSD 위협 상태 재점검",
+    "facts": [
+      "[company_press_release, circle.com, 2026-08-05] Q2'26 Reserve Income $668M(+5% YoY), 유통·거래·기타비용 $412M(+1% YoY) — 비용 증가율이 수익 증가율 하회, 마진 개선 방향. Adjusted EBITDA $143M(+8% YoY). confirmed=true, evidence_grade=1.",
+      "[company_press_release, circle.com, 2026-08-05] Q2'26 분기말 USDC 유통량 $73.3B(+19% YoY), 평균 유통량 +25% YoY. Other Revenue $34M(+41% YoY). confirmed=true, evidence_grade=1.",
+      "[company_press_release, circle.com, 2026-08-05] Arc 메인넷 퍼블릭 런칭일 2026-09-16 확정, Founding Validator 11개 기관(BlackRock·DTCC·Mastercard·Visa 등) 확보. confirmed=true, evidence_grade=1.",
+      "[earnings_call_direct_quote, 2026-08-05] CFO Jeremy Fox-Geen: Coinbase USDC 배포계약 기존 조건대로 2029년까지 자동 갱신 확인(KC-CRCL-3 '조건 변경' 아님, '조건 유지'). 분기 배당 계획 없음, 현금은 성장 재투자. Hyperliquid 관련 USDC 잔고 약 90%가 Coinbase 플랫폼 보유, 유통비용 영향은 Q3부터 반영. confirmed=true, evidence_grade=2.",
+      "[secondary_media_aggregate, fortune.com, 2026-08-10] OUSD(6/30 발표, 140+사 참여)는 2026-08-15 현재 공식 출시·실측 유통량 데이터 없음 — pre-launch 단계. confirmed=false, evidence_grade=4.",
+      "[secondary_media, cryptobriefing.com, 2026-08-08] 온체인 관측(회사 공시 아님): USDC 유통량이 분기말 대비 8/6 기준 약 $1.5B(-2%) 감소 신호. confirmed=false, evidence_grade=4 — 회사 공시치와 괴리 가능."
+    ],
+    "inference": {
+      "text": "Q2 실적은 재무적으로 강세(유통량·Reserve Income·EBITDA 전부 확장)이나, OUSD는 아직 미출시 상태이므로 이번 수치에는 OUSD 경쟁 영향이 구조적으로 반영될 수 없다 — 즉 현재 🔴 등급의 핵심 근거(OUSD 위협)를 이번 실측치가 입증하지도 반증하지도 못한다. CEO의 위협 축소평가 발언은 경영진 자기평가로 독립 검증이 없어 게이트 통과 근거로 부적격.",
+      "strength": "medium",
+      "basis_claim": "c_20260815_CRCL_010, c_20260815_CRCL_011"
+    },
+    "classification": "holding_reinforcement",
+    "thesis_delta": {
+      "axes": [
+        {"axis": "usdc_circulation", "direction": "strengthen", "detail": "분기 단위 YoY 기준 확장 확인(+19%). 단 온체인 2차 관측상 분기 내 주간 단위 위축 신호 존재(미확인) — P8 트리거, 하위 축 분해 및 thesis-refine 에스컬레이션 권고.", "risk_transfer": []},
+        {"axis": "reserve_income", "direction": "strengthen", "detail": "수익 증가율(+5%)이 비용 증가율(+1%)을 상회, EBITDA +8% — 마진 개선.", "risk_transfer": []},
+        {"axis": "competition_ousd", "direction": "neutral", "detail": "OUSD 미출시·실측 데이터 없음(risk 유지, 미해소). 현행 🔴 등급의 직접 근거이며 이번 Q2 실측치로는 해소되지 않음.", "risk_transfer": []},
+        {"axis": "diversification", "direction": "strengthen", "detail": "Arc 9/16 런칭 확정 및 기관급 validator 11개사 확보, Other Revenue +41% YoY.", "risk_transfer": []}
+      ]
+    },
+    "signal_verdict": "🔴 비중 조절 검토(OUSD 위협) 등급 유지(후보) — 상향 게이트 3종은 Q2 재무 자체로는 기술적 충족이나, 등급을 규정한 competition_ousd 축은 neutral(미해소)로 실질적 상향 근거 부적격(P12). 하향 게이트도 미충족(부정 신호 전건 evidence_grade=4·unconfirmed, P4). Kill 조건(KC-3) not_met/confirmed로 해당 없음. 최종 등급 확정은 사람이 한다.",
+    "next_check": [
+      "OUSD 공식 출시일 및 그 시점의 실측 USDC/OUSD 유통량 데이터(noise_filter.yaml#CRCL promote_if 기준 — 현재 미충족)",
+      "Q3'26 실적: Hyperliquid 90/10 배분 구조의 유통비용 반영액(Q3부터 적용, c_012), Reserve Income/유통비용 마진 방향 지속 여부",
+      "USDC 유통량 온체인 실측치와 회사 공시 대차대조표 대사(현재 -2%/$1.5B 감소 신호, evidence_grade=4 — 1차 확인 필요)",
+      "state/signals.json의 next_gate 텍스트 갱신 필요('8/18 Q2'는 이미 지난 8/5 발표로 소멸 — 8/18 별도 이벤트 존재 여부는 회사 IR 공지로 재확인, u_20260815_CRCL_f)"
+    ]
+  },
+  "human_confirmation_required": false,
+  "note": "본 판정은 등급 전이 후보(candidate)이며, 최종 등급 확정은 사람이 수행한다."
+}

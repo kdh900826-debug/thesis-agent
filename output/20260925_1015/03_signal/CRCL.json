@@ -1,0 +1,248 @@
+{
+ "as_of": "2026-09-25",
+ "run_id": "20260925_1015",
+ "ticker": "CRCL",
+ "input_source": "output/20260925_1015/03_input/arbiter_CRCL.json",
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260925_CRCL_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "8-K + company_press_release(교차확인)",
+   "filed_at": "2026-09-22",
+   "staleness_days": 3,
+   "summary": "Binance-Circle 5년 재계약(구계약 대체) — USDC 보유액 연동 월간 인센티브 수수료 구조 재고정. Binance $100M 사모 Class A 인수(2년 락업, 의결권 보유). 요율·산식 8-K 비공개."
+  },
+  {
+   "id": "c_20260925_CRCL_2",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "form_4",
+   "filed_at": "2026-09-24",
+   "staleness_days": 1,
+   "summary": "CFO 정기 옵션행사·베스팅(거래코드 M) 2,753주. 비정기 대량처분 아님 — 모니터링 로그만, 축 Delta 미생성."
+  },
+  {
+   "id": "c_20260925_CRCL_3",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "executive_direct_quote_conference_transcript",
+   "filed_at": "2026-09-23",
+   "staleness_days": 2,
+   "summary": "CEO Allaire: Arc 메인넷 첫 주 네트워크가치 약$1B 근접·수수료 약$0.5M·FDV$3B. 본인이 '출시 시점 버스트'로 규정하며 지속성 유보 — 매출 인식(3단계) 아님."
+  },
+  {
+   "id": "c_20260925_CRCL_4",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "news_secondary_aggregator(교차 2건)",
+   "filed_at": "2026-09-22",
+   "staleness_days": 3,
+   "summary": "Arc 온체인 지표(DeFi TVL$348M 등) — c_3과 측정계열 상이, 삼각검증용 grade4·confirmed false. 단독 판단 근거 불가(P4)."
+  },
+  {
+   "id": "c_20260925_CRCL_5",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "executive_direct_quote_conference_transcript",
+   "filed_at": "2026-09-23",
+   "staleness_days": 2,
+   "summary": "Allaire, Visa 데이터 인용 'USDC 거래유틸리티 70%' — 기존 회사정의(27%)·3자집계(24%) 두 계열과 분모 다른 제3계열. 카드 채택 여부는 사람 판단(ThesisPatch 후보)."
+  },
+  {
+   "id": "c_20260925_CRCL_6",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-09-24",
+   "staleness_days": 1,
+   "summary": "Coinbase 분배계약 관련 8-K 이번 창도 0건 — 무공시 구간 약32일로 연장. 부재는 무변경의 증명 아님(P5), 최종확인 Q3 10-Q."
+  },
+  {
+   "id": "c_20260925_CRCL_9",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-09-24",
+   "staleness_days": 1,
+   "summary": "KC-CRCL-4: OCC·NYDFS 인가취소·제재 8-K 0건, 병행 웹검색도 신규 감독조치 미포착. earnings_checkpoints.date null 유지 타당(F1)."
+  },
+  {
+   "id": "c_20260925_CRCL_10",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-09-24",
+   "staleness_days": 1,
+   "summary": "$YLDS(FIGR) 신규 제출 0건, 2Q26 $556.033M(QoQ -7.0%) 유지. 다음 갱신 FIGR 3Q26(통상 11월)."
+  },
+  {
+   "id": "c_20260925_CRCL_11",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "inference_strength": "medium",
+   "source_type": "derived_from_primary_8k",
+   "filed_at": "2026-09-22",
+   "staleness_days": 3,
+   "summary": "Binance 재계약(c_1) 구조상 유통비용 비중 5년 재확장 가능성 — 요율 비공개로 정량 마진영향 산출 불가. inference이며 downgrade 근거로 단독 채택 불가."
+  }
+ ],
+ "filter_bug_report": "없음 — arbiter_CRCL.json claims 9건 전부 scope=company_specific 확인. removed_claims 2건(c_7·c_8, scope=sector)은 필터가 정상 제거 — F13 위반 없음.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-CRCL-1",
+    "description": "USDC 유통량 수축 (경고/발동 2단)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "이번 창 유통량 갱신 claim 없음(신규 정량 잔액 미제공) — 수축 방향 관측 자체가 없어 met 불성립. Binance 채널 확장(c_1)은 유통 방어 성격의 inference일 뿐 실측 증분 아님(d_20260925_CRCL_2, stage 하약)."
+   },
+   {
+    "kc_id": "KC-CRCL-2",
+    "description": "점유율 잠식 (OUSD·이자부 코인 포함)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "회사정의·3자집계 두 계열 모두 이번 창 갱신 없음(Q2'26 27%/24% 이월). c_5(Visa 거래유틸리티 70%)는 분모가 다른 제3계열로 직접 대입 불가 — 축 이동 근거로 미채택(P8 신규 계열 발견으로만 기록)."
+   },
+   {
+    "kc_id": "KC-CRCL-3",
+    "description": "Coinbase 분배 계약 변경",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "c_6: Coinbase 관련 Item1.01/1.02 8-K 0건, 무공시 구간 약32일 지속 — met 불성립. 【주의】 이번 창 신규 재료(c_1)는 Binance 계약이며 KC-CRCL-3(Coinbase 대상) 정의 범위 밖이므로 이 KC에 산입하지 않음(KC 오정합 방지)."
+   },
+   {
+    "kc_id": "KC-CRCL-4",
+    "description": "인가·감독 조치 (규제 선점 전제 훼손)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "c_9: EDGAR 8-K 0건 + 웹검색 보조확인 0건. 비공개 감독서한 등은 8-K 의무대상 아닐 수 있어 관측 0건이 조치 부존재 증명 아님(P5) — provisional 유지."
+   },
+   {
+    "kc_id": "KC-3",
+    "description": "크립토 붕괴 + 위험회피 동시 (macro, CRCL 파급)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "reason": "BTC 84,653.665(임계<55,000 미충족, as_of 2026-09-25, stale 0일)·VIX 15.67(임계>=25 미충족, as_of 2026-09-24, stale 1일, 한도2일 이내) — 경계 접촉 아님(오케스트레이터 전달, kc excerpt)."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "규칙1(Kill 우선: KC met AND confirmed) 해당 없음 — 종목 KC 4건 전부 not_met/provisional, macro 파급 KC-3은 not_met/confirmed. Binance 5년 재계약(c_1)은 신규 중대 재료이나 정의된 KC(KC-CRCL-1~4) 어느 항목의 met 조건도 충족시키지 않는다. 🔴🔴 후보 아님 — 사람 확인 요청 불필요."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향게이트는 3조건(quantitative_evidence AND company_specific AND revenue_recognized) 동시충족 필요. c_1(Binance 계약금액·지분매입)·c_3(Arc 네트워크가치·수수료)·c_10($YLDS 잔액)은 quantitative=true·company_specific=true이나 전부 매출 인식과 무관하거나(계약·잔액·지분) 매출인식 이전 단계(Arc — Allaire 스스로 '출시버스트'로 유보, 재무제표 반영 수치 없음). P7 3단분리상 c_1은 계약 갱신(기존 이행중 관계의 확장)이고 c_3은 서비스 이행 개시 단계에 그쳐 3단계(매출 인식) 도달 claim이 이번 창에 없다 — 3요건 미동시충족. holding_reinforcement 분류로 등급 유지(P12)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "d_20260925_CRCL_1(reserve_income, weaken, stage 하약)은 Binance 재계약의 '구조적 방향성'에 근거하나 요율·산식이 8-K 비공개라 정량 마진영향 자체는 산출 불가(c_20260925_CRCL_11은 inference·quantitative=false·confirmed=false). 실측 수치로 확정된 정량 훼손이 아니므로 downgrade 트리거 요건인 '정량 훼손'에 해당하지 않는다.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "grade<=2 claim 중 c_3·c_5(grade2)는 방향성 strengthen/neutral이며 훼손(weaken) 방향 아님. 훼손 방향 claim은 c_11(inference, grade1 표기이나 confirmed=false)뿐이고 이는 정성적 추정에 불과 — 하향 트리거 요건 미충족.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "정량 훼손 없음(요율 비공개로 산출 불가) + evidence_grade<=2 확정 정성 훼손 없음 — 규칙3(비대칭 하향) 불성립. 규칙4에 따라 게이트 미충족은 실패가 아니라 등급 유지 + 사유기록(P12)."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "reserve_income",
+   "direction": "weaken",
+   "stage": "하(약)",
+   "supporting_claims": ["c_20260925_CRCL_1", "c_20260925_CRCL_11"],
+   "risk_transfer_to": "Q3 10-Q 유통비용(파트너분배) 비중에서 Binance 연동 수수료 실반영 규모 / 요율·산식 원문 확보(현재 8-K 비공개)"
+  },
+  {
+   "axis": "usdc_circulation_scale",
+   "direction": "strengthen",
+   "stage": "하(약)",
+   "supporting_claims": ["c_20260925_CRCL_1", "c_20260925_CRCL_5"],
+   "risk_transfer_to": "Q3 분기말·30일평잔 공시 채널별 분해(현재 불가) / KC-CRCL-1 대조는 Q3 실적에서만 가능"
+  },
+  {
+   "axis": "diversification",
+   "direction": "strengthen",
+   "stage": "하(약)",
+   "supporting_claims": ["c_20260925_CRCL_3", "c_20260925_CRCL_4"],
+   "risk_transfer_to": "Arc 지표 지속성(런칭버스트 vs 안정화, Allaire 본인 유보) / Q3 실적 Arc 매출·수수료 인식 여부"
+  },
+  {
+   "axis": "usdc_market_share",
+   "direction": "neutral",
+   "stage": "없음",
+   "supporting_claims": ["c_20260925_CRCL_5"],
+   "risk_transfer_to": "신규 제3계열(거래유틸리티 기준) 채택 여부 — 카드 소유 계층(사람) 판단 필요"
+  },
+  {
+   "axis": "regulation_company_licensing",
+   "direction": "neutral",
+   "stage": "없음",
+   "supporting_claims": ["c_20260925_CRCL_9"],
+   "risk_transfer_to": "OCC·NYDFS 감독보고서·제재 공표(비공개 조치 가능성 잔존, P5)"
+  },
+  {
+   "axis": "competition_yield_bearing",
+   "direction": "neutral",
+   "stage": "없음",
+   "supporting_claims": ["c_20260925_CRCL_10"],
+   "risk_transfer_to": "FIGR 3Q26 공시(통상 11월) / CLARITY 이자조항 문언 확정 경로"
+  }
+ ],
+ "alert": {
+  "ticker_event": "CRCL — Binance 5년 재계약+$100M 지분투자(공시 9/22) + Arc 메인넷 첫주 지표(Allaire 발언, 9/23) + Coinbase 분배계약 8-K 부재 32일째 + KC-CRCL-4 감독조치 관측 0건 + $YLDS 무변경",
+  "facts": "① Circle 8-K(2026-09-22, 사건일 9/17): Binance-Circle 5년 재계약(구계약 대체), USDC보유액 연동 월간 인센티브 수수료(요율 비공개), Binance $100M 사모 Class A 1,237,011주 인수(2년 락업) [8-K+보도자료 교차, grade1 confirmed, staleness 3일]. ② CFO Form4(2026-09-24): 정기 옵션행사 2,753주(거래코드M), 비정기 매도 아님 [form_4, grade1 confirmed, staleness 1일]. ③ CEO Allaire 발언(Autonomous Research 심포지엄, 2026-09-23): Arc 메인넷 첫주 네트워크가치 약$1B근접·수수료 약$0.5M·FDV$3B, 본인이 '출시버스트'로 규정하며 지속성 유보 [경영진 직접인용, grade2 confirmed, staleness 2일]. ④ 동일 발언: Visa인용 USDC거래유틸리티 70%(제3계열, 계열구분 필요) [grade2 confirmed, staleness 2일]. ⑤ EDGAR 재조회: Coinbase 분배계약 8-K 0건, 무공시 약32일 지속 [SEC EDGAR, grade1 confirmed, staleness 1일]. ⑥ KC-CRCL-4: 감독조치 8-K 0건+웹검색 0건 [SEC EDGAR, grade1 confirmed, staleness 1일]. ⑦ FIGR $YLDS 신규공시 0건, 2Q26 $556.033M 유지 [SEC EDGAR, grade1 confirmed, staleness 1일]. ⑧ 매크로 KC-3: BTC 84,653.665·VIX 15.67 not_met/confirmed(오케스트레이터 전달).",
+  "inference": "medium — c_20260925_CRCL_11: Binance 재계약 구조상 유통비용(파트너분배) 비중이 5년간 재확장될 가능성. 단 요율·산식 비공개로 정량 마진영향 산출 불가(confirmed=false, 하향근거로 단독 채택 불가).",
+  "classification": "holding_reinforcement (등급 유지+사유기록, P12) — 상향게이트(P2/P6/P7) 미충족: 매출인식(3단계) claim 없음. 하향 트리거 미성립: 확정된 정량 훼손 없음(요율비공개), grade<=2 확정 정성훼손 없음.",
+  "thesis_delta": "reserve_income 축 weaken[약](c_1·c_11, Binance 5년 재계약 유통비용 재고정 — 요율비공개로 정량화 불가, 방향성 관측에 한정). usdc_circulation_scale 축 strengthen[약](c_1·c_5, Binance 채널 유통 확장 방어 조치 — 실측 증분 없음). diversification 축 strengthen[약](c_3·c_4, Arc 첫주 성과 — Allaire 본인 지속성 유보, 측정계열 상이한 2차수치는 삼각검증용). usdc_market_share·regulation_company_licensing·competition_yield_bearing 축 전부 neutral(갱신자료 없음/신규 제3계열은 미채택).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🔴(비중조절 검토, OUSD 위협) 유지 권고(maintain). Kill 게이트 미충족(KC met&confirmed 없음, Binance 재료는 정의된 KC 범위 밖). 상향 게이트 미충족(매출인식 claim 부재). 하향 게이트 미충족(정량 훼손 미확정). 🔴🔴 사람확인 요청 대상 아님.",
+  "next_check": "① [정량] Q3 10-Q 유통비용(파트너분배) 주석에서 Binance 연동 인센티브 수수료 실반영 규모·요율(reserve_income 축 확정). ② [정량] Q3'26 실적 USDC 유통량 QoQ 부호(분기말·30일평잔 계열)·회사정의 점유율%. ③ [정량] Arc 관련 매출·수수료의 Q3 재무제표 인식 여부(비이자매출 비중 변화)."
+ },
+ "next_gate": "Q3'26 실적(USDC 유통량 QoQ 부호·회사정의 점유율%·Reserve Income 절대액·Binance 인센티브수수료 반영규모) + Q3 10-Q 계약주석으로 Binance/Coinbase 분배계약 조건 최종확인(11월경) — signals.json 기존 게이트에 Binance 요율 확인 항목 추가 제안(ThesisPatch 후보, 사람 승인 필요). 아직 도래하지 않아 등급 유지가 정상 경로(P12).",
+ "unconfirmed_carried": [
+  {"topic": "Binance 월간 인센티브 수수료 정확 요율·산식", "reason": "not_disclosed_in_primary_source"},
+  {"topic": "Arc 메인넷 지표 지속가능성", "reason": "event_may_be_pending — Allaire 본인 '출시버스트' 유보"},
+  {"topic": "CLARITY Act 재의동의 후 재표결 일정", "reason": "access_blocked_and_event_pending — senate.gov 403 누적"},
+  {"topic": "OUSD 공식 출시일·실측 유통량", "reason": "carried_over_from_prior_run — 5run 연속 진전 없음, 부재는 위협소멸 반증 아님(P5)"},
+  {"topic": "Coinbase 분배계약 조건 원문 최종확인", "reason": "no_disclosure — Q3 10-Q(통상11월)까지 보류"},
+  {"topic": "Q3'26 실적 발표일 공식 IR 공지", "reason": "no_official_ir_notice — earnings_checkpoints.date null 유지(F1)"},
+  {"topic": "GENIUS Act §3 NPRM Circle 의견서 제출 여부", "reason": "not_checked_this_run"},
+  {"topic": "신규 제3계열(Visa 거래유틸리티) 카드 채택 여부", "reason": "requires_human_decision — ThesisPatch 후보"},
+  {"topic": "KC-CRCL-4 관련 비공개 감독조치", "reason": "absence_is_not_disproof — P5"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속단계 진행 가능. Binance 5년 재계약·$100M 지분투자(c_1)는 이번 run 최대 신규재료이나 정의된 KC-CRCL-1~4 어느 것에도 해당하지 않고(KC-CRCL-3은 Coinbase 전용 정의), 요율 비공개로 reserve_income 축 정량 훼손을 확정할 수 없어 downgrade 트리거되지 않음(홀드+사유기록, P12). Arc 메인넷 첫주 성과(c_3)는 diversification 강화 방향이나 매출인식 미도달로 상향 근거 불가(P2/P7). 필터버그(F13) 없음 — scope!=company_specific claim 전무, removed_claims 2건 모두 정상 제거. next_gate에 Binance 요율 확인 항목 추가는 ThesisPatch 후보로만 기록 — 카드 수정은 사람 승인 영역."
+}

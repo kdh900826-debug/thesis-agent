@@ -1,0 +1,135 @@
+{
+  "sector": "memory",
+  "label": "메모리반도체",
+  "as_of": "2026-08-15T14:24+09:00",
+  "run_id": "20260815_1408",
+  "staleness_days": 0,
+  "members": ["MU"],
+  "missing_inputs": [],
+  "single_ticker_view": true,
+  "dispersion_computed": false,
+  "dispersion_skip_reason": "[fact] 섹터 구성 종목이 MU 1건 — consensus_aggregate.py가 분산 계산을 스킵하고 단일 종목 뷰로 표기했다(설계서 S4 실패 처리). 축별 dispersion은 전부 null이며, '전원 일치(low)'로 해석해서는 안 된다.",
+  "aggregate_source": "output/20260815_1408/04_sector/memory_aggregate.json",
+  "inputs_used": [
+    "output/20260815_1408/02_company/MU.json",
+    "output/20260815_1408/03_signal/MU.json"
+  ],
+
+  "axis_view": [
+    {
+      "axis": "hbm_demand",
+      "direction": "strengthen",
+      "supporters": {"strengthen": ["MU"], "weaken": [], "neutral": [], "break": []},
+      "dispersion": null,
+      "interpretation": "[fact] MU의 강화 근거는 8/10 KeyBanc 포럼에서의 경영진(EVP/CBO Sumit Sadana) 직접 발언 2건(grade2, confirmed)이며, 확정 매출·마진·가이던스 수치는 포함되지 않는다. [fact] 참조 자산 지표도 동일 방향이다 — SK하이닉스 2Q26(7/29 발표) 영업이익률 76%·HBM4 양산 개시, 삼성전자 2Q26(7/30 발표) 반도체 부문 사상 최대 영업이익·블렌디드 DRAM ASP 전분기 대비 90%대 상승. [inference, 강도: 중간] 세 회사가 같은 방향·같은 시기에 동일한 타이트니스를 보고하므로, 이 축의 강화는 MU 고유 실행 성과가 아니라 AI 데이터센터 수요발 섹터 공통 요인이 지배적이다. [inference, 강도: 중간] 따라서 이 축의 강화분은 MU 개별 우위를 나타내지 않으며, MU 고유 성과로 분리하려면 9/22 FY26 Q4 실적의 비트그로스 대 ASP 분해와 데이터센터·HBM 매출 비중이 필요하다(P6·P13).",
+      "dominant_factor": "sector_common",
+      "supporting_deltas": ["MU:hbm_demand"],
+      "supporting_claims": ["c_20260815_MU_01", "c_20260815_MU_02"],
+      "reference_context_refs": ["ref_skhynix_2q26", "ref_samsung_2q26", "ref_capacity_race"]
+    },
+    {
+      "axis": "sca_defense",
+      "direction": "neutral",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["MU"], "break": []},
+      "dispersion": null,
+      "interpretation": "[fact] MU의 중립 판정 사유는 SCA 상한가 구조가 '체결 시점 시장가격 연동'으로 전환된다는 TrendForce 8/12 보도가 grade4·confirmed:false로 1차 자료 역추적에 실패했기 때문이다. [fact] 참조 맥락으로, SK하이닉스는 2Q26 실적에서 약 10개 고객과 장기공급계약(LTA)을 체결해 중기 공급 가시성을 확보했다고 밝혔다. [inference, 강도: 낮음] 장기계약화 자체는 메모리 3사에 공통된 계약 구조 변화일 가능성이 있으나, 참조사 LTA의 가격 조항은 비공개이므로 MU SCA의 상한가 구조를 대체 검증하는 근거가 되지 못한다. [fact] 방어구조의 실질(선수금 규모, DRAM 20%+·NAND 1/3 커버리지, 상한가 연동 방식)은 MU 고유 계약 조건이며 회사 1차 자료로만 확인 가능하다 — 9/22 실적의 'SCA 가이던스' 체크포인트에서 원문 대조가 필요하다.",
+      "dominant_factor": "company_specific_unresolved",
+      "supporting_deltas": ["MU:sca_defense"],
+      "supporting_claims": ["c_20260815_MU_03"],
+      "reference_context_refs": ["ref_skhynix_2q26"]
+    },
+    {
+      "axis": "china_supply",
+      "direction": "weaken",
+      "supporters": {"strengthen": [], "weaken": ["MU"], "neutral": [], "break": []},
+      "dispersion": null,
+      "interpretation": "[fact] 훼손 근거는 Counterpoint Research 8/12 자료(Q2 2026 기준)의 YMTC NAND 출하량 점유율 14%·글로벌 3위 진입이며, grade4·confirmed:false다. [fact] 동일 자료에서 삼성 25%·SK하이닉스 22%로 상위 2사가 제시되어 있어, 중국 물량 확대의 압력 대상은 특정 1개사가 아니라 기존 NAND 공급사 전반이다. [inference, 강도: 중간] 따라서 축 자체는 섹터 공통 리스크이고, 종목 간 차이는 방어력 쪽에서 발생한다 — MU는 출하량 5위이나 데이터센터·엔터프라이즈 프리미엄 믹스 비중으로 매출 기준 우위를 유지한다는 서술이 같은 자료에 병존하며, 이 믹스 방어력이 MU 고유 요인이다. [inference, 강도: 낮음] 물량 점유율 변화가 DRAM·NAND 가격 협상력에 미치는 크기는 grade4 단일 자료로는 확정할 수 없다.",
+      "dominant_factor": "sector_common_with_company_specific_defense",
+      "supporting_deltas": ["MU:china_supply"],
+      "supporting_claims": ["c_20260815_MU_04"],
+      "reference_context_refs": ["ref_counterpoint_share"]
+    }
+  ],
+
+  "reference_context": {
+    "_scope": "[fact] D14 경량 참조 — 삼성전자·SK하이닉스는 커버리지 밖 참조 자산이다. 아래 항목에 대해 Claim·Delta를 생성하지 않으며, MU Delta가 섹터 공통 요인인지 MU 고유 요인인지 구분하는 해석 용도로만 사용한다. 어떤 항목도 MU 개별 판정의 근거로 사용되지 않았다(P6·P13, F11·F13).",
+    "items": [
+      {
+        "ref_id": "ref_skhynix_2q26",
+        "asset": "SK하이닉스",
+        "topic": "2Q26 실적 — 메모리 부문 방향",
+        "observed": "[fact] 매출 79.32조원(전분기 대비 +51%, 전년 대비 +257%), 영업이익 60.54조원, 영업이익률 76%로 매출·영업이익·영업이익률 모두 사상 최고. HBM4 양산 개시, 약 10개 고객과 장기공급계약 체결.",
+        "source_url": "https://news.skhynix.com/en/q2-2026-business-results/",
+        "source_type": "company_ir_newsroom",
+        "reference_grade": 1,
+        "published_at": "2026-07-29",
+        "staleness_days": 17,
+        "retrieved_at": "2026-08-15T14:24+09:00"
+      },
+      {
+        "ref_id": "ref_samsung_2q26",
+        "asset": "삼성전자",
+        "topic": "2Q26 실적 — 메모리 부문 방향 및 업계 ASP",
+        "observed": "[fact] 전사 매출 171.5조원·영업이익 89.5조원(전년 대비 +1,814%), DS(반도체) 부문 매출 127.5조원·영업이익 89.2조원. 블렌디드 DRAM ASP 전분기 대비 90%대 초반 상승, NAND 80%대 후반 상승. 서버 비트 출하 증가율은 DRAM 전분기 대비 10%대 초반, NAND 20%대 초반.",
+        "source_url": "https://www.cnbc.com/2026/07/30/samsung-q2-earnings-ai-chip-.html",
+        "source_type": "secondary_media_on_earnings_release",
+        "reference_grade": 3,
+        "published_at": "2026-07-30",
+        "staleness_days": 16,
+        "retrieved_at": "2026-08-15T14:24+09:00",
+        "caveat": "[fact] ASP·비트 출하 세부 수치는 2차 매체 경유로 수집되었고 삼성전자 IR 원문(news.samsung.com 2Q26 릴리스) 직접 대조는 이번 Run에서 수행하지 못했다. 참조 맥락 한정이며 MU 판정에 미사용."
+      },
+      {
+        "ref_id": "ref_capacity_race",
+        "asset": "삼성전자 · SK하이닉스",
+        "topic": "증설·HBM 캐파 발표",
+        "observed": "[fact] SK하이닉스는 2026-08-09 용인 반도체 클러스터에 4개 팹을 단계적으로 건설(1호 Y1 공사 중)하고 HBM·DRAM·NAND·후공정 캐파를 확대한다고 발표했으며, 장기 투자 규모로 약 600조원을 제시했다. [fact] 별도 보도 기준 삼성전자는 평택 P5 건설을 재개했고 연말까지 1c nm 캐파 월 20만 장 이상 확보를 목표로 제시했으며, SK하이닉스는 1c 월 캐파를 연말까지 16만~19만 장 수준으로 확대한다는 계획이 보도되었다.",
+        "source_url": "https://www.upi.com/Top_News/World-News/2026/08/09/sk-hynix-investment-ai-memory/4361786319274/",
+        "source_type": "secondary_media",
+        "reference_grade": 3,
+        "additional_urls": [
+          "https://www.datacenterdynamics.com/en/news/samsung-and-sk-hynix-to-scale-up-memory-production-capacity-in-2026-to-meet-ai-demand/",
+          "https://www.trendforce.com/news/2026/03/05/news-sk-hynix-commits-additional-usd-15-billion-escalating-fab-expansion-race-among-memory-giants/"
+        ],
+        "published_at": "2026-08-09",
+        "staleness_days": 6,
+        "retrieved_at": "2026-08-15T14:24+09:00",
+        "caveat": "[fact] 삼성 1c 캐파 목표·SK하이닉스 1c 확대 수치는 2차 매체·업계 분석 경유이며 각사 공시 원문 대조 미수행. [inference, 강도: 낮음] 참조사 증설 발표는 MU Delta의 risk_transfer_to(자체 capex 집행·수율 램프 실행 리스크)가 섹터 공통의 캐파 경쟁 프레임 안에 놓여 있음을 시사하나, 발표 캐파가 실제 비트 공급으로 전환되는 시점·규모는 이 자료로 확정할 수 없다."
+      },
+      {
+        "ref_id": "ref_counterpoint_share",
+        "asset": "삼성전자 · SK하이닉스 (업계 점유율 대조군)",
+        "topic": "NAND 출하량 점유율 구도",
+        "observed": "[fact] Counterpoint Research 8/12 자료(Q2 2026 기준): 삼성 25%, SK하이닉스 22%, YMTC 14%(3위). Micron은 출하량 기준 5위이나 프리미엄 믹스로 매출 기준은 YMTC 상회.",
+        "source_url": "https://counterpointresearch.com/en/insights/server-led-essds-hit-48-percent-of-nand-shipments",
+        "source_type": "research_report",
+        "reference_grade": 4,
+        "published_at": "2026-08-12",
+        "staleness_days": 3,
+        "retrieved_at": "2026-08-15T14:24+09:00",
+        "caveat": "[fact] 애그리게이터·리서치 추정치(P4상 grade4) — 삼각검증용이며 단독 판단 근거 불가. MU.json의 c_20260815_MU_04와 동일 출처다."
+      }
+    ]
+  },
+
+  "sector_view_summary": {
+    "frame": "[fact] 도메인 프레임 — 비트그로스 대 ASP 분해, HBM 대 범용 마진, SCA·LTA·선수금 방어구조, 사이클 피크 역설(저 P/E ≠ 저평가).",
+    "direction_summary": "[fact] 단일 종목(MU) 뷰 기준 축 3개 — hbm_demand 강화, sca_defense 중립(보류), china_supply 훼손. 분산 지표는 산출되지 않았다.",
+    "factor_attribution": "[inference, 강도: 중간] 이번 Run에서 관측된 축 이동은 대부분 섹터 공통 요인(AI 데이터센터 수요 타이트니스, 중국 NAND 물량 확대)에 귀속되고, MU 고유 요인으로 분리 가능한 항목은 (a) 프리미엄 믹스 기반 매출 방어력, (b) SCA 계약 조건의 실질 두 가지뿐이며 둘 다 이번 Run에서 1차 자료로 확인되지 않았다.",
+    "cycle_peak_note": "[fact] 참조 자산의 2Q26 실적은 영업이익률 76%(SK하이닉스)·반도체 부문 사상 최대 영업이익(삼성)으로 사이클 상단 구간의 이익 수준을 보여준다. [inference, 강도: 중간] 이는 피크 이익 기준 멀티플이 실제 대비 낮게 보이는 구간(피크 역설)이 섹터 전반에 적용될 수 있음을 시사하며, 이익 수준의 지속성 판정에는 분자(이익)와 분모(멀티플 기준 시점)의 분해가 필요하다(P10). 본 항목은 섹터 맥락 기술이며 개별 종목 판정의 근거가 아니다.",
+    "escalation": null
+  },
+
+  "sector_unconfirmed": [
+    "[fact] HBM 마진 대 범용 마진 분해 — MU 카드상 미검증 가설이며, 참조 자산(삼성·SK하이닉스)도 제품군별 마진 분해를 공개하지 않아 섹터 차원에서도 대체 검증 불가. MU 9/22 FY26 Q4 실적이 유일한 관측 창.",
+    "[fact] SCA 상한가 연동 구조 전환(c_20260815_MU_03)의 1차 자료 — TrendForce 단독 보도(grade4). SK하이닉스 LTA 약 10건도 가격 조항 비공개로 섹터 차원 대조 불가. MU 9/22 실적 'SCA 가이던스' 항목에서 재확인 필요.",
+    "[fact] 비트그로스 대 ASP 분해(MU 고유) — 이번 조회 기간 내 미확보. 삼성 블렌디드 DRAM ASP 전분기 대비 90%대 상승과 TrendForce의 3Q26 서버 DRAM 계약가 전망(c_20260815_MU_05, scope=sector)은 업계 지표이며 MU 고유 분해 근거로 사용 불가(P6).",
+    "[fact] 참조 자산 증설 발표(용인 4개 팹, 평택 P5, 1c 캐파 확대)의 실제 비트 공급 전환 시점·규모 미확정 — 발표 캐파와 출하 비트의 시차를 판정할 1차 자료 미확보. 공급 측 축의 방향 판정 보류.",
+    "[fact] 중국(YMTC·CXMT) 물량 확대가 DRAM·NAND 가격 협상력에 미치는 크기 미확정 — grade4 단일 자료(Counterpoint)만 존재. 또한 8/6~8/7 CXMT의 Apple 가격 인하 요구 거부 건은 이번 Run 조회 기간(8/8~) 이전 발생으로 Claim화되지 않았고, 8/21 Apple의 상원 서한 회신 결과도 마감 미도래로 판정 불가(MU.json unconfirmed 연동).",
+    "[fact] 삼성전자 2Q26 IR 원문(ASP·비트 출하 세부) 직접 대조 미수행 — 참조 맥락은 2차 매체 경유(reference_grade 3). 참조 항목이므로 Claim 미생성이나, 재사용 시 원문 확인 필요."
+  ],
+
+  "p13_guard": "[fact] 본 산출물은 개별 종목의 등급을 변경·제안하는 필드를 포함하지 않는다. signal_mutation은 null로 고정되어 있고, 참조 자산 정보(삼성·SK하이닉스 실적·증설)는 MU 상향 근거로 사용되지 않았다 — 섹터 공통 재료는 scope=sector로 분류되어 개별 종목 판정에 전이되지 않는다(P6·P13, F11·F13). 근거는 하위(L2·arbiter)에서 상위(L3)로만 흐른다.",
+
+  "signal_mutation": null
+}

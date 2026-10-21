@@ -1,0 +1,106 @@
+{
+  "ticker": "CRCL",
+  "cik": "0001876042",
+  "items": [
+    {
+      "id": "edgar_2026-08-05_10-Q_9",
+      "form": "10-Q",
+      "filed_at": "2026-08-05",
+      "title": "10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-05_8-K_10",
+      "form": "8-K",
+      "filed_at": "2026-08-05",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/crcl-20260805.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-07-02_8-K_34",
+      "form": "8-K",
+      "filed_at": "2026-07-02",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000205/crcl-20260629.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-06-12_8-K_46",
+      "form": "8-K",
+      "filed_at": "2026-06-12",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000192/crcl-20260612.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-05-18_8-K_85",
+      "form": "8-K",
+      "filed_at": "2026-05-18",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000159/crcl-20260514.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-05-11_10-Q_91",
+      "form": "10-Q",
+      "filed_at": "2026-05-11",
+      "title": "10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000150/crcl-20260331.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-05-11_8-K_92",
+      "form": "8-K",
+      "filed_at": "2026-05-11",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000148/crcl-20260511.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-03-17_8-K_138",
+      "form": "8-K",
+      "filed_at": "2026-03-17",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000078/crcl-20260316.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-03-09_10-K_150",
+      "form": "10-K",
+      "filed_at": "2026-03-09",
+      "title": "10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-02-25_8-K_186",
+      "form": "8-K",
+      "filed_at": "2026-02-25",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000032/crcl-20260225.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "ticker": "FIGR",
+  "cik": "0002064124",
+  "items": [
+    {
+      "id": "edgar_2026-09-01_8-K_3",
+      "form": "8-K",
+      "filed_at": "2026-09-01",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226040931/form8-k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-14_10-Q_10",
+      "form": "10-Q",
+      "filed_at": "2026-08-14",
+      "title": "10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000162828026057061/figr-20260630.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-13_8-K_12",
+      "form": "8-K",
+      "filed_at": "2026-08-13",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/2064124/000206412426000031/figr-20260813.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

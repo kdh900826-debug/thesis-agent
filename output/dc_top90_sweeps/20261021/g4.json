@@ -1,0 +1,643 @@
+{
+  "group": "g4",
+  "checked_at": "2026-10-21",
+  "window": [
+    "2026-10-20",
+    "2026-10-21"
+  ],
+  "searches_used": 22,
+  "projects": [
+    {
+      "id": "p46",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "2026-06 아이언 카운티 계획위원회 조건부 사용허가 이후 착공·소송 소식 없음(10/21 기준). 카운티 위원은 승인돼도 착공까지 몇 년 걸릴 수 있다고 말했다(승인 당시 보도). 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": false
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "승인 당시 카운티는 데이터센터 규정 재검토용 180일 모라토리엄을 채택한 상태였으나, 이 신청은 모라토리엄 전에 접수 완료돼 적용되지 않는다고 카운티 계획 담당자가 설명(cedarcityutah.com 보도, 승인 당시). 원장 미기재 사실이라 참고로 적음"
+      ]
+    },
+    {
+      "id": "p47",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 추적 사이트는 모두 '계획' 단계. Blue Energy 가스발전소(1.1GW) 세금 감면 신청(6/23) 외 새 인허가·착공 소식 없음. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": false
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "카운티 표기: 대부분 Calhoun County(빅토리아 항)이나 일부는 Victoria County로 적어 여전히 엇갈림",
+        "Baxtel 일부 항목은 Blue Energy·GE Vernova Hitachi 2.5GW 가스+SMR 계획을 언급 — 1차 자료로 확인 못 함"
+      ]
+    },
+    {
+      "id": "p48",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 앵커 임차인 없음. CoreWeave는 10/1~10/21 사이 8-K·10-Q 없이 Form 4·144만 공시했고, Poolside도 Horizon 대체 임차인·자금 계약을 발표하지 않았다. 단계 X 후보는 그대로 유지. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "앵커 임차인 부재·자금 조달 불확실(CoreWeave 철수)",
+        "텍사스 9/21 TCEQ 인허가 중단: 부지 내 가스 발전 대기 허가가 남아 있다면 대상일 수 있음(해석·미확인)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "앵커 임차인 철수 후 대체 계약이 없고 자금 조달이 불확실해 단계 X 후보. CRWV 백로그·선급금 노출과 연결.",
+        "questions": [
+          "CoreWeave 10-Q/10-K 리스 주석에 Poolside 임차 해지·손실 처리가 나오는가?",
+          "Poolside가 Horizon 대체 임차인(구글 외)이나 인프라 투자자와 계약했는가?",
+          "Pecos County 부지의 가스터빈·대기 허가 상태와 공사 중단 여부",
+          "1단계 부지 정지 공사(2026년 3월 위성사진)가 이후 멈췄는가?",
+          "단계 3 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?"
+        ],
+        "next_check": "2026-11-10",
+        "answered": [
+          {
+            "q": "CoreWeave 10-Q 리스 주석",
+            "a": "아직. 10/1~10/21 EDGAR 공시는 Form 4·144뿐(8-K·10-Q 없음). 3분기 10-Q는 11월 예정 — 실적일은 공식 미발표, 비공식 달력은 11/10 또는 11/16"
+          },
+          {
+            "q": "대체 임차인·투자자 계약",
+            "a": "아직. Poolside 발표·보도 모두 새 계약 확인 안 됨(구글 등과 협의 중이라는 4월 FT 보도가 마지막)"
+          },
+          {
+            "q": "가스터빈·대기 허가",
+            "a": "아직"
+          },
+          {
+            "q": "1단계 정지 공사 중단",
+            "a": "아직"
+          },
+          {
+            "q": "X 후보 확인",
+            "a": "아직 — 새 1차 자료 없음"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "CRWV"
+      ],
+      "data_issues": [
+        "CoreWeave 3분기 실적일: 공식 발표 전. 작년 패턴(10/27 공지 → 11/10 실적)대로면 이달 말 공지 예상 — next_check를 11/10 전후로 둠"
+      ]
+    },
+    {
+      "id": "p49",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 Baxtel 고센 항목 외에 철회를 확인하는 시·카운티·IURC 자료나 언론 보도를 찾지 못했다. 다른 추적 사이트(interconnection.fyi)는 아직 '제안(proposed) 250MW+'로 표시. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "NIPSCO 계통 연결·송전 증설 분쟁, IURC Cause No. 46183(Baxtel 서술)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "취소(C) 후보지만 근거가 애그리게이터 1건이고 날짜가 없다.",
+        "questions": [
+          "고센 시·엘크하트 카운티 회의록에 Takanock 신청 철회 기록이 있는가?",
+          "IURC Cause 46183 도킷에 Takanock·NIPSCO 관련 철회·합의 문서가 있는가?",
+          "부지가 다른 개발사에 넘어갔는가?",
+          "단계 3 → C 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?"
+        ],
+        "next_check": "2026-10-27",
+        "answered": [
+          {
+            "q": "시·카운티 회의록",
+            "a": "아직(이번 창에서 1차 문서 열람 못 함)"
+          },
+          {
+            "q": "IURC 도킷",
+            "a": "아직"
+          },
+          {
+            "q": "부지 매각",
+            "a": "아직. Takanock은 부지를 인허가 후 운영사에 파는 사업 모델이라 매각 가능성은 있음(회사 소개, 해석)"
+          },
+          {
+            "q": "C 후보 확인",
+            "a": "아직 — 애그리게이터 1건뿐, 다른 추적 사이트는 여전히 '제안'"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "추적 사이트 간 상태 불일치: Baxtel '철회' / interconnection.fyi '제안'"
+      ]
+    },
+    {
+      "id": "p50",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 공사 중. 첫 동 인도(2026년 하반기 목표) 확인 보도 없음. 텍사스 건축 등록(TDLR) 자료는 동별 완공 예정을 2027년으로 적고 있다. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "텍사스 9/21 TCEQ 인허가 중단: VoltaGrid 부지 내 가스 마이크로그리드의 추가 대기 허가가 남아 있다면 대상일 수 있음(해석·미확인)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "2026년 하반기 첫 동 인도 예정이라 가동(0) 전환 여부와 TCEQ 영향 확인 필요.",
+        "questions": [
+          "첫 동이 OpenAI/Oracle에 인도됐는가(2026년 4분기)?",
+          "VoltaGrid 가스 발전 설비의 TCEQ 대기 허가가 9/21 이전에 모두 나왔는가?"
+        ],
+        "next_check": "2026-12-31",
+        "answered": [
+          {
+            "q": "첫 동 인도",
+            "a": "아직. TDLR 등록은 건물 1 완공 예정 2027-08-11(검색 요약), 건물 11(TX311) 완공 예정 2027-07-01(등록 2026-06-30, 공사비 7,400만 달러)로 적혀 회사 목표(2026년 하반기)보다 늦다. TDLR 날짜는 건축 등록상 예정일이라 실제 가동일과 다를 수 있음"
+          },
+          {
+            "q": "TCEQ 대기 허가",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "ORCL"
+      ],
+      "data_issues": [
+        "일정 불일치: 회사 목표 '첫 동 2026년 하반기 가동' vs TDLR 건축 등록(2026-06-29~30 등록) 완공 예정 2027년 7~8월. 출처: https://www.tdlr.texas.gov/TABS/Search/Print/TABS2026024113 (TX311), TABS2026024076·024068·024102 등 동별 등록. 6월 등록분이라 창 밖이지만 원장 미기재"
+      ]
+    },
+    {
+      "id": "p51",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 기초 공사 단계로 보이며, 미시간 항소법원에 계류 중인 DTE 특별계약 승인 취소 청구(주 법무장관·환경단체, 8월 서면 제출) 결과는 아직 나오지 않았다. 공사 중단 소식 없음. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "주 법무장관·환경단체의 MPSC 승인(DTE 1.4GW 특별계약, 2025년 12월 일방 승인) 취소 항소 — 미시간 항소법원 계류",
+        "습지 훼손 우려(EPA '레드 플래그')"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "소송·규제 반대가 이어지고 DTE 계약 승인의 항소 결과가 남아 있다.",
+        "questions": [
+          "MPSC가 DTE의 1.4GW 특별 계약을 승인했는가(날짜·조건)?",
+          "EGLE/EPA 습지 허가 상태와 새 소송(원고·법원·금지명령 여부)",
+          "1동 철골·지붕 공사 진척(위성사진·건축허가)"
+        ],
+        "next_check": "2026-10-27",
+        "answered": [
+          {
+            "q": "MPSC 승인",
+            "a": "답 나옴(보도 기준): MPSC는 2025년 12월 계약을 일방(ex parte) 승인했고, 법무장관 Nessel과 환경단체가 2026년 8월 미시간 항소법원에 승인 취소·정식 심리 회부를 청구. 항소 판결은 아직. 'MPSC가 신속 승인 절차를 중단했다'는 Baxtel 문구는 날짜 없는 단일 출처라 미확인"
+          },
+          {
+            "q": "습지 허가·새 소송",
+            "a": "아직. 습지 관련 별도 소송은 찾지 못함(EPA 우려 제기만 확인)"
+          },
+          {
+            "q": "1동 공사 진척",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "ORCL",
+        "DTE"
+      ],
+      "data_issues": [
+        "질문 1은 '승인 여부'에서 '항소법원 판결'로 바꾸는 것이 맞아 보임(메인 판단). 출처: https://michiganadvance.com/2026/08/10/nessel-and-environmental-groups-file-initial-arguments-in-appeal-of-dte-saline-data-center-contract/ (8/10, 원장 이벤트 d0810-p51-1과 같은 시기)"
+      ]
+    },
+    {
+      "id": "p52",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 변화 없음. IREN은 10/1~10/21 사이 8-K·10-Q 없이 연차보고서(ARS)·위임장(DEF 14A·DEFA14A, 10/13)만 냈고, Sweetwater·ERCOT 관련 새 발표는 찾지 못했다. ERCOT 검증 보고서(12/10)·PUCT 논의(12/17) 전이라 연결 승인 보류는 그대로다. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "텍사스 주지사 8/3 ERCOT 연결 감사: 검증이 끝날 때까지 대형 데이터센터 연결(가동) 승인 보류. ERCOT 검증 보고서 12/10, PUCT 12/17 논의",
+        "Batch Zero 조건부 Base Load 분류는 감사 미통과·안정성 평가 실패 시 철회될 수 있음",
+        "IREN 10-K: ERCOT 절차 변경으로 텍사스 프로젝트 가동 지연·가동 전력 수준 변경 가능",
+        "텍사스 9/21 TCEQ 인허가 중단: 예비발전기 대기 허가가 남아 있다면 대상일 수 있음(해석·미확인)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "주지사 감사로 연결 승인이 보류돼 있고 12/10 검증 보고서 결과에 따라 Batch Zero 지위와 가동 일정이 정해진다.",
+        "questions": [
+          "12/10 ERCOT 검증 보고서에서 Sweetwater 허브가 통과했는가?",
+          "12/17 PUCT 회의 이후 대형 부하 가동 승인이 재개되는가?",
+          "IREN 1분기(FY27) 실적에서 Sweetwater 300MW 인도 일정(2027년 4분기)이 유지되는가, 임차인이 생겼는가?",
+          "Oncor 송전 확장(첫 구간 2028년 말) 일정 변화"
+        ],
+        "next_check": "2026-11-05",
+        "answered": [
+          {
+            "q": "12/10 검증 보고서",
+            "a": "아직(예정일 전)"
+          },
+          {
+            "q": "12/17 PUCT",
+            "a": "아직(예정일 전)"
+          },
+          {
+            "q": "FY27 1분기 실적",
+            "a": "아직. 실적일 공식 공지 없음 — 비공식 달력은 11/5(목) 장 마감 후로 추정(작년 11/6, 보통 약 2주 전 공지). 10/13 위임장·연차보고서는 정기 주총 서류로 Sweetwater 새 사실은 확인 못 함(본문 미열람)"
+          },
+          {
+            "q": "Oncor 송전 일정",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "IREN"
+      ],
+      "data_issues": [
+        "IREN 투자자 뉴스룸(iren.gcs-web.com)은 이번 점검에서 403 차단으로 열지 못함 — 뉴스룸 직접 확인은 못 했고 EDGAR 목록·웹검색으로 대신함",
+        "next_check를 실적 추정일 11/5로 앞당김(12/10 검증 보고서 질문은 그대로)"
+      ]
+    },
+    {
+      "id": "p53",
+      "searched": true,
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": "1",
+      "status_ko": "10/21 기준 미들섹스 타운십(컴벌랜드 카운티) 감독위원회가 5월 용도변경·예비 승인, 9월 최종 승인을 냈고 부지에서 공사가 시작됐다는 보도가 있다. 주민 단체가 용도지정(spot zoning)에 이의를 제기해 컴벌랜드 카운티 법원에 사건이 계류 중이며, 판사는 공사 중단 요청을 받아들이지 않았고 11/13에 재량적 공사 중단 여부 심리를 연다.",
+      "holds": [
+        "주민 단체 'Stop PAX-1'의 용도지정 무효 소송(컴벌랜드 카운티 민사법원, Matthew Smith 판사): 즉시 공사 중단 요청은 기각, 11/13 14시 재량적 중단(discretionary stay)·'근거 없는 항소' 여부 심리"
+      ],
+      "events": [
+        {
+          "date": "",
+          "kind": "인허가",
+          "title_ko": "미들섹스 타운십 감독위원회, PAX-1 최종 승인(2026년 9월)",
+          "detail_ko": [
+            "타운십 감독위원회는 2026년 5월 용도변경과 예비 승인을, 9월에 최종 승인을 냈다고 보도됐다.",
+            "정확한 날짜와 회의록은 확인하지 못했다. 1월에는 18개 동 분할 계획(subdivision)이 승인된 바 있다."
+          ],
+          "grade": 3,
+          "src": [
+            {
+              "t": "abc27 — 판사 공사 중단 거부 보도",
+              "u": "https://www.abc27.com/local-news/carlisle-west-shore/responding-to-new-challenge-judge-refuses-to-stop-pax-1-data-center-but-sets-new-hearing/amp/"
+            },
+            {
+              "t": "WHP580 — 18개 동 계획 승인(2026-01-09)",
+              "u": "https://bob949.iheart.com/featured/whp580-newsroom/content/2026-01-09-plans-approved-for-18-building-data-center-in-pennsylvania/"
+            }
+          ]
+        },
+        {
+          "date": "",
+          "kind": "소송",
+          "title_ko": "주민 소송: 법원이 PAX-1 공사 즉시 중단 요청 기각, 11/13 추가 심리",
+          "detail_ko": [
+            "주민 단체 'Stop PAX-1'(대표 Kyler Gerber)은 부지 용도지정이 특정 부지만 위한 것(spot zoning)이라며 이의를 제기하고 공사 즉시 중단을 요청했다.",
+            "컴벌랜드 카운티 민사법원 Matthew Smith 판사는 의무적 중단은 위원회 심리가 걸린 경우에만 적용된다며 요청을 받아들이지 않았다(보도 시점 약 10월 첫째 주로 추정, 정확한 날짜 미확인).",
+            "판사는 11/13 14시에 재량적 공사 중단 여부와 '근거 없는 항소' 여부를 심리하고, 이와 별도로 21,000쪽 기록을 검토 중이며 판결 일정은 없다."
+          ],
+          "grade": 3,
+          "src": [
+            {
+              "t": "abc27 — judge refuses to stop PAX-1, sets new hearing",
+              "u": "https://www.abc27.com/local-news/carlisle-west-shore/responding-to-new-challenge-judge-refuses-to-stop-pax-1-data-center-but-sets-new-hearing/amp/"
+            },
+            {
+              "t": "abc27 — judge reviewing arguments over PAX-1",
+              "u": "https://www.abc27.com/local-news/cumberland-county-judge-reviewing-arguments-over-pax-1-data-center-project/amp/"
+            }
+          ]
+        },
+        {
+          "date": "",
+          "kind": "착공",
+          "title_ko": "보도: PAX-1 부지에서 공사 시작",
+          "detail_ko": [
+            "abc27은 프로젝트가 '이미 공사 중'이라고 적었고, 주민 측도 '부지에서 작업이 시작됐다'고 주장했다.",
+            "어떤 공사(정지·기초 등)인지와 시작일은 나오지 않았다. 같은 매체 한 곳의 보도라 단계 변경 기준(서로 다른 언론 2곳 또는 1차 자료)에 못 미친다."
+          ],
+          "grade": 3,
+          "src": [
+            {
+              "t": "abc27",
+              "u": "https://www.abc27.com/local-news/cumberland-county-judge-reviewing-arguments-over-pax-1-data-center-project/amp/"
+            }
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "착공 보도(단계 3 → 1 후보)와 용도지정 무효 소송이 함께 있고, 11/13 법원 심리가 예정돼 있다.",
+        "questions": [
+          "11/13 심리에서 판사가 재량적 공사 중단을 명령했는가, 소송을 '근거 없는 항소'로 판단했는가?",
+          "타운십 최종 승인(9월)의 정확한 날짜와 회의록, 9/2 6개 동 표결 결과",
+          "부지 공사(정지·기초)가 실제 진행 중인가 — 다른 언론·타운십 건축허가로 확인되나?",
+          "단계 3 → 1 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?"
+        ],
+        "next_check": "2026-11-13",
+        "answered": [],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "원장 status(10/20)는 '7/7 이후 인허가·착공 소식 없음'이었으나, 9월 최종 승인·소송·공사 보도가 있었음 — 10/20 점검 누락으로 보임",
+        "위치 표기: 원장은 '칼라일'로 적었지만 보도는 칼라일 북동쪽 약 5마일 미들섹스 타운십 Country Club Road. 개발 주체는 Carlisle Development Partners LLC로 보도됨",
+        "전력 일정 엇갈림: 첫 300MW 2027년 2분기 vs 첫 450MW 2027년 2분기 → 2029년 1,350MW",
+        "원고 이름 표기 Kyler/Kyle Gerber 엇갈림"
+      ]
+    },
+    {
+      "id": "p54",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 7/23 라우던 카운티 계획위원회의 6대0 불허 권고 이후 감독위원회 표결 소식은 찾지 못했다(감독위원회 9/15 회의 보도 자료에도 이 안건은 보이지 않음). 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "카운티 계획위원회 불허 권고(2026-07-23, 6대0), 감독위원회 표결 대기",
+        "감독위원회의 신규 데이터센터 신청 일시 중단 검토(7/22 6대1로 직원 조사 지시, 9/15 안건)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "계획위원회가 불허를 권고했고 감독위원회 표결이 남아 있다.",
+        "questions": [
+          "라우던 카운티 감독위원회 공청회·표결 날짜와 결과",
+          "신청인이 계획을 축소하거나 연기·철회했는가?",
+          "계획위원회 불허 권고의 정확한 날짜와 회의록"
+        ],
+        "next_check": "2026-10-27",
+        "answered": [
+          {
+            "q": "감독위원회 표결",
+            "a": "아직"
+          },
+          {
+            "q": "축소·연기·철회",
+            "a": "아직"
+          },
+          {
+            "q": "계획위원회 권고 날짜",
+            "a": "답 나옴: 2026-07-23(목), 6대0 불허 권고(iRecruit 7/28 정리·DCD 보도). 회의록 원문은 미열람"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "원장 이벤트 d0701-p54-1의 날짜(7/1)는 실제 권고일 7/23과 다를 수 있음 — 확인 필요",
+        "규모 표기: 12개 동 325만 sq ft(Loudoun Times) / 10개 동(Baxtel)로 또 엇갈림"
+      ]
+    },
+    {
+      "id": "p55",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 신규 정보 없음. 추적 사이트는 1단계 500MW·2단계 1,300MW 모두 '계획'으로 표시하고, 첫 동 가동 시점은 2026년 5월(2025년 발표)과 2027년 1분기(Baxtel)로 여전히 엇갈린다. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "텍사스 8/3 ERCOT 연결 감사: 1단계 500MW는 ERCOT 승인을 받았다고 하지만 후속 단계가 Batch Zero 대상이면 연결 승인이 보류될 수 있음(해석)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "1단계도 가동 전으로 보여 2단계 '착공(1)' 분류 근거가 약함. 단계 3 후보.",
+        "questions": [
+          "2단계 부지에서 물리적 공사(정지·기초)가 확인되는가?",
+          "첫 동 가동이 2026년 5월에서 2027년 1분기로 미뤄졌는가(회사 확인)?",
+          "후속 단계 부하가 ERCOT Batch Zero 감사 대상인가?",
+          "단계 1 → 3 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?"
+        ],
+        "next_check": "2026-11-17",
+        "answered": [
+          {
+            "q": "2단계 공사",
+            "a": "아직"
+          },
+          {
+            "q": "첫 동 가동 지연",
+            "a": "아직(회사 확인 없음)"
+          },
+          {
+            "q": "Batch Zero 대상",
+            "a": "아직"
+          },
+          {
+            "q": "1→3 후보",
+            "a": "아직. Cleanview가 2단계를 '계획'으로 표시(애그리게이터, 단독 근거 불가)"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p56",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 2026-04-10 DRI 신청 이후 어윈 카운티 표결·용도 허가 소식은 찾지 못했다. Georgia Power 공학 연구는 진행 중으로 표시된다. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": false
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p57",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 2025년 8월 차베스 카운티 승인 이후 공사·자금·임차인 소식 없음. 앵커 임차인은 아직 구하는 중이고, 2026년 5월 주민 온라인 청원(독립 수질·환경 조사 요구)이 있었다. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": false
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "추적 사이트 불일치: Black Ridge Research는 '공사 중', 다른 곳은 '계획'",
+        "승인 부지 면적 8,400 vs 8,500에이커(건물 부지 300에이커)"
+      ]
+    },
+    {
+      "id": "p58",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 NV Energy가 7/24 워쇼 카운티 제2지방법원에 낸 중재 중단 소송의 심리·판단 소식은 찾지 못했다. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [
+        "NV Energy 대 Tract(및 현지 법인 Reno Power) 소송(워쇼 카운티 제2지방법원, 7/24 제기): Tract가 6월 요구한 비공개 중재를 막고 전력 공급·비용을 PUCN이 정하게 해 달라는 청구. Tract는 계약상 중재 합의라고 반박"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "전력 공급 비용 소송이 진행 중이라 전력 일정과 인허가가 늦어질 수 있다.",
+        "questions": [
+          "워쇼 카운티 법원의 사건번호와 첫 심리·판단 일정",
+          "PUCN에 관련 신청이 올라갔는가?",
+          "Tract 임시 가스·디젤 자가발전소 대기 허가 상태",
+          "South Valley 부지의 물리적 공사(정지·기초)가 시작됐는가?"
+        ],
+        "next_check": "2026-10-27",
+        "answered": [
+          {
+            "q": "사건번호·심리 일정",
+            "a": "아직(법원·제기일 7/24는 확인, 사건번호·심리일 미확인)"
+          },
+          {
+            "q": "PUCN 신청",
+            "a": "아직"
+          },
+          {
+            "q": "자가발전 대기 허가",
+            "a": "아직"
+          },
+          {
+            "q": "부지 공사",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "BRK.B"
+      ],
+      "data_issues": [
+        "원장 이벤트 d0723-p58-1 날짜(7/23)와 보도상 제소일(7/24 금) 하루 차이"
+      ]
+    },
+    {
+      "id": "p59",
+      "searched": true,
+      "found_update": true,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 그랜버리 주민의 편입·공개회의법 위반 소송은 판결·합의 소식이 없다. 시는 10/8 기준 Project Patriot 개념 계획만 받았고 개발 계획은 접수되지 않았다고 밝혔다. 시장·시의원 소환 청원을 둘러싼 별도 다툼(9/28 청문)도 이어지고 있다.",
+      "holds": [
+        "주민 소송(후드 카운티): 공개회의법 위반과 편입 목적 미고지를 이유로 편입 취소·후속 조치 중단 청구",
+        "텍사스 9/21 TCEQ 인허가 중단: 부지 내 가스 발전(Granbury OpCo 1) 관련 추가 허가가 남아 있다면 대상일 수 있음(해석)"
+      ],
+      "events": [
+        {
+          "date": "2026-10-08",
+          "kind": "인허가",
+          "title_ko": "그랜버리 시: Project Patriot 개발 계획 미접수(개념 계획만)",
+          "detail_ko": [
+            "그랜버리 시의 최신 안내(10/8 기준)에 따르면 시는 Project Patriot 개념 계획만 받았고 개발 계획(development plans)은 아직 접수되지 않았다.",
+            "편입·용도변경(4/7) 이후에도 실제 개발 인허가 단계로 넘어가지 않았다는 뜻이다(검색 요약 기준, 시 원문 미열람)."
+          ],
+          "grade": 3,
+          "src": [
+            {
+              "t": "검색 요약(시 업데이트 인용) — DataCenterMap Project Patriot",
+              "u": "https://www.datacentermap.com/usa/texas/dallas/project-patriot/"
+            }
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "소송이 계류 중이고 자가 가스 발전 허가가 TCEQ 중단과 겹칠 수 있다.",
+        "questions": [
+          "후드 카운티 지방법원 사건번호, 임시금지명령·각하 여부",
+          "TCEQ 배출 허가 승인 연도와 이의 신청(contested case) 여부",
+          "그랜버리 시의회의 추가 표결(개발 계약·세제 혜택)"
+        ],
+        "next_check": "2026-10-27",
+        "answered": [
+          {
+            "q": "사건번호·금지명령",
+            "a": "아직"
+          },
+          {
+            "q": "TCEQ 배출 허가",
+            "a": "아직"
+          },
+          {
+            "q": "시의회 추가 표결",
+            "a": "아직. 10/8 기준 개발 계획 미접수"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "10/8 시 업데이트는 검색 요약에서만 확인 — 그랜버리 시 웹사이트 원문 확인 필요(확인되면 grade 1)",
+        "소환 청원: 7월 시 인증 거부 → 8월 시의회 제출 합의 → 시장·시의원 2명이 청원 사기 주장 소송, 9/28 청문(KERA·Dallas Express). 프로젝트와 간접 연결"
+      ]
+    },
+    {
+      "id": "p60",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "10/21 기준 2025년 8월 킹조지 카운티 감독위원회 만장일치 승인 이후 부지계획·계통 연결·착공 소식 없음. 지난 점검(10/20) 이후 신규 정보 찾지 못함.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": false
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    }
+  ],
+  "cross_cutting": [
+    "ERCOT/주지사 8/3 감사: 10/1~10/21 새 공식 발표 찾지 못함. PUCT는 감사 중에도 ERCOT이 대형 부하 처리를 계속하도록 허용했고 ERCOT은 조건부 Batch Zero 분류를 내는 중(8월 법률사무소 정리: Gibson Dunn·Pillsbury). 12/10 검증 보고서·12/17 PUCT 일정은 그대로(p52·p55 등 텍사스 프로젝트 공통)",
+    "CoreWeave(10/1~10/21) EDGAR: Form 4·144만, 8-K·10-Q 없음. IREN: 10/13 ARS·DEF 14A·DEFA14A만, 8-K·10-Q 없음 — 두 회사 모두 창 안 실적·사업 공시 없음(SEC EDGAR 회사별 공시 목록, 10/21 조회)"
+  ]
+}

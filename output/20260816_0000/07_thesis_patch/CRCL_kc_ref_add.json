@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-08-16T00:00",
+  "run_id": "20260816_0000",
+  "ticker": "CRCL",
+  "card_field": "kill_conditions_ref",
+  "operation": "amend",
+  "before": "kill_conditions_ref: [\"KC-CRCL-1\", \"KC-CRCL-2\", \"KC-CRCL-3\", \"SEC 면제 불허 확정\", \"CLARITY 최종 실패\"]",
+  "after": "# 2026-08-16 ThesisPatch(amend) — KC-CRCL-4(인가·감독 조치, 2단) 신설 반영. 이전: [\"KC-CRCL-1\", \"KC-CRCL-2\", \"KC-CRCL-3\", \"SEC 면제 불허 확정\", \"CLARITY 최종 실패\"]\nkill_conditions_ref: [\"KC-CRCL-1\", \"KC-CRCL-2\", \"KC-CRCL-3\", \"KC-CRCL-4\", \"SEC 면제 불허 확정\", \"CLARITY 최종 실패\"]",
+  "reason": "[fact] 2026-08-16 검토 세션에서 사용자가 KC-CRCL-4(인가·감독 조치 이벤트형, 경고/발동 2단, GENIUS 발행자 인가 경로 포함) 신설을 직접 확정했고 kill_conditions.yaml에 status: active로 등재됐다. [fact] 신설 배경: run 20260815_2307의 regulation 축 P8 분해로 regulation_company_licensing 관측 단위가 분리됐으나 대응 KC가 없었다 — CRCL은 COIN-3 상당의 규제 조치형 KC가 부재한 공백 상태였다. [fact] 본 패치는 카드의 kill_conditions_ref에 KC-CRCL-4를 추가하는 참조 갱신이며 KC 신설 결정의 기계적 후속이다. [fact] 기존 참조는 삭제하지 않고 주석으로 보존한다(P9).",
+  "basis_claims": [
+    "c_20260815_CRCL_2228_011",
+    "config/kill_conditions.yaml#company.KC-CRCL-4",
+    "output/20260815_2307/07_thesis_patch/CRCL_regulation_decompose.json#axis_decomposition.kc_relink_note"
+  ],
+  "basis_claims_note": "c_20260815_CRCL_2228_011 = OCC 국가신탁은행 최종 인가 + NYDFS 신탁 승인 (grade 1, confirmed, 2026-08-05 공시 exhibit). KC 신설 자체의 확정 주체는 사용자(2026-08-16)다.",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "thesis 전제('규제 선점')를 뒤집지 않는다 — 그 전제가 훼손될 때 걸리는 관측 게이트를 신설해 연결하는 보강 조치다. 축 방향·시그널 등급 변경 없음(P13).",
+  "downstream_note": "노이즈 필터의 common promote_if('규제 확정 이벤트', 'KC 트리거 및 접근')가 KC-CRCL-4 관련 재료를 자동 승격 커버한다 — noise_filter.yaml 수정 불요. kc-eval은 type: event를 공시 관측형(기본 not_met)으로 처리함을 확인했다."
+}

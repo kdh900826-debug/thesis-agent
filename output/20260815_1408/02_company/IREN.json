@@ -1,0 +1,121 @@
+{
+  "ticker": "IREN",
+  "run_id": "20260815_1408",
+  "as_of": "2026-08-15",
+  "staleness_days": 0,
+  "period_reviewed": {"since": "2026-08-08", "until": "2026-08-15"},
+
+  "claims": [
+    {
+      "id": "c_20260815_IREN_001",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "텍사스 주지사 Greg Abbott가 2026-08-03 PUCT·ERCOT에 지시하여, ERCOT 그리드 접속 대기 중인 신규 데이터센터 프로젝트(약 474GW 요청 중 90%가 데이터센터向)에 대해 세제혜택·전력사용·수자원·소유구조 등을 포함한 종합 감사를 완료할 때까지 접속 승인을 보류하도록 했다. ERCOT는 2026-08-07로 예정했던 'Batch Zero' 분류 통지를 유예했고, 2026-08-20 PUCT 회의에서 일정 관련 예외(good-cause exception)를 요청할 계획이라고 밝혔다. 복수 법무법인(Morrison Foerster, Holland & Knight, Akin Gump, Foley & Lardner, Troutman Pepper 등)이 2026-08-08~08-13 기간 중 해당 지시의 실무 영향을 분석한 클라이언트 알림을 발간했다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "government_directive_via_secondary_reporting",
+        "url": "https://www.mofo.com/resources/insights/260811-texas-governor-orders-data-center-moratorium-disrupting",
+        "published_at": "2026-08-11",
+        "corroborating_urls": [
+          "https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+          "https://www.houstonpublicmedia.org/articles/news/energy-environment/2026/08/03/558529/gov-greg-abbott-pauses-new-data-centers-until-ercot-puct-audit-energy-water-usage/",
+          "https://www.texastribune.org/2026/08/03/texas-data-center-project-audit-greg-abbott/",
+          "https://www.hklaw.com/en/insights/publications/2026/08/texas-gov-abbott-directs-data-center-audit"
+        ]
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false,
+      "note": "gov.texas.gov·법무법인 도메인 모두 config/sources.yaml 미등재 → default_grade=4 적용(D15 규칙). puc.texas.gov(등재 grade_1) 원문 문서 직접 접근 시도했으나 본 지시 관련 게시물을 특정하지 못함 — grade 상향 보류, confirmed=false 유지(P4)."
+    }
+  ],
+
+  "deltas": [
+    {
+      "axis": "power_permit",
+      "direction": "neutral",
+      "prior_state": "카드 기재 리스크: TX SB6 최종 규칙(2026말 예정) 강제 감축·MW당 $50K 담보. Childress/Sweetwater는 기존 계약된 그리드 용량 기준으로 진행 중.",
+      "new_state": "2026-08-03 텍사스 주지사 지시로 ERCOT 신규 접속대기 프로젝트 전반에 감사·보류 조치 개시, 2026-08-08~08-13 다수 2차 매체로 확인. 그러나 IREN의 기존 계약·건설 중 프로젝트(Childress, Sweetwater 등)가 이 감사의 직접 대상인지, 신규 확장분에 한정되는지는 1차 자료로 확인되지 않음. 축 판정 변경 없음 — 모니터링 항목으로 등재.",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260815_IREN_001"]
+    }
+  ],
+
+  "unconfirmed": [
+    {
+      "topic": "TX 주지사 8/3 감사·보류 지시의 IREN 프로젝트 적용 범위",
+      "detail": "IREN의 신규/기존 확장 프로젝트가 이번 ERCOT 그리드 접속 보류 대상에 포함되는지 gov.texas.gov, puc.texas.gov 원문 및 IREN 자체 공시에서 확인되지 않음.",
+      "reason": "P5 원칙 적용 — 정보 공백을 반증으로 취급하지 않고 unconfirmed 상태로만 적재함."
+    },
+    {
+      "topic": "EDGAR 검색 대상 서식(20-F/6-K) 불일치",
+      "detail": "company-iren.md 정의는 IREN을 '호주 기업 — 20-F/6-K 대상'으로 규정하나, edgar_fulltext.py 실행 결과 최근 20-F/6-K 필링은 2025-06-30이 마지막이며 이후 IREN은 8-K·10-Q·424B·S-8·Form 4·SCHEDULE 13G 등 국내 신고인(domestic filer) 양식으로 공시 중(2026-08-13 8-K, 2026-08-12 SCHEDULE 13G 확인). 2026-08-08 이후 20-F/6-K 조회는 0건 — 서식 가정 자체가 최신 상태와 불일치할 가능성.",
+      "reason": "P5 — 부재(0건)를 '신규 공시 없음'으로 단정하지 않고, 서식 불일치 가능성을 별도 기록. 정의 파일 수정은 에이전트 권한 밖(제안만 가능)."
+    },
+    {
+      "topic": "완전희석 주수 495M vs 508M 충돌 해소 여부",
+      "detail": "이번 조회 기간(2026-08-08~15) 신규 자료로 해소되지 않음. 카드 F9 range 유지, 8/27 실적에서 확정 예정(earnings_checkpoints 항목).",
+      "reason": "1차 자료 미확보 — unconfirmed 유지."
+    },
+    {
+      "topic": "Horizons 2-4 구체 일정",
+      "detail": "2026-08-13 8-K/보도자료(Horizon 1 인도)에서도 'Horizons 2-4 later this year'로만 언급, 구체 일정 미공개.",
+      "reason": "noise_filter.yaml#IREN promote_if 조건('Horizons 2-4 구체 일정') 미충족 — 승격 없음."
+    },
+    {
+      "topic": "2026년 7~8월 BTC 채굴 월간 실적(해시레이트·채굴량·전력단가)",
+      "detail": "이번 조회 기간 내 신규 월간 비즈니스 업데이트를 발견하지 못함(확인 가능한 가장 최근 월간 데이터는 2025년 자료).",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5)."
+    }
+  ],
+
+  "noise_log": [
+    {
+      "dedup_key": "iren_horizon1_delivery_acceptance_20260813",
+      "title": "IREN Delivers Horizon 1 to Microsoft and Achieves NVIDIA Exemplar Cloud Status on GB300 NVL72",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126032638/ef20080141_ex99-1.htm",
+      "filed_via": "8-K Item 7.01, filed 2026-08-13, evidence_grade 1 (sec.gov)",
+      "checked_promote_conditions": "매출 인식 금액·시점 없음 / Horizons 2-4 구체 일정 없음('later this year'만 재확인) / 인수 계약 조건 원문 비공개 — 3개 promote_if 조건 모두 미충족",
+      "verdict": "discard_as_noise",
+      "reason": "noise_filter.yaml#IREN: 'Horizon 1 인수 반복 보도 (v32 반영 완료)' 및 'NVIDIA Exemplar Cloud 인증=수주 연결' 패턴 매치. 카드에도 동일 사실(Horizon 1 인도 완료→리스크 H2-4 이관)이 이미 기재됨 — 신규 정보 없음."
+    },
+    {
+      "dedup_key": "iren_schedule13g_20260812",
+      "title": "SCHEDULE 13G filing",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1878848/000088698226000449/xslSCHEDULE_13G_X02/primary_doc.xml",
+      "filed_via": "SCHEDULE 13G, filed 2026-08-12",
+      "verdict": "discard_as_noise",
+      "reason": "common noise 패턴 '패시브 13G 지분 보도의 기관 매수=강세 해석' 매치. promote_if 미해당."
+    },
+    {
+      "dedup_key": "iren_earnings_date_reconfirm_20260813",
+      "title": "IREN FY26 실적발표(2026-08-27 17:00 ET) 공지",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126032638/ef20080141_ex99-1.htm",
+      "verdict": "discard_as_noise",
+      "reason": "P3 7개 변화 항목(매출·가이던스·마진·현금흐름·고객명·수주·양산일정) 중 어느 것도 변화시키지 않음 — 카드에 이미 등재된 일정(8/27) 재확인에 불과."
+    }
+  ],
+
+  "sources_checked": {
+    "edgar_fulltext": {
+      "attempt_1": {"forms": ["20-F", "6-K"], "since": "2026-08-08", "result_count": 0, "note": "정의 파일 가정 서식 — 실제 최근 필링과 불일치(unconfirmed 참조)"},
+      "attempt_2": {"forms": ["8-K", "SCHEDULE 13G", "10-Q", "424B7", "424B5"], "since": "2026-08-08", "result_count": 2, "note": "실제 CIK 0001878848 recent filings 기준 서식으로 재조회"}
+    },
+    "web_search_queries": [
+      "\"IREN\" OR \"Iris Energy\" August 2026 Horizon 2 3 4 delivery schedule",
+      "\"IREN\" earnings August 27 2026 guidance AI Cloud revenue",
+      "IREN Iris Energy news August 2026 PUCT SB6 Texas power",
+      "IREN Mirantis shares resale August 2026",
+      "IREN Limited ATM offering dilution August 2026",
+      "Texas data center moratorium executive order August 2026 signed",
+      "IREN Bitcoin mining hashrate revenue August 2026",
+      "Texas data center moratorium IREN Childress Sweetwater existing operations grid-connected exempt",
+      "IREN Sweetwater 2 600MW grid connection agreement date press release",
+      "IREN new customer contract announcement August 2026 GPU deployment",
+      "\"IREN\" news August 14 2026 OR August 15 2026",
+      "puc.texas.gov Abbott data center audit directive ERCOT interconnection August 2026",
+      "IREN monthly business update July 2026 bitcoin mined EH/s"
+    ]
+  }
+}

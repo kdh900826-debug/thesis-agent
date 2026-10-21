@@ -1,0 +1,70 @@
+# Thesis Card — HOOD (v1 §5-7 기계 판독본)
+ticker: HOOD
+sector: stablecoin
+tier: Next
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-7 / 투자_Thesis_Map_v32 (신호 🟡)"
+version_history:
+  - {date: "2026-09-12", change: 'ThesisPatch 적용(key_metrics/amend) — 근거: c_20260911_HOOD_1,c_20260911_HOOD_2,c_20260911_HOOD_4 / 이전: - / "AUA(운용자산) / 및 / 순유입" / - / "ARPU" / - / "크립토 / 매출 / 비중"...'}
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(key_metrics/amend) — 근거: c_retro_HOOD_001,c_retro_HOOD_002,c_retro_HOOD_004 / 이전: - / "예측시장 / 매출·거래량"...'}
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(axes/annotate) — 근거: c_retro_HOOD_001,c_retro_HOOD_002,c_retro_HOOD_003,c_retro_HOOD_004 / 이전: - / {id: / prediction_market, / label: / "예측시장 / — / 매출 / 기여 / vs / 규제 / 리스크"}...'}
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화"}
+
+axes:
+  - {id: aua_inflow,       label: "AUA·순유입 (유지 근거의 핵심)"}
+  - {id: arpu_mix,         label: "ARPU·매출 mix (크립토/예측시장/이자수입)"}
+  - {id: crypto_cycle,     label: "크립토 매출 비중 (KC-3 연동)"}
+  # 2026-09-05 ThesisPatch(annotate, run 20260905_0839 소급 확인) — 이전 라벨: "예측시장 — 매출 기여 vs 규제 리스크"(P9 보존). 축의 최초 grade 1 매출 실측 기준선을 병기한다. 축 수 5개 불변.
+  - {id: prediction_market, label: "예측시장 — 매출 기여 vs 규제 리스크. 기준선(Q2'26, 8-K Ex-99.1 grade 1): 이벤트 계약 매출 $156M·YoY 10배+, 분기 계약 13.6B건 — 거래매출 $776M 구성에서 크립토($100M)·주식($129M)을 추월(비중 ~20.1%는 파생 계산, inference). ⚠️Q3에서 월드컵 계절성 여부 확인 전까지 지속성 미검증 · 동일 축에 KC-HOOD-3 규제 리스크 상존(9순회 Kalshi 패소 판례, circuit split→SCOTUS 추적)"}
+  - {id: rates_income,     label: "이자수입 (금리 민감)"}
+
+thesis: >
+  리테일 금융 수퍼앱. 크립토·예측시장·현금관리로 수익원을 다각화하며
+  계정당 수익(ARPU)과 AUA를 동시 성장시킨다.
+
+key_metrics:
+  # 2026-09-12 ThesisPatch(amend, run 20260911_2308) — 이전 항목: AUA(운용자산) 및 순유입(단문, 정량 기준선 부재, P9 보존). 회사 공식 8월 월간 운영지표(2026-09-10 배포, grade 1 confirmed)로 기준선을 채운다. 항목 수 7개 불변(전문 기준 계수).
+  - "AUA(운용자산) 및 순유입 — 8월 실측(회사 공식 월간 운영지표, 2026-09-10, grade 1 confirmed): Total Platform Assets $383.7B(MoM +8%, YoY +26%), 월간 순입금 $4.0B(TTM $74.1B, 자산 대비 +24% — c_20260911_HOOD_1 기록 표기), 펀드고객 28.6M(MoM 약 +12만). 운영지표이며 매출·마진·현금흐름·가이던스 수치가 아니다 — 자산 유입과 매출 인식은 분리해 읽는다(P7). 다음 관측점: 9월 운영지표(통상 10월 중순)와 Q3 실적의 거래매출 QoQ"
+  - "ARPU"
+  # 2026-09-12 ThesisPatch(amend, run 20260911_2308) — 이전 항목: 크립토 매출 비중(단문, 정량 기준선 부재, P9 보존). 8월 명목거래액 실측을 선행지표로 병기하되 매출 비중과 혼용하지 않는다. 항목 수 7개 불변.
+  - "크립토 매출 비중 — 매출 비중 자체는 분기 실적에서만 확인된다. 선행지표(8월 월간 운영지표, 2026-09-10, grade 1 confirmed): 크립토 명목거래액 총 $17.5B(MoM +61%, YoY -38%; App $7.4B MoM +72%/YoY -46%, Bitstamp $10.1B MoM +53%/YoY -30%). [inference:medium] MoM 반등은 2026-09-29 종료 예정인 가스비 무료 보조금 시행 구간에서 발생했고 YoY는 다년 하락을 유지하므로, 명목거래액 반등을 구조적 mix 강화로 등치하지 않는다. 명목거래액은 수수료·매출 수치가 아니다(P7). 다음 관측점: 보조금 종료 후 9월 운영지표의 거래액 잔존율, Q3 실적의 크립토 매출 절대액·비중"
+  # 2026-09-05 ThesisPatch(amend, run 20260905_0839 소급 확인) — 이전: "예측시장 매출·거래량"(정량 기준선 부재, P9 보존). 항목 수 7개 불변.
+  - "예측시장(이벤트 계약) 매출·거래량 — Q2'26 $156M·YoY 10배+(8-K Ex-99.1 grade 1), 분기 계약 13.6B건. 거래매출 $776M 구성: 옵션 $342M > 이벤트 $156M > 주식 $129M > 크립토 $100M(-38%) — 비중 ~20.1%는 파생 계산(inference). 다음 관측점 Q3: 월드컵 계절성 여부·QoQ 방향"
+  - "신규 계정"
+  - "이자수입 (금리 민감)"
+  - "EPS (Q2 $0.62)"
+
+catalysts:
+  - "CLARITY Act"
+  - "분기 실적 (Q2 전면 beat)"
+  - "예측시장 규제 명확화"
+  - "신규 상품 출시의 매출 전환"
+
+risks:
+  - "크립토 사이클 종속"
+  - "예측시장 규제 리스크"
+  - "금리 하락 시 이자수입 감소"
+  - "리테일 거래 활동 둔화"
+  - "경쟁 심화"
+
+kill_conditions_ref: ["KC-HOOD-1", "KC-HOOD-2", "KC-HOOD-3", "KC-3 연동"]
+noise_filter_ref: "config/noise_filter.yaml#HOOD"
+
+earnings_checkpoints:
+  date: null   # ⚠️ Q3 일정 확인 필요
+  items:
+    - "AUA·순유입"
+    - "ARPU 방향"
+    - "크립토 매출 비중"
+    - "예측시장 기여도"
+    - "이자수입 민감도"
+    - "EPS 및 비용 구조"
+
+valuation:
+  primary: "Forward P/E + AUA 성장률"
+  secondary: "ARPU"
+  caution: "크립토·예측시장 mix 변화 시 이익의 질이 달라지므로 mix 조정 필요"
+
+conclusion: >
+  Q2 전면 beat로 단기 실행은 확인됐으나 매출 구성이 크립토 사이클과 규제 미확정 상품에
+  걸쳐 있어, AUA 순유입과 mix의 지속성이 유지 근거다.

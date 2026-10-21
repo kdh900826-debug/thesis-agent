@@ -1,0 +1,484 @@
+{
+  "ticker": "COIN",
+  "run_id": "20261009_0920",
+  "as_of": "2026-10-09",
+  "staleness_days": 0,
+  "underlying_primary_event_date": "2026-10-07",
+  "lookback_window": {
+    "since": "2026-10-01",
+    "until": "2026-10-09",
+    "note": "상위 지시: since 2026-10-01(직전 run 20261001_0900과 1일 중첩), until 2026-10-09. 창 밖 재료(제6순회 9/25 판결, CFTC DCO 9/28 등록, SCOTUS cert 청구 9/2)는 out_of_window=true로 표기해 '1차 원문 확인' 목적에 한정해 사용했다. EDGAR는 since=2026-09-25로 조회했고 submissions API 전체 서식 목록으로 별도 대조했다."
+  },
+  "claims": [
+    {
+      "id": "c_20261009_COIN_1",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API(CIK 0001679788, 조회 2026-10-09)상 이번 조사 창(2026-10-01~10-09)의 10-K·10-Q·8-K 제출은 8-K 1건(accession 0001679788-26-000113, 2026-10-02 제출, 사건일 2026-09-29)이다. Item 5.02: Chief Accounting Officer 겸 principal accounting officer Jennifer Jones가 2026-09-29 은퇴 의사를 통보했고, 후임으로 이관될 때까지 해당 직책을 유지하며 후임 인선 탐색이 시작됐다. 8-K는 '운영·정책·관행에 관한 이견의 결과가 아니다'라고 명시한다. 이 8-K에는 실적·가이던스·마진·현금흐름·Circle 분배계약 관련 항목이 없고, Q3 분기보고서(10-Q)·실적 8-K도 이번 창에 제출되지 않았다. (참고: 같은 창의 Form 4 1건(2026-10-05)과 Form 144 2건(10-01, 10-02)은 서식 성격상 지분 변동·매각 신고로 노이즈 처리.)",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K (Item 5.02)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000113/coin-20260929.htm",
+        "filed_at": "2026-10-02"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "원문(8-K 본문) 직접 대조 완료. P3의 7개 변화 항목에는 해당하지 않으나 Q3 결산·실적 발표를 앞둔 회계책임자 교체 예고이므로 '애매하면 승격' 원칙으로 Claim화. 카드 axes 6개 어느 축에도 매핑되지 않는다 — 임의로 기존 축에 끼워 넣지 않고 delta를 생성하지 않았다(thesis-delta 규칙). 신규 축 제안도 하지 않음(거버넌스 단건). 후임 미정이라는 사실 외 재무 영향은 미확정."
+    },
+    {
+      "id": "c_20261009_COIN_2",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "미시간게임통제위원회(MGCB)는 2026-10-07 보도자료에서 Coinbase Financial Markets, Inc.가 미시간 고객에게 신규 스포츠 관련 이벤트 계약 제공을 2026-10-10 00:00(미 동부시간)까지 중단하고 잔여 미결제 고객 포지션도 같은 시한까지 청산하기로 합의(stipulation)했다고 발표했다. 중단 대상에는 KalshiEX 및 기타 지정계약시장(DCM)에서 거래되는 스포츠 이벤트 계약이 포함된다. 그 대가로 주(州)는 Coinbase가 준수하는 한, 그리고 제6순회항소법원의 관련 항소가 진행되는 동안 Coinbase에 대한 집행조치를 취하지 않기로 했다. 같은 보도자료는 이 합의가 '미시간이 CFTC 등록 이벤트 계약을 도박으로 규제할 수 있는지에 관한 근본 법적 분쟁을 해결하지 않으며 모든 당사자의 권리·의무·항변을 보존한다'고 밝히고, 직전에 체결된 Robinhood Derivatives, LLC와의 사실상 동일한 합의 및 KalshiEX에 대한 주 법원 예비금지명령과 함께 미시간이 Kalshi·Robinhood·Coinbase의 스포츠 이벤트 계약을 모두 중단시켰다고 서술한다(MGCB 사무국장 Henry Williams 및 AG Dana Nessel 발언 포함). 시행 시점(10-10)은 본 run 일자(10-09)의 다음 날이므로 '합의 발표'는 확인된 사실이나 '실제 중단 이행'은 아직 일어나지 않았다(P7).",
+      "evidence_grade": 4,
+      "source": {
+        "type": "state government press release (미시간게임통제위원회, 정부 공식 도메인)",
+        "url": "https://www.michigan.gov/mgcb/news/2026/10/07/coinbase-agrees-to-halt-sports-related-event-contracts-in-michigan",
+        "published_at": "2026-10-07"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "【1차 정부 문서】michigan.gov는 sources.yaml 미등재라 기계적 default_grade=4가 부여되나, 본 문서는 규제당국 자신의 공식 발표(주 정부 1차 문서)다 — grade_1 후보로 등재 제안(제안만). 동시에 이 문서는 합의 당사자 일방(규제기관)의 서술이며 stipulation 원문(법원 제출본)은 대조하지 못했다 → confirmed=false(VALIDATE_V2: grade 4 단독). 접근 경위: WebFetch/curl은 Akamai Access Denied(403)였으나 Browser pane(실제 브라우저)으로 본문 전문 확보 — 우회 시도가 아닌 일반 열람. scope=company_specific: 당사자가 Coinbase 자신이며 주 정부 조치가 Coinbase 상품 접근을 직접 제한한다. 직전 run 기록(미시간 자발적 철수 9/22)과의 관계(동일 사안 후속인지)는 본 run에서 대조하지 못했다."
+    },
+    {
+      "id": "c_20261009_COIN_3",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "같은 MGCB 보도자료(2026-10-07)에 따르면 법원은 2026년 8월 Coinbase의 예비금지명령 신청을 기각했고, Coinbase의 항소(제6순회 No. 26-1693, Coinbase Financial Markets, Inc. v. Nessel)는 계류 중이며 Robinhood·Polymarket·Kalshi 관련 항소 결과가 나올 때까지 정지(stayed) 상태이다. 즉 Coinbase 자신의 미시간 항소는 독자적 판단 없이 관련 항소들의 결론을 기다리는 구도로 확인된다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "state government press release (미시간게임통제위원회, 정부 공식 도메인)",
+        "url": "https://www.michigan.gov/mgcb/news/2026/10/07/coinbase-agrees-to-halt-sports-related-event-contracts-in-michigan",
+        "published_at": "2026-10-07"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "【1차 정부 문서】 c_20261009_COIN_2와 동일 문서. 직전 run unconfirmed '26-1693 현재 상태'를 부분 해소(법원 도킷 직접 확인은 여전히 미완 — Justia 도킷은 403, 도킷 원문 미대조). 8월 PI 기각(Judge Kumar, 8/6)은 이번 창 밖 배경으로 2차 보도(sbcamericas·theblock 등)에서도 확인되나 별도 Claim화하지 않음."
+    },
+    {
+      "id": "c_20261009_COIN_4",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "Coinbase는 2026-10-06부터 미국 이용자 대상으로 암호화폐 가격 이벤트(가격 상승/하락) 예측시장을 출시했다고 보도된다. 이진(binary) 계약으로 BTC·ETH·SOL·BNB 등을 대상으로 하며 만기는 최소 15분부터이고 정답 시 $1·오답 시 $0을 지급한다. 증거금은 USD 또는 USDC로 납부할 수 있고, Coinbase Financial Markets(CFTC 등록 FCM·NFA 회원)를 통해 제공되며 네바다는 제외, 모든 주에서 이용 가능한 것은 아니다. 수수료 구조와 계약 상장 DCM(Kalshi 경유 여부)은 보도에서 확인되지 않는다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news (cryptonomist.ch, 삼각검증: cryptobriefing.com 보도 요약)",
+        "url": "https://en.cryptonomist.ch/2026/10/06/crypto-price-prediction-coinbase/",
+        "published_at": "2026-10-06"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "cryptonomist.ch·cryptobriefing.com 모두 sources.yaml 미등재(default_grade=4). Coinbase 공식 블로그(coinbase.com/blog 목록, 2026-10-09 열람)에는 해당 출시 게시물이 노출되지 않아 1차 역추적 실패 → confirmed=false. 예측시장 상품 라인업 확대 관측점(prediction_market 축). 가격 이벤트 계약은 스포츠 이벤트 계약과 별개 상품이며, 주 도박법의 적용 여부는 이번 자료로 판단 불가(추론 금지). 거래 매출·USDC 사용 규모는 미공시."
+    },
+    {
+      "id": "c_20261009_COIN_5",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "Coinbase는 2026-10-08 공식 블로그에서 Coinbase가 면허 보유 파트너와 함께 Samsung Wallet의 스테이블코인 경험을 구동하며, 2026년 10월 마지막 주부터 미국에서 USDC가 Samsung Wallet의 기본(default) 달러 스테이블코인으로 표시된다고 발표했다. Samsung Wallet 내 USDC는 Coinbase Prime(NYDFS 적격 수탁 서비스, Bastion 등 면허 인프라와의 구조)을 통해 면허 제공자를 대신해 하위수탁(subcustody)된다. 게시물은 'USDC 순환량이 2025년 72% 증가해 $75B 초과, 보유 지갑 약 700만(59% 증가)'을 인용한다. 게시물에는 이 분배에 따른 Coinbase의 수익 구조(준비금 이자 배분·수탁 수수료)가 기재되어 있지 않다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "Coinbase 공식 블로그 (회사 발표)",
+        "url": "https://www.coinbase.com/blog/coinbase-and-samsung-bring-usdc-to-samsung-wallet",
+        "published_at": "2026-10-08"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "coinbase.com grade_1 등재, 본문 직접 대조(Browser pane — 이전 3개 run의 WebFetch 403을 실제 브라우저 경로로 해소). P7: 이번 발표는 '계약·제휴 존재' 단계이며 서비스 개시(10월 말)·USDC 유통 증가·Coinbase 매출 인식은 모두 미발생/미확인. 이 USDC가 카드의 '자사 플랫폼 보유(준비금 이자 100%)'로 분류되는지, '외부 유통(잔여수익 50%)'인지는 문서에 없어 수익 귀속 판정 불가. Circle 분배계약 재갱신(2026-08-18, 2029년까지 기존 조건) 보도는 이번 창 밖 배경."
+    },
+    {
+      "id": "c_20261009_COIN_6",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "Coinbase는 2026-10-07 공식 블로그에서 Deribit 통합이 완료되어 'Coinbase Global Exchange'가 구성됐다고 밝혔다. 회사 인용 수치: Deribit 유동성은 BTC 옵션 미결제약정 $300억 이상(2026-09-30 기준)이고 지난해 거래량이 $1조 이상. 향후 수주 내 순차 출시 예고: ① Deribit 기반 옵션(비미국 적격 거래자 대상 수주 내, Coinbase Prime 기관 대상 수주 내·온보딩 개설 중, 미국 개인 옵션은 '올해 후반') ② 현물 마진(주요 자산 최대 10배·기타 최대 5배, 미국은 적격 계약 참여자(ECP)에 한정) ③ 통합 포트폴리오(교차 마진). 신규 매칭 엔진, 간소화된 온보딩, 개선된 Advanced 수수료 티어는 '지금 라이브'이며, 2026년 말 Coinbase Pro가 현물·선물·무기한·옵션·주식을 포괄하는 전문가 플랫폼으로 복귀한다고 예고했다. 2026년 5월 CFTC 지침으로 Coinbase Financial Markets(CFM)가 글로벌 암호화폐 파생상품 유동성에 미국 고객을 연결하는 유일한 미국 규제 FCM이 되었다고 서술한다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "Coinbase 공식 블로그 (회사 발표)",
+        "url": "https://www.coinbase.com/blog/coinbase-is-building-the-most-complete-trading-platform",
+        "published_at": "2026-10-07"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "coinbase.com grade_1, 본문 직접 대조. P7 3단 분리: '통합 완료'는 사실, 옵션·현물 마진·통합 포트폴리오는 아직 출시 '예고' 단계(이행 미확인), 매출 인식 수치는 전무(Deribit 매출·거래량 실측치 공시 없음 — 직전 run 이월 unconfirmed 지속). $30B OI·$1T 거래량은 회사 마케팅 문구이며 Coinbase 귀속 매출을 의미하지 않는다. 미국 개인 옵션·Coinbase Pro는 올해 후반 예고로 시점 미확정."
+    },
+    {
+      "id": "c_20261009_COIN_7",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "같은 공식 블로그(2026-10-07)는 Coinbase Advanced의 '개선된 수수료 티어'가 '지금 라이브'이며 티어 활성화 문턱이 적격 거래량 $10,000부터이고, 현물과 파생 활동을 합산해 자격 거래량을 산정해 고거래량 계정이 더 낮은 수수료율에 더 빨리 도달한다고 서술한다. 문턱 $10,000은 직전 run이 기록한 2026-09-16 Advanced 수수료 개편(티어 진입 $25,000→$10,000)과 일치하며, '현물+파생 합산 산정' 문구는 이번 자료에서 새로 확인되는 서술이다. 수수료율 표 자체·거래대금 증가 효과는 이번 문서에 없다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "Coinbase 공식 블로그 (회사 발표)",
+        "url": "https://www.coinbase.com/blog/coinbase-is-building-the-most-complete-trading-platform",
+        "published_at": "2026-10-07"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "c_20261009_COIN_6과 동일 문서의 수수료 항목을 분리 Claim화(믹스 분리 원칙: 파생 인프라 서술과 거래 매출 테이크레이트 서술을 합치지 않음). 새 가격 결정이라기보다 9/16 개편의 재확인 + 합산 산정 서술이므로 trading_cycle 축 신규 방향성 근거로 쓰지 않는다. 거래대금 탄력성·테이크레이트 실측 데이터 부재."
+    },
+    {
+      "id": "c_20261009_COIN_8",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "미국 CFTC 공식 'Derivatives Clearing Organizations (DCO)' 등록 목록(cftc.gov, 2026-10-09 열람)에 Coinbase Clearing LLC가 상태 'Registered', 일자 09/28/2026, 비고 'Registered by Commission order; permitted to clear fully collateralized futures, options on futures, and swaps'로 게재돼 있다. 같은 일자·같은 비고로 Quanta Clear, Inc.도 등록돼 있다. 이는 직전 run(c_20261001_COIN_3)이 2차 매체 삼각검증으로 적재한 DCO 등록(완전담보 한정)을 CFTC 1차 목록으로 확인한 것이다. Commission 등록 명령서 PDF(목록상 문서 8건)는 이번에 열람하지 못했다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "federal regulator official registry (CFTC DCO 등록 목록)",
+        "url": "https://www.cftc.gov/IndustryOversight/IndustryFilings/ClearingOrganizations",
+        "published_at": "2026-09-28"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": true,
+      "note": "【1차 정부 문서】cftc.gov는 sources.yaml 미등재라 default_grade=4(기계 부여) — 실질은 규제기관 공식 등록부이며 grade_1 후보 등재 제안(제안만). 등록 사건일(2026-09-28)이 조사 창 밖이라 out_of_window=true, 이번 run의 신규 정보는 '1차 확인'이다. 등록 명령서 원문 미대조라 confirmed=false 유지. 직전 run unconfirmed 'CFTC.gov 원문 — DCO 등록'을 부분 해소(목록 항목 확인, 명령서 본문은 이월)."
+    },
+    {
+      "id": "c_20261009_COIN_9",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "CFTC 공식 'Designated Contract Market Products' 검색(Organization=COIN, cftc.gov, 2026-10-09 열람)에서 'Single Stock Perpetual Futures Contract'(Future, 카테고리 Security Futures Product / SSF - Single Stock Future)는 상태 'Approval Pending (45)', 상태일자 09/18/2026으로 표기돼 있다. 같은 목록의 그 밖의 최근 항목은 'US500 Index Perp Style Futures'(Certified, 07/30/2026)이다. 2026-10-09 시점에 해당 개별주식 무기한선물의 승인·거부·철회 상태 변경은 목록에 나타나지 않는다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "federal regulator official registry (CFTC DCM 상품 검색)",
+        "url": "https://www.cftc.gov/IndustryOversight/IndustryFilings/TradingOrganizationProducts?Organization=COIN&Type=&Status=&Date_From=&Date_To=&Category=&Subcategory=&Show_All=0",
+        "published_at": "2026-10-09"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "【1차 정부 문서】cftc.gov 미등재 → default_grade=4(기계 부여), 실질은 규제기관 공식 상품 등록부. 직전 run unconfirmed 'CFTC 자기인증 게시판 원문' 해소(상태 'Approval Pending (45)' 1차 확인). 단 이는 '9/18 기준 계류 지속'의 확인이며 승인·상장·매출 인식 중 어느 것도 아니다(P7). 45일 심사 종료 예정일은 CFTC가 게시하지 않았으므로 본 Claim에서 산정하지 않는다(라벨 'Approval Pending (45)'와 상태일자 9/18만 사실). 부정적 관측('변경 없음')은 P5상 반증 아님."
+    },
+    {
+      "id": "c_20261009_COIN_10",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "제6순회항소법원의 2026-09-25 공식 의견문(Nos. 26-3196/5235, KalshiEX LLC v. Schuler / v. Orgel, 파일 26a0272p.06, Gibbons 판사 작성, 구두변론 2026-07-30)을 PDF 원문에서 직접 확인했다. 요지: Kalshi는 스포츠 이벤트 계약이 상품거래법(CEA)상 'swap'의 법정 정의를 충족함을 입증하지 못했고, 설령 swap이라 가정해도 CEA는 오하이오·테네시의 도박법을 명시적·묵시적으로 선점하지 않는다 — 따라서 S.D. Ohio의 예비금지명령 기각을 인용(affirm)하고 M.D. Tenn.의 예비금지명령을 파기(vacate)하며 환송한다. 의견문 본문에 Coinbase는 당사자로 등장하지 않는다(본문 내 'Coinbase' 0회).",
+      "evidence_grade": 4,
+      "source": {
+        "type": "federal appellate court opinion (공식 원문 PDF, 법원 자체 도메인)",
+        "url": "https://www.opn.ca6.uscourts.gov/opinions.pdf/26a0272p-06.pdf",
+        "published_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false,
+      "out_of_window": true,
+      "note": "【1차 정부 문서】opn.ca6.uscourts.gov 미등재 → default_grade=4(기계 부여). 직전 run은 PDF 추출 실패로 2차 보도에 의존(c_20261001_COIN_2, unconfirmed)했으나 이번에 로컬 PDF 텍스트 추출로 원문(결정일·재판부·결론) 직접 대조 성공 → 해당 unconfirmed 해소. 도메인 기계 등급 때문에 confirmed=false로 두되 원문 대조 완료 사실은 본 note에 기록. 결정일 9/25가 창 밖이라 out_of_window=true. scope=sector: 당사자는 Kalshi — COIN 개별 시그널 근거 사용 금지(P6/P13), prediction_market 축 risk_transfer_to의 선례 배경으로만 사용. 이 판결이 Coinbase 26-1693에 어떻게 작용하는지는 c_20261009_COIN_3(정지 상태)과 함께 읽는다."
+    },
+    {
+      "id": "c_20261009_COIN_11",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "뉴저지 법무장관(Jennifer Davenport 등)은 2026-09-02자 연방대법원 certiorari 청구서(Flaherty and Davenport v. KalshiEX, LLC, 제3순회 판결(2026-04-06) 대상, docket 번호 미기재 'No. 26-___')를 제출했으며 제시된 쟁점은 '2010년 Dodd-Frank 법이 CFTC 등록 시장에서 제공되는 스포츠 베팅에 대해 주(州)의 규제를 선점했는가'이다. 검색 보도에 따르면 연방대법원이 2026-09-08 접수했고 Kalshi 답변서 기한은 2026-10-08이다. 청구서에서 Alito 대법관이 제출 기한을 2026-09-03까지 연장했음이 확인된다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "court filing copy (sportsbettingdime.com 업로드 PDF — 청구서 사본, 로컬 텍스트 추출로 대조)",
+        "url": "https://www.sportsbettingdime.com/app/uploads/2026/09/2026-0902_26-_PetitionForWritOfCertiorari.pdf",
+        "published_at": "2026-09-02"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false,
+      "out_of_window": true,
+      "note": "청구서 본문(당사자·쟁점·제출일 9/2·연장 내역)은 PDF에서 직접 확인. '9/8 접수·10/8 답변 기한·docket 번호'는 supremecourt.gov 도킷을 직접 열람하지 못해 2차 검색 요약에 의존한 부분이라 미확인. 제3순회(4/6, Kalshi 선점 인정 취지)와 제6순회(9/25)·제9순회(8/28 Nevada, 2차 보도) 간 분할 구도가 SCOTUS 상고 경로의 배경 — 제안: supremecourt.gov grade_1 후보. scope=sector (당사자 Kalshi·뉴저지), COIN 개별 시그널 근거 불가. 창 밖 사건이나 카드 계류 관측점('SCOTUS 동향') 추적용으로 적재."
+    },
+    {
+      "id": "c_20261009_COIN_12",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "Open Standard의 OUSD는 출시 직후 급증해 2026-10-04 시점 FXEmpire 스냅샷 기준 유통량 약 $6.66억(666,274,725)으로 보도된다(KuCoin·CryptoBriefing은 출시 2시간 내 $4.7억대, 이후 주간 $6.26억 증가, 시가총액 $6.66억 보도). 이 중 Tempo 체인 비중이 초기 90% 이상으로 집계됐다. 창립 파트너 5곳의 $1B+ 유동성 공약은 별개 수치다. Coinbase의 OUSD 지분·분배수익 규모, 또는 Coinbase 경유 OUSD 유통량은 공개되지 않았다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news/aggregator (cryptobriefing.com, 삼각검증: kucoin.com·fxempire.com)",
+        "url": "https://cryptobriefing.com/open-standard-ousd-stablecoin-market-cap/",
+        "published_at": "2026-10-04"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "전부 sources.yaml 미등재(grade 4). OUSD 전체 공급량은 Open Standard 및 전체 파트너 생태계 지표이지 Coinbase 개별 실적 수치가 아니므로 scope=sector. 직전 run c_20261001_COIN_5·6(구조)의 후속 '규모' 관측. 온체인 수치는 집계처별로 시점이 달라 비교 불가 — 정확치 인용 금지, 규모 자릿수만 참고. coinbase.com 공식 OUSD 게시물은 2026-10-09 블로그 목록에서 확인되지 않음."
+    },
+    {
+      "id": "c_20261009_COIN_13",
+      "ticker": "COIN",
+      "claim_type": "inference",
+      "text": "OUSD 유통량(약 $0.67B, c_20261009_COIN_12, 2026-10-04 스냅샷)은 Coinbase 블로그가 인용한 USDC 순환량 $75B 초과(2025년 말, c_20261009_COIN_5) 대비 1% 미만의 자릿수이므로, 출시 초기 단계에서 OUSD가 Coinbase의 USDC 관련 수익을 실질적으로 잠식했을 가능성은 낮다고 추정된다. 다만 시점이 다른 두 수치의 단순 비교이며 OUSD 증가 속도·USDC 수요 대체율·Coinbase 귀속 수익 모두 미확정이다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "analyst inference (c_20261009_COIN_12 + c_20261009_COIN_5 조합)",
+        "url": "https://cryptobriefing.com/open-standard-ousd-stablecoin-market-cap/",
+        "published_at": "2026-10-09"
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "추론(P1) — 강도 weak. 근거 두 수치의 시점 불일치(OUSD 10/4 vs USDC 2025년 말)와 OUSD 수치의 grade 4 출처 때문에 어떤 방향 판정(강세·약세)의 근거로도 쓰지 않는다. 카드 지시('OUSD 참여를 강세 재료로 기본 분류하지 않는다')에 따라 usdc_economics 축은 neutral 유지, 이 추론은 '규모 관측' 참고용. KC-COIN 계열 임계 대비 평가는 하지 않는다(사람 영역)."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "subscription_mix",
+      "direction": "neutral",
+      "prior_state": "20261001 run: 이번 창 신규 분기 데이터 없음, neutral. 최신 확정치는 Q2 2026 구독·서비스 비중 48.1%(Q1 43.6%, Q2 2025 45.3%) — 비중 상승은 거래 매출의 더 빠른 감소에서 기인(구독·서비스 YoY -12.2%, 거래 YoY -21.6%).",
+      "new_state": "이번 창(2026-10-01~10-09) 내 구독·서비스 매출 관련 신규 회사 공시 없음(Q3 실적 미발표, 10-Q/실적 8-K 미제출 — c_20261009_COIN_1). Samsung Wallet 제휴(c_20261009_COIN_5)는 USDC 분배·수탁 확대 서술이며 구독 매출 수치가 아니다. 무뉴스 축으로 neutral 유지. 거래 매출과 구독 매출을 합산한 단일 성장률 서술은 하지 않는다.",
+      "risk_transfer_to": [
+        "Q3 2026 실적(구독·서비스 비중 방향) — 실적일 공지 미확인"
+      ],
+      "supporting_claims": [
+        "c_20261009_COIN_1"
+      ]
+    },
+    {
+      "axis": "trading_cycle",
+      "direction": "neutral",
+      "prior_state": "20261001 run: 2026-09-16 Advanced 수수료 개편(티어 진입 $25,000→$10,000 등)은 테이크레이트에 직접 영향이나 거래대금 탄력성 데이터 부재로 neutral.",
+      "new_state": "공식 블로그(10-07)가 개선된 수수료 티어($10,000부터, 현물+파생 합산 산정)를 '라이브'로 재확인했으나 문턱값은 9/16 개편과 동일(c_20261009_COIN_7) — 새 가격 결정이 아니다. 거래대금·테이크레이트 실측 데이터는 없다(Q3 미발표). BTC 현물가 등 매크로 재료는 scope=macro로 본 축 입력에서 제외(P6). neutral 유지.",
+      "risk_transfer_to": [
+        "수수료 인하의 거래대금 탄력성·테이크레이트 순효과는 Q3 실적(거래 매출·거래량)으로 이관"
+      ],
+      "supporting_claims": [
+        "c_20261009_COIN_7"
+      ]
+    },
+    {
+      "axis": "usdc_economics",
+      "direction": "neutral",
+      "prior_state": "20261001 run: OUSD 참여 구조 윤곽(Coinbase 창립 파트너 동일 지분, 활동 비례 지준수익 배분, 민팅·상환 무료)은 관측됐으나 기존 USDC 수익 대비 순효과 미확정으로 neutral. Q2 2026 Stablecoin revenue $292.147M(YoY -5.4%) 절대액만 확정.",
+      "new_state": "이번 창 신규 사실 2건: ①2026-10-08 Coinbase·Samsung 제휴 — 10월 마지막 주 미국 Samsung Wallet에서 USDC가 기본 달러 스테이블코인으로 표시되고 Coinbase Prime이 하위수탁(c_20261009_COIN_5). USDC 분배 확대 방향의 사실이나 수익 귀속(자사 플랫폼 보유분 100% vs 외부 유통분 50%)·개시 시점 이전 매출 인식은 모두 미확인(P7). ②OUSD 유통량이 출시 후 약 $0.67B 수준으로 보도(grade 4, c_20261009_COIN_12)되나 USDC 대비 자릿수 차이가 크고 Coinbase 귀속 수치는 없다(추론 c_20261009_COIN_13, weak). 두 신호가 상반되는 방향의 약한 관측이어서 상쇄 — OUSD를 강세 재료로 분류하지 않는다는 카드 지시와 P2에 따라 neutral 유지. COIN 자체 OUSD 분배 조건의 수치(배분율·지분 비율)와 coinbase.com OUSD 공식 게시물은 이번 창에서도 확인되지 않았다.",
+      "risk_transfer_to": [
+        "OUSD 경유 활동과 USDC 수요의 대체/보완 관계 — Q3·Q4 Stablecoin revenue 항목 및 OUSD 관련 신규 공시로 이관",
+        "Samsung Wallet 경유 USDC의 Coinbase 귀속 수익 구조(준비금 이자 귀속 구분) — 서비스 개시(10월 말) 후 공시/IR로 확인 필요",
+        "Circle 분배계약(2026-08-18 기존 조건 3년 갱신 보도, 창 밖)의 COIN 자체 공시 확인 — 이월"
+      ],
+      "supporting_claims": [
+        "c_20261009_COIN_5",
+        "c_20261009_COIN_12",
+        "c_20261009_COIN_13"
+      ]
+    },
+    {
+      "axis": "regulation",
+      "direction": "neutral",
+      "prior_state": "20261001 run: H.R.3633(CLARITY Act) motion to proceed 클로처 2026-09-15 부결(49-50), Tillis 재의 동의 접수로 절차 재개 경로 유지. 신규 1차 자료 없음, neutral.",
+      "new_state": "이번 창 내 CLARITY Act 본안·재의 동의 처리에 관한 신규 1차 자료(의회 기록)를 확보하지 못했다 — 웹검색 결과상 2026-09-23 이후 신규 상원 표결 보도 없음(2차). congress.gov all-actions 페이지는 Cloudflare 확인 화면이 표시되어 열람하지 않았다(우회 시도 없음) → 정보 부재이며 '진전 없음'의 증거가 아니다(P5). 카드 정의상 본 축은 CLARITY 경로에 한정되며 이번 창의 주 규제 재료(미시간 합의, 제6순회 판결)는 prediction_market 축으로 매핑했다. neutral 유지 — 무뉴스 축.",
+      "risk_transfer_to": [
+        "CLARITY 재의 동의 후속(레임덕 세션 가능성 등)은 congress.gov 기록으로 다음 run 확인"
+      ],
+      "supporting_claims": []
+    },
+    {
+      "axis": "derivatives_base",
+      "direction": "strengthen",
+      "prior_state": "20261001 run: strengthen(확신도 낮음) — DCO 등록(완전담보 한정, 2차 보도)으로 DCM·FCM·DCO 3종 스택 완성 보도, 개별주식 무기한선물은 CFTC 'Approval Pending (45)' 계류(2차 보도). 승인·상장·매출 인식 미확인.",
+      "new_state": "이번 창에서 ①Coinbase 공식 블로그가 Deribit 통합 완료와 'Coinbase Global Exchange' 구성을 선언하고 옵션·현물 마진·통합 포트폴리오·신규 매칭 엔진 출시 일정과 Coinbase Pro 복귀(연말)를 예고했다(c_20261009_COIN_6) — 인프라·상품 확장의 회사 직접 서술. ②CFTC 공식 등록부로 Coinbase Clearing LLC DCO 등록(9/28, 완전담보 선물·선물옵션·스왑 청산 허용)을 1차 확인(c_20261009_COIN_8, 창 밖 사건의 1차 확인). ③개별주식 무기한선물은 CFTC 공식 상품 목록에서 2026-10-09 시점도 'Approval Pending (45)', 상태일자 9/18 — 변경 없음(c_20261009_COIN_9). P7 3단 분리: 청산 기관 등록·Deribit 통합 완료는 '인프라 구축' 단계 사실, 옵션/마진 등 신규 상품 출시는 '예고'(이행 미확인), 파생상품 매출 인식 수치는 전무하다. 방향은 직전 run과 동일하게 strengthen(인프라 트랙 실질 진전) 유지, 확신도 낮음 — 시장이 주목하는 개별주식 무기한선물 트랙 자체는 정체 상태이며 Deribit의 실측 거래량·매출 기여는 5개 run 연속 미공시다.",
+      "risk_transfer_to": [
+        "개별주식 무기한선물 CFTC 심사 결과 및 SEC 신고(SR-COIN-2026-002) 절차 — 승인 이후에도 절차적 리스크 잔존",
+        "Deribit 통합·옵션/마진 출시의 실제 거래량·파생 매출 기여 — Q3·Q4 실적으로 이관",
+        "미국 개인 옵션·Coinbase Pro 복귀 시점('올해 후반/연말') 미확정 — 지연 시 확장 서사 지연 리스크",
+        "Coinbase Clearing 등록 명령서 PDF 원문 미대조 — 범위 조건 확인 이월"
+      ],
+      "supporting_claims": [
+        "c_20261009_COIN_6",
+        "c_20261009_COIN_8",
+        "c_20261009_COIN_9"
+      ]
+    },
+    {
+      "axis": "prediction_market",
+      "direction": "weaken",
+      "prior_state": "20261001 run: weaken(확신도 낮음) — 제6순회 Kalshi 판결(9/25, 스포츠 계약은 swap 아님·CEA 선점 없음)이 COIN 계류 소송 법리에 불리, COIN 자신의 미시간 항소(26-1693) 결과 미확정. 코네티컷 DCP C&D(9/10), 미시간 자발적 철수(9/22) 이월.",
+      "new_state": "이번 창의 COIN 직접 1차 사실: 미시간게임통제위원회가 2026-10-07 공식 발표로, Coinbase Financial Markets가 미시간 고객에게 신규 스포츠 이벤트 계약 제공을 10-10 00:00 ET까지 중단하고 미결제 포지션을 같은 시한까지 청산하기로 주(州)와 합의했다고 밝혔다(c_20261009_COIN_2). 주는 Coinbase 준수·제6순회 관련 항소 진행 중 집행조치를 하지 않기로 했고, 합의는 근본 분쟁을 해결하지 않으며 권리·항변을 보존한다. Coinbase 자신의 항소(26-1693)는 Robinhood·Polymarket·Kalshi 관련 항소 결과를 기다리며 정지 상태(c_20261009_COIN_3). 배경: 제6순회 9/25 의견문 원문을 이번에 직접 대조(c_20261009_COIN_10, 창 밖·sector)해 직전 run의 2차 보도 기반 서술을 확인했고, 뉴저지의 SCOTUS cert 청구(c_20261009_COIN_11, sector)로 순회법원 분할의 최종 해결 경로가 열려 있다. 상반 관측: 2026-10-06 암호화폐 가격 이벤트 예측시장 출시(미국, 네바다 제외, 보도 grade 4 — c_20261009_COIN_4)로 상품 라인업은 확대됐으나 이는 스포츠 계약이 아니며 주 규제 적용 여부는 미확정이다. 종합: 스포츠 이벤트 계약의 미시간 시장 접근이 (이행 시점 10-10 이후) 실제로 차단된다는 점에서 weaken 방향 유지, 상품 확장은 매출 수치가 없고 grade 4 출처이므로 상쇄 근거로 쓰지 않는다. 확신도 낮음. 미시간 합의는 법적 최종 결론이 아니다(권리 보존).",
+      "risk_transfer_to": [
+        "제6순회의 관련 항소(Robinhood·Polymarket·Kalshi 등) 결과 → Coinbase 26-1693 정지 해제 및 판단 — 최우선 감시",
+        "SCOTUS cert(Flaherty v. KalshiEX) 처리 — Kalshi 답변서(2026-10-08 기한, 2차) 이후 접수·심리 여부",
+        "코네티컷·일리노이·뉴욕·네바다 등 타 주 조치의 COIN 직접 1차 문서(이번 창 확보 못함) — 미시간 합의가 타 주 협상의 선례가 될지 미확정",
+        "암호화폐 가격 이벤트 계약의 주 도박법 적용 여부 — 스포츠 계약과 별도 법적 노출 가능성(추론 금지, 확인 대상)",
+        "Coinbase 예측시장 상품의 Kalshi 유동성 의존 구조(배경, 이월)"
+      ],
+      "supporting_claims": [
+        "c_20261009_COIN_2",
+        "c_20261009_COIN_3",
+        "c_20261009_COIN_4"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "Q3 2026 실적 발표일 회사 공식 공지",
+      "reason": "investor.coinbase.com 'News' 목록(2026-10-09 Browser pane 열람)의 최신 항목은 2026-09-03(Citi TMT 컨퍼런스 참가)이며 Q3 실적일 공지는 목록에 없다. 이는 '공지 미게시 관측'일 뿐 '공지 없음'의 증거가 아니다(P5). 과거 패턴(2024-10-09, 2025-10-10 공지)은 판정 근거가 아니며 애그리게이터의 추정 일자(10/29 등)도 F1상 불가. 카드 earnings_checkpoints.date는 null 유지.",
+      "next_check": "investor.coinbase.com 및 BusinessWire 'Coinbase Announces Date of Third Quarter 2026 Financial Results' 재확인",
+      "related_claims": []
+    },
+    {
+      "item": "Coinbase 26-1693(6th Cir.)의 법원 도킷 직접 확인 및 정지(stay) 사유·해제 조건",
+      "reason": "정지 상태는 MGCB 보도자료(정부 1차 문서, grade 4 기계 부여)로 확인했으나 Justia 도킷은 403이어서 법원 도킷 원문은 대조하지 못했다.",
+      "next_check": "ca6.uscourts.gov 또는 PACER 도킷 26-1693",
+      "related_claims": [
+        "c_20261009_COIN_3"
+      ]
+    },
+    {
+      "item": "Michigan–Coinbase stipulation 원문(법원 제출본) 및 직전 run의 '미시간 자발적 철수(9/22)' 기록과의 관계",
+      "reason": "이번 문서는 규제기관 보도자료이며 stipulation 원문 미대조. 10-10 시행 시한이 도래하지 않아 실제 중단 이행 여부는 확인 불가(P7).",
+      "next_check": "10-10 이후 Coinbase 앱/공지·MGCB 후속 발표, 법원 제출 stipulation",
+      "related_claims": [
+        "c_20261009_COIN_2"
+      ]
+    },
+    {
+      "item": "코네티컷·일리노이·뉴욕·네바다·미주리 등 타 주 감독기관 조치의 COIN 직접 1차 문서",
+      "reason": "수집 범위 확장 지시에 따라 검색했으나 이번 창에서 COIN을 직접 수신자로 한 신규 주 정부 문서를 찾지 못했다(검색 결과의 대부분이 2025-12~2026-04 자료). 정보 부재이며 조치 없음의 증거가 아니다(P5).",
+      "next_check": "각 주 증권·도박·소비자보호 감독기관 보도자료, 관련 연방지방법원 도킷(D. Conn., N.D. Ill., S.D.N.Y. 등)",
+      "related_claims": []
+    },
+    {
+      "item": "Coinbase 예측시장 상품의 Kalshi 유동성 의존 구조 현재 유효성 및 2026-10-06 가격 이벤트 계약의 상장 DCM·수수료",
+      "reason": "출시 보도(grade 4)는 CFM 경유라고만 하며 상장 DCM(Kalshi 경유 여부)·수수료를 제시하지 않는다. Coinbase 공식 블로그 목록에 출시 게시물 없음.",
+      "next_check": "Coinbase 공식 공지/이용약관, CFTC DCM 상품 목록(해당 계약 기관)",
+      "related_claims": [
+        "c_20261009_COIN_4"
+      ]
+    },
+    {
+      "item": "Samsung Wallet USDC의 Coinbase 귀속 수익 구조 및 서비스 개시(10월 마지막 주) 이행",
+      "reason": "발표 단계(P7). 수익 귀속(준비금 이자 배분·수탁 수수료)은 게시물에 없음.",
+      "next_check": "서비스 개시 후 Coinbase IR·Circle 공시, Q3/Q4 Stablecoin revenue",
+      "related_claims": [
+        "c_20261009_COIN_5"
+      ]
+    },
+    {
+      "item": "OUSD 참여 조건·분배 구조의 COIN 자체 1차 문서(coinbase.com 공식 게시물) 및 Coinbase 귀속 OUSD 수치 (이월)",
+      "reason": "이번 run은 Browser pane으로 coinbase.com에 접근했으나 2026-10-09 블로그 목록에 OUSD 게시물이 없다. 구조는 2차 보도(직전 run c_20261001_COIN_5·6)로만 확인.",
+      "next_check": "Open Standard 공식 문서·COIN 10-Q(Q3)·shareholder letter",
+      "related_claims": [
+        "c_20261009_COIN_12"
+      ]
+    },
+    {
+      "item": "CFTC Coinbase Clearing 등록 명령서 PDF 및 개별주식 무기한선물 CFTC 제출본 원문",
+      "reason": "등록부/상품 목록(1차 정부 문서)은 확인했으나 명령서·제출 문서(목록상 '문서' 링크) 본문은 열람하지 않았다.",
+      "next_check": "cftc.gov DCO 등록부의 문서 링크, PTC 제출 PDF",
+      "related_claims": [
+        "c_20261009_COIN_8",
+        "c_20261009_COIN_9"
+      ]
+    },
+    {
+      "item": "SCOTUS Flaherty v. KalshiEX 도킷 번호·접수일·Kalshi 답변서 제출 여부",
+      "reason": "supremecourt.gov 도킷 미열람, 청구서 사본과 2차 검색 요약에만 의존.",
+      "next_check": "supremecourt.gov 도킷 검색",
+      "related_claims": [
+        "c_20261009_COIN_11"
+      ]
+    },
+    {
+      "item": "CLARITY Act(H.R.3633) 2026-09-23 이후 의회 기록 (이월)",
+      "reason": "congress.gov는 Cloudflare 확인 화면으로 열람하지 않았다(우회 시도 없음). 2차 검색에서 신규 표결 보도는 없음 — 부재 ≠ 반증(P5).",
+      "next_check": "congress.gov all-actions(접근 가능한 경로) 또는 senate.gov 일정",
+      "related_claims": []
+    },
+    {
+      "item": "Circle–Coinbase 분배계약 갱신(2026-08-18 기존 조건 2029년까지) 및 USDC 수익 절대액 Q3 신규 공시 (이월)",
+      "reason": "COIN 자체 10-Q/8-K에는 여전히 신규 주석이 없고, 최신 1차 수치는 Q2 2026 Stablecoin revenue $292.147M(창 밖)이다.",
+      "next_check": "COIN Q3 2026 10-Q·shareholder letter",
+      "related_claims": []
+    },
+    {
+      "item": "Deribit 통합 후 파생상품 거래량·매출 실측치 (이월)",
+      "reason": "5개 run 연속 미공시. 이번 공식 블로그의 $30B OI·$1T 거래량은 Deribit 시장 규모 서술이며 Coinbase 귀속 매출이 아니다.",
+      "next_check": "Q3 실적(파생상품 매출 세부)",
+      "related_claims": [
+        "c_20261009_COIN_6"
+      ]
+    },
+    {
+      "item": "예치자산 순유출(가격효과 제외) 분기 데이터 — KC-COIN-2 판정 입력 (이월)",
+      "reason": "이번 창 내 회사 공시 net inflow/outflow 수치 없음. F3상 명목 잔액 대체 판정 금지.",
+      "next_check": "Q3 2026 Shareholder Letter의 Platform assets 항목",
+      "related_claims": []
+    },
+    {
+      "item": "후임 Chief Accounting Officer 인선 및 Q3 결산·감사 일정에 대한 영향",
+      "reason": "8-K는 후임 미정, 이견 없음만 기재. 재무 영향 데이터 없음.",
+      "next_check": "후속 8-K Item 5.02, Q3 10-Q",
+      "related_claims": [
+        "c_20261009_COIN_1"
+      ]
+    }
+  ],
+  "discarded_noise_log": [
+    {
+      "item": "Form 4(2026-10-05, 임원·이사 거래계획 매도로 보도)·Form 144(2026-10-01, 10-02) 지분 변동·매각 신고",
+      "reason": "서식 성격상 정기적 지분 변동 보고이며 P3의 7개 변화 항목 어느 것도 건드리지 않는다. 원문 미대조.",
+      "action": "discard"
+    },
+    {
+      "item": "Wells Fargo 커버리지 개시(2026-10-03, Equal Weight, 목표가 $200 보도) 및 주가 -3.3% 보도",
+      "reason": "애널리스트 의견·주가 반응. 매출·가이던스·마진·현금흐름 변화 없음(P3). 목표가는 시스템 산출 대상도 아님.",
+      "action": "discard"
+    },
+    {
+      "item": "Bloomberg 인터뷰(2026-10-08) '은행은 고객이자 경쟁자' — Coinbase Institutional Liz Martin",
+      "reason": "본문 접근 불가(403)·검색 요약만 확보. 경영진 전략 발언으로 수치·계약·고객명 변화 없음(P3). 본문 확보 시 재평가 가능.",
+      "action": "discard (본문 미확인)"
+    },
+    {
+      "item": "BTC/ETH 가격 변동 및 시황 기사(2026-10-08 등 다수), 상장 코인 추가/상장폐지 공지(Story→Data 이전, Blast 네트워크 종료 10/26)",
+      "reason": "noise_filter.yaml#COIN 'BTC 일간 변동'·'상장 코인 추가'. BTC 가격은 scope=macro(KC-3 영역)로 COIN 개별 축 근거 불가(P6). 상장·종료 공지는 매출 영향 수치 없음.",
+      "action": "discard"
+    },
+    {
+      "item": "Coinbase Champions 트레이딩 대회($150,000 상금, Token2049 싱가포르)",
+      "reason": "마케팅 이벤트. 매출·가이던스 등 7개 항목과 무관.",
+      "action": "discard"
+    },
+    {
+      "item": "엔지니어링 블로그 게시물(Temporal Cloud 이전 10/1, 사기 탐지 에이전트 시리즈 10/6~8)",
+      "reason": "기술 블로그. 7개 변화 항목과 무관.",
+      "action": "discard"
+    },
+    {
+      "item": "2026-09-21 Coinbase IPO 참여(리테일 IPO 할당) 블로그 공지",
+      "reason": "이번 창 이전(9/21) 게시이며 수치 없는 상품 공지. 이미 직전 run 범위에서 처리 가능했으나 매출 영향 데이터 없음.",
+      "action": "discard (창 밖·수치 없음)"
+    },
+    {
+      "item": "Polymarket의 CLARITY 법안 확률(6.5%) 등 예측시장 호가 보도",
+      "reason": "규제 '임박/확률' 추측 보도 계열(noise_filter#COIN) — 의회 1차 기록 아님.",
+      "action": "discard"
+    }
+  ],
+  "reused_from": "output/20261001_0900/02_company/COIN.json",
+  "notes": "① 수집 경로: EDGAR(edgar_fulltext.py → _raw_edgar_COIN.json, 10-K/10-Q/8-K since 2026-09-25 → 8-K 1건; submissions API 전체 목록 대조), 웹검색 다수, WebFetch, Browser pane(coinbase.com 블로그·investor.coinbase.com 뉴스·michigan.gov MGCB·cftc.gov DCO 등록부/DCM 상품 검색), 로컬 PDF 텍스트 추출(pymupdf)로 제6순회 의견문 및 cert 청구서 원문 대조. ② 접근 기록(D15): coinbase.com 공식 블로그는 직전 3개 run의 WebFetch 403과 달리 Browser pane으로 열람 성공 — 본 run부터 1차 확인 경로로 사용 가능(Cloudflare 확인 화면이 나타나는 congress.gov는 우회 시도하지 않음). michigan.gov는 WebFetch/curl 403(Akamai), Browser pane 열람 성공. Justia 도킷·Bloomberg는 403. ③ 주 정부·규제기관 1차 문서(P4 보강): michigan.gov(MGCB 보도자료), cftc.gov(DCO 등록부·DCM 상품 목록), opn.ca6.uscourts.gov(제6순회 의견문)는 sources.yaml 미등재라 기계적 grade 4가 부여됐으나 실질은 정부·법원 1차 문서이며 각 Claim note에 명기했다. sources.yaml 등재 제안(제안만, 자동 수정 없음): michigan.gov(주 감독기관 공식 도메인 — 향후 ct.gov·nj.gov 등 주별 확장 시 패턴 검토), cftc.gov, opn.ca6.uscourts.gov, supremecourt.gov를 grade_1 후보로 제안한다. ④ 직전 run unconfirmed 해소 현황: 제6순회 의견문 원문 대조(해소 — c_20261009_COIN_10), CFTC DCO 등록·개별주식 무기한선물 상태의 CFTC 1차 확인(부분 해소 — c_20261009_COIN_8·9, 명령서 PDF 이월), 26-1693 상태(부분 해소 — c_20261009_COIN_3, 도킷 이월). ⑤ 신규 축 제안: 없음. 단 prediction_market 축 id는 여전히 잠정(axis_naming_standardization 미확정, 사람 영역). Claim 1(CAO 은퇴 8-K)은 어느 축에도 매핑하지 않았다. ⑥ KC 관측(참고용, 등급 확정은 사람 영역): 이번 창 신규 자료는 KC-COIN-1~4 트리거 조건에 직접 해당하는 수치(구독 비중·거래매출·USDC 수익 절대액·예치자산 순유출)를 포함하지 않는다. 미시간 합의는 규제기관과의 합의이며 'SEC·CFTC·DOJ의 COIN 대상 신규 제소'(KC-COIN-3 서술)의 트리거로 보이지 않는다 — 단, KC 정의 원문은 본 에이전트 범위 밖이므로 판정하지 않는다. ⑦ 시그널 등급 판정은 하지 않았다(Claim·Delta 생성까지). sector 스코프 Claim(c_20261009_COIN_10·11·12)은 filter_arbiter_input에서 제외될 것이며 COIN 개별 시그널 근거 불가. ⑧ 무뉴스 축(subscription_mix·trading_cycle·regulation)도 명시적 neutral delta로 기재해 전 6개 축을 다뤘다. 사용자 주입 자료(00_user_sources)는 열람하지 않았다."
+}

@@ -1,0 +1,583 @@
+{
+ "group": "g5",
+ "checked_at": "2026-10-20",
+ "window": [
+  "2026-07-07",
+  "2026-10-20"
+ ],
+ "search_note": "이번 점검 중 WebSearch 호출 한도(세션 공유 200회)가 소진되어 p61~p63·p70·p71(일부)만 검색했다. p64 일부는 검색 1회(애그리게이터만 나옴). p65~p69·p72~p75는 회사 뉴스룸 직접 열람 일부를 빼면 검색을 하지 못했다. 이 프로젝트들의 '신규 정보 없음'은 '못 찾음'이 아니라 '확인하지 못함'이며, 다음 sweep에서 다시 확인해야 한다.",
+ "projects": [
+  {
+   "id": "p61",
+   "found_update": true,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-08-25 기준 Google 포트웨인(Project Zodiac) 캠퍼스는 2단계 공사 중이다. 개발사 Hatchworks가 3단계(건물 3동 추가)를 위해 습지 매립 허가를 IDEM에 신청해 공청회까지 마쳤다. 승인 여부는 확인하지 못했다.",
+   "holds": [],
+   "events": [
+    {
+     "date": "2026-08-04",
+     "kind": "인허가",
+     "title_ko": "Zodiac 3단계: 습지 2.13에이커 매립 허가 신청, IDEM 공청회 공고",
+     "detail_ko": [
+      "개발사 Hatchworks LLC가 3단계 건물 3동을 짓기 위해 숲 습지 2.13에이커를 메우겠다고 인디애나 환경청(IDEM)에 신청했다.",
+      "상쇄용으로 포트웨인 Openings 습지은행 크레딧 4.26에이커를 사겠다고 했다.",
+      "승인되면 9월 중순 착수, 2030년 12월 완공이 목표다. IDEM은 8/4 공청회를 공고했고 8/25 온라인으로 열었다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "21Alive (2026-08-25)",
+       "u": "https://www.21alivenews.com/2026/08/25/virtual-public-hearing-google-data-centers-latest-wetlands-request-set-tuesday-night/"
+      },
+      {
+       "t": "21Alive (2026-08-06)",
+       "u": "https://www.21alivenews.com/2026/08/06/public-hearing-planned-google-data-center-developers-request-fill-more-wetlands/"
+      }
+     ]
+    },
+    {
+     "date": "2026-08-21",
+     "kind": "인허가",
+     "title_ko": "포트웨인 시의원, IDEM에 '가장 엄격한 심사' 요구",
+     "detail_ko": [
+      "Geoff Paddock 시의원이 3단계 습지 허가를 가장 엄격한 기준으로 심사해 달라고 IDEM에 서한을 보냈다.",
+      "참고로 2단계 습지 허가는 2025-09-16에 나왔고, 2026년 4월에는 비상 디젤발전기 140대 이상 추가 허가가 나왔다(모두 기준일 이전)."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "21Alive (2026-08-21)",
+       "u": "https://www.21alivenews.com/2026/08/21/city-council-member-asks-idem-hold-google-strictest-possible-review-standards-wetlands-request/"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "3단계 확장(건물 3동) 습지 허가가 IDEM 심사 중이다. 승인되면 규모 확대가 확정된다.",
+    "questions": [
+     "IDEM이 3단계 습지 매립 허가를 승인했나(9월 중순 착수 목표였음)?",
+     "2단계 5동 중 가동 중인 동은 몇 개인가?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [
+    "GOOGL"
+   ],
+   "data_issues": [
+    "리포트는 Phase 2를 1.2GW로 적었으나 공개 자료에 단계별 MW는 없다. 애그리게이터(Cleanview)는 Phase 1을 400MW로 적었다(grade 4)."
+   ],
+   "searched": true
+  },
+  {
+   "id": "p62",
+   "found_update": true,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 Nebius 인디펜던스 캠퍼스는 공사 중이다. 다만 주민단체가 8월에 공사 중단 소송을 냈고, 임시금지명령(TRO)·기각 신청(motion to dismiss) 심리가 10/22 오전 9시 잭슨카운티 동부법원에서 열린다.",
+   "holds": [
+    "Independence GUARD Alliance 소송: 공사 중단 TRO·가처분과 추가 채권 발행 금지 요구, 10/22 심리(잭슨카운티 순회법원)",
+    "인디펜던스시 신규 데이터센터 6개월 모라토리엄(2026년 7월~2027-01-02)·10/5 규제 조례 — Nebius는 적용 대상 아님"
+   ],
+   "events": [
+    {
+     "date": "2026-08-13",
+     "kind": "소송",
+     "title_ko": "주민단체, 공사 중단·채권 발행 금지 소송 제기",
+     "detail_ko": [
+      "신생 주민단체 Independence GUARD Alliance가 시와 Nebius 자회사 Missouri ADC Holdings LLC, 발전 사업자 Independence Power Partners LP를 상대로 잭슨카운티 순회법원에 소송을 냈다.",
+      "2022년 주거→산업 용도변경을 주민에게 알리지 않았고, 전력 계약 관련 비밀유지계약 8건을 맺는 등 용도·공개회의법·시 헌장을 어겼다는 주장이다.",
+      "공사 동결과 추가 채권 발행 금지를 요구했다. 시는 '적법 절차를 따랐다', Nebius는 '검토 중이며 법규를 지키겠다'고만 밝혔다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "KCTV5 (2026-08-13)",
+       "u": "https://www.kctv5.com/2026/08/13/lawsuit-aims-block-construction-independence-data-center/"
+      },
+      {
+       "t": "Spectrum News (2026-08-13)",
+       "u": "https://spectrumlocalnews.com/mo/kansas-city/news/2026/08/13/ai-data-center-independence-lawsuit"
+      },
+      {
+       "t": "KSHB",
+       "u": "https://www.kshb.com/news/local-news/missouri/jackson-county/independence-guard-alliance-files-lawsuit-to-halt-construction-of-independence-data-center"
+      }
+     ]
+    },
+    {
+     "date": "2026-10-22",
+     "kind": "소송",
+     "title_ko": "TRO·기각 신청(motion to dismiss) 심리 10/22 오전 9시 예정",
+     "detail_ko": [
+      "원고의 임시금지명령(TRO) 신청과 피고의 기각 신청(motion to dismiss)을 함께 다루는 심리가 10/22 오전 9시 이스턴 잭슨카운티 법원에서 열린다.",
+      "TRO가 나오면 공사가 멈추지만, 법원이 원고에게 수백만 달러 담보(bond)를 요구할 수 있고 원고가 못 내면 TRO는 나오지 않는다(소송 자체는 계속).",
+      "주민들은 Bly Road가 6개월째 막혀 있고 야간 공사·소음·조명 등 허가 위반이 있다고 주장한다. 이는 공사가 실제 진행 중이라는 방증이다."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "KSHB",
+       "u": "https://www.kshb.com/news/local-news/hearing-set-for-october-22-on-temporary-restraining-order-for-nebius-data-center-project"
+      },
+      {
+       "t": "FOX2 (10월 중순)",
+       "u": "https://fox2now.com/news/missouri/judge-could-order-nebius-to-halt-data-center-construction-in-independence/amp/"
+      }
+     ]
+    },
+    {
+     "date": "2026-10-05",
+     "kind": "모라토리엄",
+     "title_ko": "인디펜던스 시의회, 향후 데이터센터 규제 조례 6-0 통과(Nebius 제외)",
+     "detail_ko": [
+      "2.5MW 초과 '대형' 데이터센터는 시의회 승인, 주거·학교 등에서 1,000피트 이격, 저수(폐쇄형) 냉각, 발전기 시험 시간 제한을 의무화했다.",
+      "7월에 통과된 신규 데이터센터 6개월 모라토리엄은 2027-01-02까지 유효하다. 둘 다 Nebius 사업에는 적용되지 않는다.",
+      "Nebius 인센티브에 찬성한 시의원 2명이 선거에서 낙선, 1명이 소환됐다(날짜 미기재)."
+     ],
+     "grade": 3,
+     "src": [
+      {
+       "t": "KCTV5 (2026-10-06)",
+       "u": "https://www.kctv5.com/2026/10/06/independence-council-restricts-future-data-centers-after-nebius-backlash/"
+      }
+     ]
+    },
+    {
+     "date": "2026-08-12",
+     "kind": "기타",
+     "title_ko": "Nebius 2분기 주주서한(6-K): 미국 자체 AI 팩토리 공사 진행, 2026년 신규 부지에 미주리 캔자스시티 포함",
+     "detail_ko": [
+      "6-K 첨부 주주서한은 '미국 자체 AI 팩토리 공사가 진행 중'이라고 적었고, 2026년 신규 부지 목록에 Missouri/Kansas City가 들어 있다. 인디펜던스 소송 언급은 없다.",
+      "연말 계약 전력 목표를 4GW+에서 5GW로 올렸고, 2027년부터 연 1GW 이상 배치하겠다고 했다."
+     ],
+     "grade": 1,
+     "src": [
+      {
+       "t": "Nebius 6-K Ex.99.2 (2026-08-12)",
+       "u": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm"
+      }
+     ]
+    },
+    {
+     "date": "2026-08-24",
+     "kind": "자금",
+     "title_ko": "Nebius 전환사채 57.5억 달러 발행 완료(용도에 데이터센터 건설 포함)",
+     "detail_ko": [
+      "2030년 만기 0.50% 34.5억 달러와 2034년 만기 4.50% 23억 달러(모두 원래 원금 기준, 추가분 포함)를 발행했다.",
+      "동시에 2029년·2031년 만기 기존 전환사채 각 4억 달러를 주식 약 1,580만 주로 교환했다.",
+      "자금 용도에 데이터센터 건설·확장이 들어 있으나 인디펜던스 부지를 따로 지정하지는 않았다."
+     ],
+     "grade": 1,
+     "src": [
+      {
+       "t": "Nebius 6-K Ex.99.1 (2026-08-24)",
+       "u": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "10/22 TRO 심리 결과에 따라 공사가 멈출 수 있다. NBIS 미국 첫 자체 대형 부지라 일정 지연 시 2027년 용량 계획에 영향.",
+    "questions": [
+     "10/22 법원이 TRO를 내렸나, 담보(bond)를 요구했나, 기각 신청(motion to dismiss)은 어떻게 됐나?",
+     "가처분(preliminary injunction) 심리 날짜가 잡혔나?",
+     "Nebius가 6-K·3분기 실적(11월)에서 소송이나 인디펜던스 1단계 일정(2027 2Q~10월)을 언급하나?"
+    ],
+    "next_check": "2026-10-22"
+   },
+   "tickers_touched": [
+    "NBIS"
+   ],
+   "data_issues": [
+    "착공 시점: 리포트 '2026년 5월', KSHB는 '4월 1단계 착공', KCTV5·FOX2는 '5월 기공' — 5월 기공식 기준이 다수.",
+    "용량: 리포트 1.2GW. 시 FAQ는 최소 800MW(1단계 250MW 2027년 10월, 2단계 약 1,100MW 2029년 12월), Nebius 사업 페이지는 최대 1.2GW·10개 동으로 보도됨.",
+    "부지 면적: 400에이커(시·대부분 보도) vs 약 500에이커(KCTV5) vs 45에이커(KSHB 기공 기사 제목).",
+    "채권 규모 표기 혼재: '1,500억 달러 감면 채권 승인'(KCTV5) vs '60억 달러 이상 감면·자금'(DCD). 승인 한도와 실제 감면액을 구분해야 한다.",
+    "1단계 가동 시점: 시 FAQ 2027년 10월 vs Nebius 이사회 의장 발언 2027년 2분기."
+   ],
+   "searched": true
+  },
+  {
+   "id": "p63",
+   "found_update": false,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 7/7 이후 신규 정보 찾지 못함. 마지막 확인 정보는 첫 50MW를 2026년 4분기 가동 목표, 과달루페 카운티 감세(4/21, 3-2 가결)다.",
+   "holds": [
+    "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 — 자체 가스발전 설비의 대기 허가가 필요하면 영향 가능(해석, 신청 여부 미확인)"
+   ],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "첫 50MW 4분기 가동 목표가 다가오고, 가스 자체발전이 TCEQ 중단에 걸리는지 불분명하다.",
+    "questions": [
+     "TCEQ에 가스발전 대기 허가를 신청했나, 9/21 중단 대상인가?",
+     "첫 50MW 가동이 2026년 4분기에 맞춰지나?",
+     "Energy Transfer 가스 공급 계약의 FID 조건이 충족됐나?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [
+    "ET"
+   ],
+   "data_issues": [
+    "리포트는 'Grid'로 분류했으나 보도는 Energy Transfer 가스를 쓰는 비하인드더미터(자체) 발전을 설명한다.",
+    "첫 단계 가동 시점이 2026년 3분기/4분기/2027년으로 출처마다 다르다."
+   ],
+   "searched": true
+  },
+  {
+   "id": "p64",
+   "found_update": false,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 7/7 이후 신규 정보 찾지 못함(검색 1회, 애그리게이터만 나옴). 홉킨스카운티(설퍼스프링스 인근) 187억 달러 규모로 소개된다.",
+   "holds": [
+    "텍사스 주지사 8/3 ERCOT 연계 대기열 데이터센터 감사 대상일 가능성(해석, 미확인)"
+   ],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "1차 자료가 전혀 확인되지 않았고 텍사스 감사·TCEQ 중단 영향을 확인해야 한다.",
+    "questions": [
+     "홉킨스카운티·설퍼스프링스 시 회의록에 MSB Matrix 관련 결정이 있나?",
+     "ERCOT 대규모 부하 연결 감사 대상인가?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [
+    "Cleanview는 Phase 1 800MW(2026), Phase 2 1,200MW(2027) '계획' 상태로 적어 리포트의 '착공' 분류와 다르다(grade 4)."
+   ],
+   "searched": true
+  },
+  {
+   "id": "p65",
+   "found_update": false,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함(신규 정보 부재 아님).",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "모로비아(헨드릭스카운티) Google 부지 공사 진척·전력 연결 소식이 있나?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p66",
+   "found_update": false,
+   "stage_base": "2",
+   "stage_now": "2",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함. EdgeCore 뉴스 페이지(7~8월 항목)에 Shannon Hill 관련 소식은 없었다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "루이자카운티 Shannon Hill 캠퍼스 착공 여부·Dominion 송전 연결 일정은?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p67",
+   "found_update": false,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함. STACK 뉴스 페이지에 Stafford 관련 항목은 없었다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "스태퍼드카운티 STACK 캠퍼스 공사 진척·첫 동 가동 여부는?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p68",
+   "found_update": false,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "QTS RIC4(헨리코카운티) 10개 동 공사 진척은?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p69",
+   "found_update": false,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "AWS 리지랜드(미시시피) 공사·Entergy 전력 공급 진척은?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p70",
+   "found_update": true,
+   "stage_base": "1",
+   "stage_now": "1",
+   "stage_candidate": null,
+   "status_ko": "2026-09-28 Crusoe 발표 기준 텍사스 암스트롱카운티 캠퍼스(Goodnight)는 Google용으로 공사 중이며 하루 5,500명 넘는 인력이 현장에 있다. 인접 풍력단지 Goodnight 1(265.5MW)과 직접 연결돼 있다.",
+   "holds": [
+    "텍사스 주지사 8월 초 ERCOT 연계 대기열 데이터센터 감사 지시 — 이 캠퍼스가 대상인지는 미확인(해석)"
+   ],
+   "events": [
+    {
+     "date": "2026-09-28",
+     "kind": "고객",
+     "title_ko": "Crusoe, 암스트롱카운티 캠퍼스가 Google 데이터센터라고 공개",
+     "detail_ko": [
+      "Crusoe는 자사가 아마릴로 인근 암스트롱카운티에서 공사 중인 Google 데이터센터 캠퍼스의 개발사라고 발표했다.",
+      "2025년 6월 착공했고, 현재 하루 5,500명 이상이 현장에서 일한다.",
+      "운영 중인 Goodnight 1 풍력(265.5MW)과 직접 연결되고, Goodnight 2(265.5MW)는 공사 중이다. 남는 풍력은 계통으로 보낸다. 캠퍼스 MW는 공개하지 않았다."
+     ],
+     "grade": 1,
+     "src": [
+      {
+       "t": "Crusoe 보도자료 (2026-09-28)",
+       "u": "https://www.crusoe.ai/resources/newsroom/crusoe-developing-data-center-campus-in-armstrong-county-texas"
+      }
+     ]
+    },
+    {
+     "date": "2026-08-08",
+     "kind": "모라토리엄",
+     "title_ko": "Crusoe, 애벗 주지사의 데이터센터 감사 지지 성명",
+     "detail_ko": [
+      "애벗 주지사가 그 주 초 PUC·ERCOT에 연계 대기열의 모든 데이터센터 사업을 감사하고 세제혜택·전력·용수·소유 구조를 공개하라고 지시했다.",
+      "Crusoe는 감사를 지지한다며 암스트롱카운티 사업이 카운티 운영예산을 거의 두 배로 늘릴 세수를 낸다고 밝혔다. 어느 사업이 감사 대상인지는 밝히지 않았다."
+     ],
+     "grade": 2,
+     "src": [
+      {
+       "t": "Crusoe 보도자료 (2026-08-08)",
+       "u": "https://www.crusoe.ai/resources/newsroom/crusoe-supports-governor-abbotts-data-center-audits-and-responsible-growth-standards-in-texas"
+      }
+     ]
+    },
+    {
+     "date": "2026-09-17",
+     "kind": "자금",
+     "title_ko": "Crusoe 시리즈F 39억 달러 조달(회사 전체)",
+     "detail_ko": [
+      "Crusoe가 39억 달러 시리즈F 투자를 받았다고 발표했다. 이 캠퍼스에 배정된 금액은 공개되지 않았다(뉴스룸 목록 제목 기준)."
+     ],
+     "grade": 1,
+     "src": [
+      {
+       "t": "Crusoe 뉴스룸 (2026-09-17)",
+       "u": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-series-f-funding"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "고객이 Google로 새로 확인됐다. 캠퍼스가 ERCOT 대기열 감사 대상인지, 용량(리포트 1.0GW)이 맞는지 확인이 필요하다.",
+    "questions": [
+     "캠퍼스 총 MW와 첫 동 가동 시점은?",
+     "ERCOT·SPP 중 어느 계통에 연결되며 주지사 감사 대상인가?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [
+    "GOOGL"
+   ],
+   "data_issues": [
+    "리포트는 'Grid' 전력으로 분류했으나 Crusoe는 인접 풍력단지 직접 연결(남는 전력은 계통 송출)을 강조한다.",
+    "Crusoe 발표는 'Goodnight'를 캠퍼스 이름이 아닌 인접 풍력단지 이름으로 쓴다. 캠퍼스 정식 명칭은 'Armstrong County campus'.",
+    "착공: 리포트 '2024년 말' vs Crusoe '2025년 6월 착공'."
+   ],
+   "searched": true
+  },
+  {
+   "id": "p71",
+   "found_update": true,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-08-05 TeraWulf 2분기 실적 기준 FERC가 7/29 Morgantown 발전소 인수를 승인했다. 다만 다른 조건·승인이 남아 인수는 미종결이며, 데이터센터 첫 가동은 2030년으로 잡혀 있다.",
+   "holds": [],
+   "events": [
+    {
+     "date": "2026-07-29",
+     "kind": "인허가",
+     "title_ko": "FERC, TeraWulf의 Morgantown 발전소 인수 승인",
+     "detail_ko": [
+      "FERC가 메릴랜드 Morgantown 발전소 인수를 승인했다. 종결에는 나머지 조건·승인이 더 필요하다.",
+      "부지는 약 210MW가 운영 중인 계통 연결 발전소이며, 발전·저장·데이터센터를 합쳐 최대 1GW까지 키울 수 있다고 했다.",
+      "데이터센터 첫 가동은 현재 2030년으로 잡혀 있다."
+     ],
+     "grade": 1,
+     "src": [
+      {
+       "t": "TeraWulf 8-K Ex.99.1 2분기 실적 (2026-08-05)",
+       "u": "https://www.sec.gov/Archives/edgar/data/1083301/000108330126000162/a_wulfearningsreleaseq22026.htm"
+      }
+     ]
+    }
+   ],
+   "followup": {
+    "needed": true,
+    "why": "FERC 승인 뒤 남은 승인(메릴랜드 PSC 등)과 인수 종결 여부가 단계 2 전환 조건이다.",
+    "questions": [
+     "Morgantown 인수가 종결됐나, 남은 승인은 무엇인가?",
+     "찰스카운티 용도·부지 인허가 절차가 시작됐나?"
+    ],
+    "next_check": "2026-11-05 (TeraWulf 3분기 실적 예상)"
+   },
+   "tickers_touched": [
+    "WULF"
+   ],
+   "data_issues": [
+    "리포트는 'Grid'로 분류했으나 TeraWulf는 기존 발전소(약 210MW)를 끼운 발전 통합 캠퍼스로 설명한다.",
+    "가동 시점 2030년으로 리포트 기준 일정보다 멀 수 있다."
+   ],
+   "searched": true
+  },
+  {
+   "id": "p72",
+   "found_update": false,
+   "stage_base": "X",
+   "stage_now": "X",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함.",
+   "holds": [
+    "뉴욕 1년 환경허가 신규 승인 중단 대상 가능성(해석, 미확인)"
+   ],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했고 뉴욕 환경허가 중단 영향이 있을 수 있다.",
+    "questions": [
+     "Donovan Drive Holdings의 Treetop 사업이 계통 연결·환경허가를 받았나, 중단 대상인가?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p73",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "애리조나 페이지(Page) Huntley 부지 용도변경 표결이 있었나?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p74",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함. Tract 뉴스 페이지 최신 Morris 항목은 2026-04-21 FERC 송전 계약 승인(기준일 이전)이다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "모리스시·그런디카운티 승인 절차가 진행됐나?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  },
+  {
+   "id": "p75",
+   "found_update": false,
+   "stage_base": "3",
+   "stage_now": "3",
+   "stage_candidate": null,
+   "status_ko": "2026-10-20 기준 검색 한도 소진으로 확인하지 못함. Tract 뉴스 페이지에 Altoona 항목은 없었다.",
+   "holds": [],
+   "events": [],
+   "followup": {
+    "needed": true,
+    "why": "이번 sweep에서 검색하지 못했다.",
+    "questions": [
+     "알투나시 용도변경·개발계약 표결이 있었나?"
+    ],
+    "next_check": "2026-10-27"
+   },
+   "tickers_touched": [],
+   "data_issues": [],
+   "searched": false
+  }
+ ],
+ "cross_cutting": [
+  "텍사스: 애벗 주지사가 8월 첫 주 PUC·ERCOT에 연계 대기열의 모든 데이터센터 사업 감사와 세제혜택·전력·용수·소유 공개를 지시했다. Crusoe(8/8)와 STACK이 지지 성명을 냈다. — Crusoe 보도자료 https://www.crusoe.ai/resources/newsroom/crusoe-supports-governor-abbotts-data-center-audits-and-responsible-growth-standards-in-texas",
+  "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단은 지침에 적힌 전제다. 이번 그룹에서 이 조치를 직접 확인하지는 못했다. p63(가스 자체발전), p64, p70이 영향권일 수 있다(해석).",
+  "미주리 인디펜던스시: 7월 신규 데이터센터 6개월 모라토리엄(2027-01-02까지), 10/5 대형 데이터센터 규제 조례 6-0 통과. 둘 다 Nebius에는 적용되지 않는다. — KCTV5 2026-10-06 https://www.kctv5.com/2026/10/06/independence-council-restricts-future-data-centers-after-nebius-backlash/",
+  "검색 한도: 세션 공유 WebSearch 200회 한도가 이번 점검 도중 소진되어 p64~p69, p72~p75는 사실상 미점검이다. 후속 sweep에서 다시 확인해야 한다."
+ ]
+}

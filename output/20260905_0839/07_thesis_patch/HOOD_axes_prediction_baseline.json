@@ -1,0 +1,37 @@
+{
+  "as_of": "2026-09-05T08:55",
+  "run_id": "20260905_0839",
+  "ticker": "HOOD",
+  "card_field": "axes",
+  "operation": "annotate",
+  "before": "  - {id: prediction_market, label: \"예측시장 — 매출 기여 vs 규제 리스크\"}",
+  "after": "  # 2026-09-05 ThesisPatch(annotate, run 20260905_0839 소급 확인) — 이전 라벨: \"예측시장 — 매출 기여 vs 규제 리스크\"(P9 보존). 축의 최초 grade 1 매출 실측 기준선을 병기한다. 축 수 5개 불변.\n  - {id: prediction_market, label: \"예측시장 — 매출 기여 vs 규제 리스크. 기준선(Q2'26, 8-K Ex-99.1 grade 1): 이벤트 계약 매출 $156M·YoY 10배+, 분기 계약 13.6B건 — 거래매출 $776M 구성에서 크립토($100M)·주식($129M)을 추월(비중 ~20.1%는 파생 계산, inference). ⚠️Q3에서 월드컵 계절성 여부 확인 전까지 지속성 미검증 · 동일 축에 KC-HOOD-3 규제 리스크 상존(9순회 Kalshi 패소 판례, circuit split→SCOTUS 추적)\"}",
+  "reason": "[fact] 2026-07-29 8-K Exhibit 99.1(주주서한)이 이벤트 계약 매출 $156M(YoY 10배+), 분기 계약 13.6B건을 공시했고(c_retro_HOOD_001·002, grade 1), 실적콜 발언도 독립 전사 2건으로 재확인됐다(c_retro_HOOD_003, grade 2). [fact] prediction_market 축은 지금까지 grade 3·4 애널리스트 추정만 있었고 grade 1 매출 실측 기준선이 카드에 없다 — 이 축의 성격이 '규제 리스크 대비 매출 기여 미지수'에서 '실증된 매출 축(단 지속성 미검증)'으로 바뀌었음을 카드가 반영해야 이후 Delta 매핑이 정확해진다. [fact] 비중 ~20.1%는 회사 공시가 아닌 파생 계산이므로 inference로 명기한다(c_retro_HOOD_004, P1). [fact] 축 수 5개 불변, 이전 라벨은 주석으로 보존(P9). 축의 방향(강화/훼손) 판정은 부여하지 않으며 시그널 등급 근거로 사용될 수 없다(P2 — 등급 재판정은 Q3 지속성 확인 후 별도).",
+  "basis_claims": [
+    "c_retro_HOOD_001",
+    "c_retro_HOOD_002",
+    "c_retro_HOOD_003",
+    "c_retro_HOOD_004"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] thesis 본문(수익원 다각화)의 방향을 유지·실증하는 기준선 병기이며 판정을 포함하지 않는다.",
+  "downstream_note": "[fact] Q3 실적에서 이벤트 계약 매출의 QoQ 방향이 확인되면 계절성 캐비어트 갱신 대상. [fact] 13.6B(분기) vs 3.5B(누적 표기) 수치 관계는 unconfirmed로 별도 이관돼 있다(c_retro_HOOD_002 note).",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "기준선(Q2'26, 8-K Ex-99.1 grade 1): 이벤트 계약 매출 $156M",
+      "2026-09-05 ThesisPatch(annotate, run 20260905_0839"
+    ],
+    "not_contains": [
+      "- {id: prediction_market, label: \"예측시장 — 매출 기여 vs 규제 리스크\"}"
+    ],
+    "counts": [
+      {
+        "path": "axes",
+        "n": 5
+      }
+    ]
+  },
+  "source_artifact": "output/20260905_0839/02_company/HOOD_retro.json#claims[c_retro_HOOD_001/002/003/004] · output/20260905_0839/retro_check_HOOD.md"
+}

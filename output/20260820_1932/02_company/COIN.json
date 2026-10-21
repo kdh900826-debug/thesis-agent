@@ -1,0 +1,172 @@
+{
+ "ticker": "COIN",
+ "run_id": "20260820_1932",
+ "as_of": "2026-08-20",
+ "lookback_window": "2026-08-15~2026-08-20",
+ "sources_collected": {
+  "edgar_fulltext": {
+   "forms": ["10-K", "10-Q", "8-K"],
+   "since": "2026-08-15",
+   "cik": "0001679788",
+   "result_count": 0,
+   "note": "직전 run(20260815) 이후 신규 10-K/10-Q/8-K 없음. raw: output/20260820_1932/02_company/_raw_edgar_COIN.json. Circle 분배계약 갱신(발효 8/18) 관련 COIN 측 8-K도 이 조회에 포함 — 미제출 확인(2026-08-20 19:32 KST 조회)."
+  },
+  "web_search": "Circle-Coinbase USDC 계약 갱신(8/18 발효) 후속 확인, OUSD 참여조건·분배구조, USDC 수익 공시, CLARITY Act 진행, Deribit/Base 파생상품 확장, Q3 실적일 — 날짜 한정 쿼리 다수 수행"
+ },
+ "claims": [
+  {
+   "id": "c_20260820_COIN_001",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "SEC EDGAR submissions API query for Coinbase Global, Inc. (CIK 0001679788), forms 10-K/10-Q/8-K, since 2026-08-15, returned 0 filings as of the query time 2026-08-20 19:32 KST — including no 8-K disclosing the Circle Collaboration Agreement renewal that took effect 2026-08-18.",
+   "evidence_grade": 1,
+   "source": {"type": "regulatory_api", "url": "https://data.sec.gov/submissions/CIK0001679788.json", "published_at": "2026-08-20"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "as_of": "2026-08-20",
+   "staleness_days": 0,
+   "note": "직전 조기 관측(output/20260816_0843, output/20260820_1925)과 동일 결과 재확인 — 발효일(8/18) 경과 후에도 8-K 부재 지속."
+  },
+  {
+   "id": "c_20260820_COIN_002",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Circle and Coinbase's USDC revenue-sharing Collaboration Agreement (originally effective 2023-08-18) entered an additional three-year renewal term on 2026-08-18. Multiple secondary reports (KuCoin, Crypto.news, CoinGape, Cryptobriefing, CoinGabbar, cryptonews.net) state the renewal preserves the original 2023 economics unchanged through 2029 — Coinbase retains 100% of USDC reserve interest income held on its own platform and roughly 50% of residual reserve income on USDC held elsewhere — citing Coinbase CFO Alesia Haas's 2026-07-30 Q2 earnings-call statement and Circle CEO Jeremy Allaire's 2026-08-05 Q2 earnings-call statement.",
+   "evidence_grade": 3,
+   "source": {"type": "news", "url": "https://cryptoslate.com/circles-renewed-coinbase-deal-creates-two-ways-to-challenge-coinbases-usdc-payouts-but-neither-works-quickly/", "published_at": "2026-08-19"},
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "as_of": "2026-08-19",
+   "staleness_days": 1,
+   "note": "그레이드3 다중 매체 교차확인이나 단독 판단 근거 불가(P4) — confirmed=false 유지. 100%/50% 분배 비율 자체는 2023년 원 계약 조항(반복 인용)이며 2026 신규 수치 아님."
+  },
+  {
+   "id": "c_20260820_COIN_003",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "CryptoSlate reports that the Collaboration Agreement's enforcement provisions include a 'Product Threshold Remedy' (Circle may exclude the 'Party Product Economics Amount' after a 60-day cure period following written notice of a minimum blockchain/Layer-2/product-support or discoverability failure, escalating on a third failure within 12 months) and a 'Reseller Threshold Remedy' (Circle may exclude the 'Ecosystem Economics Amount' after a 90-day cure period if users cannot buy/sell USDC for dollars on Coinbase in relevant jurisdictions); the article attributes these terms to an SEC-filed exhibit of the original agreement, not a new 2026 filing.",
+   "evidence_grade": 3,
+   "source": {"type": "news", "url": "https://cryptoslate.com/circles-renewed-coinbase-deal-creates-two-ways-to-challenge-coinbases-usdc-payouts-but-neither-works-quickly/", "published_at": "2026-08-19"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "as_of": "2026-08-19",
+   "staleness_days": 1,
+   "note": "단일 그레이드3 소스 — 원본 SEC exhibit을 직접 대조하지 못함(1차 URL 역추적 실패). confirmed=false."
+  },
+  {
+   "id": "c_20260820_COIN_004",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "A single report (CoinReporter, 2026-08-19) describes the 2026-08-18/19 renewal as an 'expansion' in which Coinbase gains more favorable USDC reserve-income economics in exchange for deeper integration commitments across Coinbase Pay, the Base network, and the main exchange — a characterization that conflicts with the 'unchanged terms' reporting in claim c_20260820_COIN_002 (five other outlets).",
+   "evidence_grade": 4,
+   "source": {"type": "news", "url": "https://www.coinreporter.io/2026/08/coinbase-and-circle-expand-usdc-revenue-sharing-arrangement/", "published_at": "2026-08-19"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "as_of": "2026-08-19",
+   "staleness_days": 1,
+   "note": "coinreporter.io는 sources.yaml 미등재 도메인(default_grade=4). 단독 소스, 그레이드1·2 뒷받침 없음, 8-K 부재(c_001)와 상충 가능 — 진위 미확정."
+  },
+  {
+   "id": "c_20260820_COIN_005",
+   "ticker": "COIN",
+   "claim_type": "inference",
+   "text": "Given single-source grade-4 sourcing for the 'expanded/more favorable economics' narrative versus broader multi-outlet grade-3 corroboration (anchored to two executives' direct earnings-call statements) for 'unchanged terms,' and given no 8-K or other grade-1/2 filing disclosing amended terms, the 'unchanged terms' characterization is currently better supported; the 'expansion' report may be conflating separate OUSD-integration commitments with the Circle-Coinbase renewal itself.",
+   "evidence_grade": 3,
+   "source": {"type": "derived", "url": "https://cryptoslate.com/circles-renewed-coinbase-deal-creates-two-ways-to-challenge-coinbases-usdc-payouts-but-neither-works-quickly/", "published_at": "2026-08-19"},
+   "inference_strength": "medium",
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "as_of": "2026-08-20",
+   "staleness_days": 0,
+   "note": "판정이 아니라 상충 서사에 대한 확신도 평가 — 최종 확정은 사람(신규 8-K 또는 10-Q 계약 주석 확인 시까지 잠정)."
+  },
+  {
+   "id": "c_20260820_COIN_006",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Deribit (Coinbase's international derivatives exchange subsidiary) plans to launch USDC-settled, up-to-50x-leverage RWA perpetual contracts on US equities/ETFs/commodities/pre-IPO assets starting 2026-08-31 (initial listings: NVDA, MSFT, META, TSLA, AAPL, GOOGL, AMZN, plus QQQ/SPY ETFs), phasing in additional names through early September (incl. AMD, HOOD, INTC, MRVL, TSM, MSTR, CRCL equities; GOLD/SILVER/BRENTOIL/WTIOIL commodities; pre-IPO OPENAI/ANTHROPIC contracts before the cutover), with full migration of Coinbase International Exchange (INTX) derivatives trading to a Deribit-powered 'Starbase' matching engine completing 2026-09-09, targeting 125+ perpetual contracts.",
+   "evidence_grade": 4,
+   "source": {"type": "news", "url": "https://coingape.com/coinbases-deribit-exchange-to-begin-offering-stock-perps-in-august/", "published_at": "2026-08-20"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "as_of": "2026-08-20",
+   "staleness_days": 0,
+   "note": "1차 소스 support.deribit.com 직접 접근 403 차단(역추적 실패) — confirmed=false 유지. coingape.com·cryptotimes.io 모두 sources.yaml 미등재(default grade4), 상호 교차확인은 되나 단독 판단 근거 불가(P4). 매출·거래량 기여치는 미공시."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "usdc_economics",
+   "direction": "neutral",
+   "prior_state": "20260815 run: CFO 원문(7/30 콜) 확인 — 갱신 조건 충족, 8/18 동일 조건 자동 갱신 '예정'. Circle 계약 자체의 근시일 재편 리스크는 해소되었으나 발효는 미도래 상태였음.",
+   "new_state": "발효일(8/18) 경과 확인 — COIN 측 8-K 미제출 지속(c_001, grade1 확인). 복수 그레이드3 매체가 '기존 조건 불변(100%/50% 분배 유지, 2029년까지)'을 CFO Haas·Circle CEO Allaire 양측 발언 인용으로 교차확인(c_002·003). 다만 단일 그레이드4 매체가 '확장(더 유리한 조건)'을 주장(c_004) — 상충하며 미확정(c_005). 실질적으로 8/15 시점 예상에서 벗어난 새 정보는 없어 방향은 neutral로 유지(강화 근거를 추가하지 않음, 훼손도 아님).",
+   "risk_transfer_to": [
+    "OUSD 참여의 장기적 자사 USDC 수익 대체·재편 가능성은 여전히 미해소 — usdc_economics 축 내 감시 지속 (분배 구조 공개 unconfirmed)",
+    "'확장' 서사 진위는 차기 10-Q 계약 주석 또는 신규 8-K 확인 시까지 이관 — 소멸 아님"
+   ],
+   "supporting_claims": ["c_20260820_COIN_001", "c_20260820_COIN_002", "c_20260820_COIN_003", "c_20260820_COIN_004", "c_20260820_COIN_005"]
+  },
+  {
+   "axis": "derivatives_base",
+   "direction": "strengthen",
+   "prior_state": "20260815 run: UK 전문투자자 대상 170+계약 파생상품 접근 개시(8/11) — 매출 기여 미확정, 원문 직접열람 실패로 근거 강도 제한적.",
+   "new_state": "Deribit RWA 무기한선물(미국 대형주·ETF·상품·프리IPO, 최대 50x, USDC 결제) 8/31 출시 예정 + INTX 파생상품의 Deribit 기반 'Starbase' 엔진 완전 이전 9/9 완료 목표(125+계약)(c_006) — 파생상품·Base 축의 지리적·상품군 확장이 추가로 관측됨. 단, 전부 그레이드4 단독 소스이며 1차 소스(support.deribit.com) 접근 실패 — confirmed=false, 매출 기여는 여전히 미공시.",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260820_COIN_006"]
+  }
+ ],
+ "new_axis_proposals": [],
+ "unconfirmed": [
+  {
+   "item": "OUSD 참여 조건·분배 구조 공개",
+   "reason": "조회 기간(8/15~8/20) 내 COIN 특정 분배 조건·수익 배분 비율 공개 없음. 일반론 보도(Base 등 다중 체인 'later in 2026' 출시 예정)만 확인되며 신규 1차 자료 없음 — noise_filter.yaml#COIN promote_if 항목이나 자료 미확보로 unconfirmed 유지(P5)."
+  },
+  {
+   "item": "USDC 수익 절대액 공시",
+   "reason": "조회 기간 내 신규 수치 공시 없음(promote_if 항목, 자료 미확보). 차기 Q3 실적 발표 대상."
+  },
+  {
+   "item": "Circle-Coinbase 계약 '확장' 서사(c_20260820_COIN_004)의 진위",
+   "reason": "단일 그레이드4 소스 vs 복수 그레이드3 소스('불변') 상충. 그레이드1·2 근거 부재 — 8-K 또는 10-Q 계약 주석 확인 전까지 미확정."
+  },
+  {
+   "item": "Q3 2026 실적 발표일",
+   "reason": "애그리게이터 추정치(10/29)만 존재, 회사 IR 공식 공지 미확인(F1, 등급 무관 판정 근거 불가). 조회 기간 내 변화 없음."
+  }
+ ],
+ "noise_triage_log": [
+  {
+   "pattern": "Coinbase 주가 11% 상승 (파생상품 확장 기대, 시총 $42.86B 언급)",
+   "action": "discard",
+   "reason": "단순 주가 변동 — noise_filter.yaml 공통 노이즈. 근거가 된 파생상품 확장 자체는 별도 승격(c_006)."
+  },
+  {
+   "pattern": "OUSD 일반론 설명 기사 다수 (coinshares/thirdweb/HTX Ventures/forkast 등 — '$667.7M 문제', 스테이블코인 경제 재편 테마)",
+   "action": "discard",
+   "reason": "COIN 특정 분배 조건·수치 없는 테마·해설 기사 — P3 노이즈, promote_if 미해당(일반 산업 논평)."
+  },
+  {
+   "pattern": "KuCoin 'Coinbase Joins Open USD Consortium, Renegotiates Circle Partnership' (기사 실제 작성일 2026-07-04, 조회 기간 이전)",
+   "action": "discard",
+   "reason": "조회 기간(8/15~8/20) 이전 발행 — 배경 참고로만 사용, 신규 Claim 미생성."
+  },
+  {
+   "pattern": "CLARITY Act 관련 언급 (9/15 클로처 표결 일정) — 8/15 run에서 이미 반영",
+   "action": "discard",
+   "reason": "조회 기간 내 상태 변화 없음(9/15 표결 여전히 미도래) — 중복 Claim 미생성, regulation 축 delta 미갱신."
+  }
+ ],
+ "reused_from": null,
+ "staleness_days": 0
+}

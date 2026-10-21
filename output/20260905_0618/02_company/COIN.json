@@ -1,0 +1,136 @@
+{
+ "ticker": "COIN",
+ "run_id": "20260905_0618",
+ "as_of": "2026-09-05",
+ "lookback_window": "2026-08-20~2026-09-05",
+ "sources_collected": {
+  "edgar_fulltext": {
+   "forms": ["10-K", "10-Q", "8-K"],
+   "since": "2026-08-20",
+   "cik": "0001679788",
+   "result_count": 1,
+   "note": "직전 full run(20260820_1932, since 2026-08-15, 0건) 이후 신규 1건 확인: 8-K filed 2026-09-02 (Item 5.02, 이사회 인사). raw: output/20260905_0618/02_company/_raw_edgar_COIN.json. Circle 분배계약 관련 8-K는 이번 조회에도 미확인(2026-09-05 조회)."
+  },
+  "web_search": "Anthony Armstrong 이사 선임 배경, Circle-Coinbase 분배계약/8-K 후속, OUSD 참여조건·분배구조, USDC 수익 절대액 공시, CLARITY Act 9/15 표결 상태, Deribit RWA 무기한선물·Starbase 마이그레이션(9/9) 진행 상황, Q3 실적일 — 날짜 한정 쿼리 다수 수행"
+ },
+ "claims": [
+  {
+   "id": "c_20260905_COIN_001",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "SEC EDGAR submissions API query for Coinbase Global, Inc. (CIK 0001679788), forms 10-K/10-Q/8-K, since 2026-08-20, returned exactly 1 filing as of 2026-09-05: an 8-K filed 2026-09-02 (https://www.sec.gov/Archives/edgar/data/1679788/000167978826000101/coin-20260901.htm). Direct review of that filing confirms it is triggered solely under Item 5.02 (board of directors change) — expansion of the board from 9 to 10 members and appointment of Anthony Armstrong as director and member of the Audit and Compliance Committee, with standard indemnification agreement and non-employee director compensation program. The filing contains no mention of Circle, USDC, or any distribution/collaboration agreement, and discloses no revenue, guidance, or capital-allocation figures.",
+   "evidence_grade": 1,
+   "source": {"type": "8-K", "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000101/coin-20260901.htm", "filed_at": "2026-09-02"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "as_of": "2026-09-05",
+   "staleness_days": 0,
+   "note": "Circle 분배계약 관련 8-K 부재 지속을 재확인(usdc_economics 축 근거로만 사용 — 이사 선임 자체는 P3 상 노이즈 판정, 별도 축 매핑 없음)."
+  },
+  {
+   "id": "c_20260905_COIN_002",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Per a cryptoslate.com report (published 2026-09-02, attributed to a 'Coinbase derivatives dashboard snapshot retrieved at 15:42 UTC on Sept. 1'), ahead of the planned 2026-09-09 full migration of Coinbase International Exchange (INTX) derivatives trading onto the Deribit-powered 'Starbase' matching engine, open interest was already concentrated as: Deribit $39.26B (96.6%), Coinbase Derivatives $1.17B (2.9%), International Exchange $226.98M (0.6%).",
+   "evidence_grade": 4,
+   "source": {"type": "news", "url": "https://cryptoslate.com/deribit-already-holds-96-6-of-coinbases-derivatives-open-interest-ahead-of-sept-9-migration/", "published_at": "2026-09-02"},
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "as_of": "2026-09-02",
+   "staleness_days": 3,
+   "note": "cryptoslate.com은 sources.yaml 미등재 도메인(default_grade=4). 기사는 수치 출처를 'Coinbase 자체 대시보드'로 명시하나 대시보드 원본 URL을 직접 제공하지 않아 1차 URL 역추적 실패 — confirmed=false 유지(D15). 매출·거래량 기여치(달러 기준 실제 거래대금·수수료)는 여전히 미공시."
+  },
+  {
+   "id": "c_20260905_COIN_003",
+   "ticker": "COIN",
+   "claim_type": "fact",
+   "text": "Multiple grade-3/4 outlets (crypto.news 2026-09-02, cryptotimes.io, tradersunion.com) confirm the Deribit 'Starbase' matching-engine migration for Coinbase International Exchange derivatives remains scheduled for 2026-09-09, with an expected ~30-minute downtime window, automatic carryover of open positions/balances, and cancellation of open perpetual-futures orders requiring re-entry post-migration. Deribit's RWA perpetual contracts (USDC-settled, up to 50x leverage, on NVDA/MSFT/META/TSLA/AAPL/GOOGL/AMZN and other names) that were slated to begin 2026-08-31 per the prior run's c_20260820_COIN_006 remain reported as launched/launching on that schedule; no outlet in this window reports a delay, cancellation, or contrary schedule, but none discloses actual post-launch trading volume, open interest, or revenue attributable to the new RWA products specifically.",
+   "evidence_grade": 4,
+   "source": {"type": "news", "url": "https://crypto.news/coinbase-sets-sept-9-deribit-migration-for-institutions/", "published_at": "2026-09-02"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "as_of": "2026-09-02",
+   "staleness_days": 3,
+   "note": "crypto.news·cryptotimes.io·tradersunion.com 모두 sources.yaml 미등재(default grade4). 1차 소스(support.deribit.com, coinbase.com migration 공지 help.coinbase.com/en/international-exchange/deribit)는 안내 페이지일 뿐 실적 수치 미포함 — confirmed=false 유지. c_20260820_COIN_006의 일정 연속성 확인 성격이며 신규 매출 기여 정보는 아님."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "usdc_economics",
+   "direction": "neutral",
+   "prior_state": "20260820 run: 발효일(8/18) 경과 후에도 COIN 측 8-K 미제출, 복수 그레이드3 매체 '기존 조건 불변(100%/50% 분배)' 대 단일 그레이드4 매체 '확장' 서사 상충 — 미확정(neutral 유지).",
+   "new_state": "20260820~20260905 구간 신규 EDGAR 조회(c_001)에서도 Circle 분배계약 관련 8-K는 여전히 미확인 — 유일한 신규 8-K(9/2)는 이사회 인사 건으로 Circle·USDC와 무관함이 직접 확인됨. '확장' 서사(전 run c_20260820_COIN_004)를 뒷받침하거나 반증할 신규 1차 자료는 이번 구간에도 등장하지 않음 — 상충은 미해소 상태로 이월. 방향은 neutral 유지(강화·훼손 근거 모두 신규 미확보).",
+   "risk_transfer_to": [
+    "OUSD 참여의 장기적 자사 USDC 수익 대체·재편 가능성은 여전히 미해소 — usdc_economics 축 내 감시 지속 (분배 구조 공개 unconfirmed)",
+    "'확장' 서사 진위는 차기 10-Q 계약 주석 또는 신규 8-K 확인 시까지 이관 — 소멸 아님(전 run과 동일 이관처 유지)"
+   ],
+   "supporting_claims": ["c_20260905_COIN_001"]
+  },
+  {
+   "axis": "derivatives_base",
+   "direction": "strengthen",
+   "prior_state": "20260820 run: Deribit RWA 무기한선물(미국 대형주·ETF·상품·프리IPO, 최대 50x, USDC 결제) 8/31 출시 예정 + INTX 파생상품의 Deribit 기반 'Starbase' 엔진 완전 이전 9/9 완료 목표(125+계약) — 전부 그레이드4 단독 소스, confirmed=false, 매출 기여 미공시.",
+   "new_state": "9/9 마이그레이션 일정에 변경 없음이 재확인되고(c_003), 이전 단계에서 이미 오픈 인터레스트의 96.6%가 Deribit로 이전된 상태(c_002)로 — 이관·통합 작업이 계획대로 진행 중임을 시사하는 운영 지표가 추가 관측됨. 다만 여전히 전부 그레이드4(cryptoslate·crypto.news 등 sources.yaml 미등재) 단독/교차 소스이며 1차 대시보드 원본 직접 확인 실패, RWA 신상품 자체의 실거래량·매출 기여는 이번 구간에도 미공시 — confirmed=false 유지. 방향은 전 run과 동일하게 점진적 강화로 유지하되 확신도는 낮음(전 run 대비 신규 정보는 '계획 이행 진행 중' 수준에 그침).",
+   "risk_transfer_to": [],
+   "supporting_claims": ["c_20260905_COIN_002", "c_20260905_COIN_003"]
+  }
+ ],
+ "new_axis_proposals": [],
+ "unconfirmed": [
+  {
+   "item": "OUSD 참여 조건·분배 구조 공개",
+   "reason": "조회 기간(8/20~9/5) 내 COIN 특정 분배 조건·수익 배분 비율 공개 없음. OUSD 자체가 아직 라이브 미출시(Solana 우선, Base 등은 '2026년 하반기 later')로 확인되어 promote_if 트리거 미충족 상태 지속 — unconfirmed 유지(P5)."
+  },
+  {
+   "item": "USDC 수익 절대액 공시",
+   "reason": "조회 기간 내 신규 수치 공시 없음(promote_if 항목, 자료 미확보). 차기 Q3 실적 발표 대상으로 이월."
+  },
+  {
+   "item": "Circle-Coinbase 계약 '확장' 서사(c_20260820_COIN_004)의 진위",
+   "reason": "단일 그레이드4 소스 vs 복수 그레이드3 소스('불변') 상충 — 이번 구간 신규 8-K(9/2)도 무관 건이라 해소되지 않음. 그레이드1·2 근거 부재, 8-K 또는 10-Q 계약 주석 확인 전까지 미확정 상태 이월."
+  },
+  {
+   "item": "Q3 2026 실적 발표일",
+   "reason": "애그리게이터 추정치(10/29)만 존재, 회사 IR 공식 공지 이번 구간에도 미확인(F1, 등급 무관 판정 근거 불가). 상태 변화 없음."
+  },
+  {
+   "item": "Deribit RWA 무기한선물의 실제 매출·거래량 기여",
+   "reason": "8/31 출시 일정 자체는 반복 확인되나(c_003), 출시 후 실거래량·수수료 매출 실측치는 이번 구간 내 어떤 소스에서도 공시되지 않음 — unconfirmed 신규 등재."
+  }
+ ],
+ "noise_triage_log": [
+  {
+   "pattern": "Anthony Armstrong Coinbase 이사회 선임 (9/2 8-K Item 5.02 + Bloomberg/TheBlock/CFO Dive/Cryptopolitan 등 다수 보도, 전 xAI/X CFO·Morgan Stanley IB 부회장·DOGE 자문)",
+   "action": "discard",
+   "reason": "이사회 인사 변경만이며 매출·가이던스·마진·현금흐름·고객명·수주·양산일정 중 어느 것도 변화시키지 않음(P3). 일부 매체의 '24/7 market rails'·'AI 금융 인프라' 프레이밍은 3차 매체의 해석(추론)이며 회사 공식 코멘트('build things that work at scale, without waste')는 실행력 강조에 그쳐 정량·전략 변경 근거 불가 — 신규 축 제안 요건 미충족. 8-K 원문 확인 결과(c_001)는 Circle·USDC 무관 확인 용도로만 사용."
+  },
+  {
+   "pattern": "Deribit/시장 전반 스톡 퍼프추얼 8월 거래량 통계 (cryptonomist: $665.42B, SNDK/SKHYNIX/SPCX가 50.4% 점유, NVDA/META 각 3% 미만) 및 경쟁사(Bybit) 스톡 옵션 출시 보도",
+   "action": "discard",
+   "reason": "크립토 거래소 전반의 시장 통계로 scope=sector/macro — COIN 특정 매출 기여 데이터 아님(F11·F13). Bybit 등 경쟁사 상품은 COIN 직접 자료 아님."
+  },
+  {
+   "pattern": "CLARITY Act 9/15 클로처 표결 일정 재확인 (다수 매체, coindesk/troutmanfinancial 등)",
+   "action": "discard",
+   "reason": "8/15~8/20 run에서 이미 반영된 9/15 일정 그대로 — 조회 기간 내 상태 변화 없음. regulation 축 delta 미갱신."
+  },
+  {
+   "pattern": "Coinbase Q2 2026 실적 반복 인용 (9/2 Armstrong 기사 내 '순매출의 88%가 BTC 현물거래 이외 발생' 등, 7/30 발표 데이터)",
+   "action": "discard",
+   "reason": "7/30 실적 발표 시점 데이터의 반복 인용 — 조회 기간(8/20~9/5) 내 신규 수치 아님."
+  },
+  {
+   "pattern": "Circle이 2024년 Coinbase에 $908M 분배 지급했다는 기사(cryptobriefing, 발행일 2026-07-11)",
+   "action": "discard",
+   "reason": "조회 기간(8/20~9/5) 이전 발행 + 2024년도 기준 수치로 신규성 없음. 1차 공시 인용도 없음(출처 미상)."
+  }
+ ],
+ "reused_from": null,
+ "staleness_days": 0
+}

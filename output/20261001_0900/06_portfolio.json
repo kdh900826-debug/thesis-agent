@@ -1,0 +1,1325 @@
+{
+  "layer": "portfolio",
+  "produced_by": "cio-portfolio (L4) — 상관·포트폴리오 파트",
+  "run_id": "20261001_0900",
+  "as_of": "2026-10-02T23:05",
+  "run_as_of": "2026-10-01",
+  "reused_from": null,
+  "staleness_days": 0,
+  "as_of_note": "[fact] as_of는 본 파일 작성 시각이다. 직전 시도가 API 한도로 산출물 없이 중단돼 run 기준일(2026-10-01) 다음 날 작성했다 — 입력은 전부 run 기준일 산출물이며 입력별 as_of는 inputs_used에 기재했다(P16).",
+  "candidate_disclaimer": "[fact] 본 산출물은 시나리오·한도·이격도만 제시한다 — 포지션 행동 지시가 아니다(P15·F18). [fact] 목표 비중 단일값과 시점 지시를 포함하지 않으며, 등급·KC 판정은 하위 계층 후보의 인용이다(P13).",
+  "work_split_note": "[fact] 본 파일은 L4 cio-portfolio의 상관·포트폴리오 파트 산출물이다. thesis-refine/ThesisPatch(07_thesis_patch·state/pending_approvals.json·thesis card)는 별도 병렬 에이전트 소관이며 본 파트는 그 파일들을 쓰거나 수정하지 않았다.",
+  "inputs_used": [
+    {
+      "path": "output/20261001_0900/01_macro_kc.json",
+      "as_of": "2026-10-01T22:00",
+      "staleness_days": 0
+    },
+    {
+      "path": "output/20261001_0900/04_sector/neocloud.json",
+      "as_of": "2026-10-01",
+      "staleness_days": 0
+    },
+    {
+      "path": "output/20261001_0900/04_sector/memory.json",
+      "as_of": "2026-10-01",
+      "staleness_days": 0
+    },
+    {
+      "path": "output/20261001_0900/04_sector/stablecoin.json",
+      "as_of": "2026-10-01",
+      "staleness_days": 0
+    },
+    {
+      "path": "output/20261001_0900/05_correlation.json",
+      "as_of": "2026-10-02T22:35",
+      "staleness_days": 0,
+      "note": "[fact] 본 회차 [CODE] 실행본 + LLM 계층(2026-10-02T22:50)."
+    },
+    {
+      "path": "config/correlation_matrix.yaml",
+      "as_of": "2026-08-15",
+      "staleness_days": 47
+    },
+    {
+      "path": "config/positions.yaml",
+      "as_of": "2026-09-19",
+      "staleness_days": 12,
+      "note": "[fact] 30일 한도 이내."
+    },
+    {
+      "path": "config/kill_conditions.yaml",
+      "as_of": "2026-08-15",
+      "staleness_days": 47,
+      "note": "[fact] 시나리오의 사전 정의 임계·결과 문언 대조용(P11)."
+    },
+    {
+      "path": "state/signals.json · state/pending_approvals.json",
+      "as_of": "2026-09-05 (signals)",
+      "staleness_days": 26,
+      "usage": "[fact] 결정 기록 존재 여부 확인용 읽기 전용 — 수정하지 않았다."
+    },
+    {
+      "path": "output/20260925_1015/06_portfolio.json",
+      "as_of": "2026-09-25T10:48",
+      "staleness_days": 7,
+      "usage": "[fact] 형식·시나리오·에스컬레이션 이월 연속성 참고 전용."
+    }
+  ],
+  "p17_note": "[fact] 02_company/* 원문, 03_signal/*, 00_user_sources(한국 대미 에너지 투자 주입 원본 포함), _raw_* 수집 원문, state/thesis_cards/*를 로드하지 않았다. [fact] 시그널 등급 후보·종목 KC 판정은 04_sector 파일의 인용을 통해서만 참조했다.",
+  "default_action": "no_action",
+  "default_action_basis": {
+    "P12_statement": "[fact] 게이트 미충족 시 기본 출력은 '행동 없음 / 등급 유지'다(P12). [fact] 게이트 미충족은 실패가 아니라 정상 경로다(CLAUDE.md §7).",
+    "reasons": [
+      "[fact] 본 레이어는 포지션 행동을 산출하지 않는다 — 행동 결정 권한은 사람에게 있다(CLAUDE.md §9).",
+      "[fact] 시그널 등급은 전부 '후보'이며 state/signals.json(as_of 2026-09-05, transitions 0건)에 확정 변경이 없다 — 🔴🔴 후보 4건은 3회 연속(09-19·09-25·10-01) 사람 확정 기록 없이 재상신된 상태다.",
+      "[fact] 🔴🔴 후보 4건(IREN·NBIS·CRWV·MU)은 전부 매크로 KC-1 단일 경로이며 종목 전용 KC 훼손은 0건이다. MU는 Kill 부재 시에도 ip_litigation_risk로 🔴 하향 후보라는 펀더멘털 경로가 병존한다(04_sector/memory.json 인용).",
+      "[fact] 🔴🔴 포함으로 CLAUDE.md §7에 따라 자동 실행이 금지되며 본 산출물은 사람 확인 요청 + 근거 패키지로 종료한다.",
+      "[fact] 섹터 층 3개 모두 방향 컨센서스를 산출하지 않았고(neocloud partially_comparable_not_interpretable, memory 단일 종목, stablecoin 공유 축 1개·허위 diverge), 섹터 재료는 어떤 경우에도 종목 근거가 아니다(P6·P13).",
+      "[fact] 한국 대미 에너지 투자(Project Star)는 3사 L2·L3 모두 scope=sector·delta 미생성으로 처리됐다 — 포지션 행동 게이트를 여는 재료가 아니다(P6)."
+    ],
+    "not_a_failure": "[fact] no_action은 판정 실패가 아니라 P12가 규정한 기본 출력이다. [fact] 🔴🔴 후보가 포함되므로 사람 확인 요청으로 종료한다."
+  },
+  "macro_kc_integration": {
+    "_purpose": "[fact] 01_macro_kc.json 판정을 포트폴리오 맥락에 연결한다 — KC 판정을 개별 종목 시그널 근거로 인용하지 않는다(P13).",
+    "source": "output/20261001_0900/01_macro_kc.json (as_of 2026-10-01T22:00)",
+    "total_active": 10,
+    "met": [
+      "KC-1"
+    ],
+    "not_met": [
+      "KC-2",
+      "KC-3",
+      "KC-4",
+      "KC-5",
+      "KC-6",
+      "KC-7",
+      "KC-8",
+      "KC-9",
+      "KC-10"
+    ],
+    "not_met_confidence": "[fact] confirmed: KC-2·3·4·5 / provisional: KC-6·7·8·9·10 — not_met은 확정이 아니다(F7·P5).",
+    "double_red_present": true,
+    "vs_prior_run": "[fact] met 집합은 직전 회차와 같은 KC-1 1건이다. [fact] 변동 관측: ON_RRP $0.63B(09-24) → $11.54B(09-30), brent 114.89 → 113.96, VIX 15.67 → 16.26, BTC 84,653.665 → 83,670.59 USD.",
+    "kc1": {
+      "verdict": "met",
+      "verdict_confidence": "confirmed",
+      "runs_persisted": 3,
+      "observation": "[fact] FFR 4.00(FRED DFEDTARU, api, as_of 2026-10-01) > 임계 3.75. [fact] L1은 2026-09-25~10-01 구간 신규 FOMC 결정이 확인되지 않았고 값이 동일하다고 기록했다(carry_over_reconfirm — 3개 연속 run 동일 상태, 신규 발생 아님).",
+      "predefined_consequence": "레버리지 전액 해제 + Edge/Next 50% 축소 검토",
+      "quote_marker": "[fact] 바로 위 predefined_consequence 필드는 config/kill_conditions.yaml#macro.KC-1.consequence의 원문 인용이다 — 본 에이전트가 작성한 지시가 아니다(P15·F18).",
+      "applicability_to_current_book": {
+        "leverage_clause": "[fact] 레버리지 미사용이며 v32 'Base 현금 대비 40% 상한' 규칙은 Base 미보유로 비활성이다. [inference/강] 문언의 레버리지 조항은 현 장부에 대상이 없다.",
+        "edge_clause": "[fact] Edge 티어는 IREN 1종목(보유, 범위 [0.85, 0.95])이다. [inference/강] 문언 중 실질 대상이 존재하는 것은 Edge 조항뿐이다.",
+        "next_clause": "[fact] Next 티어(CRCL·COIN·HOOD)는 전부 미보유다 — 대상이 비어 있다.",
+        "base_and_untiered": "[fact] MU(Base)·NBIS·CRWV(티어 없음)는 미보유다 — 이 3종목의 🔴🔴 후보는 현 장부에서 포지션 효과가 없다.",
+        "statement_boundary": "[fact] 위 대응관계는 사전 정의 문언과 현 장부 상태의 사실 대조다. 문언의 실행 여부·범위는 전부 사람의 판단이다(CLAUDE.md §9, P15)."
+      },
+      "unrecorded_human_confirmation": "[fact] 09-19·09-25 회차가 같은 사전 정의 문언에 대한 사람 확인을 요청했으나 state/signals.json(as_of 2026-09-05)·state/pending_approvals.json(59건 전부 thesis_patch 유형)·positions.yaml(as_of 2026-09-19, 비중 변동 없음 확인) 어디에도 결정 기록이 없다. [inference/중] 결정이 내려졌으나 기록되지 않은 것인지, 아직 내려지지 않은 것인지 본 레이어 입력으로는 구분할 수 없다(P5).",
+      "p13_guard": "[fact] KC-1은 매크로 층위 판정이며 개별 종목 시그널 근거로 사용되지 않는다(P6·P13). [fact] 4종목 🔴🔴 후보는 arbiter 규칙1 경로이며 본 레이어가 만든 전이가 아니다."
+    },
+    "kc9": {
+      "verdict": "not_met",
+      "verdict_confidence": "provisional",
+      "observation": "[fact] brent 113.96(as_of 2026-09-29, stale 2/한도 3) < 120. [fact] L1은 duration '1개월 지속'을 두 해석으로 모두 기록했다 — 연속 해석: 최장 연속 상회 09-14~09-17(4거래일), 09-24 1거래일 재상회 후 재하회 / 누적 해석: 09-10~09-29 14거래일 중 상회 6일. 두 해석 모두 미충족이며 정의 확정은 사람 영역이다(P11).",
+      "rates_axis_double_count_guard": "[fact] KC-1과 KC-9는 RATES 축을 공유한다(05_correlation.json#shared_axis_kc_groups) — 파급 집합이 같으므로 두 번 세지 않는다."
+    },
+    "other_kc_notes": {
+      "KC-4": "[fact] ON RRP $11.539B(as_of 2026-09-30) — 직전 $0.63B 대비 약 18배이나 임계 $200B 대비 여전히 1자리 수 이상 낮다. [fact] L1은 방향성 해석 없이 수치만 기록했다. [inference/중] 잔고 저수준 국면에서 이 임계의 경보 기능 약화 상태는 지속된다 — 임계 재정의는 사용자 판단 사항이다.",
+      "KC-6": "[fact] SDLLMTK 절대수준 인용치가 소스별로 상충하고 2주 %변화 직접 수치가 없어 L1이 값 채택을 보류했다(as_of 2026-07-03, value null) — 2회 연속 공백.",
+      "KC-7·KC-8": "[fact] 입력 as_of 2026-06-30(93일 경과, 분기 공시 기반, staleness 한도 100일 근접) provisional이다.",
+      "KC-10": "[fact] 이벤트형 provisional. 04_sector/neocloud.json 기준 IREN power_permit 축 null_observation=true — 섹터 재료 3갈래(PUCT 대형부하 규칙 grade 4·창 밖, Project Star scope=sector, BC Hydro 결과 미공표 grade 4)는 전부 scope=sector로 분리됐다."
+    },
+    "propagation_gap": "[fact] 05_correlation.json 기준 active KC 27건 중 축 매핑이 정의된 것은 매크로 10건뿐이다 — 종목 KC 17건은 파급 산출이 불가하며 MU·IREN은 종목 KC 자체가 미정의다(P5: 부재는 파급 없음이 아니다)."
+  },
+  "company_kc_excerpt_defect_record": {
+    "_purpose": "[fact] 이번 run에 수정된 시스템 결함의 포트폴리오 층위 기록(P9 — 오류 이력 보존).",
+    "facts": [
+      "[fact] 오케스트레이터 전달: make_kc_excerpt.py가 종목 전용 KC의 임계 필드를 전 종목에서 누락하는 결함이 이번 run에 수정됐고 회귀 테스트가 추가됐으며, 종목 KC가 정의된 5종목(NBIS·CRWV·CRCL·COIN·HOOD) arbiter가 재실행됐다.",
+      "[fact] 04_sector/stablecoin.json cp_1001_kc_excerpt_rerun_data_gap: CRCL·COIN·HOOD 11건 전부 임계 전문 대조로 재판정됐고 결론(전부 not_met, Kill 미발동)은 1차와 같다. CRCL·HOOD는 warning 단계를 이번에 처음 trigger와 분리 판정했고 COIN KC 4종에는 warning 정의 자체가 없다.",
+      "[fact] 04_sector/neocloud.json은 KC-NBIS-1~3·KC-CRWV-1~3 전부 not_met을 기록했다 — 경고 단계 개별 판정값은 본 레이어 입력(04_sector)에 인용되지 않았다.",
+      "[fact] 재실행 후에도 7종목 등급 후보는 불변이다(04_sector 3개 파일 인용)."
+    ],
+    "implication_for_prior_runs": "[fact] 직전 run(20260925_1015)까지의 종목 KC 판정은 임계 필드 없이 이뤄졌다. [fact] 직전 L4 06_portfolio.json의 sc_15(KC-COIN-3 met_candidate)·sc_16·sc_17은 그 판정을 인용했고, 직전 esc_L4_1015_08이 'KC-HOOD-3 기준 문언 발췌 누락'으로 증상을 기록했다 — 이번 run에 근본 원인이 확인됐다. [inference/중] 직전 회차 산출물은 P9에 따라 수정하지 않으며, 재판정 필요 여부는 사람 판단이다(esc_L4_0900_03).",
+    "p13_guard": "[fact] 본 기록은 결함 이력이며 어떤 종목 등급 근거도 아니다."
+  },
+  "sector_input_consumption": {
+    "_purpose": "[fact] L3 산출물을 포트폴리오 맥락으로만 소비한다 — 섹터 컨센서스를 개별 종목 시그널 근거로 인용하지 않는다(P6·P13·F13).",
+    "neocloud": {
+      "source": "output/20261001_0900/04_sector/neocloud.json",
+      "consensus_status": "partially_comparable_not_interpretable",
+      "summary": "[fact] 축 19개·delta 21건(neutral 17 : strengthen 4). 공유 축이 6회차 만에 0→2개(funding_access·customer_concentration, 둘 다 NBIS–CRWV) 성립 — 원인은 NBIS의 무뉴스 축 neutral 명시로 발행 규약이 통일된 것이다. funding_access low = 양측 무관측 일치, customer_concentration diverge/high = CRWV 단독 고객명 공시(weak strengthen) 대 NBIS neutral의 사건 비대칭(부호 상충 없음, 1:1 'high' 표기 이슈 obs_agg_4). IREN은 공유 축 0개. strengthen 4건은 전부 종목 고유 실행 사건(NBIS AIB 50MW 임차·B300 단가 게시, CRWV Vera Rubin 프로덕션·고객명).",
+      "portfolio_reading": "[inference/강] 보유 종목 IREN의 6개 축은 전부 neutral·null_observation이며 실질 신규 1차 공시 부재가 6개 회차 연속이다 — 보유 포지션에 대한 신규 종목 고유 관측이 없는 상태가 이어진다. [fact] 이 서술은 등급 근거가 아니다(P13)."
+    },
+    "memory": {
+      "source": "output/20261001_0900/04_sector/memory.json",
+      "consensus_status": "single_ticker_view (dispersion not_applicable)",
+      "summary": "[fact] MU 7축 중 strengthen 3(cycle_position·hbm_demand_strength·sca_defense — 2026-09-30 FY26 Q4 실적 근거, 섹터 공통 가격 주도), weaken 1(ip_litigation_risk — Netlist 2026-09-29 HBM3E·HBM4·HBM4E 대상 2차 ITC 제소, 메모리 제조사 중 Micron 단독 피제소로 MU 고유), neutral 3. SK하이닉스 Netlist 라이선스 상태는 '미확인'으로 정정 통일.",
+      "portfolio_reading": "[fact] MU 미보유. [inference/중] 강화 축(섹터 공통)과 약화 축(종목 고유)의 요인 출처가 갈린다 — 섹터 강세가 종목 고유 법률 리스크를 상쇄한다는 추론은 성립하지 않는다(P6)."
+    },
+    "stablecoin": {
+      "source": "output/20261001_0900/04_sector/stablecoin.json",
+      "consensus_status": "공유 축 1개(prediction_market) — 허위 diverge 2회 연속",
+      "summary": "[fact] 20개 축 중 2종목 커버 1개. prediction_market diverge/high는 축 범위 비대칭(COIN 단일 슬롯 대 HOOD 3분해) + HOOD의 제6순회 Kalshi 판결(2026-09-25) 미적재가 만든 외견상 차이다(정의상 medium, substantive none_confirmed). OUSD 2026-09-30 출시·실측 유통량 $477.3M → $468.4M(USDC 대비 약 0.6%, grade 3~4): CRCL weaken(순수 경쟁 노출) 대 COIN neutral(내부 헤지 구조) — 제로섬 아님. 3사 신규 재료 전부 매출 인식 이전 단계.",
+      "portfolio_reading": "[fact] 3종목 모두 미보유(Next 후보). [inference/중] Next 후보군의 KC 판정 병목은 도구 결함(발췌 결함, 수정됨)에서 Q3 공시·사법 도킷 등 외부 관측 시점으로 넘어갔다."
+    },
+    "cross_sector_structural_finding": {
+      "statement": "[fact] 3개 섹터 중 방향이 산출된 섹터 컨센서스는 0개다.",
+      "mechanism": "[fact] 원인 — ① 축 명명 불일치(neocloud IREN 공유 축 0, stablecoin 동일 사건 축 배치 불일치) ② 같은 이름·다른 정의 범위(stablecoin prediction_market) ③ 집계기 1:1 분할 'high' 표기(2개 섹터 동시 재현). 무변화 축 delta 발행 규약 불일치는 neocloud에서 해소됐다.",
+      "consequence": "[inference/강] 섹터 층에서 포트폴리오 층으로 전달되는 방향 정보가 계속 0이므로 본 레이어의 시나리오는 전부 KC·한도 기반이며 섹터 방향에서 유도된 시나리오는 0건이다."
+    }
+  },
+  "position_snapshot": {
+    "source": "config/positions.yaml",
+    "as_of": "2026-09-19",
+    "staleness_days": 12,
+    "staleness_note": "[fact] 2026-09-19 사용자 확인 이후 갱신 없음 — 30일 한도 이내다.",
+    "held": [
+      {
+        "ticker": "IREN",
+        "tier": "Edge",
+        "weight_range": [
+          0.85,
+          0.95
+        ]
+      }
+    ],
+    "cash": {
+      "weight_range": [
+        0.05,
+        0.15
+      ]
+    },
+    "not_held": [
+      {
+        "ticker": "MU",
+        "tier": "Base",
+        "weight_range": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "ticker": "NBIS",
+        "tier": null,
+        "weight_range": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "ticker": "CRWV",
+        "tier": null,
+        "weight_range": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "ticker": "CRCL",
+        "tier": "Next",
+        "weight_range": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "ticker": "COIN",
+        "tier": "Next",
+        "weight_range": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "ticker": "HOOD",
+        "tier": "Next",
+        "weight_range": [
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "leverage_state": "[fact] 레버리지 미사용. v32 'Base 현금 대비 40% 상한' 규칙은 Base(MU) 미보유로 비활성.",
+    "binary_degeneracy": {
+      "statement": "[fact] 보유 종목이 1개이므로 축 집중도 weight_pct_upper는 95.0 또는 0.0 두 값만 취한다(5회차 연속).",
+      "consequence": "[inference/강] 축 간 위험 순위를 매길 수 없고, 경보는 단일 포지션의 다축 동시 노출 구조를 가리킨다."
+    }
+  },
+  "signal_grades_carried": {
+    "_p13_guard": "[fact] 아래 값은 04_sector 파일이 인용한 03_signal 판정과 state/signals.json에서 옮긴 것이다 — 본 레이어는 어떤 등급도 변경·제안·소급 수정하지 않았다(P13). [fact] proposed_candidate는 전부 후보이며 확정은 사람의 권한이다.",
+    "signals_json_state": "[fact] state/signals.json as_of 2026-09-05, transitions 0건 — 09-19·09-25·10-01 3회 연속 🔴🔴 후보에 대한 사람 확정·기각이 기록되지 않았다.",
+    "decision_record_path_gap": "[fact] state/pending_approvals.json의 59건은 전부 thesis_patch 유형(approved 56·expired 3)이다. [fact] 오케스트레이터 전달: 승인 큐는 thesis_patch/version_publish 유형만 받는다. [inference/강] 🔴🔴 후보의 확정·기각 결정을 기록할 시스템 경로가 없으므로, 사람 결정이 내려져도 다음 run arbiter는 같은 후보를 재생성한다 — 3회 연속 재상신의 구조적 원인이다(esc_L4_0900_02).",
+    "grades": {
+      "IREN": {
+        "confirmed_in_state": "🟡",
+        "proposed_candidate": "🔴🔴",
+        "trigger_path": "매크로 KC-1 단독(규칙1) — 3회 연속",
+        "company_path_without_rule1": "maintain(상향·하향 게이트 미충족, 6축 neutral)",
+        "company_kc": "미정의",
+        "held": true,
+        "source": "output/20261001_0900/04_sector/neocloud.json#macro_kc_candidate_note"
+      },
+      "NBIS": {
+        "confirmed_in_state": "🟡",
+        "proposed_candidate": "🔴🔴",
+        "trigger_path": "매크로 KC-1 단독(규칙1) — 3회 연속(L3가 NBIS 기준 명시)",
+        "company_path_without_rule1": "maintain(strengthen 2건은 종목 고유 실행 사건)",
+        "company_kc": "KC-NBIS-1~3 전부 not_met",
+        "held": false,
+        "source": "output/20261001_0900/04_sector/neocloud.json#macro_kc_candidate_note"
+      },
+      "CRWV": {
+        "confirmed_in_state": "🟡",
+        "proposed_candidate": "🔴🔴",
+        "trigger_path": "매크로 KC-1 단독(규칙1) — 3회 연속",
+        "company_path_without_rule1": "maintain",
+        "company_kc": "KC-CRWV-1~3 전부 not_met",
+        "held": false,
+        "source": "output/20261001_0900/04_sector/neocloud.json#macro_kc_candidate_note"
+      },
+      "MU": {
+        "confirmed_in_state": "🟠",
+        "proposed_candidate": "🔴🔴",
+        "trigger_path": "매크로 KC-1 단독(규칙1) — 3회 연속",
+        "company_path_without_rule1": "🔴 하향 후보 — 하향 게이트(비대칭) 독립 충족: ip_litigation_risk weaken(c_20261001_MU_10, Netlist 9/29 HBM 대상 2차 ITC 제소, grade 1·confirmed)",
+        "company_kc": "미정의(arbiter 기준 5회 연속 플래그)",
+        "held": false,
+        "source": "output/20261001_0900/04_sector/memory.json#kc_separation_note·excluded_inputs"
+      },
+      "CRCL": {
+        "confirmed_in_state": "🔴",
+        "proposed_candidate": "🔴",
+        "transition_candidate": "maintain",
+        "company_kc": "KC-CRCL-1~4 전부 not_met(warning 단계 최초 분리 판정)",
+        "held": false,
+        "source": "output/20261001_0900/04_sector/stablecoin.json#rerun_context·convergent_pattern"
+      },
+      "COIN": {
+        "confirmed_in_state": "🟠",
+        "proposed_candidate": "🟠",
+        "transition_candidate": "maintain",
+        "company_kc": "KC-COIN-1~4 전부 not_met — 단 KC-COIN-3 (b)항 해당 여부는 unresolved_fact(26-1693 사실관계)",
+        "held": false,
+        "source": "output/20261001_0900/04_sector/stablecoin.json#rerun_context·sector_unconfirmed[su_1001_06]"
+      },
+      "HOOD": {
+        "confirmed_in_state": "🟡",
+        "proposed_candidate": "🟡",
+        "transition_candidate": "maintain",
+        "company_kc": "KC-HOOD-1~3 전부 not_met(warning 단계 최초 분리 판정)",
+        "held": false,
+        "source": "output/20261001_0900/04_sector/stablecoin.json#rerun_context"
+      }
+    },
+    "double_red_count": 4,
+    "double_red_tickers": [
+      "IREN",
+      "NBIS",
+      "CRWV",
+      "MU"
+    ],
+    "double_red_common_path": "[fact] 4건 전부 KC-1(met·confirmed) 단일 경로이며 3회 연속이다. 종목 전용 KC 훼손은 0건이다.",
+    "mu_dual_path": "[fact] MU는 규칙1(KC-1)과 별개로 펀더멘털 경로(Kill 부재 시 🔴 하향 후보, ip_litigation_risk)가 병존한다. 본 회차 신규 재료는 Netlist의 2026-09-29 2차 ITC 제소(HBM3E·HBM4·HBM4E, 특허 US 12,308,087·12,646,537)다. [fact] 본 레이어는 인용만 하며 지지·반대하지 않는다(P13).",
+    "portfolio_reading": "[inference/강] 포트폴리오 층위에서 🔴🔴 후보 4건은 독립 사건 4개가 아니라 하나의 매크로 상태가 KC-1 파급 집합(CRWV·IREN·MU·NBIS, RATES 축)으로 전이된 것이다. [fact] 이 일치는 개별 종목 등급 근거로 사용되지 않는다(P13).",
+    "held_position_effect": "[fact] 🔴🔴 후보 4건 중 보유 종목은 IREN 1건뿐이다."
+  },
+  "scenarios": [
+    {
+      "id": "sc_01",
+      "trigger": "FFR > 3.75%",
+      "source": "config/kill_conditions.yaml#macro.KC-1",
+      "kc_link": "KC-1",
+      "link_type": "predefined_kc",
+      "current_verdict": "met / confirmed (3회 연속)",
+      "distance": "임계 대비 +0.25%p 초과 (관측 4.00 대 임계 3.75)",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-1] — FRED DFEDTARU api, as_of 2026-10-01",
+      "axis_link": "RATES (adverse_sign -)",
+      "affected_tickers": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 4,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "레버리지 전액 해제 + Edge/Next 50% 축소 검토",
+      "consequence_is_quotation": "[fact] predefined_consequence는 config 원문 인용이며 본 에이전트가 작성한 지시가 아니다(P15·F18).",
+      "applicability": "[fact] 레버리지 조항·Next 조항은 대상 없음. 실질 대상은 Edge(IREN) 조항 하나다. [fact] 09-19·09-25 회차 사람 확인 결과는 기록되지 않았다.",
+      "note": "[fact] 🔴🔴 후보 4건의 트리거와 동일 경로다. 시나리오 연결과 등급 근거는 별개다(P13)."
+    },
+    {
+      "id": "sc_02",
+      "trigger": "VIX >= 30",
+      "source": "config/kill_conditions.yaml#macro.KC-2",
+      "kc_link": "KC-2",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / confirmed",
+      "distance": "임계까지 13.74pt 여유 (관측 16.26 대 임계 30)",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-2] (as_of 2026-10-01, stale 0)",
+      "axis_link": "RISK_APPETITE (adverse_sign +)",
+      "affected_tickers": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 6,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "레버리지 해제 검토",
+      "note": "[fact] 현 장부에 레버리지가 없으므로 문언의 실질 대상이 비어 있다."
+    },
+    {
+      "id": "sc_03",
+      "trigger": "BTC < 55,000 USD AND VIX >= 25",
+      "source": "config/kill_conditions.yaml#macro.KC-3",
+      "kc_link": "KC-3",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / confirmed",
+      "distance": "BTC 임계까지 28,670.59 USD 여유(관측 83,670.59), VIX 8.74pt 여유(관측 16.26) — 두 조건 모두 미충족",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-3]",
+      "axis_link": "CRYPTO (adverse_sign +)",
+      "affected_tickers": [
+        "COIN",
+        "CRCL",
+        "HOOD",
+        "IREN"
+      ],
+      "affected_count": 4,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)",
+      "note": "[fact] 보유 종목 IREN을 문언에 직접 지명하는 매크로 KC다. 직전 회차 대비 BTC 여유가 축소됐다(29,653.665 → 28,670.59 USD). [fact] IREN BTC 채굴 종료 목표(2026-12월 말)는 불변이며, 도래 시 CRYPTO 노출의 구조 논거가 바뀐다(vcp_01)."
+    },
+    {
+      "id": "sc_04",
+      "trigger": "ON RRP >= 200B USD AND VIX >= 25",
+      "source": "config/kill_conditions.yaml#macro.KC-4",
+      "kc_link": "KC-4",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / confirmed",
+      "distance": "ON RRP 임계까지 188,461,000,000 USD 미달(관측 11,539,000,000), VIX 8.74pt 여유 — 산출은 가능하나 경보 해석력 약함",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-4] + analyst_intervention[KC-4]",
+      "axis_link": "RISK_APPETITE (adverse_sign +)",
+      "affected_tickers": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 6,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "광범위 디리스킹 검토",
+      "note": "[fact] 관측치는 직전 $0.63B 대비 약 18배 증가했으나 임계 대비 1자리 수 이상 낮다. [inference/중] 잔고 저수준 국면에서 임계 기능 약화 지속 — 임계 재정의는 사용자 판단 사항이다(esc_L4_0900_14)."
+    },
+    {
+      "id": "sc_05",
+      "trigger": "TAIEX 20일 이동평균 하회 AND 1개월 수익률 음전환",
+      "source": "config/kill_conditions.yaml#macro.KC-5",
+      "kc_link": "KC-5",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / confirmed",
+      "distance": "20dma 대비 +2.92%p 여유, 1개월 수익률 +4.82%p 여유 (직전 +3.44 / +7.58에서 축소)",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-5] (as_of 2026-10-01, stale 0)",
+      "axis_link": "RISK_APPETITE (adverse_sign +)",
+      "affected_tickers": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 6,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "광범위 디리스킹 검토"
+    },
+    {
+      "id": "sc_06",
+      "trigger": "SDLLMTK 변화율 <= -30% (2주 지속)",
+      "source": "config/kill_conditions.yaml#macro.KC-6",
+      "kc_link": "KC-6",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / provisional",
+      "distance": "산출 불가 — 입력값 null(소스 간 절대수준 상충, 2주 %변화 직접 수치 부재로 L1 채택 보류)",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-6] + analyst_intervention[KC-6]",
+      "axis_link": "AI_CAPEX (adverse_sign +)",
+      "affected_tickers": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 4,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "Base·Edge 전제 재검토",
+      "note": "[fact] 2회 연속 공백. not_met은 확정이 아니다(F7·P5)."
+    },
+    {
+      "id": "sc_07",
+      "trigger": "하이퍼스케일러 합산 FCF < 0 (2분기 연속)",
+      "source": "config/kill_conditions.yaml#macro.KC-7",
+      "kc_link": "KC-7",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / provisional",
+      "distance": "임계까지 6,835,000,000 USD 여유 (관측 양수)",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-7] (as_of 2026-06-30, 93일 경과 — config staleness 한도 100일 근접)",
+      "axis_link": "AI_CAPEX (adverse_sign +)",
+      "affected_tickers": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 4,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "CapEx 감속 시나리오 검토"
+    },
+    {
+      "id": "sc_08",
+      "trigger": "Microsoft FCF < 0",
+      "source": "config/kill_conditions.yaml#macro.KC-8",
+      "kc_link": "KC-8",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / provisional",
+      "distance": "임계까지 19,640,000,000 USD 여유 (관측 양수)",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-8] (as_of 2026-06-30)",
+      "axis_link": "AI_CAPEX (adverse_sign +)",
+      "affected_tickers": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 4,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "AI CapEx 축 전면 재검토"
+    },
+    {
+      "id": "sc_09",
+      "trigger": "brent >= 120 USD (1개월 지속)",
+      "source": "config/kill_conditions.yaml#macro.KC-9",
+      "kc_link": "KC-9",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / provisional",
+      "distance": "가격 조건 기준 임계까지 6.04 USD 미달 (관측 113.96 대 임계 120). duration — 연속 해석 최장 4거래일, 누적 해석 14거래일 중 6일: 두 해석 모두 미충족",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-9] + analyst_intervention[KC-9]",
+      "axis_link": "RATES (adverse_sign -) — ENERGY 축 미신설",
+      "affected_tickers": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "affected_count": 4,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "에너지+인플레이션 시나리오 검토",
+      "double_counting_guard": "[fact] KC-1과 RATES 축 공유 — 축 집중도에서 두 번 세지 않는다.",
+      "definition_gap": "[fact] 'duration 1개월'의 연속/누적 정의가 config에 없다 — 확정은 사람 영역(esc_L4_0900_04).",
+      "korea_energy_cross_reference": "[fact] 한국 대미 에너지 투자 Project Star(가스 복합화력)는 KC-9 지표(브렌트 원유)와 다른 상품·다른 경로이며 1단계 2029년 상업운전이다. [inference/강] 본 시나리오의 이격·판정에 영향이 없다."
+    },
+    {
+      "id": "sc_10",
+      "trigger": "IREN 계약 용량의 10%+ 강제 감축 대상 분류, 또는 보유 사이트 전력접속·인허가 취소·보류 공시",
+      "source": "config/kill_conditions.yaml#macro.KC-10",
+      "kc_link": "KC-10",
+      "link_type": "predefined_kc",
+      "current_verdict": "not_met / provisional",
+      "distance": "산출 불가 — 이벤트형",
+      "distance_basis": "output/20261001_0900/01_macro_kc.json#kc_status[KC-10] (inputs 비어 있음) + output/20261001_0900/04_sector/neocloud.json#axis_view[power_permit]",
+      "axis_link": "POWER_PERMIT (adverse_sign -)",
+      "affected_tickers": [
+        "IREN"
+      ],
+      "affected_count": 1,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "Edge 마진 전제 재검토",
+      "note": "[fact] 보유 종목을 단독 지명하는 KC다. [fact] IREN power_permit 축 null_observation=true(IREN 고유 전력·인허가 1차 공시 0건). [fact] 관측 부재는 미발동의 확인이 아니다(P5).",
+      "korea_energy_cross_reference": "[fact] Project Star 부지(Encinal, La Salle County)는 IREN ERCOT 사이트(Sweetwater/Nolan County, Childress)와 다른 카운티·송전권역이라는 IREN L2 판단이 있다(c_20261001_IREN_5, inference/weak). [fact] PUCT 대형부하 상호접속 규칙(MW당 $50,000 재무보증)은 2차 보도 grade 4·confirmed=false·창 밖이다(c_20261001_IREN_3). [inference/중] L3 ki_2는 텍사스 방향을 '연결 동결'이 아니라 '비용 부과·자가발전 유도'로 읽었고 ③단계 이행 신호가 없다고 기록했다 — 이는 KC-10 문언의 '전력접속·인허가 취소·보류' 관측이 아니다. [inference/약] 위험이 현장 발전설비 인허가로 이동할 가능성은 KC-10 문언이 포괄하는 '인허가' 범위에 들어갈 수 있으나 IREN 관측은 없다."
+    },
+    {
+      "id": "sc_11",
+      "trigger": "축 집중도 > 60% (positions.yaml 비중 범위 상단 합 기준)",
+      "source": "config/correlation_matrix.yaml#concentration_threshold_pct",
+      "kc_link": null,
+      "link_type": "predefined_config_limit",
+      "current_verdict": "breach — 8개 축 중 6개 초과 (5회차 연속)",
+      "distance": "임계 대비 +35.0pp 초과 (관측 상단 95.0 대 임계 60)",
+      "distance_basis": "output/20261001_0900/05_correlation.json#axis_concentration",
+      "axis_link": "AI_CAPEX · RATES · CRYPTO · GPU_SUPPLY · POWER_PERMIT · RISK_APPETITE",
+      "affected_tickers": [
+        "IREN"
+      ],
+      "affected_count": 1,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "축 집중도 경보 (config 주석상 ⚠️초안 임계)",
+      "note": "[fact] 초과분 전부가 IREN 단일 포지션에서 나온다. [fact] 임계값 60은 '⚠️초안' 표기 — 확정은 사용자 영역이다."
+    },
+    {
+      "id": "sc_12",
+      "trigger": "IREN 종가 30 USD / 28 USD 가격 라인 도달",
+      "source": "config/kill_conditions.yaml#price_lines.IREN",
+      "kc_link": null,
+      "link_type": "predefined_config_limit",
+      "current_verdict": "산출 불가 — 본 레이어 입력에 IREN 현재가가 없다",
+      "distance": "산출 불가",
+      "distance_basis": "[fact] P17 입력 범위(구조화 산출물 + config)에 가격 시계열이 없다. positions.yaml 주석의 평단은 취득 기준이며 현재가가 아니다.",
+      "axis_link": null,
+      "affected_tickers": [
+        "IREN"
+      ],
+      "affected_count": 1,
+      "weight_pct_upper": 95.0,
+      "predefined_consequence": "level 30: 추가 매수 정지 / level 28: 포지션 리뷰",
+      "note": "[fact] predefined_consequence는 config/kill_conditions.yaml#price_lines.IREN.action 원문 인용이다. [fact] 이격 산출 불가 5회차 연속 — 보유 종목 유일의 가격 한도다(esc_L4_0900_15)."
+    },
+    {
+      "id": "sc_13",
+      "trigger": "레버리지 > Base 현금 대비 40%",
+      "source": "config/positions.yaml (v32 티어 정의 주석)",
+      "kc_link": null,
+      "link_type": "predefined_config_limit",
+      "current_verdict": "비활성 — 규칙이 작동하지 않는 상태",
+      "distance": "산출 불가 — 분모(Base 보유)가 0이다",
+      "distance_basis": "config/positions.yaml#positions.MU.weight_range = [0.0, 0.0]",
+      "axis_link": null,
+      "affected_tickers": [],
+      "affected_count": 0,
+      "weight_pct_upper": 0.0,
+      "predefined_consequence": "v32 레버리지 상한 규칙 (Base 미보유로 비활성)",
+      "note": "[inference/중] KC-1·KC-2 사전 정의 문언의 레버리지 조항이 현 장부에서 대상이 비는 원인이다."
+    },
+    {
+      "id": "sc_14",
+      "trigger": "종목 KC 17건 (KC-CRCL-1~4 · KC-COIN-1~4 · KC-HOOD-1~3 · KC-NBIS-1~3 · KC-CRWV-1~3) 포트폴리오 파급",
+      "source": "config/kill_conditions.yaml#company",
+      "kc_link": "종목 KC 17건 일괄",
+      "link_type": "predefined_kc_unmapped",
+      "current_verdict": "파급 산출 불가 — 축 매핑 미정의 (종목 층 판정은 17건 전부 not_met, 04_sector 인용)",
+      "distance": "산출 불가",
+      "distance_basis": "output/20261001_0900/05_correlation.json#kc_propagation_coverage (active 27 / mapped 10 / undefined 17)",
+      "axis_link": null,
+      "affected_tickers": null,
+      "affected_count": null,
+      "weight_pct_upper": null,
+      "predefined_consequence": "각 KC의 consequence는 config에 정의돼 있으나 축 매핑 부재로 포트폴리오 층위 파급이 계산되지 않는다",
+      "note": "[fact] 부재는 파급 없음이 아니다(P5). [fact] MU·IREN은 종목 KC 자체가 미정의다."
+    },
+    {
+      "id": "sc_15",
+      "trigger": "(a) SEC·CFTC·DOJ 신규 제소 OR (b) 주요 사업(거래·스테이킹·스테이블코인) 대상 영업정지·인가 취소 — (b)는 기관 불문",
+      "source": "config/kill_conditions.yaml#company.KC-COIN-3",
+      "kc_link": "KC-COIN-3",
+      "link_type": "predefined_kc_company",
+      "current_verdict": "not_met — 단 (b)항 해당 여부 unresolved_fact (04_sector/stablecoin.json 인용)",
+      "distance": "산출 불가 — 이벤트형",
+      "distance_basis": "output/20261001_0900/04_sector/stablecoin.json#sector_unconfirmed[su_1001_06] + escalation[esc_1001_06] + structural_inverse_exposure[sie_event_contract_state_federal]",
+      "axis_link": null,
+      "affected_tickers": [
+        "COIN"
+      ],
+      "affected_count": 1,
+      "weight_pct_upper": 0.0,
+      "predefined_consequence": "규제 수혜 전제 재검토",
+      "gate_state": "[fact] 발췌 결함 수정 후 COIN arbiter 재판정으로 trigger 전문이 대조됐다. [fact] 미결 사항은 COIN 미시간 항소(6th Cir. No. 26-1693)의 사실관계와 예측시장이 문언의 '주요 사업'에 해당하는지다 — 법원 도킷 1차 확인 실패. [fact] 제6순회 Kalshi 판결(2026-09-25)은 COIN이 prediction_market weaken으로 적재했다(c_20261001_COIN_2, grade 4·confirmed=false).",
+      "correction_record": "[fact] 앞선 'KC-COIN-3 = 연방 한정' 서술은 오류다(오케스트레이터 직전 run 서술 및 COIN rerun 1차본 — L3 esc_1001_06 기록). 실제 trigger는 연방 제소 OR 기관 불문 주요 사업 영업정지·인가 취소다. [fact] 직전 L4 sc_15의 '근거등급 게이트' 미발동 사유 서술은 이번 재정의('사실관계·처분 성격 미결')로 대체된다 — 직전 파일은 수정하지 않는다(P9). [inference/중] config 주석 '연방 기관 + 영업상 중대로 한정'이 '연방 한정'으로 읽힐 여지가 있다 — 주석 문언 정리는 사람 영역(esc_L4_0900_06).",
+      "note": "[fact] COIN 미보유(Next 후보) — 포지션 효과 없음."
+    },
+    {
+      "id": "sc_16",
+      "trigger": "CRWV 이자 커버리지 < 1.5x(경고) / < 1.0x(발동) / 차환 실패·covenant 위반(발동)",
+      "source": "config/kill_conditions.yaml#company.KC-CRWV-3",
+      "kc_link": "KC-CRWV-3",
+      "link_type": "predefined_kc_company",
+      "current_verdict": "not_met (04_sector/neocloud.json 인용)",
+      "distance": "경고 임계까지 +0.86x 여유(Q2'26 관측 2.36x) — 정태 추정 약 2.21x(inference/weak) 기준 +0.71x",
+      "distance_basis": "config/kill_conditions.yaml#company.KC-CRWV-3 note(2026-09-20 사용자 확정 산식) + output/20261001_0900/04_sector/neocloud.json#axis_view[leverage_coverage]",
+      "axis_link": "RATES (벡터상 CRWV -H) — KC 자체는 축 매핑 미정의(sc_14)",
+      "affected_tickers": [
+        "CRWV"
+      ],
+      "affected_count": 1,
+      "weight_pct_upper": 0.0,
+      "predefined_consequence": "사전 정의 축소 시나리오 검토",
+      "note": "[fact] leverage_coverage neutral, Q3 10-Q 대기. [fact] CRWV 미보유."
+    },
+    {
+      "id": "sc_17",
+      "trigger": "CFTC/연방 차원 예측시장 금지, 또는 HOOD 예측시장 매출 기여 상위 주 중 3개 이상 동시 금지",
+      "source": "config/kill_conditions.yaml#company.KC-HOOD-3",
+      "kc_link": "KC-HOOD-3",
+      "link_type": "predefined_kc_company",
+      "current_verdict": "not_met (04_sector/stablecoin.json 인용 — 발췌 결함 수정 후 재판정, warning 단계 분리 판정)",
+      "distance": "산출 불가 — 주별 매출 기여도가 입력 어디에도 없어 '상위 3개 주' 분모를 특정할 수 없다(su_1001_07)",
+      "distance_basis": "config/kill_conditions.yaml#company.KC-HOOD-3 + output/20261001_0900/04_sector/stablecoin.json#sector_unconfirmed[su_1001_07·su_1001_08]",
+      "axis_link": null,
+      "affected_tickers": [
+        "HOOD"
+      ],
+      "affected_count": 1,
+      "weight_pct_upper": 0.0,
+      "predefined_consequence": "매출 mix thesis 축소 재평가",
+      "event_calendar": "[fact] L3 기록상 미도래 일정: 미시간 청산 기한 2026-10-09, SCOTUS 26-338 응답기한 2026-10-14, 미주리 약 2026-10-16, D.Conn. 계류. [fact] HOOD L2는 제6순회 판결을 적재하지 않았다(su_1001_01 — 미적재를 무관 판정으로 읽지 않음, P5).",
+      "note": "[fact] HOOD 미보유."
+    },
+    {
+      "id": "sc_18",
+      "trigger": "USDC 스테이블코인 점유율(회사 정의 계열) QoQ <= -3%p (OUSD·이자부 코인 포함)",
+      "source": "config/kill_conditions.yaml#company.KC-CRCL-2",
+      "kc_link": "KC-CRCL-2",
+      "link_type": "predefined_kc_company",
+      "current_verdict": "not_met / provisional (04_sector/stablecoin.json 인용 — 판정 분모 신규치 부재)",
+      "distance": "산출 불가 — 회사 정의 계열 분기치가 Q3 공시 전까지 없다(직전 기준 Q2'26 27%, QoQ -1%p는 config 주석 기재치)",
+      "distance_basis": "config/kill_conditions.yaml#company.KC-CRCL-2 + output/20261001_0900/04_sector/stablecoin.json#structural_inverse_exposure[sie_ousd_consortium]",
+      "axis_link": null,
+      "affected_tickers": [
+        "CRCL"
+      ],
+      "affected_count": 1,
+      "weight_pct_upper": 0.0,
+      "predefined_consequence": "'파이 성장 > 침식' 전제 재검토",
+      "new_this_run": "[fact] 본 회차 신규 시나리오 — OUSD 공식 출시·실측 유통량 최초 공시($477.3M → $468.4M, USDC 대비 약 0.6%, grade 3~4·confirmed=false)로 KC 문언이 지목한 경쟁 경로가 처음 관측됐다. [fact] 3자 집계 계열(DefiLlama 등)은 config 주석상 판정 계열이 아니다(P4) — 두 계열 혼용 금지.",
+      "note": "[fact] CRCL 미보유(Next 후보). [fact] conditional_exposures.OUSD_CONSORTIUM 재평가 트리거 충족 관측은 vcp_10으로 제안했다."
+    }
+  ],
+  "scenario_summary": {
+    "count": 18,
+    "all_linked_to_predefined": true,
+    "p11_compliance": "[fact] 18개 시나리오 전부가 사전 정의된 KC 또는 config 한도에 연결돼 있다 — source가 비어 있는 시나리오는 0건이다(P11). [fact] 본 레이어가 새로 만든 임계는 0건이며, 섹터 방향·한국 대미 투자 재료에서 유도한 시나리오도 0건이다(한국 투자 재료는 기존 sc_09·sc_10·sc_11의 교차 참조로만 기록).",
+    "by_link_type": {
+      "predefined_kc": 10,
+      "predefined_config_limit": 3,
+      "predefined_kc_unmapped": 1,
+      "predefined_kc_company": 4
+    },
+    "new_vs_prior_run": "[fact] 직전 회차 17건에 sc_18(KC-CRCL-2)을 추가했다 — OUSD 출시로 KC 문언이 지목한 경쟁 경로가 처음 관측됐기 때문이다. [fact] sc_15는 KC-COIN-3 서술 정정(연방 한정 오류)과 재판정 결과로 갱신했다.",
+    "met_now": [
+      "sc_01 (KC-1, confirmed, 3회 연속)",
+      "sc_11 (축 집중도 임계 초과, 5회차 연속)"
+    ],
+    "distance_computable": [
+      "sc_01",
+      "sc_02",
+      "sc_03",
+      "sc_04",
+      "sc_05",
+      "sc_07",
+      "sc_08",
+      "sc_09",
+      "sc_11",
+      "sc_16"
+    ],
+    "distance_not_computable": [
+      "sc_06 (입력 null)",
+      "sc_10 (이벤트형)",
+      "sc_12 (가격 피드 부재)",
+      "sc_13 (분모 0)",
+      "sc_14 (매핑 부재)",
+      "sc_15 (이벤트형·사실관계 미결)",
+      "sc_17 (분모 미공시)",
+      "sc_18 (분모 신규치 부재)"
+    ],
+    "tightest_distances": [
+      "sc_01 KC-1 — 임계 초과 상태(+0.25%p)",
+      "sc_11 축 집중도 — 임계 대비 +35.0pp 초과",
+      "sc_05 KC-5 — TAIEX 20dma 대비 +2.92%p 여유(직전 +3.44%p에서 축소)",
+      "sc_09 KC-9 — 임계까지 6.04 USD 미달"
+    ],
+    "tightest_distances_unit_caveat": "[fact] 단위(%p·pp·USD·x)가 서로 달라 이격 크기를 상호 비교할 수 없다 — 순서는 임계 초과 여부 우선으로만 정렬했다.",
+    "vs_prior_run": "[fact] KC-1 초과 상태와 축 집중도 초과 구조는 변하지 않았다. [fact] KC-3 BTC 여유·KC-5 TAIEX 여유는 축소, KC-9 여유는 확대(5.11 → 6.04 USD), KC-2 VIX 여유는 소폭 축소(14.33 → 13.74pt)됐다. [fact] 어느 not_met KC도 임계에 도달하지 않았다."
+  },
+  "concentration_alert": {
+    "required_by": "[fact] cio-portfolio 정의 §절차 3 — 축 집중 임계 초과 시 경보 필수.",
+    "status": "breach",
+    "alert_level": "⚠️ 경보 — 8축 중 6축 임계 초과 (5회차 연속)",
+    "threshold_pct": 60,
+    "threshold_status": "[fact] config/correlation_matrix.yaml 주석상 '⚠️초안' — 임계 확정은 사용자 영역이며 미해소다(esc_L4_0900_08).",
+    "observed_pct_upper": 95.0,
+    "gap_pp": 35.0,
+    "breach_axes": [
+      {
+        "axis": "AI_CAPEX",
+        "tickers_in_axis": 4,
+        "held_tickers": [
+          "IREN"
+        ],
+        "weight_pct_upper": 95.0,
+        "kc_links": [
+          "KC-6",
+          "KC-7",
+          "KC-8"
+        ]
+      },
+      {
+        "axis": "RATES",
+        "tickers_in_axis": 7,
+        "held_tickers": [
+          "IREN"
+        ],
+        "weight_pct_upper": 95.0,
+        "kc_links": [
+          "KC-1 (met)",
+          "KC-9"
+        ]
+      },
+      {
+        "axis": "CRYPTO",
+        "tickers_in_axis": 4,
+        "held_tickers": [
+          "IREN"
+        ],
+        "weight_pct_upper": 95.0,
+        "kc_links": [
+          "KC-3"
+        ]
+      },
+      {
+        "axis": "GPU_SUPPLY",
+        "tickers_in_axis": 3,
+        "held_tickers": [
+          "IREN"
+        ],
+        "weight_pct_upper": 95.0,
+        "kc_links": []
+      },
+      {
+        "axis": "POWER_PERMIT",
+        "tickers_in_axis": 1,
+        "held_tickers": [
+          "IREN"
+        ],
+        "weight_pct_upper": 95.0,
+        "kc_links": [
+          "KC-10"
+        ]
+      },
+      {
+        "axis": "RISK_APPETITE",
+        "tickers_in_axis": 6,
+        "held_tickers": [
+          "IREN"
+        ],
+        "weight_pct_upper": 95.0,
+        "kc_links": [
+          "KC-2",
+          "KC-4",
+          "KC-5"
+        ]
+      }
+    ],
+    "non_breach_axes": [
+      {
+        "axis": "REGULATION",
+        "tickers_in_axis": 3,
+        "held_tickers": [],
+        "weight_pct_upper": 0.0
+      },
+      {
+        "axis": "USDC_DISTRIBUTION_ECONOMICS",
+        "tickers_in_axis": 2,
+        "held_tickers": [],
+        "weight_pct_upper": 0.0
+      }
+    ],
+    "breach_count": 6,
+    "total_axes": 8,
+    "discriminating_power": {
+      "verdict": "판별력 부재",
+      "statement": "[fact] 초과 6축의 weight_pct_upper가 전부 95.0, 비초과 2축은 전부 0.0이다 — 보유 종목이 IREN 단독이기 때문이며 5회차 연속이다.",
+      "consequence": "[inference/강] 축 간 위험 순위를 매길 수 없다. 경보가 가리키는 것은 단일 포지션이 8축 중 6축에 동시 노출된 분산 부재 구조다.",
+      "met_kc_on_breached_axis": "[fact] 현재 met인 유일한 매크로 KC(KC-1)의 전달 축 RATES에서 보유분은 IREN(-M) 단독이며, 같은 축 반대 부호(+) 종목(CRCL·COIN·HOOD)은 전부 미보유다. [inference/중] met 상태 KC의 전달 축에 대해 장부 내 상쇄 노출이 0이다 — 구조 기술이며 조정 제안이 아니다(P15).",
+      "power_permit_single_name": "[fact] POWER_PERMIT은 벡터상 노출 종목이 IREN 1개(-H)뿐인 축이며 보유분 전부가 이 축에 걸린다. [fact] 이 축이 본 회차 한국 대미 에너지 투자 재료가 닿는 축이다 — 아래 korea_us_energy_investment 섹션 참조.",
+      "natural_hedge_state": "[fact] 벡터상 역노출 계열은 RATES(CRCL·COIN·HOOD + 대 IREN·CRWV·NBIS·MU -)와 USDC_DISTRIBUTION_ECONOMICS(COIN + 대 CRCL -) 두 계열이며, 반대편 종목이 전부 미보유라 현 장부에서 자연 헤지는 작동하지 않는다.",
+      "not_a_recommendation": "[fact] 위 서술은 구조 기술이며 포지션 조정 제안이 아니다(P15)."
+    },
+    "carried_status": "[fact] 동일 경보가 5회차 연속 발생했고 원인 구조(IREN 단일 보유)도 변하지 않았다."
+  },
+  "korea_us_energy_investment": {
+    "_scope": "[fact] 사용자 명시 요청 반영 섹션. 근거는 04_sector 3개 파일이 인용한 L2 Claim 범위로 한정하며 00_user_sources 원본은 열지 않았다(P17). [fact] 본 섹션은 어떤 종목 시그널 근거도 아니다(P6·P13).",
+    "a_facts": {
+      "items": [
+        {
+          "text": "[fact] 2026-09-30 미 상무부·한국 정부 공동 발표 'Project Star' — 텍사스 Encinal(La Salle County, 남텍사스) 6,472MW 천연가스 복합화력, $22.3B, NextEra Energy Resources·Related Companies 공동 개발. 인접 Related Digital 5GW 데이터센터 캠퍼스에 직접 공급하고 잉여분은 계통에 공급한다. 데이터센터 운영사·테넌트는 특정되지 않았다.",
+          "grade": "1 (NextEra 뉴스룸·PR Newswire 원문, commerce.gov 팩트시트 역추적 성공)",
+          "confirmed": true,
+          "scope": "sector",
+          "claims": [
+            "c_20261001_IREN_4",
+            "c_20261001_NBIS_5",
+            "c_20261001_CRWV_4"
+          ]
+        },
+        {
+          "text": "[fact] 1단계 1,952MW 가스터빈 2029년 상업운전, 전체 가동 2032년 목표. 보도자료는 텍사스 주지사의 데이터센터 자가발전 지침과 부합한다고 명시한다.",
+          "grade": "1",
+          "confirmed": true,
+          "scope": "sector",
+          "claims": [
+            "c_20261001_NBIS_5",
+            "c_20261001_IREN_4"
+          ]
+        },
+        {
+          "text": "[fact] 발표 패키지 구조(오케스트레이터 전달 + MU L2 기록): 원전 8기(최대 $120B)·알래스카 LNG($50B+)는 미확정, 총 최대 $200B·연 $20B 상한, $350B 패키지(관세 25%→15%)의 첫 프로젝트. MU L2는 패키지·관세 조건을 grade 3·confirmed=false·scope=sector로 적재했고 반도체 언급 0건, Section 232 반도체 품목관세는 별개 체계로 보도됐다고 기록했다.",
+          "grade": "3 (패키지·관세 조건 — MU L2 기준) / 미확정 항목은 확정 사실 아님",
+          "confirmed": false,
+          "scope": "sector",
+          "claims": [
+            "c_20261001_MU_14"
+          ]
+        },
+        {
+          "text": "[fact] 3사(IREN·NBIS·CRWV) L2 모두 원문에 자사 언급이 없음을 확인했고 company_specific 승격을 거부했으며 어떤 축 delta도 생성하지 않았다. arbiter 필터본은 sector Claim을 정상 제거했다(IREN 4건·NBIS 2건·CRWV 1건). 크립토 3종(CRCL·COIN·HOOD)은 noise로 처리했다.",
+          "grade": "구조화 산출물 기록",
+          "confirmed": true,
+          "scope": "process",
+          "claims": []
+        },
+        {
+          "text": "[fact] Encinal은 IREN ERCOT 사이트와 다른 카운티·송전권역이라는 IREN L2 판단(inference/weak), CRWV–Related Digital의 별개 부지(와이오밍 샤이엔) 88MW 관계는 grade 3·4·confirmed=false로 Encinal과 무관하다고 CRWV L2가 기록했다.",
+          "grade": "3~4 / inference",
+          "confirmed": false,
+          "scope": "sector",
+          "claims": [
+            "c_20261001_IREN_5",
+            "c_20261001_CRWV_5"
+          ]
+        }
+      ],
+      "label_inconsistency": "[fact] 사용자 주입 sector 자료의 분류 라벨이 종목별로 다르다(NBIS 'discard_for_company_axis', IREN·CRWV 'scope=sector 확정 Claim', 크립토 3종 noise, IREN은 supporting_claims 필드에 열거 — obs_up_1). 실질 처리(Claim 적재·delta 미생성)는 동일하다."
+    },
+    "b_exposure_vector_implications": {
+      "POWER_PERMIT": "[inference/중] (L3 ki_2 인용) 텍사스 정책 방향은 대형부하 계통 연결의 금지·동결이 아니라 연결 비용·조건 상향 + 자가발전 유도로 읽히며, DC 모라토리엄 ③단계(계통연결+인허가동결) 이행 신호는 입력에 없다. [inference/약] 위험이 계통 연결에서 현장 발전설비 인허가로 이동할 가능성 — 동일 관할 관측 없음(NBIS Vineland 현장 LNG·연료전지 공사중지명령은 타 관할·unconfirmed). [fact] 벡터 변화는 vcp_11(축 지표 문언 병기 검토)로만 제안했고 IREN -H의 부호·강도 변경은 제안하지 않았다.",
+      "ENERGY_DIRECT_COST (보류 축)": "[fact] Project Star는 가스 연계 전력 경로의 섹터 재료이나 reassess_trigger 3개(IREN MWh 공시·전력/가스 KC 신설·3사 전력 조달 계약 구조 공시) 중 충족 0건이다. [inference/강] ENERGY 축 신설 보류(2026-09-12 사용자 확정)를 바꿀 재료가 아니다 — 2029년 이후 공급·종목 연결 없음(vcp_04 증거 갱신, vector_change_considered_not_proposed 기록).",
+      "AI_CAPEX": "[inference/중] (L3 ki_1 인용) 국가 간 패키지 1호가 AI DC 전용 자가발전으로 채택된 것은 전력 확보가 구속 제약이라는 섹터 프레임과 정합하나, 희소성의 '존재 확인'이지 '완화'가 아니다 — 1단계 2029년이므로 2026~2028년 섹터 용량 공급에 기여하지 않는다. [fact] AI_CAPEX 벡터 변경 제안 없음.",
+      "competition_and_tenant": "[inference/약] (L3 ki_3·ki_4 인용) 자가발전 동반이 기본값이 되면 대형 신규 캠퍼스의 자본 요구가 커질 수 있고, 5GW 캠퍼스 테넌트는 3사에 고객 기회일 수도 경쟁 공급일 수도 있다 — 테넌트 미특정으로 방향 판정 불가(P5, su_9).",
+      "MU": "[fact] 반도체 언급 0건·Section 232 별개 체계 — 벡터 축 근거 없음(considered_not_proposed).",
+      "crypto_three": "[fact] CRCL·COIN·HOOD noise 처리 — 벡터 영향 없음."
+    },
+    "c_held_position_observation_points": {
+      "_language_guard": "[fact] 아래는 실포지션(IREN, 범위 [0.85, 0.95]) 관점의 관측점이며 시나리오·한도·이격도 언어로만 기술한다 — 포지션 행동 제안이 아니다(P15).",
+      "items": [
+        "[fact] 연결 시나리오: sc_10(KC-10, 이벤트형) — 이격 산출 불가. Project Star는 KC-10 문언('IREN 계약 용량 10%+ 강제 감축 분류, 보유 사이트 전력접속·인허가 취소·보류 공시')의 관측이 아니다. KC-10 판정은 IREN 고유 1차 공시로만 가능하다.",
+        "[fact] 연결 한도: sc_11 축 집중도 — POWER_PERMIT 축 95.0 대 임계 60(⚠️초안), 이 축의 벡터상 노출 종목은 IREN 1개다. 재료가 닿는 축이 보유분 전부가 걸린 단일 종목 축이라는 구조 사실이 경보 내용에 포함된다.",
+        "[fact] 연결 시나리오: sc_09(KC-9) — Project Star는 KC-9 지표(브렌트)와 무관하며 이격(6.04 USD 미달)에 영향이 없다.",
+        "[inference/약] 관측점 ①: PUCT 대형부하 상호접속 규칙(16 TAC §25.194, MW당 $50,000 재무보증)의 1차 원문 확인 — 현재 grade 4·confirmed=false. 확인되면 IREN power_permit 축과 벡터 basis('TX SB6 강제 감축·MW당 $50K 담보')의 관측 기준이 된다.",
+        "[inference/약] 관측점 ②: Abbott 지시 ERCOT 데이터센터 감사 최종 결과(2026-12 경, L3 su_10 next_check) — 텍사스 관할의 ③단계 이행 여부 판별 자료.",
+        "[inference/약] 관측점 ③: IREN 사이트의 현장 발전설비 관련 인허가 공시 여부 — 위험 성격 이동 가설(ki_2, 약)의 IREN 측 검증 자료. 현재 관측 0건.",
+        "[fact] 관측점 ④: Related Digital 5GW 캠퍼스 테넌트 공표(su_9) — 공표 전에는 3사 어느 쪽에도 수요·공급 함의를 배정할 수 없다."
+      ]
+    },
+    "d_not_a_signal_basis": "[fact] 본 섹션의 어떤 내용도 IREN·NBIS·CRWV·MU 등 개별 종목 시그널의 상향·하향 근거가 아니다 — 섹터·매크로 재료는 종목 근거 불가(P6), 포트폴리오 뷰는 종목 시그널 근거 불가(P13). [fact] L3 neocloud는 '한국 대미 에너지 투자로 섹터 전력 제약 완화 → 특정 종목 상향' 추론을 명시적으로 배제했다(forbidden_inference_guard iii). [fact] 3사 등급 후보(🔴🔴)는 이 재료와 무관한 KC-1 경로이며, 이 재료는 🔴🔴 확정·기각 판단의 근거로도 쓰이지 않는다."
+  },
+  "correlation_layer_summary": {
+    "_source": "output/20261001_0900/05_correlation.json (as_of 2026-10-02T22:35, LLM 계층 2026-10-02T22:50)",
+    "validate": "PASS (--layer correlation)",
+    "code_diff": "[fact] 입력 config 무변경으로 [CODE] 산출(21쌍·KC 파급 27건·축 집중도 8건·커버리지 10/17)은 직전 회차와 필드 단위로 같다.",
+    "grade_high_pairs": [
+      "COIN–CRCL",
+      "COIN–HOOD",
+      "CRCL–HOOD",
+      "CRWV–IREN",
+      "CRWV–NBIS",
+      "IREN–NBIS"
+    ],
+    "held_ticker_pairs": "[fact] 보유 종목이 IREN 단독이므로 보유 종목 간 쌍은 0개다.",
+    "measurement_system_divergence": "[fact] 벡터 기준 NBIS–CRWV·IREN–NBIS·IREN–CRWV는 '상', L3 neocloud 카드 축 렌즈 기준은 NBIS–CRWV '중'·IREN 쌍 '하'다 — 두 체계는 서로 다른 질문에 답하며 본 레이어는 조정하지 않는다(P13).",
+    "vector_proposals_count": 11,
+    "vector_proposals": [
+      "vcp_01 IREN.CRYPTO basis 예약 문언 (이월 5회차)",
+      "vcp_02 NBIS.RATES 강도 재검토 (이월 5회차)",
+      "vcp_03 GPU_SUPPLY 축 분해/축소 (이월 3회차)",
+      "vcp_04 KC-9 매핑·ENERGY_DIRECT_COST 감시 (이월 4회차, 한국 투자 재료 반영 — 트리거 미충족)",
+      "vcp_05 CRCL.RATES 강도 재확인 시점 (이월 3회차)",
+      "vcp_06 USDC_DISTRIBUTION_ECONOMICS basis·label '제로섬' 검토 (이월 2회차, OUSD로 보강)",
+      "vcp_07 COIN.REGULATION basis 예측시장 경로 병기 (이월 2회차)",
+      "vcp_08 YIELD_BEARING 트리거·$YLDS 수치 (이월 2회차)",
+      "vcp_09 CRWV basis 기준 시점 (이월 2회차)",
+      "vcp_10 [신규] OUSD_CONSORTIUM 재평가 트리거 충족 관측 — 승격 검토 개시 여부",
+      "vcp_11 [신규] POWER_PERMIT 지표 문언에 현장 자가발전 인허가 경로 병기 검토 (한국 투자 재료)"
+    ],
+    "sign_or_strength_change_proposed": 0,
+    "carry_note": "[fact] vcp_01~09는 config 무변경·승인 큐 내 vcp 처리 기록 부재로 전부 이월했다(상태: 미처리)."
+  },
+  "thesis_patch_candidates": {
+    "_status": "candidates_only — 본 파트는 ThesisPatch(before→after)를 생성하지 않았다",
+    "_comment": "07_thesis_patch는 thesis-refine 병렬 에이전트 산출물과 사람이 대조한다. 본 목록은 04_sector 구조화 산출물에서 도출한 후보 목록일 뿐이며, 07_thesis_patch·state/pending_approvals.json·thesis card를 쓰거나 수정하지 않았다(F17·F20).",
+    "_reason": "[fact] before→after 생성은 F20에 따라 대상 thesis card 전문 로드를 요구하나 이는 본 파트의 P17 격리 범위 밖이며, 같은 run의 thesis-refine 에이전트가 병렬로 수행한다.",
+    "candidates": [
+      {
+        "id": "tpc_01",
+        "ticker": "COIN·HOOD",
+        "card_field": "axes.prediction_market (정의 범위 정렬)",
+        "basis": "[fact] 허위 diverge 2회 연속 + 제6순회 판결 축 배치 불일치(04_sector/stablecoin.json esc_1001_01). 선택지 (a) COIN 3분해 정렬 (b) 집계용 사상 테이블.",
+        "dependency": "esc_L4_2209_03(축 명명 표준화) 결정 종속"
+      },
+      {
+        "id": "tpc_02",
+        "ticker": "IREN·NBIS·CRWV",
+        "card_field": "axes 명명 (funding_dilution↔funding_access, leverage_burden↔leverage_coverage, 마진 계열 3종, 실행 계열)",
+        "basis": "[fact] 04_sector/neocloud.json su_3·residual_root_cause — 발행 규약은 해소, 명명 불일치 잔존으로 IREN 공유 축 0.",
+        "dependency": "esc_L4_2209_03 결정 종속"
+      },
+      {
+        "id": "tpc_03",
+        "ticker": "MU",
+        "card_field": "axes.ip_litigation_risk 관측점 / risks",
+        "basis": "[fact] Netlist 2026-09-29 HBM 대상 2차 ITC 제소(c_20261001_MU_10, grade 1) — institution 여부·정식 피조사자 구성 미확인(esc_20261001_memory_02). SK하이닉스 라이선스 상태 '미확인' 표기 통일(esc_20261001_memory_03).",
+        "dependency": "없음"
+      },
+      {
+        "id": "tpc_04",
+        "ticker": "CRCL",
+        "card_field": "axes (신규 축 후보 management_governance_succession)",
+        "basis": "[fact] 04_sector/stablecoin.json su_1001_14 — CRCL 고유 거버넌스(CFO 후임) 신규 축 제안, 축 채택은 사람 영역.",
+        "dependency": "없음(단 축 수 증가는 tpc_01·02 표준화 방향과 함께 검토 권고)"
+      },
+      {
+        "id": "tpc_05",
+        "ticker": "CRCL",
+        "card_field": "axes.competition_ousd_consortium 기준선 / key_metrics",
+        "basis": "[fact] OUSD 실측 유통량 첫 스냅샷 $477.3M → $468.4M(c_20261001_CRCL_3·_10, grade 3~4) — 기준선 기록 후보. 출시일 표기 불일치(su_1001_04)는 미결.",
+        "dependency": "없음"
+      },
+      {
+        "id": "tpc_06",
+        "ticker": "NBIS",
+        "card_field": "axes.capacity_delivery (3자 임차 경로 관측점)",
+        "basis": "[fact] AIB 50MW·12년 임차(c_20261001_NBIS_1, grade 1) — P7 1단, 인도 실행 리스크의 카운터파티 이전(it_4).",
+        "dependency": "없음"
+      },
+      {
+        "id": "tpc_07",
+        "ticker": "IREN",
+        "card_field": "axes.power_permit 관측점 (감시 항목만 — 방향 근거 아님)",
+        "basis": "[fact] PUCT 대형부하 규칙 1차 확인 대기(c_20261001_IREN_3, grade 4), Project Star는 scope=sector(c_20261001_IREN_4) — 카드에는 관측점으로만, 축 방향 근거로 쓰지 않는다(P6). [fact] obs_up_1(supporting_claims에 sector Claim 열거) 표기 정리 포함.",
+        "dependency": "없음"
+      },
+      {
+        "id": "tpc_08",
+        "ticker": "COIN",
+        "card_field": "kill_conditions_ref (KC-COIN-3 trigger 전문 인용 정정)",
+        "basis": "[fact] '연방 한정' 서술 오류 정정(04_sector/stablecoin.json esc_1001_06) — 카드에 KC 요약 문언이 있다면 정정 대상 여부 확인.",
+        "dependency": "카드 내 해당 문언 존재 여부는 F20 전문 확인 필요 — 본 파트 미확인"
+      }
+    ],
+    "counts": {
+      "total": 8,
+      "by_ticker_note": "[fact] 복수 종목 후보 2건 포함."
+    },
+    "sequencing_note": "[inference/중] tpc_01·02(명명 정렬)와 tpc_04(축 추가)는 표준화 결정 없이 개별 집행되면 공유 축 결합 실패를 고착시킬 수 있다 — 사람이 07_thesis_patch 산출물과 대조할 때 순서를 함께 검토할 것을 제안한다."
+  },
+  "escalation": {
+    "human_confirmation_required": true,
+    "double_red_present": true,
+    "double_red_basis": "[fact] IREN·NBIS·CRWV·MU 4종목 🔴🔴 후보(KC-1 전이, 3회 연속). CLAUDE.md §7에 따라 자동 실행 금지, 사람 확인 요청 + 근거 패키지로 종료.",
+    "blocking": true,
+    "items": [
+      {
+        "id": "esc_L4_0900_01",
+        "priority": "top",
+        "type": "double_red_confirmation",
+        "status": "carried_unrecorded_3_runs (esc_L4_1015_01 승계)",
+        "summary": "🔴🔴 후보 4건(IREN·NBIS·CRWV·MU) 등급 확정·기각 — 3회 연속(09-19·09-25·10-01) 사람 확정 기록 없음",
+        "detail": "[fact] 4건 전부 KC-1 단일 매크로 경로, 종목 KC 훼손 0. [fact] MU는 Kill 부재 시 🔴 하향 후보(ip_litigation_risk — Netlist 9/29 HBM 대상 2차 ITC 제소) 경로 병존. [fact] 보유 종목 해당은 IREN 1건. [fact] state/signals.json as_of 2026-09-05, transitions 0건.",
+        "decision_requested": "[fact] 4건 각각 확정·기각 + MU 이중 경로 대조 + 결정 기록 위치 지정(esc_L4_0900_02와 함께)",
+        "owner": "사람"
+      },
+      {
+        "id": "esc_L4_0900_02",
+        "priority": "top",
+        "type": "system_gap_decision_record_path",
+        "status": "re_reported (신규 명명, 직전 회차 '결정 기록 경로 지정' 요청 연장)",
+        "summary": "🔴🔴 결정 기록 경로 부재 — 승인 큐가 thesis_patch/version_publish 유형만 받는다",
+        "detail": "[fact] state/pending_approvals.json 59건 전부 thesis_patch 유형. [inference/강] 사람이 🔴🔴 후보를 확정·기각해도 기록할 시스템 경로가 없어 arbiter가 매 run 같은 후보를 재생성한다 — 3회 연속 재상신의 구조적 원인이며, '결정 미이행'과 '결정 미기록'을 시스템이 구분할 수 없다(P5).",
+        "decision_requested": "[fact] 시그널 결정 기록 경로 설계(예: 승인 큐 신규 유형 또는 signals.json transitions 직접 기입 절차) — 설계·구현 여부는 사람 판단, 본 파트는 제안만",
+        "owner": "사람 / 시스템 소유자"
+      },
+      {
+        "id": "esc_L4_0900_03",
+        "priority": "high",
+        "type": "kc_excerpt_defect_historical_impact",
+        "status": "new — 결함은 이번 run 수정 완료(오케스트레이터)",
+        "summary": "make_kc_excerpt.py 종목 KC 임계 필드 전 종목 누락 — 직전 run까지 종목 KC 판정은 임계 없이 이뤄졌음",
+        "detail": "[fact] 수정·회귀 테스트·5종목 arbiter 재실행 완료(오케스트레이터 전달), 재실행 후 등급 후보 불변, CRCL·HOOD warning 단계 최초 분리 판정(04_sector/stablecoin.json cp_1001_kc_excerpt_rerun_data_gap). [fact] 직전 L4의 esc_L4_1015_08(KC-HOOD-3 발췌 누락)은 이 결함의 증상이었다. [fact] COIN KC 4종은 warning 정의 자체가 없다.",
+        "decision_requested": "[fact] 직전 run 종목 KC 판정의 소급 재판정(P9 신규 버전) 필요 여부 + COIN KC warning 단계 정의 여부",
+        "owner": "사람"
+      },
+      {
+        "id": "esc_L4_0900_04",
+        "priority": "high",
+        "type": "kc_duration_definition",
+        "status": "carried (esc_L4_1015_02 승계)",
+        "summary": "KC-9 'duration 1개월' 연속/누적 정의 미확정 + 직전 회차 2026-10-10 시한의 실효 여부",
+        "detail": "[fact] L1은 두 해석을 모두 기록했고 현재 데이터로는 둘 다 미충족이다(연속 최장 4거래일, 누적 14일 중 6일). [fact] brent 113.96 하회 지속.",
+        "decision_requested": "[fact] config/kill_conditions.yaml KC-9 duration 정의 확정(제안만)",
+        "owner": "사람(config/kill_conditions.yaml)"
+      },
+      {
+        "id": "esc_L4_0900_05",
+        "priority": "top",
+        "type": "measurement_capability_defect",
+        "status": "carried_and_evidence_accumulated (esc_L4_2209_03 계열)",
+        "summary": "축 명명 표준화 — 증거 누적: neocloud 공유 축 0→2(규약 통일 효과 실증), stablecoin 허위 diverge 2회 연속 + 제6순회 판결 축 배치 불일치",
+        "detail": "[fact] neocloud: 발행 규약 통일만으로 NBIS–CRWV 공유 축 2개가 성립 — 직전 회차가 사전 지목한 두 축이 정확히 성립했다. IREN은 명명 불일치로 공유 축 0 지속. [fact] stablecoin: COIN 단일 슬롯 대 HOOD 3분해로 동일 사건이 결합되지 못하고 이름만 같은 매출 축이 결합(esc_1001_01). [fact] 집계기 1:1 'high' 표기가 2개 섹터에서 동시 재현.",
+        "decision_requested": "[fact] 명명·측정 기준 통일안 + 공유 축 극성 대조(su_11) 범위 결정 — tpc_01·02 집행 순서와 연동",
+        "owner": "사람(thesis card 축 정의)"
+      },
+      {
+        "id": "esc_L4_0900_06",
+        "priority": "high",
+        "type": "kc_fact_and_record_correction",
+        "status": "updated (esc_L4_1015_05 승계)",
+        "summary": "KC-COIN-3 사실관계 미결 + '연방 한정' 서술 오류 정정 이력",
+        "detail": "[fact] trigger = (a) SEC·CFTC·DOJ 신규 제소 OR (b) 기관 불문 주요 사업 영업정지·인가 취소. (b)항 해당 여부는 26-1693 사실관계·예측시장의 '주요 사업' 해당성 미결(unresolved_fact). [inference/중] config 주석 '연방 기관 + 영업상 중대로 한정'이 오독 출처일 수 있다.",
+        "decision_requested": "[fact] (b)항 해당성 판단 + config 주석 문언 정리 여부(제안만)",
+        "owner": "사람(config/kill_conditions.yaml)"
+      },
+      {
+        "id": "esc_L4_0900_07",
+        "priority": "high",
+        "type": "kc_not_defined",
+        "status": "carried (esc_L4_1015_06 승계)",
+        "summary": "MU 전용 KC 미정의 — FY26 Q4 실적·2차 ITC 제소 이후에도 판정 기준 부재",
+        "detail": "[fact] arbiter 기준 5회 연속 not_defined. [fact] L3 memory가 임계 필요 관측 항목 후보 (a)~(e)를 제시했다(임계 수치 미제안). [fact] IREN도 종목 KC 미정의(매크로 KC-10만 존재).",
+        "decision_requested": "[fact] KC-MU-* 및 IREN 종목 KC 정의 여부",
+        "owner": "사람(config/kill_conditions.yaml)"
+      },
+      {
+        "id": "esc_L4_0900_08",
+        "priority": "high",
+        "type": "config_threshold_draft",
+        "status": "carried (5회차 연속 초과)",
+        "summary": "축 집중도 임계 60% '⚠️초안' — 경보 기준값 미확정",
+        "detail": "[fact] 관측 95.0 대 60, 6/8축 초과, 판별력 부재.",
+        "decision_requested": "[fact] 임계 확정 또는 보유 1종목 상태에서의 경보 형식 재정의",
+        "owner": "사람(config/correlation_matrix.yaml)"
+      },
+      {
+        "id": "esc_L4_0900_09",
+        "priority": "medium",
+        "type": "source_grading_defect",
+        "status": "carried (esc_L4_1015_04 계열)",
+        "summary": "규제·사법·발행사 1차 도메인 sources.yaml 미등재 — 섹터 핵심 재료 전건 grade 4",
+        "detail": "[fact] 해당 도메인: opn.ca6.uscourts.gov, supremecourt.gov, michigan.gov, ago.mo.gov, reserves.bridge.xyz, joinopenstandard.com, home.treasury.gov(stablecoin esc_1001_04), investors.netlist.com·s25.q4cdn.com·usitc.gov(memory esc_20261001_memory_04).",
+        "decision_requested": "[fact] 등재 검토(제안만)",
+        "owner": "사람(config/sources.yaml)"
+      },
+      {
+        "id": "esc_L4_0900_10",
+        "priority": "medium",
+        "type": "aggregator_rule_semantics",
+        "status": "carried_recurring (2개 섹터 동시 재현)",
+        "summary": "consensus_aggregate.py — 2종목 1:1 분할(부호 상충 아님)을 dispersion=high로 표기",
+        "detail": "[fact] neocloud customer_concentration(strengthen 대 neutral), stablecoin prediction_market(weaken 대 neutral). L3 양쪽이 substantive_dispersion을 병기해 보정했다. [fact] delta 강도(stage) 미반영(obs_agg_5).",
+        "decision_requested": "[fact] 규칙 변경 여부",
+        "owner": "스크립트 소유자"
+      },
+      {
+        "id": "esc_L4_0900_11",
+        "priority": "medium",
+        "type": "event_coverage_gap",
+        "status": "new",
+        "summary": "HOOD L2의 제6순회 Kalshi 판결(2026-09-25) 미적재",
+        "detail": "[fact] 공통 창 내 섹터 사건이 COIN에만 적재됐다(su_1001_01). 미적재를 무관 판정으로 읽지 않는다(P5).",
+        "decision_requested": "[fact] 다음 HOOD L2 lookback 적재 확인",
+        "owner": "company-hood / 오케스트레이터"
+      },
+      {
+        "id": "esc_L4_0900_12",
+        "priority": "medium",
+        "type": "vector_change_proposals",
+        "status": "pending (9건 이월 + 2건 신규)",
+        "summary": "벡터 제안 vcp_01~11 승인·기각·보류 — 부호·강도 변경 요구 0건",
+        "detail": "[fact] vcp_10(OUSD 재평가 트리거 충족 관측)과 vcp_11(POWER_PERMIT 지표 문언)이 신규다. vcp_01·02는 5회차 이월.",
+        "decision_requested": "[fact] 건별 처리",
+        "owner": "사람(config/correlation_matrix.yaml)"
+      },
+      {
+        "id": "esc_L4_0900_13",
+        "priority": "medium",
+        "type": "kc_mapping_coverage",
+        "status": "carried",
+        "summary": "종목 KC 17건 축 매핑 미정의 — 포트폴리오 파급 산출 불가",
+        "detail": "[fact] active 27 / mapped 10 / undefined 17.",
+        "decision_requested": "[fact] KC_AXIS 매핑 추가 여부",
+        "owner": "사람"
+      },
+      {
+        "id": "esc_L4_0900_14",
+        "priority": "medium",
+        "type": "kc_threshold_obsolete",
+        "status": "carried",
+        "summary": "KC-4 임계 $200B — ON RRP $11.54B(직전 $0.58~0.63B 대비 증가)에도 임계 대비 1자리 수 이상 낮음",
+        "detail": "[fact] L1은 방향성 해석 없이 수치만 기록했다.",
+        "decision_requested": "[fact] 임계 재정의 여부",
+        "owner": "사람(config/kill_conditions.yaml)"
+      },
+      {
+        "id": "esc_L4_0900_15",
+        "priority": "medium",
+        "type": "input_scope_gap",
+        "status": "carried_5_runs",
+        "summary": "IREN 가격 라인(30/28 USD) 이격도 산출 불가 — 보유 종목 유일의 가격 한도",
+        "detail": "[fact] L4 입력 범위에 가격 시계열이 없다.",
+        "decision_requested": "[fact] 가격 입력 경로(예: 01_macro_kc 또는 indicators에 보유 종목 종가 포함) 여부",
+        "owner": "사람 / 오케스트레이터"
+      },
+      {
+        "id": "esc_L4_0900_16",
+        "priority": "medium",
+        "type": "macro_input_gap",
+        "status": "carried_2_runs",
+        "summary": "KC-6 입력 null — SDLLMTK 소스 간 상충",
+        "detail": "[fact] 2주 %변화 직접 수치 부재로 채택 보류.",
+        "decision_requested": "[fact] 지표 소스 지정",
+        "owner": "사람 / L1"
+      },
+      {
+        "id": "esc_L4_0900_17",
+        "priority": "low",
+        "type": "new_axis_proposal",
+        "status": "new",
+        "summary": "CRCL management_governance_succession 신규 카드 축 제안(su_1001_14)",
+        "detail": "[fact] CRCL 고유 거버넌스 사안 — 벡터 축 아님.",
+        "decision_requested": "[fact] 채택 여부(tpc_04)",
+        "owner": "사람(thesis card)"
+      },
+      {
+        "id": "esc_L4_0900_18",
+        "priority": "low",
+        "type": "structural_exposure_reclassification",
+        "status": "carried_reinforced",
+        "summary": "sie_event_contract_state_federal → COIN·HOOD 공통 노출(동일 부호) 재분류 — 제6순회 판결로 강화",
+        "detail": "[fact] 근거 grade 4·confirmed=false.",
+        "decision_requested": "[fact] 등재 확정 여부(vcp_07 연계)",
+        "owner": "사람(구조적 역노출 등재부)"
+      },
+      {
+        "id": "esc_L4_0900_19",
+        "priority": "low",
+        "type": "upstream_label_convention",
+        "status": "new",
+        "summary": "P6/P13 경계 표기 규약 — IREN supporting_claims의 sector Claim 열거(obs_up_1), NBIS 03_signal 매크로 의사 축 'rates_exposure' weaken, 사용자 주입 sector 자료 라벨 3종 혼재",
+        "detail": "[fact] 셋 다 방향·집계 영향 없음.",
+        "decision_requested": "[fact] 표기 규약 정리 여부",
+        "owner": "오케스트레이터 / 사람"
+      },
+      {
+        "id": "esc_L4_0900_20",
+        "priority": "low",
+        "type": "data_conflict",
+        "status": "new",
+        "summary": "USDC 유통량 소스 간 상충($74.36B 9/30 대 $75.2B 9/24, su_1001_12) + OUSD 출시일 표기 불일치(su_1001_04)",
+        "detail": "[fact] circle.com/transparency 직접 추출 실패. [fact] KC-CRCL-1·KC-CRCL-2 판정 입력과 연결.",
+        "decision_requested": "[fact] 채택 계열 지정(su_1001_12는 L3가 requires_human_decision으로 표기)",
+        "owner": "사람"
+      }
+    ],
+    "counts": {
+      "total": 20,
+      "top": 3,
+      "high": 5,
+      "medium": 8,
+      "low": 4,
+      "new_this_run": 5
+    },
+    "pending_carried_items": "[fact] 계류 목록(오케스트레이터 전달 재확인): 벡터 제안 vcp_01~09(이월), 축 명명 표준화(esc_L4_0900_05), KC-COIN-3 사실관계(06), KC-9 duration 정의(04), CRCL 신규 축 제안(17), MU 전용 KC 부재(07)."
+  },
+  "human_confirmation_request": {
+    "required_by": "CLAUDE.md §7 — 🔴🔴(KC met & confirmed) 포함 시 자동 실행 금지, 사람 확인 요청 + 근거 패키지 제출로 종료",
+    "status": "본 산출물로 종료 — 후속 자동 실행 없음",
+    "what_happened": "[fact] KC-1(FFR 4.00 > 3.75, confirmed)이 3회 연속 met이며 신규 FOMC는 없었다. [fact] arbiter 규칙1이 IREN·NBIS·CRWV·MU에서 재발동해 🔴🔴 후보가 3회 연속 재생성됐다.",
+    "explicit_state_gap": "[fact] state/signals.json은 여전히 KC-1 이전 등급(IREN 🟡·NBIS 🟡·CRWV 🟡·MU 🟠, as_of 2026-09-05, transitions 0건)을 보여준다. [fact] 승인 큐에는 🔴🔴 결정을 기록할 유형이 없다(esc_L4_0900_02). [inference/중] 본 회차 🔴🔴 후보는 '신규 판정'이 아니라 '미처리 요청의 3번째 재상신'이다.",
+    "what_it_is_not": "[fact] 4건 중 종목 전용 KC 훼손에 기인한 것은 0건이다. [fact] 등급은 후보이며 확정이 아니다. [fact] 한국 대미 에너지 투자 재료는 이 후보들과 무관하다. [fact] 본 산출물은 어떤 포지션 행동도 지시하지 않는다.",
+    "evidence_package": [
+      {
+        "item": "KC-1 판정 근거",
+        "path": "output/20261001_0900/01_macro_kc.json#kc_status[KC-1] + analyst_intervention[KC-1]",
+        "grade": "FRED api",
+        "summary": "[fact] FFR 4.00 > 3.75, as_of 2026-10-01, carry_over_reconfirm(3회 연속)."
+      },
+      {
+        "item": "사전 정의 결과 문언과 현 장부 대응",
+        "path": "config/kill_conditions.yaml#macro.KC-1.consequence + config/positions.yaml",
+        "grade": "config(사람 확정)",
+        "summary": "[fact] 레버리지·Next 조항 대상 없음, 실질 대상은 Edge(IREN) 조항 하나(sc_01)."
+      },
+      {
+        "item": "🔴🔴 후보 4건 경로",
+        "path": "output/20261001_0900/04_sector/neocloud.json#macro_kc_candidate_note + output/20261001_0900/04_sector/memory.json#kc_separation_note",
+        "grade": "L3 인용(arbiter 후보 판정)",
+        "summary": "[fact] 4건 모두 규칙1 단독. 펀더멘털 경로: IREN·NBIS·CRWV maintain / MU 🔴 하향 후보(ip_litigation_risk, c_20261001_MU_10)."
+      },
+      {
+        "item": "현행 확정 등급·결정 기록 경로",
+        "path": "state/signals.json + state/pending_approvals.json",
+        "grade": "state",
+        "summary": "[fact] signals as_of 2026-09-05, transitions 0건 / 승인 큐 59건 전부 thesis_patch."
+      },
+      {
+        "item": "종목 KC 발췌 결함 이력",
+        "path": "output/20261001_0900/04_sector/stablecoin.json#convergent_pattern[cp_1001_kc_excerpt_rerun_data_gap] + 06_portfolio.json#company_kc_excerpt_defect_record",
+        "grade": "L3 + 오케스트레이터 전달",
+        "summary": "[fact] 수정·재실행 후 등급 후보 불변, 직전 run 종목 KC 판정은 임계 없이 수행됨."
+      },
+      {
+        "item": "KC-9 duration",
+        "path": "output/20261001_0900/01_macro_kc.json#analyst_intervention[KC-9]",
+        "grade": "FRED api",
+        "summary": "[fact] 연속·누적 해석 모두 미충족, 정의 확정 필요."
+      },
+      {
+        "item": "축 집중도 경보",
+        "path": "output/20261001_0900/05_correlation.json#axis_concentration",
+        "grade": "[CODE]",
+        "summary": "[fact] 6/8축 초과(95.0 대 60 초안), IREN 단일 포지션 — POWER_PERMIT 단일 종목 축 포함."
+      },
+      {
+        "item": "한국 대미 에너지 투자",
+        "path": "output/20261001_0900/04_sector/neocloud.json#korea_energy_investment_sector_implication + output/20261001_0900/04_sector/memory.json#korea_us_investment_note + output/20261001_0900/04_sector/stablecoin.json#noise_handling_record",
+        "grade": "grade 1(Project Star)·grade 3(패키지)",
+        "summary": "[fact] scope=sector, 종목 delta 0, 등급 근거 불가(P6·P13) — 06_portfolio.json#korea_us_energy_investment."
+      },
+      {
+        "item": "섹터 층 한계",
+        "path": "output/20261001_0900/04_sector/*.json",
+        "grade": "L3",
+        "summary": "[fact] 3개 섹터 방향 미산출 — 명명·범위·집계 규칙(esc_L4_0900_05·10)."
+      }
+    ],
+    "decisions_requested": [
+      "[fact] ① 🔴🔴 후보 4건 확정·기각 — MU 이중 경로 대조 포함 (esc_L4_0900_01)",
+      "[fact] ② 🔴🔴 결정 기록 경로 설계 — 승인 큐 유형 부재 (esc_L4_0900_02)",
+      "[fact] ③ 직전 run 종목 KC 판정의 소급 재판정 필요 여부 + COIN warning 단계 정의 (esc_L4_0900_03)",
+      "[fact] ④ KC-9 duration 정의 (esc_L4_0900_04)",
+      "[fact] ⑤ 축 명명 표준화 (esc_L4_0900_05) — tpc_01·02 순서 연동",
+      "[fact] ⑥ KC-COIN-3 (b)항 해당성 + 주석 문언 (esc_L4_0900_06)",
+      "[fact] ⑦ MU·IREN 종목 KC 정의 (esc_L4_0900_07)",
+      "[fact] ⑧ 벡터 제안 11건 처리 — 부호·강도 변경 요구 0건 (esc_L4_0900_12)",
+      "[fact] ⑨ ThesisPatch 후보 8건을 07_thesis_patch(병렬 에이전트 산출)와 대조"
+    ],
+    "no_action_restated": "[fact] 위 결정 이전에 본 시스템이 수행할 후속 자동 단계는 없다. default_action은 no_action이다(P12)."
+  },
+  "limits": {
+    "P1": "[fact] 본 산출물의 주장 문장은 [fact] 또는 [inference/강도] 태그를 둔다(인용 문언·경로 필드 제외).",
+    "P11": "[fact] 18개 시나리오 전부가 사전 정의된 KC 또는 config 한도에 연결돼 있다 — 새로 만든 임계는 0건이다.",
+    "P12": "[fact] default_action은 no_action이다.",
+    "P13": "[fact] 하위 계층 산출물(시그널 등급·섹터 판정)을 소급 수정하지 않았고, 섹터 컨센서스·KC·상관·한국 투자 재료를 개별 종목 시그널 근거로 인용하지 않았다.",
+    "P14": "[fact] 수치형 상관계수를 표기하지 않았다.",
+    "P15": "[fact] 포지션 행동 지시가 아니다. 목표 비중 단일값과 시점 지시를 포함하지 않는다. [fact] config의 사전 정의 문언은 predefined_consequence 필드에 원문 인용으로만 둔다.",
+    "P16": "[fact] 최상위 as_of·staleness_days와 입력별 as_of를 기재했다.",
+    "P17": "[fact] 02_company 원문·03_signal·00_user_sources·_raw_* 원문·thesis card를 로드하지 않았다.",
+    "F17_F20": "[fact] ThesisPatch를 생성하지 않았고 approvals.py를 호출하지 않았으며 state/·config/·07_thesis_patch에 쓰지 않았다.",
+    "measurement_limits_this_run": [
+      "[fact] 섹터 방향 입력 0건.",
+      "[fact] 축 집중도 판별력 부재(5회차 연속).",
+      "[fact] 종목 KC 17건 파급 산출 불가, MU·IREN 종목 KC 미정의.",
+      "[fact] 보유 종목 가격 이격 산출 불가.",
+      "[fact] 종목 KC 경고 단계 개별 판정값은 04_sector에 stablecoin 3사만 서술 수준으로 인용됨."
+    ]
+  }
+}

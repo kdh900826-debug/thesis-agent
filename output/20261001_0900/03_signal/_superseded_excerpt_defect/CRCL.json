@@ -1,0 +1,242 @@
+{
+ "as_of": "2026-10-01",
+ "run_id": "20261001_0900",
+ "ticker": "CRCL",
+ "input_source": "output/20261001_0900/03_input/arbiter_CRCL.json",
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20261001_CRCL_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "8-K(Item 5.02) + Form4 교차",
+   "filed_at": "2026-09-25",
+   "staleness_days": 6,
+   "axis": "governance_succession (카드 비정의 축 — 노이즈 경계)",
+   "summary": "이사 Neville 사임(개인사유) + CFO Fox-Geen 사임통지(2026-12-31까지 또는 후임선임시까지 재직, 서치펌 착수). 퇴직패키지 금액 특정(현금$1,050,000 등). 운영·정책 이견 아님을 명시. 카드 7축(reserve_income·usdc 등) 어디에도 직접 대응하지 않는 거버넌스 이벤트(P3상 축 비이동 — 노이즈 경계에 있으나 CFO는 핵심 경영진 발언 과거 출처라 알림에는 기록)."
+  },
+  {
+   "id": "c_20261001_CRCL_2",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "inference_strength": "weak",
+   "source_type": "derived_from_primary_8k",
+   "filed_at": "2026-09-25",
+   "staleness_days": 6,
+   "axis": "reserve_income (경영진 코멘트 연속성)",
+   "summary": "CFO 교체가 향후 실적콜 reserve_income·diversification 코멘트 연속성에 불확실성을 더할 수 있다는 weak inference. Fox-Geen 재직은 12/31까지 유지되어 임박한 10-Q 서명 공백은 미확인. 입력 claim 자체가 '상향·하향 근거로 단독 사용 불가'를 명시 — downgrade 트리거 미채택."
+  },
+  {
+   "id": "c_20261001_CRCL_3",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "issuer_blog + issuer_reserve_dashboard(2차 매체 다수 교차, 전부 sources.yaml 미등재→grade4)",
+   "filed_at": "2026-09-30",
+   "staleness_days": 1,
+   "axis": "competition_ousd_consortium",
+   "summary": "OUSD(Bridge/Stripe 발행) 2026-09-30 공식출시(4체인, Coinbase·Stripe·Visa·Mastercard·Shopify 등 200+ 파트너) — 카드 부호 활성화 조건('공식출시+실측 유통량 최초공시') 최초 충족. 유통량 $477.3M(9/30 19:30UTC)→$468.4M(10/1 12:50UTC, 100% 담보) 첫 스냅샷은 소폭 감소. 입력 claim 자체가 'USDC 대비 약 0.6% 수준 — 과대해석 주의'를 명시. 단일 출처(발행사 자체 대시보드) 수치이며 grade4·confirmed=false — P4상 단독 판단 근거 불가, 복수 독립 2차 매체는 출시 사실(일자·체인·파트너)만 두텁게 교차검증, 유통량 수치 자체의 삼각검증은 아님."
+  },
+  {
+   "id": "c_20261001_CRCL_4",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "news_secondary_aggregator(DefiLlama 집계 인용) + 품질미검증 GitHub 포스트",
+   "filed_at": "2026-09-26",
+   "staleness_days": 5,
+   "axis": "diversification (Arc)",
+   "summary": "Arc 메인넷 10일차 DeFi TVL 약 $494M, WoW +44.52%. 별도 품질미검증 출처는 동 기간 DEX거래량의 약 82%가 밈코인 런치패드發이라 주장 — 기관결제 트래픽이 아닌 투기적 활동이 증가분의 상당 부분을 견인했을 가능성(출처 신뢰도 자체 미검증, 방향 판정에 비중 두지 않음)."
+  },
+  {
+   "id": "c_20261001_CRCL_5",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-10-01",
+   "staleness_days": 0,
+   "axis": "reserve_income / regulation_company_licensing",
+   "summary": "EDGAR 전서식 재조회: Coinbase Item1.01/1.02 8-K 이번 창도 0건 — 무공시 구간 약38일(직전 run 32일+6일)로 연장. OCC·NYDFS 인가취소·제재 8-K도 0건(KC-CRCL-4 관련 신규 감독조치 미관측). 부재는 무변경의 증명 아님(P5), 최종확인은 Q3 10-Q."
+  },
+  {
+   "id": "c_20261001_CRCL_6",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-10-01",
+   "staleness_days": 0,
+   "axis": "competition_yield_bearing",
+   "summary": "$YLDS(FIGR) 신규 제출 0건(8-K·10-Q 기준). 2Q26 $556.033M(QoQ -7.0%) 최신치 변동 없음. 다음 갱신 게이트 FIGR 3Q26(통상 11월)."
+  },
+  {
+   "id": "c_20261001_CRCL_9",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company_pressroom_direct_check",
+   "filed_at": "2026-10-01",
+   "staleness_days": 0,
+   "axis": "earnings_checkpoint",
+   "summary": "circle.com/pressroom 직접열람 — Q3'26 실적발표 공식 IR 공지 이번 창도 없음. 애그리게이터 11/12 추정은 자동추정 라벨로 판정근거 불가(F1) — earnings_checkpoints.date null 유지 타당."
+  },
+  {
+   "id": "c_20261001_CRCL_10",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "secondary_media_conflicting(2건 상충, 1차 수치 직접확인 실패)",
+   "filed_at": "2026-09-30",
+   "staleness_days": 1,
+   "axis": "usdc_circulation_scale",
+   "summary": "USDC 유통량 상충 보도: kucoin $74.36B(9/30) vs eco.com이 인용한 circle.com $75.2B(9/24) — 집계방법론 상이 가능성, 단순 추세 해석 불가. circle.com/transparency 직접조회는 JS렌더링 제약으로 숫자 미추출(날짜라벨만 확인). confirmed=false 유지, 방향 판단 미사용."
+  }
+ ],
+ "filter_bug_report": "arbiter_CRCL.json claims 8건(c_1·2·3·4·5·6·9·10) 전부 scope==company_specific 확인. removed_claims 2건(c_7·c_8, scope=sector)은 필터본 단계에서 정상 제거됨(P6/P13 필터 정상 작동). F13(필터 우회 유입) 해당 없음.",
+ "kc_excerpt_known_defect_report": "03_kc_excerpt/CRCL.json own_company_kc_detail의 KC-CRCL-1/2/3/4 네 항목 모두 description·type·consequence만 있고 kc_status(verdict/threshold/value) 엔트리 자체가 발췌에 없다(직전 0925 run의 동일 종목 발췌에는 4건 전부 not_met/provisional verdict가 있었음 — 이번 창에서 누락). 특히 KC-CRCL-2('점유율 잠식, OUSD·이자부 코인 포함')는 오늘 창의 핵심 신규 재료(OUSD 공식출시, c_20261001_CRCL_3)와 정의상 정확히 겹치는데 판정할 임계·verdict가 제공되지 않아 met/not_met을 객관적으로 확정할 기준이 없다. 임계를 추정해 메우지 않았으며 '임계 미제공으로 판정 불가 → not_met·provisional 유지'로 보수적으로 처리했다(P5·P11). 오케스트레이터는 make_kc_excerpt.py가 이번 창 KC-CRCL-1~4의 kc_status를 왜 발췌하지 못했는지 확인하고, 특히 KC-CRCL-2는 OUSD 유통량 실측치 대비 임계 적용 여부를 사람이 직접 재확인할 것을 권고한다.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-CRCL-1",
+    "description": "USDC 유통량 수축 (경고/발동 2단)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "발췌에 임계·verdict 미제공(kc_excerpt_known_defect_report 참조). 입력 claims도 USDC 유통량에 대해 상충·미확인 2차 수치뿐(c_10, confirmed=false) — '수축' 방향 관측 자체가 확정되지 않아 met 격상 근거 없음."
+   },
+   {
+    "kc_id": "KC-CRCL-2",
+    "description": "점유율 잠식 (OUSD·이자부 코인 포함)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "임계·verdict 미제공. 오늘 창 최대 신규재료(OUSD 공식출시+실측유통량 최초공시, c_3)가 이 KC의 정의 범위 안에 있음에도 판정 임계가 발췌되지 않아 met 여부를 arbiter가 독자 산정할 수 없다. 규모가 USDC 대비 약 0.6%(입력 claim 자체 명시)로 현시점 met 주장은 과대해석 — not_met·provisional 유지하되 사람 확인 요청 사유로 병기."
+   },
+   {
+    "kc_id": "KC-CRCL-3",
+    "description": "Coinbase 분배 계약 변경",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "c_5: Coinbase 관련 Item1.01/1.02 8-K 이번 창도 0건, 무공시 구간 약38일 지속 — met 불성립."
+   },
+   {
+    "kc_id": "KC-CRCL-4",
+    "description": "인가·감독 조치 (규제 선점 전제 훼손)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "c_5: EDGAR 8-K 0건. 비공개 감독서한 등은 8-K 의무대상 아닐 수 있어 관측 0건이 조치 부존재 증명은 아니다(P5) — provisional 유지."
+   },
+   {
+    "kc_id": "KC-3 (macro, 크립토 붕괴+위험회피 동시, BTC<55000 & VIX>=25)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "BTC 83,670.59·VIX 16.26(둘 다 2026-10-01, stale 0일) — 양쪽 다 임계 미충족. 발췌본 그대로 인용. CRCL에 propagate하는 유일한 매크로 KC(macro_kc_propagating_to_ticker=[KC-3])이며 KC-1(FFR, 메모리상 IREN 등 4종목 🔴🔴 미확정) 등 타 매크로 KC는 이 종목 발췌에 포함되지 않음 — '무관'이 아니라 '불리 노출 축 없음'(P5 주석)."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "trigger_source": [],
+  "reason": "규칙1(Kill 우선: KC met AND confirmed)에 해당하는 조합이 0건이다. 종목 KC-CRCL-1~4는 임계·verdict 자체가 발췌되지 않아(kc_excerpt_known_defect_report) met으로 격상할 근거가 없고, 보수적으로 not_met·provisional 유지. 유일하게 propagate하는 매크로 KC-3은 not_met·confirmed. 오늘 창 최대 신규재료인 OUSD 출시(c_3)는 KC-CRCL-2의 정의 범위와 직접 겹치나 임계 데이터 부재로 met 판정을 내릴 수 없다 — 추정으로 메우지 않는다(P11). 🔴🔴 후보 아님 — 다만 KC-CRCL-2 임계 재발췌는 사람 확인을 권고(오케스트레이터 경유)."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향게이트는 quantitative_evidence AND company_specific AND revenue_recognized 3조건 동시충족 필요. c_1(임원 교체 보상금액)·c_3(OUSD 유통량)·c_4(Arc TVL)·c_6($YLDS 잔액)은 quantitative=true·company_specific=true이나 전부 매출·마진·현금흐름·가이던스 수치가 아니거나(거버넌스 보상, 경쟁사 유통량, TVL, 타사 잔액) 매출 인식 단계(P7 3단계) 도달 claim이 아니다. 이번 창에 revenue_recognized=true인 claim이 없다 — 3요건 미동시충족. (참고: 현재 등급이 이미 🔴이므로 상향 대상 등급 자체가 존재하지 않아 본 게이트는 실질적으로 비적용이나, 형식 요건대로 3종 모두 평가·기록함.)"
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "경쟁축 delta(competition_ousd_consortium, weaken)의 근거인 c_3은 quantitative=true이나 (a) confirmed=false·grade4 단일출처(발행사 자체 대시보드, sources.yaml 미등재)로 P4상 단독 근거 불가 — 복수 2차매체 삼각검증은 '출시 사실'에 그치고 유통량 수치 자체는 두텁게 교차되지 않음, (b) claim 본문이 자체적으로 'USDC 대비 약 0.6% 수준, 과대해석 주의'라고 명시해 CRCL 자신의 확정된 매출·점유율 수치에 대한 실측 훼손이 아니라 '구조적 위협의 최초 실체화'라는 질적 전환으로 기록됨. CRCL 자신의 USDC 유통량(c_10)도 상충·미확인(confirmed=false)이라 자사 지표의 확정된 정량 악화 자체가 이번 창에 없다 — quantitative_impairment_detected=false.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "grade<=2 claim은 c_1(grade1, 거버넌스 이벤트, 카드 축 비대응)·c_2(grade1, inference, weak, 입력 자체가 단독사용불가 명시)·c_5·c_6·c_9(grade1, 전부 '무변화/0건' 관측으로 훼손 방향 아님)뿐이다. c_2는 weak inference이고 자체적으로 등급변경 근거 불가를 명시 — 확정된 정성 훼손으로 채택하지 않음. 하향 트리거 요건(evidence_grade<=2 확정 정성 훼손) 미충족.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "규칙3(비대칭 하향) 양쪽 경로 모두 불성립 — (a) 정량 훼손: 단일출처·confirmed=false·claim 자체의 과대해석 경고로 미채택. (b) 정성 훼손(grade<=2): 해당 방향의 확정 claim 없음(c_2는 weak·미채택). 규칙4에 따라 게이트 미충족은 실패가 아니라 등급 유지+사유기록(P12). 참고로 현재 🔴는 이미 Kill(🔴🔴) 바로 위 최하단 비-kill 등급이라, 설령 비대칭 하향 요건이 충족되더라도 이동 가능한 등급은 🔴🔴뿐인데 이는 규칙1(KC met&confirmed)의 별도 요건이며 규칙3만으로는 그 등급에 도달할 수 없다 — 두 규칙을 혼동하지 않았다."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "usdc_circulation_scale",
+   "direction": "neutral",
+   "supporting_claims": ["c_20261001_CRCL_10"],
+   "risk_transfer_to": ["Q3'26 10-Q/실적 공식 분기말·평잔 수치", "circle.com/transparency 수치 1차 직접확인(JS렌더링 제약 해소 필요)"]
+  },
+  {
+   "axis": "reserve_income",
+   "direction": "neutral",
+   "supporting_claims": ["c_20261001_CRCL_5", "c_20261001_CRCL_2"],
+   "risk_transfer_to": ["Q3 10-Q 계약주석 Coinbase·Binance 분배조건 원문대조(통상 11월)", "CFO 후임 선임 후 reserve_income 코멘트 연속성"]
+  },
+  {
+   "axis": "competition_ousd_consortium",
+   "direction": "weaken",
+   "stage": "하(약) — 구조적 전제 최초 실체화, 규모 미미",
+   "supporting_claims": ["c_20261001_CRCL_3", "c_20261001_CRCL_10"],
+   "risk_transfer_to": ["OUSD 유통량 24시간 이후 지속 추세(첫 스냅샷은 소폭 감소)", "Q3'26 실적에서 OUSD발 USDC 잠식 신호 유무", "reserves.bridge.xyz sources.yaml 등재 여부(사용자 영역, 제안만)"]
+  },
+  {
+   "axis": "competition_yield_bearing",
+   "direction": "neutral",
+   "supporting_claims": ["c_20261001_CRCL_6"],
+   "risk_transfer_to": ["FIGR 3Q26 공시(통상 11월)", "CLARITY 이자조항 문언 확정 경로·레임덕 세션"]
+  },
+  {
+   "axis": "regulation_company_licensing",
+   "direction": "neutral",
+   "supporting_claims": ["c_20261001_CRCL_5"],
+   "risk_transfer_to": ["OCC·NYDFS 감독보고서·제재 공표"]
+  },
+  {
+   "axis": "diversification",
+   "direction": "strengthen",
+   "stage": "하(약) — 지속, 품질 미검증 리스크 병기",
+   "supporting_claims": ["c_20261001_CRCL_4"],
+   "risk_transfer_to": ["Arc 트래픽 구성(기관결제 vs 밈코인) 신뢰 가능한 출처 재확인", "Q3 실적 Arc 관련 매출·수수료 인식 여부"]
+  }
+ ],
+ "alert": {
+  "ticker_event": "CRCL — CFO·이사 동시 사임(8-K 9/25) + OUSD 컨소시엄 스테이블코인 공식출시·실측유통량 최초공시(9/30) + Arc 메인넷 10일차 TVL +44.52%(밈코인 비중 미검증 경고 병기) + Coinbase 무공시 38일 연장 + USDC 유통량 소스간 상충",
+  "facts": "① Circle 8-K(2026-09-25, Item5.02): 이사 Neville 사임(개인사유)·CFO Fox-Geen 사임통지(2026-12-31까지 재직, 퇴직패키지 현금$1,050,000 등 특정), 운영·정책 이견 아님 명시 [8-K+Form4 교차, grade1 confirmed, staleness 6일]. ② CFO교체의 reserve_income·diversification 경영진코멘트 연속성 불확실 inference [weak, grade1 confirmed=false, staleness 6일]. ③ OUSD 2026-09-30 공식출시(Base·Ethereum·Solana·Tempo, Coinbase·Stripe·Visa·Mastercard·Shopify 등 200+ 파트너), 유통량 $477.3M→$468.4M(100% 담보, 24h 미만 소폭감소), USDC 대비 약0.6% 규모 [발행사 자체 대시보드+2차매체 다수 교차, grade4 confirmed=false, staleness 1일]. ④ Arc 메인넷 10일차 DeFi TVL 약$494M(WoW+44.52%), 별도 품질미검증 출처는 DEX거래량 82% 밈코인發 추정 [2차 집계+미검증 출처, grade4 confirmed=false, staleness 5일]. ⑤ EDGAR 재조회: Coinbase 8-K 0건(무공시 약38일), OCC·NYDFS 감독조치 8-K 0건 [SEC EDGAR, grade1 confirmed, staleness 0일]. ⑥ $YLDS(FIGR) 신규공시 0건, 2Q26 $556.033M 유지 [SEC EDGAR, grade1 confirmed, staleness 0일]. ⑦ circle.com/pressroom Q3 실적 공식 IR공지 없음(11/12는 자동추정, F1상 미채택) [company_pressroom_direct_check, grade1 confirmed, staleness 0일]. ⑧ USDC 유통량 상충: kucoin $74.36B(9/30) vs eco.com인용 circle.com $75.2B(9/24), 1차수치 직접확인 실패(JS렌더링) [2차매체 상충, grade4 confirmed=false, staleness 1일]. ⑨ 매크로 KC-3: BTC 83,670.59·VIX 16.26 not_met/confirmed(오케스트레이터 전달) — CRCL에 propagate하는 유일한 매크로 KC.",
+  "inference": "weak — c_2(CFO교체가 향후 실적콜 reserve_income·diversification 코멘트 연속성에 불확실성 추가 가능, 단 Fox-Geen 12/31까지 재직으로 임박한 10-Q 서명공백 미확인). 추가로 Arc TVL 증가분 중 투기적(밈코인) 비중 가능성(c_4, 출처 신뢰도 미검증 — 방향판정 비중 두지 않음).",
+  "classification": "holding_reinforcement (등급 유지+사유기록, P12) — 상향게이트(P2/P6/P7) 미충족: revenue_recognized claim 없음. 하향 트리거 미성립: 확정된 정량 훼손 없음(OUSD claim 단일출처·confirmed false·claim 자체의 과대해석 경고), grade<=2 확정 정성훼손 없음(c_2는 weak·단독사용불가 자체명시).",
+  "thesis_delta": "usdc_circulation_scale 축 neutral(c_10, 소스간 상충·confirmed=false, 방향판단 미사용). reserve_income 축 neutral(c_5 Coinbase 무공시 38일 이월 + c_2 CFO교체 코멘트연속성 weak inference). competition_ousd_consortium 축 weaken[약](c_3·c_10, OUSD 공식출시+실측유통량 최초공시로 부호활성화조건 충족 — 단 단일출처·규모 USDC대비 약0.6%로 과대해석 금지, risk_transfer: 24h이후 추세·Q3실적 잠식신호). competition_yield_bearing 축 neutral(c_6, $YLDS 무변경). regulation_company_licensing 축 neutral(c_5, 신규 인가·감독조치 0건, 부재≠반증 P5). diversification 축 strengthen[약·지속](c_4, Arc TVL+44.52% — 밈코인 비중 미검증 경고 병기, Allaire '출시버스트' 유보 기존전제 유효).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🔴(비중조절 검토, OUSD 위협) 유지 권고(maintain). Kill 게이트 미충족(종목 KC-CRCL-1~4는 임계데이터 부재로 보수적 not_met·provisional, macro KC-3은 not_met·confirmed). 상향 게이트 미충족(매출인식 claim 부재). 하향 게이트 미충족(확정 정량/정성 훼손 없음). 🔴🔴 사람확인 요청 대상 아님(단, KC-CRCL-2 임계 재발췌는 오케스트레이터에 별도 권고).",
+  "next_check": "① [정량] OUSD 유통량 7일 이상 연속 추세(출시직후 변동성 구간 벗어난 후 증감 방향) 및 Q3'26 실적에서 USDC 유통량 QoQ 부호·회사정의 점유율 변화. ② [정량] Q3 10-Q 계약주석 Coinbase 분배조건 원문대조(38일 무공시 구간 최종 해소). ③ [정량] CFO 후임 선임 시점·신원(서치펌 진행), Q3'26 실적 공식 IR 공지일(현재 null)."
+ },
+ "next_gate": "Q3'26 실적(USDC 유통량 QoQ 부호·회사정의 점유율%·Reserve Income 절대액) + Q3 10-Q 계약주석 Coinbase 분배계약 조건 최종확인(통상 11월) + OUSD 유통량 7일 이상 추세 확인 — signals.json 기존 게이트 유지, OUSD 추세관측 항목 추가는 ThesisPatch 후보로만 기록(사람 승인 필요). 아직 도래하지 않아 등급 유지가 정상 경로(P12).",
+ "unconfirmed_carried": [
+  {"topic": "CFO 후임자 및 선임 시점", "reason": "event_may_be_pending — 서치펌 착수만 공시, Fox-Geen 12/31까지 재직"},
+  {"topic": "Q3'26 실적발표 공식 일정", "reason": "no_official_ir_notice — 애그리게이터 11/12 추정은 F1상 미채택"},
+  {"topic": "Binance 월간 인센티브 수수료 요율·산식", "reason": "not_disclosed_in_primary_source"},
+  {"topic": "Coinbase 분배계약 조건 원문", "reason": "no_disclosure — 무공시 약38일, Q3 10-Q까지 보류"},
+  {"topic": "OUSD 유통량 24시간 이후 지속추세", "reason": "event_may_be_pending — 첫 두 스냅샷 소폭감소, 변동성구간"},
+  {"topic": "CLARITY Act 레임덕 세션 재표결 일정·이자조항 문언", "reason": "access_blocked_and_event_pending — senate.gov 403 누적"},
+  {"topic": "GENIUS Act §3 NPRM Circle 의견서 제출 여부", "reason": "not_checked_this_run"},
+  {"topic": "USDC 유통량 소스간 불일치(kucoin vs circle.com 인용)", "reason": "requires_human_decision"},
+  {"topic": "Arc Mainnet 트래픽 구성(밈코인 vs 기관) 출처 신뢰도", "reason": "low_reliability_source"},
+  {"topic": "KC-CRCL-1/2/4 임계·verdict 재발췌", "reason": "kc_excerpt_known_defect — 특히 KC-CRCL-2는 OUSD 이벤트와 정의상 직접 겹침"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속단계 진행 가능. 다만 두 가지는 사람 확인을 권고한다: (1) kc_excerpt_known_defect_report — KC-CRCL-1~4의 kc_status(임계·verdict)가 이번 창 발췌에서 누락됐고, 특히 KC-CRCL-2(점유율잠식, OUSD 포함)는 오늘 가장 큰 신규재료(OUSD 공식출시, c_3)와 정의상 정확히 겹친다. make_kc_excerpt.py 재점검 또는 사람의 직접 임계 재확인을 권고. (2) CFO·이사 동시 사임(c_1)은 카드 7축 어디에도 직접 대응하지 않는 거버넌스 이벤트라 축 Delta로 분류하지 않았으나, Fox-Geen은 과거 reserve_income·diversification 축 경영진 발언의 주 출처였다(inference weak, c_2) — 후임 선임 전까지 알림 모니터링 유지 권고. OUSD 공식출시(c_3)는 경쟁축(competition_ousd_consortium) 부호 활성화 조건을 최초 충족했으나 단일출처(grade4·confirmed=false)·규모 미미(USDC대비 약0.6%, claim 자체 과대해석 경고)로 downgrade 트리거는 불성립 — holding_reinforcement로만 기록, 등급 유지(P12). 필터버그(F13) 없음."
+}

@@ -1,0 +1,80 @@
+# Thesis Card — CRWV (v1 §5-3 기계 판독본)
+# ⚠️ Q2 2026 수치는 직전 세션 확인분 — 1차 자료(10-Q/보도자료) 재대조가 Task 0 (unconfirmed 큐 등재됨)
+ticker: CRWV
+sector: neocloud
+tier: null   # 관찰→커버리지 승격
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-3"
+version_history:
+  - {date: "2026-09-20", change: 'ThesisPatch 적용(key_metrics/annotate) — 근거: c_20260919_CRWV_5,c_20260919_CRWV_6 / 이전: - / "이자 / 커버리지 / — / ⚠️계산기준 / 미확정. / 분자(Adj. / EBITDA / / / GAAP / 영업이익 / 중 / 택1)·...'}
+  - {date: "2026-09-20", change: 'ThesisPatch 적용(axes/annotate) — 근거: c_20260919_CRWV_5 / 이전: - / {id: / margin_trend, / label: / "Adj. / EBITDA / 마진 / 추세 / — / ⚠️기준...'}
+  - {date: "2026-09-20", change: 'ThesisPatch 적용(key_metrics/annotate) — 근거: c_20260919_CRWV_1,c_20260919_CRWV_14,c_20260919_CRWV_5,c_20260919_CRWV_6 / 이전: - / "이자 / 커버리지 / — / ⚠️계산기준 / 미확정. / 분자(Adj. / EBITDA / / / GAAP / 영업이익 / 중 / 택1)·...'}
+  - {date: "2026-09-20", change: 'ThesisPatch 적용(axes/annotate) — 근거: c_20260919_CRWV_5,c_20260919_CRWV_11 / 이전: - / {id: / margin_trend, / label: / "Adj. / EBITDA / 마진 / 추세 / — / ⚠️기준...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(axes/annotate) — 근거: 04_sector/neocloud.json#axis_view[margin_trend],04_sector/neocloud.json#axis_view[margin_transition],04_sector/neocloud.json#sector_unconfirmed[su_20260815_neocloud_05] / 이전:   - {id: margin_trend,      label: "Adj. EBITDA 마진 추세 (59% 하...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(key_metrics/annotate) — 근거: config/kill_conditions.yaml#company.KC-CRWV-3 (note: 분자·분모 정의 명시 필수),04_sector/neocloud.json#axis_view[debt_refinancing],04_sector/neocloud.json#axis_view[margin_trend],output/20260815_1408/06_portfolio.json#company_kc_watch[KC-CRWV-3] / 이전:   - "이자 커버리지 (EBITDA/이자 — 1.5x 이하 = 위험, 현 ~2.2x ⚠️갱신)"...'}
+  - {date: "2026-08-15", change: 'ThesisPatch 적용(axes/decompose) — 근거: 04_sector/neocloud.json#axis_view[debt_refinancing],04_sector/neocloud.json#interpretation.dispersion_cause_axes,04_sector/neocloud.json#interpretation.dispersion_detail,04_sector/neocloud.json#sector_unconfirmed[su_20260815_neocloud_05] / 이전:   - {id: debt_refinancing,  label: "부채·차환·이자 커버리지 (생존 조건)"}...'}
+  - {date: "2026-08-15", change: 'v1 카드 기계 판독본 초기화 (⚠️갱신 항목 다수)'}
+axes:
+  - {id: backlog_scale,     label: "백로그·스케일 (~$104B ⚠️갱신)"}
+  # 2026-08-15 ThesisPatch(decompose, P8) — 이전 축: {id: debt_refinancing, label: "부채·차환·이자 커버리지 (생존 조건)"}
+  - {id: funding_access,     label: "조달 접근성 — 신규 차입 성사 여부·조달 스프레드·covenant 준수·미인출 한도"}
+  - {id: leverage_coverage,  label: "레버리지·커버리지 — 총부채 잔액·이자비용·이자 커버리지·부채상환 대비 영업활동현금흐름"}
+  # 2026-09-19 ThesisPatch(annotate, run 20260919_2209) — 이전 라벨 원문 보존(P9): - {id: margin_trend,      label: "Adj. EBITDA 마진 추세 — ⚠️기준 기간 명시 필요. YoY 기준: Q2 59%(전년 62%)·H1 57%(전년 62%)로 압축 / 시퀀셜 기준: Q1 약 56%→Q2 59%로 개선. 기준에 따라 방향이 반대이므로 축 판정 시 기준을 먼저 고정한다 ⚠️갱신"} / 기준 채택은 사람 결정이므로 에이전트는 두 기준의 1차 실측치만 병기한다. axes 7개 불변(전문 기준 계수, F20).
+  - {id: margin_trend,      label: "Adj. EBITDA 마진 추세 — ⚠️기준 기간 명시 필요. YoY 기준: Q2 59%(전년 62%)·H1 57%(전년 62%)로 압축 / 시퀀셜 기준: Q1 약 56%→Q2 59%로 개선. 기준에 따라 방향이 반대이므로 축 판정 시 기준을 먼저 고정한다 ⚠️갱신 [⚠️ 2026-09-19 기준 병기 주석(run 20260919_2209) — 2026-09-17 8-K Ex 99.2 34p가 5분기 Adj. EBITDA 조정표를 1차 공시해(c_20260919_CRWV_5, grade 1 fact, confirmed) 두 기준의 실측치가 모두 확정됐다. 분기 마진 실측: Q2'25 62% → Q3'25 61% → Q4'25 57% → Q1'26 56% → Q2'26 59%. (가) YoY 기준(Q2'26 59% 대 Q2'25 62%) = -3%p, 부호 압축. (나) 시퀀셜 기준(Q1'26 56% → Q2'26 59%) = +3%p, 부호 개선(Q1'26이 5분기 저점). 동일한 1차 수치에서 두 부호가 병존하므로, 어느 기준을 축 판정 기준으로 채택할지가 곧 방향 부호의 결정이다. 이는 측정 정의의 선택이지 관측의 판정이 아니므로 에이전트는 어느 편도 채택하지 않는다 — 기준 확정은 사람 결정 대기(CLAUDE.md §9, P2/P15). 참고 선행 단가지표(c_20260919_CRWV_11, grade 1 fact): 2026-07 SKU 전반 약 70% 가격 인상, Q2 체결계약 기대 contribution margin이 최근 분기 대비 약 25% 높음, Q3 단기계약 약 $40M/MW(+5~10%p). 단 회사 예시곡선은 다수 배치 동시 램프 시 aggregate contribution margin이 단기 25%→5%로 압축된 뒤 'mid 20%s' 안정화를 제시한 예시치이며 실적이 아니다. 기준 확정 시 (가)/(나) 중 하나를 축 판정 기준으로 고정하고 나머지는 참고치로 남긴다. 본 주석은 기존 라벨 서술을 삭제하지 않고 병기만 한다(P9)] [✅ 2026-09-20 기준 확정(사용자 결정, run 20260919_2209 후속) — 축 판정 기준 = 시퀀셜(QoQ). YoY는 참고치로만 병기 유지. 확정 기준 적용 시 현재 실측 부호: Q1'26 56% → Q2'26 59% = +3%p(개선 방향, c_20260919_CRWV_5 grade 1 fact). 채택 사유(사용자): 분기마다 규모가 구조적으로 바뀌는 확장기라 전년 동기는 사실상 다른 사업체이며 YoY는 추세 전환을 최대 3분기 늦게 반영. 후속: key_metrics '마진 59%로 하락 추세'·risks '마진 하락 추세(59%)' 문구는 YoY 전제이므로 차기 run L2가 확정 기준으로 재판정 후 정정 후보 상정. 확정 주체: 사람(CLAUDE.md §9, P2/P15) — 에이전트 판정 아님]"}
+  - {id: gpu_priority,      label: "NVIDIA 지분·백스톱·GPU 공급 우선권"}
+  - {id: customer_concentration, label: "고객 집중 (OpenAI·Meta 등)"}
+  - {id: litigation,        label: "증권 집단소송"}
+
+thesis: >
+  네오클라우드 스케일 1위. 대규모 백로그를 레버리지로 건설하고 매출로 상환하는 모델.
+  Full-stack + 소프트웨어(Mission Control, ARIA) + NVIDIA 지분·백스톱으로 GPU 공급 최우선권.
+
+key_metrics:
+  - "분기 매출 (Q2 2026 $2.575B, +112% YoY ⚠️갱신)"
+  - "백로그 (~$104B ⚠️갱신)"
+  - "FY26 가이던스 ($12.4-13.2B로 상향 ⚠️갱신)"
+  - "CapEx ($35-39B로 상향 ⚠️갱신)"
+  - "Adj. EBITDA 마진 59%로 하락 추세 ⚠️갱신"
+  - "총부채·자본리스 및 분기 이자비용"
+  # 2026-09-19 ThesisPatch(annotate, run 20260919_2209) — 이전 항목 원문 보존(P9): - "이자 커버리지 — ⚠️계산기준 미확정. 분자(Adj. EBITDA / GAAP 영업이익 중 택1)·분모(순이자비용 / 총이자비용 중 택1)·기간(분기 연환산 / TTM 중 택1)을 확정해야 KC-CRWV-3 판정이 가능하다. 임계는 1.5x 이하 경고·1.0x 이하 발동(KC-CRWV-3). 카드상 '현 ~2.2x'는 직전 세션 확인분으로 1차 자료 재대조 미완 ⚠️갱신" / 산식 채택은 사람 결정이므로 에이전트는 두 산식의 1차 실측치만 병기한다. key_metrics 10개 불변(전문 기준 계수, F20).
+  - "이자 커버리지 — ⚠️계산기준 미확정. 분자(Adj. EBITDA / GAAP 영업이익 중 택1)·분모(순이자비용 / 총이자비용 중 택1)·기간(분기 연환산 / TTM 중 택1)을 확정해야 KC-CRWV-3 판정이 가능하다. 임계는 1.5x 이하 경고·1.0x 이하 발동(KC-CRWV-3). 카드상 '현 ~2.2x'는 직전 세션 확인분으로 1차 자료 재대조 미완 ⚠️갱신 [⚠️ 2026-09-19 산식 병기 주석(run 20260919_2209) — (1) 분자·분모 공백 해소: 2026-09-17 8-K Ex 99.2 34p가 분기별 Adj. EBITDA 조정표와 'Interest expense, net' 단일 라인을 1차 공시했다(c_20260919_CRWV_5, grade 1 fact). 따라서 분자 = Adj. EBITDA, 분모 = Interest expense, net이 유일하게 산출 가능한 조합이다 — 회사가 총이자비용·자본화이자·이자수익을 분리공시하지 않아 '총이자비용 기준' 변형은 이번 창 자료로 산출 불가능하다. (2) 기간 두 기준 실측 병기(c_20260919_CRWV_6, inference:strong — 회사 직접 공시 지표가 아닌 산술 결합 파생값): (가) 분기 연환산 기준 = Q2'26 1,510/640 = 약 2.36x(분자·분모를 같이 4배하므로 분기 원비율과 수치 동일). (나) TTM 기준(Q3'25~Q2'26) = 4,403/1,875 = 약 2.35x. 분기 추이는 Q2'25 2.82x → Q3'25 2.69x → Q4'25 2.31x → Q1'26 2.16x → Q2'26 2.36x이며, 카드상 '현 ~2.2x'는 Q1'26(2.16x) 시점에 가장 근접한 값이다(오기가 아니라 시점 차). (3) 이번 회차 KC-CRWV-3 판정에는 기간 채택이 영향을 주지 않았다 — (가)·(나) 어느 기준이든 경고 1.5x·발동 1.0x를 모두 상회해 03_signal/CRWV.json은 not_met/confirmed로 기록했다. 단 conclusion의 진입 검토 조건 '이자 커버리지 3x 이상'까지의 잔여 거리는 기준별로 달라지므로 채택 확정이 필요하다. (4) 참고: 신규 전환사채 $3.7B/2.875%(c_20260919_CRWV_1·c_20260919_CRWV_14)의 연 추가이자 약 $106M을 TTM 분모에 단순 가산하면 약 2.22x이나, 이는 조달금 운용 이자수익·DDTL 5.5 이자·Adj. EBITDA 증가분을 반영하지 않은 정태적 예시 계산이다. (5) TTM 대 분기연환산 중 어느 쪽을 KC-CRWV-3 공식 산식으로 채택할지는 KC 임계·지표정의 확정 영역이므로 에이전트는 채택하지 않고 병기만 한다 — 사람 결정 대기(P11, CLAUDE.md §9, U4). (6) 잔여 공백: 총이자비용·자본화이자·이자수익 분리 수치는 미공시로 Q3 2026 10-Q 대기(unconfirmed 이월). 본 주석은 기존 서술을 삭제하지 않고 병기만 한다(P9)] [✅ 2026-09-20 산식 확정(사용자 결정, run 20260919_2209 후속) — KC-CRWV-3 공식 산식 = Adj. EBITDA ÷ Interest expense, net · 기간 = 분기 연환산(최근 분기 비율). 현재값 Q2'26 2.36x(c_20260919_CRWV_6). TTM(2.35x)은 참고치. 채택 사유(사용자): 순이자비용이 5분기간 $267M→$640M으로 급증하는 국면에서 KC는 조기 경보 도구이므로 현재 부담 즉시 반영이 우선, 분기 일회성 노이즈는 경고 1.5x/발동 1.0x 2단 구조가 완충. conclusion 진입 조건 '3x 이상'까지 잔여 거리 = 0.64x(2.36x 기준). config/kill_conditions.yaml#company.KC-CRWV-3 note의 산식 명문화는 사용자 편집 영역 — 제안문 별첨(에이전트 미수정). 확정 주체: 사람(P11, §9, U4)]"
+  - "FCF"
+  - "$1B+ 고객 수"
+  - "증권 집단소송 진행"
+
+catalysts:
+  - "차환·리파이낸싱 성공/실패"
+  - "금리 경로 (인하 전환 시 생존확률 급상승)"
+  - "Vera Rubin 최초 배포 일정"
+  - "대형 고객(OpenAI·Meta 등) 계약 갱신"
+
+risks:
+  - "부채 리스크 #1 — CapEx 상향($35-39B)이 매출 상향폭 초과 시 조달 의존 심화"
+  - "마진 하락 추세(59%)와 이자비용의 동시 진행"
+  - "증권소송 디스커버리"
+  - "GPU 감가 → 담보가치 하락"
+  - "고객 집중도"
+
+kill_conditions_ref: ["KC-CRWV-1", "KC-CRWV-2", "KC-CRWV-3", "섹터 공통 KC"]
+noise_filter_ref: "config/noise_filter.yaml#CRWV"
+
+earnings_checkpoints:
+  date: null   # ⚠️ Q3 시기 미확정
+  items:
+    - "매출 가이던스 대비 실적"
+    - "이자비용 증감"
+    - "Adj. EBITDA 마진 59%에서 추가 하락 여부"
+    - "백로그 유지·고객 해지 사례"
+    - "부채 총액 및 만기 구조"
+    - "FCF 개선 여부"
+    - "CapEx $35-39B 집행률"
+    - "소송 관련 경영진 코멘트"
+
+valuation:
+  primary: "EV/FY26 매출 (시총 단독 비교 무의미 — 순부채 필수 반영)"
+  secondary: "이자 커버리지, EV/백로그 (백로그의 질 = 고객 집중도·해지 조건)"
+  caution: "부채 미반영 멀티플 서술 금지"
+
+conclusion: >
+  스케일과 GPU 공급 우선권은 3사 중 최상위이나 재무 리스크도 최상위.
+  진입 검토 조건은 FCF 흑자 전환 + 이자 커버리지 3x 이상 + 금리 경로 확정의 동시 충족.

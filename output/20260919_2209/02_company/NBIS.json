@@ -1,0 +1,215 @@
+{
+  "ticker": "NBIS",
+  "run_id": "20260919_2209",
+  "as_of": "2026-09-19",
+  "staleness_days": 0,
+  "underlying_primary_event_date": "2026-09-17",
+  "lookback_window": {
+    "since": "2026-09-10",
+    "until": "2026-09-19",
+    "overlap_with_prior_run": "2026-09-10~2026-09-12 (직전 run 20260911_2308의 창 09-04~09-12과 1~3일 중첩)",
+    "retro_sweep": "창 밖 미포착 재료 탐색 결과 2026-08-06/08-10 Vineland 공사중지명령 건을 신규 발견 — out_of_window:true로 적재"
+  },
+  "claims": [
+    {
+      "id": "c_20260919_NBIS_1",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-09-19 시점 회사 공식 가격 페이지(nebius.com/prices, grade 1) 기준 on-demand 시간당 GPU 단가: NVIDIA HGX H100 $3.85, NVIDIA HGX H200 $4.50, NVIDIA HGX B200 $7.15. AMD EPYC Genoa CPU는 'starting from $0.10 per hour'. NVIDIA GB300 NVL72는 단가 미게시('Contact us'). 동 페이지에는 2026-10-01 발효 가격 변경에 관한 고지 문구가 게시돼 있지 않다(2026-09-19 조회 시점 기준 게시 내용 그대로의 기술). 본 수치는 c_20260919_NBIS_2의 '인상 전 단가' 보도치를 대조하기 위한 1차 기준선이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "회사 공식 가격 페이지 (nebius.com)",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-09-19"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "on-demand 리스트 가격이며, 카드 key_metrics의 ACV/MW 3단 구조(기본 ~$12M / 장기 ~$20-25M / 단기 ~$40-50M)와는 별개 가격 체계다. 두 체계를 동일 지표로 혼용 인용하지 말 것(에이전트 정의 '종목 특이 주의' 2항)."
+    },
+    {
+      "id": "c_20260919_NBIS_2",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-09-17 Reuters 보도(investing.com 전재, 게재시각 2026-09-17 12:16, 12:19 갱신) 및 동일자 Bloomberg 보도: Nebius가 고객에게 이메일 통지(emailed statement)로 2026-10-01부터 on-demand 클라우드 가격 인상을 고지했다. 보도된 인상폭 — 선별 NVIDIA GPU 인스턴스 17~21%, CPU-only 인스턴스 25%, 메모리 제공분 약 41%. 개별 단가는 2차 전재(Odaily/KuCoin, grade 4)에서 H100 $3.85→$4.50(+16.9%), H200 $4.50→$5.40(+20%), B200 $7.15→$8.50(+18.9%), B300 $7.85→$9.50(+21%)로 보도. Reuters는 '다개월 대규모 클러스터 예약 고객은 commitment discount를 받을 수 있다'고 부기했다. 2026년 5월에 이어 3개월 만의 2차 인상이며 B300 누적 인상폭은 약 56%로 보도됐다. 회사 뉴스룸(nebius.com/newsroom)에는 본 건 보도자료가 게시돼 있지 않고(창 내 최신 게시물은 2026-09-08 Palantir 제휴), EDGAR에도 대응 6-K 제출이 없다 — 즉 1차 공시 경로로 확정된 사건이 아니다.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "2차 매체 (Reuters 원기사, investing.com 전재) + Bloomberg 원출처",
+        "url": "https://www.investing.com/news/stock-market-news/nebius-hikes-ai-cloud-prices-again-as-demand-for-computing-power-soars-4906125",
+        "filed_at": "2026-09-17"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "P4 — grade 3 단독 판단 근거 불가. confirmed=false 유지. noise_filter#NBIS promote_if에는 직접 대응 항목이 없으나, 공통 promote_if '가이던스 상향/하향, 마진·현금흐름 변화'에 준하는 단가 변동 재료이고 '애매하면 승격' 원칙에 따라 승격 적재한다."
+    },
+    {
+      "id": "c_20260919_NBIS_3",
+      "ticker": "NBIS",
+      "claim_type": "inference",
+      "text": "c_20260919_NBIS_2가 보도한 '인상 전' 단가(H100 $3.85, H200 $4.50, B200 $7.15)는 c_20260919_NBIS_1의 회사 공식 가격 페이지(grade 1) 게시치와 3개 모델 모두 정확히 일치한다 — 따라서 보도의 기준선 부분은 1차 자료로 교차검증된다(P4 삼각검증). 반면 '인상 후' 단가(H100 $4.50, H200 $5.40, B200 $8.50, B300 $9.50)와 2026-10-01 발효 사실은 현재 1차 자료 대조가 불가하다. B300의 인상 전 단가 $7.85는 회사 페이지 미게시 항목(GB300 NVL72 = Contact us)이므로 4개 모델 중 유일하게 기준선 교차검증이 성립하지 않는다. 또한 본 건은 가격 고지 단계이며 매출 인식과는 분리된다(P7 3단 분리 — 가격 고지 ≠ 계약 갱신·체결 ≠ 매출 인식). commitment discount 언급이 있어 계약형 고객(Meta·MS·Q2 신규 4사 등 $1B+ 계약)에 인상이 그대로 전가되는지는 별도 문제다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "c_20260919_NBIS_1(grade1) × c_20260919_NBIS_2(grade3) 대조",
+        "url": "https://nebius.com/prices",
+        "filed_at": "2026-09-19"
+      },
+      "inference_strength": "high",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "inference_strength high는 '기준선 일치'라는 대조 결과 자체에 대한 것이며, 인상 발효 사실의 확실성에 대한 것이 아니다."
+    },
+    {
+      "id": "c_20260919_NBIS_4",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "[창 밖 미포착 재료] 복수 2차·지역 매체(whyy.org 2026-08-14 게재, hntrbrk.com 2026-08-13 게재, cryptobriefing·woodburywarbler 등 — 전부 sources.yaml 미등재 default grade 4) 보도에 따르면, City of Vineland가 DataOne Vineland, LLC(Nebius의 Vineland NJ 데이터센터 사업체)에 대해 두 건의 공사중지명령(Stop Construction Order)을 발부했다 — 1차 2026-08-06(LNG 탱크 설치, 사전 승인·허가 없음), 2차 2026-08-10(Bloom Energy 연료전지 유닛 설치, 사전 승인·도면·허가 없음). 위반 시 과태료는 위반 건당 1일 $2,000. DataOne 대변인 인용: 'Limited to equipment placement work under the approved site plan', 'We do not expect this temporary pause to affect our construction and delivery timeline.' 불복 경로는 Cumberland County 건축항소위원회(Construction Board of Appeals) 또는 소요 승인·허가 취득 후 재개로 보도됐다. 명령서 원문(시 발부 문서)은 Sustain SJ의 소셜미디어 게시 스크린샷으로만 유통되고 직접 URL은 제공되지 않아 1차 확인에 이르지 못했다. 본 건은 이번 run의 lookback 창(2026-09-10~09-19) 밖 사건이며, 직전 2개 run(20260905_0618·20260911_2308) 산출물에 적재 이력이 없는 미포착 재료다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "2차·지역 매체 교차보도 (whyy.org 등, 전부 grade 4)",
+        "url": "https://whyy.org/articles/vineland-data-center-stop-work-orders/",
+        "filed_at": "2026-08-14"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": true,
+      "note": "직전 run이 적재한 c_20260905_NBIS_04(2026-08-18 Vineland Planning Board의 Phase 2 확장 승인, grade 4)와 시간순으로 인접·상충하는 별개 사건이다 — 8/06·8/10 공사중지명령(전력 인프라 부분) 이후 8/18 Phase 2 확장 승인이 있었으며, 명령 해제 여부는 본 run에서 확인에 이르지 못했다. P4상 grade 4 단독이므로 axis Delta를 생성하지 않고 claim + unconfirmed로만 적재한다(P5)."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "monetization_mix",
+      "direction": "strengthen",
+      "stage": "가격 고지 단계 (발효일 2026-10-01, 매출 인식 이전 — P7 1단)",
+      "prior_state": "카드 축 정의 '(ACV/MW 3단 구조·소프트웨어 수익화)' 및 key_metrics의 ACV/MW 3단(기본 ~$12M / 장기 ~$20-25M / 단기 ~$40-50M). 직전 2개 run(20260905_0618·20260911_2308)에서 단가·수익화 관련 신규 정량 자료 추가 없음. 2026년 5월 1차 인상(on-demand 평균 +29%, spot +51%)은 카드에 미반영 상태.",
+      "new_state": "2026-09-17 Reuters·Bloomberg 보도(c_20260919_NBIS_2, grade 3, confirmed:false)로 2026-10-01 발효 on-demand 가격 인상이 고지된 것으로 파악 — GPU 17~21%, CPU-only 25%, 메모리 약 41%. 인상 전 단가 3개 모델이 회사 공식 가격 페이지(grade 1, c_20260919_NBIS_1)와 정확히 일치해 기준선은 1차 교차검증됨(c_20260919_NBIS_3). 3개월 만의 2차 인상으로 B300 누적 +56% 보도. 방향은 단가 수익화 강화이나 — (i) 증거 등급이 3이어서 P4상 단독 판단 근거가 아니고, (ii) on-demand 리스트 가격이며 카드 축이 정의한 ACV/MW 계약 단가 체계와 다른 가격 레이어이고, (iii) commitment discount 존재로 $1B+ 계약 고객에의 전가 여부가 분리 이슈이며, (iv) 가격 고지일 뿐 매출 인식 단계가 아니다(P7). 따라서 본 Delta는 방향 표기에 그치고 시그널 상향 근거로 사용될 수 없다(P2 — 확정된 매출·마진·현금흐름·가이던스 수치 아님).",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260919_NBIS_1", "c_20260919_NBIS_2", "c_20260919_NBIS_3"]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "2026-10-01 발효 가격 인상의 1차 자료 확인 — 회사 보도자료·6-K·가격 페이지 갱신·docs 변경 이력",
+      "reason": "2026-09-19 조회 시점 nebius.com/newsroom 최신 게시물은 2026-09-08(Palantir 제휴)이고, nebius.com/prices에는 인상 고지 문구가 게시돼 있지 않으며, EDGAR 제출목록(창 내)에도 대응 6-K가 없다. 회사가 고객 이메일로 통지한 형태로만 보도돼 1차 경로 역추적이 grade 3에서 멈췄다(P4).",
+      "next_check": "2026-10-01 이후 nebius.com/prices 재조회로 신단가 반영 여부 직접 확인, Q3 2026 실적자료의 가격·ARPU 언급 대조",
+      "related_claims": ["c_20260919_NBIS_2", "c_20260919_NBIS_3"]
+    },
+    {
+      "item": "가격 인상의 계약형 고객 전가 범위 및 매출 인식 영향 — commitment discount 구조, $1B+ 계약(Meta·MS·Q2 신규 4사)에의 적용 여부",
+      "reason": "Reuters 보도는 'commitment discount' 존재만 언급하고 할인 폭·적용 기준·기존 계약 소급 여부를 제시하지 않았다. on-demand 리스트 가격 인상이 계약 매출에 어떻게 반영되는지는 본 자료로 확정 불가(P7).",
+      "next_check": "Q3 2026 shareholder letter의 ARR·단가 코멘트, 2027 가이던스 발표 시 가격 가정",
+      "related_claims": ["c_20260919_NBIS_2"]
+    },
+    {
+      "item": "[창 밖·신규] Vineland 공사중지명령(2026-08-06 LNG 탱크 / 2026-08-10 Bloom Energy 연료전지)의 1차 확인과 현재 해제 여부",
+      "reason": "명령서 원문이 시 공식 문서 URL로 유통되지 않고 지역 단체 소셜미디어 게시 스크린샷 경유로만 보도됐다. Vineland Planning Board 2026-08-17 특별회의 아젠다 PDF는 확보했으나 텍스트 추출에 실패했다. 해제·허가 취득 여부에 관한 후속 보도를 이번 run에서 확보하지 못했다(P5 — 부재는 반증이 아님).",
+      "next_check": "vinelandcity.org Planning Board/Construction Office 회의록·결의 원문, Cumberland County Construction Board of Appeals 기록, 회사 6-K·Q3 실적자료의 Vineland 진척 언급",
+      "related_claims": ["c_20260919_NBIS_4"]
+    },
+    {
+      "item": "[창 밖·신규] Vineland 온라인 전환 일정의 실제 변경 여부 — KC-NBIS-2(용량 인도 지연) 경고 임계(1분기 지연) 충족 판정",
+      "reason": "DataOne 측은 '인도 일정에 영향 없음'이라는 입장을 표명했고(grade 4 인용), 반대 방향으로는 2026-08-12 DA Davidson의 '2026년 내 완공 불가 가능성' 평가(증권사 의견, grade 4)가 있다. 양측 모두 1차 자료가 아니며 회사의 공식 일정 변경 공시는 본 run에서 확보되지 않았다 — 따라서 KC-NBIS-2 경고 임계의 충족/미충족 어느 쪽도 1차 근거로 판정할 수 없다.",
+      "next_check": "회사 6-K·Q3 실적자료의 Vineland/Microsoft 트랜치 인도 일정, 연말 5GW 목표 재확인 여부",
+      "related_claims": ["c_20260919_NBIS_4"]
+    },
+    {
+      "item": "[신규] 2026-09-16 FOMC 25bp 인상(목표범위 3.75~4.00%) 이후 NBIS 고유 조달 조건 변화 — KC-NBIS-3의 new_debt_spread_vs_prior_bp(≥300bp) 측정 가능성",
+      "reason": "창 내(09-10~09-19) 신규 채무 발행·신규 담보부 시설·전환사채 재발행 등 종목 고유 1차 자료가 확인되지 않아 '직전 대비 스프레드' 비교 대상 자체가 존재하지 않는다. 비교 기준선은 2026-07-10 체결 ABL $775M(SOFR+2.50%, 만기 2030-10-31)과 2026-08-24 클로징 전환사채(2030년물 0.50% $3.45B / 2034년물 4.50% $2.3B)이며, 이후 신규 조달 건이 없어 지표 미산출 상태다. 매크로 금리 변동 자체는 개별 종목 Claim으로 승격하지 않는다(P6/P13).",
+      "next_check": "차기 6-K·424B5·F-3 및 회사 보도자료의 신규 조달 조건(쿠폰·스프레드·전환 프리미엄), Q3 2026 재무제표 이자비용",
+      "related_claims": []
+    },
+    {
+      "item": "[신규] KC-NBIS-3의 cash_balance(<$5B) 지표 — 2026-08-24 $5.75B 클로징 이후 현금잔고 확정치",
+      "reason": "6/30/26 현금 $8,042.1M + 8/24 gross $5.75B 유입이라는 구성요소만 확인되고, 발행 수수료·할인 및 3분기 CapEx 집행분이 반영된 실제 잔고는 Q3 2026 재무제표로만 확정된다. 현 시점 1차 자료 기준으로 임계 $5B 근접을 시사하는 관측치는 확보되지 않았다.",
+      "next_check": "Q3 2026 6-K 재무제표(현금및현금성자산), CapEx 집행률 대비 $20-25B 가이던스",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] Q3 2026 실적 발표일",
+      "reason": "이번 회차 nebius.com/newsroom 재확인에서도 Q3 일정 공지 게시물을 확보하지 못했다. 애그리게이터 상충 지속(marketbeat류 2026-11-10 vs tipranks류 2026-10-22) — F1상 판정 근거 불가.",
+      "next_check": "nebius.com/investor-hub 또는 newsroom의 'announces date of third quarter 2026 results' 공지 확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] $800M 기존 전환사채(2029·2031년물) 지분교환(~15.8M주)의 실제 주식 인도 완료 시점",
+      "reason": "창 내 EDGAR 제출목록(6-K 0건, Form 4 2건·Form 144 1건)에 관련 후속 공시가 없다. 창 내 확인된 Form 144의 '발행주식총수' 기재치는 필러 제출값으로 상호 불일치해 대용 지표로 쓸 수 없다(discarded_noise_log 4항 참조).",
+      "next_check": "차기 20-F/6-K 각주의 발행주식수·전환사채 잔액 변동",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] ATM 잔여 12.3M주 실사용 여부·금액",
+      "reason": "창 내 EDGAR 제출목록에서 ATM 관련 6-K·424B5를 확인하지 못했다 — noise_filter#NBIS promote_if 조건('ATM 실제 발행') 미충족 상태가 지속된다.",
+      "next_check": "차기 20-F/6-K 재무제표·자본조달 각주, 424B5 추가 제출 여부",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] 2027 공식 가이던스 발표 시점",
+      "reason": "창 내 회사 공지·보도에서 'later this year' 이상의 구체 일자 언급을 확보하지 못했다.",
+      "next_check": "Q3 실적 공지·IR 일정 확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] Palantir 파트너십(2026-09-08 6-K Ex-99.1)의 계약 금액·용량(MW)·기간 등 정량 조건",
+      "reason": "창 내 후속 6-K·보도자료에서 정량 조건 공개를 확인하지 못했다. 직전 run 적재 상태 그대로 유지.",
+      "next_check": "후속 6-K/20-F 각주 또는 Palantir 측 공시",
+      "related_claims": []
+    }
+  ],
+  "discarded_noise_log": [
+    {
+      "item": "Form 4 (제출 2026-09-17, accession 0001513845-26-000114) — 이사 John Wilson Boynton IV, 2026-09-15 Class A 6,364주 매도(가중평균 $207.67~$216.52, 약 $1.36M), 거래 후 직접보유 410,832주, Rule 10b5-1 계획 표시 있음",
+      "reason": "10b5-1 사전계획에 따른 개인 이사의 소액 매도로, 매출·가이던스·마진·현금흐름·고객명·수주·양산일정 중 어느 것도 변화시키지 않는다(P3). 보유잔량 대비 1.5% 수준으로 거버넌스·자본배분 리스크 승격 조건에도 해당하지 않는다. 사실 자체는 본 로그에 기록해 감사 추적 확보.",
+      "action": "discard"
+    },
+    {
+      "item": "Form 4 (제출 2026-09-16, accession 0001513845-26-000112) — CRO Marc Boroditsky, 2026-09-14 옵션행사(M) 7,000주 후 동수 매도(S, $208.63~$209.26), 행사가 $40, 거래 후 잔여 옵션 688,000개, 2026-06-15 채택 Rule 10b5-1 계획 명시",
+      "reason": "사전 채택된 10b5-1 계획에 따른 옵션행사·즉시매도(cashless exercise)로 재량적 포지션 축소가 아니며, 잔여 옵션 688,000개 대비 1% 수준. P3 미해당.",
+      "action": "discard"
+    },
+    {
+      "item": "Form 144 (제출 2026-09-15, accession 0001950047-26-009522) — THE JOHN W BOYNTON IV TR OF 2006, 6,364주($1,350,377.16) 매도 예정 통지, 취득일 2025-01-03 RSU",
+      "reason": "위 2026-09-17 Form 4와 동일 거래의 사전 통지로 중복이며, 회사 차원 자본배분 결정이 아니다. promote_if 미해당.",
+      "action": "discard (Form 4와 중복)"
+    },
+    {
+      "item": "Form 144 기재 '발행주식총수'를 ATM 사용 여부 추정에 전용하려는 시도 — 2026-09-15 제출본 238,400,165주, 2026-08-14 제출본(동일 필러·Morgan Stanley) 238,400,165주로 동일, 2026-08-31 제출본(다른 필러·Citigroup) 271,855,218주",
+      "reason": "동일 시점대에 제출자별로 33.5M주 차이가 나는 필러 자기기재값이며, 09-15 제출본은 08-14 제출본 수치를 그대로 재사용한 정황이 뚜렷하다. 8/24 전환사채 교환 ~15.8M주 발행이나 ATM 사용 여부를 이 수치 차이로 추정하는 것은 근거 불성립 — P4·P5상 판단 근거로 사용하지 않는다.",
+      "action": "discard (증거로 불채택, 판단 오용 방지를 위해 기록)"
+    },
+    {
+      "item": "가격 인상 보도 후 주가 반응 — 2026-09-17 프리마켓 +11.1%($232.50), 정규장 약 +2% 마감(종가 $209.36 계열 보도)",
+      "reason": "noise_filter#NBIS '실적 후 일간 급등락' 원칙을 이벤트성 급등에도 동일 적용. 가격 반응 자체는 펀더멘털 수치가 아니다. 근거 사실(가격 인상 고지)은 c_20260919_NBIS_2로 별도 적재해 중복 회피.",
+      "action": "discard"
+    },
+    {
+      "item": "DA Davidson 목표주가 $250→$175(-30%) 하향 (2026-08-12 보도) — Vineland 완공 지연을 사유로 제시",
+      "reason": "noise_filter 공통 '애널리스트 PT·투자의견 변경 단독' 패턴. 다만 하향 사유로 제시된 Vineland 공사 지연이라는 사실관계는 c_20260919_NBIS_4로 분리 적재하고, 목표주가 수치 자체는 폐기한다.",
+      "action": "discard (PT 수치만), 사유 사실은 c_20260919_NBIS_4로 분리"
+    },
+    {
+      "item": "Nebius Token Factory 기본 스토리지 리전을 2026-09-21부터 핀란드→프랑스로 이전한다는 제품 공지",
+      "reason": "운영·리전 변경 공지로 매출·가이던스·마진·현금흐름·고객명·수주·양산일정 중 어느 것도 변화시키지 않는다(P3).",
+      "action": "discard"
+    },
+    {
+      "item": "2026-09-16 FOMC 기준금리 목표범위 3.75~4.00%로 25bp 인상",
+      "reason": "매크로 재료로 개별 종목 Claim 승격 금지(P6/P13). 창 내 NBIS 고유의 신규 조달·전환사채 스프레드·발행금리 1차 자료가 확인되지 않아 종목 고유 전달 경로가 성립하지 않는다 — unconfirmed 5항으로 이관.",
+      "action": "discard (unconfirmed 이관)"
+    },
+    {
+      "item": "'Nebius AI Cloud 3.0 Aether'(2025-10-16), 'Eigen AI 인수 합의'(2026-05-01, 약 $643M) 등 검색 과정에서 노출된 과거 재료",
+      "reason": "본 run의 lookback 창(2026-09-10~09-19) 및 직전 run 처리 범위 밖의 구재료로, 미포착 신규 재료가 아니다(직전 카드·산출물 반영 대상 시점 이전).",
+      "action": "discard (창 밖 구재료)"
+    }
+  ],
+  "reused_from": "output/20260911_2308/02_company/NBIS.json",
+  "notes": "① 수집 경로: PYTHONIOENCODING=utf-8 python .claude/skills/source-ingest/scripts/edgar_fulltext.py --ticker NBIS --forms 20-F 6-K 424B5 F-3 F-1 S-8 --since 2026-08-20 (4건, 전부 08-20/08-24/08-26/09-08로 직전 run들에서 처리 완료) + --since 2026-09-08 전서식 조회(4건) + --forms 144 --since 2026-06-01(7건). 창 내(09-10~09-19) 신규 EDGAR 제출은 Form 4 2건(09-16·09-17)·Form 144 1건(09-15)뿐이며 6-K·20-F·424B5·F-3은 0건이다. 웹검색 8회·WebFetch 9회로 보완. ② config/coverage.yaml L28의 NBIS edgar_forms: [\"10-K\", \"10-Q\", \"8-K\"] 기재는 오기로 재확인된다 — NBIS는 외국 민간 발행인(FPI)으로 20-F/6-K가 정본 서식이며 EDGAR 제출 이력도 6-K·20-F로만 확인된다. 직전 2개 run에서도 동일 지적이 기록됐고 여전히 미갱신 상태다. config/*.yaml은 사용자 직접 편집 영역이므로 본 run에서도 수정하지 않고 제안만 재기록한다(CLAUDE.md §9). ③ 신규 축 제안(축을 만들지 않고 기록만, P8 참고): 카드 monetization_mix 축은 'ACV/MW 3단 구조·소프트웨어 수익화'로 정의돼 계약형 용량 단가 체계만 포괄한다. 2026년 5월(on-demand 평균 +29%, spot +51%)과 2026-09-17 고지(GPU 17~21%, CPU 25%, 메모리 ~41%)로 3개월 간격 2회 인상이 관측되는 'on-demand 리스트 가격 결정력'은 별도 하위 축(가칭 on_demand_pricing_power)으로 분해할 여지가 있다 — 두 가격 레이어의 방향이 항상 같지 않고(계약 고객에는 commitment discount로 흡수될 수 있음) 단일 축에 합산 표기하면 신호가 섞인다. 축 신설 여부는 사람 판단 영역. ④ KC 관측(판정 아님, 후보 관측만): KC-NBIS-1(대형 고객 계약 훼손 $1B+) — 창 내 Meta·MS·Reflection·Cohere 등의 해지·20%+ 축소·재협상을 시사하는 1차 자료를 확보하지 못했다(P5, 부재는 반증이 아님). KC-NBIS-2(용량 인도 지연 경고/발동 2단) — 창 밖 신규 발견 재료 c_20260919_NBIS_4(2026-08-06·08-10 Vineland 공사중지명령, grade 4)와 2026-08-12 DA Davidson의 '2026년 내 완공 불가 가능성' 평가가 경고 임계(1분기 지연) 방향의 관측치이나, 양쪽 모두 grade 4이고 회사는 '인도 일정 영향 없음' 입장을 표명해 1차 근거로 경고 충족을 판정할 수 없다 — 관측 강화 권고. KC-NBIS-3(조달 조건 악화) — cash_balance(<$5B): 8/24 $5.75B gross 유입 직후이므로 임계 근접을 시사하는 관측치가 없고 확정치는 Q3 재무제표 대기. new_debt_spread_vs_prior_bp(≥300bp): 창 내 신규 조달 건 자체가 없어 비교 대상 부재로 미산출. 2026-09-16 FOMC 25bp 인상은 종목 고유 1차 자료가 결여돼 Claim화하지 않았다(P6/P13). ⑤ KC 정의는 config/kill_conditions.yaml에서 KC-NBIS-1/2/3 블록만 발췌 참조했다(타 종목 KC·매크로 KC 미열람, P17 준수). ⑥ 카드 대비 변화 없는 항목: 2026-09-05 재작성된 thesis 문장(순현금·저희석 재작성, 선택지 A)과 leverage_burden/funding_access 상충 프레임은 창 내 재검증할 신규 1차 자료가 없어 유지. ATM 잔여 12.3M주는 1차 자료 기준 미사용 상태 지속. ACV/MW 3단 구조 관련 신규 수치 없음. ⑦ 직전 run 산출물에 없던 필드 underlying_primary_event_date를 지시에 따라 추가했다 — 값 2026-09-17은 이번 run 최신 실질 재료(가격 인상 고지 보도)의 기저 사건일이며, 창 내 grade 1 제출(Form 4, 09-17)과 우연히 동일 일자다."
+}

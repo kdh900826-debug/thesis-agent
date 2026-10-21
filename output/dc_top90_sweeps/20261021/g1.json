@@ -1,0 +1,635 @@
+{
+  "group": "g1",
+  "checked_at": "2026-10-21",
+  "window": [
+    "2026-10-20",
+    "2026-10-21"
+  ],
+  "websearch_used": 23,
+  "projects": [
+    {
+      "id": "p01",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 2026-09-09 보도 기준 공사 중 상태 유지(검색 결과는 3월 태양광 부지 임대 등 기존 사실뿐).",
+      "holds": [],
+      "events": [],
+      "followup": null,
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p02",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. NVIDIA 보증(최대 1,050억 달러, 조건부 임차·전력 대금)은 8월 기존 사실이며 오하이오 EPA·OPSB 인허가 보도는 찾지 못함.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-11 NVIDIA 3분기 실적·10-Q",
+        "answered": [
+          {
+            "q": "NVIDIA 10-Q/8-K에 보증 1,050억 달러가 어떤 조건(단계별 발동·한도)으로 적혀 있나?",
+            "a": "아직 — 검색 결과는 8월 보도 반복('조건부 임차·전력 대금 최대 1,050억 달러'). 11월 NVIDIA 10-Q에서 확인 필요"
+          },
+          {
+            "q": "가스발전 9.2GW 인허가(오하이오 EPA·OPSB) 진행 상황은?",
+            "a": "아직 — 관련 보도 찾지 못함"
+          },
+          {
+            "q": "2028년 첫 800MW 일정에 맞춘 현장 공사 진척은?",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "NVDA",
+        "SFTBY"
+      ],
+      "data_issues": []
+    },
+    {
+      "id": "p03",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 임차인·자금 조달 발표는 여전히 찾지 못함(마지막 확인 사실: 2026-01 TCEQ 7.65GW 대기 허가).",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 핵심 대기 허가는 1월 발급, 추가 승인은 묶일 수 있음"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {
+            "q": "부지정지 이후 실제 발전설비 공사가 시작됐나?",
+            "a": "아직"
+          },
+          {
+            "q": "임차인(하이퍼스케일러)이나 프로젝트 파이낸싱이 발표됐나?",
+            "a": "아직 — 찾지 못함"
+          },
+          {
+            "q": "9/21 동결로 보류된 추가 TCEQ 승인(물·변경허가)이 있나?",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p04",
+      "searched": true,
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-10-21 기준, 원장에 없던 8월 자금 조달 소식을 찾았다. 8/20 보도에 따르면 약 160억 달러 프로젝트 자금 중 Eagle Point의 약 13억 달러 메자닌 대출이 마무리됐고, 은행단(Morgan Stanley 등) 선순위 약 150억 달러에 Google이 보증한다고 한다(Google·Anthropic 역할은 회사 미확인). 부속 가스발전 TCEQ 대기 허가 발급 여부는 여전히 미확인.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — Nexus Hubbard Power 대기 허가(약 613MW)가 미발급이면 해당"
+      ],
+      "events": [
+        {
+          "date": "2026-08-20",
+          "kind": "자금",
+          "title_ko": "Hubbard 캠퍼스 1단계 자금 약 160억 달러 중 13억 달러 메자닌 대출 마무리(원장 누락분)",
+          "detail_ko": [
+            "Eagle Point Credit Management가 약 13억 달러의 메자닌(지주사 단) 대출을 맡았고 이 부분은 최근 마무리됐다고 보도됐다. Eagle Point가 성명을 냈고 Nexus CEO Ivan Van der Walt가 이를 언급했다.",
+            "전체는 약 160억 달러 규모로, Morgan Stanley 등 은행단이 약 150억 달러 선순위 대출을 이끈다. Bloomberg 인용 보도는 Google이 선순위 대출을 보증한다고 했으나 Google·Nexus·Anthropic 공식 확인은 없다(Nexus 논평 거부, Anthropic 무응답).",
+            "Anthropic은 경쟁 절차를 거쳐 주 임차인이 됐다는 익명 관계자 발언 수준이다. 기사에 따르면 Nexus는 1년 안에 최종투자결정(FID)에 이르렀고, 2026년 하반기 고수익 채권으로 재융자할 수 있다."
+          ],
+          "grade": 3,
+          "rumor": true,
+          "src": [
+            {
+              "t": "The Next Web(Bloomberg 인용)",
+              "u": "https://thenextweb.com/news/eagle-point-nexus-anthropic-texas-data-center-loan"
+            },
+            {
+              "t": "Private Equity Wire",
+              "u": "https://www.privateequitywire.co.uk/eagle-point-leads-1-3bn-private-credit-loan-for-anthropic-linked-texas-data-centre/"
+            }
+          ]
+        },
+        {
+          "date": "2026-07-22",
+          "kind": "자금",
+          "title_ko": "Nexus, 은행단과 약 150억 달러 브리지 대출 추진 보도(원장 누락분)",
+          "detail_ko": [
+            "Octus는 Nexus가 은행단으로부터 약 150억 달러 브리지 대출을 마련 중이며 가을에 채권·대출로 재융자할 예정이라고 보도했다. 은행 이름은 나오지 않았다. 8/20 보도의 선순위 약 150억 달러와 같은 건으로 보인다(해석)."
+          ],
+          "grade": 3,
+          "rumor": true,
+          "src": [
+            {
+              "t": "Octus",
+              "u": "https://octus.com/resources/articles/anthropic-linked-nexus-data-centers-lining-up-roughly-15b-in-bridge-financing-from-banks/"
+            }
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {
+            "q": "TCEQ 허가 183046/PSDTX170이 9/21 이전에 발급됐나?",
+            "a": "아직 — TCEQ 문서·보도에서 발급 기록 찾지 못함(6월 보도는 '기술검토 예정' 단계)"
+          },
+          {
+            "q": "Anthropic 임차·Google 자금지원 보도가 회사 발표로 확인됐나?",
+            "a": "아직 — 8/20 보도에서도 Nexus 논평 거부, Anthropic 무응답. 메자닌 대출 마무리 자체는 Eagle Point 성명·Nexus CEO 발언으로 보도됨"
+          },
+          {
+            "q": "TDLR에 등록된 HB1·HB2 건물 공사가 실제로 진행 중인가?",
+            "a": "아직 — 직접 확인 자료 없음. FID 도달 보도는 착공 정황(해석)"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "GOOGL"
+      ],
+      "data_issues": [
+        "8/20 보도의 총액 약 160억 달러 vs 7/22 Octus 브리지 약 150억 달러 — 선순위분과 전체 패키지 차이로 보임(해석).",
+        "두 사건 모두 7/7 이후·10/20 점검 전 사건인데 10/20 점검에서 누락됐다."
+      ]
+    },
+    {
+      "id": "p05",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 9월 추적 사이트는 '발표·계획, 토지 확보' 상태로 둔다(2025-11 토지 옵션 이후 인허가·자금·착공 보도 없음).",
+      "holds": [],
+      "events": [],
+      "followup": null,
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p06",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 2026-03 Nscale의 AIPCorp 인수 발표, Microsoft 1.35GW MOU, 2026-04 웨스트버지니아 DEP 건설허가 신청(애그리게이터 기준) 등 기존 사실뿐이다.",
+      "holds": [],
+      "events": [],
+      "followup": null,
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p07",
+      "searched": true,
+      "found_update": true,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "2026-10-21 기준 확장 단계 진행은 여전히 불확실. 7/16 반대 단체가 O'Leary·Fox News를 연방법원에 명예훼손으로 고소했고(원장 누락분), BEAR의 주민투표 거부 불복 소송은 브리검시티 제1지방법원에서 9월 중순 판결 대기 중이라는 반대 단체 발언이 있다.",
+      "holds": [
+        "주민단체 BEAR의 주민투표 청원 거부 불복 소송(제1지방법원, 판결 대기)",
+        "Alliance for a Better Utah 등의 MIDA 승인 절차 소송(6월 제기)"
+      ],
+      "events": [
+        {
+          "date": "2026-07-16",
+          "kind": "소송",
+          "title_ko": "반대 단체, O'Leary·Fox News를 연방법원에 명예훼손 소송(원장 누락분)",
+          "detail_ko": [
+            "Alliance for a Better Utah와 Elevate Strategies 및 두 창립자가 유타 연방법원에 소송을 냈다. O'Leary가 Fox Business에서 이들을 중국 정부를 위해 일한다고 말한 것이 쟁점이다.",
+            "O'Leary는 6/25 '증거가 없다'며 발언을 정정했고, 그의 변호인은 소송을 '돈 노리기'라고 했다. 프로젝트 인허가 자체를 다투는 소송은 아니다.",
+            "같은 단체들은 6월에 MIDA의 Stratos 승인 절차를 다투는 별도 소송도 냈다."
+          ],
+          "grade": 3,
+          "rumor": true,
+          "src": [
+            {
+              "t": "Utah News Dispatch",
+              "u": "https://utahnewsdispatch.com/?p=18696"
+            },
+            {
+              "t": "KPCW",
+              "u": "https://www.kpcw.org/state-regional/2026-07-16/utahns-sue-oleary-fox-news-over-smear-campaign"
+            },
+            {
+              "t": "FOX 13",
+              "u": "https://www.fox13now.com/news/local-news/utah-groups-sue-kevin-oleary-fox-news-over-false-accusations"
+            }
+          ]
+        },
+        {
+          "date": "",
+          "kind": "소송",
+          "title_ko": "BEAR 주민투표 소송, 9월 중순 기준 판결 대기(반대 단체 발언)",
+          "detail_ko": [
+            "BEAR는 브리검시티 제1지방법원에 카운티 결의 26-11(Stratos 사업구역 계획 동의)·26-12(MIDA 협약)에 대한 주민투표 신청 거부를 뒤집어 달라고 소송을 냈다.",
+            "반대 단체 Humans First 관계자는 9/15쯤 기준 '판결을 기다리는 중'이라고 말했다. 스페인어 보도는 MIDA·O'Leary Digital·카운티가 기각을 요청했다고 전한다. 법원 기록으로는 확인하지 못했다."
+          ],
+          "grade": 3,
+          "rumor": true,
+          "src": [
+            {
+              "t": "FOX 13(날짜 미표시)",
+              "u": "https://www.fox13now.com/news/local-news/box-elder-county/data-center-revolt-bus-tour-stops-in-box-elder-county-amid-data-center-backlash"
+            },
+            {
+              "t": "Utah News Dispatch(6/4)",
+              "u": "https://utahnewsdispatch.com/2026/06/04/stratos-data-center-referendum-group-appeal-to-a-judge/"
+            },
+            {
+              "t": "Herald Journal",
+              "u": "https://www.hjnews.com/news/local/bear-appeals-referendum-denial-over-stratos-data-center-project/article_a097de5a-c4e8-41ba-9e64-4225eaa17959.html"
+            }
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-10-27",
+        "answered": [
+          {
+            "q": "축소안(1단계 1.5GW)이 MIDA·카운티에 정식으로 제출됐나?",
+            "a": "아직"
+          },
+          {
+            "q": "BEAR 소송·MIDA 절차 소송의 법원·사건번호와 다음 심리일은?",
+            "a": "일부 — BEAR 소송은 브리검시티 제1지방법원, 9월 중순 판결 대기(반대 단체 발언). MIDA 절차 소송은 Alliance for a Better Utah 등이 6월 제기. 사건번호·다음 심리일은 아직"
+          },
+          {
+            "q": "수정 물 사용권 신청이 유타 수자원청에 접수됐나?",
+            "a": "아직"
+          },
+          {
+            "q": "MIDA 지도부 교체 후 Stratos 협약이 재검토되나?",
+            "a": "아직"
+          },
+          {
+            "q": "단계 2 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?",
+            "a": "아직 — 새 자료는 소송 관련뿐이고 단계 판단 근거는 부족"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "BEAR 소송 판결 대기 시점은 2차 인용(반대 단체 발언)이라 날짜를 비워 둠."
+      ]
+    },
+    {
+      "id": "p08",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 검색 결과는 8월 TensorWave 임차(15년 약 65억 달러), Texas Tech 토지 임대 조건 등 기존 사실뿐이다.",
+      "holds": [
+        "자금 부족(회사가 추가 자금 없이는 12개월 운영 불가 명시)",
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 추가 발전설비 허가"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-11 Fermi 3분기 실적(10-Q)",
+        "answered": [
+          {
+            "q": "TensorWave 계약의 보증 주체(AMD 여부)와 프로젝트 파이낸싱이 확정됐나?",
+            "a": "아직"
+          },
+          {
+            "q": "200MW 첫 상업 전력이 2027년 2월 전후로 나오나?",
+            "a": "아직(시점 전)"
+          },
+          {
+            "q": "전 CEO Neugebauer 소송 진행 상황은?",
+            "a": "아직 — 찾지 못함"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "FRMI"
+      ],
+      "data_issues": []
+    },
+    {
+      "id": "p09",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 5GW 추가 대기 허가는 9/21 동결로 발급이 멈춰 있는 것으로 본다(해석). TCEQ의 10/19 이행 보고 내용은 공개 보도에서 찾지 못함.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 미발급 5GW 대기 허가",
+        "Fermi 자금 부족(p08과 공통)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {
+            "q": "리포트의 'Matador East'가 3/27 접수한 5GW 추가 허가 신청과 같은 것인가?",
+            "a": "아직"
+          },
+          {
+            "q": "TCEQ가 10/19 주지사실에 낸 이행 보고에 진행 중 신청 처리(기술검토 계속 여부)가 어떻게 적혔나?",
+            "a": "아직 — 두 차례 검색에서 10/19 보고 제출·내용 보도 찾지 못함"
+          },
+          {
+            "q": "동부 부지 토지 확보 계약이 마무리됐나(회사는 미확정 인수 가능성 언급)?",
+            "a": "아직"
+          },
+          {
+            "q": "단계 3 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "FRMI"
+      ],
+      "data_issues": []
+    },
+    {
+      "id": "p10",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 추적 사이트는 여전히 '제안' 상태(발표 300MW)로 두며 공청회·신청·표결 기록이 없다.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 계통 분리형 현장 가스발전 대기 허가"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {
+            "q": "Webb County 현장 가스발전 TCEQ 허가 신청이 있나?",
+            "a": "아직 — 찾지 못함"
+          },
+          {
+            "q": "1단계 300MW(2026년 목표) 자금 조달이 발표됐나?",
+            "a": "아직 — 찾지 못함"
+          },
+          {
+            "q": "단계 3 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?",
+            "a": "아직 — 공식 자료·독립 보도 모두 없음(정보 부재는 반증이 아님)"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p11",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. Indiana County 계획위원회의 PIT100 예비계획 심의 일정·결과를 찾지 못했다(3월 안건에서 'Power Block Phase 2' 항목만 확인).",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "Indiana County 계획위원회 다음 정례회의(날짜 미확인)",
+        "answered": [
+          {
+            "q": "Indiana County 계획위원회가 PIT100 예비계획을 언제 표결하나?",
+            "a": "아직 — 계획위원회 페이지 접근 실패(404), 보도 없음"
+          },
+          {
+            "q": "AWS와 Homer City Redevelopment 간 확정 계약이 발표됐나?",
+            "a": "아직 — 날짜 미상 보도는 '확정 계약 없음'"
+          },
+          {
+            "q": "가스발전소 첫 전력 일정(2027년 말~2028년 초)이 유지되나?",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [
+        "AMZN"
+      ],
+      "data_issues": []
+    },
+    {
+      "id": "p12",
+      "searched": true,
+      "found_update": true,
+      "stage_base": "1",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "2026-10-21 기준, 원장에 없던 8/20 보도를 찾았다: Joule이 Millard County 농지에 가스발전소 6곳(엔진 400개 이상)을 위한 대기 허가를 신청 중이다. 데이터센터 CUP(Z-2025-048)은 2025-09 계획위원회 조건부 승인 권고까지만, 가스관 협약(Z-2026-026)은 공청회 안건까지만 확인되고 최종 결과는 미확인.",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-08-20",
+          "kind": "전력",
+          "title_ko": "Joule, 가스발전소 6곳 대기 허가 신청 중(원장 누락분)",
+          "detail_ko": [
+            "Oil & Gas Watch는 Joule Capital Partners가 Millard County 농지의 4,000에이커 데이터센터용 가스발전소 6곳 대기 허가를 받으려 한다고 전했다.",
+            "발전소마다 Caterpillar 발전기 69대, 전체 400개 이상의 가스 엔진 규모다. 허가 기관·신청 번호·의견 마감일은 기사에 없다. 신청 단계이고 승인은 아니다."
+          ],
+          "grade": 3,
+          "rumor": true,
+          "src": [
+            {
+              "t": "Oil & Gas Watch",
+              "u": "https://news.oilandgaswatch.org/template/brief/company-seeks-permits-for-six-gas-power-plants-to-run-data-center-in-western-utah"
+            }
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-10-27",
+        "answered": [
+          {
+            "q": "Millard County가 CUP(Z-2025-048)과 가스관 협약(Z-2026-026)을 최종 승인했나?",
+            "a": "아직 — CUP은 2025-09 계획위원회 조건부 승인 권고, Z-2026-026은 공청회 안건(6월 전후)까지만 확인"
+          },
+          {
+            "q": "2026년 4분기 455MW 목표에 맞춘 실제 장비 반입·공사가 있나?",
+            "a": "아직 — 8/20 기준 발전소 대기 허가가 신청 중이라 4분기 455MW 목표와 시차가 있을 수 있음(해석)"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "8/20 사건은 7/7 이후·10/20 점검 전 사건인데 10/20 점검에서 누락됐다.",
+        "Oil & Gas Watch는 허가 데이터 기반 추적 매체로 grade 3으로 두었고, 1차 문서(유타 대기질국 허가 기록)는 확인 못함."
+      ]
+    },
+    {
+      "id": "p13",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "3",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 800에이커+ 재지정 신청의 심리·표결 보도는 7/28 이후 찾지 못했다.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "DeSoto County 위원회 재지정 심리(날짜 미확인)",
+        "answered": [
+          {
+            "q": "800에이커+ 재지정 신청의 계획위원회·카운티 위원회 심리일은?",
+            "a": "아직 — 두 차례 검색, 7월 말 이후 보도 없음"
+          },
+          {
+            "q": "첫 34에이커 부지의 부지계획 승인·착공 신청이 있었나?",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p14",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "2",
+      "stage_now": "2",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 1월 보도 기준 약 3,000에이커, 1단계 360MW 전력 공급 구조(DCD), 2028년 가동 목표 등 기존 사실뿐이다. Lockhart 시가 데이터센터 기준 마련을 지시했으나 Tract 부지는 시 경계 밖이다.",
+      "holds": [
+        "텍사스 8/3 ERCOT 대형부하(75MW+) 신규 연결 승인 중단·감사 대상(해석)",
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 현장 가스발전"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {
+            "q": "Tract 부지가 ERCOT 감사 대상 대형부하 대기열에 있나?",
+            "a": "아직"
+          },
+          {
+            "q": "현장 가스발전 TCEQ 신청이 접수돼 있나?",
+            "a": "아직 — 찾지 못함"
+          },
+          {
+            "q": "임차인이나 착공 발표가 있었나?",
+            "a": "아직 — 찾지 못함"
+          },
+          {
+            "q": "단계 2 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "1단계 전력 규모가 원장 '첫 250MW 2028년 1분기' vs DCD '1단계 360MW'로 다르다."
+      ]
+    },
+    {
+      "id": "p15",
+      "searched": true,
+      "found_update": false,
+      "stage_base": "3",
+      "stage_now": "1",
+      "stage_candidate": null,
+      "status_ko": "지난 점검(2026-10-20) 이후 신규 정보 찾지 못함. 임차인 미공개, 펜실베이니아 DEP 대기 허가 기록·보도도 찾지 못했다(3/31 Shippingport 자치구 조건부 사용 승인만 확인).",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "이미 열린 follow-up(2026-10-20) — 질문별 답 확인",
+        "questions": [],
+        "next_check": "2026-11-17",
+        "answered": [
+          {
+            "q": "임차인(하이퍼스케일러)이 발표됐나?",
+            "a": "아직 — 회사는 이름 없는 '고객'만 언급"
+          },
+          {
+            "q": "현장 가스발전의 펜실베이니아 DEP 대기 허가는 받았나?",
+            "a": "아직 — 찾지 못함"
+          },
+          {
+            "q": "첫 가동 목표 시점은?",
+            "a": "아직"
+          }
+        ],
+        "close": false,
+        "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "일부 자료는 현장 전력을 가스 연료전지로 설명한다 — 발전 방식 확인 필요."
+      ]
+    }
+  ],
+  "cross_cutting": [
+    "TCEQ의 10/19 주지사실 이행 보고: 2026-10-21 기준 제출 여부·내용을 다룬 보도를 찾지 못함(검색 2회). TCEQ 대변인은 9월에 'DC 직접 지원 인프라의 대기·용수 허가·승인 발급 전부 중단'이라고 밝힘. 출처: Foley 해설(2026-09) https://www.foley.com/insights/publications/2026/09/texas-governor-abbott-directs-tceq-to-freeze-all-data-center-permits-in-a-whole-of-government-action/",
+    "원장 누락 갭 3건 발견(모두 7/7 이후, 10/20 점검 전 사건): p04 8/20 Nexus 약 160억 달러 자금(13억 달러 메자닌 마무리)·7/22 브리지 대출 보도, p12 8/20 Joule 가스발전소 6곳 대기 허가 신청, p07 7/16 O'Leary·Fox News 명예훼손 소송."
+  ]
+}

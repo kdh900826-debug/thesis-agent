@@ -1,0 +1,209 @@
+{
+  "ticker": "MU",
+  "run_id": "20260911_2308",
+  "as_of": "2026-09-12",
+  "staleness_days": 0,
+  "lookback_window": {
+    "since": "2026-09-04",
+    "until": "2026-09-12"
+  },
+
+  "claims": [
+    {
+      "id": "c_20260911_MU_01",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API(CIK 0000723125) 조회 결과, 2026-08-28~2026-09-12 구간(주창 2026-09-04~09-12 + 안전 오버랩 2026-08-28 소급 포함) MU의 10-K/10-Q/8-K 신규 공시는 0건.",
+      "evidence_grade": 1,
+      "source": {"type": "EDGAR submissions API (직접 조회)", "url": "https://data.sec.gov/submissions/CIK0000723125.json", "filed_at": "2026-09-12"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "원시 응답 output/20260911_2308/02_company/_raw_edgar_MU.json. 이 구간 내 Netlist 관련 회사측 8-K 공시(예: 경영진 판단상 중대소송 개시 공시) 부재를 포함 — P5(부재≠반증) 원칙상 소송 미확인 상태 지속의 근거로만 사용, 소송 종결·기각의 근거로 사용 금지."
+    },
+    {
+      "id": "c_20260911_MU_02",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Micron IR(investors.micron.com) 및 2026-08-26자 GlobeNewswire 보도자료 — FY26 Q4 실적 발표·컨퍼런스콜 2026-09-30(수) 산악시간 오후 2:30 개최 공지가 2026-09-12 기준 변경 없이 유지. 이번 run 검색에서 일정 변경·연기 공지 확인되지 않음.",
+      "evidence_grade": 1,
+      "source": {"type": "company IR page / press release", "url": "https://investors.micron.com/news/press-release/2026/Micron-Technology-to-Report-Fiscal-Fourth-Quarter-Results-on-September-30-2026/default.aspx", "filed_at": "2026-08-26"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "직전 run c_20260905_MU_02 재확인(no_change). 애그리게이터(TipRanks·Investing.com·stocktitan) 캘린더는 판정근거 불가(F1, sources.yaml rules) — 참고 배제."
+    },
+    {
+      "id": "c_20260911_MU_03",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "AFP 기사(RTE 유통, 2026-09-11) 보도: Micron이 대만 노조 측에 FY26 일회성 인센티브로 35~68개월분 급여(최소 현금 보장 NT$170만, 약 $53,700)를 제시. 노조는 요구안(83개월분 일시 보너스 + FY27부터 영업이익 15% 분기별 배분)에 미달한다며 '보너스 산정방식 논의를 회피했다'고 반발. 정부 중재 협상이 9월 초 개시되어 9월 중순까지 진행 중이며, 협상 결렬 시 파업 투표를 실시할 것이라고 노조측(AFP 인용)이 밝힘. 8/28(TrendForce)·9/2(Motley Fool, TechTimes, BigGo Finance) 보도에서 이어진 동일 사안의 후속 전개.",
+      "evidence_grade": 4,
+      "source": {"type": "secondary media (AFP wire, RTE 유통)", "url": "https://www.rte.ie/news/business/2026/0911/1591142-micron-workers-in-taiwan/", "filed_at": "2026-09-11"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "note": "Micron 회사측 1차 공시(8-K)·공식 보도자료 또는 노조 원문 성명 접근 실패 — 등급4 단독이라 confirmed:false(P4). Reuters 원문(reuters.com)도 이번 run에서 직접 접근하지 못함. hbm_demand 축(대만 Taoyuan/Taichung은 HBM 주요 생산기지) 실행 리스크 감시 항목으로 카드에 미등재 리스크 — 2026-09-05 run flags_for_thesis_refine 후보와 동일 계열, 이번 run에서 구체적 수치(개월수·달러화 최저보장액)로 격화."
+    },
+    {
+      "id": "c_20260911_MU_04",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Netlist v. Micron CDCA 소송(2026-08-12 제소, 특허 10,217,523/12,675,407)의 정확한 사건번호·답변(answer) 제출 여부·2026-09-10 시한 결과를 이번 run의 검색 예산(WebSearch 5회+WebFetch 2회) 내에서 확정하지 못함. CourtListener 검색에서 회수된 도켓(1:26-cv-00362)은 별건(공동피고 Avnet 포함, E.D. Texas 2:25-cv-00749에서 이송, 2025년 도켓 엔트리 위주)으로 확인되어 대상 사건이 아님을 배제(직접 도켓 열람으로 확인). 재검색에서 회수된 사건번호(1:26-cv-00246 / '5-26-cv-00246')는 상호 불일치하여 별도 검증 없이는 신뢰 불가.",
+      "evidence_grade": 4,
+      "source": {"type": "court docket search (미특정/불일치)", "url": "https://www.courtlistener.com/docket/73133116/netlist-inc-v-micron-technology-inc/?entry_gte=22", "filed_at": "2026-09-12"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "note": "P5(부재≠반증) — 도켓 미특정을 소송 취하·화해·시한 미준수 등 어떤 방향으로도 해석하지 않음. 지시(§효율 지침)에 따라 도켓 페이지 반복조회를 중단하고 unconfirmed로 이월. 직전 run c_20260905_MU_04(grade4, confirmed:false)와 동일 미해결 상태 지속."
+    },
+    {
+      "id": "c_20260911_MU_05",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "ITC Section 337 조사개시(institution) 관련 검색에서 회수된 스니펫 하나는 'Netlist 제소(2026-06-16 접수)에 기반해 DRAM 관련 조사를 개시했다'는 내용을 서술했으나, 동일 검색 결과 목록에 별도로 'Netlist, Inc. v. Samsung — 337-TA-1511 (HBM/DDR5)' 건이 함께 노출되어 있어, 위 institution 서술이 Micron 대상 2026-08-12 제소건이 아니라 Samsung 대상 별건(337-TA-1511 계열)을 지칭할 가능성이 있음. 2026-08-12 Netlist-Micron ITC 제소 건에 대한 institution 투표 여부는 이번 run에서 신뢰 가능하게 확인되지 않음.",
+      "evidence_grade": 4,
+      "source": {"type": "web search summary (출처 혼입 의심)", "url": "https://lexsummary.com/netlist-samsung-itc-337-ta-1511-hbm-ddr5-patent-investigation-2026/", "filed_at": "2026-09-12"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "note": "검색 요약(LLM)이 Micron 건과 Samsung 별건을 혼입했을 위험 — 타 종목(Samsung) 자료 인용 회피 위해(P17) 해당 서술을 Micron 건 확정 근거로 채택하지 않고 unconfirmed 처리. USITC 공식 institution notice(usitc.gov EDIS) 원문 대조가 차기 run 과제."
+    },
+    {
+      "id": "c_20260911_MU_06",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "2026-08-28~2026-09-12 구간에 대해 신규 SCA 체결·조건 변경(noise_filter.yaml#MU promote_if) 및 비트그로스 vs ASP 분해 신규 확정 수치를 표적 재확인하지 않음 — 이번 run 우선순위(Netlist CDCA·9/30 실적일 확정·대만 노사 1차자료 유무) 집중 및 효율 지침(웹검색·WebFetch 절제)에 따라 미수행. EDGAR 신규 공시 0건(c_01)은 최소한의 공시 채널 확인으로 갈음.",
+      "evidence_grade": 1,
+      "source": {"type": "scope note (EDGAR 채널 확인만 수행)", "url": "https://data.sec.gov/submissions/CIK0000723125.json", "filed_at": "2026-09-12"},
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "sca_defense·cycle_position·valuation_paradox 축은 이번 run no_change로 이월(P5) — 차기 run(특히 9/30 실적) 재확인 필요."
+    }
+  ],
+
+  "deltas": [
+    {
+      "axis": "ip_litigation_risk",
+      "direction": "neutral",
+      "stage": "L2_draft",
+      "prior_state": "Netlist ITC(4개사 대상)·CDCA(Micron 단독) 제소(2026-08-12) 진행 중. ITC institution 투표 미확인, CDCA 답변시한 2026-09-10 보도(grade4, confirmed:false) — 2026-09-05 run 기준.",
+      "new_state": "이번 run에서 EDGAR 신규 공시 0건(c_01), CDCA 정확한 도켓·답변 제출 여부 검증 실패(c_04), ITC institution 여부도 신뢰 가능하게 확인 안 됨(c_05, Samsung 별건 혼입 의심). 9/10 시한 결과·institution 여부 모두 미확정 지속 — no_change.",
+      "risk_transfer_to": ["ITC institution 투표 결과(제소 후 통상 30~45일 관행상 임박)", "CDCA 답변 제출·화해·기각 여부"],
+      "supporting_claims": ["c_20260911_MU_01", "c_20260911_MU_04", "c_20260911_MU_05"]
+    },
+    {
+      "axis": "hbm_demand",
+      "direction": "weaken",
+      "stage": "L2_draft",
+      "prior_state": "대만 노조 파업 투표 착수 단계(참여 노조원 80%+ 찬성), 회사는 '역대 최고 성과급' 대응 방침만 표명(2026-09-05 run, confirmed:false).",
+      "new_state": "회사가 구체적 카운터오퍼(35~68개월분, 최저 $53,700) 제시했으나 노조는 요구(83개월+영업이익 15%)에 미달한다며 거부(c_03). 정부 중재는 9월 중순까지 진행형이고 결렬 시 파업투표 예정 — 분쟁이 위협 단계에서 구체적 조건 협상 단계로 진전했으나 여전히 미해결. Taoyuan·Taichung은 HBM 핵심 생산기지로 실행 리스크 성격이나, 등급4(AFP/RTE) 단독 소스라 confirmed:false — 방향은 잠정(provisional).",
+      "risk_transfer_to": ["9월 중순 정부 중재 협상 결과", "파업투표 실시 여부·결과", "10월 회사측 최종안 발표(직전 run 언급)"],
+      "supporting_claims": ["c_20260911_MU_03"],
+      "inference_strength_overall": "weak",
+      "caveat": "핵심 소스가 confirmed:false(grade4 단독) — 실제 생산 차질 발생 전까지는 실행리스크 '신호'일 뿐 매출·가이던스 영향 확정 아님(P7)."
+    },
+    {
+      "axis": "sca_defense",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "SCA 16건, DRAM 20%+/NAND 1/3 커버리지 — 2026-09-05 run까지 no_change 확인.",
+      "new_state": "이번 run 표적 재확인 미수행(c_06, 예산 절제) — no_change로 이월. 부재≠반증(P5).",
+      "risk_transfer_to": ["2026-09-30 FY26Q4 실적"],
+      "supporting_claims": ["c_20260911_MU_06"]
+    },
+    {
+      "axis": "cycle_position",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "비트그로스 vs ASP 분해 미확정('순수 P 사이클' 가설 검증 대기) — 최신 공개 데이터는 FY26 Q2 10-Q 기준.",
+      "new_state": "신규 데이터 없음(c_06) — 2026-09-30 실적으로 이월.",
+      "risk_transfer_to": ["2026-09-30 FY26Q4 실적"],
+      "supporting_claims": ["c_20260911_MU_06"]
+    },
+    {
+      "axis": "valuation_paradox",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "NTM P/E ~5.95-6.9x, '피크 역설 구간' 판정 대기.",
+      "new_state": "이번 run 신규 밸류에이션 판정 근거(비트/ASP 분해, 선수금 방향) 없음 — no_change. P/E 단독 서술은 노이즈 필터 대상(discarded_noise_log 참조)이라 판정 미사용.",
+      "risk_transfer_to": ["2026-09-30 FY26Q4 실적"],
+      "supporting_claims": ["c_20260911_MU_06"]
+    },
+    {
+      "axis": "china_supply",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "8/24 트럼프 행정부 Apple向 CXMT/YMTC 소싱 허용 검토설 이후 불확실성 증가(2026-09-05 run, confirmed:false, 9/24 미중 정상회담 연계).",
+      "new_state": "이번 run은 지시된 우선순위(Netlist·실적일·대만 노사)에 집중하고 효율 지침에 따라 Apple/CXMT 후속 재검색은 수행하지 않음 — 신규 확인 사항 없이 no_change로 이월.",
+      "risk_transfer_to": ["2026-09-24 미중 정상회담", "Apple 공식 발표(미확정)"],
+      "supporting_claims": []
+    }
+  ],
+
+  "unconfirmed": [
+    {
+      "id": "u_20260911_MU_01",
+      "axis": "ip_litigation_risk",
+      "text": "Netlist v. Micron CDCA 소송의 정확한 사건번호와 2026-09-10 답변시한의 실제 준수·연장·미준수 여부.",
+      "evidence_grade": 4,
+      "source": {"type": "court docket search (불일치)", "url": "https://www.courtlistener.com/docket/73133116/netlist-inc-v-micron-technology-inc/", "filed_at": "2026-09-12"},
+      "reason": "검색으로 회수된 도켓이 대상 사건과 불일치(별건 확인) 및 재검색 결과 사건번호 상호불일치. 예산 절제 지침상 반복 조회 중단.",
+      "next_check": "차기 run에서 PACER/CourtListener RECAP 또는 Netlist 10-Q 소송 각주로 재확인"
+    },
+    {
+      "id": "u_20260911_MU_02",
+      "axis": "ip_litigation_risk",
+      "text": "2026-08-12 Netlist-Micron ITC 제소(4개사 대상)에 대한 institution(조사개시) 투표 여부.",
+      "evidence_grade": 4,
+      "source": {"type": "web search summary (Samsung 별건 혼입 의심)", "url": "https://lexsummary.com/netlist-samsung-itc-337-ta-1511-hbm-ddr5-patent-investigation-2026/", "filed_at": "2026-09-12"},
+      "reason": "검색 요약이 Netlist v. Samsung(337-TA-1511) 별건과 혼입되었을 가능성 — Micron 건 확정 근거로 사용 안 함(P17 타종목 오염 방지).",
+      "next_check": "usitc.gov EDIS 공식 institution notice 원문 대조"
+    },
+    {
+      "id": "u_20260911_MU_03",
+      "axis": "hbm_demand",
+      "text": "대만 Micron 노사분쟁(FY26 보너스·FY27 인센티브 플랜 개편)에 대한 회사 1차 공시(8-K/보도자료) 또는 노조 원문 성명.",
+      "evidence_grade": 4,
+      "source": {"type": "secondary media only", "url": "https://www.rte.ie/news/business/2026/0911/1591142-micron-workers-in-taiwan/", "filed_at": "2026-09-11"},
+      "reason": "AFP/Reuters 인용 2차보도만 확인, 회사·노조 1차 자료 접근 실패. 감시 항목(카드 지시)이며 등급4 단독이라 판정근거 불가(P4).",
+      "next_check": "Micron 10월 발표(회사 언급) 및 대만 노동부/노조 공식 채널"
+    },
+    {
+      "id": "u_20260911_MU_04",
+      "axis": "hbm_demand",
+      "text": "DigiTimes(2026-09-04) 보도 — Micron HBM 생산능력 2026년말 약 월 10만 웨이퍼로 확대, HBM4 비중 연말 약 50%.",
+      "evidence_grade": 4,
+      "source": {"type": "trade press (unnamed sources)", "url": "https://www.digitimes.com/news/a20260904VL206/micron-hbm-capacity-sk-hynix-samsung.html", "filed_at": "2026-09-04"},
+      "reason": "2026-09-05 run에서 이미 unconfirmed 이월된 항목(c_20260905_MU_11) — 이번 run 재검색 미수행, 상태 불변.",
+      "next_check": "2026-09-30 FY26Q4 실적에서 직접 확인"
+    },
+    {
+      "id": "u_20260911_MU_05",
+      "axis": "china_supply",
+      "text": "트럼프 행정부의 Apple CXMT/YMTC(중국向) 소싱 허용 검토 관련 공식 발표 여부.",
+      "evidence_grade": 4,
+      "source": {"type": "reused from prior run", "url": "https://247wallst.com/investing/2026/08/24/memory-stocks-slide-on-report-apple-may-source-chinese-chips-sandisk-down-9-micron-and-western-digital-down-7/", "filed_at": "2026-08-24"},
+      "reason": "이번 run 우선순위 밖(지시 §종목특이 확인항목 미포함) — 예산 절제로 재검색하지 않음, 2026-09-05 run 상태 그대로 이월.",
+      "next_check": "9/24 미중 정상회담 이후 및 9/30 실적 시 재확인"
+    }
+  ],
+
+  "discarded_noise_log": [
+    {"pattern": "P/E 단독 저평가 서술", "hits": "검색 스니펫 다수(Motley Fool 등 실적 프리뷰 코멘트)", "action": "폐기 — noise_filter.yaml#MU 등재 패턴, 지시 §2 '실적 프리뷰·애널리스트 추정은 노이즈'와 동일 취지"},
+    {"pattern": "애그리게이터 실적일 자동추정 캘린더 (TipRanks/Investing.com/stocktitan)", "hits": "3건", "action": "폐기 — F1(자동추정 라벨은 grade 무관 판정근거 불가), c_02(회사 IR 1차 확인)로 대체"},
+    {"pattern": "ITC institution 검색 결과 중 Samsung 337-TA-1511 관련 서술", "hits": "1건(lexsummary.com 등)", "action": "Micron 건과 혼입 위험 있어 claim으로 승격하지 않고 unconfirmed(u_02)로 격리, 타종목 자료 직접 인용 회피(P17)"}
+  ],
+
+  "reused_from": "output/20260905_0618/02_company/MU.json",
+
+  "notes": "run_id 20260911_2308은 2026-09-11 야간 시작 → 2026-09-12로 이어진 run(as_of=2026-09-12). 조회창: 주창 2026-09-04~2026-09-12 + 안전 오버랩 2026-08-28 소급 스윕(신규 발견 시 outside_primary_window_retro_found 표기 대상이었으나 해당 사례 없음 — 창밖 신규 발견 없음). 효율 지침(총 웹검색·WebFetch 8회 이내) 준수: WebSearch 5회 + WebFetch 2회(1회는 courtlistener.com 403으로 실패, Bash curl로 대체 시도)로 마감, 법원 도켓 반복조회 대신 1~2회 시도 후 unconfirmed 적재(P5)로 전환. china_supply(Apple/CXMT 후속)·SCA 신규 체결 표적 재검색은 이번 run 우선순위(Netlist CDCA·9/30 실적일·대만 노사)에서 제외되어 미수행 — 차기 run 이월 필요. 카드의 'HBM이 장기계약 대가로 마진이 더 낮다' 미검증 가설은 이번 run 대상 아님(9/30 실적 시 직접 확인 예정, agent 지침 유지). axis_proposals·flags_for_thesis_refine 신규 제안 없음 — ip_litigation_risk 축은 2026-09-05 run에서 이미 카드에 반영 완료.",
+  "generated_by": "company-mu (L2)"
+}

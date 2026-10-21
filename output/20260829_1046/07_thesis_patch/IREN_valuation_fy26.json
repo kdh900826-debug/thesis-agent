@@ -1,0 +1,38 @@
+{
+  "as_of": "2026-08-29T10:46",
+  "run_id": "20260829_1046",
+  "ticker": "IREN",
+  "card_field": "valuation",
+  "operation": "amend",
+  "before": "valuation:\n  primary: \"EV/ARR (현 ~5.7x = $45.12×508M≈$22.9B ÷ $4.0B, 순부채 미조정) + MW당 매출\"\n  secondary: \"완전희석 시총, 인도 MW 진척률\"\n  caution: \"BTC 매출과 AI Cloud 매출에 동일 멀티플 적용 부적절\"",
+  "after": "valuation:\n  # 2026-08-29 ThesisPatch(amend, run 20260829_1046) — FY26 실적 기준 재산출. 분자/분모 분해는 P10, 주수 range는 F9.\n  # 이전 primary: \"EV/ARR (현 ~5.7x = $45.12×508M≈$22.9B ÷ $4.0B, 순부채 미조정) + MW당 매출\"\n  primary: >-\n    EV/ARR — ⚠️단일값 금지. 분모를 명시하지 않은 EV/ARR은 무효다.\n    [분모 A = 계약 ARR $4.0B] EV/ARR 3.55x~5.01x. [분모 B = 가동 중 ARR $1.0B(8/26)] EV/ARR 14.19x~20.02x.\n    분자 range: 주가 $35.45(8/28 종가, grade 3) × 주식수 394,058,648(하한) ~ 558,718,254(상한) = 시총 $13,969M~$19,807M,\n    순부채 ~$217M 가산 시 EV $14,187M~$20,024M.\n    카드 기준선 5.73x 대비 변동은 전액 분자 기여이며 분모 기여는 0이다 —\n    가격 -21.4%($45.12→$35.45)가 5.73x→4.50x, 주식수 변경(508M→394.06M 또는 558.72M)이 4.50x→3.49x 또는 4.95x(순부채 미조정 기준).\n    분모 A와 B의 차이는 밸류에이션 변동이 아니라 기준 변경이므로 시계열로 나란히 놓지 않는다.\n  secondary: \"완전희석 시총(range 필수, F9), 인도 MW 진척률(⚠️0.3GW IT vs 480MW 기준 상충), RPO+리스 계약가치 ~$16.6B(ASC606 $5.1B + ASC842 $11.4B)\"\n  caution: >-\n    BTC 매출과 AI Cloud 매출에 동일 멀티플 적용 부적절 — Q4 FY26 기준 매출의 48.6%가 여전히 채굴이며 해당 부문은 QoQ -40.0%다.\n    또한 ARR은 비GAAP 운영지표이며 회사가 \"인식 매출은 실질적으로 더 낮을 수 있다\"고 명시했으므로 ARR 기반 배수는 GAAP 매출 배수와 혼용하지 않는다.\n    Microsoft·Horizon 계약은 ASC842 리스로 분류돼 FY26 손익계산서에 매출 인식액이 0이다 — 현 매출 배수에 thesis 핵심 계약이 반영돼 있지 않다.",
+  "reason": "[fact] 카드 primary는 '$45.12×508M≈$22.9B ÷ $4.0B = ~5.7x'로 주가·주식수 모두 갱신 전 값이며, 508M은 이번 공시로 회사 명시치와 불일치가 확인됐다(C19·I06). [fact] 8/28 종가는 $35.45이고 주식수 range 하한 394,058,648 / 상한 558,718,254가 grade 1로 확보됐다(C19·C30). [fact] 회사가 ARR을 '계약 $4.0B'과 '가동 중 $1.0B' 두 값으로 분화 공표했으므로 분모를 명시하지 않은 EV/ARR은 4배 차이를 은폐한다(C10). [fact] 6/30/26 기준 순부채 산출에 필요한 차입·현금 수치가 확보돼 순부채 미조정 단서를 제거할 수 있다(C07·C08·I09). [fact] Microsoft·Horizon 계약이 ASC842 리스로 분류돼 FY26 인식액이 0이라는 사실은 현행 매출 기반 배수의 해석 한계를 규정한다(C14). [inference:strong] P10은 밸류 변동의 분자/분모 분해 표기를 요구하며, F9는 주수 단일값을 금지한다 — 현행 primary는 둘 다 위반 상태다.",
+  "basis_claims": [
+    "IREN-2608-C07",
+    "IREN-2608-C08",
+    "IREN-2608-C10",
+    "IREN-2608-C14",
+    "IREN-2608-C15",
+    "IREN-2608-C19",
+    "IREN-2608-C30",
+    "IREN-2608-I06",
+    "IREN-2608-I09"
+  ],
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 밸류에이션 기준·표기 규약의 갱신이며 저평가·고평가 판정을 내리지 않는다(P15 — 목표가 산출 없음).",
+  "downstream_note": "[fact] 주가는 grade 3 입력이므로 이 range는 관측 시점(2026-08-28 종가)에 고정된 스냅샷이다. 주가 변동 시 재산출이 필요하며 카드에 상시 최신값을 유지하려는 시도는 하지 않는다.",
+  "expected_after": {
+    "contains": [
+      "EV/ARR — ⚠️단일값 금지",
+      "[분모 A = 계약 ARR $4.0B] EV/ARR 3.55x~5.01x",
+      "394,058,648(하한) ~ 558,718,254(상한)",
+      "ASC842 리스로 분류돼 FY26 손익계산서에 매출 인식액이 0이다"
+    ],
+    "not_contains": [
+      "\n  primary: \"EV/ARR (현 ~5.7x"
+    ],
+    "counts": [],
+    "_anchor_note": "주석에 이전 primary를 보존하므로(P9) not_contains는 활성 YAML 행(들여쓰기 2칸)만 겨냥한다."
+  }
+}

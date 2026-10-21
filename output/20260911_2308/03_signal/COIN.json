@@ -1,0 +1,112 @@
+{
+ "as_of": "2026-09-12",
+ "run_id": "20260911_2308",
+ "ticker": "COIN",
+ "input_source": "output/20260911_2308/03_input/arbiter_COIN.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260911_COIN_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "EDGAR submissions API (원문 8-K 재확인)",
+   "filed_at": "2026-09-02",
+   "summary": "EDGAR 재조회(CIK 0001679788, forms=10-K/10-Q/8-K, since=2026-08-28) 결과 반환된 필링은 1건: 2026-09-02 8-K뿐이며, 이는 직전 run에서 이미 원문 확인으로 Item 5.02(이사회 인사, Anthony Armstrong 선임) 단독 건으로 판명된 동일 필링이다. 이번 주 창(09-04~09-12)과 소급 스윕 구간(08-28~09-03) 어디에도 신규 8-K/10-Q/10-K는 없음 — Circle-USDC 분배계약 변경 관련 8-K는 0건. KC-CRCL-3 미발동 재확인."
+  }
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_COIN.json의 claims 1건 전건 scope=company_specific 확인. removed_claims 1건(c_20260911_COIN_2, scope=sector, CLARITY Act 표결 예정건)은 정상 필터 동작(P6/P13). F13 해당 없음.",
+ "kill_check": {
+  "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+  "own_company_kc": [
+   {"kc_id": "KC-COIN-1", "condition": "구조 전환 실패(구독 비중 하락 + 거래매출 동반 감소)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "subscription_services_share_declines·transaction_revenue_qoq 모두 값 미확보 — 이번 창 신규 정량지표 없음(차기 Q3 실적 대상)."},
+   {"kc_id": "KC-COIN-2", "condition": "예치자산 순유출(가격 변동 제외)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "platform_assets_net_outflow_quarters 신규 공시 없음."},
+   {"kc_id": "KC-COIN-3", "condition": "SEC·CFTC·DOJ 신규 제소 또는 주요 사업 영업정지·인가취소", "verdict": "not_met", "verdict_confidence": "confirmed_absence", "note": "이번 창 신규 8-K 직접 확인 결과 이사회 인사 건일 뿐 규제 소송 관련 내용 없음."},
+   {"kc_id": "KC-COIN-4", "condition": "USDC 연동 수익 훼손(교차 KC, 방향 조건부)", "verdict": "not_met", "verdict_confidence": "confirmed_absence(KC-CRCL-3 재확인) / n/a(usdc_revenue_qoq 미갱신)", "note": "c_20260911_COIN_1(grade1, confirmed)이 KC-CRCL-3 미발동을 재확인함에 따라 KC-COIN-4 교차조건도 미충족."}
+  ],
+  "macro_kc_propagating": {
+   "note": "KC-2·KC-3·KC-4·KC-5 전건 verdict=not_met, verdict_confidence=confirmed(VIX 15.84, BTC 77,252, ON_RRP $5.255B, TAIEX 20일선 대비 +2.03%/1개월 +3.12% — 전건 경계선과 거리 있음). KC-1(FFR>3.75)은 이번 KC 발췌본 범위 밖(macro_kc_propagating_to_ticker 목록에 미포함)이라 판정 대상이 아니다."
+  },
+  "met_and_confirmed": false,
+  "human_confirmation_required": false,
+  "basis": "COIN 종목 KC 4건(KC-COIN-1~4) 전건 not_met — KC-COIN-3·4는 confirmed_absence(신규 8-K 직접 확인), KC-COIN-1·2는 지표 미갱신으로 provisional. 파급되는 매크로 KC(KC-2~5)도 전건 not_met·confirmed. 규칙1(Kill 우선) 발동 대상 없음."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative": false,
+   "scope_company_specific": true,
+   "stage_revenue_recognized": false,
+   "overall_upgrade_gate_met": false,
+   "basis": "P2·P6·P7 3요건이 전부 충족되어야 상향이지만, 이번 유일 claim(c_20260911_COIN_1)은 quantitative=false(매출·마진·가이던스 수치 변화 없음)이며 stage=revenue_recognized에 해당하는 사항도 없음. scope=company_specific만 충족. 이번 입력은 '신규 8-K 0건'이라는 부재 지속 확인이 지배적이며, P5에 따라 부재는 반증이 아니다 — 부재 확인을 근거로 상향하지 않는다."
+  },
+  "downgrade_check": {
+   "rule": "v1 §6-2 규칙3 — 정량 훼손 또는 evidence_grade≤2의 정성 훼손 시 하향 가능(비대칭)",
+   "quantitative_deterioration": false,
+   "qualitative_deterioration_grade_le_2": false,
+   "overall_downgrade_gate_met": false,
+   "basis": "grade≤2 확정 fact는 c_20260911_COIN_1 1건뿐이며, 내용은 '신규 8-K가 Circle/USDC와 무관한 이사회 인사 건'이라는 부재 지속 확인으로 훼손 신호가 아니다(P5). 입력의 usdc_economics 축 delta 방향도 neutral(강화도 훼손도 아님)이다. 훼손 방향 claim·delta가 없어 하향 근거 없음. 부재 확인을 근거로 하향하지 않는다."
+  }
+ },
+ "decision": "maintain",
+ "decision_reason": "P12 — 상향 게이트(quantitative·scope_company_specific·stage_revenue_recognized) 3요건 중 scope_company_specific만 충족되어 상향 불가. 하향 게이트도 양쪽 모두 미충족(quantitative_deterioration·qualitative_deterioration_grade_le_2 전부 false)이라 하향 불가. 이번 입력은 '부재 지속 확인'(신규 8-K 0건) 성격이 지배적이며, P5에 따라 부재 확인을 근거로 상향도 하향도 판단하지 않는다. Kill 조건도 미해당(KC-COIN-1~4 전건 not_met). 현행 🟠 주의(Q2 매출 miss) 등급을 그대로 유지하며 사유만 기록한다.",
+ "thesis_delta_summary": [
+  {
+   "axis": "usdc_economics",
+   "direction": "neutral",
+   "detail": "이번 창(09-04~09-12) + 소급 스윕(08-28~09-03) EDGAR 재조회에서도 Circle 분배계약 관련 8-K 신규 0건. KC-CRCL-3 미발동 재확인. 시중 2차보도(08-05~06, 창 밖)는 '분배계약 원 조건 그대로 2029년까지 갱신' 취지로 전하나 SEC 공시를 인용하지 않고 Circle 스스로 구체 분배율 미공개를 인정(coingabbar.com) — grade1/2 근거 여전히 미확보. 방향은 neutral 유지(강화·훼손 근거 모두 신규 미확보).",
+   "risk_transfer": [
+    "OUSD 참여로 인한 자사 USDC 수익 장기 대체(cannibalization) 가능성 — usdc_economics 축 내 감시 지속 이관(분배 구조 공개 unconfirmed)",
+    "'확장'(grade4) vs '불변'(grade3 다수, 2차보도 우세) 서사 상충 — 차기 8-K 또는 10-Q 계약 주석 확인 시까지 이관"
+   ]
+  }
+ ],
+ "alert": {
+  "ticker_event": "COIN — EDGAR 재조회(이번 창 09-04~09-12 + 소급 스윕 08-28~09-03) 결과 신규 8-K/10-Q/10-K 0건. Circle-USDC 분배계약 변경 관련 신규 공시도 어디에도 미확인 — '부재 지속' 확인이 이번 창의 지배적 성격",
+  "facts": [
+   "[EDGAR submissions API, 조회시점 2026-09-12, CIK 0001679788] forms=10-K/10-Q/8-K, since=2026-08-28 필터링 결과 반환 1건: 8-K(filed 2026-09-02) — 직전 run(20260905_0618, c_20260905_COIN_001)에서 이미 원문 확인·Item 5.02(이사회 인사, Anthony Armstrong 선임) 단독 건으로 판명된 동일 필링. 이번 주 창 및 소급 스윕 어디에도 신규 8-K/10-Q/10-K 없음. confirmed=true, evidence_grade=1(c_20260911_COIN_1)."
+  ],
+  "inference": {
+   "text": "Circle-Coinbase 분배계약 '확장' 서사(전 run 단일 grade4)와 '불변'(복수 grade3, 2차보도 우세) 서사 간 상충은 이번 유일 신규 8-K가 무관 건으로 확인됨에 따라 해소되지 않고 그대로 이관된다. 신규 grade1/2 근거 부재 상태 지속.",
+   "strength": "low",
+   "basis_claim": "c_20260911_COIN_1"
+  },
+  "classification": "정보 부재 지속 확인(no_new_disclosure) — P5에 따라 강화·훼손 어느 쪽으로도 분류하지 않음. holding_reinforcement에도 해당하지 않음(신규 실질 근거 없음).",
+  "thesis_delta": {
+   "axes": [
+    {
+     "axis": "usdc_economics",
+     "direction": "neutral",
+     "detail": "이번 창 + 소급 스윕 EDGAR 재조회에서도 Circle 분배계약 관련 8-K 미확인 — 유일 신규 8-K는 이사회 인사 건으로 무관함이 직접 확인됨. '확장' 서사 진위는 여전히 미해소.",
+     "risk_transfer": [
+      "OUSD 참여로 인한 자사 USDC 수익의 장기적 대체 가능성은 여전히 미해소 — usdc_economics 축 내 감시 지속(분배 구조 공개 unconfirmed)",
+      "'확장' 서사(전 run 이월분)의 진위는 차기 10-Q 계약 주석 또는 신규 8-K 확인 시까지 이관 — 이번 창에도 동일 이관처 유지"
+     ]
+    }
+   ]
+  },
+  "signal_verdict": "🟠 주의(Q2 매출 miss) 등급 유지(후보) — 상향 게이트 3요건(quantitative/scope_company_specific/stage_revenue_recognized) 중 scope_company_specific만 충족, quantitative·stage_revenue_recognized 미충족. 하향 게이트도 미충족(훼손 방향 claim·delta 없음). Kill 조건 미해당(KC-COIN-1~4 전건 not_met). 이번 입력의 부재 지속 확인은 반증이 아니므로(P5) 상향·하향 어느 쪽 근거로도 사용하지 않음. 최종 등급 확정은 사람이 한다.",
+  "next_check": [
+   "Q3 2026 실적: 구독·서비스 매출 비중 QoQ 방향 + 거래매출 QoQ 부호 (KC-COIN-1 판정용)",
+   "회사 공시 platform assets net inflow/outflow(가격효과 제외) 분기치 (KC-COIN-2 판정용)",
+   "USDC 수익 절대액($) 및 usdc_revenue_qoq(%) 신규 공시 여부 (KC-COIN-4 판정용)",
+   "8-K Item 1.01/1.02 또는 10-Q 계약 주석을 통한 Circle-Coinbase 분배계약 실제 조건(불변/변경) 1차 확인",
+   "Q3 2026 실적 발표일의 회사 IR 공식 공지(현재 애그리게이터 추정치만 존재, F1상 채택 불가)"
+  ]
+ },
+ "next_gate": "Q3 2026 실적 — 구독·서비스 비중 QoQ 방향 + 거래매출 QoQ 부호 + USDC 수익 절대액($) + platform assets net inflow/outflow(가격효과 제외)",
+ "unconfirmed_carried": [
+  {"topic": "OUSD 참여 조건·분배 구조 공개", "reason": "not_found — 이번 창(08-28~09-12) 내 관련 1차 자료 없음(P5)."},
+  {"topic": "USDC 수익 절대액 신규 공시(Q3 2026)", "reason": "not_yet_released — Q2 2026 수치(3개월 $292.1M, 상반기 $597.6M)가 최신이며 Q3 신규 공시 없음 — 차기 실적으로 이월."},
+  {"topic": "Circle-Coinbase 분배계약 '확장' 서사(전 run 이월분)의 진위", "reason": "conflicting_sources — grade1/2 근거 여전히 부재, 2차보도(08-05~06, 창 밖)는 '불변 2029년 갱신' 취지로 무게가 실리나 Circle 스스로 구체 분배율 미공개를 인정(coingabbar.com)."},
+  {"topic": "Q3 2026 실적 발표일 공식 공지", "reason": "aggregator_estimate_only — 회사 IR 공식 공지 이번 창에도 미확인(F1)."},
+  {"topic": "Deribit 'Starbase' 이전(9/9 완료 목표)·RWA 무기한선물의 실제 매출·거래량 기여", "reason": "예산 제약상 이번 창 재검색을 수행하지 않음 — 전 run에서 일정 진행만 확인(전건 grade4, confirmed=false)된 상태에서 변화 여부 미확인 채 이월."},
+  {"topic": "CLARITY Act 클로처 표결(H.R.3633, 09-15 2:15pm ET) 결과", "reason": "as_of(2026-09-12) 시점 표결 미실시 — 예정 상태(c_20260911_COIN_2). scope=sector로 COIN 개별 축 판정 근거 아님(P6)."}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. filter_bug 없음(removed_claims 1건은 정상 필터 동작). gate_check 상향 3요건(quantitative/scope_company_specific/stage_revenue_recognized) 중 scope_company_specific만 충족 — 등급 유지가 P12 기본 경로로 확정 적용됨. 이번 run은 '부재 지속 확인'(신규 8-K 0건) 성격이 지배적이며, 부재는 반증이 아니므로(P5) 상향·하향 어느 쪽 근거로도 사용하지 않았다. state/signals.json은 수정하지 않음(후보 판정까지만, 확정은 사람)."
+}

@@ -1,0 +1,111 @@
+{
+ "as_of": "2026-10-09",
+ "run_id": "20261009_0920",
+ "ticker": "MU",
+ "staleness_days": 0,
+ "input_source": "output/20261009_0920/03_input/arbiter_MU.json",
+ "kc_excerpt_source": "output/20261009_0920/03_kc_excerpt/MU.json",
+ "prior_signal": "🔴🔴",
+ "proposed_signal": "🔴🔴",
+ "transition_candidate": "hold_candidate — 규칙1(Kill 우선) 유지. 현행 🔴🔴은 2026-10-03 사람 확정(KC-1, FFR>3.75). KC-1은 이번 발췌본에서도 met+confirmed(FFR 4.00, as_of 2026-10-08, 임계 3.75 초과)로 해소 조건(FFR<=3.75)이 충족되지 않았다. 따라서 등급 변경 후보 없음 — 유지 후보. 해소 조건: KC-1 not_met(FFR<=3.75) 관측 시 등급 재판정은 사람(signals.json transitions 기록: '해소 조건').",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다. 규칙1에 따른 유지 후보다. 회사 펀더멘털 경로는 별도로 병기한다(fundamental_path_without_kill). KC-9(에너지 쇼크, Brent 125.44>=120)는 이번 run에서 처음 met이나 verdict_confidence=provisional이라 규칙1 요건(KC met AND confirmed)을 충족하지 않는다 — 트리거로 쓰지 않는다.",
+ "claims": [
+  {"id": "c_20261009_MU_1", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "EDGAR_submissions_API", "filed_at": "2026-10-09", "stage": "filing_absence_observed", "summary": "2026-10-01 이후 Micron 10-K·10-Q·8-K 신규 등재 0건(마지막 8-K 2026-09-30). FY26 10-K EDGAR 미등재(색인 지연 가능, P5). 이사 Form 4 3건(코드 A)은 P3 노이즈."},
+  {"id": "c_20261009_MU_2", "claim_type": "fact", "evidence_grade": 3, "quantitative": false, "scope": "company_specific", "confirmed": false, "source_type": "news_wire_Reuters_AFP", "filed_at": "2026-10-07", "stage": "strike_mandate_not_strike", "summary": "Taoyuan 노조 파업투표 찬성 1,994/투표 2,012(99%). 파업권 확보이며 파업 개시·생산 차질 보도 없음. Reuters·AFP 교차 일치이나 grade3·노조 발표 전달, 회사 1차 자료 부재 — 규칙3 하향 자격(grade<=2) 미달."},
+  {"id": "c_20261009_MU_3", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K_Netlist_counterparty", "filed_at": "2026-10-06", "stage": "contract_executed_not_performed", "summary": "Netlist 8-K(사건일 2026-10-05): Micron-Netlist Settlement and Release·특허 라이선스(5년, 서버 DIMM·HBM 특허 포함)·Netlist 주식 1,000만주 $1M 매입. 라이선스료 20개 분기 x $30M = $600M(2026 역년 4Q~2031 3Q). 계약 체결 != 지급 이행 != 비용 인식(P7). Micron 측 공시 0건."},
+  {"id": "c_20261009_MU_4", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "federal_register_notice_USITC", "filed_at": "2026-09-25", "stage": "litigation_pending_out_of_window", "summary": "USITC 337-TA-1523 조사개시(위원회 명령 2026-09-22, 공고문 원문). 창 밖(out_of_window). 개시일 3종 병기(09-22/09-23/09-24, P9). 이번 판정 근거로 미사용(합의 범위 포함 여부는 c_5 참조)."},
+  {"id": "c_20261009_MU_5", "claim_type": "inference", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": false, "inference_strength": "medium", "source_type": "inference_from_c3", "filed_at": "2026-10-09", "stage": "settlement_scope_unitemized", "summary": "합의 대상이 건별 비열거라 337-TA-1523·HBM 2차 ITC·CDCA·D.Del·CAFC가 범위에 포함됐을 개연성은 높으나, 개별 사건 종결(ITC 종료 결정·취하 서류)은 1차 자료로 미확인. '종결' 서술 금지(P5·P7)."},
+  {"id": "c_20261009_MU_6", "claim_type": "fact", "evidence_grade": 3, "quantitative": false, "scope": "company_specific", "confirmed": false, "source_type": "news_wire_Reuters", "filed_at": "2026-10-06", "stage": "company_disclosure_absent", "summary": "Micron 대변인 즉시 논평 없음, EDGAR Micron 측 합의 관련 공시 0건. Micron 측 확인·회계처리 미확인(P5 — 부재는 합의 부존재의 반증 아님)."},
+  {"id": "c_20261009_MU_7", "claim_type": "inference", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": false, "inference_strength": "strong", "source_type": "computed_from_primary", "filed_at": "2026-10-09", "stage": "magnitude_comparison", "summary": "분기 $30M = FQ1-27 매출 가이던스 $61.5B의 약 0.05%, FQ4-26 조정 FCF $33.20B의 약 0.09%; $600M = 약 1.8%. 금액 규모는 가이던스를 바꿀 크기가 아님. 비용 인식 방식은 미확인."},
+  {"id": "c_20261009_MU_8", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "scope": "company_specific", "confirmed": false, "source_type": "news_secondary_docket_mirror", "filed_at": "2026-10-05", "stage": "single_source_out_of_window", "summary": "Micron의 YMTC 상대 아이다호 소송 보도(제소 2026-09-15, 창 밖, grade4 단독). NAND·중국 경쟁사 건 — 축 방향 판정에 미사용(확인 대상 보존)."}
+ ],
+ "filter_bug_report": "필터 위반(F13) 없음 — arbiter_MU.json claims 8건 전부 scope=company_specific, removed_claims 1건(c_20261009_MU_9, scope=sector)은 정상 제거. 경미한 관찰 1건: china_supply Delta의 new_state 서술이 제거된 sector Claim c_9(Nikkei CXMT 영업이익률 2026-09-11)의 내용을 본문에 그대로 인용한다(supporting_claims에는 미포함). 해당 서술은 판정에 사용하지 않았으며, 오케스트레이터가 Delta 서술부의 제거 Claim 내용 유입 여부를 점검하기 바란다.",
+ "kill_check": {
+  "rule": "규칙1(Kill 우선, 변경 금지): KC met AND confirmed -> 🔴🔴 후보 + 사람 확인 요청. 회사 KC·매크로 전파 KC 구분 없이 동일 적용.",
+  "own_company_kc": {
+   "verdict": "not_defined",
+   "verdict_confidence": "n/a",
+   "note": "kill_conditions.yaml#company에 MU 전용 active KC 미정의(발췌본 own_company_kc 확인). 판정 대상 없음(P11). MU 전용 KC 신설 필요성은 누적 플래그 유지(사람 영역)."
+  },
+  "kc_reference": [
+   {"kc_id": "KC-1", "condition": "FFR 인상 리스크 (FFR > 3.75)", "value": 4.0, "as_of": "2026-10-08", "verdict": "met", "verdict_confidence": "confirmed", "note": "규칙1 요건 충족. 현행 🔴🔴(2026-10-03 사람 확정)의 트리거 그대로 유지 — 해소(FFR<=3.75) 미관측. consequence: 레버리지 전액 해제 + Edge/Next 50% 축소 검토(검토 의무, 실행 지시 아님, P15)."},
+   {"kc_id": "KC-9", "condition": "에너지 쇼크 (Brent >= 120, 1개월 지속)", "value": 125.44, "as_of": "2026-10-06", "verdict": "met", "verdict_confidence": "provisional", "rule1_requirement_met": false, "note": "규칙1 요건(KC met AND confirmed) 미충족 — provisional. 직전 run(20261001_0900)은 113.96 not_met이었으며 이번 run에서 임계 초과로 전환. 입력 stale_days=3으로 stale_limit(3)에 도달(초과 아님)했고, '1개월 지속' duration 조건은 단일 시점 관측만 있어 미검증이다. duration 지속성은 사람이 확인해야 confirmed 가능(발췌본 note). 트리거로 사용하지 않으며, confirmed 승격 시 KC-1과 별개의 두 번째 규칙1 트리거가 된다."},
+   {"kc_id": "KC-2, KC-4, KC-5, KC-6, KC-7, KC-8", "condition": "변동성·유동성·TAIEX·AI토큰·하이퍼스케일러FCF·MSFT FCF", "verdict": "not_met (전건)", "verdict_confidence": "혼재(KC-2/4/5=confirmed, KC-6/7/8=provisional)", "note": "Kill 트리거 해당 없음. KC-5(TAIEX)는 20DMA 대비 +4.68%, 1개월 수익률 +6.99%로 임계 비접촉."}
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": true,
+  "trigger_source": ["KC-1"]
+ },
+ "gate_check": {
+  "kill_check": {
+   "result": "triggered",
+   "trigger_source": ["KC-1"],
+   "note": "KC-1 met+confirmed 유지(규칙1 충족). KC-9는 met이나 provisional이라 비트리거. 종목 전용 KC 미정의."
+  },
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "upgrade_gate_result": "not_met",
+   "upgrade_gate_reason": "신규 정량 company_specific 증거는 Netlist 합의 금액(c_3, c_7)뿐이며 stage는 계약 체결(contract_executed_not_performed)이다 — 매출·마진·현금흐름·가이던스를 바꾸지 않는 법적 절차 결과이고 금액 규모도 가이던스 대비 0.05% 수준이다(P2·P3). 창 내 신규 매출 인식 수치(실적·10-K) 없음(c_1). ip_litigation_risk direction=strengthen은 thesis 리스크 완화 방향이나 정성·법률 사건이므로 상향 근거로 부적격(P2·P7). 또한 현행 🔴🔴에서의 해소는 규칙1 해소 조건(KC-1 not_met)에 따른 사람 재판정 사항이며 회사 증거로 상향하지 않는다(P6·P13). 나머지 5개 축은 무뉴스 neutral."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "없음 — 창 내 신규 매출·마진·현금흐름·가이던스 변화 없음. Netlist 합의금(분기 $30M)은 가이던스 대비 0.05%(c_7).",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "이번 창 신규 정성 훼손 중 evidence_grade<=2는 없다. (a) 대만 파업투표(c_2)는 grade3·confirmed=false로 규칙3 자격 미달이며 production_continuity는 카드 제약대로 neutral 유지. (b) YMTC 소송(c_8)은 grade4·창 밖·Micron이 원고인 NAND 건으로 훼손 아님. (c) Netlist 합의(c_3)는 훼손이 아니라 완화 방향이다. 직전 run 하향 자격의 근거였던 HBM 2차 ITC 제소(2026-09-29)는 이력으로 보존(P9)하되, 합의로 해소 경로가 열렸고(c_3) 개별 사건 종결은 미확인(c_5)이다.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "규칙3의 정량 훼손·grade<=2 정성 훼손 요건이 이번 창에서 독립적으로 성립하지 않는다. 다만 이는 현행 등급이 이미 🔴🔴인 상태이므로 규칙1 결과(유지)에 영향이 없다."
+  }
+ },
+ "fundamental_path_without_kill": {
+  "verdict": "🟠 유지 방향 (🔴 하향 후보 근거 약화) — Kill 부재 가정 시 규칙3 판정",
+  "baseline_note": "KC-1 확정 이전 등급은 🟠(주의, 피크 역설 구간, since 2026-08-14). 직전 run(20261001_0900)은 Kill 부재 시 🔴 하향 후보(근거: Netlist 2차 HBM ITC 제소, c_20261001_MU_10, grade1·confirmed, 규칙3 정성 훼손 자격)였다.",
+  "rule3_this_window": "이번 필터본 기준 규칙3 독립 충족 안 됨 — 창 내 신규 grade<=2 훼손 없음(downgrade_check 참조). 직전 🔴 후보를 낳은 훼손 요인은 Netlist 합의(grade1 SEC 8-K, 상대방 공시)로 해소 경로가 열려 근거가 약화됐다. 단, (i) 개별 사건 종결 서류 미확인(c_5, 추론 medium), (ii) Micron 측 확인·회계처리 0건(c_6), (iii) 비용 인식 방식 미확인이므로 '해소 완료'가 아니라 '해소 진행 중'이다(P5·P7). 종결 서류가 확인되기 전까지 훼손 요인이 존속하는 것으로 보수 취급할지는 사람 판단 대상이다.",
+  "upgrade_side": "상향 게이트 not_met(위 upgrade_gate). 합의는 법률 절차 결과이며 매출 인식이 아니므로 🟠 -> 🟡 상향 근거 불가(P2).",
+  "net": "Kill 부재 가정 시 후보는 '🟠 유지(P12)' — 직전 run의 🔴 하향 후보는 이번 필터본 기준으로 자격 미재충족(개별 종결 미확인 단서 포함). 이 판정은 가정 시나리오이며 실제 후보 등급은 규칙1에 의해 🔴🔴 유지다."
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "ip_litigation_risk",
+   "direction": "strengthen",
+   "direction_meaning": "thesis 강화(리스크 완화) 방향 — 리스크 강화 아님. Delta 원문 new_state: Netlist 다중 전선(337-TA-1523·HBM 2차 ITC·CDCA·D.Del)이 소멸할 경로가 열림. 직전 run의 weaken(리스크 강화)이 이번 run에서 완화 방향으로 전환됐으나 개별 종결 미확인이라 방향 전환 판정은 사람 확인 대상(Delta caveat).",
+   "note": "[P2 caveat] 법률 절차 결과이며 매출·마진·현금흐름·가이던스 변화 확정 수치가 아님 — 상향 근거 부적격. 합의 체결 != 개별 사건 종결 != 지급 이행 != 손익 인식(P7). Netlist 상대방 SEC 공시 단일 경로, Micron 측 미확인(P5). 직전 weaken은 삭제하지 않고 이월 보존(P9).",
+   "supporting_claims": ["c_20261009_MU_3", "c_20261009_MU_4", "c_20261009_MU_5", "c_20261009_MU_6", "c_20261009_MU_7"],
+   "risk_transfer_to": ["합의 범위 내 개별 사건 종결 확인(337-TA-1523 종료, HBM 2차 제소 철회, CDCA·D.Del 취하)", "분기 $30M 지급 이행(2026 역년 4Q 첫 지급)", "FY26 10-K 소송·우발부채·후속사건 각주", "YMTC 등 제3자 IP 전선"],
+   "classification": "holding_reinforcement 아님 — 리스크 완화 서술 갱신(상향 비대상)"
+  },
+  {
+   "axis": "production_continuity",
+   "direction": "neutral",
+   "note": "파업투표 가결(2026-10-07, grade3, confirmed=false)로 쟁의권 확보까지 진전. 카드 제약(회사 1차 자료 부재 시 방향 미부여)에 따라 neutral 유지 — 카드 제약 유지·완화는 사람 영역. 파업권 확보 != 파업 개시 != 생산 차질 != 매출 영향(P7).",
+   "supporting_claims": ["c_20261009_MU_2"],
+   "risk_transfer_to": ["Micron 이사회(10/8-9) 후 회사 구체안·IPP 공개", "파업 개시일·범위", "10-22 Taichung 3차 조정", "회사 8-K·IR·10-K 등재"]
+  },
+  {"axis": "hbm_demand_strength", "direction": "neutral", "note": "무뉴스 축. 직전 run strengthen은 이월 서술. Netlist 라이선스의 HBM 특허 포함은 ip_litigation_risk에 귀속.", "supporting_claims": ["c_20261009_MU_3"], "risk_transfer_to": ["FQ1-27 HBM 비중·마진", "2027 HBM 계약 이행(P7)"]},
+  {"axis": "sca_defense", "direction": "neutral", "note": "무뉴스 축. 10-K 미등재(c_1)로 RPO·계약부채 원문 대조 이월.", "supporting_claims": ["c_20261009_MU_1"], "risk_transfer_to": ["FY26 10-K SCA·RPO 각주"]},
+  {"axis": "cycle_position", "direction": "neutral", "note": "무뉴스 축.", "supporting_claims": ["c_20261009_MU_1"], "risk_transfer_to": ["FQ1-27 비트/ASP 재분해"]},
+  {"axis": "china_supply", "direction": "neutral", "note": "신규 1차 자료 없음. YMTC 소송(c_8)은 grade4·창 밖이라 방향 미반영(P5).", "supporting_claims": ["c_20261009_MU_8"], "risk_transfer_to": ["Apple CXMT/YMTC 서한 결과", "CXMT HBM 양산 일정"]},
+  {"axis": "valuation_paradox", "direction": "neutral", "note": "합의금은 매출 가이던스 대비 0.05%(c_7)로 이익 분모를 바꾸지 않음. 분자(주가) 변동 미적재.", "supporting_claims": ["c_20261009_MU_7"], "risk_transfer_to": ["FQ1-27 합의 비용 인식 방식"]}
+ ],
+ "alert": {
+  "ticker_event": "MU — (1) 현행 🔴🔴(2026-10-03 사람 확정, KC-1)의 트리거 KC-1이 FFR 4.00%(as_of 2026-10-08)로 met+confirmed 유지. (2) Netlist 8-K(2026-10-06 제출): Micron과 Netlist가 2026-10-05 합의·5년 특허 라이선스($600M, 분기 $30M x 20) 체결 — Micron 측 공시 없음. (3) Taoyuan 노조 파업투표 99% 가결(2026-10-07). (4) KC-9(Brent>=120)이 이번 run에서 met이나 provisional.",
+  "facts": "[출처·시각] ① FFR 4.00% > KC-1 임계 3.75, KC-1 met+confirmed [KC 발췌, as_of 2026-10-08]. ② Netlist-Micron Settlement and Release·특허 라이선스(서버 DIMM·HBM 특허 포함, 5년 비독점)·Netlist 주식 1,000만주 $1M 매입, 라이선스료 20개 분기 x $30M = $600M [c_3, grade1, Netlist 8-K 2026-10-06 제출, confirmed — 상대방 공시]. ③ 분기 $30M은 FQ1-27 매출 가이던스 $61.5B의 약 0.05%, FQ4-26 조정 FCF $33.20B의 약 0.09% [c_7, grade1 입력 산술, 2026-10-09]. ④ 대만 Taoyuan 노조 투표 2,012명 중 찬성 1,994(99%), 파업 일자 미정, 실제 파업 개시 보도 없음 [c_2, grade3, Reuters·AFP 2026-10-07, confirmed=false]. ⑤ Micron 8-K·10-K 2026-10-01 이후 신규 등재 0건, 마지막 8-K 2026-09-30 [c_1, grade1, EDGAR API 2026-10-09]. ⑥ KC-9: Brent 125.44 >= 120, 1개월 지속 조건 미검증, provisional [KC 발췌, as_of 2026-10-06].",
+  "inference": "[strong, c_7] 합의 금액은 Micron 매출·마진 가이던스를 변화시킬 크기가 아니다(비용 인식 방식은 미확인). [medium, c_5] 합의 범위가 337-TA-1523·HBM 2차 ITC 등을 포함했을 개연성은 높으나 개별 사건 종결은 1차 자료로 미확인 — 종결로 서술하지 않는다. [high, 판정근거] KC-1 met+confirmed는 규칙1 문언을 충족하므로 유지 후보다. KC-9 met은 provisional이라 규칙1 요건(confirmed) 미충족이다.",
+  "classification": "규칙1(Kill 우선) 유지 후보. 회사 펀더멘털 경로: 상향 게이트 not_met(합의는 법률 절차 결과, 매출 인식 아님·P2·P7), 하향 게이트 이번 창 미충족. ip_litigation_risk=strengthen(리스크 완화 방향, 상향 근거 부적격). Kill 부재 가정 시 규칙3 판정: 직전 🔴 하향 후보 근거 약화 -> 🟠 유지(P12), 단 개별 사건 종결 미확인.",
+  "thesis_delta": "ip_litigation_risk: strengthen — 직전 run의 weaken(HBM 2차 ITC 제소)에서 Netlist 합의로 리스크 완화 방향 전환, 개별 종결·지급 이행 미확인이라 리스크 이관(종결 서류·$30M 지급·10-K 각주). production_continuity: neutral(파업권 확보, 1차 자료 부재로 방향 미부여, 리스크 이관: 파업 개시·Taichung 10-22). 나머지 5축 neutral(무뉴스).",
+  "signal_verdict": "🔴🔴 유지 후보(규칙1, KC-1) — 사람 확인 요청. 현행 🔴🔴(사람 확정 2026-10-03)과 동일. 해소 조건: KC-1 not_met(FFR<=3.75) 관측 시 사람 재판정. KC-9 met(provisional)은 confirmed가 아니므로 규칙1 비충족. 상향 게이트 not_met, 하향 사유 신규 없음.",
+  "next_check": "① [정량] FFR(DFEDTARU) 차기 FOMC 후 값 — 현 4.00, 해소 기준 <=3.75. ② [정량] Brent 일별 종가의 10-06(125.44) 이후 1개월 연속 >=120 여부(KC-9 confirmed 승격 판단, 사람 확인). ③ [일자] EDIS 337-TA-1523 종료 결정·HBM 2차 ITC 철회·CDCA 8:26-cv-02167·D.Del 1:26-cv-01014 취하 서류 등재. ④ [정량] 2026 역년 4Q 첫 $30M 지급 및 FQ1-27 실적(2026-12월경) 가이던스 매출 $61.5B±$1.5B 대비 실측과 합의 비용 인식액. ⑤ [일자] FY26 10-K 등재 및 소송·우발부채 각주. ⑥ [일자] 대만 파업 개시일, 2026-10-22 Taichung 3차 조정."
+ },
+ "next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) <= 3.75 여부(현 4.00) — 해소 시 등급 재판정은 사람. ② KC-9 duration: Brent 2026-10-06(125.44) 기준 1개월(~2026-11-06) 연속 >=120 여부(confirmed 승격 시 규칙1 두 번째 트리거). ③ Netlist 합의 이행: EDIS 337-TA-1523 종료 결정·HBM 2차 ITC 철회·CDCA·D.Del 취하 일자, 2026 역년 4Q 첫 $30M 지급. ④ FQ1-27 실적(2026-12월경): 가이던스 매출 $61.5B±$1.5B·GAAP EPS $37.84±$1.00 대비 실측, 비트/ASP 재분해, 합의 비용 인식액. ⑤ FY26 10-K 등재(소송·우발부채 각주). ⑥ 대만 파업 개시일·2026-10-22 Taichung 3차 조정. 전 항목 관측 가능한 정량/일자 항목.",
+ "unconfirmed_carried": [
+  {"topic": "합의 범위 내 개별 사건 종결(337-TA-1523, HBM 2차 ITC, CDCA, D.Del, CAFC 2025-1936)", "reason": "primary_docket_unavailable"},
+  {"topic": "Micron 측 합의 확인·회계처리(비용 인식 시점·금액, $445M 평결 충당 정산)", "reason": "company_disclosure_absent"},
+  {"topic": "FY26 Form 10-K 제출 여부·일자", "reason": "filing_not_yet_indexed"},
+  {"topic": "대만 파업 개시일·범위, Micron 이사회 후 회사 구체안", "reason": "future_event_and_primary_source_absent"},
+  {"topic": "KC-9 Brent 1개월 지속 여부", "reason": "duration_condition_unverified"},
+  {"topic": "HBM vs 범용 DRAM 매출총이익률 격차(%p)", "reason": "not_disclosed"}
+ ],
+ "human_confirmation_required": true,
+ "note_for_orchestrator": "🔴🔴 유지 후보 — 규칙1(KC-1 met+confirmed) 사람 확인 요청. 핵심 플래그: (1) 등급 변경 후보 없음. KC-1 해소(FFR<=3.75) 미관측 — 해소 시 재판정은 사람. (2) KC-9가 이번 run에서 처음 met(Brent 125.44, 직전 run 113.96 not_met)이나 provisional·duration 미검증으로 규칙1 비충족 — 모니터링 항목, 1개월 지속 확인은 사람. (3) ip_litigation_risk direction=strengthen은 리스크 완화 방향(Delta 원문 확인). 직전 run의 weaken 하향 후보 근거가 약화되나 개별 사건 종결 미확인이므로 '해소 완료'로 서술하지 않는다. 방향 전환은 사람 확인 대상. (4) Kill 부재 가정: 🟠 유지(P12), 🔴 하향 후보 이번 창 미재충족. (5) 필터 관찰: china_supply Delta 서술에 제거 Claim c_9(sector) 내용 인용 — 판정 미사용, 점검 권고. (6) MU 전용 KC 미정의 누적 플래그 유지."
+}

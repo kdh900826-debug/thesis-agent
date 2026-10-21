@@ -1,0 +1,133 @@
+{
+ "as_of": "2026-08-15",
+ "run_id": "20260815_1408",
+ "ticker": "COIN",
+ "input_file": "output/20260815_1408/03_input/arbiter_COIN.json",
+ "kc_excerpt_used": {
+  "KC-3": {
+   "definition": "크립토 붕괴+위험회피 동시 (BTC<55000 AND VIX>=25), 파급: IREN·COIN·HOOD·CRCL",
+   "verdict": "not_met",
+   "verdict_confidence": "confirmed",
+   "observed": "BTC 63,060 @2026-08-15 (>55,000 임계 미충족); VIX 14.25 @2026-08-14 (<25 임계 미충족)"
+  },
+  "KC-2": {
+   "definition": "VIX>=30",
+   "verdict": "not_met",
+   "verdict_confidence": "confirmed",
+   "observed": "VIX 14.25 @2026-08-14"
+  },
+  "event_kc": "종목 이벤트형 KC 발동 관측 없음"
+ },
+ "claims": [
+  {
+   "id": "c_20260815_COIN_002",
+   "ticker": "COIN",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "confirmed": false
+  },
+  {
+   "id": "c_20260815_COIN_003",
+   "ticker": "COIN",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "confirmed": true
+  },
+  {
+   "id": "c_20260815_COIN_004",
+   "ticker": "COIN",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 2,
+   "quantitative": false,
+   "confirmed": true
+  },
+  {
+   "id": "c_20260815_COIN_006",
+   "ticker": "COIN",
+   "scope": "company_specific",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "inference_strength": "medium",
+   "quantitative": false,
+   "confirmed": true
+  }
+ ],
+ "filter_bug_check": {
+  "non_company_specific_claims_found": 0,
+  "note": "arbiter_COIN.json의 claims[] 전건 scope=company_specific 확인. removed_claims(c_001, c_005, scope=macro)는 정상 제거됨 — 필터 버그 없음(F13 해당 없음)."
+ },
+ "kill_check": {
+  "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+  "met_and_confirmed": false,
+  "basis": "KC-3 not_met/confirmed (BTC 63,060 > 55,000 임계, VIX 14.25 < 25 임계 — 두 조건 중 어느 것도 충족 안 됨), KC-2 not_met/confirmed (VIX 14.25 < 30). 종목 이벤트형 KC 발동 관측 없음. Kill 조건 미해당.",
+  "human_confirmation_required": false
+ },
+ "gate_check": {
+  "quantitative_evidence": false,
+  "company_specific": true,
+  "revenue_recognized": false,
+  "overall_upgrade_gate_met": false,
+  "basis": "입력 claim 중 매출·마진·현금흐름·가이던스 수치를 변화시키는 quantitative=true 항목 없음(P2 불충족). scope는 전건 company_specific으로 P6 조건은 충족. 그러나 c_003(Abu Dhabi FSRA 라이선스/토큰화 허브 설립)과 c_004(Circle 계약 갱신 '조건 충족' 발언)는 P7의 3단 분리상 '계약 존재/라이선스 취득' 단계이며 '계약 이행'·'매출 인식' 단계에 도달하지 않음 — stage=revenue_recognized 불충족. 3개 게이트(quantitative/company_specific/revenue_recognized) 전부 충족해야 상향 가능하나 2개 미충족 → 상향 불가."
+ },
+ "downgrade_check": {
+  "rule": "v1 §6-2 규칙3 — 정량 훼손 또는 evidence_grade<=2 정성 훼손 시 하향 가능(비대칭)",
+  "quantitative_deterioration": false,
+  "qualitative_deterioration_grade_le_2": false,
+  "overall_downgrade_gate_met": false,
+  "basis": "입력의 두 delta(derivatives_base, usdc_economics) 모두 방향=strengthen. 훼손(deteriorate) 방향의 claim·delta 없음 — 하향 근거 없음."
+ },
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "decision": "maintain",
+ "decision_reason": "P12 — 상향 게이트(quantitative·company_specific·revenue_recognized) 3종 중 quantitative·revenue_recognized 미충족으로 등급 유지. 하향 게이트도 미충족(훼손 방향 delta 없음). Kill 조건 미해당. 현행 🟠 주의(Q2 매출 miss) 등급을 그대로 유지하며 사유를 기록한다. 라이선스 취득·파트너십·계약 갱신류 확인 사실은 holding_reinforcement로만 분류하고 상향 근거로 사용하지 않는다.",
+ "classification_note": "c_003(Abu Dhabi FSP/토큰화 허브)과 c_004(Circle 계약 갱신 조건 충족 CFO 발언)는 '인도 완료·인증·파트너십'류 — 등급 유지 + holding_reinforcement 분류만 부여(전이 규칙 v1 §6-2 규칙2 단서 조항).",
+ "alert": {
+  "ticker_event": "COIN — UK 파생상품 접근 확대(8/11), Abu Dhabi 토큰화 허브 FSP 취득(8/13), Circle 계약 갱신 조건 충족 CFO 확인(7/30 발언, 8/18 갱신 예정)",
+  "facts": [
+   "[company_blog, Coinbase(Keith Grose), 2026-08-11] 영국 전문투자자 대상 170+ 파생상품 계약(최대 50x 무기한선물, 최대 20x 만기선물, 크립토 옵션) 접근 개시, MiFID 라이선스 기반. confirmed=false — 1차 URL 직접 열람 403 차단, The Block 등 등급3 2차매체 교차확인만 완료(보수적 처리).",
+   "[press_release, PR Newswire, 2026-08-13] Abu Dhabi Global Market FSRA로부터 Financial Services Permission(FSP) 취득, 국제 토큰화 허브(딜 arrangement·커스터디·토큰화 증권 발행/등록) 설립. confirmed=true, evidence_grade=1(1차 원문 직접 열람 성공). Dubai 파생상품 트레이딩 허브 병행 언급은 후속 확인 필요(unconfirmed 아님, 부기 사항).",
+   "[earnings_call_transcript, Motley Fool, 2026-07-30] CFO Alesia Haas: 'We have already met the conditions for the Circle contract to renew, so it will renew on the same terms.' Coinbase-Circle USDC 수익배분 협업계약(2023-08-18 발효)이 2026-08-18 동일 조건으로 3년 자동 갱신 예정. confirmed=true, evidence_grade=2(경영진 직접 발언, 조회기간 이전 발화이나 usdc_economics 핵심 미확정 리스크를 직접 해소)."
+  ],
+  "inference": {
+   "text": "UK·Abu Dhabi 확장은 규제 대응 제품군의 지리적 확장이나, 두 공시 모두 증분 매출 수치를 포함하지 않음 — Q3 2026 재무 기여는 회사 공시 전까지 미확정(불명확이 아니라 immaterial 가능성이 높다는 추론).",
+   "strength": "medium",
+   "basis_claim": "c_20260815_COIN_006"
+  },
+  "classification": "holding_reinforcement",
+  "thesis_delta": {
+   "axes": [
+    {
+     "axis": "derivatives_base",
+     "direction": "strengthen",
+     "detail": "UK 전문투자자 대상 170+계약 파생상품 접근 개시로 지리적 확장 추가 확인. 근거 강도는 제한적(원문 직접열람 실패, confirmed=false). 매출 기여는 여전히 미공시.",
+     "risk_transfer": []
+    },
+    {
+     "axis": "usdc_economics",
+     "direction": "strengthen",
+     "detail": "CFO 원문 확인으로 Circle 계약 자체의 근시일 갱신 리스크(계약 재편·해지 우려)는 해소.",
+     "risk_transfer": [
+      "OUSD 참여로 인한 자사 USDC 수익의 장기적 대체(cannibalization) 가능성은 미해소 — usdc_economics 축 내 감시를 지속한다. OUSD 참여 조건·분배 구조는 여전히 unconfirmed(P5)."
+     ]
+    }
+   ]
+  },
+  "signal_verdict": "🟠 주의 등급 유지(후보) — 상향 게이트 3종(quantitative_evidence/company_specific/revenue_recognized) 중 quantitative_evidence와 revenue_recognized 미충족. 하향 게이트도 미충족. Kill 조건(KC-3, KC-2) 모두 not_met/confirmed — 해당 없음. 최종 등급 확정은 사람이 한다.",
+  "next_check": [
+   "2026-08-18 Circle-Coinbase 계약 실제 갱신 완료 여부(계약서/공시 기준 — CFO 조건부 발언이 아닌 갱신 실행 확인)",
+   "차기 실적(Q3 2026)에서 구독·서비스 매출 비중(%) 방향 확인",
+   "USDC 수익 절대액($) 공시 여부",
+   "OUSD 참여 조건·분배 구조 1차 공시 여부",
+   "Q3 2026 실적 발표일의 회사 IR 공식 공지(현재 애그리게이터 추정치 10/29만 존재, 등급 무관 확정 불가 — F1)"
+  ]
+ },
+ "human_confirmation_required": false,
+ "note": "본 판정은 등급 전이 후보(candidate)이며, 최종 등급 확정은 사람이 수행한다.",
+ "reused_from": "20260815_1408",
+ "staleness_days": 0
+}

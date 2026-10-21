@@ -1,0 +1,339 @@
+{
+  "checked_at": "2026-10-20",
+  "method_note_ko": "WebSearch(standard) 33회 후 이번 턴 공유 검색 한도(200회) 소진으로 중단. 이후는 이미 찾은 URL만 WebFetch로 확인(ERCOT·FERC·DOE PDF 원문 일부 추출). 등급 3은 언론·로펌 해설 포함. 하단 unchecked_scopes는 이번에 확인 못한 주.",
+  "policies": [
+    {
+      "id": "pol-tx-audit",
+      "scope": "TX",
+      "title_ko": "주지사 지시로 ERCOT 대형부하(데이터센터) 연결 검증·감사, 끝날 때까지 신규 승인 보류",
+      "status_ko": "진행 중(2026-10-20 기준). ERCOT는 12/10까지 검증 보고서 제출, 12/17 PUCT 공개회의 논의 예정. 감사 끝날 때까지 대형 DC·암호화폐 시설 전력공급 개시(energization) 승인 보류",
+      "effect": "freeze",
+      "applies_to_ko": "ERCOT 연결 절차(Batch Zero)에 들어간 데이터센터 전부(약 250~300건). 검증 탈락 시 연결 거부. 25MW 이상 DC·암호화폐 시설은 지역사회 영향 검토도 받음. 이미 전력 공급 중인 시설은 대상 아님(확인된 범위)",
+      "timeline": [
+        {"date": "2026-08-03", "what_ko": "애벗 주지사, PUCT 위원장·ERCOT CEO에 서한. 연결 절차 중인 모든 DC 검증·감사 전 추가 승인 금지. 마감일은 지정 안 함. 연결 요청 약 474GW 중 약 90%가 DC", "grade": 3, "src": [{"t": "Foley 해설(2026-08)", "u": "https://www.foley.com/insights/publications/2026/08/governor-abbott-pauses-texas-data-center-interconnections-and-calls-for-verification-and-audit-what-data-center-developers-need-to-know-now/"}, {"t": "Akin Gump 해설", "u": "https://www.akingump.com/en/insights/alerts/texas-pauses-data-center-interconnections-pending-statewide-audit"}]},
+        {"date": "2026-08-20", "what_ko": "ERCOT, PUCT에 감사 계획 보고: 12/10 검증 보고서·지역사회 영향 보고서 제출, 12/17 PUCT 공개회의 논의. Batch Zero 연결 연구는 2027-04-09 기한을 못 맞춘다고 언급(대체일 미제시)", "grade": 1, "src": [{"t": "ERCOT Batch Zero 검증·감사 PUCT 발표자료", "u": "https://www.ercot.com/files/docs/2026/08/20/Batch-Zero-Verification-and-Audit-PUCT-Presentation.pdf"}, {"t": "Inside Climate News", "u": "https://insideclimatenews.org/news/24082026/texas-gov-abbott-data-centers-audit/"}]},
+        {"date": "2026-09-11", "what_ko": "ERCOT 이사회 자료에서 12/10 검증 보고서 제출 일정 재확인, 25~75MW 중간 규모 부하는 유틸리티에 자료요청 발송", "grade": 1, "src": [{"t": "ERCOT 14-Batch-Zero-Update", "u": "https://www.ercot.com/files/docs/2026/09/11/14-Batch-Zero-Update.pdf"}]}
+      ],
+      "next": [
+        {"date": "2026-12-10", "what_ko": "ERCOT Batch Zero 적격성 검증 보고서·지역사회 영향 보고서 제출 — 몇 건·몇 GW가 탈락하는지"},
+        {"date": "2026-12-17", "what_ko": "PUCT 공개회의 논의 후 보류 해제 여부·조건"},
+        {"date": "", "what_ko": "Batch Zero 연결 연구 새 완료 일정(2027-04-09 대체일) 발표 여부"}
+      ]
+    },
+    {
+      "id": "pol-tx-tceq-freeze",
+      "scope": "TX",
+      "title_ko": "주지사, TCEQ에 데이터센터 관련 모든 인허가 발급 중단 지시 + 다른 주 기관 DC 승인도 멈추라고 명시",
+      "status_ko": "발효 중(2026-10-20 기준). 해제 조건은 ERCOT 감사 완료(12월 중순 예상)이나 고정 종료일 없음. TCEQ의 10/19 이행 보고 제출 여부·내용은 확인 못함",
+      "effect": "freeze",
+      "applies_to_ko": "DC 및 DC 전용 발전설비의 대기·폐수·용수 등 TCEQ 인허가 전부. ERCOT 대기열 밖 '계통 비연결(behind-the-meter)' 자가발전 DC도 포함. 이미 허가를 받은 사업은 영향 적음. 신청 처리 자체를 멈추는지, 최종 발급만 막는지는 불명확. 표준허가·규칙허가(PBR) 적용도 불명확",
+      "timeline": [
+        {"date": "2026-09-21", "what_ko": "애벗, TCEQ 사무총장에 서한: DC 허가 발급 중단, ERCOT 감사 완료까지. PUCT·ERCOT·TWDB 자료 수집 전 다른 주 기관도 DC 관련 승인 진행 말 것. 다음 회기에 DC 재정 인센티브 폐지 추진 언급", "grade": 3, "src": [{"t": "Bracewell 해설(9/23)", "u": "https://www.bracewell.com/resources/governor-abbott-orders-tceq-to-pause-all-permit-issuance-for-data-center-projects/"}, {"t": "Troutman 해설(9/22)", "u": "https://www.troutman.com/insights/governor-abbott-directs-tceq-to-halt-all-data-center-permits-pending-ercot-twdb-audits/"}, {"t": "FOX 7 Austin", "u": "https://www.fox7austin.com/news/texas-pausing-permits-all-data-centers"}]},
+        {"date": "2026-10-19", "what_ko": "TCEQ의 주지사실 이행 보고 기한 — 제출 여부·내용 확인 못함", "grade": 3, "src": [{"t": "Bracewell 해설", "u": "https://www.bracewell.com/resources/governor-abbott-orders-tceq-to-pause-all-permit-issuance-for-data-center-projects/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "TCEQ 10/19 이행 보고 내용(처리 중단 범위, PBR·표준허가 포함 여부) 공개 여부"},
+        {"date": "2026-12-17", "what_ko": "ERCOT 감사 결과 PUCT 논의 후 허가 동결 해제 시점"},
+        {"date": "2027-01", "what_ko": "텍사스 90회 의회(2027년 1월 개회)에서 DC 세제 인센티브 폐지 법안"}
+      ]
+    },
+    {
+      "id": "pol-tx-water",
+      "scope": "TX",
+      "title_ko": "TWDB 물 사용 설문 미제출 DC 제재 지시 → 주 법무장관 조사",
+      "status_ko": "조사 진행 중(2026-10-15 기준). 법무장관실이 32개 카운티 156개 DC 개발 건에 서한 발송. TWDB의 10/14 이행 보고 내용은 확인 못함",
+      "effect": "restrict",
+      "applies_to_ko": "물 사용 설문에 응답하지 않은 대형 물 사용자(DC 포함). 미제출 시 경범죄(Class C)이며 TCEQ 용수 허가·변경·갱신 자격을 잃을 수 있음 → 신규·증설 DC 인허가에 직접 걸림",
+      "timeline": [
+        {"date": "2026-09-14", "what_ko": "애벗, TWDB에 DC 등 대형 사용자의 물 사용 보고 강제·과거 위반 제재와 ERCOT 협조를 지시, 10/14까지 보고 요구. TWDB는 자신이 기소 권한 없는 비규제 기관이라고 밝힘", "grade": 3, "src": [{"t": "Texas Tribune", "u": "https://www.texastribune.org/2026/09/14/texas-data-centers-abbott-water-survey-enforcement/"}, {"t": "KBTX", "u": "https://www.kbtx.com/2026/09/14/gov-greg-abbott-orders-texas-water-agency-penalize-data-centers-that-dont-report-their-water-usage/"}]},
+        {"date": "2026-09-24", "what_ko": "팩스턴 법무장관, 설문 미응답 DC 개발 수백 건 조사 착수(최소 18개 카운티). 응답 의무 DC의 약 80%가 미응답이라는 보도", "grade": 1, "src": [{"t": "텍사스 법무장관실 보도자료", "u": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-paxton-launches-landmark-investigation-hundreds-data-center-developments-texas"}, {"t": "Dallas Express", "u": "https://dallasexpress.com/state/paxton-launches-investigation-into-texas-data-centers-over-water-reporting/"}]},
+        {"date": "2026-10-15", "what_ko": "법무장관실, 32개 카운티 156개 DC 개발 건에 최신 물 사용 정보 제출 요구 서한. 회신 기한은 보도에 없음", "grade": 1, "src": [{"t": "텍사스 법무장관실 보도자료", "u": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sends-letters-data-center-developments-across-texas-ensure-reporting"}, {"t": "KBTX", "u": "https://www.kbtx.com/2026/10/15/paxtons-office-sends-156-letters-texas-data-center-developments-over-water-use-reporting/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "서한 받은 156건 명단 공개 여부 — 추적 프로젝트가 포함됐는지"},
+        {"date": "", "what_ko": "TWDB 10/14 보고 내용, 실제 기소·허가 자격 박탈 사례"}
+      ]
+    },
+    {
+      "id": "pol-tx-puct-large-load",
+      "scope": "TX",
+      "title_ko": "PUCT 대형부하(75MW+) 연결 규칙 확정(SB6 시행, Project 58481) — 연구비·담보 의무",
+      "status_ko": "채택(2026-09-18 전후). 규칙 조항 번호가 §25.521인지는 이번 출처로 확인 못함",
+      "effect": "cost",
+      "applies_to_ko": "ERCOT 내 한 부지 75MW 이상 신규 대형부하. 기존 대기열 사업 적용 방식은 확인 못함",
+      "timeline": [
+        {"date": "2026-09-18", "what_ko": "PUCT 최종 규칙 채택: 제안안의 MW당 5만달러 환불불가 수수료 삭제, 부하 크기 무관 연구비 10만달러 고정, MW당 5만달러는 담보(financial security)로 전환, 이정표 미달 통지·유예를 전체 일정 기준 24개월로 완화", "grade": 3, "src": [{"t": "Utility Dive", "u": "https://utilitydive.com/news/texas-puc-adopts-data-center-interconnection-rules/830899"}, {"t": "White & Case 해설", "u": "https://www.whitecase.com/insight-alert/puct-sets-financial-commitments-data-center-interconnection-governor-pauses-permit"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "텍사스 레지스터 게재 조항 번호·시행일, 기존 대기열 사업 담보 납부 기한"}
+      ]
+    },
+    {
+      "id": "pol-tx-puc-ag-confidentiality",
+      "scope": "TX",
+      "title_ko": "PUCT가 DC 위치 정보 비공개 유지 위해 법무장관 상대 소송(제목만 확인)",
+      "status_ko": "확인 못함(기사 제목만 확인, 본문 접근 실패). 날짜·법원·쟁점 미확인",
+      "effect": "watch",
+      "applies_to_ko": "공개되면 감사 대상 DC 위치·명단이 드러날 수 있음",
+      "timeline": [
+        {"date": "", "what_ko": "Texas Policy Research 기사 제목상 PUCT가 팩스턴을 상대로 DC 위치 비공개 소송 — 세부 확인 못함", "grade": 3, "src": [{"t": "Texas Policy Research(본문 403)", "u": "https://www.texaspolicyresearch.com/?p=13412"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "소송 제기일·법원·결과 확인"}
+      ]
+    },
+    {
+      "id": "pol-ny-eo-moratorium",
+      "scope": "NY",
+      "title_ko": "호컬 주지사 행정명령: 50MW 이상 DC 주 환경허가 최대 1년 보류",
+      "status_ko": "발효 중(2026-07-14 발효, 2026-10-20 기준). DPS의 일반환경영향평가(GEIS) 최종본 제출 시 종료, 최장 약 1년(~2027-07)",
+      "effect": "freeze",
+      "applies_to_ko": "명령 전 계류·미완성 신청 포함 50MW 이상 DC 신설·증설의 DEC 재량 허가. 필요한 허가를 이미 받은 사업은 제외. 지방 인허가는 대상 아님. 제조·의료·교육·연구 주용도 시설 제외",
+      "timeline": [
+        {"date": "2026-06-04", "what_ko": "의회가 20MW 이상 1년 신규 허가 중단 법안 통과(상원 44-16, 하원 102-39). 주지사는 서명 대신 행정명령 택함, 법안은 보완 필요하다고 언급 — 법안 최종 처리 여부 확인 못함", "grade": 3, "src": [{"t": "Debtwire/ION Analytics", "u": "https://ionanalytics.com/insights/debtwire/data-center-moratorium-threats-incentive-pullbacks-energy-costs-dominate-ytd26-state-level-legislative-activity/"}, {"t": "AI Weekly", "u": "https://aiweekly.co/alerts/hochul-halts-hyperscale-data-center-permits-across-new-york"}]},
+        {"date": "2026-07-14", "what_ko": "행정명령 즉시 발효: DEC는 계류 신청 보류, DPS는 에너지·물·대기 영향 GEIS 작성. DEC는 12개월 안에 대형 취수 규정 적용 여부 보고", "grade": 3, "src": [{"t": "Bloomberg Law", "u": "https://news.bloomberglaw.com/bloomberg-government-news/new-york-leads-nation-in-moratorium-on-new-large-data-centers"}, {"t": "ECOS", "u": "https://www.ecos.org/news-and-updates/new-york-governor-issues-first-statewide-moratorium-on-large-scale-data-centers/"}, {"t": "MeriTalk SLG", "u": "https://meritalkslg.com/articles/new-york-pauses-new-hyperscale-data-centers-for-up-to-one-year/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "DPS GEIS 초안 공개·공청회 일정"},
+        {"date": "2026-11-03", "what_ko": "호컬 재선 여부 — 명령 유지·연장에 영향"},
+        {"date": "2027-07", "what_ko": "최장 1년 만료 시점(GEIS 완료 시 조기 종료 가능)"}
+      ]
+    },
+    {
+      "id": "pol-nm-green-chile",
+      "scope": "NM",
+      "title_ko": "주 토지청, Project Jupiter 전력용 가스관(Green Chile) 주 소유지 통과 재심 거부",
+      "status_ko": "반려 유지(2026-07-14 서한 기준). 참고: 알려진 7/16은 보도일 기준이며 서한 날짜는 7/14. Energy Transfer의 30일 내 행정심 청구 여부 확인 못함",
+      "effect": "restrict",
+      "applies_to_ko": "Project Jupiter(오라클, 약 2.5GW) 자가발전용 17마일 24인치 가스관 중 주 소유지 약 0.6마일 구간. 사유지 우회 시 지연 가능. 오라클은 일정 유지 입장",
+      "timeline": [
+        {"date": "2026-03-20", "what_ko": "주 토지청, 통행권·사업 임대 신청 취소(첫 반려)", "grade": 3, "src": [{"t": "Pipeline & Gas Journal", "u": "https://pgjonline.com/news/2026/july/new-mexico-denies-reconsideration-of-project-jupiter-gas-pipeline"}]},
+        {"date": "2026-07-14", "what_ko": "가르시아 리처드 토지청장, Energy Transfer 재심 요청 거부 서한. 신탁 수익 적고 온실가스·물 영향 우려. 30일 내 행정심 청구 가능", "grade": 2, "src": [{"t": "KSFR(7/17)", "u": "https://www.ksfr.org/news/2026-07-17/new-mexico-land-commissioner-blocks-project-jupiter-related-pipeline-from-building-on-state-land"}, {"t": "Gas Processing News", "u": "https://gasprocessingnews.com/news/2026/07/new-mexico-us-denies-reconsideration-of-project-jupiter-gas-pipeline/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "Energy Transfer 행정심 청구 또는 사유지 우회 노선·연방 심사 진행"}
+      ]
+    },
+    {
+      "id": "pol-pa-eo-2026-05",
+      "scope": "PA",
+      "title_ko": "샤피로 주지사 행정명령 2026-05: 25MW 초과 DC 인허가·세금면제에 전력비 전액 부담 등 GRID 조건",
+      "status_ko": "발효 중(2026-08-18 기준일, 2026-10-20 기준)",
+      "effect": "restrict",
+      "applies_to_ko": "8/18 이후 DEP 허가 신청한 25MW 초과 DC(조건 동의 시 빠른 심사, 아니면 느린 트랙, 지방 승인 전 허가 안 냄). 모든 DC를 패스트트랙에서 제외(개발 중 사업 포함). 8/18 이후 판매세 면제 신청 시 조건 이행 협약 필수. 8/18 시점 DEP 신청·전력계약 마친 사업은 일부 완화 가능. 기존 DC는 연례 보고",
+      "timeline": [
+        {"date": "2026-08-18", "what_ko": "행정명령 서명·즉시 발효: 송배전 증설비 DC 부담, 비상시 DC 우선 감축·PJM 백스톱 비용 부담을 PUC에 요구하도록 지시, 기관의 DC 비밀유지계약 금지. 펜실베이니아 DC 제안 100건 이상, DEP 신청 20건", "grade": 3, "src": [{"t": "Morgan Lewis 해설", "u": "https://www.morganlewis.com/fr/pubs/2026/08/governor-shapiro-issues-executive-order-imposing-new-requirements-for-data-centers"}, {"t": "MyChesCo", "u": "https://www.mychesco.com/a/news/government/shapiro-tightens-data-center-rules-on-power-costs-permits/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "PA PUC 대형부하 요금·비상 감축 규칙 절차 착수"},
+        {"date": "2026-11-03", "what_ko": "주지사 선거(샤피로 vs 개리티) 결과"},
+        {"date": "2027-07-01", "what_ko": "기존 DC 첫 연례 보고 기한"}
+      ]
+    },
+    {
+      "id": "pol-in-local-moratoria",
+      "scope": "IN",
+      "title_ko": "인디애나 카운티·시 모라토리엄 확산, 인디애나폴리스(매리언 카운티) 2027년 말까지 신규 DC 중단",
+      "status_ko": "발효 중(2026-08-19 기준). 2026년 7월 초 기준 최소 17개 카운티 한시 모라토리엄, Marshall·Cass 카운티는 신규 금지",
+      "effect": "freeze",
+      "applies_to_ko": "매리언 카운티 신규 DC 승인. 이미 승인된 DC Blox, Metrobloks, Sabey 3건은 제외(주법상 기존 승인 보호). 다른 카운티는 각 조례별",
+      "timeline": [
+        {"date": "2026-07-06", "what_ko": "인디애나대 집계: 11개 카운티 DC 조례, 최소 17개 한시 모라토리엄, 2개 카운티 금지", "grade": 3, "src": [{"t": "WFYI", "u": "https://www.wfyi.org/statewide/2026-07-06/indiana-counties-data-center-moratoriums-bans-2026"}]},
+        {"date": "2026-08-19", "what_ko": "인디애나폴리스 도시개발위원회 6-0 승인, 즉시 발효. 최소 2027-12-31까지 신규 DC 중단, 전문가·주민 위원회가 규모·소음·환경 기준 연구", "grade": 3, "src": [{"t": "WFYI", "u": "https://www.wfyi.org/wfyi-news/2026-08-19/new-data-centers-temporarily-banned-in-marion-county"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "추적 6건이 위치한 카운티의 모라토리엄 여부·만료일 개별 확인(이번에 확인 못함)"},
+        {"date": "2027-12-31", "what_ko": "매리언 카운티 모라토리엄 최소 종료일"}
+      ]
+    },
+    {
+      "id": "pol-oh-sunbury-vote",
+      "scope": "OH",
+      "title_ko": "선버리 시 헌장 개정 주민투표: DC 전력 25MW 상한",
+      "status_ko": "11/3 투표 확정(2026-07-15 시의회 인증). 25MW가 월 사용량 기준인지 최대부하 상한인지 보도마다 다름",
+      "effect": "vote",
+      "applies_to_ko": "선버리 시 내 DC. 신규 기술단지에 계획된 아마존 데이터 서비스 20억달러 캠퍼스가 직접 대상. 시는 이미 1/31까지 DC 개발 모라토리엄 시행 중(연도 표기는 2027년으로 추정, 미확인)",
+      "timeline": [
+        {"date": "2026-07-15", "what_ko": "시의회 만장일치로 청원안 인증(필요 174명, 351명 유효 확인) → 11/3 투표 회부", "grade": 3, "src": [{"t": "ABC6", "u": "https://abc6onyourside.com/news/local/sunbury-petition-seeks-november-ballot-measure-limiting-data-centers-to-25-megawatts"}, {"t": "NBC4", "u": "https://www.nbc4i.com/news/local-news/sunbury/sunbury-citizens-seek-to-put-data-center-measure-on-november-ballot/amp/"}]},
+        {"date": "2026-09-21", "what_ko": "Ballotpedia 집계: 오하이오가 2026년 DC 관련 지방 투표 안건 20건(17개 지역)으로 최다, 비슷한 청원이 Pataskala에서도 진행", "grade": 3, "src": [{"t": "Ballotpedia News", "u": "https://news.ballotpedia.org/2026/09/21/ohio-leads-states-in-number-of-local-ballot-measures-on-data-centers-for-2026/"}]}
+      ],
+      "next": [
+        {"date": "2026-11-03", "what_ko": "선버리·Pataskala 등 오하이오 20건 투표 결과"}
+      ]
+    },
+    {
+      "id": "pol-state-moratorium-bills",
+      "scope": "US",
+      "title_ko": "주 단위 DC 모라토리엄 법안: 최소 14개 주 시도, 통과 0건(뉴욕은 행정명령으로 시행)",
+      "status_ko": "2026년 6월 기준 집계. 메인·버몬트는 의회 통과 후 주지사 거부, 재의결 실패. 7월 이후 새로 통과된 주 법안은 확인 못함",
+      "effect": "watch",
+      "applies_to_ko": "법안 통과 시 해당 주 신규 DC 전반. 3월 기준 발의 주: GA, MD, MI, NH, NY, OK, SC, SD, VT, VA, WI(+PA·MN 예고)",
+      "timeline": [
+        {"date": "2026-03-09", "what_ko": "Good Jobs First 집계: 최소 11개 주에 한시 금지 법안", "grade": 3, "src": [{"t": "States Newsroom(Idaho Capital Sun)", "u": "https://idahocapitalsun.com/2026/03/09/repub/temporarily-banning-data-centers-draws-more-interest-from-state-local-officials/"}]},
+        {"date": "2026-06", "what_ko": "Debtwire 집계: 최소 14개 주 시도, 통과 0건, 메인·버몬트 거부권", "grade": 3, "src": [{"t": "Debtwire/ION Analytics", "u": "https://ionanalytics.com/insights/debtwire/data-center-moratorium-threats-incentive-pullbacks-energy-costs-dominate-ytd26-state-level-legislative-activity/"}, {"t": "NCSL", "u": "https://www.ncsl.org/resources/details/why-states-are-considering-temporary-bans-on-new-data-centers"}]}
+      ],
+      "next": [
+        {"date": "2027-01", "what_ko": "2027년 정기회기 재발의 — 추적 대상 주(VA, GA, MD, MI, OK, WI) 우선 확인"}
+      ]
+    },
+    {
+      "id": "pol-us-ballot-measures",
+      "scope": "US",
+      "title_ko": "11/3 지방 DC 투표 안건 34~35건(8개 주)",
+      "status_ko": "투표 예정(2026-09~10 집계). 2026년 앞서 치러진 4건은 모두 규제 강화 쪽 결과",
+      "effect": "vote",
+      "applies_to_ko": "해당 지역 신규 DC(금지·모라토리엄·재조닝·개발계약 승인·향후 주민투표 의무화·권고 투표). 주별: OH 20, IL 7(매디슨 카운티 4), WI 3, KS 3(Emporia·El Dorado, 10년 금지안 포함), CA 2(Alhambra 금지안), MI 1, NV 1, FL 1(Edgewater 헌장 금지안)",
+      "timeline": [
+        {"date": "2026-09-21", "what_ko": "Ballotpedia: 2026년 38건, 그중 34건이 11/3, 31건이 주민 청원", "grade": 3, "src": [{"t": "Ballotpedia News", "u": "https://news.ballotpedia.org/2026/09/21/ohio-leads-states-in-number-of-local-ballot-measures-on-data-centers-for-2026/"}]},
+        {"date": "2026-10-01", "what_ko": "S&P Global: DC 반발이 중간선거 투표·캠페인 전반에 영향", "grade": 3, "src": [{"t": "S&P Global", "u": "https://www.spglobal.com/energy/en/news-research/latest-news/electric-power/100126-data-center-backlash-shapes-midterm-ballots-campaigns-across-us"}, {"t": "Newsweek(39건 집계)", "u": "https://www.newsweek.com/map-shows-states-where-data-centers-are-on-the-ballot-12528253"}]}
+      ],
+      "next": [
+        {"date": "2026-11-03", "what_ko": "개표 결과 — 추적 프로젝트 소재 지역(OH, MI, NV, FL, WI, IL) 안건 개별 매칭"}
+      ]
+    },
+    {
+      "id": "pol-us-protest-humansfirst",
+      "scope": "US",
+      "title_ko": "7/18 Humans First 전국 동시 반대 시위",
+      "status_ko": "종료된 사건(2026-07-18). 최소 125곳(37개 주) ~142곳(42개 주) 보도, 집계 불일치",
+      "effect": "watch",
+      "applies_to_ko": "직접 규제 효과 없음. 보수 성향 단체 주도라 공화당 지역 지방정부 모라토리엄 압력 지표",
+      "timeline": [
+        {"date": "2026-07-18", "what_ko": "전국 최소 125곳 동시 시위(로이터 사전 집계). 전력·물·토지·세금감면·주민 의견 부족 문제 제기", "grade": 3, "src": [{"t": "Reuters 전재(The Star)", "u": "https://www.thestar.com.my/tech/tech-news/2026/07/18/us-data-center-protests-go-national-as-backlash-grows-"}, {"t": "GV Wire", "u": "https://gvwire.com/2026/07/18/us-data-center-protests-go-national-as-backlash-grows/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "후속 전국 행동 일정(확인 못함)"}
+      ]
+    },
+    {
+      "id": "pol-az-tax-exemption",
+      "scope": "AZ",
+      "title_ko": "홉스 주지사, DC 판매세 면제 3년 중단 확보",
+      "status_ko": "언론 1건으로만 확인(시행일·법적 형태 확인 못함, 2026-08 보도 기준)",
+      "effect": "cost",
+      "applies_to_ko": "애리조나 신규 DC 장비 판매세 면제 — 기존 인증 사업 적용 여부 확인 못함",
+      "timeline": [
+        {"date": "2026-08-19", "what_ko": "Fortune 보도: 홉스가 DC 판매세 면제 3년 중단을 확보", "grade": 3, "src": [{"t": "Fortune", "u": "https://fortune.com/2026/08/19/data-centers-midterm-elections-governors-races-pennsylvania-texas-ohio/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "법안 번호·시행일·기존 인증 보호 여부 확인"},
+        {"date": "2026-11-03", "what_ko": "주지사·전력위원회(ACC) 2석 선거"}
+      ]
+    },
+    {
+      "id": "pol-il-tax-exemption",
+      "scope": "IL",
+      "title_ko": "프리츠커 주지사, 더 엄격한 운영기준 입법 전까지 DC 신규 판매세 면제 중단",
+      "status_ko": "언론 1건으로만 확인(시작일·형태 확인 못함, 2026-08 보도 기준)",
+      "effect": "cost",
+      "applies_to_ko": "일리노이 신규 DC 세금 면제 신청",
+      "timeline": [
+        {"date": "2026-08-19", "what_ko": "Fortune 보도: 의회가 기준 정할 때까지 신규 DC 판매세 면제 중단", "grade": 3, "src": [{"t": "Fortune", "u": "https://fortune.com/2026/08/19/data-centers-midterm-elections-governors-races-pennsylvania-texas-ohio/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "가을 거부권 회기(veto session) 또는 2027년 회기의 DC 기준 법안"},
+        {"date": "2026-11-03", "what_ko": "매디슨 카운티 등 일리노이 지방 투표 7건"}
+      ]
+    },
+    {
+      "id": "pol-ga-psc",
+      "scope": "GA",
+      "title_ko": "조지아 PSC의 조지아파워 DC용 발전 증설 승인 → 소송 + 11/3 PSC 2석 선거",
+      "status_ko": "소송 계류(세부 확인 못함), 선거 11/3",
+      "effect": "watch",
+      "applies_to_ko": "조지아파워 DC 공급용 가스·배터리·태양광 증설(자본 160억달러 이상, 수명기간 500억달러 이상 추정). 신규 대형부하 요금·비용 배분",
+      "timeline": [
+        {"date": "2026-08-10", "what_ko": "Ballotpedia: 3구(현직 허바드 D vs 존슨 R), 5구(에드워즈 D vs 톨버트 R 등) 선거로 PSC 다수당 바뀔 수 있음. 5구 현직 프리드모어(R) 9/4 사임", "grade": 3, "src": [{"t": "Ballotpedia News", "u": "https://news.ballotpedia.org/2026/08/10/partisan-control-of-georgia-public-service-commission-at-stake-in-november-election/"}, {"t": "WABE", "u": "https://www.wabe.org/georgia-utility-commission-races-test-party-loyalty-after-recent-power-bill-hikes/"}]}
+      ],
+      "next": [
+        {"date": "2026-11-03", "what_ko": "PSC 다수당 변화 시 DC 비용 배분 재검토 가능성"}
+      ]
+    },
+    {
+      "id": "pol-us-doe-202c",
+      "scope": "US",
+      "title_ko": "DOE 202(c) 비상명령으로 퇴역 예정 화력 유지(DC 수요 근거 명시)",
+      "status_ko": "반복 연장 중(2026-10-20 기준). 플로리다 Stanton 1호기 11/30까지, 펜실베이니아 Eddystone 11/20까지",
+      "effect": "support",
+      "applies_to_ko": "직접 DC 규제 아님. PJM·플로리다 공급력 유지로 신규 DC 전력 여유에 간접 영향, 비용은 요금으로 전가 가능",
+      "timeline": [
+        {"date": "2026-08-21", "what_ko": "Eddystone(PA) 760MW 11/20까지 유지 명령(2025년 퇴역 예정 이후 6번째). PJM 부하 증가 약 25GW 중 DC 15GW 인용", "grade": 3, "src": [{"t": "Data Center Knowledge", "u": "https://www.datacenterknowledge.com/energy-power-supply/doe-extends-eddystone-as-pjm-faces-data-center-power-surge"}]},
+        {"date": "2026-09-01", "what_ko": "명령 202-26-42: OUC Stanton 1호기(464.5MW 석탄) 9/2~11/30 가동 가능 상태 유지. 플로리다 DC 수요 증가를 비상 근거로 인용", "grade": 1, "src": [{"t": "DOE Order No. 202-26-42", "u": "https://www.energy.gov/documents/doe-order-no-202-26-42"}]}
+      ],
+      "next": [
+        {"date": "2026-11-20", "what_ko": "Eddystone 명령 재연장 여부"},
+        {"date": "2026-11-30", "what_ko": "Stanton 1호기 명령 재연장 여부"},
+        {"date": "", "what_ko": "미시간 Campbell 명령 법적 다툼 결과(확인 못함)"}
+      ]
+    },
+    {
+      "id": "pol-us-ferc-large-load",
+      "scope": "US",
+      "title_ko": "FERC 대형부하 연결: 최종 규칙 대신 6개 RTO/ISO에 이유제시명령(show cause)",
+      "status_ko": "진행 중. DOE가 요구한 4/30 최종조치 기한 내 규칙 없음 → 6/18 명령, 8/17 RTO 답변 제출. FERC 후속 결정은 확인 못함(2026-10-20 기준)",
+      "effect": "watch",
+      "applies_to_ko": "PJM·MISO·SPP 등 RTO 지역 20MW 이상 신규 대형부하 연결 절차(ERCOT는 FERC 관할 밖). 비용 전액 부담·감축 가능 부하 우대 방향",
+      "timeline": [
+        {"date": "2026-06-18", "what_ko": "FERC, FPA 206조 이유제시명령 6건(EL26-67 PJM ~ EL26-72 ISO-NE): 현 대형부하 규칙 정당성 입증 또는 개정 요구", "grade": 3, "src": [{"t": "McGuireWoods 해설", "u": "https://www.mcguirewoods.com/client-resources/alerts/2026/6/ferc-issues-section-206-show-cause-orders-directing-all-six-rtos-isos-to-justify-or-reform-large-load-integration-rules/"}, {"t": "Akin Gump 해설", "u": "https://www.akingump.com/en/insights/blogs/speaking-energy/ferc-issues-landmark-show-cause-orders-on-large-load-interconnection"}]},
+        {"date": "2026-08-17", "what_ko": "RTO/ISO 답변(개정안) 제출 기한, 이후 30일 의견 제출(9월 중순)", "grade": 3, "src": [{"t": "Husch Blackwell 해설", "u": "https://www.huschblackwell.com/newsandinsights/ferc-issues-show-cause-orders-to-all-six-rtos/isos-on-large-load-interconnection"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "FERC의 RTO별 답변 판단 명령(일정 확인 못함)"},
+        {"date": "", "what_ko": "PJM 코로케이션 명령(2025-12, EL25-49) 서면심리 결과 — 확인 못함"}
+      ]
+    },
+    {
+      "id": "pol-us-pjm-capacity-rbp",
+      "scope": "US",
+      "title_ko": "PJM 용량시장 상한 도달·부족 → 백스톱 조달(RBP)·대형부하 '연결 후 감축' 제안, FERC가 수용하되 5개월 유보",
+      "status_ko": "RBP는 2027-02-28 효력으로 유보, 서면심리 진행(2026-09-29 명령 기준). 9/30 조달 착수는 무산",
+      "effect": "cost",
+      "applies_to_ko": "PJM 지역(VA, PA, OH, IL, MD, WV, NJ 등) DC. 자체 신규 용량 없는 신규 대형부하는 비상시 우선 감축(임시 자원적정성 서비스) 대상, 조달 비용은 DC 보유 LSE에 우선 배분 원칙",
+      "timeline": [
+        {"date": "2026-07-14", "what_ko": "2028/29 용량경매: 상한 $325/MW-일에서 3년 연속 상한 낙찰, 목표보다 6,831MW 부족. 시장감시인은 DC 몫 비용 약 63억달러 추정", "grade": 3, "src": [{"t": "Lower Bucks Times", "u": "https://lowerbuckstimes.com/2026/07/15/pjm-auction-price-cap-electric-bills/"}, {"t": "Industrial Info", "u": "https://www.industrialinfo.com/news/article/report-data-centers-create-about-us63-billion-in-electric-costs-for-pjm-customers--360334"}]},
+        {"date": "2026-07-31", "what_ko": "PJM, RBP(최장 15년 계약, 평균 상한 $555/MW-일) FERC 제출(ER26-3380). 대형부하 등록제·신규 대형부하 우선 감축 틀 포함", "grade": 1, "src": [{"t": "PJM 이사회 결정 서한(7/31)", "u": "https://www.pjm.com/-/media/DotCom/committees-groups/cifp-rbp/2026/20260731/20260731-board-decisional-letter-on-critical-issue-fast-path.pdf"}, {"t": "APPA", "u": "https://www.publicpower.org/periodical/article/pjm-reliability-backstop-proposal-outlines-steps-secure-new-supply-and-maintain-reliability"}]},
+        {"date": "2026-09-29", "what_ko": "FERC 명령: RBP 수용하되 5개월 유보(2027-02-28 효력), 비용배분·송전사업자 탈퇴규칙·LSE 담보 3개 쟁점 서면심리, 206조 절차 개시. PJM이 30일 내 새 205조 신청 시 서면심리 보류 가능", "grade": 1, "src": [{"t": "FERC 196 FERC ¶ 61,245", "u": "https://www.pjm.com/pjmfiles/directory/etariff/FercOrders/9154/20260929-er26-3380-000.pdf"}]}
+      ],
+      "next": [
+        {"date": "2026-10-29", "what_ko": "PJM의 새 205조 재신청(명령 후 30일 안팎) 여부"},
+        {"date": "2026-12", "what_ko": "2029/30 용량경매(상한 연장 적용 마지막 회차)"},
+        {"date": "2027-02-28", "what_ko": "RBP 유보 종료 시점"}
+      ]
+    },
+    {
+      "id": "pol-us-federal-permitting",
+      "scope": "US",
+      "title_ko": "연방 DC 인허가 간소화: 행정명령 14318(2025) 시행 + SPEED Act 상원 계류",
+      "status_ko": "EO 14318은 2025-07-23부터 시행. SPEED Act는 2025-12-18 하원 통과(221-196) 후 상원 처리 여부 확인 못함. 2026-07~10 새 연방 조치 확인 못함",
+      "effect": "support",
+      "applies_to_ko": "자본 5억달러 이상 또는 100MW 초과 DC 등 '적격 사업'의 연방 허가(NEPA 범주적 제외, FAST-41). 연방 부지·자금이 걸린 사업만 실익, 주·지방 인허가에는 효과 없음",
+      "timeline": [
+        {"date": "2025-07-23", "what_ko": "EO 14318 서명(기준선, 조사 기간 이전)", "grade": 1, "src": [{"t": "govinfo EO 14318", "u": "https://www.govinfo.gov/link/cpd/executiveorder/14318"}]},
+        {"date": "2025-12-18", "what_ko": "하원 SPEED Act 통과, 상원 민주당은 송전 조항 요구(기준선)", "grade": 3, "src": [{"t": "Brownstein 해설", "u": "https://www.bhfs.com/insight/bipartisan-permitting-deal-passes-house-senate-up-next-with-speed-bumps-ahead/"}]}
+      ],
+      "next": [
+        {"date": "", "what_ko": "상원 SPEED Act 처리(선거 후 레임덕 회기 가능성) — 확인 못함"}
+      ]
+    }
+  ],
+  "election_watch": [
+    {"state": "TX", "race_or_measure_ko": "주지사 애벗(R) vs 이노호사(D)", "why_ko": "애벗이 연결 감사·TCEQ 허가 동결·세제 인센티브 폐지 추진. 이노호사는 농촌 물·목초지 문제로 DC 친화 비판 광고", "date": "2026-11-03"},
+    {"state": "PA", "race_or_measure_ko": "주지사 샤피로(D) vs 개리티(R)", "why_ko": "행정명령 2026-05(전력비 전액 부담·패스트트랙 제외) 유지 여부", "date": "2026-11-03"},
+    {"state": "NY", "race_or_measure_ko": "주지사 호컬(D) 재선", "why_ko": "50MW+ DC 환경허가 1년 보류 행정명령의 유지·연장", "date": "2026-11-03"},
+    {"state": "OH", "race_or_measure_ko": "주지사 액턴(D) vs 라마스와미(R) + 지방 DC 안건 20건(선버리 25MW 상한 등)", "why_ko": "두 후보 모두 착공 전 기준 강화 공약. 선버리 아마존 캠퍼스 직접 영향", "date": "2026-11-03"},
+    {"state": "AZ", "race_or_measure_ko": "주지사 홉스(D) 재선 + 전력위원회(ACC) 2석(톰슨 R 현직·힙 R vs 힐 D·프라테 D)", "why_ko": "DC 판매세 면제 중단. 힐은 DC 개발 일시중지 주장. 결과와 무관하게 ACC 공화당 다수 유지", "date": "2026-11-03"},
+    {"state": "GA", "race_or_measure_ko": "PSC 3구·5구", "why_ko": "결과에 따라 PSC 다수당 교체 가능 → 조지아파워 DC용 증설 비용 배분 재검토", "date": "2026-11-03"},
+    {"state": "IL", "race_or_measure_ko": "주지사 프리츠커(D) 3선 도전 + 지방 안건 7건(매디슨 카운티 4)", "why_ko": "DC 신규 판매세 면제 중단 유지", "date": "2026-11-03"},
+    {"state": "WI", "race_or_measure_ko": "주지사 크롤리(D) vs 티파니(R) + 지방 안건 3건", "why_ko": "크롤리는 지역사회 거부권 지지, 티파니는 'Data Center David' 공격 광고", "date": "2026-11-03"},
+    {"state": "KS", "race_or_measure_ko": "Emporia·El Dorado 등 3건", "why_ko": "10년 고영향 DC 금지안 포함, 가장 강한 제한안", "date": "2026-11-03"},
+    {"state": "FL", "race_or_measure_ko": "Edgewater 시 헌장 개정(신규 DC 금지)", "why_ko": "추적 FL 프로젝트와 위치 일치 여부 확인 필요", "date": "2026-11-03"},
+    {"state": "MI", "race_or_measure_ko": "지방 DC 안건 1건(지역 확인 못함)", "why_ko": "추적 MI 2건과 위치 매칭 필요", "date": "2026-11-03"},
+    {"state": "NV", "race_or_measure_ko": "지방 DC 안건 1건(지역 확인 못함)", "why_ko": "추적 NV 2건과 위치 매칭 필요", "date": "2026-11-03"}
+  ],
+  "unchecked_scopes": [
+    {"scope": "VA", "note_ko": "2026 의회 SB 253(GS-5 대형부하에 배전·용량비 전가) 최종 처리, SCC 후속 명령, 카운티 재조닝·법원 판결 — 검색 한도 소진으로 확인 못함"},
+    {"scope": "UT, WV, LA, WY, NV(주 단위), MI(주 단위), OK, MO, TN, MS, MD, IA, NE, AK, WI(PSC 요금), OH(PUCO 요금)", "note_ko": "2026-07~10 주·카운티 조치 확인 못함"},
+    {"scope": "TX §25.521", "note_ko": "PUCT 규칙 조항 번호 미확인(Project 58481 채택은 확인)"},
+    {"scope": "NY 의회 법안", "note_ko": "6/4 통과한 20MW+ 모라토리엄 법안의 주지사 서명·거부 여부 확인 못함"}
+  ]
+}

@@ -1,0 +1,155 @@
+{
+ "as_of": "2026-09-05",
+ "run_id": "20260905_0618",
+ "ticker": "COIN",
+ "input_source": "output/20260905_0618/03_input/arbiter_COIN.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260905_COIN_001",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "confirmed": true
+  },
+  {
+   "id": "c_20260905_COIN_002",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "confirmed": false
+  },
+  {
+   "id": "c_20260905_COIN_003",
+   "scope": "company_specific",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "confirmed": false
+  }
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_COIN.json의 claims 3건 전건 scope=company_specific 확인. removed_claims 0건. F13 해당 없음.",
+ "kill_check": {
+  "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+  "kc_reference": [
+   {
+    "kc_id": "KC-COIN-1",
+    "description": "구조 전환 실패(구독 비중 2분기 연속 하락 + 거래매출 QoQ 감소 동반)",
+    "verdict": "not_evaluable_this_window",
+    "verdict_confidence": "n/a",
+    "note": "이번 조회구간(8/20~9/5) 내 구독·서비스 비중 또는 거래매출 관련 신규 정량 공시 없음 — 판정 대상 지표 자체가 미갱신(차기 Q3 실적 대상)."
+   },
+   {
+    "kc_id": "KC-COIN-2",
+    "description": "예치자산 순유출 2분기 연속(가격효과 제외, 회사 정의 net inflow/outflow 기준)",
+    "verdict": "not_evaluable_this_window",
+    "verdict_confidence": "n/a",
+    "note": "해당 지표 신규 공시 없음."
+   },
+   {
+    "kc_id": "KC-COIN-3",
+    "description": "규제 소송(중대 건 한정 — SEC·CFTC·DOJ 신규 제소 또는 주요 사업 영업정지·인가 취소)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed_absence",
+    "note": "이번 구간 신규 8-K(9/2, c_001) 직접 확인 결과 이사회 인사 건일 뿐 규제 소송 관련 내용 없음. 그 외 소스에서도 해당 트리거 관측 없음."
+   },
+   {
+    "kc_id": "KC-COIN-4",
+    "description": "USDC 연동 수익 훼손 — any_of: usdc_revenue_qoq<=-25% 또는 KC-CRCL-3(Coinbase 분배계약 변경) 발동 건 중 COIN에 불리한 방향",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed_absence(KC-CRCL-3 미발동 확인) / n/a(usdc_revenue_qoq 데이터 미갱신)",
+    "note": "c_001(grade1, confirmed) 검토 결과 이번 구간 유일한 신규 8-K는 이사회 구성 변경 건으로 Circle·USDC 분배 조건과 무관함이 직접 확인됨 — KC-CRCL-3 자체가 미발동이므로 KC-COIN-4의 교차 조건도 미충족. usdc_revenue_qoq는 신규 수치 미공시(차기 Q3 실적 대상)."
+   }
+  ],
+  "note_on_scope": "본 run 입력 범위는 COIN 관련 KC(KC-COIN-1~4)로 한정(P17/오케스트레이터 지시) — macro KC-1~10은 이번 arbiter 입력에 포함되지 않아 판정 대상 아님.",
+  "met_and_confirmed": false,
+  "human_confirmation_required": false,
+  "basis": "COIN 종목 KC 4건 중 즉시 판정 가능한 KC-COIN-3·KC-COIN-4는 not_met(신규 8-K 직접 확인으로 무관 확인). KC-COIN-1·KC-COIN-2는 분기 지표 미갱신으로 이번 구간 평가 불가(not_evaluable). Kill 조건(규칙1) 해당 없음."
+ },
+ "gate_check": {
+  "quantitative_evidence": false,
+  "company_specific": true,
+  "revenue_recognized": false,
+  "overall_upgrade_gate_met": false,
+  "basis": "P2 — c_002(quantitative=true, Deribit 파생상품 미결제약정 분포 96.6%/2.9%/0.6%)는 매출·마진·현금흐름·가이던스 수치가 아니라 거래 인프라 이전 진행률(오픈 인터레스트 분포) 지표이며, evidence_grade=4·confirmed=false(1차 대시보드 원본 역추적 실패, D15)로 단독 판단 근거 불가(P4) — 상향 근거 부적격. P6 — 전건 scope=company_specific으로 이 조건만 충족. P7 — Deribit RWA 무기한선물·Starbase 이전(c_002·c_003)은 '9/9 마이그레이션 예정' 및 '이관 진행 중' 단계로, 계약 존재·이행 예정 단계이며 1차 공시로 확인된 매출 인식 단계가 아님(unconfirmed 신규 등재: 'Deribit RWA 무기한선물의 실제 매출·거래량 기여' — 이번 구간에도 미공시). 3게이트 중 quantitative_evidence·revenue_recognized 미충족 → 상향 불가."
+ },
+ "downgrade_check": {
+  "rule": "v1 §6-2 규칙3 — 정량 훼손 또는 evidence_grade<=2 정성 훼손 시 하향 가능(비대칭)",
+  "quantitative_deterioration": false,
+  "qualitative_deterioration_grade_le_2": false,
+  "overall_downgrade_gate_met": false,
+  "basis": "grade≤2 확정 fact는 c_001 1건뿐이며 내용은 '신규 8-K가 Circle/USDC와 무관한 이사회 인사 건'이라는 확인으로, 이는 정보 부재의 지속 확인이지 훼손 신호가 아니다(P5 — 정보 부재는 반증이 아니다). usdc_economics 축 delta는 방향=neutral(강화도 훼손도 아님), derivatives_base 축 delta는 방향=strengthen. 훼손 방향 claim·delta 없음 → 하향 근거 없음."
+ },
+ "decision": "maintain",
+ "decision_reason": "P12 — 상향 게이트(quantitative_evidence·company_specific·revenue_recognized) 3종 중 2종 미충족으로 상향 불가. 하향 게이트도 미충족. Kill 조건 미해당(KC-COIN-3·4 not_met, KC-COIN-1·2 이번 구간 평가불가이나 met 관측 없음). 현행 🟠 주의(Q2 매출 miss) 등급을 그대로 유지하며 사유를 기록한다. Deribit Starbase 이전 진행률 관측(c_002·c_003)은 '인도 완료·인증·파트너십'류 사업 확장/이행 진행 발표에 해당 — 등급 유지 + holding_reinforcement 분류만 부여(규칙2 단서). Circle 분배계약 관련 claim(c_001)은 방향 neutral(상충 미해소, 신규 8-K는 무관 건)로 별도 강화·훼손 분류 없이 유지.",
+ "classification_note": "c_002·c_003(Deribit 오픈인터레스트 96.6% 집중 + 9/9 Starbase 마이그레이션 일정 재확인)은 거래 인프라 이전·상품군 확장 진행류 — holding_reinforcement로만 분류(전이 규칙 v1 §6-2 규칙2 단서). 전건 grade4·confirmed=false(1차 대시보드/공지 원본에 실적 수치 미포함)로 강화 확신도는 제한적이며 RWA 신상품 실거래량·매출 기여는 이번 구간에도 미공시(unconfirmed 신규 등재). c_001(Circle 분배계약 무관 8-K 재확인)은 강화/훼손 어느 쪽도 아닌 neutral — '확장' 서사(전 run c_20260820_COIN_004) 상충은 이번 구간에도 해소되지 않고 이월.",
+ "alert": {
+  "ticker_event": "COIN — 신규 8-K(2026-09-02)는 Circle/USDC 무관 이사회 인사 건으로 확인(분배계약 갱신 관련 공시는 여전히 0건) + Deribit 'Starbase' 파생상품 마이그레이션(9/9 예정) 앞두고 오픈 인터레스트 96.6% 사전 집중 관측",
+  "facts": [
+   "[regulatory_api/1차공시, SEC EDGAR, 조회 2026-09-05, 대상기간 since 2026-08-20] Coinbase Global Inc.(CIK 0001679788) 10-K/10-Q/8-K 검색 결과 1건(8-K, 2026-09-02) — Item 5.02 이사회 확대(9→10명)·Anthony Armstrong 이사 선임 건. Circle·USDC·분배계약 관련 언급 없음, 매출·가이던스·자본배분 수치 없음. confirmed=true, evidence_grade=1(c_20260905_COIN_001)."
+  ],
+  "inference": {
+   "text": "Circle-Coinbase 분배계약 '확장' 서사(전 run c_20260820_COIN_004, 단일 grade4)와 '불변'(복수 grade3) 서사 간 상충은 이번 구간의 유일한 신규 8-K가 무관 건으로 확인됨에 따라 해소되지 않고 그대로 이월된다. 신규 그레이드1/2 근거 부재 상태 지속.",
+   "strength": "low",
+   "basis_claim": "c_20260905_COIN_001"
+  },
+  "classification": "holding_reinforcement (derivatives_base 축, c_20260905_COIN_002·003 근거 — 확신도 제한적: grade4/confirmed=false, 실거래량·매출 기여 미공시) — usdc_economics 축은 neutral(강화·훼손 아님, 상향/하향 분류 대상 아님)",
+  "thesis_delta": {
+   "axes": [
+    {
+     "axis": "usdc_economics",
+     "direction": "neutral",
+     "detail": "신규 EDGAR 조회에서도 Circle 분배계약 관련 8-K 미확인 — 유일한 신규 8-K는 이사회 인사 건으로 무관함이 직접 확인됨. '확장' 서사 진위는 여전히 미해소.",
+     "risk_transfer": [
+      "OUSD 참여로 인한 자사 USDC 수익의 장기적 대체(cannibalization) 가능성은 여전히 미해소 — usdc_economics 축 내 감시 지속(분배 구조 공개 unconfirmed)",
+      "'확장' 서사(전 run c_20260820_COIN_004)의 진위는 차기 10-Q 계약 주석 또는 신규 8-K 확인 시까지 이관 — 소멸 아님(전 run과 동일 이관처 유지)"
+     ]
+    },
+    {
+     "axis": "derivatives_base",
+     "direction": "strengthen",
+     "detail": "9/9 Starbase 마이그레이션 일정 변경 없음 재확인 + 오픈 인터레스트의 96.6%가 이미 Deribit로 이전된 상태 — 계획대로 이관 진행 중임을 시사하는 운영 지표 추가 관측. 전건 grade4(cryptoslate·crypto.news 등 sources.yaml 미등재)·confirmed=false(1차 대시보드/공지 원본은 실적 수치 미포함), RWA 신상품 실거래량·매출 기여는 미공시 — 확신도는 낮음, 방향은 전 run과 동일 유지.",
+     "risk_transfer": []
+    }
+   ]
+  },
+  "signal_verdict": "🟠 주의(Q2 매출 miss) 등급 유지(후보) — 상향 게이트 3종(quantitative_evidence/company_specific/revenue_recognized) 중 quantitative_evidence·revenue_recognized 미충족. 하향 게이트도 미충족(훼손 방향 claim·delta 없음). Kill 조건 미해당(KC-COIN-3·4 not_met, KC-COIN-1·2 이번 구간 평가불가·met 관측 없음). 최종 등급 확정은 사람이 한다.",
+  "next_check": [
+   "구독·서비스 매출 비중(%) QoQ 방향 + 거래매출 QoQ 부호 (Q3 2026 실적, KC-COIN-1 판정용)",
+   "회사 공시 platform assets net inflow/outflow (가격효과 제외) 분기치 (Q3 2026 실적, KC-COIN-2 판정용)",
+   "USDC 수익 절대액($) 및 usdc_revenue_qoq(%) 공시 여부 (Q3 2026 실적, KC-COIN-4 판정용)",
+   "8-K Item 1.01/1.02 또는 10-Q 계약 주석으로 Circle-Coinbase 분배계약 실제 조건(불변/변경) 1차 확인",
+   "Deribit Starbase 마이그레이션 완료(9/9) 여부 및 RWA 무기한선물의 실거래량·수수료 매출 최초 1차 공시 여부",
+   "Q3 2026 실적 발표일의 회사 IR 공식 공지(현재 애그리게이터 추정 10/29만 존재, F1상 채택 불가)"
+  ]
+ },
+ "unconfirmed_carried": [
+  {
+   "topic": "OUSD 참여 조건·분배 구조 공개",
+   "reason": "not_found — 조회기간 내 신규 1차 자료 없음(P5)"
+  },
+  {
+   "topic": "USDC 수익 절대액 공시",
+   "reason": "not_yet_released — 차기 Q3 실적 발표 대상"
+  },
+  {
+   "topic": "Circle-Coinbase 계약 '확장' 서사(전 run c_20260820_COIN_004)의 진위",
+   "reason": "conflicting_sources — 단일 grade4 vs 복수 grade3('불변') 상충, grade1/2 근거 부재, 이번 구간 신규 8-K도 무관 건이라 미해소"
+  },
+  {
+   "topic": "Q3 2026 실적 발표일",
+   "reason": "aggregator_estimate_only — 회사 IR 공식 공지 미확인(F1)"
+  },
+  {
+   "topic": "Deribit RWA 무기한선물의 실제 매출·거래량 기여",
+   "reason": "not_yet_disclosed — 출시 일정(8/31)은 반복 확인되나 출시 후 실거래량·수수료 매출 실측치는 어떤 소스에서도 미공시(신규 등재)"
+  }
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. filter_bug 없음. gate_check 3종(quantitative_evidence/company_specific/revenue_recognized) 중 company_specific만 충족 — 등급 유지가 P12 기본 경로로 확정 적용됨. state/signals.json은 수정하지 않음(후보 판정까지만, 확정은 사람)."
+}

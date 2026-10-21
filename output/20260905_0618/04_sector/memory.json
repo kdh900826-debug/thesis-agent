@@ -1,0 +1,390 @@
+{
+ "sector": "memory",
+ "label": "메모리반도체",
+ "as_of": "2026-09-05",
+ "run_id": "20260905_0618",
+ "staleness_days": 0,
+ "reused_from": null,
+ "generated_by": "sector-memory (L3)",
+ "members": [
+  "MU"
+ ],
+ "reference_assets": [
+  "삼성전자",
+  "SK하이닉스"
+ ],
+ "missing_inputs": [],
+ "single_ticker_view": true,
+ "inputs_used": [
+  "output/20260905_0618/02_company/MU.json",
+  "output/20260905_0618/03_signal/MU.json"
+ ],
+ "context_isolation_note": "[fact] P17 준수 — 본 산출물은 위 2개 파일만 입력으로 사용했다. 타 섹터 산출물(04_sector/neocloud·stablecoin), L2 수집 원문(_raw_* 파일), 타 종목 카드, 01_macro_kc.json은 열람하지 않았다. [fact] 참조 자산(삼성전자·SK하이닉스) 관련 정보는 D14 경량 참조 범위의 웹검색으로만 확보했으며 해당 자산의 1차 공시를 조회하지 않았다.",
+
+ "dispersion_computed": false,
+ "dispersion_status": "not_applicable",
+ "dispersion_skip_reason": "[fact] memory 섹터의 coverage.yaml members는 MU 1건이므로 종목 간 방향 분산은 산출 대상 자체가 없다(설계서 S4 단일 종목 변형, consensus-aggregate SKILL 3·5항 — 분산은 커버 종목 2개 이상일 때만 계산). [fact] 이번 Run에서 Delta가 존재하는 축은 5개이며 모든 축의 coverage_count는 1이다. [fact] 따라서 어떤 축도 'low(전원 일치)'로 표기·해석해서는 안 되며 본 산출물은 전 축의 분산을 not_applicable(dispersion=null, dispersion_computed=false)로 명기한다.",
+ "aggregate_source": "output/20260905_0618/04_sector/memory_aggregate.json",
+ "aggregate_script_caveat": "[fact] consensus_aggregate.py는 이번 Run에서 5개 축 전부에 대해 dispersion 값을 문자열 'single_ticker'로 기록하고 '단일 종목 커버 축 5개 — 분산 계산 스킵' 로그를 출력했다(dispersion=low 오표기는 관측되지 않았다 — 과업 지시에 언급된 직전 Run 결함은 이번 실행분에서 재현되지 않았다). [fact] 그럼에도 본 산출물은 스크립트의 dispersion 문자열을 승계하지 않고 dispersion=null + dispersion_computed=false + dispersion_status='not_applicable'로 명기한다 — 'single_ticker'는 분산값이 아니라 분산 미산출 사유이기 때문이다. [fact] 스크립트 출력에서 승계한 항목은 members·missing_inputs·supporters 집계·축 목록·direction뿐이다.",
+
+ "axis_view": [
+  {
+   "axis": "china_supply",
+   "direction": "weaken",
+   "direction_qualifier": "[fact] L2 DeltaSet과 signal-arbiter가 모두 이 방향을 provisional로 표기했다 — 근거 Claim(c_06·07·08·09)이 전부 evidence_grade 4이고 confirmed:false다.",
+   "supporters": {
+    "strengthen": [],
+    "weaken": [
+     "MU"
+    ],
+    "neutral": [],
+    "break": []
+   },
+   "dispersion": null,
+   "coverage_count": 1,
+   "interpretation": "[fact] 이 축의 이번 Run 이동을 촉발한 관측은 2026-08-24 트럼프 행정부의 Apple CXMT(DRAM)·YMTC(NAND) 소싱 허용 검토설 보도와 그에 따른 메모리주 동반 하락이다(c_20260905_MU_07). [fact] 동일 보도일의 하락은 MU -7%, SanDisk -9%, Western Digital -7%와 함께 참조 자산인 SK하이닉스 -5%에서도 관측된 것으로 집계·보도된다(참조 ref_policy_shock_reaction_20260824, reference_grade 4). [inference, 강도: 중간] 따라서 이 축의 이번 방향 이동은 MU 고유 실행·계약 요인이 아니라 미국의 중국산 메모리 정책이라는 섹터 공통 요인에 귀속된다 — 동일 정책 재료에 대해 참조 자산이 같은 부호로 반응했다는 관측이 그 근거다. [fact] 정책의 방향은 이번 Run 시점에 확정되지 않았다 — 2026-08-17 상무장관 Lutnick의 반대 표명(구속력 있는 규정 부재가 같은 보도에 병기)과 2026-08-24 허용 검토설이 상반된 방향으로 병존하며, 두 관측 모두 confirmed:false 등급이다. [fact] 직전 Run(20260820_1932)에서 이 축의 스크립트 집계 방향은 neutral이었고 이번 Run은 weaken이다 — 방향 표기 변경의 근거는 8/21 상원 서한 시한 경과 후에도 Apple의 공개 응답이 확인되지 않은 상태에서 8/24 보도가 추가된 것이며, 확정 매출·마진·가이던스 수치는 두 Run 어느 쪽에도 포함되지 않았다. [fact] 본 해석은 MU 개별 등급 판정의 근거가 아니다(P13).",
+   "dominant_factor": "sector_common_policy_unresolved",
+   "supporting_deltas": [
+    "MU:china_supply"
+   ],
+   "supporting_claims": [
+    "c_20260905_MU_06",
+    "c_20260905_MU_07",
+    "c_20260905_MU_08",
+    "c_20260905_MU_09"
+   ],
+   "reference_context_refs": [
+    "ref_policy_shock_reaction_20260824",
+    "ref_us_commerce_stance_20260817",
+    "ref_senate_letter_primary_source"
+   ]
+  },
+  {
+   "axis": "hbm_demand",
+   "direction": "neutral",
+   "direction_qualifier": "[fact] L2는 이 축을 '확정 변화 없음(no new data)'으로 기록했고 신규 관측 2건(대만 노조 파업투표 c_10, HBM 캐파 2배 확대설 c_11)은 모두 confirmed:false로 Delta 방향에 반영되지 않았다.",
+   "supporters": {
+    "strengthen": [],
+    "weaken": [],
+    "neutral": [
+     "MU"
+    ],
+    "break": []
+   },
+   "dispersion": null,
+   "coverage_count": 1,
+   "interpretation": "[fact] MU의 HBM 캐파 2배 확대설(c_20260905_MU_11)의 출처인 DigiTimes 2026-09-04 기사의 제목은 'Micron reportedly targets 2× HBM capacity by end-2026; Samsung, SK Hynix keep the scale edge'로, 동일 기사가 확대 계획과 함께 참조 2사의 규모 우위 유지를 병기하고 있다(참조 ref_hbm_scale_position). [fact] 제3자 시장점유 집계는 2026 2분기 기준 SK하이닉스 HBM 점유 50~62%, Micron이 삼성전자를 앞선 2위권이라는 서로 다른 수치를 제시하며 집계기관 간 값이 일치하지 않는다(reference_grade 4). [inference, 강도: 낮음] 따라서 c_11을 '축 강화'로 읽으려면 절대 캐파 증가분과 상대 점유 변화를 분리해야 하며, 원 보도 자체가 두 방향을 함께 담고 있다는 점에서 미확인 단계의 방향 판정 보류(L2의 Delta 미생성 처리)는 이번 관측과 정합적이다 — 다만 이는 관측 정합성 기록이며 MU 축 판정을 대체하지 않는다. [fact] HBM 마진 대 범용 마진 분해는 참조 자산도 제품군별 마진을 공개하지 않아 섹터 차원의 대체 검증이 불가하다 — 직전 Run과 동일한 상태로 이월된다. [fact] 대만 노조 파업투표(c_10)는 MU 대만 사업장 고유 사안이며 참조 자산(한국 사업장)에서 대응 관측이 확인되지 않았다 — 섹터 공통 요인으로 분류할 근거가 없다.",
+   "dominant_factor": "company_specific_execution_unobserved",
+   "supporting_deltas": [
+    "MU:hbm_demand"
+   ],
+   "supporting_claims": [
+    "c_20260905_MU_10",
+    "c_20260905_MU_11",
+    "c_20260905_MU_13"
+   ],
+   "reference_context_refs": [
+    "ref_hbm_scale_position",
+    "ref_industry_capacity_expansion_2026"
+   ]
+  },
+  {
+   "axis": "sca_defense",
+   "direction": "neutral",
+   "direction_qualifier": "[fact] L2는 조사기간(8/20~9/5) 내 신규 SCA 체결·조건 변경 미확인으로 no_change 처리했다(c_12). 부재는 반증이 아니다(P5).",
+   "supporters": {
+    "strengthen": [],
+    "weaken": [],
+    "neutral": [
+     "MU"
+    ],
+    "break": []
+   },
+   "dispersion": null,
+   "coverage_count": 1,
+   "interpretation": "[fact] 참조 자산의 계약 구조에 대해 이번 조회에서 상반된 grade 3~4 보도가 병존한다 — (a) 삼성전자·SK하이닉스가 2~3년 장기계약(LTA)을 거부하고 분기 계약을 유지하며 분기별 단계적 인상을 추진한다는 보도, (b) 직전 Run에서 기록한 삼성·SK하이닉스의 LTA 기간 3~5년 연장 및 SK하이닉스의 가격상한 제거 보도. [fact] 두 보도는 같은 대상(참조 2사의 장기계약 채택 여부)에 대해 서로 다른 방향을 서술하며 어느 쪽도 각사 공시 원문으로 대조되지 않았다. [inference, 강도: 낮음] 따라서 '참조 2사 대비 MU의 SCA 구조가 상대적으로 유리하다/불리하다'는 형태의 비교 판정은 이번 Run에서 성립하지 않는다 — 비교 기준이 되는 참조 측 사실 자체가 상충하기 때문이다. [fact] 이 항목은 sector_unconfirmed에 추적 등재했고, MU SCA 조건의 확인은 L2 소관이며 2026-09-30 FY26 Q4 실적의 'SCA 가이던스' 체크포인트 대상이다. [fact] 참조 자산의 계약 구조 정보는 MU 판정 근거로 사용되지 않았다(P6·P13).",
+   "dominant_factor": "no_observation",
+   "supporting_deltas": [
+    "MU:sca_defense"
+   ],
+   "supporting_claims": [
+    "c_20260905_MU_12"
+   ],
+   "reference_context_refs": [
+    "ref_lta_structure_conflict"
+   ]
+  },
+  {
+   "axis": "cycle_position",
+   "direction": "neutral",
+   "direction_qualifier": "[fact] L2는 비트그로스 대 ASP 분해의 신규 확정 수치가 조사기간 내 확인되지 않아 no_change 처리했다(c_13). 최신 공개 데이터는 FY26 Q2 10-Q 기준이다.",
+   "supporters": {
+    "strengthen": [],
+    "weaken": [],
+    "neutral": [
+     "MU"
+    ],
+    "break": []
+   },
+   "dispersion": null,
+   "coverage_count": 1,
+   "interpretation": "[fact] 섹터 참조 지표는 이번 조회에서 두 층위가 동시에 관측된다 — (i) 가격: 서버 DRAM 계약가 인상 기조 지속(1Q26 전분기比 60~70% 제시 → 3Q26 삼성 최대 20% 요구 수준으로 인상폭 축소 집계), (ii) 공급: 삼성전자·SK하이닉스 및 한국 정부의 대규모 증설 계획(보도된 총 투자 규모가 매체별로 5,900억 달러와 8,700억 달러로 상이), 삼성 2026년 캐파 약 50% 확대, SK하이닉스 1c 노드 월 웨이퍼 캐파 대폭 확대 계획. [fact] 위 수치는 전부 reference_grade 3~4의 매체·리서치 집계이며 각사 공시 원문 대조가 수행되지 않았고, 총 투자 규모 항목은 출처 간 값이 일치하지 않는다. [inference, 강도: 중간] 가격 인상 지속과 인상률 둔화, 그리고 대규모 증설 계획이 동시에 관측되는 구간에서는 사이클 위치 판정이 P(가격) 축 단독으로 결정되지 않으며 Q(비트) 축의 공급 반응 시차를 함께 분리해야 한다 — 이는 관측 구조에 대한 기술이며 향후 가격·수급 방향에 대한 진술이 아니다. [fact] 참조 지표는 업계 지표이므로 MU 고유의 비트그로스 대 ASP 분해 근거로 사용할 수 없다(P6) — 해당 분해는 2026-09-30 FY26 Q4 실적이 유일한 관측 창이다.",
+   "dominant_factor": "sector_common_pricing_cycle_unresolved",
+   "supporting_deltas": [
+    "MU:cycle_position"
+   ],
+   "supporting_claims": [
+    "c_20260905_MU_13"
+   ],
+   "reference_context_refs": [
+    "ref_industry_pricing_direction_2h26",
+    "ref_industry_capacity_expansion_2026"
+   ]
+  },
+  {
+   "axis": "valuation_paradox",
+   "direction": "neutral",
+   "direction_qualifier": "[fact] L2는 이번 구간 신규 밸류에이션 판정 근거(비트/ASP 분해, 선수금 방향)가 없어 no_change 처리했고, P/E 단독 서술은 noise_filter.yaml#MU 등재 패턴으로 판정에 사용하지 않았다.",
+   "supporters": {
+    "strengthen": [],
+    "weaken": [],
+    "neutral": [
+     "MU"
+    ],
+    "break": []
+   },
+   "dispersion": null,
+   "coverage_count": 1,
+   "interpretation": "[fact] 이 축의 판정에 필요한 분자(이익 수준의 지속성)와 분모(멀티플 기준 시점) 분해 입력은 이번 Run에서 MU·참조 자산 어느 쪽에서도 확보되지 않았다(P10). [fact] 위 cycle_position 항목에 기록한 섹터 참조 지표(가격 인상 지속 + 인상률 둔화 + 대규모 증설 계획)는 전부 reference_grade 3~4이며 이익 수준의 지속성을 판정할 수 있는 확정 수치가 아니다. [inference, 강도: 낮음] 피크 이익 기준 멀티플이 낮게 보이는 현상(피크 역설)의 성립 여부는 이익 수준의 지속성 판정에 종속되며, 그 판정 입력이 부재한 이번 Run에서는 축 방향을 산출할 수 없다 — 판정 보류가 정보 부재에 대한 기본 경로다(P5·P12). [fact] 본 항목은 섹터 맥락 기술이며 MU 개별 판정의 근거가 아니다.",
+   "dominant_factor": "no_observation",
+   "supporting_deltas": [
+    "MU:valuation_paradox"
+   ],
+   "supporting_claims": [
+    "c_20260905_MU_13"
+   ],
+   "reference_context_refs": [
+    "ref_industry_pricing_direction_2h26"
+   ]
+  }
+ ],
+
+ "axes_without_delta": {
+  "_note": "[fact] 이번 Run에서는 MU 카드의 5개 축 전부에 Delta가 생성되어 Delta 부재 축이 없다. [fact] 직전 Run(20260820_1932)에서는 china_supply 1개 축에만 Delta가 있었고 4개 축이 관측 부재였다 — 축 커버리지가 1개에서 5개로 증가한 사유는 이번 조회 기간에 EDGAR 신규 공시 및 승격 웹 항목이 확보된 것이다(L2 산출물 기록). [fact] 다만 5개 축 중 4개는 'no_change(변화 없음 확인)' 방향이며 이는 관측된 중립이지 방향성 판정이 아니다.",
+  "axes": []
+ },
+
+ "axis_proposal_review": [
+  {
+   "proposed_axis_id": "ip_litigation_risk",
+   "label": "특허소송 리스크 (Netlist ITC 배제명령·CDCA 손해배상 등)",
+   "origin": "[fact] L2 thesis-delta 신규 축 제안(status: '재제안 — 직전 run 20260820 계류 건 갱신') + signal-arbiter note_for_orchestrator (3)의 축 미매핑 플래그. 직전 Run(20260820_1932)에서 동일 축이 이미 사람 판단 대기 상태로 상정되었다.",
+   "basis_claims": [
+    "c_20260905_MU_03",
+    "c_20260905_MU_04",
+    "c_20260905_MU_05"
+   ],
+   "sector_level_task": "[fact] 본 계층의 역할은 이 리스크가 종목 특이(company_specific)인지 메모리 섹터 공통(sector_common)인지 구분하는 근거를 기록하는 것에 한정된다. 축 신설 여부·방향·등급 반영은 모두 사람 판단이며 본 산출물은 판정하지 않는다(CLAUDE.md §9 사람-에이전트 경계).",
+   "sector_verdict": "company_specific_exposure_axis (직전 Run 구분 유지 — 이번 Run 신규 관측으로 변경 사유 발생하지 않음)",
+   "sector_verdict_basis": [
+    "[fact] 청구 대상 기술은 DDR5 RDIMM·MRDIMM으로 메모리 3사가 공통 출하하는 서버 표준 모듈 제품군이다 — 특허 포트폴리오·로열티 비용이라는 층위는 섹터 공통이다(직전 Run 기록 승계, c_20260905_MU_03 원 출처 동일).",
+   "[fact] 2026-08-12 ITC 청원·CDCA 소송의 피신청인은 Micron과 그 고객사(Supermicro·HPE·Lenovo)이며 삼성전자·SK하이닉스는 피신청인에 포함되지 않았다.",
+    "[fact] Section 337 구제수단(수입배제명령·중지명령)은 피신청인 지정 방식으로 작동하므로 명령의 효력 범위는 지정 당사자의 수입·판매이며 DDR5 RDIMM·MRDIMM 제품군 전체가 아니다.",
+    "[fact] 삼성전자는 2026-08 초 Netlist와 5년 계약을 체결하고 계류 중인 전 건을 종결했다 — 참조사 1곳의 노출은 이번 Run 시점에도 소멸 상태로 유지된다(신규 반증 관측 없음).",
+    "[fact] SK하이닉스-Netlist 라이선스(2021-04 체결, 5년)의 2026-04 만료 이후 갱신 체결 여부는 이번 Run의 재조회에서도 1차 자료로 확인되지 않았다 — 확인된 것은 개인 분석 매체·리테일 커뮤니티 수준의 grade 4 언급뿐이며 '무라이선스'로 단정하지 않는다(P5).",
+    "[inference, 강도: 중간] 따라서 구제수단이 인용될 경우의 부담 귀착(incidence)은 MU 단독이며 이 축은 섹터 공통 방향축(common_axes)이 아니라 종목 고유 노출축의 성격을 갖는다 — 직전 Run의 구분과 동일하다."
+   ],
+   "new_observations_this_run": [
+    "[fact] CDCA 소송의 Micron 답변 시한이 2026-09-10으로 보도되었다(c_20260905_MU_04, evidence_grade 4·confirmed:false — 법원 도켓 원문 역추적 실패).",
+    "[fact] 2026-09-05 기준 ITC의 Micron 건 조사개시(institution) 투표 공지는 확인되지 않았고, 동 기간 확인된 institution 투표는 Samsung 상대 별건이다(c_20260905_MU_05, grade 1·confirmed:true — 부재 확인이며 반증이 아니다, P5).",
+    "[inference, 강도: 낮음] 위 2건은 절차 진행 단계의 관측일 뿐 섹터 공통 대 종목 특이 구분의 근거를 변경하지 않는다 — 두 관측 모두 피신청인 구성이 MU와 그 고객사로 한정된다는 사실을 재확인할 뿐이기 때문이다."
+   ],
+   "condition_that_would_change_verdict": "[fact] SK하이닉스의 Netlist 라이선스 갱신 미체결이 1차 자료로 확인되고 Netlist가 SK하이닉스를 상대로 신규 제소하는 관측이 추가되면 종목 특이 층위의 분류 근거가 변경된다 — 해당 조건을 sector_unconfirmed에 추적 항목으로 유지한다.",
+   "decision_needed_from_human": [
+    "ip_litigation_risk 축 신설 여부 및 카드 내 배치(공통축 대 고유축)",
+    "관측 체크포인트 등재 여부 — ITC 조사개시 결정, CDCA 답변(보도상 2026-09-10), SK하이닉스 라이선스 갱신 여부",
+    "[fact] 본 축은 2개 Run 연속(20260820, 20260905) 사람 판단 대기 상태다 — 대기 14일 초과 시 expired 처리 규칙(CLAUDE.md §9) 적용 여부 확인 필요."
+   ],
+   "not_used_for": "[fact] 위 근거는 MU 시그널 등급의 상향·하향 근거로 사용되지 않았다. 참조사(삼성전자·SK하이닉스)의 라이선스 보유·합의 사실을 MU 상대열위 판정으로 전이하지 않는다(P6·P13, F11·F13) — 참조 자산에 대한 Claim·Delta도 생성하지 않았다(D14).",
+   "reference_context_refs": [
+    "ref_netlist_skhynix_license_status"
+   ]
+  }
+ ],
+
+ "reference_context": {
+  "_scope": "[fact] D14 경량 참조 — 삼성전자·SK하이닉스(및 대조 목적의 제3자 사실)는 커버리지 밖이다. 아래 항목에 대해 Claim·Delta를 생성하지 않으며, MU Delta·축 제안이 섹터 공통 요인인지 MU 고유 요인인지 구분하는 해석 용도로만 사용한다. [fact] 어떤 항목도 MU 개별 등급 판정의 근거로 사용되지 않았다(P6·P13, F11·F13). [fact] 아래 항목은 전부 웹검색 경유이며 참조 자산의 1차 공시 원문 대조는 수행하지 않았다.",
+  "retrieved_at": "2026-09-05",
+  "items": [
+   {
+    "ref_id": "ref_policy_shock_reaction_20260824",
+    "asset": "SK하이닉스 (참조) · 메모리 섹터 공통",
+    "topic": "2026-08-24 Apple 中산 소싱 검토설에 대한 섹터 동반 반응",
+    "observed": "[fact] 2026-08-24 보도 직후 집계된 하락 폭은 SanDisk -9%, Micron -7%($897.86), Western Digital -7%($429.49), SK하이닉스 -5%($154.48)로 보도된다. [fact] 동 보도들은 미 당국이 Apple의 중국 판매 제품 한정으로 CXMT DRAM·YMTC NAND 조건부 승인을 검토 중이라는 내용을 원 사실로 인용한다.",
+    "source_url": "https://247wallst.com/investing/2026/08/24/memory-stocks-slide-on-report-apple-may-source-chinese-chips-sandisk-down-9-micron-and-western-digital-down-7/",
+    "source_type": "financial_media_aggregated",
+    "reference_grade": 4,
+    "published_at": "2026-08-24",
+    "staleness_days": 12,
+    "used_for": "[fact] china_supply 축 이동의 요인 귀속(섹터 공통 대 MU 고유) 판단에만 사용했다. [fact] MU 등급 판정 근거로 사용하지 않았다.",
+    "caveat": "[fact] 가격 반응 수치는 금융매체 집계(grade 4)이며 거래소 원자료 대조 미수행 — 삼각검증용, 단독 판단 근거 불가."
+   },
+   {
+    "ref_id": "ref_us_commerce_stance_20260817",
+    "asset": "정책 일반 (참조)",
+    "topic": "미 상무부의 중국산 메모리 소싱 반대 표명 및 규정 부재",
+    "observed": "[fact] 2026-08-17 보도에 따르면 상무장관 Howard Lutnick은 Apple의 중국산 메모리 소싱을 '승인하지 않는다'고 밝히고 이 입장을 Apple에 직접 전달했다고 말했으며, 같은 계열 보도에 이를 강제하는 규정이 없다는 서술이 병기되어 있다. [fact] CXMT는 미 국방부의 중국 군사기업 목록(1260H)에 등재된 것으로 보도된다. [fact] 이 관측(8/17)은 MU.json에 기록된 8/24 허용 검토설보다 앞선 시점이며, 이번 조회에서 8/24 이후 행정부 입장 변경을 보도한 항목은 확인되지 않았다.",
+    "source_url": "https://finance.yahoo.com/technology/articles/micron-shares-rise-white-house-141616676.html",
+    "additional_urls": [
+     "https://thenextweb.com/news/lutnick-apple-chinese-memory-chips-cxmt-ymtc"
+    ],
+    "source_type": "secondary_media",
+    "reference_grade": 4,
+    "published_at": "2026-08-17",
+    "staleness_days": 19,
+    "used_for": "[fact] china_supply 축의 정책 방향이 이번 Run 시점에 양방향으로 미확정임을 기록하는 데만 사용했다.",
+    "caveat": "[fact] grade 4 2차 매체이며 상무부 공식 발표 원문 대조 미수행. [fact] 본 항목은 MU 하락분에 대한 반대 근거로 사용되지 않았다 — 정책 미확정 상태의 기록이며 방향 판정이 아니다(P5)."
+   },
+   {
+    "ref_id": "ref_senate_letter_primary_source",
+    "asset": "정책 일반 (참조)",
+    "topic": "2026-07-29 상원 초당적 서한 — 1차 출처 접근 가능성",
+    "observed": "[fact] L2가 접근 실패(403)로 grade 4 2차 매체로 대체 처리한 상원 서한(c_20260905_MU_06)의 발신자 측 공식 보도자료가 banks.senate.gov 도메인에서 검색 결과로 노출된다. [fact] 본 산출물은 해당 URL의 내용을 열람·인용하지 않았다 — MU 관련 Claim 생성은 L2 소관이며 L3는 Claim을 생성하지 않는다(P17).",
+    "source_url": "https://www.banks.senate.gov/news/press-releases/sen-banks-democratic-leader-schumer-colleagues-demand-apple-reject-chinese-military-linked-chips/",
+    "source_type": "primary_source_url_observed_not_read",
+    "reference_grade": null,
+    "published_at": "2026-07-29",
+    "staleness_days": 38,
+    "used_for": "[fact] L2의 config 제안(config/sources.yaml에 *.senate.gov 등재 검토)에 대한 실현 가능성 정보 이관에만 사용했다.",
+    "caveat": "[fact] 에이전트는 config를 자동 수정하지 않는다(CLAUDE.md §9) — 본 항목은 사람 판단용 정보 이관이며 제안 자체는 L2 산출물의 flags_for_thesis_refine에 이미 등재되어 있다."
+   },
+   {
+    "ref_id": "ref_hbm_scale_position",
+    "asset": "삼성전자 · SK하이닉스 (참조)",
+    "topic": "HBM 캐파·점유 상대 위치",
+    "observed": "[fact] MU의 HBM 캐파 2배 확대설이 실린 DigiTimes 2026-09-04 기사의 제목은 'Micron reportedly targets 2× HBM capacity by end-2026; Samsung, SK Hynix keep the scale edge'로 확대 계획과 참조 2사의 규모 우위를 함께 서술한다. [fact] 제3자 집계는 2026 2분기 HBM 점유를 SK하이닉스 50%(다른 집계는 62%), Micron이 삼성전자를 앞선 2위권으로 제시하며 집계기관 간 값이 일치하지 않는다. [fact] HBM4 세그먼트에 대해서는 SK하이닉스 약 70%(UBS 추정 인용), 삼성전자 25~30%라는 추정치가 보도된다. [fact] SK하이닉스는 HBM3E 수요 지속으로 HBM4 캐파 확대를 2026 2분기에서 3분기로 연기했다고 보도된다.",
+    "source_url": "https://www.digitimes.com/news/a20260904VL206/micron-hbm-capacity-sk-hynix-samsung.html",
+    "additional_urls": [
+     "https://counterpointresearch.com/en/insights/global-dram-and-hbm-market-share",
+     "https://www.techpowerup.com/343802/sk-hynix-slows-down-hbm4-ramp-prepares-300-layer-nand-flash"
+    ],
+    "source_type": "trade_press_and_research_media",
+    "reference_grade": 4,
+    "published_at": "2026-09-04",
+    "staleness_days": 1,
+    "used_for": "[fact] hbm_demand 축에서 MU의 캐파 확대설을 절대 증가분과 상대 점유 변화로 분리해 읽어야 함을 기록하는 데만 사용했다.",
+    "caveat": "[fact] 점유율·HBM4 세그먼트 추정치는 집계기관·투자은행 추정(grade 4)이며 출처 간 값이 상충한다 — 단독 판단 근거 불가. [fact] DigiTimes 원문은 L2 조회 시점에 IP 차단으로 직접 접근되지 않았고 본 산출물도 제목·검색 스니펫 수준만 확인했다."
+   },
+   {
+    "ref_id": "ref_industry_pricing_direction_2h26",
+    "asset": "삼성전자 · SK하이닉스 (참조)",
+    "topic": "업계 ASP 방향",
+    "observed": "[fact] 서버 DRAM 계약가는 2026 1분기 전분기 대비 60~70% 인상 제시 이후, 3분기에는 삼성전자가 DRAM ASP 최대 20% 인상(LPDDR은 20% 초과 가능)을 요구한 것으로 집계·보도된다 — 방향은 인상 지속, 인상률은 축소. [fact] 같은 집계는 삼성전자 DRAM ASP가 2026 1분기 전분기 대비 약 90%, 2분기 50~60% 상승했고 SK하이닉스는 동 기간 약 30% 상승했다고 서술한다.",
+    "source_url": "https://www.trendforce.com/news/2026/07/03/news-samsung-reportedly-seeks-up-to-20-3q26-dram-price-increase-lpddr-hikes-may-exceed-20/",
+    "additional_urls": [
+     "https://www.trendforce.com/news/2026/08/13/news-samsung-sk-hynixs-hbm4-push-puts-hbm-general-memory-pricing-in-the-spotlight-for-2h-earnings/"
+    ],
+    "source_type": "research_media",
+    "reference_grade": 4,
+    "published_at": "2026-07-03",
+    "staleness_days": 64,
+    "used_for": "[fact] cycle_position·valuation_paradox 축의 섹터 맥락 기술에만 사용했다. [fact] MU 고유의 비트그로스 대 ASP 분해 근거로 사용할 수 없다(P6).",
+    "caveat": "[fact] 계약가 인상률은 리서치 추정(grade 4)이며 각사 공시 대조 미수행. [fact] 최신 항목의 published_at이 2026-07-03으로 staleness 64일 — 이번 조사기간(8/20~9/5)에 갱신된 계약가 집계는 확인되지 않았다."
+   },
+   {
+    "ref_id": "ref_industry_capacity_expansion_2026",
+    "asset": "삼성전자 · SK하이닉스 (참조)",
+    "topic": "증설·캐파 확대 발표",
+    "observed": "[fact] 삼성전자·SK하이닉스와 한국 정부가 신규 반도체 단지(팹 4기)를 조성해 5년 내 국내 DRAM 캐파를 2배로 확대한다는 계획이 보도되며, 총 투자 규모는 매체에 따라 약 5,900억 달러와 약 8,700억 달러로 서로 다르게 제시된다. [fact] 삼성전자는 2026년 생산 캐파 약 50% 확대, SK하이닉스는 인프라 투자를 기존 발표 대비 4배 이상 확대할 계획으로 보도된다. [fact] 1c 노드 기준으로 SK하이닉스는 2026년말까지 월 웨이퍼 캐파를 약 2만 장에서 16만~19만 장으로, 삼성전자는 20만 장으로 확대하는 목표가 집계된다. [fact] DigiTimes 2026-08-24 기사는 삼성전자의 DRAM 캐파 우위가 SK하이닉스의 빠른 증설로 축소되고 있다고 서술한다. [fact] 신규 팹 가동 시점은 삼성 P5가 2028년, SK하이닉스 M15X가 2027년 중반으로 보도된다.",
+    "source_url": "https://www.datacenterdynamics.com/en/news/samsung-and-sk-hynix-to-scale-up-memory-production-capacity-in-2026-to-meet-ai-demand/",
+    "additional_urls": [
+     "https://www.techpowerup.com/350478/samsung-and-sk-hynix-to-expand-semiconductor-capacity-with-usd-870-billion-plan",
+     "https://www.digitimes.com/news/a20260824VL210/samsung-capacity-dram-wafer-2027.html"
+    ],
+    "source_type": "research_media_and_trade_press",
+    "reference_grade": 4,
+    "published_at": null,
+    "staleness_days": null,
+    "used_for": "[fact] cycle_position 축의 공급 층위 맥락 기술에만 사용했다.",
+    "caveat": "[fact] 총 투자 규모가 출처 간 상충하고(5,900억 vs 8,700억 달러) 개별 항목의 발표일이 이번 조회에서 특정되지 않아 published_at·staleness_days를 null로 기록한다 — 정량 입력으로 사용 불가, 방향성 맥락 한정. [fact] 각사 공시 원문 대조 미수행."
+   },
+   {
+    "ref_id": "ref_lta_structure_conflict",
+    "asset": "삼성전자 · SK하이닉스 (참조)",
+    "topic": "장기공급계약(LTA) 구조 — 출처 간 상충",
+    "observed": "[fact] 이번 조회에서 확인된 보도는 삼성전자·SK하이닉스가 2~3년 LTA를 거부하고 분기 계약을 유지하며 2027년까지 분기별 단계적 인상을 추진한다는 내용이다. [fact] 직전 Run(20260820_1932)의 참조 항목 ref_industry_pricing_2h26에는 삼성전자·SK하이닉스가 LTA 기간을 1년에서 3~5년으로 연장 중이고 SK하이닉스가 LTA 가격 상한을 제거했다는 상반된 보도가 기록되어 있다. [fact] 두 보도는 어느 쪽도 각사 공시 원문으로 대조되지 않았다.",
+    "source_url": "https://www.digitimes.com/news/a20260106PD224/samsung-sk-hynix-dram-price-increase.html",
+    "additional_urls": [
+     "https://www.trendforce.com/news/2026/07/02/news-sk-hynix-reportedly-removes-price-cap-in-memory-long-term-agreements-diverging-from-micron/"
+    ],
+    "source_type": "trade_press",
+    "reference_grade": 4,
+    "published_at": "2026-01-06",
+    "staleness_days": 242,
+    "used_for": "[fact] sca_defense 축에서 '참조 2사 대비 MU 계약구조 비교 판정'이 이번 Run에서 성립하지 않는 사유를 기록하는 데만 사용했다.",
+    "caveat": "[fact] 출처 간 방향이 상충하며 발표 시점 차이(1월 대 7월)로 인한 상태 변화인지 보도 오류인지 이번 조회로 구분되지 않는다 — sector_unconfirmed에 등재. [fact] 직전 Run에 기록된 'Micron은 상·하한 병존 구조 유지' 대비 서술도 MU 고유 계약 조건에 관한 grade 4 미확인 정보이므로 sca_defense 판정 근거로 사용하지 않는다."
+   },
+   {
+    "ref_id": "ref_netlist_skhynix_license_status",
+    "asset": "SK하이닉스 (참조)",
+    "topic": "Netlist 라이선스 만료·갱신 상태 재확인",
+    "observed": "[fact] 2021-04 Netlist-SK하이닉스 전략적 계약(전세계 비독점 라이선스, 합의금 4천만 달러, 기술협력 포함)의 5년 기간이 2026-04에 만료되었다는 서술이 이번 조회에서도 확인된다. [fact] 갱신 체결 여부·조건에 대해 이번 조회에서 확인된 것은 개인 분석 매체(substack)·리테일 커뮤니티(stocktwits) 수준의 언급이며 1차 자료·회사 공시로 확인되지 않았다. [fact] Netlist가 SK하이닉스를 상대로 신규 제소한 관측은 이번 조회 범위에서도 확인되지 않았다.",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1282631/000155837021007497/nlst-20210403x10q.htm",
+    "additional_urls": [
+     "https://stocktwits.com/news-articles/markets/equity/nlst-stock-draws-attention-as-retail-traders-eye-major-2026-inflection-with-sk-hynix-renewal/cZ3m09URI0q"
+    ],
+    "source_type": "historic_filing_and_retail_media",
+    "reference_grade": 4,
+    "published_at": "2026-04",
+    "staleness_days": null,
+    "used_for": "[fact] ip_litigation_risk 축 제안의 '섹터 공통 대 종목 특이' 구분 근거가 이번 Run에서 변경되지 않았음을 확인하는 데만 사용했다.",
+    "caveat": "[fact] 2021년 계약의 존재는 당시 10-Q에서 확인되나 본 Run에서 원문 정독은 수행하지 않았다. [fact] 갱신 상태는 grade 4 미확인이며 '무라이선스'로 단정하지 않는다(P5) — 직전 Run과 동일하게 sector_unconfirmed 유지. [fact] published_at이 월 단위로만 특정되어 staleness_days를 null로 기록한다."
+   }
+  ]
+ },
+
+ "sector_view_summary": {
+  "frame": "[fact] 도메인 프레임 — 비트그로스 대 ASP 분해, HBM 대 범용 마진, SCA·LTA·선수금 방어구조, 사이클 피크 역설(저 P/E ≠ 저평가).",
+  "direction_summary": "[fact] 단일 종목(MU) 뷰 기준 — 이번 Run에서 Delta가 생성된 축은 5개이며 방향은 china_supply 1개 weaken(provisional), 나머지 4개(hbm_demand·sca_defense·cycle_position·valuation_paradox) neutral이다. [fact] 5개 축 전부 커버 종목 수가 1이므로 종목 간 방향 분산은 산출되지 않았다(not_applicable). [fact] 직전 Run(20260820_1932) 대비 Delta 축 수는 1개에서 5개로 증가했고, china_supply의 방향 표기는 neutral에서 weaken으로 변경되었다.",
+  "factor_attribution": "[inference, 강도: 중간] 이번 Run에서 방향이 이동한 유일한 축(china_supply)은 미국의 중국산 메모리 정책이라는 섹터 공통 요인에 귀속된다 — 동일 재료(2026-08-24 보도)에 대해 참조 자산 SK하이닉스를 포함한 메모리 종목군이 같은 부호로 반응했다는 관측이 그 근거다. [fact] 그 정책은 이번 Run 시점에 방향이 확정되지 않았다(8/17 상무부 반대 표명 + 강제 규정 부재, 8/24 허용 검토설 병존, 양쪽 모두 grade 4·confirmed:false). [fact] 나머지 4개 축의 neutral은 MU 고유 실행 성과(비트그로스 대 ASP 분해, HBM 대 범용 마진, SCA 조건, 선수금 방향)를 확인할 1차 자료가 이번 조회 기간에 확보되지 않은 결과이며 방향성 판정이 아니다. [inference, 강도: 중간] 따라서 이번 Run의 섹터 뷰는 '섹터 공통 정책 요인만 관측되고 종목 고유 실행 요인은 미관측'인 구조다 — 두 층위를 분리하는 관측 창은 2026-09-30 FY26 Q4 실적 한 곳에 집중되어 있다. [fact] 신규 축 제안(ip_litigation_risk)의 대상 사건은 비용 층위에서는 섹터 공통, 계류 절차의 노출·구제수단 귀착 층위에서는 MU 종목 특이다 — 상세 근거는 axis_proposal_review에 기록했다.",
+  "structural_observations": [
+   "[fact] 관측 창 집중 — 이번 Run의 5개 축 중 4개가 'no_change(신규 확정 수치 부재)'이고 이 4개 축의 risk_transfer 대상이 2026-09-30 FY26 Q4 실적 1개 이벤트로 수렴한다(cycle_position·valuation_paradox는 명시적으로, hbm_demand·sca_defense는 체크포인트 항목으로). [inference, 강도: 중간] 축 판정의 관측 창이 단일 이벤트에 집중된 구조에서는 해당 이벤트 전까지 축별 독립 재평가가 불가능하다 — 이는 정보 구조에 대한 기술이며 실적 결과 방향에 대한 진술이 아니다.",
+   "[fact] 참조 지표의 등급 하한 — 이번 조회에서 확보한 참조 항목 7건은 전부 reference_grade 4 이하이거나 등급 미부여이며, 각사 공시·거래소 원자료 대조가 수행된 항목이 0건이다. [fact] 직전 Run의 참조 항목은 grade 3~4였으므로 참조 층위의 근거 등급이 이번 Run에서 개선되지 않았다.",
+   "[fact] 참조 정보의 내부 상충 — 참조 항목 중 3건에서 출처 간 값·방향이 일치하지 않는다: (a) LTA 구조(장기계약 거부·분기계약 유지 대 LTA 3~5년 연장), (b) 한국 증설 총 투자 규모(약 5,900억 달러 대 약 8,700억 달러), (c) HBM 점유율 집계(SK하이닉스 50% 대 62%). [inference, 강도: 중간] 상충하는 참조 지표는 MU 축의 대체 검증 수단으로 기능하지 못한다 — 비교 기준 자체가 확정되지 않기 때문이다.",
+   "[fact] 가격 층위와 공급 층위의 동시 관측 — 참조 지표는 계약가 인상 지속과 인상률 축소, 그리고 대규모 증설 계획을 함께 보여준다. [inference, 강도: 중간] 이 구간에서 사이클 위치 판정은 P(가격) 단독으로 결정되지 않으며 Q(비트)의 공급 반응과 분리 관측이 필요하다(P10 분자·분모 분해와 동일한 요건). [fact] 본 항목은 관측 요건의 기술이며 가격·수급의 향후 방향에 대한 진술이 아니다.",
+   "[fact] 리스크 유형의 축 미매핑 지속 — 특허소송(c_03 계열)과 대만 사업장 노사(c_10)라는 2개 리스크 유형이 MU 카드의 기존 5개 축 어디에도 매핑되지 않은 상태다. [fact] 특허소송 건은 2개 Run 연속(20260820, 20260905) 축 미매핑 상태로 이월되었고, 노사 건은 이번 Run 신규다. [inference, 강도: 중간] 축 체계가 수요·계약·사이클·밸류에이션 4개 층위로 구성되어 있어 법적·인적 실행 리스크가 매핑될 자리가 구조적으로 부재하다 — 축 신설 여부는 사람 판단 대상이다."
+  ],
+  "escalation": {
+   "type": "axis_mapping_absent",
+   "raised_by": [
+    "L2 thesis-delta (axis_proposals: ip_litigation_risk, status='재제안 — 직전 run 20260820 계류 건 갱신')",
+    "signal-arbiter (note_for_orchestrator (3) — c_20260905_MU_03 축 매핑 부재, (4) — c_20260905_MU_10 신규 리스크 후보)"
+   ],
+   "sector_layer_contribution": "[fact] 섹터 계층은 판정을 대신하지 않고 해당 리스크의 섹터 공통 층위와 종목 특이 층위를 분리한 근거 목록만 제출한다(axis_proposal_review). [fact] 축 신설 여부·축 배치·등급 반영은 사람 판단 대상이다.",
+   "decision_needed_from_human": [
+    "ip_litigation_risk 축 신설 여부 및 배치 — 섹터 계층 판정은 '종목 고유 노출축'이며 2개 Run 연속 동일 결론",
+    "대만 사업장 노사 리스크(c_20260905_MU_10)의 카드 risks 등재 여부 — L2 flags_for_thesis_refine에 confidence:low로 등재됨",
+    "FY26 Q4 실적일 정정(카드 catalysts·earnings_checkpoints 2026-09-22 → 2026-09-30) — L2가 grade 1·confirmed 근거로 제안",
+    "config/sources.yaml에 *.senate.gov 등재 검토 — L2 제안, 본 계층에서 해당 도메인의 공개 접근 가능성만 정보 이관"
+   ],
+   "kc_note": "[fact] arbiter가 MU 종목 전용 KC 부재를 2개 Run 연속(20260820, 20260905) 플래그했다(note_for_orchestrator (1)). [fact] config/*.yaml은 사용자 직접 편집 영역이므로 본 산출물은 임계·KC를 제안하지 않고 사실만 이관한다(P11, CLAUDE.md §9).",
+   "blocking": false,
+   "blocking_reason": "[fact] 🔴🔴(KC met & confirmed) 판정이 아니므로 후속 단계 진행을 차단하지 않는다(arbiter human_confirmation_required=false)."
+  }
+ },
+
+ "sector_unconfirmed": [
+  "[fact] SK하이닉스-Netlist 라이선스의 2026-04 만료 이후 갱신 체결 여부·조건 — 2개 Run 연속 1차 자료 미확인(grade 4 개인·리테일 매체 언급만 존재). 이 항목의 확정은 특허소송 리스크의 '섹터 공통 대 종목 특이' 구분 근거를 변경할 수 있는 관측 항목이다.",
+  "[fact] 2026-08-12 ITC 청원의 조사개시(institution) 결정 — 2026-09-05 기준 미확인(MU.json c_05 연동, 부재 확인이며 반증 아님). 참조 자산 쪽에서 대체 검증할 수 없는 종목 특이 절차 항목이다.",
+  "[fact] CDCA 소송 Micron측 답변(보도상 시한 2026-09-10) — grade 4 미확인, 법원 도켓 원문 역추적 실패(MU.json c_04 연동).",
+  "[fact] 참조 2사의 LTA 구조 — 이번 조회의 '2~3년 LTA 거부·분기계약 유지' 보도와 직전 Run의 'LTA 3~5년 연장·가격상한 제거' 보도가 상충하며 어느 쪽도 공시 원문 대조가 없다. 상태 변화인지 보도 오류인지 미확인.",
+  "[fact] HBM 마진 대 범용 마진 분해 — MU 카드상 미검증 가설이며 참조 자산도 제품군별 마진을 공개하지 않아 섹터 차원 대체 검증이 불가하다. 2026-09-30 FY26 Q4 실적이 관측 창이다(직전 Run 이월, 관측 창 날짜는 9/22에서 9/30으로 정정 대상).",
+  "[fact] 비트그로스 대 ASP 분해(MU 고유) — 이번 조회 기간 미확보. 업계 계약가 인상률 집계(grade 4)는 업계 지표이며 MU 고유 분해 근거로 사용 불가하다(P6).",
+  "[fact] MU SCA 상한가격 구조 — 2개 Run 연속 1차 자료 재확인 실패. 2026-09-30 실적 'SCA 가이던스' 체크포인트 대상.",
+  "[fact] Apple의 CXMT·YMTC 소싱 관련 공식 결정 및 상원 서한(응답 시한 2026-08-21)에 대한 공개 회신 — 시한 경과 후에도 미확인(MU.json c_06 연동). china_supply 축 방향 확정의 선행 관측 항목이다.",
+  "[fact] 참조 항목 7건 전부가 reference_grade 4 이하이거나 등급 미부여이며 각사 공시·거래소 원자료 대조가 미수행이다 — 재사용 시 원문 확인이 필요하다. 이 중 3건은 출처 간 값·방향이 상충한다."
+ ],
+
+ "p13_guard": "[fact] 본 산출물은 개별 종목의 등급을 변경·제안하는 필드를 포함하지 않는다. signal_mutation은 null로 고정되어 있다. [fact] 참조 자산(삼성전자·SK하이닉스) 및 제3자 관련 사실은 MU 등급의 상향·하향 근거로 사용되지 않았고 참조 자산에 대한 Claim·Delta도 생성하지 않았다(D14). [fact] 섹터 공통 재료는 scope=sector로 분류되어 개별 종목 판정에 전이되지 않는다(P6·P13, F11·F13) — '참조사 호실적·라이선스 보유 → MU 상대 우열'류의 전이 서술을 포함하지 않는다. [fact] 근거는 하위(L2·arbiter)에서 상위(L3)로만 흐른다. [fact] 본 산출물은 매크로 전망 내러티브를 포함하지 않는다 — 참조 지표는 발표·집계된 수치와 그 출처·시각만 기록했고 향후 가격·수급·정책 방향에 대한 예측 서술을 두지 않았다(D3).",
+ "signal_mutation": null
+}

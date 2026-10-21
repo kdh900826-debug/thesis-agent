@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-09-12",
+  "ticker": "NBIS",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [],
+  "claims": [
+    {
+      "id": "c_20260911_NBIS_1",
+      "ticker": "NBIS",
+      "claim_type": "fact",
+      "text": "2026-09-08 6-K(Exhibit 99.1) 원문: 'Nebius and Palantir partner to deliver a complete sovereign AI stack to Palantir customers' — Palantir가 Nebius를 'preferred sovereign AI infrastructure partner'로 지정, Palantir가 자사 상업 고객들에게 Nebius의 AI-native compute·cloud platform 접근을 제공하는 전략적 제휴. Palantir CEO Alex Karp 인용: 'Nebius' compute infrastructure powers your ability to run your own AI models under conditions you control.' Nebius CEO Arkady Volozh 인용: 'Organizations need both the performance of large-scale AI infrastructure and control over their data and models.' 'Sovereign AI stack'은 Palantir의 AIP·Ontology·Foundry·Apollo(소프트웨어) + Nebius 컴퓨팅 인프라(하드웨어) 결합을 의미. 문서 원문(6-K 표지 및 Ex-99.1)에는 달러 금액, MW·GPU 수량, 계약기간, 최소구매약정 등 정량 수치가 전혀 포함되지 않음 — 전략적 제휴·채널 파트너십 발표 단계이며, Nebius와 Palantir 간 또는 Palantir 고객과 Nebius 간의 개별 수주 계약 체결 여부·규모·매출인식 경로는 본 문서로 확정되지 않음(P7 — 제휴 발표≠계약 체결≠매출인식, 3단 분리).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "6-K Ex-99.1 (파트너십 보도자료)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926105749/tm2624958d1_ex99-1.htm",
+        "filed_at": "2026-09-08"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "Palantir은 Meta·MS와 같은 대형 컴퓨트 구매자로 확인된 것이 아니라, Palantir가 자사 엔터프라이즈/정부 고객군에게 Nebius 인프라 접근을 중개하는 채널형 파트너십 성격에 가까움 — customer_concentration 축에 '앵커 고객 추가'로 단순 등치하지 말 것."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "customer_concentration",
+      "direction": "strengthen",
+      "prior_state": "카드 축 정의(2026-08-15~09-05 기준) — '고객 집중 (Meta·MS + 신규 4사)'. Q2 체결 4건 대형 계약(각 $1B+, Reflection·Cohere 등) 이후 신규 명명 고객 관련 1차 자료 추가 없음.",
+      "new_state": "2026-09-08 Palantir와 전략적 제휴 발표(6-K Ex-99.1, grade1, c_20260911_NBIS_1) — Palantir가 Nebius를 'preferred sovereign AI infrastructure partner'로 지정하고 자사 상업 고객에게 Nebius 접근을 제공하는 채널 구조. Meta·MS 2대 앵커 편중 완화 방향의 신규 유통 채널이 1차 자료로 확인됐으나, 계약 금액·용량(MW)·계약기간 등 정량 수치가 전혀 공개되지 않아 방향성만 확인되고 크기는 미확정(quantitative:false). Palantir 자체가 Meta·MS급 대형 컴퓨트 구매자로 확정된 것은 아니며, 실제 최종고객 매출로 이어지는 경로(Palantir向 직접계약 vs Palantir 고객사 개별계약)는 unconfirmed.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260911_NBIS_1"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "Palantir 파트너십의 계약 금액·용량(MW)·계약기간·최소구매약정 등 정량 조건",
+      "reason": "6-K Ex-99.1 원문(WebFetch 확인)에 달러·MW·기간 등 구체 수치 없음 — 전략적 제휴 발표 단계로만 확인되고, 개별 계약 체결·매출인식 여부는 본 문서로 확정 불가(P7).",
+      "next_check": "후속 6-K/20-F 각주 또는 Palantir 측 공시에서 계약 규모·인식 경로 확인",
+      "related_claims": [
+        "c_20260911_NBIS_1"
+      ]
+    },
+    {
+      "item": "[carried] Q3 2026 실적 발표일",
+      "reason": "이번 회차 WebSearch·nebius.com/newsroom 재확인에서도 회사 IR 공식 공지를 확보하지 못함. 애그리게이터 상충 지속(marketbeat류 2026-11-10 vs barchart/tipranks류 2026-10-22) — F1상 판정 근거 불가.",
+      "next_check": "nebius.com/investor-hub 또는 newsroom 공식 공지 재확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] $800M 기존 전환사채(2029·2031년물) 지분교환(~15.8M주)의 실제 주식 인도 완료 시점",
+      "reason": "이번 회차 EDGAR 제출목록(주 창 09-04~09-12, 소급 08-28)에 관련 신규 6-K/20-F 없음 — 8/24 클로징 보도자료 이후 후속 확인 자료 미확보.",
+      "next_check": "차기 20-F/6-K 각주에서 발행주식수 변동 재확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] ATM 잔여 12.3M주 실사용 여부·금액",
+      "reason": "이번 회차 EDGAR 제출목록(09-04~09-12 + 소급 08-28)에서 ATM 관련 신규 6-K를 확인하지 못함 — noise_filter promote_if 조건(실제 발행) 미충족 상태 지속.",
+      "next_check": "차기 20-F/6-K 재무제표·자본조달 각주 확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] 2027 공식 가이던스 발표 시점",
+      "reason": "이번 회차 nebius.com/newsroom·WebSearch에서도 'later this year' 반복 외 구체 일자 언급 없음.",
+      "next_check": "차기 실적/IR 공지 확인",
+      "related_claims": []
+    },
+    {
+      "item": "[carried] Vineland DataOne Phase 2 확장(2026-08-18 승인 보도)의 1차 확인",
+      "reason": "직전 run(c_20260905_NBIS_04)에서 grade4 2차 매체 교차보도만 확보됐고, 이번 회차에도 회사·지자체 1차 문서를 확보하지 못함.",
+      "next_check": "회사 IR/6-K 후속 공시, Vineland 시정부 회의록 원문 확인",
+      "related_claims": []
+    }
+  ]
+}

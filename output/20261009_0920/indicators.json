@@ -1,0 +1,73 @@
+{
+ "yield_30y": {
+  "value": 5.67,
+  "as_of": "2026-10-07",
+  "source_url": "https://fred.stlouisfed.org/series/DGS30",
+  "method": "api"
+ },
+ "ON_RRP": {
+  "value": 335000000.0,
+  "as_of": "2026-10-08",
+  "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+  "method": "api"
+ },
+ "brent": {
+  "value": 125.44,
+  "as_of": "2026-10-06",
+  "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+  "method": "api",
+  "note_raw": "FRED 최신 관측 10-06. 10-07~10-09 관측은 FRED 미게시(게시 지연). 최근 관측(desc): 10-06 125.44, 10-05 125.51, 10-02 135.51, 10-01 114.82, 09-30 115.91, 09-29 113.96, 09-28 119.97, 09-25 116.01, 09-24 120.92."
+ },
+ "FFR": {
+  "value": 4.0,
+  "as_of": "2026-10-08",
+  "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
+  "method": "api",
+  "note_raw": "DFEDTARU 상단 4.00 / DFEDTARL 하단 3.75, 2026-09-17부터 변동 없음(09-16 FOMC 결정 반영: 상단 3.75->4.00). federalreserve.gov FOMC 캘린더(2026-10-09 열람): 10-01~10-09 구간 FOMC 회의 없음; 9월 15-16일 회의 의사록 10-07 공개; 차기 회의 10-27~28."
+ },
+ "BTC": {
+  "value": 81686.025,
+  "as_of": "2026-10-09",
+  "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+  "method": "api"
+ },
+ "VIX": {
+  "value": 15.40999984741211,
+  "as_of": "2026-10-08",
+  "source_url": "yfinance:^VIX",
+  "method": "api"
+ },
+ "TAIEX_vs_20dma_pct": {
+  "value": 4.68,
+  "as_of": "2026-10-07",
+  "source_url": "yfinance:^TWII",
+  "method": "api"
+ },
+ "TAIEX_1m_return_pct": {
+  "value": 6.99,
+  "as_of": "2026-10-07",
+  "source_url": "yfinance:^TWII",
+  "method": "api"
+ },
+ "SDLLMTK_change_pct": {
+  "value": null,
+  "as_of": "2026-07-03",
+  "source_url": "https://www.cio.com/article/4192834/ai-token-prices-are-cooling-but-why-2.html",
+  "method": "web_search",
+  "note_raw": "신뢰 가능한 2주 구간 %변화 수치 미확인(3회 연속 공백). 웹검색 재시도(2026-10-09): 10월 값 미발견. 절대수준 인용 소스 간 불일치/무일자: cio.com·infoworld(2026-07-03 발행) '1.62, 5월 고점 대비 -20%'; 일자 불명 2차 요약(Goldman 인용) '8월 -29%, 월말 약 0.97, 5월 고점 약 2.05 대비 -50%+'. 월간 변화이지 2주 구간 아님, 일자 불명, 2차 매체 — 값 채택 보류(unconfirmed, P4·P5). 14일 한도 초과."
+ },
+ "hyperscaler_fcf_sum": {
+  "value": 6835000000,
+  "as_of": "2026-06-30",
+  "source_url": "https://www.investing.com/news/stock-market-news/microsoft-only-us-hyperscaler-with-positive-free-cash-flow-as-ai-capex-bites-93CH-4846663",
+  "method": "web_search",
+  "note_raw": "직전 run과 동일값 carry-over. 웹검색(2026-10-09): Q3'26(7-9월) 실적 발표·10-Q 미확인(정례 발표 통상 10월 하순, 2026 일정 미확인; MSFT 10-28 발표 예정은 직전 run 기록). 신규 분기 공시 확인 전까지 as_of 2026-06-30 유지. 2차 매체 요약에 소스 간 불일치(Amazon TTM FCF 상이, Meta 상이) — 합산 재계산 안 함."
+ },
+ "msft_fcf": {
+  "value": 19640000000,
+  "as_of": "2026-06-30",
+  "source_url": "https://www.investing.com/news/stock-market-news/microsoft-only-us-hyperscaler-with-positive-free-cash-flow-as-ai-capex-bites-93CH-4846663",
+  "method": "web_search",
+  "note_raw": "직전 run과 동일값 carry-over. 웹검색(2026-10-09): Q3'26(7-9월) 실적 발표·10-Q 미확인(정례 발표 통상 10월 하순, 2026 일정 미확인; MSFT 10-28 발표 예정은 직전 run 기록). 신규 분기 공시 확인 전까지 as_of 2026-06-30 유지. 2차 매체 요약에 소스 간 불일치(Amazon TTM FCF 상이, Meta 상이) — 합산 재계산 안 함."
+ }
+}

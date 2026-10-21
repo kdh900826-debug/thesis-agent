@@ -1,0 +1,86 @@
+{
+  "as_of": "2026-09-19",
+  "run_id": "20260919_2209",
+  "ticker": "CRCL",
+  "layer": "thesis_patch",
+  "skill": "thesis-refine (S7)",
+  "patch_count": 0,
+  "patches": [],
+  "requires_human_approval": true,
+  "basis_claims": [
+    "c_20260919_CRCL_8"
+  ],
+  "schema_note": "[fact] validate_output.py의 check_thesis_patch는 최상위 dict를 단일 패치로 간주하고, check_common은 최상위 as_of를 요구한다 — 0건 산출물은 순수 빈 배열로는 두 검사를 동시에 만족시킬 수 없다. 그래서 최상위를 컨테이너 dict로 두고 패치 배열은 빈 배열(patches: [])로 유지했다. 컨테이너의 requires_human_approval=true는 F17 불변 조건의 명시이고 basis_claims는 '검토한 근거 후보'를 가리킨다 — 채택된 패치는 0건이다.",
+  "card_full_read": {
+    "path": "state/thesis_cards/CRCL.yaml",
+    "lines": 86,
+    "yaml_parse": "ok (yaml.safe_load)",
+    "counts": {
+      "axes": 8,
+      "risks": 5,
+      "key_metrics": 7,
+      "earnings_checkpoints.items": 6,
+      "version_history": 12
+    },
+    "note": "[fact] F20 전문 확인 완료. 과거 approvals.py 이스케이프 버그로 인한 YAML 파손 이력을 감안해 파싱 가능 여부를 별도 확인했고 정상이다. version_history 항목의 change 문자열에 '/' 토큰 분절 흔적(예: '이전: - / {id: / diversification, ...')이 남아 있으나 YAML 문법상 유효한 단일 스칼라이며 파싱을 막지 않는다 — 가독성 부채로만 기록한다."
+  },
+  "excluded_candidates": [
+    {
+      "candidate_id": "l4_medium_reserve_income_rate_strength",
+      "priority": "medium",
+      "card_field": "axes (reserve_income 축 서술)",
+      "considered_operations": [
+        "amend",
+        "annotate"
+      ],
+      "decision": "excluded",
+      "before_preserved": "  - {id: reserve_income,    label: \"Reserve Income·마진 (금리 직결)\"}",
+      "after": null,
+      "basis_claims_examined": [
+        "c_20260919_CRCL_8",
+        "c_20260919_CRCL_7"
+      ],
+      "basis_claim_profile": "c_20260919_CRCL_8 = inference / scope=macro / confirmed=false / inference_strength=low · c_20260919_CRCL_7 = fact / scope=macro / grade 1",
+      "exclusion_reason": "[fact] state/thesis_cards/CRCL.yaml 전문 86행을 읽었다(F20) — axes 8개, risks 5개, key_metrics 7개, earnings_checkpoints.items 6개, version_history 12건. yaml.safe_load 파싱 정상. 부분 읽기 기반 '부재·누락' 판정은 하지 않았다. [fact] L4가 올린 후보의 원전제('노출 벡터에 CRCL 금리 노출이 정의돼 있지 않다')는 오류로 확인됐다 — 벡터에는 CRCL.RATES가 정의돼 있다. 본 실행은 config/correlation_matrix.yaml을 열람·수정하지 않았다(CLAUDE.md §9 — config는 사용자 편집 영역, 해당 논점은 vcp_05로 분리 기록됨). [fact] 남은 논점인 '벡터 강도 H vs c_20260919_CRCL_8의 inference_strength low'는 동일 척도의 두 값이 아니다 — 전자는 포트폴리오 층의 구조적 노출 방향·강도 표기이고, 후자는 이번 창 개별 추론의 신뢰 강도다. 서로 다른 척도를 '비대칭'으로 간주해 카드 문안을 조정하면 config 값을 카드로 역수입하는 것이 되어 §9 경계를 침범한다. [fact] 유일한 근거 후보 c_20260919_CRCL_8은 claim_type=inference / scope=macro / confirmed=false / inference_strength=low다. P6·P13에 따라 매크로 스코프 재료는 개별 종목 축 판정의 근거가 될 수 없고, P2에 따라 정성 논거는 상향 근거로 부적격이다. 2026-09-16 FOMC 25bp 인상(c_20260919_CRCL_7, scope=macro)도 같은 이유로 축 서술의 근거로 쓰지 않았다. [fact] 이번 창에 Circle의 준비금 실효수익률·듀레이션·재투자 만기구성·유통비용(파트너 분배) 비중에 관한 회사 1차 자료(공시 또는 경영진 직접 발언)는 확보되지 않았다 — 02_company/CRCL.json#unconfirmed의 'Circle 준비금 실효수익률·수익 인식 시차'(reason: no_company_primary_source)로 이미 적재돼 있다. P5에 따라 부재는 반증이 아니며 추론으로 메우지 않는다. [fact] 03_signal/CRCL.json은 reserve_income 축을 neutral/stage 없음으로 집계했고 등급 전이 후보도 maintain(🔴)이다 — 카드 서술을 부정확하게 만든 신규 1차 자료가 없다. [fact] annotate(관측 대기 주석) 수준도 검토했으나 제외했다 — 카드는 이미 세 곳에서 금리 연동을 담고 있다: axes.reserve_income 라벨 '(금리 직결)', key_metrics '기준금리 (이자수입 직결)', risks '금리 인하 시 이자수입 직접 축소 (포트폴리오 내 다른 자산과 역방향 노출 — 자연 헤지)'. 또한 earnings_checkpoints.items는 'Reserve Income 절대액·이자율 민감도'와 '유통비용(파트너 분배) 비중'을 이미 관측 항목으로 지정하고 있어, 관측 대기 주석은 기존 서술의 중복 기재에 그치고 신규 정보가 없다. 근거 없는 주석은 S7 규칙상 패치 무효 사유다. [fact] 따라서 이번 창 정상 경로는 패치 생성이 아니라 제외 + unconfirmed 이월 + 사유 로그다(P5·P12, CLAUDE.md §7 '게이트 미충족은 실패가 아니라 정상 경로').",
+      "principles": [
+        "P5",
+        "P6",
+        "P13",
+        "P2",
+        "P9",
+        "P12",
+        "F20"
+      ],
+      "list_field_touched": false,
+      "thesis_inverting": false,
+      "config_boundary": "[fact] config/correlation_matrix.yaml은 열람·수정하지 않았다 — 노출 벡터 논점은 vcp_05로 분리 기록돼 있고 config는 사용자 편집 영역이다(CLAUDE.md §9).",
+      "reopen_gate": "Q3'26 실적·10-Q — Reserve Income 절대액·이자율 민감도·유통비용(파트너 분배) 비중의 회사 1차 수치가 공시되면 reserve_income 축 서술의 강도 정합을 근거 있는 amend로 재검토한다."
+    }
+  ],
+  "unconfirmed_carried": [
+    {
+      "topic": "Circle 준비금 실효수익률·수익 인식 시차 (FOMC 25bp 인상의 Reserve Income 반영 크기)",
+      "detail": "[fact] 준비금 듀레이션·재투자 구성·USDC 평잔·유통비용 비중의 창 내 회사 1차 자료가 없어 정량화 불가. 02_company/CRCL.json#unconfirmed에 동일 항목이 적재돼 있으며 본 층에서도 미해소로 이월한다. 검증 게이트 = Q3 실적 공시.",
+      "reason": "no_company_primary_source",
+      "source": "output/20260919_2209/02_company/CRCL.json#unconfirmed"
+    },
+    {
+      "topic": "노출 벡터 CRCL.RATES 강도(H)와 카드 축 서술의 정합 판단 기준",
+      "detail": "[fact] 두 값이 동일 척도가 아니어서 이번 창 자료로는 정합·부정합 어느 쪽도 판정할 수 없다. 벡터 자체의 조정 논점은 카드 패치 영역 밖이며 vcp_05로 분리돼 사용자 판단 대상이다.",
+      "reason": "out_of_scope_for_card_patch",
+      "source": "vcp_05 (config 제안 트랙)"
+    }
+  ],
+  "side_check": {
+    "target": ".claude/agents/company-crcl.md",
+    "modified": false,
+    "stale_confirmed": true,
+    "findings": [
+      "[fact] 24행 '**8/18 Q2 실적 임박**'은 stale이다 — Q2'26 실적은 2026-08-05에 이미 발표됐고(카드 catalysts의 '⚠️소멸' 주석), 2026-08-18은 Circle-Coinbase 분배계약 3년 자동 갱신 예정일(KC-CRCL-3 관측 항목)로 실적 게이트가 아니다. 카드 earnings_checkpoints.date도 2026-08-15 패치로 null이 됐고 Q3 공식 IR 공지는 이번 창에도 미확인이다(F1).",
+      "[fact] 부수 발견 — 19행의 축 매핑 목록 'usdc_circulation / reserve_income / competition_ousd / regulation / diversification'도 stale이다. 현재 카드 축은 8개이며 usdc_circulation → usdc_circulation_scale, competition_ousd → competition_ousd_consortium + competition_yield_bearing, regulation → regulation_company_licensing + regulation_sector_legislation으로 분해됐고 usdc_market_share가 별도 축으로 존재한다.",
+      "[fact] 부수 발견 — 27행 '$YLDS ... 리스크 등록부 누락 상태(u_20260815_011) — ThesisPatch 후보'도 stale이다. 해당 누락은 2026-08-15·2026-09-05 risks/amend 패치로 이미 해소돼 카드 risks에 grade 1 수치가 등재돼 있다.",
+      "[fact] 본 실행은 파일을 수정하지 않았다 — 에이전트 정의 파일은 카드 패치 대상이 아니며 확인만 수행했다."
+    ]
+  },
+  "notes": "[fact] 이번 창 처리 대상은 L4가 올린 후보 1건뿐이며 신규 후보를 창작하지 않았다. [fact] state/thesis_cards/CRCL.yaml과 state/pending_approvals.json은 읽기만 했거나 접근하지 않았고 수정하지 않았다(F17). approvals.py는 호출하지 않았다. [fact] 패치 0건이므로 승인 큐 등재 대상도 없다."
+}

@@ -1,0 +1,447 @@
+{
+  "as_of": "2026-10-01",
+  "ticker": "MU",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261001_MU_14",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261001_MU_1",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API(CIK 0000723125) 기준 2026-09-30에 Form 8-K가 신규 등재됐다(accession 0000723125-26-000018). Item 2.02(Results of Operations and Financial Condition)·Item 9.01(Financial Statements and Exhibits)을 보고하며 Exhibit 99.1(2026-09-30 발행 보도자료)과 Exhibit 104(Cover Page Inline XBRL)를 첨부했다. 본문은 '해당 정보는 증권거래법 Section 18상 filed로 간주되지 않으며 별도 명시 참조 없이는 타 공시에 편입되지 않는다'는 통상 문구를 포함한다. edgar_fulltext.py --ticker MU --forms 8-K 10-Q 10-K --since 2026-09-24 결과와 일치한다(1건).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/mu-20260930.htm",
+        "secondary_url": "output/20261001_0900/02_company/_raw_edgar_MU.json",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "카드 지시 '최우선' 과제(9/30 실적 발표) 확인 완료. 회사 공식 확정 공지(2026-08-26 보도자료)가 그대로 이행됐다."
+    },
+    {
+      "id": "c_20261001_MU_2",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Ex-99.1 보도자료(SEC 원문) 직접 파싱 결과, FQ4-26(2026-09-03 종료) 실적은 다음과 같다. 매출 $54,229M(전분기 $41,456M·전년동기 $11,315M 대비 QoQ+31%·YoY+379%). GAAP 매출총이익 $47,047M(매출대비 86.8%)·Non-GAAP $47,204M(87.0%). GAAP 영업이익 $43,751M(80.7%)·Non-GAAP $44,636M(82.3%). GAAP 순이익 $37,701M·Non-GAAP $38,398M. GAAP 희석 EPS $32.87·Non-GAAP $33.42. 영업현금흐름 $43.97B. 순설비투자(capex, net) $10.77B. 조정 FCF $33.20B. 분기배당 $0.15/주(2026-10-29 지급, 2026-10-14 기준일). FY26 전체: 매출 $133,188M(YoY+256%), Non-GAAP 매출총이익률 81.1%(FY25 40.9% 대비 +40.2%p), Non-GAAP EPS $75.52(YoY+811%), 영업현금흐름 $89.68B, 연간 capex(net) $27.37B.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K_exhibit_99.1",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "원문 HTML을 직접 다운로드·태그 제거 후 표 구조를 재확인해 수치를 재검증했다(WebFetch 1차 요약과 교차 일치). P10 — 밸류에이션 판정에 쓰지 않고 분자(이익)측 원자료로만 적재한다."
+    },
+    {
+      "id": "c_20261001_MU_3",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "동 보도자료의 FQ1-27(2027 회계연도 1분기) 가이던스: 매출 $61.5B ± $1.5B. 매출총이익률 GAAP 약 85.95%·Non-GAAP 약 86.25%. 영업비용 GAAP 약 $2.31B·Non-GAAP 약 $2.06B. 희석 EPS GAAP $37.84 ± $1.00·Non-GAAP $38.15 ± $1.00. 실적콜은 2026-09-30 14:30 Mountain Time에 개최됐다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K_exhibit_99.1",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "가이던스는 회사 공식 수치이며 추정치로 대체하지 않았다(P5 — 카드 지시 '추정치로 메우지 말 것' 준수, 본 항목은 회사 발표 원문)."
+    },
+    {
+      "id": "c_20261001_MU_4",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "보도자료의 사업부문별(Business Unit) FQ4-26 실적: Cloud Memory BU 매출 $16,283M(매출총이익률 83%, 영업이익률 76%, 전년동기 59%/48%). Core Data Center BU 매출 $18,002M(매출총이익률 90%, 영업이익률 85%, 전년동기 41%/25%). Mobile and Client BU 매출 $13,114M(매출총이익률 90%, 영업이익률 88%). Automotive and Embedded BU 매출 $6,824M(매출총이익률 84%, 영업이익률 79%). 4개 BU 중 Cloud Memory BU의 매출총이익률(83%)이 전사 평균(87%)과 다른 3개 BU(90%/90%/84% 중 자동차·임베디드를 제외한 90%/90%)보다 낮다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K_exhibit_99.1",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "Cloud Memory BU는 HBM이 귀속되는 사업부이나 BU 자체가 HBM 전용은 아니다(다른 클라우드向 DRAM 포함) — 'HBM 마진'의 정확한 단독 수치는 아니며 근사치 신호로만 사용한다."
+    },
+    {
+      "id": "c_20261001_MU_5",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "회사 IR 사이트(investors.micron.com 경유 q4cdn 호스팅)에 게시된 2026-09-30 실적콜 'Prepared Remarks' 문서(저자 메타데이터: Matthew Henrikson, 작성일 2026-09-30, Micron 공식 발행)를 직접 읽은 결과, Sanjay Mehrotra(의장 겸 CEO)는 다음과 같이 직접 발언했다: 'In HBM, our revenue in fiscal Q4 2026 grew faster than total company revenue in the quarter, as we ramp HBM shipments across a growing number of customers. We have completed agreements for the vast majority of our calendar 2027 HBM bit supply with significant price increases year over year, narrowing the gross margin gap with conventional DRAM.' 또한 'We continue to execute well on our ramp of HBM4... we are proud to be working with NVIDIA on the industry's first custom-HBM4E implementation, NVHBM, to be adopted on next generation of GPUs and NVLink Fusion platforms'라고 밝혔다.",
+      "evidence_grade": 2,
+      "source": {
+        "type": "earnings_call_prepared_remarks",
+        "url": "https://s25.q4cdn.com/621799436/files/doc_financials/2026/q4/Q4-FY26-Prepared-Remarks.pdf",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "grade2 수동 부여 사유(P4): 경영진(CEO) 직접 인용 원문을 PDF 전문에서 직접 확인(Read 도구로 전문 추출, WebFetch 자동요약이 아님). 호스팅 도메인(q4cdn.com)은 sources.yaml 미등재 — 회사 공식 IR 배포 채널이므로 cafc.uscourts.gov 선례(직전 회차)와 동일하게 수동 등급 부여했다. ⚠️카드가 '미검증 가설'로 분류한 'HBM이 장기계약 대가로 마진이 더 낮다'는 명제는 이 발언으로 '마진 갭(gross margin gap)의 존재' 자체는 경영진이 직접 확인했으나, 갭의 정확한 수치(몇 %p)는 공개되지 않았다 — 존재는 fact, 크기는 미확인으로 분리한다. 'narrowing'(축소 중)이라는 방향성도 함께 제시됐다."
+    },
+    {
+      "id": "c_20261001_MU_6",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "동 Prepared Remarks에서 Mark Murphy(CFO)는 RPO(remaining performance obligation) 관련해 직접 발언했다: 'To date we have signed 26 SCAs in total, and our remaining performance obligations, or RPO, is approximately $150 billion... For the 26 signed SCAs and extensions, financial commitments from customers have increased to $32 billion, the vast majority of which are cash deposits.' Sanjay Mehrotra는 별도로 'our Strategic Customer Agreements provide added confidence in the durability of Micron's financial performance'라고 밝혔다. CFO는 또한 'Customer cash deposits received during fiscal Q4 were $12.3 billion... Customer cash deposits on our balance sheet at the end of fiscal Q4 were $12.7 billion'이라고 명시했다.",
+      "evidence_grade": 2,
+      "source": {
+        "type": "earnings_call_prepared_remarks",
+        "url": "https://s25.q4cdn.com/621799436/files/doc_financials/2026/q4/Q4-FY26-Prepared-Remarks.pdf",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "카드 key_metrics 'SCA 건수 및 커버리지 (16건, DRAM 20%+ / NAND 1/3)' 대비 26건(+10건, 그 중 10건은 '2026-09-30 종료 분기 중 신규 체결'로 명시)으로 증가, 커버리지도 '2030년까지 매출의 35% 이상'으로 재서술됐다 — noise_filter.yaml#MU promote_if 최우선 항목('SCA 신규 체결·조건 변경')에 정확히 해당한다. 카드의 'LTA'(장기계약) 용어는 회사 자료에서 'SCA'(take-or-pay 다년 계약)로만 지칭되며 별도 'LTA' 라벨은 확인되지 않았다 — 용어 불일치를 병기한다(P9에 준해 정정하지 않음)."
+    },
+    {
+      "id": "c_20261001_MU_7",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Mark Murphy(CFO)는 비트그로스·가격(ASP) 분해를 직접 제시했다: DRAM — 'Fiscal Q4 DRAM revenue was a record $39.8 billion, up 343% year over year... Bit shipments were up mid-single-digit percentage range. Prices increased high-teens percentage range, driven by tight DRAM industry conditions.' NAND — 'NAND revenue was a record $14.1 billion... Bit shipments increased approximately 10%. Prices increased approximately 30%, driven by tight NAND industry conditions.'",
+      "evidence_grade": 2,
+      "source": {
+        "type": "earnings_call_prepared_remarks",
+        "url": "https://s25.q4cdn.com/621799436/files/doc_financials/2026/q4/Q4-FY26-Prepared-Remarks.pdf",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "카드 key_metrics '비트그로스 vs ASP 분해 (순수 P 사이클 가설 검증)' 직접 충족 항목. DRAM·NAND 모두 가격 상승폭(고10%대/약30%)이 비트그로스(중간 한자릿수/약10%)를 수 배 상회 — 수량보다 가격이 성장을 견인하는 구도가 이번 분기에도 유지됐다는 fact. '순수 P 사이클' 여부에 대한 최종 해석(강세·약세 전환 판정)은 L4/signal 영역이며 본 Delta는 fact 적재에 한정한다(P13)."
+    },
+    {
+      "id": "c_20261001_MU_8",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Mark Murphy(CFO)는 FY27 capex 관련 'In fiscal Q1, we project capex of around $11.5 billion and anticipate first-half fiscal 2027 capex to be approximately $25 billion. We project capex to be higher in the second half of fiscal 2027'이라고 밝혔다. 카드 key_metrics가 언급한 'CapEx $50B 계획'이라는 구체 연간 총액 수치는 이번 보도자료·준비 발언문·실적콜 어디에서도 재확인되지 않았다 — FY26 실적 capex(net)는 $27.37B(c_2)였고, FY27은 상반기만 약 $25B로 가이던스됐으며 하반기는 방향성('higher')만 제시돼 연간 총액은 역산으로도 확정할 수 없다.",
+      "evidence_grade": 2,
+      "source": {
+        "type": "earnings_call_prepared_remarks",
+        "url": "https://s25.q4cdn.com/621799436/files/doc_financials/2026/q4/Q4-FY26-Prepared-Remarks.pdf",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "P5 — '$50B 미재확인'은 $50B 계획의 반증이 아니라 정보 공백이다. 카드 key_metrics 항목은 다음 회차로 unconfirmed 이월한다(추정 금지)."
+    },
+    {
+      "id": "c_20261001_MU_9",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "보도자료 원문(c_2 출처와 동일 파일), Prepared Remarks 전문(c_5~c_8 출처와 동일 파일), 그리고 The Motley Fool이 공개한 2026-10-01자 실적콜 Q&A 포함 전사(stockanalysis.com·fool.com 교차 확인)를 대조한 결과, 세 문서 어디에도 'Netlist', 'ITC', 'litigation', 'lawsuit', 'patent', 'union', 'strike', 'CXMT', 'YMTC', 'Apple' 키워드가 등장하지 않는다. 'Taiwan' 키워드는 실적콜 전사에서 1회만 등장하며 Sanjay Mehrotra의 'In Taiwan, we are on track for meaningful product shipments from our Tongluo facility in mid calendar 2027'라는 발언으로, 노사분쟁과 무관한 신규 공장 가동 일정 언급이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "cross_check_primary_plus_transcript",
+        "url": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000018/a2026q4ex991-pressrelease.htm",
+        "secondary_url": "https://www.fool.com/earnings/call-transcripts/2026/10/01/micron-mu-q4-2026-earnings-call-transcript/",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "카드 earnings_checkpoints 8번째 항목('소송 공시 기술')에 대한 직접 답: 2026-09-30 실적 발표·컨퍼런스콜에서 ITC 337-TA-1523·Netlist·대만 노사분쟁에 대한 언급은 0건이다. P5 — 공시 부재는 소송·노사 리스크의 해소·부존재를 뜻하지 않는다. 후속 FY26 10-K의 소송·우발부채 각주 기재 여부는 10-K 제출일 미도래로 여전히 unconfirmed다. 1차 자료(press release·prepared remarks)는 grade1/2로 직접 읽었고, 전사 자체(fool.com 게재분)는 집계 매체이나 핵심 결론(언급 0건)은 1차 자료 교차검증으로 grade1에 준해 confirmed 처리한다."
+    },
+    {
+      "id": "c_20261001_MU_10",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Netlist, Inc.가 2026-09-29 미국 국제무역위원회(USITC)에 Micron Technology, Inc.를 상대로 신규 특허침해 제소(배제명령·중지명령 청구)를 제기했다. 자사 투자자 페이지(investors.netlist.com)에 게시된 보도자료에 따르면 주장 특허는 US 12,308,087·12,646,537 2건이며, 대상 제품은 Micron의 HBM3E·HBM4·HBM4E로 특정된다. Nvidia·Broadcom·Google은 해당 HBM을 사용하는 '다운스트림 고객(downstream customers)'으로 거명됐으나 Netlist 자사 발표 기준 정식 피제소인(formal respondent)으로 지정된 것은 Micron이다(ITC가 실제로 투자를 개시할 경우 피조사자 구성이 추가·변경될 수 있음은 미확인). Netlist CEO C.K. Hong은 'Netlist has spent decades developing advanced memory technologies now used in rapidly expanding AI infrastructure'라고 언급했다. 이는 2026-08-11 접수 건(337-TA-1523, DDR5 RDIMM/MRDIMM 대상)과는 별개의 신규 2차 제소다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "complainant_press_release_triangulated",
+        "url": "https://investors.netlist.com/news/netlist-files-new-itc-action-against-micron-technology-inc-involving-hbm-patents-for-ai-computing/99e0cc78-aea5-4eeb-83ad-46950311f14a",
+        "secondary_url": "https://www.thestar.com.my/tech/tech-news/2026/09/29/netlist-seeks-us-import-ban-on-micron-chips-used-in-google-nvidia-ai-computing",
+        "filed_at": "2026-09-29"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "발행 주체는 Netlist(상대방이자 이해관계자)이나, 2026-09-25 회차 c_20260925_MU_3와 동일한 판정 선례(P4)를 적용했다 — 특허번호·대상제품·제소일이 investors.netlist.com 자기공시 + 5개 이상 독립 매체(The Star, Idaho Business Review, gurufocus, marketscreener, cryptobriefing, rallies.ai)에서 교차 일치해 삼각검증(D15)했다. investors.netlist.com 도메인은 sources.yaml 미등재 — 추가를 사용자에게 제안하되 에이전트는 config를 직접 수정하지 않는다. ⚠️이것은 ITC 조사개시(institution) 확정이 아니라 신규 제소(filing) 단계다 — 337-TA-1523과 혼동 금지, 별도 사건으로 추적한다. 카드 축 'ip_litigation_risk'는 기존에 DDR5 RDIMM/MRDIMM 4특허를 다뤘으나, 본 건은 HBM3E/HBM4/HBM4E를 직접 겨냥한 최초의 신규 전선이다 — hbm_demand_strength 축과도 접점이 생긴다(제품 자체가 HBM)."
+    },
+    {
+      "id": "c_20261001_MU_11",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "직전 회차(c_20260925_MU_3)가 2026-09-24로 적재한 USITC Investigation No. 337-TA-1523 조사개시(institution) 표결일에 대해, 이번 회차 삼각검증 결과 복수 매체(ad-hoc-news.de의 'On September 23, the U.S. International Trade Commission launched a Section 337 investigation')와 usitc.gov 보도자료 URL 패턴(er0923_69264.htm, '0923' 포함)이 2026-09-23을 가리킨다. usitc.gov 원문은 이번 회차에도 403으로 직접 열람 실패했다.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "news_wire",
+        "url": "https://www.ad-hoc-news.de/boerse/news/unternehmensnachrichten/micron-braces-for-september-30-earnings-as-taiwan-strike-vote-and-itc/70189450",
+        "secondary_url": "https://www.usitc.gov/press_room/news_release/2026/er0923_69264.htm",
+        "filed_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "P9 — 09-23 vs 09-24 불일치를 정정하지 않고 병기한다. usitc.gov 원문 미확보(403)로 어느 날짜도 grade1 단독 확정은 아니다. 투자 번호·대상특허·피조사자 구성(Micron·Supermicro·HPE·Lenovo)은 기존 c_20260925_MU_3와 일치해 사건 동일성 자체는 변화 없다. 목표완결일(target date)은 '조사개시 후 45일 이내 설정' 관행이 보도되나(2차 매체, 미확정) 2026-10-01 시점 공식 설정 공고는 확인되지 않았다 — unconfirmed 이월."
+    },
+    {
+      "id": "c_20261001_MU_12",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "대만 Taoyuan 노조(Micron Taiwan)는 2026-09-21 2차 조정 결렬 이후 파업투표(strike authorization vote)를 '2026년 10월 초'에 실시한다고 예고했다(Digitimes 09-22, Taiwan News, GlobalSources 등 보도). 노조는 영업이익의 15%를 영구적 이익분배로 배정할 것을 요구하고 있고, 회사는 '올해분 조정 여지는 없으며 변경은 2027년으로 이연한다'는 입장과 함께 이사회 승인을 거친 보너스안을 10월 초에 공개하겠다고 밝혔다(회사 코멘트, 2차 매체 재인용). 정확한 투표 시작·종료일(예: 10/1~10/6)은 taiwannews.com.tw·globalsources.com 원문 직접 확인으로는 특정되지 않았고 'early October'로만 기재돼 있다 — 이전 검색 요약에 등장한 '10/1~10/6' 구체 구간은 원문 재확인에서 재현되지 않아 폐기한다.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "news_wire_syndication",
+        "url": "https://www.taiwannews.com.tw/news/6444345",
+        "secondary_url": "https://www.globalsources.com/sourcing-digest/micron-taiwan-union-votes-on-strike-over-profit-sharing-demands/",
+        "filed_at": "2026-09-22"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "P4 — grade3 복수 매체(Reuters 재유통 계열)이나 회사 1차 자료 등재 없음(c_9에서 확인한 바와 같이 실적콜에서도 0건 언급) — confirmed:false 유지. 카드 관측점 '파업투표 실시 여부'는 '예고'까지만 확인됐고 '실제 실시·가결 여부'는 2026-10-01 as_of 시점 기준으로도 미확인(결과는 창 이후 발생 가능성)."
+    },
+    {
+      "id": "c_20261001_MU_13",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "CDCA 사건(Netlist, Inc. v. Micron Technology, Inc. et al, 8:26-cv-02167)의 배정 판사는 John W. Holcomb로 조회된다(PACER 미러 집계 매체). D.Del 사건(1:26-cv-01014)과 CAFC 2025-1936은 이번 창(09-24~10-01) 동안 추가 도켓 변동이나 선고가 보도되지 않았다 — D.Del 답변시한(2026-10-01로 재연장, c_20260925_MU_5)은 본 창의 마지막 날(as_of)과 겹쳐 실제 답변 제출 여부는 아직 보도 반영 전일 수 있다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_docket_mirror",
+        "url": "https://www.pacermonitor.com/public/case/66193794/Micron_Technology,_Inc_et_al_v_Netlist,_Inc",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "P4 — grade4 단독, 확인 대상 이월. D.Del 10/1 답변시한 당일 자료이므로 다음 회차에 실제 답변 여부를 재확인해야 한다(P5 — 미보도는 미답변의 증거가 아니다)."
+    },
+    {
+      "id": "c_20261001_MU_15",
+      "ticker": "MU",
+      "claim_type": "inference",
+      "text": "실적 발표 직후(09-30~10-01) 'MU 주가 실적 서프라이즈 급등/JPMorgan Netlist 리스크에도 constructive' 류 애널리스트 코멘트·주가반응 기사가 다수 검색됐으나(stocktwits.com 등), noise_filter.yaml#MU 공통패턴 'IB 코멘트 단독 셀오프'·'단순 주가 변동'에 해당해 전량 폐기했다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_news",
+        "url": "https://stocktwits.com/news-articles/markets/equity/mu-stock-gains-earnings-jpmorgan-sees-constructive-setup-amid-netlist-legal-fight/cZMZb9lRBgk",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "discarded_noise_log에 상세 기재. 판정에 사용하지 않음."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "hbm_demand_strength",
+      "direction": "strengthen",
+      "stage": "L2_draft",
+      "prior_state": "직전 run(0925): 창 내 HBM 비중·마진·고객·HBM4 일정 1차 자료 없음. 관측점은 2026-09-30 실적으로 이월된 상태였다.",
+      "new_state": "2026-09-30 실적에서 경영진이 직접 확인했다(c_5) — HBM 매출이 전사 매출 성장률보다 빠르게 성장했고, 2027년 캘린더 연도 HBM 비트 공급 물량의 '대부분'에 대해 전년 대비 유의미한 가격 인상을 동반한 계약을 완료했다. HBM4 램프가 순조롭고, NVIDIA와 업계 최초 커스텀 HBM4E(NVHBM)를 공동 개발해 차세대 GPU·NVLink Fusion 플랫폼에 탑재될 예정이다(c_5). Cloud Memory BU(HBM 귀속 부문) 매출은 QoQ+18%로 record를 경신했다(c_4). 다만 Cloud Memory BU 매출총이익률(83%)은 여전히 CDBU·MCBU(각 90%)보다 낮고 전사 평균(87%)도 밑돈다(c_4) — HBM 마진 갭은 '축소 중'이나 '해소'는 아니다.",
+      "risk_transfer_to": [
+        "2027 캘린더 HBM 공급계약 실제 가격·물량 이행(약정 vs 매출인식, P7)",
+        "2026-09-29 신규 Netlist ITC 제소(HBM3E/HBM4/HBM4E 대상, c_10)의 institution 여부",
+        "FQ1-27 실적에서 HBM 비중·마진 추가 공개 여부"
+      ],
+      "supporting_claims": [
+        "c_20261001_MU_4",
+        "c_20261001_MU_5",
+        "c_20261001_MU_9"
+      ],
+      "inference_strength_overall": null,
+      "caveat": "P2 — 매출·마진 실측 수치(c_4, c_5)에 근거한 strengthen이며 정성 발언만으로 상향한 것이 아니다. 단, 'HBM 마진 vs 범용 마진' 정확한 격차(%p)는 여전히 비공개라 key_metrics 항목은 '부분 충족'으로만 표기한다(earnings_checkpoints 대조표 참조)."
+    },
+    {
+      "axis": "production_continuity",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "직전 run(0925): 2차 조정 결렬(09-21)·파업투표 절차 개시 예고(c_20260925_MU_7, grade3, confirmed:false). 카드 제약에 따라 방향 미부여.",
+      "new_state": "파업투표가 '2026년 10월 초'로 예고된 상태가 유지되며(c_12), 2026-09-30 실적 발표·컨퍼런스콜에서는 이 사안에 대한 언급이 전혀 없었다(c_9 — Taiwan 키워드 1회는 무관한 Tongluo 공장 가동 일정). 여전히 유일 소스가 grade3(Reuters 계열 재유통)·confirmed:false이고 회사 1차 자료 등재가 0건이므로, 카드의 명시적 제약(이 축은 방향 판정을 부여하지 않음, P4)을 그대로 적용해 neutral 유지한다. 투표의 정확한 시작·종료일(10/1~10/6 등 구체 구간)은 1차 소스 재확인에서 재현되지 않아 폐기하고 'early October'로만 기재한다(P9 — 이전 회차에 없던 수치이므로 정정 아님, 신규 확인 실패로 기재).",
+      "risk_transfer_to": [
+        "파업투표 실제 실시·가결 여부 및 결과",
+        "2026-10-22 Taichung 노조 3차 조정",
+        "회사 8-K·IR·10-K 등재 여부"
+      ],
+      "supporting_claims": [
+        "c_20261001_MU_9",
+        "c_20261001_MU_12"
+      ],
+      "inference_strength_overall": "weak",
+      "caveat": "P4 — grade3 단독 소스이므로 방향 판정 자체를 부여하지 않는다. 실적콜에서의 '무언급'은 리스크 해소 근거가 아니다(P5)."
+    },
+    {
+      "axis": "sca_defense",
+      "direction": "strengthen",
+      "stage": "L2_draft",
+      "prior_state": "직전 run(0925): SCA 16건, DRAM 20%+/NAND 1/3 커버리지. 창 내 갱신 없음(no_change 이월).",
+      "new_state": "2026-09-30 실적콜에서 CFO가 직접 확인했다(c_6) — SCA 누적 26건(2026-09-30 종료 분기 중 10건 신규 체결), 2030년까지 매출의 35% 이상을 커버한다고 추정. RPO(remaining performance obligation) 약 $150B. 고객 재무 약정(현금예치금 등) 누적 $32B로 증가. 분기 중 수령한 고객 현금예치금 $12.3B, 분기말 잔액 $12.7B. CEO는 'SCA가 재무성과의 지속가능성에 대한 확신을 더한다'고 언급했다.",
+      "risk_transfer_to": [
+        "SCA 가격조건(변동 1/4 비중)의 실제 시장가 연동 결과",
+        "선수금·계약부채 잔액의 향후 반환 스케줄(계약 후반기 반환 조건)"
+      ],
+      "supporting_claims": [
+        "c_20261001_MU_6"
+      ],
+      "inference_strength_overall": null,
+      "caveat": "P2 — 계약 건수·커버리지·현금예치금은 확정 수치이나, 'SCA 존재'가 '매출 인식'을 함의하지 않는다(P7 3단 분리: 계약 체결 ≠ 계약 이행 ≠ 매출 인식). 본 delta는 1단계(계약 체결·조건)에 한정된다."
+    },
+    {
+      "axis": "cycle_position",
+      "direction": "strengthen",
+      "stage": "L2_draft",
+      "prior_state": "직전 run(0925): 비트그로스 vs ASP 분해 미확정. 최신 기준선 FY26 Q3 10-Q.",
+      "new_state": "FQ4-26 실측치가 처음으로 명확히 분해됐다(c_7) — DRAM: 비트그로스 QoQ 중간 한자릿수%, 가격 QoQ 고10%대 상승. NAND: 비트그로스 QoQ 약 10%, 가격 QoQ 약 30% 상승. 두 제품군 모두 가격 상승폭이 비트그로스를 수 배 상회해, 카드가 지목한 '순수 P 사이클' 가설과 정합적인 fact가 확보됐다.",
+      "risk_transfer_to": [
+        "FQ1-27 실측 비트그로스·ASP (가이던스 대비 실적)",
+        "SK하이닉스·삼성 동일 분기 비트/ASP 분해 (peer 비교, 축 교차 아님 — 참고용)"
+      ],
+      "supporting_claims": [
+        "c_20261001_MU_7"
+      ],
+      "inference_strength_overall": null,
+      "caveat": "P13 — '순수 P 사이클'의 최종 해석(사이클 전환점 도달 여부 등 KC 판정)은 L1/signal 영역이다. 본 delta는 fact(비트/가격 수치) 적재와 가설 정합성 관찰에 한정하며 KC 판정을 선취하지 않는다."
+    },
+    {
+      "axis": "china_supply",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "직전 run(0925): 09-24~25 미중 정상회담에도 Apple向 CXMT/YMTC 소싱 승인 여부 확정 발표 없음(c_20260925_MU_8). no_change 이월.",
+      "new_state": "본 창(09-24~10-01)에도 CXMT/YMTC·Apple 관련 1차 자료 신규 갱신이 없다(c_9 — 실적콜에서도 CXMT·YMTC·Apple 키워드 0건). 사용자 주입 자료(한미 에너지 투자, c_14)는 반도체·Micron 언급이 전혀 없고 Section 232 반도체 품목관세는 별도 체계로 보도돼(c_14) 본 축과 연결하지 않았다. no_change 이월.",
+      "risk_transfer_to": [
+        "Apple/백악관 공식 발표",
+        "Section 232 반도체 관세와 한미 패키지 관세의 관계 확정 여부(1차 공시 대기)"
+      ],
+      "supporting_claims": [
+        "c_20261001_MU_9"
+      ],
+      "inference_strength_overall": "weak",
+      "caveat": "P5 — 무언급은 미승인의 증거가 아니다. P6 — 사용자 주입 자료는 scope=sector로 태깅돼 본 축의 company-specific 판정 근거로 쓰지 않는다."
+    },
+    {
+      "axis": "valuation_paradox",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "직전 run(0925): NTM Forward P/E ~5.95-6.9x는 피크 역설 구간. 판정 축은 P/E가 아니라 비트/ASP 분해와 선수금 방향.",
+      "new_state": "FQ4-26 Non-GAAP EPS $33.42(QoQ+33%), FY26 Non-GAAP EPS $75.52(YoY+811%), 매출총이익률 87.0%(FQ4)·81.1%(FY26, YoY+40.2%p) 등 분자(이익)측 수치가 이번 회차에 실측으로 대량 갱신됐다(c_2). 그러나 본 축의 판정 입력으로 카드가 지정한 것은 비트/ASP 분해(cycle_position 축에서 strengthen 처리, c_7)와 선수금 방향(sca_defense 축에서 strengthen 처리, c_6)이지 P/E 자체가 아니다 — 주가(분모) 데이터는 본 에이전트 범위 밖이라 신규 P/E를 계산하지 않았다. '저 P/E를 밸류 근거로 쓰는 서술'은 금지(카드 특이사항)이므로 EPS 급증을 '밸류에 긍정적'으로 직접 해석하지 않고 neutral로 유지한다.",
+      "risk_transfer_to": [
+        "차기 회차 NTM P/E 재계산(주가 데이터 결합은 L3/L4 영역)",
+        "FY27 실제 이익 궤적이 가이던스 대비 유지되는지 여부"
+      ],
+      "supporting_claims": [
+        "c_20261001_MU_2"
+      ],
+      "inference_strength_overall": "weak",
+      "caveat": "P10 — 밸류에이션 변동은 분자/분모 기여로 분해해야 하며, 본 회차는 분자(이익) 측 fact만 확보했다. 분모(주가) 결합 해석은 하지 않는다(P13 — 하위 L2가 상위 판정을 선취하지 않음)."
+    },
+    {
+      "axis": "ip_litigation_risk",
+      "direction": "weaken",
+      "stage": "L2_draft",
+      "prior_state": "직전 run(0925): USITC가 2026-09-24(병기: 09-23 가능성, 본 회차 c_11)로 Investigation No. 337-TA-1523(DDR5 RDIMM/MRDIMM 대상 특허 4건) 조사개시를 표결. CDCA(8:26-cv-02167)·D.Del(1:26-cv-01014) 2건은 grade4 단독, CAFC 2025-1936은 선고 대기.",
+      "new_state": "Netlist가 2026-09-29 Micron을 상대로 'HBM3E·HBM4·HBM4E'를 직접 겨냥한 신규 2차 ITC 제소를 제기했다(c_10, 특허 US 12,308,087·12,646,537, Nvidia·Broadcom·Google을 다운스트림 고객으로 거명). 이는 기존 337-TA-1523(DDR5 RDIMM/MRDIMM)과 별개 사건으로, 소송 전선이 범용 DRAM 모듈 특허에서 HBM 자체 특허로 확장된 것이다. 아직 ITC의 조사개시(institution) 여부는 미확정이다(신규 제소 단계, P7 — 제소 ≠ 조사개시 ≠ 위반판정 ≠ 배제명령). 기존 337-TA-1523은 09-23/09-24 날짜 불일치(c_11)만 추가됐을 뿐 실질 진전(ALJ 배정·target date)은 확인되지 않았다. CDCA·D.Del·CAFC 3건은 신규 증분 없이 carry-forward다(c_13). 2026-09-30 실적콜·보도자료에서는 이 4건(337-TA-1523·신규 HBM 제소·CDCA·D.Del) 중 어느 것도 언급되지 않았다(c_9).",
+      "risk_transfer_to": [
+        "신규 HBM 특허 ITC 제소의 institution 여부",
+        "337-TA-1523 ALJ 배정·target date",
+        "CDCA·D.Del 확정 답변시한 및 답변 내용(grade4, 확인 대상)",
+        "CAFC 2025-1936 선고",
+        "FY26 10-K 소송·우발부채 각주 기재 여부"
+      ],
+      "supporting_claims": [
+        "c_20261001_MU_9",
+        "c_20261001_MU_10",
+        "c_20261001_MU_11",
+        "c_20261001_MU_13"
+      ],
+      "inference_strength_overall": "moderate",
+      "caveat": "P2 — 법률 절차 진행이지 매출·마진·현금흐름·가이던스 수치가 아니므로 시그널 등급 근거로 쓸 수 없다(본 delta는 thesis 축 서술 갱신에 한정). weaken 방향은 소송 전선이 HBM 자체로 확장됐다는 절차적 사실에 근거하며, 신규 제소는 아직 조사개시조차 되지 않은 가장 이른 단계다(P5 — 제소 사실만으로 매출·사업 영향을 추정하지 않는다)."
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "FY27 전체 연간 capex 총액 (카드 '$50B 계획')",
+      "detail": "H1 ~$25B만 가이던스, H2는 방향성만 제시(c_8). 역산으로도 연간 총액 확정 불가.",
+      "reason": "guidance_partial_only"
+    },
+    {
+      "topic": "USITC 337-TA-1523 조사개시 정확한 날짜(09-23 vs 09-24)",
+      "detail": "ad-hoc-news.de 및 usitc.gov URL 패턴은 09-23을 시사하나 usitc.gov 원문은 403으로 직접 확인 실패(c_11). 직전 회차는 09-24로 적재.",
+      "reason": "primary_source_access_blocked"
+    },
+    {
+      "topic": "337-TA-1523 ALJ 배정·target date·증거개시 일정",
+      "detail": "조사개시 후 45일 내 target date 설정이 관행으로 보도되나 2026-10-01 기준 공식 공고 미확인",
+      "reason": "not_yet_scheduled"
+    },
+    {
+      "topic": "신규 Netlist HBM 특허 ITC 제소(c_10)의 institution 여부",
+      "detail": "2026-09-29 제소 단계. ITC 조사개시 표결 여부는 창 내 확인 안 됨",
+      "reason": "future_itc_vote"
+    },
+    {
+      "topic": "CDCA 8:26-cv-02167 확정 답변시한 및 답변 내용",
+      "detail": "배정판사 John W. Holcomb 확인(c_13, grade4) 외 신규 진전 없음",
+      "reason": "primary_docket_unavailable"
+    },
+    {
+      "topic": "D.Del 1:26-cv-01014 2026-10-01 답변 및 §1659 정지 신청 여부",
+      "detail": "답변시한이 본 창 마지막 날(as_of)과 겹쳐 실제 제출 여부는 보도 반영 전일 가능성",
+      "reason": "same_day_as_asof"
+    },
+    {
+      "topic": "CAFC 2025-1936 선고",
+      "detail": "2026-09-09 구두변론 이후 2026-10-01 시점까지 선고 미게시(carry-forward, 신규 검색에서도 미확인)",
+      "reason": "pending_decision"
+    },
+    {
+      "topic": "대만 노조 파업투표 실제 실시·가결 여부 및 정확한 투표 기간",
+      "detail": "'early October' 예고만 확인(c_12). 회사 1차 자료 등재 0건(실적콜 포함, c_9)",
+      "reason": "primary_source_unavailable"
+    },
+    {
+      "topic": "FY26 10-K의 소송·우발부채 각주 기재 여부",
+      "detail": "10-K 제출일 자체가 아직 공지되지 않음",
+      "reason": "filing_not_yet_due"
+    },
+    {
+      "topic": "HBM vs 범용 DRAM 매출총이익률 정확한 격차(%p)",
+      "detail": "경영진이 갭의 존재·축소 방향은 확인했으나(c_5) 정량 수치는 비공개",
+      "reason": "not_disclosed"
+    }
+  ]
+}

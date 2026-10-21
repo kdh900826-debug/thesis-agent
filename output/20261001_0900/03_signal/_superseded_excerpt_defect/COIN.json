@@ -1,0 +1,125 @@
+{
+ "as_of": "2026-10-01",
+ "run_id": "20261001_0900",
+ "ticker": "COIN",
+ "input_source": "output/20261001_0900/03_input/arbiter_COIN.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {"id": "c_20261001_COIN_1", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "out_of_window": false, "source_type": "EDGAR submissions API", "filed_at": "2026-10-01", "summary": "SEC EDGAR 조회(CIK 0001679788) 결과 이번 창(09-24~10-01) 10-K/10-Q/8-K 신규 제출 0건. 창 직전(09-23) Form 4 2건만 존재(매출·가이던스·마진·현금흐름 무관, P3 노이즈). Circle 분배계약 변경·실적 관련 8-K 미제출 재확인."},
+  {"id": "c_20261001_COIN_3", "claim_type": "fact", "evidence_grade": 3, "quantitative": false, "scope": "company_specific", "confirmed": false, "out_of_window": false, "source_type": "news(The Block, 7개 2차매체 삼각검증, sources.yaml grade_3 등재)", "published_at": "2026-09-28", "summary": "CFTC가 Coinbase Clearing LLC를 DCO로 등록(효력 9/28), 완전담보 선물·스왑 청산만 허용(레버리지 상품 제외). DCM·FCM·DCO 3종 자사 라이선스 스택 완성 보도. CFTC.gov 원문(등록명령서) 미대조 — grade3 단독으로 confirmed=true 불가(P4). P7: 개별주식 무기한선물 트랙과 명시적으로 분리된 별개 사안(회사 발표)."},
+  {"id": "c_20261001_COIN_4", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "scope": "company_specific", "confirmed": false, "out_of_window": false, "source_type": "news(aggregator, 2개 2차매체 삼각검증)", "published_at": "2026-09-30", "summary": "개별주식·ETF 무기한 증권선물(대표상품 Apple) CFTC 신청, 09-30 기준에도 'Approval Pending(45일)' 상태 유지 — 전 run(20260925_1015) 대비 상태 변화 없음. P5/P12: 부정적(무변화) 사실이므로 강화 근거로 미사용."},
+  {"id": "c_20261001_COIN_5", "claim_type": "fact", "evidence_grade": 3, "quantitative": false, "scope": "company_specific", "confirmed": false, "out_of_window": false, "source_type": "news(CoinDesk, 5개 2차매체 삼각검증, sources.yaml grade_3 등재)", "published_at": "2026-09-24", "summary": "OUSD(Open Standard 발행)가 Ethereum·Solana·Base·Tempo 4개 체인에서 출시(09-23), 공개 가용성 확대(09-30). Coinbase는 창립 파트너(동일 지분, 우대 매출배분 없음, 지분은 4~5년 기여도 기반 배분) + 자사 경로 활동 비례 지준수익 배분 구조. OUSD 참여 조건이 이번 창에서 최초로 구체화됐으나 기존 USDC 수익과의 순효과(카니벌라이제이션 여부)는 미확정."},
+  {"id": "c_20261001_COIN_6", "claim_type": "fact", "evidence_grade": 4, "quantitative": false, "scope": "company_specific", "confirmed": false, "out_of_window": false, "source_type": "news(aggregator, sources.yaml 미등재)", "published_at": "2026-10-01", "summary": "Coinbase 자체 OUSD 통합 경로가 10-01 가동, 1:1 무수수료 민팅·상환 지원. 기존 USDC 매출 영향·경쟁관계는 보도에서 서술되지 않음. coinbase.com 1차 확인 3회 연속 실패(Cloudflare 403)."}
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_COIN.json의 claims 5건 전건 scope=company_specific 확인. removed_claims 1건(c_20261001_COIN_2, scope=sector)은 2026-09-25 Kalshi 당사자 판결(제3자 사건) 관련으로 판단되며 unconfirmed 항목에서도 'COIN 사건에 자동 적용되는지 불명확'으로 별도 취급되고 있어 sector 분류가 타당 — F13 해당 없음. (단, 이 판결과 KC-COIN-3 적용 여부는 아래 kill_check에서 별도로 미결 처리.)",
+ "kill_check": {
+  "rule": "v1 §6-2 규칙1 — KC met AND confirmed → 🔴🔴 후보 + 사람 확인 요청",
+  "own_company_kc": [
+   {"kc_id": "KC-COIN-1", "condition": "구조 전환 실패(구독 비중 하락 + 거래매출 동반 감소, all_of)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "이번 창 신규 구독·서비스 비중 데이터 없음(c_20261001_COIN_1 — EDGAR 10-Q 0건). 판정 입력 부재 — met 근거 없음(P5)."},
+   {"kc_id": "KC-COIN-2", "condition": "예치자산 순유출(가격 변동 제외)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "이번 창 platform assets net inflow/outflow 신규 공시 없음(unconfirmed 이월). 명목 잔액 대체 판정 금지(F3) — met 근거 없음."},
+   {"kc_id": "KC-COIN-3", "condition": "규제 소송(중대 건 한정)", "verdict": "not_met", "verdict_confidence": "unresolved_scope", "note": "이번 창 SEC/CFTC/DOJ 발 신규 소송·제재 이벤트 없음 — CFTC DCO 등록(c_3)은 라이선스 획득(긍정적 인프라)이지 소송이 아니며, 개별주식 무기한선물(c_4)은 상태 변화 없음(pending 지속). 다만 제거된 sector claim(c_20261001_COIN_2, 2026-09-25 제6순회법원 Kalshi 판결)과 COIN 자신의 미시간 항소(Coinbase Financial Markets, Inc. v. Nessel, 6th Cir. No. 26-1693, 상태 미확인)가 존재 — **KC-COIN-3 문언이 SEC/CFTC/DOJ로 한정돼 있어 주(州) 감독기관·주 법원발 조치(미시간·오하이오·테네시 등)에 이 KC가 적용되는지는 사람 판단 미결 사항이다. 본 판정은 이 적용 여부를 스스로 확정하지 않고 미결(unresolved_scope)로만 기록한다.** 연방기관(SEC/CFTC/DOJ) 기준으로는 met 근거 없음 — met_and_confirmed 조건 미충족."},
+   {"kc_id": "KC-COIN-4", "condition": "USDC 연동 수익 훼손(교차 KC, 방향 조건부)", "verdict": "not_met", "verdict_confidence": "provisional", "note": "OUSD 참여 구조가 이번 창 처음 구체화(c_5·_6)됐으나 기존 USDC 수익 대비 순효과(잠식 여부)는 미확정(unconfirmed). 훼손이 '확인'된 바 없어 not_met — 카드 지시대로 강세 재료로도, 훼손 확정으로도 분류하지 않고 neutral 관측만 기록."}
+  ],
+  "macro_kc_propagating": {
+   "note": "발췌본 기준 KC-2·KC-3·KC-4·KC-5 전건 not_met·verdict_confidence=confirmed(VIX 16.26, BTC $83,670.59, ON_RRP $11.54B, TAIEX 20일선 대비 +2.92%p/1개월 +4.82%). P5 — 발췌 제외 KC는 '무관'이 아니라 correlation_matrix상 불리 방향 노출 축 없음을 뜻함."
+  },
+  "triggered": false,
+  "trigger_source": [],
+  "human_confirmation_required": false,
+  "basis": "KC-COIN-1·2는 판정 입력 부재로 not_met(provisional). KC-COIN-4는 참여구조만 관측되고 훼손 미확인으로 not_met(provisional). KC-COIN-3은 연방기관(SEC/CFTC/DOJ) 기준으로 이번 창 신규 소송·제재 이벤트 없어 not_met이나, 주(州) 차원 사건(미시간 항소·Kalshi 판결)에 대한 KC 적용 범위 자체가 사람 판단 미결 사항(unresolved_scope)임을 명시 — 이는 met 여부를 낮게 추정한 것이 아니라 판정 불가 영역을 그대로 보존한 것이다. 4종 KC 전부 met_and_confirmed=false — 규칙1(Kill 우선) 자동 발동 대상 아님, 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative": false,
+   "scope_company_specific": true,
+   "stage_revenue_recognized": false,
+   "overall_upgrade_gate_met": false,
+   "basis": "이번 창 claims 5건 전부 quantitative=false(P2) — 매출·마진·현금흐름·가이던스 수치 변화 claim 자체가 없다(Q3 실적 미발표, EDGAR 0건). derivatives_base(CFTC DCO 등록)·usdc_economics(OUSD 참여구조)는 모두 정성적 사업 진전·구조 관측에 그쳐 quantitative 요건 미충족. 3요건(quantitative·company_specific·revenue_recognized) 중 quantitative·revenue_recognized 미충족이므로 overall_upgrade_gate_met=false. CFTC DCO 인프라 진전·OUSD 참여 구조는 holding_reinforcement/neutral 관측으로만 분류한다."
+  },
+  "downgrade_check": {
+   "rule": "v1 §6-2 규칙3 — 정량 훼손 또는 evidence_grade≤2의 정성 훼손 시 하향 가능(비대칭)",
+   "quantitative_deterioration": false,
+   "qualitative_deterioration_grade_le_2": false,
+   "overall_downgrade_gate_met": false,
+   "basis": "이번 창 유일한 grade≤2 claim은 c_20261001_COIN_1(grade1, EDGAR 무신규제출 확인)이며 이는 중립적 '무뉴스' 확인일 뿐 정성적 훼손이 아니다. 그 외 claim(c_3/_4/_5/_6)은 전부 grade3·4로 규칙3의 grade≤2 임계 미달. 정량 훼손 확정치도 이번 창 없음(quantitative_deterioration=false). 따라서 overall_downgrade_gate_met=false."
+  }
+ },
+ "decision": "maintain",
+ "decision_reason": "P12 — 상향 게이트 3요건 중 quantitative·stage_revenue_recognized 미충족(이번 창 quantitative claim 0건, Q3 실적 미발표)으로 상향 불가. 하향 게이트도 미충족(정량 훼손 없음, grade≤2 정성 훼손 없음). Kill 규칙은 연방기관(SEC/CFTC/DOJ) 기준 met 근거 없어 미충족 — 단 KC-COIN-3의 주(州) 차원 적용 범위는 사람 판단 미결(unresolved_scope)로 별도 보존. 게이트 미충족은 실패가 아니라 정상 경로(P12)이므로 현행 🟠 주의(Q2 매출 miss) 등급을 유지하고 사유만 기록한다.",
+ "thesis_delta_summary": [
+  {
+   "axis": "usdc_economics",
+   "direction": "neutral",
+   "detail": "[c_20261001_COIN_5/_6] OUSD가 4개 체인에서 출시(09-23)·Coinbase 통합경로 가동(10-01). 창립 파트너 동일지분(우대 매출배분 없음, 지분은 4~5년 기여도 기반)·자사경로 활동비례 지준수익 배분 구조가 처음 구체화됐다. 다만 기존 USDC 수익 대비 단위경제성 우열, 실제 수요 대체 규모, COIN 재무 반영 규모 중 어느 것도 확정되지 않아 방향은 neutral 유지(카드 지시 — 강세 재료로 기본분류 금지).",
+   "risk_transfer": [
+    "OUSD 발행량·COIN 경유 거래활동의 USDC 대비 배분 비율 — Q3·Q4 Stablecoin revenue 항목·신규 공시 항목 생성 여부로 확인",
+    "coinbase.com 공식 블로그 접근 실패 3회 연속 — 1차 자료 확보 전까지 2차 매체 의존 지속",
+    "Circle 측 2029년 갱신 서사의 COIN 1차 확인 — 이월"
+   ]
+  },
+  {
+   "axis": "derivatives_base",
+   "direction": "strengthen",
+   "detail": "[c_20261001_COIN_3/_4] CFTC가 Coinbase Clearing LLC를 DCO로 등록(09-28)해 DCM·FCM·DCO 3종 자사 라이선스 스택 완성 보도(완전담보 상품 한정, 레버리지 제외) — 인프라 트랙 실질 진전으로 strengthen 방향 유지하되 grade3 단독근거(confirmed=false)로 확신도는 낮음. 반대로 시장이 더 주목하는 개별주식 무기한선물은 이번 창에도 'Approval Pending' 상태로 정체(변화 없음) — P7 3단 분리 엄수, 두 트랙 통합 서술 금지. 상향 게이트 미충족이므로 holding_reinforcement로만 분류.",
+   "risk_transfer": [
+    "개별주식 무기한선물 CFTC 45일 심사 결과 및 SEC 60일 사후무효화권 행사 여부",
+    "완전담보 청산 인프라(Coinbase Clearing)의 실제 거래량·매출 기여 — Q3·Q4 실적 이관",
+    "CFTC.gov 원문(DCO 등록명령서) 미확보 — 1차 대조 필요"
+   ]
+  },
+  {
+   "axis": "subscription_mix",
+   "direction": "neutral",
+   "detail": "[c_20261001_COIN_1] 이번 창 신규 분기 데이터·공시 없음(Q3 실적 미발표, EDGAR 10-K/10-Q/8-K 0건) — 무뉴스 축임을 명시하며 neutral 유지.",
+   "risk_transfer": []
+  }
+ ],
+ "alert": {
+  "ticker_event": "COIN — CFTC가 Coinbase Clearing LLC를 DCO로 등록해 DCM·FCM·DCO 3종 자사 파생상품 라이선스 스택 완성(09-28, 완전담보 한정) / 개별주식 무기한선물은 09-30 기준 CFTC 승인 미결(Pending 지속, 변화 없음) / OUSD가 4개 체인 출시(09-23)·Coinbase 통합경로 가동(10-01)으로 참여 구조 최초 구체화 / EDGAR 신규 10-K·10-Q·8-K 0건(Q3 실적 미발표).",
+  "facts": [
+   "[The Block 외 7개 2차매체 삼각검증, 2026-09-28] CFTC가 Coinbase Clearing LLC를 DCO로 등록, 완전담보 선물·스왑 청산만 허용(레버리지 상품 제외). DCM·FCM·DCO 3종 자사 라이선스 완성 보도(c_20261001_COIN_3, grade3, confirmed=false — CFTC.gov 원문 미대조).",
+   "[aggregator 2개 2차매체, 2026-09-30] 개별주식·ETF 무기한 증권선물(대표상품 Apple) 신청이 'Approval Pending(45일)' 상태 유지, 전 run 대비 변화 없음(c_20261001_COIN_4, grade4, confirmed=false).",
+   "[CoinDesk 외 5개 2차매체 삼각검증, 2026-09-24] OUSD 4개 체인(Ethereum·Solana·Base·Tempo) 출시(09-23), Coinbase 창립 파트너 참여 구조(동일지분·활동비례 지준수익 배분) 구체화(c_20261001_COIN_5, grade3, confirmed=false).",
+   "[aggregator, 2026-10-01] Coinbase 자체 OUSD 통합 경로 가동(1:1 무수수료 민팅·상환). 기존 USDC 매출 영향은 보도에 서술 없음(c_20261001_COIN_6, grade4, confirmed=false). coinbase.com 1차 확인 3회 연속 실패.",
+   "[SEC EDGAR submissions API, 조회 2026-10-01] 10-K/10-Q/8-K 신규 제출 0건(c_20261001_COIN_1, grade1, confirmed=true) — Q3 실적·Circle 분배계약 관련 8-K 미제출 재확인."
+  ],
+  "inference": {
+   "text": "파생상품 온쇼어화(derivatives_base)는 완전담보 청산 인프라 완성으로 strengthen 방향이 유지되나 grade3 단독근거·레버리지 상품 제외·매출 미인식 상태라 확신도는 낮다. 시장이 주목하는 개별주식 무기한선물 트랙 자체는 이번 창도 정체다. usdc_economics는 OUSD 참여 구조가 처음 드러났으나 기존 USDC 수익 대비 순효과는 미확정이라 neutral을 유지한다. 이번 창은 정량 claim이 전무해(quantitative=false 5/5) 상향 근거 자체가 성립하지 않는다.",
+   "strength": "low",
+   "basis_claim": "c_20261001_COIN_3, c_20261001_COIN_5, c_20261001_COIN_6"
+  },
+  "classification": "혼합 — 파생상품 인프라 holding_reinforcement(derivatives_base strengthen, 확신도 낮음) + OUSD 참여구조 neutral 관측(usdc_economics, 순효과 미확정) + 무뉴스 축 유지(subscription_mix). 등급 변경 근거 없음(P2/P6/P13) — 정량 claim 0건.",
+  "thesis_delta": {
+   "axes": [
+    {"axis": "usdc_economics", "direction": "neutral", "detail": "OUSD 참여 구조 최초 구체화(동일지분·활동비례 배분), 기존 USDC 수익 대비 순효과 미확정.", "risk_transfer": ["Q3·Q4 Stablecoin revenue 항목·신규 공시", "coinbase.com 1차 확인(3회 연속 실패)", "Circle 2029년 갱신 서사 COIN 1차 확인(이월)"]},
+    {"axis": "derivatives_base", "direction": "strengthen", "detail": "CFTC DCO 등록으로 3종 라이선스 스택 완성(완전담보 한정), 개별주식 무기한선물은 정체(Pending 지속).", "risk_transfer": ["개별주식 무기한선물 45일 심사 결과·SEC 60일 사후무효화권", "DCO 실제 거래량·매출 기여(Q3·Q4 이관)", "CFTC.gov 원문 미확보"]},
+    {"axis": "subscription_mix", "direction": "neutral", "detail": "이번 창 신규 분기 데이터 없음(Q3 미발표) — 무뉴스 유지.", "risk_transfer": []}
+   ]
+  },
+  "signal_verdict": "🟠 주의(Q2 매출 miss) 등급 유지(후보) — 상향 게이트 미충족(quantitative·stage_revenue_recognized 모두 미충족, 이번 창 quantitative claim 0건). 하향 게이트 미충족(정량 훼손·grade≤2 정성 훼손 없음). Kill 규칙 미발동(🔴🔴 후보 아님) — 연방기관(SEC/CFTC/DOJ) 기준 KC-COIN-3 met 근거 없음. **단, KC-COIN-3 문언이 SEC/CFTC/DOJ 한정이라 주(州) 감독기관·주 법원 조치(미시간 항소 Coinbase Financial Markets, Inc. v. Nessel 6th Cir. No. 26-1693, 2026-09-25 Kalshi 판결과의 관계 포함)에 이 KC가 적용되는지는 본 에이전트가 자체 확정하지 않고 사람 판단 미결(unresolved_scope)로 보존한다.** 최종 등급 확정은 사람이 한다.",
+  "next_check": [
+   "Q3 2026 실적 — 구독·서비스 비중 방향 + Stablecoin(USDC) 수익 절대액(직전 $292.147M) (KC-COIN-1·KC-COIN-4 판정용)",
+   "회사 공시 platform assets net inflow/outflow(가격효과 제외) 분기치 (KC-COIN-2 판정용, 관측 가능한 정량 항목)",
+   "KC-COIN-3 적용 범위 — SEC/CFTC/DOJ 한정 문언이 주(州) 감독기관 조치에 적용되는지 사람 확정 필요(미시간 항소 26-1693 현재 상태 포함)",
+   "CFTC.gov 원문 — Coinbase Clearing LLC DCO 등록명령서 및 개별주식 무기한선물 CFTC 자기인증(#2026-62) 게시판 원문 대조",
+   "OUSD 유통량·COIN 경유 거래활동의 USDC 대비 단위경제성 — Q3·Q4 실적 신규 공시 항목 생성 여부"
+  ]
+ },
+ "next_gate": "Q3 2026 실적 — 구독·서비스 비중 방향 + USDC(Stablecoin) 수익 절대액(직전 $292.147M) + platform assets net inflow/outflow(가격효과 제외) 분기치",
+ "unconfirmed_carried": [
+  {"topic": "OUSD 경유 유통·거래활동의 기존 USDC 수익 대비 순효과", "reason": "참여 구조(지분·활동비례 배분)만 관측, 단위경제성·전환규모 자료 없음."},
+  {"topic": "COIN 자신의 미시간 항소(Coinbase Financial Markets, Inc. v. Nessel, 6th Cir. No. 26-1693) 현재 상태 및 KC-COIN-3 적용 여부", "reason": "법원 도킷 1차 미확인 + KC 문언상 SEC/CFTC/DOJ 한정 여부가 사람 판단 미결(unresolved_scope)."},
+  {"topic": "CFTC.gov 원문(DCO 등록명령서·자기인증 게시판)", "reason": "2차 매체 삼각검증만 확보, 1차 문서 미대조."},
+  {"topic": "제6순회법원 2026-09-25 의견문(26a0272p-06) 원문 대조", "reason": "PDF 바이너리 추출 실패(로컬 poppler/pdftoppm 미설치), 2차 매체 의존 지속."},
+  {"topic": "OUSD 참여 조건·분배 구조 완전 공개", "reason": "coinbase.com 1차 원문 3회 연속 접근 실패(Cloudflare 403)."},
+  {"topic": "Circle-Coinbase 분배계약 '2029년 갱신' 서사의 COIN 1차 확인", "reason": "이번 창 EDGAR 조회 0건, 여전히 grade1/2 근거 미확보."},
+  {"topic": "USDC 수익 절대액 Q3 2026 신규 공시", "reason": "Q2 $292.147M이 최신치, Q3 미발표."},
+  {"topic": "Q3 2026 실적 발표일 회사 IR 공식 공지", "reason": "aggregator 추정(10/29)만 존재, investor.coinbase.com 공식 공지 미확인(F1)."},
+  {"topic": "예치자산 순유출(가격효과 제외) 분기 데이터", "reason": "이번 창 회사 공시 없음 — KC-COIN-2 판정 입력 공란."}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. filter_bug 없음(removed_claims 1건은 sector 분류 타당, F13 해당 없음). gate_check 상향 3요건 중 quantitative·stage_revenue_recognized 미충족(이번 창 quantitative claim 0건)으로 등급 유지가 P12 기본 경로로 확정 적용됨. 하향 게이트도 미발동(grade≤2 정성 훼손·정량 훼손 없음). Kill 미발동이되 **KC-COIN-3의 주(州) 감독기관 적용 범위는 사람이 확정해야 하는 미결 사항**으로 별도 보존했다(자체 확정 금지 지시 준수). state/signals.json은 수정하지 않음(후보 판정까지만, 확정은 사람)."
+}

@@ -1,0 +1,402 @@
+{
+  "sector": "neocloud",
+  "as_of": "2026-10-09T09:33",
+  "run_id": "20261009_0920",
+  "members": [
+    "IREN",
+    "NBIS",
+    "CRWV"
+  ],
+  "missing_inputs": [],
+  "single_ticker_view": false,
+  "axis_view": [
+    {
+      "axis": "ai_cloud_conversion",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "IREN"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "IREN"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "execution_delivery",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "IREN"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "IREN"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "margin_structure",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "IREN"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "IREN"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "funding_dilution",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "IREN"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "IREN"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "power_permit",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "IREN"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "IREN"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "btc_mining",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "IREN"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "IREN"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "growth_arr",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "NBIS"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "margin_transition",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "NBIS"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "funding_access",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS",
+          "CRWV"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "low",
+      "coverage_tickers": [
+        "CRWV",
+        "NBIS"
+      ],
+      "coverage_count": 2,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "leverage_burden",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "NBIS"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "capacity_delivery",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "NBIS"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "contract_monetization",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "NBIS"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "on_demand_pricing_power",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "NBIS"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "customer_concentration",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "NBIS",
+          "CRWV"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "low",
+      "coverage_tickers": [
+        "CRWV",
+        "NBIS"
+      ],
+      "coverage_count": 2,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "backlog_scale",
+      "direction": "strengthen",
+      "supporters": {
+        "strengthen": [
+          "CRWV"
+        ],
+        "weaken": [],
+        "neutral": [],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "CRWV"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "leverage_coverage",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "CRWV"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "CRWV"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "margin_trend",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "CRWV"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "CRWV"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "gpu_priority",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "CRWV"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "CRWV"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    },
+    {
+      "axis": "litigation",
+      "direction": "neutral",
+      "supporters": {
+        "strengthen": [],
+        "weaken": [],
+        "neutral": [
+          "CRWV"
+        ],
+        "break": [],
+        "mixed": []
+      },
+      "dispersion": "single_ticker",
+      "coverage_tickers": [
+        "CRWV"
+      ],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "interpretation": null
+    }
+  ],
+  "sector_unconfirmed": [],
+  "signal_mutation": null,
+  "direction_label_warnings": [],
+  "_note": null
+}

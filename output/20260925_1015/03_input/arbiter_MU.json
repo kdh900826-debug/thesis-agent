@@ -1,0 +1,300 @@
+{
+  "as_of": "2026-09-25",
+  "ticker": "MU",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260925_MU_8",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260925_MU_1",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API(CIK 0000723125)를 2026-09-25에 직접 파싱한 결과, filingDate 기준 2026-08-28(Form 4) 이후 창(2026-08-28~2026-09-25) 내 신규 SEC 공시는 Form 4(내부자 보고, 08-28) 1건과 Form 144(08-21, 08-18)뿐이며 8-K·10-Q·10-K 신규 등재는 0건이다. edgar_fulltext.py --ticker MU --forms 8-K 10-Q 10-K --since 2026-08-28 결과도 0건으로 일치했다. 카드가 언급한 'pre-earnings 8-K' 유형의 신규 공시는 확인되지 않았다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "edgar_api",
+        "url": "https://data.sec.gov/submissions/CIK0000723125.json",
+        "secondary_url": "output/20260925_1015/02_company/_raw_edgar_MU.json",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "P5 — 공시 부재는 소송·노사분쟁·계약 변동의 부존재 근거로 사용하지 않는다. 연속 4개 회차(0911·0919·0925) 신규 실질 공시 0건."
+    },
+    {
+      "id": "c_20260925_MU_2",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Micron 뉴스룸(micron.com/about/press/news)을 직접 조회한 결과, 2026-09-15 이후(직전 회차 적재분 2건 이후) 신규 발행된 회사 보도자료는 2026-09-25 시점까지 0건이다. SCA 신규 체결, 대만 노사분쟁, CXMT/YMTC 대응에 관한 회사 1차 발표도 창 내에 없다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_ir_newsroom",
+        "url": "https://www.micron.com/about/press/news",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "noise-triage 표적 점검: SCA·LTA·China supply·대만 노사 4개 promote_if 항목 모두 회사 1차 채널에서 창 내 갱신 없음을 직접 확인했다(예산 사유 아님)."
+    },
+    {
+      "id": "c_20260925_MU_3",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "미국 국제무역위원회(USITC)가 2026-09-24 Netlist, Inc.의 제소(2026-08-11 접수, 2026-08-25 보충서)에 기반해 Investigation No. 337-TA-1523(Certain DRAM Devices, Products Containing the Same, and Components Thereof (III))의 조사개시(institution)를 표결했다. 대상 특허는 US 10,025,731 / 10,217,523 / 12,373,366 / 12,675,407(DDR5 RDIMM·MRDIMM 관련) 4건이며, 피조사자는 Micron Technology, Inc., Supermicro, HPE, Lenovo 4개사다. Netlist는 배제명령(exclusion order)·중지명령(cease-and-desist order)을 청구했다. Netlist CEO C.K. Hong은 보도자료에서 'We are pleased with the ITC's decision to institute this investigation. The Samsung agreement established an important industry benchmark for the value of our IP'라고 직접 언급했다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_press_release",
+        "url": "https://www.prnewswire.com/news-releases/us-international-trade-commission-votes-to-institute-investigation-into-micron-technology-inc-302888468.html",
+        "secondary_url": "https://www.usitc.gov/press_room/news_release/2026/er0923_69264.htm",
+        "filed_at": "2026-09-24"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "발행 주체는 Netlist(상대방이자 이해관계자)이나 도메인은 sources.yaml grade_1(prnewswire.com)이고, 정부기관 조치(투자·번호·대상특허·피조사자)는 investing.com/tradingkey.com/futunn.com/lelezard.com/biggo.com 등 5개 이상 독립 매체가 동일 투자번호·동일 특허·동일 피조사자로 교차 일치해 삼각검증됐다(D15). usitc.gov 원 공지 페이지는 접근 시 403으로 직접 확인 실패 — 공식 문서 확보는 실패했으나 발행처 자기공시+5중 교차검증으로 grade1 유지. usitc.gov·federalregister.gov 도메인이 sources.yaml에 미등재된 점은 사용자에게 추가를 제안한다(에이전트는 config를 직접 수정하지 않음). ⚠️이는 리스크 해소가 아니라 '조사 절차의 정식 개시'로, 배제명령·중지명령 청구가 실체 심리 단계로 진입함을 뜻한다 — 판정(강화/훼손) 방향은 delta에서 별도 표기."
+    },
+    {
+      "id": "c_20260925_MU_4",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Netlist가 CDCA(중부 캘리포니아지구)에 제기한 사건(도켓번호 8:26-cv-02167로 보도됨, 2026-08-10 제소·08-20 송달 완료로 보도)에서 다투는 특허는 US 10,217,523 및 US 12,675,407 2건이며, 이는 ITC Investigation 337-TA-1523의 대상 특허 4건 중 2건과 겹친다는 점이 이번 회차에 확인됐다. 도켓번호 자체는 여전히 PACER/CourtListener 원문으로 직접 확인되지 않고 애그리게이터(2차) 보도로만 조회된다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_news",
+        "url": "https://www.tipranks.com/news/the-fly/netlist-files-new-legal-action-against-samsung-micron-thefly",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "P4 — grade4 단독 소스로 사실 확정 불가, 확인 대상으로만 적재. 다만 '특허 2건이 ITC 대상 4건의 부분집합'이라는 구조적 사실은 직전 회차 unconfirmed 항목(카드 기재 08-12 vs 도켓 08-10 불일치 등)에 새 맥락을 더한다 — CDCA·ITC가 완전히 별개 특허가 아니라 중첩 청구라는 것."
+    },
+    {
+      "id": "c_20260925_MU_5",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "Micron Technology, Inc. et al v. Netlist, Inc.(D. Del., 1:26-cv-01014, Micron이 원고인 비침해 확인의 소, 2026-08-10 제소, Hall 판사 배정)의 도켓 조회 결과, 대상 특허는 US 9,128,632 / 10,217,523 / 12,675,407 3건으로 파악되며(카드·직전 회차가 기재한 2건에서 1건 추가), Netlist의 답변기한은 2026-09-01에서 1차로 2026-09-01, 이후 2026-10-01로 재차 연장됐다. 2026-09-25 기준 답변·각하/이송 신청·§1659 정지 신청은 도켓에 등재되지 않았다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_docket_mirror",
+        "url": "https://www.pacermonitor.com/public/case/66193794/Micron_Technology,_Inc_et_al_v_Netlist,_Inc",
+        "filed_at": "2026-09-23"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "PacerMonitor는 sources.yaml 미등재 도메인(default_grade 4)이자 PACER 미러 단독 소스라 P4상 단독 판단 근거 불가 — 확인 대상 이월. 답변시한이 09-01에서 10-01로 재연장된 점은 직전 회차 unconfirmed(답변기한 09-01) 대비 진전된 관측이나, 여전히 실체 답변 전이므로 방향 판정에 쓰지 않는다."
+    },
+    {
+      "id": "c_20260925_MU_6",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "CAFC 사건 2025-1936(Netlist, Inc. v. Micron Technology Texas, LLC)은 법원 자체 페이지 기준 2026-09-09 구두변론이 실시됐고 오디오 파일이 게시돼 있다(직전 회차 c_20260919_MU_10과 동일 사실, 본 회차에 CAFC 원문 페이지로 직접 재확인). 2026-09-25 시점까지 선고 결과는 게시되지 않았다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "federal_court_docket_page",
+        "url": "https://www.cafc.uscourts.gov/09-09-2026-2025-1936-netlist-inc-v-micron-technology-texas-llc-audio-uploaded/",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "신규 정보 증분 없음(carry-forward 재확인). cafc.uscourts.gov는 sources.yaml 미등재이나 법원 자체 공표 원문이므로 P4 서열에 따라 grade1 수동 부여(직전 회차와 동일 처리)."
+    },
+    {
+      "id": "c_20260925_MU_7",
+      "ticker": "MU",
+      "claim_type": "fact",
+      "text": "대만 Taoyuan 노조(Micron Taiwan)는 2026-09-21 2차 조정이 합의 없이 종료됐다고 밝혔고, 회사가 구체적 이익분배 제안을 내지 않았다며 노동쟁의조정법(Act for Settlement of Labor-Management Disputes)에 따른 파업투표 절차를 개시하겠다고 발표했다(파업투표 실시 여부 자체는 아직 미확인). 노조는 영업이익의 15%를 이익분배에 배정할 것을 요구해왔고, 회사는 2026-09-11 사전 협의 없이 1인당 NT$100만(약 $31,544) 일시 보너스를 발표한 바 있어 노조 반발을 샀다. Taichung 노조와의 3차 조정은 2026-10-22로 예정됐다(창 밖).",
+      "evidence_grade": 3,
+      "source": {
+        "type": "news_wire_syndication",
+        "url": "https://www.tradingview.com/news/reuters.com,2026:newsml_P8N44P08V:0-micron-s-taoyuan-union-in-taiwan-says-it-plans-to-hold-strike-vote-after-mediation-ended-without-agreement/",
+        "secondary_url": "https://www.digitimes.com/news/a20260922PD219/micron-labor-taiwan-strike-2026.html",
+        "filed_at": "2026-09-22"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "Reuters 재유통본(grade3) + Digitimes·Newsquawk·BigGo·Fool 등 5개 매체 일치하나 회사 1차 자료(c_2 기준 뉴스룸 0건, EDGAR c_1 기준 8-K 0건) 미등재 — confirmed:false. 금액은 직전 회차 두 이견(NT$170만/$53,700 vs NT$100만/$31,498) 중 NT$100만/약 $31,544 쪽으로 5개 매체가 수렴해 불일치가 사실상 해소됐으나, grade3 단독이라 정정(P9)은 다음 회차 1차 자료 확보 후 판단한다. 카드 관측점 '2026-09-21 2차 조정 결과·파업투표 실시 여부' 중 조정 결과(결렬)는 확인, 파업투표 실시 여부는 여전히 미확인."
+    },
+    {
+      "id": "c_20260925_MU_9",
+      "ticker": "MU",
+      "claim_type": "inference",
+      "text": "창 내 검색으로 회수된 'NTM P/E 저평가·목표주가·9/30 이전 매수 타이밍' 류 서술(예: Motley Fool 9/21·9/22·9/23·9/24 다수 기사)은 noise_filter.yaml#MU 'P/E 단독 저평가 서술' 및 common 'IB/애널리스트 PT 단독' 패턴과 일치해 전량 폐기했다. CXMT/YMTC가 'Apple은 시험대일 뿐, 북미 클라우드 시장까지 노린다'는 주제형 해설(Digitimes 08-26)도 정량 데이터 없이 확대 해석해 노이즈로 폐기했다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_news",
+        "url": "https://www.fool.com/investing/2026/09/22/should-you-buy-micron-before-sept-30/",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "discarded_noise_log에 상세 기재. 판정에 사용하지 않음."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "ip_litigation_risk",
+      "direction": "weaken",
+      "stage": "L2_draft",
+      "prior_state": "직전 run(0919): ITC 제소는 DN 3930으로 특정됐으나 2026-09-19 시점 관보 게재분 기준 조사개시(institution) 공고는 게재되지 않음(c_20260919_MU_7). CDCA 8:26-cv-02167 답변시한 연장 후 새 시한 미특정(c_8, grade4). Micron의 D.Del 1:26-cv-01014 확인의 소 최초 포착(c_9, grade4). CAFC 2025-1936 구두변론(09-09) 미선고.",
+      "new_state": "본 회차에 핵심 관측점이던 'ITC institution 여부'가 해소됐다 — USITC가 2026-09-24 Investigation No. 337-TA-1523의 조사개시를 표결했고(c_3, grade1, 5중 교차검증), 대상 특허 4건·피조사자 4개사·배제명령 청구가 확정 서술됐다. 이는 리스크 경감이 아니라 절차가 실체 심리 단계로 정식 진입한 것이므로 방향을 weaken(risk 축 악화)으로 표기한다. 동시에 CDCA(c_4)·D.Del(c_5) 두 건은 여전히 grade4 단독 소스이며, D.Del 사건의 대상 특허가 3건(9,128,632 신규 편입)으로 갱신됐고 답변시한이 10/1로 재연장됐다. CDCA 사건은 대상 특허 2건이 ITC 대상 4건의 부분집합임이 처음 확인돼(c_4) 3개 절차(ITC·CDCA·D.Del)가 서로 무관한 별건이 아니라 동일 특허군을 둘러싼 다중 전선임이 드러났다. CAFC 2025-1936은 선고 대기 상태로 변화 없음(c_6).",
+      "risk_transfer_to": [
+        "ITC 337-TA-1523 ALJ 배정·심리 일정·증거개시 진행",
+        "CDCA 8:26-cv-02167 확정 답변시한 및 답변 내용(grade4, 확인 대상)",
+        "D.Del 1:26-cv-01014 2026-10-01 답변 및 §1659 정지 신청 여부",
+        "CAFC 2025-1936 선고"
+      ],
+      "supporting_claims": [
+        "c_20260925_MU_3",
+        "c_20260925_MU_4",
+        "c_20260925_MU_5",
+        "c_20260925_MU_6"
+      ],
+      "inference_strength_overall": "moderate",
+      "caveat": "법률 절차의 진행이지 매출·마진·현금흐름·가이던스 수치가 아니므로 시그널 등급 상향/하향 근거로 쓸 수 없다(P2) — 본 delta는 thesis 축 서술 갱신에 한정된다. weaken 방향은 조사개시라는 절차적 사실에 근거하며, ITC의 최종 위반 판정·배제명령 여부는 아직 수년 소요될 수 있는 별개 사건이다(P5, 조사개시 ≠ 위반 확정). ip_litigation_risk 축 서술 원문의 CDCA 제소일 표기 불일치(2026-08-12 vs 도켓 2026-08-10)와 D.Del 소송 누락은 여전히 근거 grade4라 정정(ThesisPatch) 근거로 쓰지 못하며 다음 회차로 이월한다."
+    },
+    {
+      "axis": "production_continuity",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "직전 run(0919): 대만 노사분쟁은 조정 절차 안에 머물러 있고 파업 미선언. 신규 확정 사실은 09-04 결렬·2차 조정 09-21 지정·회사 코멘트뿐(grade3, confirmed false). 방향 미부여(no_change).",
+      "new_state": "카드가 지목한 관측점(2026-09-21 2차 조정 결과)이 이번 회차에 확정됐다 — 조정은 합의 없이 종료됐고 노조는 파업투표 절차 개시를 발표했다(c_7, grade3). 그러나 여전히 유일 소스가 grade3(Reuters 재유통)·confirmed:false이고 회사 1차 자료(뉴스룸 c_2, EDGAR c_1)에는 미등재이므로, 카드의 명시적 제약('이 축의 존재 근거는 축 구조 문제에 한정되며 방향 판정 부여하지 않음, P4')을 그대로 적용해 direction은 neutral로 유지한다. 3차 조정(Taichung, 10/22)이 확정돼 다음 관측점이 됐다.",
+      "risk_transfer_to": [
+        "파업투표 실제 실시 여부 및 결과",
+        "2026-10-22 Taichung 노조 3차 조정",
+        "2026-09-30 FY26 Q4 실적 콜 경영진 코멘트",
+        "회사 8-K·IR 등재 여부"
+      ],
+      "supporting_claims": [
+        "c_20260925_MU_1",
+        "c_20260925_MU_2",
+        "c_20260925_MU_7"
+      ],
+      "inference_strength_overall": "weak",
+      "caveat": "P4 — grade3 단독 소스이므로 강화·훼손 방향 판정 자체를 부여하지 않는다. 03_signal 규칙3 하향 자격(grade≤2) 미달 상태도 불변."
+    },
+    {
+      "axis": "hbm_demand_strength",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "직전 run: 창 내 HBM 비중·마진·고객·HBM4 일정 1차 자료 없음. 관측점 2026-09-30 실적으로 이월.",
+      "new_state": "본 회차 창 내에도 HBM 비중·마진에 관한 신규 1차 자료가 없다(c_1·c_2). no_change 이월.",
+      "risk_transfer_to": [
+        "2026-09-30 FY26 Q4 실적 — HBM 비중·마진"
+      ],
+      "supporting_claims": [
+        "c_20260925_MU_1",
+        "c_20260925_MU_2"
+      ]
+    },
+    {
+      "axis": "sca_defense",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "SCA 16건, DRAM 20%+/NAND 1/3 커버리지. FY26 Q3 이후 갱신 없음.",
+      "new_state": "창 내 SEC 공시 0건·회사 보도자료 0건 모두 SCA 신규 체결·조건 변경 기재 없음(c_1, c_2). noise_filter promote_if 최우선 항목 표적 점검 결과다. no_change 이월.",
+      "risk_transfer_to": [
+        "2026-09-30 FY26 Q4 실적 — SCA 가이던스·LTA 비중·선수금/계약부채 잔액"
+      ],
+      "supporting_claims": [
+        "c_20260925_MU_1",
+        "c_20260925_MU_2"
+      ]
+    },
+    {
+      "axis": "cycle_position",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "비트그로스 vs ASP 분해 미확정. 최신 기준선 FY26 Q3 10-Q.",
+      "new_state": "창 내 1차 자료에 비트그로스·ASP 분해 수치 없음. 기준선 불변(c_1, c_2).",
+      "risk_transfer_to": [
+        "2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해"
+      ],
+      "supporting_claims": [
+        "c_20260925_MU_1",
+        "c_20260925_MU_2"
+      ]
+    },
+    {
+      "axis": "valuation_paradox",
+      "direction": "neutral",
+      "stage": "monitor",
+      "prior_state": "NTM Forward P/E ~5.95-6.9x는 피크 역설 구간. 판정 축은 P/E가 아니라 비트/ASP 분해와 선수금 방향.",
+      "new_state": "판정 입력(비트/ASP 분해, 선수금 방향) 모두 창 내 갱신 없음. 저 P/E·매수 타이밍 서술은 noise_filter.yaml#MU 'P/E 단독 저평가 서술'에 해당해 전량 폐기했다(c_9). no_change 이월.",
+      "risk_transfer_to": [
+        "2026-09-30 FY26 Q4 실적 — 선수금·계약부채 잔액 방향, 비트/ASP 분해"
+      ],
+      "supporting_claims": [
+        "c_20260925_MU_9"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "ITC 337-TA-1523 ALJ 배정 및 심리 일정",
+      "detail": "조사개시(institution)는 확인됐으나(c_3) ALJ 배정, 목표 완결일(target date), 증거개시 일정은 창 내 공표되지 않았다.",
+      "reason": "not_yet_scheduled"
+    },
+    {
+      "topic": "CDCA 8:26-cv-02167 도켓 원문 확인 및 확정 답변시한",
+      "detail": "대상 특허가 ITC 4건 중 2건과 겹친다는 점은 확인됐으나(c_4) 도켓번호·답변시한·답변 내용은 여전히 애그리게이터(grade4) 단독 소스다. usitc.gov·PACER 직접 접근은 403/미러 지연으로 실패했다.",
+      "reason": "primary_docket_unavailable"
+    },
+    {
+      "topic": "D.Del 1:26-cv-01014 2026-10-01 답변 내용 및 §1659 정지 여부",
+      "detail": "답변시한이 10/1로 재연장됐고 대상 특허가 3건(9,128,632 포함)으로 갱신됐다(c_5, grade4). 실제 답변·§1659 정지 신청 여부는 미확인.",
+      "reason": "future_deadline"
+    },
+    {
+      "topic": "CAFC 2025-1936 선고",
+      "detail": "2026-09-09 구두변론 이후 2026-09-25 시점까지 선고 없음(c_6, grade1).",
+      "reason": "pending_decision"
+    },
+    {
+      "topic": "대만 노조 파업투표 실제 실시 여부·결과",
+      "detail": "2차 조정 결렬은 확인됐으나(c_7) 파업투표 자체의 실시·가결 여부는 미확인이며 회사 1차 자료 등재도 없다.",
+      "reason": "primary_source_unavailable"
+    },
+    {
+      "topic": "Apple向 CXMT/YMTC 소싱 승인 여부",
+      "detail": "09-24~25 미중 정상회담이 열렸으나 이 사안에 대한 명시적 결론 보도를 확인하지 못했다(c_8).",
+      "reason": "no_official_decision_yet"
+    },
+    {
+      "topic": "SCA 신규 체결·조건 변경 및 선수금·계약부채 잔액 방향",
+      "detail": "창 내 1차 채널(EDGAR·회사 IR)에서 해당 변동 기재를 확보하지 못했다(c_1, c_2). 2026-09-30 실적이 다음 관측점이다.",
+      "reason": "primary_source_unavailable"
+    },
+    {
+      "topic": "비트그로스 vs ASP 분해 및 HBM 마진 vs 범용 마진 직접 확인",
+      "detail": "카드 key_metrics·earnings_checkpoints 항목이나 창 내 1차 자료 없음. 2026-09-30 실적으로 이월.",
+      "reason": "primary_source_unavailable"
+    }
+  ]
+}

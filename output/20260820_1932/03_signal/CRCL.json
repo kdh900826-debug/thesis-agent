@@ -1,0 +1,122 @@
+{
+ "as_of": "2026-08-20T19:32",
+ "run_id": "20260820_1932",
+ "ticker": "CRCL",
+ "input_source": "output/20260820_1932/03_input/arbiter_CRCL.json",
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260820_CRCL_1932_001",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "10-Q",
+   "filed_at": "2026-08-05",
+   "summary": "10-Q 원문 재확인: Distribution and transaction costs $410,414천 + Other costs $2,056천 = Total $412,470천(Q2'25 $406,942천, +1.36% YoY). 이전 Run의 '$410M vs $412M' 불일치는 동일 손익계산서 내 세부항목 vs 소계 표기 granularity 차이로 해소(상충 데이터 아님)."
+  },
+  {
+   "id": "c_20260820_CRCL_1932_002",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "10-Q",
+   "filed_at": "2026-08-05",
+   "summary": "10-Q 각주: Coinbase Collaboration Agreement 유통비용 3개월 기준 Q2'26 $324.6M(Q2'25 $332.3M, -2.3% YoY), 6개월 기준 Q2'26 $655.3M(Q2'25 $635.5M, +3.1% YoY)."
+  },
+  {
+   "id": "c_20260820_CRCL_1932_003",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_fulltext_and_submissions_api",
+   "filed_at": "2026-08-20",
+   "summary": "2026-08-20 19:32 KST EDGAR 재조회: 최신 8-K는 여전히 2026-08-05, 8/6~8/20 신규 8-K 0건. Coinbase 분배계약 자동갱신 발효일(8/18) 경과 후 2일 시점까지 계약변경(Item 1.01/1.02) 공시 부재 지속 — 8/16(발효 전)·8/20 19:25(발효 후) 관측과 정합."
+  },
+  {
+   "id": "c_20260820_CRCL_1932_004",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_submissions_api",
+   "filed_at": "2026-08-20",
+   "summary": "data.sec.gov 재조회: 2026년 8월 Form 4 총 11건, 최신 제출 2026-08-14(CFO Fox-Geen 8/13 매도분, 8/15 Run에서 이미 확인)로 동일 — 8/15 이후 신규 Form 4 없음."
+  }
+ ],
+ "filter_bug_report": "없음 — arbiter_CRCL.json의 claims 4건 전부 scope=company_specific 확인. removed_claims 1건(005)은 scope=sector로 정상 제거(필터 정상 동작) — F13 위반 없음.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-1~10(macro, 전건)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional 6건 포함 — 오케스트레이터 발췌 기준, 개별 KC 정의 미접근(P17)"
+   },
+   {
+    "kc_id": "KC-CRCL-1~4(종목 전용, 전건 active)",
+    "verdict": "not_met / 미발동",
+    "verdict_confidence": "KC-CRCL-3(분배계약 변경)은 met=false(미발동)이며 8-K 제출기한(발효 후 4영업일, ~2026-08-24)까지 unconfirmed 보류 중 — 최종판정 아님. KC-CRCL-1·2·4는 이번 관측에서 신규 발동 없음(오케스트레이터 전달 기준, arbiter는 KC 정의 원문 미접근)."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "규칙1(Kill 우선: KC met AND confirmed)에 해당하는 KC 없음. KC-CRCL-3은 'met' 자체가 아직 성립하지 않아(미발동) confirmed 여부를 따질 대상이 아니며, 8/24 제출기한 경과 전까지는 최종판정을 유보. 나머지 KC-CRCL-1·2·4도 신규 발동 관측 없음 — 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향게이트(quantitative_evidence AND company_specific AND revenue_recognized 전부 충족)는 3조건 동시충족 필요. quantitative_evidence는 부분 충족(c_002 Coinbase向 유통비용, c_004 Form4 건수)하고 company_specific은 4건 전부 충족하나, revenue_recognized 단계에 해당하는 claim이 없음 — 이번 4건은 (a) 기존 비용 라인 표기 재확인, (b) 유통비용 세부내역(비용 항목, 매출인식 아님), (c) 계약변경 공시 부재(부작위 확인), (d) 내부자 거래 신고 현황으로 P7의 계약존재/이행/매출인식 3단 중 어디에도 해당하지 않음. 따라서 상향 게이트 미충족 — 등급 유지 + 사유기록(P12)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "c_002의 Coinbase向 유통비용은 3개월 기준 -2.3% YoY(비용감소, CRCL의 reserve income 마진에 유리)로 훼손 방향이 아님. 6개월 기준 +3.1% YoY는 비용증가이나, 오케스트레이터 전달 Delta에서 이 claim은 reserve_income 축 'strengthen'으로 매핑되어 있어 arbiter가 독자적으로 훼손 방향으로 재해석하지 않음(P13/P17 — thesis card·02_company 원문 미접근, 하위 판정 결과를 그대로 수용).",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "c_003(계약변경 8-K 부재 지속, grade1 confirmed)은 위협이 아직 현실화되지 않았음을 보여주는 관측이며 오케스트레이터 Delta에서도 strengthen 축으로 매핑됨 — 정보 부재를 훼손 근거로 채택하지 않음(P5의 대칭적 적용: 정보부재≠반증이듯 정보부재≠위협소멸도 아니지만, 여기서는 '변경 없음 지속'이 이미 confirmed fact이므로 하방 리스크 미실현으로 은정). c_001은 표기차이 해소(neutral, 실질 변화 없음)로 훼손 아님. c_004는 내부자 거래 신규 없음(중립)으로 훼손 신호 없음.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "4건 Claim 및 오케스트레이터 전달 Delta(strengthen×2 + neutral×1) 전건 비훼손 — 규칙3(비대칭 하향) 트리거 조건 불성립."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "reserve_income",
+   "direction": "strengthen",
+   "supporting_claims": ["c_20260820_CRCL_1932_002", "c_20260820_CRCL_1932_003"],
+   "risk_transfer_to": "없음 — 리스크 이관 아님. 기존 OUSD/Coinbase 분배계약 축 내에서 하방 리스크가 이번 관측에서 미실현으로 확인된 것에 그침. KC-CRCL-3 최종 소멸 여부는 8-K 제출기한(~2026-08-24) 경과 후 재확인 필요(unconfirmed u_20260820_CRCL_1932_a)."
+  },
+  {
+   "axis": "reserve_income(표기 정합)",
+   "direction": "neutral",
+   "supporting_claims": ["c_20260820_CRCL_1932_001"],
+   "risk_transfer_to": "없음 — 유통비용 표기 granularity 차이 해소, 실질 변화 없음."
+  }
+ ],
+ "alert": {
+  "ticker_event": "CRCL — Q2'26 10-Q 각주 재확인(Coinbase向 유통비용 3개월 -2.3% YoY) + Coinbase 분배계약 자동갱신 발효(8/18) 후 2일 시점까지 8-K 계약변경 공시 부재 지속 + Form4 신규 없음",
+  "facts": "① 10-Q(2026-08-05 제출) 각주: Coinbase Collaboration Agreement 유통비용 3개월 Q2'26 $324.6M vs Q2'25 $332.3M(-2.3% YoY), 6개월 +3.1% YoY [출처: SEC EDGAR 10-Q, 2026-08-05, grade1 confirmed]. ② Total distribution/transaction/other costs $412,470천(+1.36% YoY) — 이전 Run의 '$410M vs $412M' 표기 불일치는 granularity 차이로 해소 [동 10-Q, grade1 confirmed]. ③ EDGAR 재조회(2026-08-20 19:32 KST) 결과 8/6~8/20 신규 8-K 0건, 분배계약 자동갱신 발효(8/18) 후 2일 경과까지 계약변경 공시 부재 지속 [SEC EDGAR fulltext/submissions API, 2026-08-20, grade1 confirmed]. ④ Form 4 8월 총 11건, 8/15 이후 신규 제출 없음(최신 8/14 CFO 매도분과 동일) [data.sec.gov submissions API, 2026-08-20, grade1 confirmed].",
+  "inference": "없음 — 이번 입력 4건 전부 claim_type=fact, inference_strength=null. 추론 근거로 사용된 문장 없음.",
+  "classification": "holding_reinforcement (등급 유지 + 사유기록, P12) — 상향 게이트(P2/P6/P7) 미충족: revenue_recognized 단계 claim 없음. 하향 트리거 미성립: 훼손 방향 없음(오케스트레이터 Delta strengthen×2 + neutral×1).",
+  "thesis_delta": "reserve_income 축 strengthen×2(c_002 Coinbase向 유통비용 -2.3% YoY, c_003 계약변경 8-K 부재 지속) + neutral×1(c_001 표기 정합 확인). 리스크 이관: 없음 — 단일 축 내 강화이며 타축으로의 리스크 이전 관측 없음. OUSD 위협 축 자체는 이번 Run 신규 자료 없음(unconfirmed u_b: CPN $23B 수치 1차확인 실패로 미등재, u_c: OUSD 공식출시·유통량 상태변화 없음).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🔴(비중 조절 검토, OUSD 위협) 유지 권고(maintain). Kill 게이트 미충족(KC met&confirmed 없음, KC-CRCL-3은 8/24까지 unconfirmed 보류). 상향 게이트 미충족(revenue_recognized 단계 claim 없음). 하향 게이트 미충족(훼손 방향 없음). 🔴🔴 사람 확인 요청 대상 아님.",
+  "next_check": "① [정성·확인기한, 관측가능] 2026-08-24까지 Coinbase 분배계약 변경 관련 8-K(Item 1.01/1.02) 제출 유무 — 8-K 제출기한(발효 후 4영업일) 경과 시점에서 KC-CRCL-3 unconfirmed 최종 해소. ② [정량] Q3'26 실적 — USDC 유통량 QoQ 부호, 회사 자체 정의 점유율(%) 방향, Reserve Income 절대액·YoY 지속성(state/signals.json 기존 게이트 승계, 변경 없음)."
+ },
+ "next_gate": "2026-08-24까지 Coinbase 분배계약 변경 관련 8-K(Item 1.01/1.02) 제출 유무(KC-CRCL-3 unconfirmed 최종판정) + Q3'26 실적(USDC 유통량 QoQ 부호·회사 정의 점유율%·Reserve Income 지속성) — 기존 게이트 승계, 8/24 확인기한만 명시적으로 특정",
+ "unconfirmed_carried": [
+  {"topic": "Coinbase 분배계약 자동갱신의 8-K 공시의무 최종 소멸 여부", "reason": "8-K 제출기한(발효 후 4영업일, ~2026-08-24) 미경과 — 최종 결론 보류, 8/24 경과 후 재조회 필요"},
+  {"topic": "CPN 연환산 거래액 $23B(2026-07-31 기준)의 1차 출처", "reason": "circle.com 블로그 원문에 해당 수치 게재 없음. 공식 확정 수치는 $14.7B(2026-06-30 마감, grade1)이며 $23B는 grade1 원문 미확인으로 미등재"},
+  {"topic": "OUSD 공식 출시·실측 유통량", "reason": "2026년 하반기 출시 목표 반복 보도만 존재, 8/15 Run 대비 상태 변화 없음 — noise_filter.yaml 기준 노이즈로 유지, 승격하지 않음"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 등급 유지가 P12 기본경로에 따라 적용됨. KC-CRCL-3 최종판정은 2026-08-24 8-K 제출기한 경과 후 재확인 필요(현재 unconfirmed) — 8/24 이후 run에서 최우선 재조회 권고."
+}

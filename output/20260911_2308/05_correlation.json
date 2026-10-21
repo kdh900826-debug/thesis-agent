@@ -1,0 +1,845 @@
+{
+  "as_of": "2026-09-12T20:00",
+  "run_id": "20260911_2308",
+  "pair_overlap": [
+    {
+      "pair": [
+        "COIN",
+        "CRCL"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "REGULATION",
+        "CRYPTO",
+        "RATES"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "USDC_DISTRIBUTION_ECONOMICS",
+          "hedge_strength": "중",
+          "note": "COIN + vs CRCL - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "CRWV"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs CRWV - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "HOOD"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "REGULATION",
+        "RISK_APPETITE",
+        "CRYPTO",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "IREN"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "CRYPTO"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs IREN - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "MU"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs MU - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "COIN",
+        "NBIS"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "COIN + vs NBIS - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "CRWV"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "상",
+          "note": "CRCL + vs CRWV - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "HOOD"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "REGULATION",
+        "CRYPTO",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "IREN"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "CRYPTO"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRCL + vs IREN - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "MU"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRCL + vs MU - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRCL",
+        "NBIS"
+      ],
+      "grade": "하",
+      "shared_axes": [],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRCL + vs NBIS - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "HOOD"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "CRWV - vs HOOD + — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "IREN"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "GPU_SUPPLY",
+        "AI_CAPEX",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "MU"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "AI_CAPEX",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "CRWV",
+        "NBIS"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "GPU_SUPPLY",
+        "AI_CAPEX",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "HOOD",
+        "IREN"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "CRYPTO"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "HOOD + vs IREN - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "HOOD",
+        "MU"
+      ],
+      "grade": "하",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "HOOD + vs MU - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "HOOD",
+        "NBIS"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "RISK_APPETITE"
+      ],
+      "inverse_axes": [
+        {
+          "axis": "RATES",
+          "hedge_strength": "중",
+          "note": "HOOD + vs NBIS - — 자연 헤지"
+        }
+      ]
+    },
+    {
+      "pair": [
+        "IREN",
+        "MU"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "AI_CAPEX"
+      ]
+    },
+    {
+      "pair": [
+        "IREN",
+        "NBIS"
+      ],
+      "grade": "상",
+      "shared_axes": [
+        "RISK_APPETITE",
+        "GPU_SUPPLY",
+        "AI_CAPEX",
+        "RATES"
+      ]
+    },
+    {
+      "pair": [
+        "MU",
+        "NBIS"
+      ],
+      "grade": "중",
+      "shared_axes": [
+        "AI_CAPEX"
+      ]
+    }
+  ],
+  "kc_propagation": [
+    {
+      "kc_id": "KC-1",
+      "group": "macro",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "RATES",
+          "adverse_sign": "-"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-2",
+      "group": "macro",
+      "affected": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "RISK_APPETITE",
+          "adverse_sign": "+"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-3",
+      "group": "macro",
+      "affected": [
+        "COIN",
+        "CRCL",
+        "HOOD",
+        "IREN"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "CRYPTO",
+          "adverse_sign": "+"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-4",
+      "group": "macro",
+      "affected": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "RISK_APPETITE",
+          "adverse_sign": "+"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-5",
+      "group": "macro",
+      "affected": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "RISK_APPETITE",
+          "adverse_sign": "+"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-6",
+      "group": "macro",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "AI_CAPEX",
+          "adverse_sign": "+"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-7",
+      "group": "macro",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "AI_CAPEX",
+          "adverse_sign": "+"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-8",
+      "group": "macro",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "AI_CAPEX",
+          "adverse_sign": "+"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-9",
+      "group": "macro",
+      "affected": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "RATES",
+          "adverse_sign": "-"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-10",
+      "group": "macro",
+      "affected": [
+        "IREN"
+      ],
+      "count": 1,
+      "weight_pct_upper": 95.0,
+      "mapping_status": "defined",
+      "mapped_axes": [
+        {
+          "axis": "POWER_PERMIT",
+          "adverse_sign": "-"
+        }
+      ]
+    },
+    {
+      "kc_id": "KC-CRCL-1",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "CRCL"
+    },
+    {
+      "kc_id": "KC-CRCL-2",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "CRCL"
+    },
+    {
+      "kc_id": "KC-CRCL-3",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "CRCL"
+    },
+    {
+      "kc_id": "KC-CRCL-4",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "CRCL"
+    },
+    {
+      "kc_id": "KC-COIN-1",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "COIN"
+    },
+    {
+      "kc_id": "KC-COIN-2",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "COIN"
+    },
+    {
+      "kc_id": "KC-COIN-3",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "COIN"
+    },
+    {
+      "kc_id": "KC-COIN-4",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "COIN"
+    },
+    {
+      "kc_id": "KC-HOOD-1",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "HOOD"
+    },
+    {
+      "kc_id": "KC-HOOD-2",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "HOOD"
+    },
+    {
+      "kc_id": "KC-HOOD-3",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "HOOD"
+    },
+    {
+      "kc_id": "KC-NBIS-1",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "NBIS"
+    },
+    {
+      "kc_id": "KC-NBIS-2",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "NBIS"
+    },
+    {
+      "kc_id": "KC-NBIS-3",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "NBIS"
+    },
+    {
+      "kc_id": "KC-CRWV-1",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "CRWV"
+    },
+    {
+      "kc_id": "KC-CRWV-2",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "CRWV"
+    },
+    {
+      "kc_id": "KC-CRWV-3",
+      "group": "company",
+      "affected": null,
+      "count": null,
+      "weight_pct_upper": null,
+      "mapping_status": "undefined",
+      "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+      "ticker": "CRWV"
+    }
+  ],
+  "kc_propagation_coverage": {
+    "active_total": 27,
+    "macro_active": 10,
+    "company_active": 17,
+    "mapped": 10,
+    "undefined": 17,
+    "undefined_kc_ids": [
+      "KC-CRCL-1",
+      "KC-CRCL-2",
+      "KC-CRCL-3",
+      "KC-CRCL-4",
+      "KC-COIN-1",
+      "KC-COIN-2",
+      "KC-COIN-3",
+      "KC-COIN-4",
+      "KC-HOOD-1",
+      "KC-HOOD-2",
+      "KC-HOOD-3",
+      "KC-NBIS-1",
+      "KC-NBIS-2",
+      "KC-NBIS-3",
+      "KC-CRWV-1",
+      "KC-CRWV-2",
+      "KC-CRWV-3"
+    ],
+    "note": "undefined는 축 매핑 미정의로 파급 산출이 불가능한 KC다. 값이 비어 있는 것이 아니라 '산출 불가'라는 정보이며, 파급이 없다는 뜻이 아니다(P5). 매핑 추가는 사람 승인 영역이다."
+  },
+  "shared_axis_kc_groups": [
+    {
+      "axis": "AI_CAPEX",
+      "kc_ids": [
+        "KC-6",
+        "KC-7",
+        "KC-8"
+      ],
+      "note": "동일 축을 공유하는 KC들이다 — 각각의 파급 종목 집합이 겹치는 것은 정상이며, 서로 다른 위험이 중복 계상된 것이 아니라 같은 전달 경로를 공유한다는 뜻이다. 축 집중도 합산 시 이 중복을 두 번 세지 않도록 주의한다."
+    },
+    {
+      "axis": "RATES",
+      "kc_ids": [
+        "KC-1",
+        "KC-9"
+      ],
+      "note": "동일 축을 공유하는 KC들이다 — 각각의 파급 종목 집합이 겹치는 것은 정상이며, 서로 다른 위험이 중복 계상된 것이 아니라 같은 전달 경로를 공유한다는 뜻이다. 축 집중도 합산 시 이 중복을 두 번 세지 않도록 주의한다."
+    },
+    {
+      "axis": "RISK_APPETITE",
+      "kc_ids": [
+        "KC-2",
+        "KC-4",
+        "KC-5"
+      ],
+      "note": "동일 축을 공유하는 KC들이다 — 각각의 파급 종목 집합이 겹치는 것은 정상이며, 서로 다른 위험이 중복 계상된 것이 아니라 같은 전달 경로를 공유한다는 뜻이다. 축 집중도 합산 시 이 중복을 두 번 세지 않도록 주의한다."
+    }
+  ],
+  "axis_concentration": [
+    {
+      "axis": "AI_CAPEX",
+      "tickers": [
+        "CRWV",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "RATES",
+      "tickers": [
+        "COIN",
+        "CRCL",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 7,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "CRYPTO",
+      "tickers": [
+        "COIN",
+        "CRCL",
+        "HOOD",
+        "IREN"
+      ],
+      "count": 4,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "REGULATION",
+      "tickers": [
+        "COIN",
+        "CRCL",
+        "HOOD"
+      ],
+      "count": 3,
+      "weight_pct_upper": 0.0,
+      "threshold_breach": false,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "GPU_SUPPLY",
+      "tickers": [
+        "CRWV",
+        "IREN",
+        "NBIS"
+      ],
+      "count": 3,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "POWER_PERMIT",
+      "tickers": [
+        "IREN"
+      ],
+      "count": 1,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "RISK_APPETITE",
+      "tickers": [
+        "COIN",
+        "CRWV",
+        "HOOD",
+        "IREN",
+        "MU",
+        "NBIS"
+      ],
+      "count": 6,
+      "weight_pct_upper": 95.0,
+      "threshold_breach": true,
+      "basis": "positions.yaml 비중 범위 상단"
+    },
+    {
+      "axis": "USDC_DISTRIBUTION_ECONOMICS",
+      "tickers": [
+        "COIN",
+        "CRCL"
+      ],
+      "count": 2,
+      "weight_pct_upper": 0.0,
+      "threshold_breach": false,
+      "basis": "positions.yaml 비중 범위 상단"
+    }
+  ],
+  "vector_change_proposals": [],
+  "coefficient_used": false,
+  "disclaimer": "본 상관은 구조적 노출 판정이며 실제 가격 동조화를 예측하지 않는다. 축 노출이 낮아도 유동성 이벤트에서 동반 하락할 수 있다. 노출 벡터는 사람이 편집한 correlation_matrix.yaml에 의존하므로, 벡터의 정확성이 곧 이 레이어의 정확성 상한이다."
+}

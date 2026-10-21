@@ -1,0 +1,28 @@
+{
+  "as_of": "2026-10-01",
+  "injected_by": "user (run full 지시 시 반영 요청)",
+  "event": "트럼프, 韓 대미투자(에너지) 첫 구체 프로젝트 발표 — 2026-09-30(미 동부) 백악관",
+  "evidence_grade_note": "아래 사실은 전부 2차 매체(grade 3) — 단독 판단 근거 불가(P4). 1차 확인 대상: whitehouse.gov fact sheet / commerce.gov / 산업통상자원부 보도자료 / NextEra(NEE) 8-K·보도자료. 1차 URL 역추적 의무.",
+  "sources": [
+    {"id": "us_src_1", "url": "https://biz.chosun.com/international/international_general/2026/10/01/JLJ2L5LKLBCNBMJ5JHENGTIGKA/", "outlet": "조선비즈", "published": "2026-10-01T05:32+09:00", "grade": 3},
+    {"id": "us_src_2", "url": "https://www.koreaherald.com/article/10889661", "outlet": "Korea Herald", "published": "2026-10-01", "grade": 3},
+    {"id": "us_src_3", "url": "https://www.upi.com/Top_News/World-News/2026/09/22/korea-Korea-investment-US-gas-power-plant-Encinal-Texas/5411790071930/", "outlet": "UPI", "published": "2026-09-22", "grade": 3}
+  ],
+  "facts_reported": [
+    {"k": "총액", "v": "한국 정부 최대 $200B 투자(에너지) — $350B 대미투자 패키지(관세 25%→15% 인하 조건, 2025 경주 한미정상회담 합의)의 일부. 연간 상한 $20B", "src": ["us_src_1", "us_src_2"]},
+    {"k": "확정 1호 프로젝트", "v": "Project Star — 텍사스 Encinal 가스복합화력 6,472MW, $22.3B, 인근 AI 데이터센터 전력 공급 목적(구체 테넌트 미명시). 주관: Related Companies + NextEra Energy, 부지·가스·용수: Lewis Energy Group. 2029년부터 단계 상업운전, 2032 완전 가동", "src": ["us_src_2", "us_src_3"]},
+    {"k": "자금 구조", "v": "원리금 회수 전 이익 50:50, 회수 후 한국 10%/미국 90%. 이자율 = 미 20년물 국채 수익률 + 프로젝트별 마진. 1차 납입 $2.4B (10/1)", "src": ["us_src_2"]},
+    {"k": "미확정 프로젝트", "v": "Project Power: 대형 원전 8기 최대 $120B(APR1400 2기 + Westinghouse AP1000 6기, 상업성 평가 조건부) / Project North: 알래스카 LNG $50B+ (한국 측 '상업성 없으면 미진행' — 산업장관 김정관). 한국 정부는 Encinal 1건만 확정", "src": ["us_src_1", "us_src_2"]},
+    {"k": "반도체 언급", "v": "기사 내 Micron·삼성·SK하이닉스·메모리 반도체 언급 없음", "src": ["us_src_1", "us_src_2"]}
+  ],
+  "orchestrator_mapping_hint": {
+    "_note": "힌트일 뿐 — 매핑·scope 판정은 각 L2가 자기 카드 축 기준으로 독립 수행. 기본 scope는 macro/sector(P6: 개별 종목 상향 근거 불가).",
+    "IREN": "ERCOT 내 AI DC용 대규모 전원 공급 신설(2029~) — power_permit 축의 '전력 희소성' 전제와의 관계, Childress·Sweetwater(TX) 사이트 경쟁 구도. 회사 직접 연관 공시 없으면 sector 태깅",
+    "NBIS": "미국 AI DC 전력 공급 증설 — 미국 사이트 전력 조달 맥락. 직접 연관 없으면 sector",
+    "CRWV": "동일 — 임차형 DC 전력 조달 맥락. Related Companies·NextEra와 CRWV 간 기존 관계가 1차 자료로 확인될 때만 company_specific",
+    "MU": "한국산 제품 관세 15% 구조 유지(삼성·하이닉스 경쟁 환경) — 단 반도체 품목관세(Section 232)는 별개 체계일 수 있음, 1차 확인 전 추론 금지",
+    "CRCL": "직접 연관 없음 예상 — 노이즈 판정 가능",
+    "COIN": "직접 연관 없음 예상 — 노이즈 판정 가능",
+    "HOOD": "직접 연관 없음 예상 — 노이즈 판정 가능"
+  }
+}

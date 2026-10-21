@@ -1,0 +1,65 @@
+# Thesis Card — HOOD (v1 §5-7 기계 판독본)
+ticker: HOOD
+sector: stablecoin
+tier: Next
+as_of: "2026-08-15"
+source: "에이전트시스템_설계계획서_v1_20260815.md §5-7 / 투자_Thesis_Map_v32 (신호 🟡)"
+version_history:
+  - {date: "2026-09-05", change: 'ThesisPatch 적용(axes/annotate) — 근거: c_retro_HOOD_001,c_retro_HOOD_002,c_retro_HOOD_003,c_retro_HOOD_004 / 이전: - / {id: / prediction_market, / label: / "예측시장 / — / 매출 / 기여 / vs / 규제 / 리스크"}...'}
+  - {date: "2026-08-15", change: "v1 카드 기계 판독본 초기화"}
+
+axes:
+  - {id: aua_inflow,       label: "AUA·순유입 (유지 근거의 핵심)"}
+  - {id: arpu_mix,         label: "ARPU·매출 mix (크립토/예측시장/이자수입)"}
+  - {id: crypto_cycle,     label: "크립토 매출 비중 (KC-3 연동)"}
+  # 2026-09-05 ThesisPatch(annotate, run 20260905_0839 소급 확인) — 이전 라벨: "예측시장 — 매출 기여 vs 규제 리스크"(P9 보존). 축의 최초 grade 1 매출 실측 기준선을 병기한다. 축 수 5개 불변.
+  - {id: prediction_market, label: "예측시장 — 매출 기여 vs 규제 리스크. 기준선(Q2'26, 8-K Ex-99.1 grade 1): 이벤트 계약 매출 $156M·YoY 10배+, 분기 계약 13.6B건 — 거래매출 $776M 구성에서 크립토($100M)·주식($129M)을 추월(비중 ~20.1%는 파생 계산, inference). ⚠️Q3에서 월드컵 계절성 여부 확인 전까지 지속성 미검증 · 동일 축에 KC-HOOD-3 규제 리스크 상존(9순회 Kalshi 패소 판례, circuit split→SCOTUS 추적)"}
+  - {id: rates_income,     label: "이자수입 (금리 민감)"}
+
+thesis: >
+  리테일 금융 수퍼앱. 크립토·예측시장·현금관리로 수익원을 다각화하며
+  계정당 수익(ARPU)과 AUA를 동시 성장시킨다.
+
+key_metrics:
+  - "AUA(운용자산) 및 순유입"
+  - "ARPU"
+  - "크립토 매출 비중"
+  - "예측시장 매출·거래량"
+  - "신규 계정"
+  - "이자수입 (금리 민감)"
+  - "EPS (Q2 $0.62)"
+
+catalysts:
+  - "CLARITY Act"
+  - "분기 실적 (Q2 전면 beat)"
+  - "예측시장 규제 명확화"
+  - "신규 상품 출시의 매출 전환"
+
+risks:
+  - "크립토 사이클 종속"
+  - "예측시장 규제 리스크"
+  - "금리 하락 시 이자수입 감소"
+  - "리테일 거래 활동 둔화"
+  - "경쟁 심화"
+
+kill_conditions_ref: ["KC-HOOD-1", "KC-HOOD-2", "KC-HOOD-3", "KC-3 연동"]
+noise_filter_ref: "config/noise_filter.yaml#HOOD"
+
+earnings_checkpoints:
+  date: null   # ⚠️ Q3 일정 확인 필요
+  items:
+    - "AUA·순유입"
+    - "ARPU 방향"
+    - "크립토 매출 비중"
+    - "예측시장 기여도"
+    - "이자수입 민감도"
+    - "EPS 및 비용 구조"
+
+valuation:
+  primary: "Forward P/E + AUA 성장률"
+  secondary: "ARPU"
+  caution: "크립토·예측시장 mix 변화 시 이익의 질이 달라지므로 mix 조정 필요"
+
+conclusion: >
+  Q2 전면 beat로 단기 실행은 확인됐으나 매출 구성이 크립토 사이클과 규제 미확정 상품에
+  걸쳐 있어, AUA 순유입과 mix의 지속성이 유지 근거다.

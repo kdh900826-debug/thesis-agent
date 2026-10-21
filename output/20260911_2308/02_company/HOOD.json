@@ -1,0 +1,159 @@
+{
+ "ticker": "HOOD",
+ "run_id": "20260911_2308",
+ "as_of": "2026-09-12",
+ "staleness_days": 0,
+ "lookback_window": {
+  "since": "2026-08-28",
+  "until": "2026-09-12"
+ },
+ "claims": [
+  {
+   "id": "c_20260911_HOOD_1",
+   "ticker": "HOOD",
+   "claim_type": "fact",
+   "text": "Robinhood Markets는 2026-09-10 'August 2026 Operating Data'를 발표했다(2026년 8월 월간 운영지표, 주 창 09-04~09-12 내 신규 공개). Total Platform Assets $383.7B(MoM +8%, YoY +26%), Net Deposits(8월 단월) $4.0B(7월 말 Total Platform Assets 대비 연환산 성장률 14%), Net Deposits(TTM) $74.1B(YoY 자산 대비 연 성장률 24%), Funded Customers 28.6M(MoM +약 12만명, YoY +약 190만명).",
+   "evidence_grade": 1,
+   "source": {"type": "company press release (GlobeNewswire distribution)", "url": "https://www.globenewswire.com/news-release/2026/09/10/3359962/0/en/robinhood-markets-inc-reports-august-2026-operating-data.html", "filed_at": "2026-09-10"},
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "globenewswire.com은 config/sources.yaml grade_1 등재 도메인. 회사 IR 사이트(investors.robinhood.com) 동일 자료 링크도 검색결과에서 확인(원문 대조 시 사용 권장). 자료 자체가 '비감사·잠정치(unaudited, subject to completion of financial closing procedures)'임을 명시."
+  },
+  {
+   "id": "c_20260911_HOOD_2",
+   "ticker": "HOOD",
+   "claim_type": "fact",
+   "text": "동일 8월 운영지표 공시: Equity Notional Trading Volume $335.4B(MoM +1%, YoY +68%). Crypto Notional Trading Volume(총) $17.5B(MoM +61%, YoY -38%) — 세부: Robinhood App $7.4B(MoM +72%, YoY -46%), Bitstamp $10.1B(MoM +53%, YoY -30%).",
+   "evidence_grade": 1,
+   "source": {"type": "company press release (GlobeNewswire distribution)", "url": "https://www.globenewswire.com/news-release/2026/09/10/3359962/0/en/robinhood-markets-inc-reports-august-2026-operating-data.html", "filed_at": "2026-09-10"},
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "매출(수수료) 수치가 아닌 명목거래액(notional volume) 지표 — arpu_mix 축(매출 mix)에 직접 대응시키려면 Q3 매출 인식 공시(P7 3단계)가 별도로 필요."
+  },
+  {
+   "id": "c_20260911_HOOD_3",
+   "ticker": "HOOD",
+   "claim_type": "fact",
+   "text": "동일 8월 운영지표 공시: Margin Book $21.5B(MoM +4%, YoY +72%), Total Securities Lending Revenue $36M(MoM -10%, YoY -32%).",
+   "evidence_grade": 1,
+   "source": {"type": "company press release (GlobeNewswire distribution)", "url": "https://www.globenewswire.com/news-release/2026/09/10/3359962/0/en/robinhood-markets-inc-reports-august-2026-operating-data.html", "filed_at": "2026-09-10"},
+   "inference_strength": null,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "note": "마진북(이자수입 기초자산) 확대와 증권대차수익 축소가 동시에 관측되어 방향이 혼재됨 — rates_income 축 단독 강화/훼손 판정 근거로 사용하지 않음(종목 특이 주의사항 준용)."
+  },
+  {
+   "id": "c_20260911_HOOD_4",
+   "ticker": "HOOD",
+   "claim_type": "inference",
+   "text": "c_20260911_HOOD_2의 크립토 명목거래액 MoM +61% 급증은 2026-07-01 개시·2026-09-29 종료 예정인 Robinhood Chain 가스비 무료 보조금 시행 기간(및 직전 run에서 확인된 밈코인 투기 트래픽 급증 보도) 중에 발생했다. YoY 기준으로는 여전히 -38%(App 단독 -46%)로 다년 하락 사이클이 유지되고 있어, 8월 MoM 반등을 크립토 사업 mix의 구조적 강화로 해석할 근거는 부족하다. 보조금 종료(09-29) 이후 9월 운영지표(통상 10월 중순 공개)에서 거래액 잔존 여부가 관건이다.",
+   "evidence_grade": null,
+   "source": null,
+   "inference_strength": "medium",
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "note": "종목 특이 주의사항(매출 mix 변화=이익의 질 변화, 합산 수치 단독 강화 판정 금지) 준용."
+  },
+  {
+   "id": "c_20260911_HOOD_5",
+   "ticker": "HOOD",
+   "claim_type": "fact",
+   "text": "New Jersey주(뉴저지주 도박단속국장 Mary Jo Flaherty 및 주 법무장관)가 2026-09-02 제3순회항소법원 KalshiEX, LLC v. Flaherty(172 F.4th 220, 3d Cir. 2026 — 도드-프랭크법이 CFTC 등록 스포츠 이벤트계약에 대한 주(州) 도박규제를 선점한다고 판시, Kalshi 승소) 판결에 대해 연방대법원에 상고장(Petition for Writ of Certiorari)을 제출했고, 2026-09-08 사건번호 No. 26-299(Flaherty v. KalshiEX, LLC)로 정식 접수(docketed)됐다. 상고 쟁점은 '도드-프랭크법의 주(州) 규제 선점 여부' 단일 쟁점.",
+   "evidence_grade": 4,
+   "source": {"type": "Petition for Writ of Certiorari (원문 PDF, NJ 법무부 게시)", "url": "https://www.njoag.gov/wp-content/uploads/2026/09/2026-0902_26-_PetitionForWritOfCertiorari.pdf", "filed_at": "2026-09-02"},
+   "inference_strength": null,
+   "quantitative": false,
+   "scope": "sector",
+   "confirmed": false,
+   "note": "njoag.gov·courtlistener.com은 config/sources.yaml 미등재 도메인 — 규칙상 grade 4 자동 부여(실질은 소송당사자 1차 원문). natlawreview.com(원문 fetch로 접수일·사건 확인) 및 courtlistener.com 도켓(교차확인)으로 사실관계(제출일 09-02·사건 caption) 확인. SCOTUS 도켓번호(26-299)·접수일(09-08)은 검색결과 종합에서만 확인되어 별도 1차 도켓 원문 대조는 못함(주의: 본 항목은 9순회 Assad 건이 아니라 3순회 Flaherty 건에 대한 상고임 — 혼동 주의)."
+  },
+  {
+   "id": "c_20260911_HOOD_6",
+   "ticker": "HOOD",
+   "claim_type": "inference",
+   "text": "c_20260911_HOOD_5의 SCOTUS 상고 대상은 예측시장 운영자(Kalshi)에 유리했던 제3순회 판결이다. SCOTUS가 심리를 승인(cert grant)하고 원심을 파기(주 규제 선점 불인정)하면 9순회(Assad, 08-28) 결론과 정렬되어 주(州) 단위 규제 리스크가 전국화될 수 있고(KC-HOOD-3 방향과 같은 축), 반대로 원심을 인용하면 연방 선점 우위가 강화되어 리스크가 완화된다. 두 결과 모두 확정되지 않았고 cert 심리 자체도 수개월~1년 이상 소요가 통상적이어서, 현 시점은 '재판 절차 개시' 단계일 뿐 KC-HOOD-3 트리거(연방/CFTC 차원 금지 또는 상위 3개주 이상 동시 금지)에 해당하지 않는다. 9순회 Assad 판결 자체에 대한 별도 상고 여부는 이번 조회기간 내 자료로 확인하지 못했다(unconfirmed 별도 기재).",
+   "evidence_grade": null,
+   "source": null,
+   "inference_strength": "medium",
+   "quantitative": false,
+   "scope": "sector",
+   "confirmed": false,
+   "note": "규제 명확화(촉매)와 규제 금지(KC-HOOD-3)를 구분하는 종목 특이 주의사항 준용 — 현재는 어느 쪽도 확정되지 않은 절차적 진행 단계."
+  }
+ ],
+ "deltas": [
+  {
+   "axis": "aua_inflow",
+   "direction": "strengthen",
+   "stage": "confirmed_metric (grade1 월간 운영지표)",
+   "prior_state": "직전 run(20260905_0618) 시점 8월 월간 운영지표 미공개(unconfirmed, not_yet_released). 그 이전 확정치는 7월분 기준.",
+   "new_state": "2026-09-10 공개된 8월 운영지표(grade1): 순입금 $4.0B(월간, TTM $74.1B·+24%), Total Platform Assets $383.7B(MoM +8%, YoY +26%), Funded Customers 28.6M(MoM +약 12만명). 순유입 지속·AUA 성장세 재확인 — KC-HOOD-2(순입금 유출 전환) 미충족 상태 유지, KC-HOOD-1(거래매출 QoQ 감소+순입금 성장 동반 꺾임) 판단에 필요한 거래매출 QoQ 데이터는 미보유.",
+   "risk_transfer_to": ["9월분 운영지표(통상 10월 중순 공개 예상) 및 Q3 실적(거래매출 QoQ)에서 추세 지속 여부 확인으로 이관"],
+   "supporting_claims": ["c_20260911_HOOD_1"]
+  },
+  {
+   "axis": "crypto_cycle",
+   "direction": "neutral",
+   "stage": "existence_and_unconfirmed_revenue (P7 2단계 — 거래액 확인, 매출인식 미확인)",
+   "prior_state": "직전 run 기준 크립토 명목거래액 YoY 큰 폭 하락 지속(다년 하락 사이클), 08/27~09/02 구간 Robinhood Chain 수수료 급증 보도는 밈코인 투기·가스비 보조금 효과로 판단해 중립 유지.",
+   "new_state": "8월 크립토 명목거래액 $17.5B, MoM +61%이나 YoY -38%(App 단독 -46%) — 월간 반등은 09-29 종료 예정 가스비 무료 보조금 시행 기간 중 발생해 지속성 미검증. YoY 기준 다년 하락 사이클 자체는 유지되고 있어 강화로 판정하지 않고 중립 유지(종목 특이 주의사항 준용). 매출(수수료) 인식 수치는 이번 자료에 포함되지 않음.",
+   "risk_transfer_to": ["09-29 가스비 보조금 종료 후 9월 운영지표에서 거래액 잔존율 확인 시점으로 이관"],
+   "supporting_claims": ["c_20260911_HOOD_2", "c_20260911_HOOD_4"]
+  },
+  {
+   "axis": "rates_income",
+   "direction": "neutral",
+   "stage": "confirmed_metric_mixed_direction",
+   "prior_state": "직전 run 기준 이자수입 축 관련 신규 1차 자료 부재(unconfirmed, not_found).",
+   "new_state": "8월 운영지표: Margin Book $21.5B(MoM +4%, YoY +72%, 이자수입 기초자산 확대) vs Total Securities Lending Revenue $36M(MoM -10%, YoY -32%, 증권대차수익 축소) — 방향이 혼재되어 단일 강화/훼손 판정 근거 부족, 중립 유지.",
+   "risk_transfer_to": ["Q3 실적(이자수입 항목 전체) 공시 시점으로 세부 판정 이관"],
+   "supporting_claims": ["c_20260911_HOOD_3"]
+  },
+  {
+   "axis": "prediction_market",
+   "direction": "neutral",
+   "stage": "regulatory_procedural_escalation (SCOTUS cert 심리 개시 — 결론 미확정)",
+   "prior_state": "직전 run 기준 9순회(Assad, 08-28)-3순회(Flaherty, 04-06) circuit split 성립, 뉴저지 SCOTUS 상고 예고 상태(weaken 판정)로 유지. KC-HOOD-3 미발동.",
+   "new_state": "2026-09-02 뉴저지가 제3순회 Flaherty 판결(Kalshi에 유리·연방 선점 인정)에 대해 SCOTUS 상고장을 제출, 09-08 No. 26-299로 접수됨. 이는 리스크의 방향을 확정하는 사건이 아니라 '심리 절차 개시'로, 결과는 어느 방향으로도 열려 있음(파기 시 주 규제 우위 전국화=리스크 심화, 인용 시 연방 선점 강화=리스크 완화). KC-HOOD-3 트리거(연방/CFTC 금지 또는 상위 3개주 동시 금지) 미충족 유지. 9순회 Assad 자체의 별도 상고 여부는 이번 조회기간 자료로 확인되지 않아 unconfirmed로 별도 적재.",
+   "risk_transfer_to": ["SCOTUS cert 심리·판결 결과(수개월~1년 이상 소요 예상) 시점으로 이관", "9순회 Assad 건 자체의 상고 여부 추가 확인 필요"],
+   "supporting_claims": ["c_20260911_HOOD_5", "c_20260911_HOOD_6"]
+  }
+ ],
+ "unconfirmed": [
+  {
+   "topic": "Robinhood Chain 가스비 무료 보조금(2026-09-29 종료 예정) 연장·변경 공시",
+   "detail": "조회기간(08-28~09-12) 내 회사의 연장 또는 종료 계획 변경 공시를 웹검색으로 찾지 못했다. 참고: 2026-08-07(조회기간 이전, 안전 오버랩 08-28보다도 앞선 시점) Robinhood Crypto 공식 X 계정이 가스 보조금 적용 최소 거래액 기준을 $5에서 $0.50로 낮췄다고 공지한 바 있으나, 이는 종료일(09-29) 변경이 아닌 적용 범위 확대이며 시점상 조회기간 밖이라 본 run의 신규 Claim으로 채택하지 않음.",
+   "reason": "not_yet_announced_within_window"
+  },
+  {
+   "topic": "Kalshi의 SCOTUS 상고 응답 기한(약 10/8로 보도)",
+   "detail": "일부 2차 매체 종합 검색결과에서 'Kalshi 응답 기한 10월 8일'이 언급됐으나, 원문 직접 대조(gamblinginsider.com은 접근 차단 403, natlawreview.com 원문에는 응답기한 명시 없음)에 실패해 grade1·2·3 단독 확인이 안 됐다(애그리게이터 종합 검색 결과만 존재, P4상 단독 근거 불가).",
+   "reason": "single_low_grade_source_unverified"
+  },
+  {
+   "topic": "9순회항소법원 KalshiEX v. Assad(2026-08-28) 판결 자체에 대한 SCOTUS 상고 여부",
+   "detail": "확인된 것은 3순회 Flaherty 건에 대한 뉴저지의 상고(No. 26-299)뿐이며, 9순회 Assad 건 당사자(Kalshi 등)가 별도로 상고했는지는 조회기간 내 자료로 확인되지 않았다.",
+   "reason": "not_found"
+  },
+  {
+   "topic": "Q3 2026 실적 발표일",
+   "detail": "thesis card earnings_checkpoints.date가 여전히 null. 애그리게이터(TipRanks 등) 추정 11/4만 존재하고 회사 IR 공식 공지는 확인되지 않음(F1 — 애그리게이터 추정 라벨은 1차 자료로 채택 불가). 직전 run 대비 변화 없음.",
+   "reason": "aggregator_estimate_only"
+  }
+ ],
+ "discarded_noise_log": [
+  {"title": "KuCoin 'Robinhood Chain Fees Hit Record $3.75 Million, Surpassing Ethereum and Base'", "reason": "온체인 수수료 마일스톤 보도 — 회사 공식 공시 아닌 3자 온체인 데이터 재가공, 8월 공식 운영지표(c_20260911_HOOD_2/3)로 이미 상위 수치 확인됨 — common.noise"},
+  {"title": "bitcoinethereumnews.com 'Robinhood Chain hit $945M in DEX volume and no one noticed'", "reason": "온체인 DEX 거래량 재보도 — common.noise(일간 거래량 변동)"},
+  {"title": "Arbitrum 공동창업자, Robinhood 90% 수수료 배분 방어 발언 보도", "reason": "3자(경쟁 L2 창업자) 논평 — 회사 발표 아님, 매출·가이던스 직접 변화 없음 — common.noise"},
+  {"title": "cryptonews.com/datawallet 'Robinhood Chain vs Base' 비교 통계", "reason": "시장 점유 서사 비교 콘텐츠, 정량 근거 새로울 것 없음(중복) — common.noise"},
+  {"title": "2026-08-07 가스 보조금 최소기준 $5→$0.50 조정 공지(Robinhood Crypto X)", "reason": "조회기간(08-28~09-12) 및 안전 오버랩 시작일(08-28)보다 앞선 사건 — 기간 외로 폐기(신규 발견 아님, unconfirmed 항목에 맥락으로만 기재)"}
+ ],
+ "reused_from": null,
+ "notes": "run 20260911_2308은 2026-09-11 야간 개시→2026-09-12로 이어짐(as_of 2026-09-12로 명기). EDGAR full-text 재조회(10-K/10-Q/8-K, since 2026-08-28, CIK 0001783879) 결과 0건으로 직전 시도와 동일함을 재확인(output/20260911_2308/02_company/_raw_edgar_HOOD.json 갱신, 재수집 불필요 판단 확정). 종목 특이 확인 항목 1번(8월 월간 운영지표)은 2026-09-10 GlobeNewswire 배포로 주 창(09-04~09-12) 내 확정 공개됨을 확인 — grade1 Claim 3건(c_1~c_3) 생성. 2번(가스비 보조금 종료 09-29) 관련 일정 변경·연장 공시는 확인되지 않아 unconfirmed 적재. 3번(예측시장 규제 SCOTUS 상고)은 9순회(Assad) 건이 아니라 3순회(Flaherty) 건에 대해 뉴저지가 09-02 상고, 09-08 No.26-299로 접수됨을 확인(court/state 도메인 미등재로 grade4 기계적 부여, 실질 1차 자료) — 9순회 건 자체 상고 여부는 미확인으로 별도 unconfirmed 처리. 4번(RVII)은 지시에 따라 카드 미반영·감시만 유지, 이번 run에서 별도 조사하지 않음. 웹검색/WebFetch 총 8회 사용(효율 지침 준수: WebSearch 5회 + WebFetch 3회, 1회는 403 실패)."
+}

@@ -1,0 +1,177 @@
+{
+  "_note": "오케스트레이터가 생성한 KC 발췌본(P17). signal-arbiter는 이 파일과 03_input/arbiter_{T}.json, state/signals.json 외에는 읽지 않는다. 매크로 KC는 correlation_matrix.yaml 노출 벡터상 해당 종목이 불리 방향으로 노출된 축에 연결된 것만 발췌했다. 발췌 제외는 '해당 종목과 무관'이 아니라 '불리 방향 노출 축 없음'을 뜻한다(P5).",
+  "generated_by": ".claude/scripts/make_kc_excerpt.py",
+  "run_id": "20261001_0900",
+  "as_of": "2026-10-01T22:10",
+  "ticker": "HOOD",
+  "own_company_kc": [
+    "KC-HOOD-1",
+    "KC-HOOD-2",
+    "KC-HOOD-3"
+  ],
+  "own_company_kc_detail": {
+    "KC-HOOD-1": {
+      "type": "metric",
+      "description": "거래 매출 감소 + 고객 기반 동반 훼손",
+      "all_of": [
+        {
+          "metric": "trading_revenue_qoq",
+          "operator": "<",
+          "threshold": 0,
+          "unit": "%",
+          "note": "크립토+옵션 합산"
+        },
+        {
+          "metric": "net_deposits_growth_declines",
+          "operator": ">=",
+          "threshold": 2,
+          "unit": "분기 연속",
+          "note": "순입금·AUA 증가세 동반 꺾임 — 거래 감소여도 고객 기반 성장 중이면 미발동"
+        }
+      ],
+      "consequence": "비중 조절 검토"
+    },
+    "KC-HOOD-2": {
+      "type": "metric",
+      "description": "순입금 유출 전환 (경고/발동 2단)",
+      "warning": [
+        {
+          "metric": "net_deposits_quarterly_outflow_plus_next_month",
+          "operator": "==",
+          "threshold": true,
+          "note": "분기 순유출 1회 + 익월 유출 지속"
+        }
+      ],
+      "all_of": [
+        {
+          "metric": "net_deposits_outflow_quarters",
+          "operator": ">=",
+          "threshold": 2,
+          "unit": "분기 연속"
+        }
+      ],
+      "consequence": "경고: 알림 + 관측 강화 / 발동: AUA 성장 thesis 재검토"
+    },
+    "KC-HOOD-3": {
+      "type": "event",
+      "description": "예측시장 규제 금지 (중대 건 한정)",
+      "trigger": "CFTC/연방 차원 금지, 또는 HOOD 예측시장 매출 기여 상위 주 중 3개 이상 동시 금지. 개별 소규모 주 금지는 알림만(노이즈 아님, 발동 아님)",
+      "consequence": "매출 mix thesis 축소 재평가"
+    }
+  },
+  "macro_kc_propagating_to_ticker": [
+    "KC-2",
+    "KC-3",
+    "KC-4",
+    "KC-5"
+  ],
+  "macro_kc_axis_mapping_undefined": null,
+  "kc_status": [
+    {
+      "kc_id": "KC-2",
+      "condition": "변동성 급등",
+      "inputs": [
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 30,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "레버리지 해제 검토"
+    },
+    {
+      "kc_id": "KC-3",
+      "condition": "크립토 붕괴 + 위험회피 동시",
+      "inputs": [
+        {
+          "name": "BTC",
+          "operator": "<",
+          "threshold": 55000,
+          "value": 83670.59,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        },
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 25,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)"
+    },
+    {
+      "kc_id": "KC-4",
+      "condition": "유동성 위기 신호",
+      "inputs": [
+        {
+          "name": "ON_RRP",
+          "operator": ">=",
+          "threshold": 200000000000,
+          "value": 11539000000.0,
+          "as_of": "2026-09-30",
+          "method": "api",
+          "stale_days": 1,
+          "stale_limit": 5
+        },
+        {
+          "name": "VIX",
+          "operator": ">=",
+          "threshold": 25,
+          "value": 16.260000228881836,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 2
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "광범위 디리스킹 검토"
+    },
+    {
+      "kc_id": "KC-5",
+      "condition": "TAIEX 음전환 (아시아 리스크 프록시)",
+      "inputs": [
+        {
+          "name": "TAIEX_vs_20dma_pct",
+          "operator": "<",
+          "threshold": 0,
+          "value": 2.92,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 3
+        },
+        {
+          "name": "TAIEX_1m_return_pct",
+          "operator": "<",
+          "threshold": 0,
+          "value": 4.82,
+          "as_of": "2026-10-01",
+          "method": "api",
+          "stale_days": 0,
+          "stale_limit": 3
+        }
+      ],
+      "verdict": "not_met",
+      "verdict_confidence": "confirmed",
+      "consequence": "광범위 디리스킹 검토"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+# ThesisPatch — MU / axes[ip_litigation_risk] — 관측점(추적점) 갱신 / annotate
+
+- **Run**: 20260919_2209 · as_of 2026-09-19 · 스킬 `thesis-refine`(S7)
+- **patch_id**: `MU_axes_ip_litigation_observation` · priority: medium
+- **대상 필드**: `axes` (expected_after.counts: axes=6 — F20)
+- **승인 필요**: 예 (requires_human_approval: true, F17) / **핵심 논거 역전**: 아니오
+- **사전 확인**: `state/thesis_cards/MU.yaml` **전문 71행** 열람 후 before 문자열 원문 일치·목록형 필드 실계수 확인 (F20 — 부분 읽기 기반 판정 없음)
+- **카드 현재 계수(전문 기준)**: axes 6 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / earnings_checkpoints.items 7
+
+## diff
+
+```diff
+--- state/thesis_cards/MU.yaml (before)
++++ state/thesis_cards/MU.yaml (after 제안)
+-  - {id: ip_litigation_risk, label: "특허소송 리스크 — Netlist가 2026-08-12 ITC에 Micron 포함 4개사를 상대로 특허 4건(US 10,025,731 / 10,217,523 / 12,373,366 / 12,675,407, DDR5 RDIMM·MRDIMM) 침해 제소하며 배제명령·중지명령 청구, 별도로 캘리포니아중부지법(CDCA)에 Micron 단독 제소(특허 2건). 배경: 2026-02-20 CAFC 별건 판결로 $445M 배상 확정 이력. ITC 배제명령은 미국向 수입·매출 인식에 직접 작용하는 경로로 hbm_demand·sca_defense·china_supply 어디에도 매핑되지 않는 독립 리스크다. 2026-09-05 기준 ITC 조사개시(institution) 공지는 확인되지 않았으며 자료 부재는 반증이 아니다(P5). 추적점: ITC institution 투표, CDCA 답변 시한(2026-09-10, grade 4 미확인)"}
++  # 2026-09-19 ThesisPatch(annotate, run 20260919_2209) — 이전 축 서술은 아래 라벨 앞부분에 그대로 보존하고 관측점만 덧붙인다(P9, 삭제 없음). 축 수 6개 불변(전문 71행 기준 계수: hbm_demand·sca_defense·cycle_position·china_supply·valuation_paradox·ip_litigation_risk). ⚠️본 패치는 리스크 해소 기록이 아니다 — 2026-09-02 CAFC 무효 인용 특허 5건과 2026-08-12 신규 제소 주장 특허 4건은 번호가 겹치지 않는다. ⚠️CDCA 8:26-cv-02167·D.Del 1:26-cv-01014 두 식별자는 grade 4·confirmed=false 단독 소스이므로 사실 확정이 아니라 확인 대상으로 기재했다(P4).
++  - {id: ip_litigation_risk, label: "특허소송 리스크 — Netlist가 2026-08-12 ITC에 Micron 포함 4개사를 상대로 특허 4건(US 10,025,731 / 10,217,523 / 12,373,366 / 12,675,407, DDR5 RDIMM·MRDIMM) 침해 제소하며 배제명령·중지명령 청구, 별도로 캘리포니아중부지법(CDCA)에 Micron 단독 제소(특허 2건). 배경: 2026-02-20 CAFC 별건 판결로 $445M 배상 확정 이력. ITC 배제명령은 미국向 수입·매출 인식에 직접 작용하는 경로로 hbm_demand·sca_defense·china_supply 어디에도 매핑되지 않는 독립 리스크다. 2026-09-05 기준 ITC 조사개시(institution) 공지는 확인되지 않았으며 자료 부재는 반증이 아니다(P5). 추적점: ITC institution 투표, CDCA 답변 시한(2026-09-10, grade 4 미확인). 2026-09-19 관측점 갱신(ThesisPatch annotate, run 20260919_2209) — ① [fact · grade 1 · confirmed] 2026-09-02 CAFC가 Netlist v. Micron 항소 3건(24-1707 선례적 / 24-1859·24-1863 / 24-2240·24-2241)을 전부 인용(AFFIRMED)해 Netlist 특허 5건(US 10,949,339 / 11,016,918 / 11,232,054 / 8,787,060 / 9,318,160)의 쟁점 청구항이 무효 판단을 받았다(c_20260919_MU_5, 판결문 원문 직접 확인). ⚠️무효 5건은 2026-08-12 ITC·CDCA 신규 제소의 주장 특허 4건(10,025,731 / 10,217,523 / 12,373,366 / 12,675,407)과 번호가 겹치지 않는다 — 신규 소송의 청구는 소멸되지 않았으며 본 판결은 이 축의 리스크 해소가 아니다(c_20260919_MU_6, inference·moderate). 법률 사건의 결과이지 매출·마진·현금흐름·가이던스 수치가 아니므로 상향 근거로 쓸 수 없다(P2). ② [fact · grade 1 · confirmed] ITC 절차 식별자는 DN 3930으로 특정되고 접수공고(2026-08-17) 관보 게재까지 확인되나, 2026-09-19 시점 조사개시(institution) 공고는 관보 미게재다 — 부재는 미표결의 반증이 아니다(P5, c_20260919_MU_7). ③ [확인 대상 · grade 4 · confirmed=false · 단독 근거 부적격(P4)] CDCA 사건 식별자는 8:26-cv-02167(도켓상 제소일 2026-08-10)로 조회되며, 2026-09-02자 엔트리 #16에 답변기한 연장이 기록됐으나 연장 후 새 시한 날짜는 미특정이다(c_20260919_MU_8). 도켓상 제소일은 본 축이 기재한 2026-08-12와 불일치하나 어느 쪽도 정정하지 않고 병기한다(P9). ④ [확인 대상 · grade 4 · confirmed=false · 단독 근거 부적격(P4)] Micron이 Netlist를 상대로 제기한 비침해 확인의 소 D.Del 1:26-cv-01014(도켓상 제소일 2026-08-10)가 본 회차에 처음 포착됐다 — 대상 특허, ITC 조사개시 시 28 U.S.C. §1659 정지 해당 여부 모두 미확인이며 리스크 경감 근거로 단독 사용하지 않는다(c_20260919_MU_9). ③④는 사건 식별자 자체가 PACER 미러 단독 소스이므로 확정 사실이 아니라 확인 대상으로만 둔다. 추적점(갱신): ITC DN 3930 institution 표결·관보 공고 / CDCA 8:26-cv-02167 연장 답변시한 확정일과 답변 내용(grade 4 확인 대상) / D.Del 1:26-cv-01014 진행 상태·대상 특허(grade 4 확인 대상) / CAFC 2025-1936(Netlist v. Micron Technology Texas) 선고"}
+```
+
+## 왜
+
+[fact] state/thesis_cards/MU.yaml 전문 71행을 읽고 목록형 필드를 실제 계수했다 — axes 6 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / earnings_checkpoints.items 7(F20). 본 패치는 기존 ip_litigation_risk 축 1개의 라벨에 관측점을 덧붙일 뿐이므로 axes는 6개 불변이다. [fact] 2026-09-02 CAFC가 Netlist v. Micron 항소 3건을 전부 AFFIRMED해 Netlist 특허 5건의 쟁점 청구항이 무효 판단을 받았다 — 판결문 PDF 원문 직접 확인, evidence_grade 1·confirmed(c_20260919_MU_5). 이 한 건만이 본 패치에서 사실로 단정 가능한 재료다(P4). [fact] 카드가 기재한 ITC 제소의 절차 식별자가 DN 3930으로 특정되고 접수공고(2026-08-17)까지 확인되나 조사개시 공고는 2026-09-19 시점 관보 미게재다 — 연방관보 공식 API 대사, grade 1·confirmed(c_20260919_MU_7). 미게재는 미표결의 반증이 아니다(P5). [fact] 직전 회차에 '1:26-cv-00246 / 5-26-cv-00246 상호 불일치'로 미해결 이월됐던 CDCA 사건 식별자가 본 회차에 8:26-cv-02167로 조회됐고, 카드에 한 번도 등재된 적 없는 D.Del 1:26-cv-01014(Micron→Netlist 비침해 확인의 소)가 신규 포착됐다 — 다만 두 건 모두 CourtListener/RECAP (PACER 미러, sources.yaml 미등재) 단독 소스로 evidence_grade 4·confirmed=false다(c_20260919_MU_8·c_20260919_MU_9). [fact] P4상 grade 3·4는 삼각검증용이며 단독 판단 근거가 될 수 없으므로, 두 식별자는 사실로 단정하지 않고 라벨 본문에 '확인 대상 · grade 4 · confirmed=false · 단독 근거 부적격' 표기를 붙여 기입했다. 카드의 기존 '추적점' 항목을 구체화하는 관측 단위 갱신이며 방향(강화·훼손) 판정은 포함하지 않는다. [fact] 무효 인용된 특허 5건(10,949,339 / 11,016,918 / 11,232,054 / 8,787,060 / 9,318,160)은 2026-08-12 신규 제소의 주장 특허 4건(10,025,731 / 10,217,523 / 12,373,366 / 12,675,407)과 번호가 겹치지 않는다(c_20260919_MU_6, grade 1·inference·moderate) — 따라서 라벨에 '신규 소송의 청구는 소멸되지 않았으며 본 판결은 이 축의 리스크 해소가 아니다'를 명시적으로 심어 오독 경로를 차단했다. [fact] 03_signal/MU.json은 이 재료를 P2 상향 게이트 부적격(revenue_recognized=false)으로 판정해 holding_reinforcement로만 분류했다 — 본 패치는 등급이 아니라 축의 관측점만 기입한다(P13). [fact] 도켓상 제소일 2026-08-10과 카드 기재 2026-08-12의 불일치는 grade 4 소스만으로 정정할 수 없으므로 양쪽을 병기 상태로 두었다(P9). [fact] 2026-09-30 FY26 Q4 실적은 본 패치 작성 시점에 미도래이며 어떤 추정치도 반영하지 않았다. 저 P/E를 밸류 근거로 쓰는 서술도 포함하지 않았다.
+
+**역전 판정 주석**: [fact] thesis 본문(SCA·LTA·선수금 방어구조로 CXMT/YMTC發 침식 방어)과 시그널 등급에 대한 판정을 포함하지 않는다. [fact] 관측 단위(추적점)를 구체화할 뿐이며 축의 방향 판정을 부여하지 않으므로 핵심 논거 역전 패치가 아니다 — 에스컬레이션 대상 아님.
+
+**후속 주의**: [fact] risks·key_metrics·earnings_checkpoints·catalysts·valuation은 본 패치로 수정하지 않는다 — 이번 창에 해당 필드를 부정확하게 만든 1차 자료가 없다(P5, 부재는 반증이 아니다). [fact] MU 전용 KC는 kill_conditions.yaml에 미정의이며 임계 신설·확정은 사람 영역이다(P11·CLAUDE.md §9) — 본 패치는 add_kc를 포함하지 않는다. [fact] 적용 순서 주의: 본 패치의 expected_after.counts(axes=6)는 후보 B(hbm_demand 축 분해, axes 6→7)가 아직 적용되지 않은 상태를 전제한다. B가 먼저 적용되면 본 패치의 counts를 7로 갱신한 뒤 재승인해야 한다. 두 패치가 모두 승인될 경우 A → B 순서로 적용하라.
+
+## 근거 Claim
+
+c_20260919_MU_5, c_20260919_MU_8, c_20260919_MU_9, c_20260919_MU_6, c_20260919_MU_7
+
+[fact] L4가 지정한 후보 근거는 c_20260919_MU_5·c_20260919_MU_8·c_20260919_MU_9 3건이다. 여기에 c_20260919_MU_6(특허 비중첩, grade 1·inference·moderate)과 c_20260919_MU_7(ITC DN 3930 특정 및 조사개시 미게재, grade 1·confirmed)을 추가로 적시했다 — 새 후보를 만든 것이 아니라 동일 후보 안에서 P4를 지키기 위한 조치다: (a) 'ITC DN 3930'이라는 식별자를 사실로 적으려면 grade 1 근거 c_7이 필요하고, (b) '리스크 해소로 읽히지 않게' 하려면 비중첩 판단 c_6이 근거로 필요하다. 등급별 사용 한계 — c_5(grade 1·confirmed): 사실 단정 가능. c_7(grade 1·confirmed): 사실 단정 가능. c_6(grade 1·inference·moderate): 추론으로 표기. c_8·c_9(grade 4·confirmed=false): 사실 단정 불가, 확인 대상으로만 기재(P4).
+
+출처: `output/20260919_2209/02_company/MU.json#claims[c_20260919_MU_5,c_20260919_MU_6,c_20260919_MU_7,c_20260919_MU_8,c_20260919_MU_9] · output/20260919_2209/03_signal/MU.json#thesis_delta_summary[ip_litigation_risk]`
+
+**F20 주석**: [fact] state/thesis_cards/MU.yaml 전문 71행을 읽은 뒤 before 문자열의 원문 일치(스크립트 substring 대조)와 목록형 필드 계수를 확인했다 — axes 6개(패치 후에도 6개), key_metrics 7, catalysts 4, risks 4, kill_conditions_ref 5, earnings_checkpoints.items 7, version_history 4. 부분 읽기 기반 '부재·누락' 판정은 하지 않았다. [fact] not_contains는 원문 라벨의 종결부 'grade 4 미확인)"}'를 지정한다 — after에서는 그 뒤로 관측점 문자열이 이어지므로 이 종결 형태가 사라지고, after 본문 어디에도 동일 문자열이 재등장하지 않는다(자기모순 없음, 2026-08-16 ap_20260816_0010 유형 자동 원복 사고 회피).
+
+> 이 패치는 제안이며 자동 반영되지 않는다(F17). 적용은 사람의 `approve <id>` 이후 `approvals.py`가 수행한다(백업 → 적용 → expected_after 자동 대조 → 실패 시 원복).

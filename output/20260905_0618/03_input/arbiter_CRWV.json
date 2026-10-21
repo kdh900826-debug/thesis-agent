@@ -1,0 +1,104 @@
+{
+  "as_of": "2026-09-05",
+  "ticker": "CRWV",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [],
+  "claims": [
+    {
+      "id": "c_20260905_CRWV_001",
+      "ticker": "CRWV",
+      "claim_type": "fact",
+      "text": "CoreWeave는 2026-08-20 Hudson River Trading(HRT, 퀀트 트레이딩 회사)과의 다년(multi-year) 계약 확장을 발표했다. HRT는 CoreWeave의 AI 클라우드 플랫폼 — NVIDIA Vera Rubin NVL72 및 HGX B200 GPU 시스템(Spectrum-X 이더넷 네트워킹 포함) — 을 AI 트레이딩 리서치·모델 개발에 사용한다. 계약 금액은 공시되지 않았다. CoreWeave CRO Jon Jones는 이를 'a material expansion'(기존 파트너십의 실질적 확장)으로 언급했다. HRT는 2026년 3월 CoreWeave의 고객이 되었으며 이번 발표는 그 관계의 확장이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company press release",
+        "url": "https://investors.coreweave.com/news/news-details/2026/Hudson-River-Trading-to-Build-Next-Gen-Research-Platform-Powered-by-NVIDIA-Vera-Rubin-NVL72-on-CoreWeave-Cloud/default.aspx",
+        "filed_at": "2026-08-20"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_CRWV_002",
+      "ticker": "CRWV",
+      "claim_type": "fact",
+      "text": "HRT向 인프라에는 NVIDIA Vera Rubin NVL72가 포함된다 — 이는 2026-05-31 Dell 배송·L11 진단 통과로 검증 완료된 것과 동일 세대 플랫폼이 실제 고객사에 상업 제공되기 시작한 사례 중 하나임을 시사한다(구체적 가동 개시일은 미공시).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company press release",
+        "url": "https://www.coreweave.com/news/hudson-river-trading-to-build-next-gen-research-platform-powered-by-nvidia-vera-rubin-nvl72-on-coreweave-cloud",
+        "filed_at": "2026-08-20"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260905_CRWV_003",
+      "ticker": "CRWV",
+      "claim_type": "inference",
+      "text": "HRT는 금융서비스(퀀트 트레이딩) 부문 고객으로, 기존 고객 집중(OpenAI·Meta·Anthropic·Google 등 소수 대형 AI랩)과는 다른 업종이다. 계약 금액이 공시되지 않아 ~$129B 규모 백로그 대비 이번 건의 상대적 중요도는 판단할 수 없으나, 방향성은 고객군 다변화 쪽이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company press release",
+        "url": "https://investors.coreweave.com/news/news-details/2026/Hudson-River-Trading-to-Build-Next-Gen-Research-Platform-Powered-by-NVIDIA-Vera-Rubin-NVL72-on-CoreWeave-Cloud/default.aspx",
+        "filed_at": "2026-08-20"
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "customer_concentration",
+      "direction": "strengthen",
+      "prior_state": "고객 기반이 OpenAI·Meta 등 소수 대형 AI랩에 집중된 것으로 서술됨.",
+      "new_state": "금융서비스(퀀트 트레이딩) 부문 신규 업종 고객(HRT) 대상 계약 확장 확인(2026-08-20). 다만 금액 미공시로 집중도 개선의 절대적 규모는 불확실 — weak inference로만 반영, 축 판정을 뒤집을 근거는 아님.",
+      "stage": "contract_exists",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260905_CRWV_001",
+        "c_20260905_CRWV_003"
+      ]
+    },
+    {
+      "axis": "gpu_priority",
+      "direction": "strengthen",
+      "prior_state": "NVIDIA 지분·백스톱 관계 기반 GPU 공급 우선권 주장 — Vera Rubin NVL72 랙 최초 검증 완료(2026-05-31)까지 확인됨.",
+      "new_state": "검증 완료 이후 실제 고객(HRT)에게 Vera Rubin NVL72/HGX B200 인프라를 상업 제공하는 사례 확인 — 공급 우선권 주장이 고객 가동 단계로 이행되고 있음을 시사하는 최초 사례 중 하나(가동 개시일 자체는 미공시).",
+      "stage": "contract_exists",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260905_CRWV_002"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "id": "u_20260905_001",
+      "text": "[u_20260815_004에서 이관, 여전히 open] 이자 커버리지 '~2.2x' 서술의 분자(Adj. EBITDA/GAAP 영업이익)·분모(순이자비용/총이자비용)·기간(분기 연환산/TTM) 기준이 thesis card 본문에 아직 명시되지 않음. ThesisPatch 후보이며 사람 승인 필요(F17 — 본 에이전트는 카드를 직접 수정하지 않음). 이번 회차 신규 10-Q 없어 재확인 자료 미확보.",
+      "related_claims": [
+        "c_20260815_CRWV_009"
+      ]
+    },
+    {
+      "id": "u_20260905_002",
+      "text": "[u_20260815_002에서 이관, 여전히 open] CoreWeave Q2 2026 CapEx 수치 불일치 — CFO 콜 발언 $9.4B vs GAAP 현금흐름표 PP&E 매입액 $6,422M(약 $3.0B 차이) 원인 미해소. 이번 회차 자료 탐색에서도 해소 자료를 확인하지 못했다 — 다음 분기 공시(Q3 10-Q)에서 재확인 대상으로 큐 유지(P5).",
+      "related_claims": [
+        "c_20260815_CRWV_019"
+      ]
+    },
+    {
+      "id": "u_20260905_003",
+      "text": "[u_20260815_003에서 이관, 여전히 open] 증권집단소송(Masaitis v. CoreWeave, D.N.J.) 및 통합 주주대표소송의 디스커버리 진행상황·화해 협상 여부에 대한 공개 업데이트를 이번 회차에서도 확인하지 못했다. 확인 가능한 최신 절차는 2026-03-13 리드플레인티프 지정 마감이며, 그 이후 진행 정보는 P5에 따라 정보 공백으로 적재하고 훼손·강화 판단에 사용하지 않는다 — 다음 회차 재확인 대상.",
+      "related_claims": [
+        "c_20260815_CRWV_020"
+      ]
+    }
+  ]
+}

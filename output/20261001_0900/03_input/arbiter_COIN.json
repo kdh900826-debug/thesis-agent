@@ -1,0 +1,226 @@
+{
+  "as_of": "2026-10-01",
+  "ticker": "COIN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261001_COIN_2",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261001_COIN_1",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API 조회(CIK 0001679788, forms=10-K/10-Q/8-K, since=2026-09-20, 조회 시각 2026-10-01)가 반환한 해당 서식 건수는 0건이다. 동일 API의 전체 서식 목록을 2026-09-23 이후로 직접 대조한 결과, 이번 창(2026-09-24~10-01) 경계 바로 이전인 2026-09-23에 Form 4 2건(accession 0001679788-26-000108, -000109)이 제출된 것 외에 이번 창 내 신규 제출물은 없다. Form 4 2건은 내용 미확인(원문 미대조)이나 서식 성격상 임원·이사 지분 변동 보고이며 매출·가이던스·마진·현금흐름 항목을 포함하지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "EDGAR submissions API",
+        "url": "https://data.sec.gov/submissions/CIK0001679788.json",
+        "filed_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "Circle 분배계약 변경 8-K·실적 관련 8-K·분기보고서 모두 이번 창 미제출 재확인. Form 4 2건은 P3상 노이즈(축 매핑 대상 아님) — discarded_noise_log에 기록."
+    },
+    {
+      "id": "c_20261001_COIN_3",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "CFTC는 2026-09-28자로 Coinbase Clearing LLC를 파생상품청산기관(DCO)으로 등록했다(등록 효력 발생 9/28). 보도에 따르면 등록은 완전담보(fully-collateralized) 선물·선물옵션·스왑의 청산만 허용하며 레버리지(증거금) 상품 청산은 허용하지 않는다. 이로써 Coinbase는 지정계약시장(DCM, Coinbase Derivatives LLC)·선물중개업자(FCM, Coinbase Financial Markets Inc.)·청산기관(DCO, Coinbase Clearing LLC) 3종 CFTC 규제 라이선스를 모두 자사 법인으로 보유하게 됐다. Coinbase는 'Coinbase Clearing은 USDC를 담보로 하며 24/7 결제를 지원하고, 처음으로 완전담보 계약을 직접 생성·결제할 수 있게 됐다'고 밝혔다고 보도되며, 동시에 '마진 파생상품 사업과 출시 예정인 개별주식 무기한선물(single stock perps)은 계속 외부 파트너를 통해 지원한다'고 명시해 이번 등록 범위에서 개별주식 무기한선물을 제외했다고 전한다. 등급 처리와 무관하게 DCO 등록번호(64361로 보도됨)·매출 영향 수치는 이번 창에서 1차 문서로 대조하지 못했다.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "news (The Block, 삼각검증: cointelegraph.com·coinpaprika.com·leaprate.com·securities.io·techgenyz.com·cryptotimes.io·bitcoinfoundation.org)",
+        "url": "https://www.theblock.co/news/business/2026-09-28-coinbase-dco-approval-417105",
+        "published_at": "2026-09-28"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "theblock.co는 sources.yaml grade_3 등재. 다수 독립 2차 매체가 등록일·등록 범위(완전담보 한정)·3종 라이선스 완성·개별주식 무기한선물 제외를 일치 보도해 사실관계 신뢰도는 높으나, VALIDATE_V2 규칙상 grade 3 단독으로는 confirmed=true 불가. CFTC.gov 원문 주문서(order of registration)는 이번 창에서 검색으로 특정하지 못했다(cftc.gov는 sources.yaml 미등재 — grade_1 후보로 제안). P7 3단 분리: 이는 '청산 인프라 등록 완료' 단계이며, 개별주식 무기한선물(별도 신청, c_20260925_COIN_3·_4)과는 명시적으로 분리된 별개 트랙임을 회사가 직접 밝혔다 — 두 사안을 통합 서술하지 않는다."
+    },
+    {
+      "id": "c_20261001_COIN_4",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "2026-09-18 Coinbase Derivatives가 CFTC에 제출한 개별주식·ETF 대상 무기한 증권선물(single-stock perpetual futures, 대표상품 Apple) 신청은 2026-09-30 기준 CFTC 상품 기록상 여전히 'Approval Pending (45)'(45일 심사) 상태로 표기돼 있다고 보도된다. 승인·거부 어느 결정도 이번 창에서 관측되지 않았다 — 직전 run(20260925_1015)에서 확인한 SEC Federal Register 신고(SR-COIN-2026-002, 의견마감 2026-10-14)와 동일 사안의 상태 연속 관측이며 변화 없음.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news (aggregator, 삼각검증: mexc.com·kucoin.com)",
+        "url": "https://cryptoslate.com/coinbase-just-completed-its-us-derivatives-stack-but-its-biggest-bet-still-sits-outside-it/",
+        "published_at": "2026-09-30"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "cryptoslate.com은 sources.yaml 미등재(default_grade=4). '상태 변화 없음'이라는 부정적(negative) 사실이므로 P5·P12 원칙상 '게이트 미충족 = 등급 유지'와 동일한 취급 — derivatives_base 축에서 '신청 단계 지속'으로만 반영하고 강화 근거로 추가 사용하지 않는다."
+    },
+    {
+      "id": "c_20261001_COIN_5",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "Open Standard가 발행하는 스테이블코인 OUSD(Open USD)가 2026-09-23 Ethereum·Solana·Coinbase의 Base·Tempo(Stripe 계열) 4개 체인에서 출시됐고, 2026-09-30 공개 가용성이 확대됐다. 창립 파트너 5곳(Coinbase·Mastercard·Shopify·Stripe·Visa)은 각각 동일한 규모의 초기 지분(equal initial equity stake)을 Open Standard 본사에 보유하며, 5개사 합산 $1B+ 유동성 조성을 공약했다(개별사별 금액은 비공개). Open Standard CEO(보도 인용)는 창립 파트너라고 해서 별도의 우대 매출 배분을 받지 않으며, 지분 대부분은 향후 4~5년간 각 파트너가 OUSD 유통량·거래활동 증대에 기여한 정도에 따라 배분된다고 밝혔다. 파트너는 자사 경로를 통해 발생한 유통량·활동에 비례해 (소액 운용수수료를 제외한) 지준 수익을 배분받고, 추가로 Open Standard 지분을 획득한다.",
+      "evidence_grade": 3,
+      "source": {
+        "type": "news (CoinDesk, 삼각검증: blockhead.co·kucoin.com·bloomingbit.io·cryptobriefing.com·solanacompass.com)",
+        "url": "https://www.coindesk.com/business/2026/09/24/open-usd-takes-on-tether-circle-with-a-different-stablecoin-model-that-s-building-money",
+        "published_at": "2026-09-24"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "coindesk.com은 sources.yaml grade_3 등재. grade3 단독이므로 confirmed=false. 카드 catalysts 'OUSD 출시 및 COIN 분배 조건 공개'가 지정한 관측 대상이 이번 창에서 최초로 구체화됐다 — 카드 risks의 'USDC-COIN 관계 재편(OUSD 참여가 자사 USDC 수익 잠식 가능성)' 판정에 필요한 1차 입력(참여 구조)이 처음 확보됐으나, 수익 순효과(카니벌라이제이션 여부)는 이번 자료만으로 판정 불가 — unconfirmed로 별도 적재."
+    },
+    {
+      "id": "c_20261001_COIN_6",
+      "ticker": "COIN",
+      "claim_type": "fact",
+      "text": "Coinbase 자체의 OUSD 통합 경로('access')는 2026-10-01(전체 공개 가용성 확대 09-30 다음날)부터 가동됐다. 보도에 따르면 Coinbase·Mastercard·Stripe·Visa 4개 통합 경로 모두 OUSD의 1:1 달러 민팅·상환을 수수료 없이 지원하며, Coinbase는 ①창립 파트너 ②결제·지급오케스트레이션·트레이딩·FX·월렛·카드용 API를 제공하는 통합 경로 사업자 ③출시 시점 거래 venue의 3개 역할을 수행한다고 전한다. 해당 보도는 Coinbase의 기존 USDC 매출에 대한 영향이나 경쟁 관계를 명시적으로 서술하지 않는다. coinbase.com 공식 블로그 접근은 이번 창에서도 Cloudflare 브라우저 검증으로 HTTP 403이 반환돼 원문을 직접 확인하지 못했다(직전 2개 run과 동일한 접근 실패 패턴).",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news (aggregator)",
+        "url": "https://www.blockhead.co/2026/10/01/open-usd-goes-live-on-four-chains-with-coinbase-stripe-visa-and-mastercard-as-on-ramps/",
+        "published_at": "2026-10-01"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false,
+      "note": "blockhead.co는 sources.yaml 미등재(default_grade=4). coinbase.com 1차 확인 반복 실패를 기록해 D15 역추적 의무 이행 시도를 남긴다. c_20261001_COIN_5와 함께 usdc_economics 축의 'OUSD 참여 조건' 신규 관측 2건을 구성한다."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "usdc_economics",
+      "direction": "neutral",
+      "prior_state": "20260919 run 이후(20260925 run은 본 축 delta 미갱신) 최신 확정 상태: Circle 분배계약 관련 8-K 신규 0건 지속, Q2 2026 Stablecoin revenue $292.147M(YoY -5.4%) 절대액만 확정, 10-Q 본문에 분배계약 만기·분배율 개정 조건 주석 부재 확인(c_20260919_COIN_6). OUSD 참여 조건·분배 구조는 '빈 슬롯' — COIN 특정 1차 자료 전무.",
+      "new_state": "이번 창에서 OUSD가 2026-09-23 출시, 2026-10-01 Coinbase 통합 경로 가동됐다(c_20261001_COIN_5·_6). 처음으로 참여 구조의 윤곽이 드러났다 — Coinbase는 창립 파트너로서 Open Standard 동일 지분을 보유(우대 매출 배분 없음, 지분은 향후 4~5년 기여도 기반 배분), 자사 경로를 통한 OUSD 유통·활동에 비례해 소액 운용수수료 차감 후 지준 수익을 배분받으며, 민팅·상환은 수수료 없이 1:1 지원한다. 그러나 ①이 수익 배분이 기존 USDC 수익(자사 보유분 지준이자 100%·역외 유통분 잔여수익 50%)과 비교해 단위당 유리한지 불리한지 ②실제 OUSD 발행·거래가 USDC 수요를 얼마나 대체하는지 ③COIN의 실제 재무상 반영 규모 중 어느 것도 이번 자료로 확정되지 않는다. 카드 지시('OUSD 참여를 강세 재료로 기본 분류하지 않는다')에 따라 방향은 neutral로 유지하되, '빈 슬롯'이었던 관측 상태는 '참여 구조 관측됨·순효과 미확정'으로 진전시켜 기록한다.",
+      "risk_transfer_to": [
+        "OUSD 발행량·COIN 경유 거래활동이 USDC 대비 어떻게 배분되는지 — Q3·Q4 실적의 Stablecoin revenue 항목 및 신규 'OUSD 관련' 공시 항목 생성 여부로 확인 필요",
+        "coinbase.com 공식 블로그(1차 자료) 접근 실패 3회 연속 — 접근 경로 확보 전까지 2차 매체 의존 지속",
+        "Circle 측 2029년 갱신 서사의 COIN 1차 확인 — 여전히 이월(unconfirmed)"
+      ],
+      "supporting_claims": [
+        "c_20261001_COIN_5",
+        "c_20261001_COIN_6"
+      ]
+    },
+    {
+      "axis": "derivatives_base",
+      "direction": "strengthen",
+      "prior_state": "20260925 run: strengthen(확신도 낮음) — SEC Federal Register 1차 문서(SR-COIN-2026-002)로 개별주식 무기한선물 신고 실체 확인(신고 단계), CFTC 자기인증(#2026-62) 병행 보도(확인 미완). CFTC 승인·실제 상장·매출 인식 중 어느 것도 미확인.",
+      "new_state": "이번 창에서 ①CFTC가 Coinbase Clearing LLC를 DCO로 등록(2026-09-28)해 DCM·FCM·DCO 3종 자사 라이선스 스택이 완성됐다고 보도된다(c_20261001_COIN_3) — 이는 완전담보 상품 한정이며 레버리지 상품은 제외, 인프라 확장이라는 점에서 strengthen 방향을 지지한다. ②다만 카드·시장이 더 주목하는 개별주식 무기한선물(perpetual futures)은 이번 등록 범위에서 명시적으로 제외됐고, CFTC 상품기록상 2026-09-30 기준으로도 여전히 'Approval Pending'(45일 심사) 상태로 변화가 없다(c_20261001_COIN_4). P7 3단 분리 엄수: '청산 인프라(완전담보) 구축 완료'는 확인된 사실이나 '개별주식 무기한선물 승인·상장·매출 인식'은 이번 창에서도 미확인 — 두 트랙을 통합해 서술하지 않는다. 방향은 전 run과 동일하게 strengthen 유지(인프라 트랙의 실질 진전)하되, 확신도는 낮게 유지한다 — 시장이 주목하는 개별주식 무기한선물 트랙 자체는 정체(변화 없음) 상태다.",
+      "risk_transfer_to": [
+        "개별주식 무기한선물 CFTC 45일 심사 결과 및 SEC 60일 사후무효화권 행사 여부 — 승인 이후에도 절차적 리스크 잔존",
+        "완전담보 청산 인프라(Coinbase Clearing)의 실제 거래량·매출 기여 — Q3·Q4 실적 공시로 이관, 이번 창 수치 미공시",
+        "CFTC.gov 원문(등록 명령서) 미확보 — 등록번호·정확한 범위의 1차 대조 필요"
+      ],
+      "supporting_claims": [
+        "c_20261001_COIN_3",
+        "c_20261001_COIN_4"
+      ]
+    },
+    {
+      "axis": "subscription_mix",
+      "direction": "neutral",
+      "prior_state": "20260919 run 확정(20260925 run 미갱신): Q2 2026 구독·서비스 비중 48.1%(Q1 43.6%, Q2 2025 45.3%) — 비중 상승은 구독 매출 증가가 아니라 거래 매출의 더 빠른 감소에서 기인(구독·서비스 YoY -12.2%, 거래 YoY -21.6%). neutral.",
+      "new_state": "이번 창(2026-09-24~10-01) 내 신규 분기 데이터·공시 없음(Q3 실적 미발표, c_20261001_COIN_1 — EDGAR 10-K/10-Q/8-K 0건). 상위 지시에 따라 무뉴스 축임을 명시하며 neutral을 유지한다.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20261001_COIN_1"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "item": "OUSD 경유 유통·거래활동이 기존 USDC 수익 대비 COIN에 순(net)으로 유리한지 여부",
+      "reason": "참여 구조(지분·활동비례 지준수익 배분)는 이번 창에서 처음 관측됐으나(c_20261001_COIN_5·_6), 단위 경제성 비교나 실제 전환 규모를 보여주는 자료가 없다.",
+      "next_check": "Q3·Q4 2026 실적의 Stablecoin revenue 항목 및 'OUSD' 관련 신규 공시 문구",
+      "related_claims": [
+        "c_20261001_COIN_5",
+        "c_20261001_COIN_6"
+      ]
+    },
+    {
+      "item": "COIN 자신의 미시간 항소(Coinbase Financial Markets, Inc. v. Nessel, 6th Cir. No. 26-1693) 현재 상태 및 2026-09-25 Kalshi 판결과의 관계",
+      "reason": "이번 창에서 26-1693 자체의 법원 도킷·신규 명령을 1차 확인하지 못했다. 09-25 판결은 Kalshi 당사자 사건이며 COIN 사건에 자동 적용되는지는 불명확하다.",
+      "next_check": "ca6.uscourts.gov 또는 PACER 도킷에서 26-1693 최신 상태 직접 확인",
+      "related_claims": [
+        "c_20261001_COIN_2"
+      ]
+    },
+    {
+      "item": "Coinbase 예측시장 상품의 Kalshi 유동성 의존 구조가 현재도 유효한지, 오하이오·테네시에서 COIN向 직접 조치가 있는지",
+      "reason": "2026-01-27 보도(창 밖) 수준의 배경 정보만 있고 이번 창 내 COIN 고유 1차 자료는 없다.",
+      "next_check": "coinbase.com 공식 블로그·'Predict' 탭 이용약관의 주별 제한 고지",
+      "related_claims": []
+    },
+    {
+      "item": "CFTC.gov 원문 — Coinbase Clearing LLC DCO 등록 명령서(order of registration) 및 개별주식 무기한선물 CFTC 자기인증 게시판 원문",
+      "reason": "두 건 모두 2차 매체 삼각검증만 확보했고 CFTC.gov 1차 문서는 이번 창 검색으로 특정하지 못했다.",
+      "next_check": "cftc.gov 등록 DCO 명단 및 자기인증(self-certification) 게시판 직접 열람",
+      "related_claims": [
+        "c_20261001_COIN_3",
+        "c_20261001_COIN_4"
+      ]
+    },
+    {
+      "item": "제6순회법원 2026-09-25 의견문(26a0272p-06) 원문 직접 대조",
+      "reason": "PDF 바이너리 추출 실패(로컬 환경 poppler/pdftoppm 미설치)로 원문을 직접 파싱하지 못해 2차 매체 보도에 의존했다.",
+      "next_check": "PDF 텍스트 추출 가능한 환경에서 재시도, 또는 govinfo.gov 등재본 확인",
+      "related_claims": [
+        "c_20261001_COIN_2"
+      ]
+    },
+    {
+      "item": "OUSD 참여 조건·분배 구조 공개 (카드 catalysts 항목 — 이번 창에서 부분 해소, 완전 해소 아님)",
+      "reason": "참여 구조는 확인됐으나 coinbase.com 1차 원문 대조는 3회 연속 실패(Cloudflare 403)했고, 2차 매체도 COIN에 특정된 수치(배분비율·기여 산식)는 제공하지 않는다.",
+      "next_check": "coinbase.com 공식 블로그 재시도(브라우저 경로) 또는 Open Standard 공식 문서",
+      "related_claims": [
+        "c_20261001_COIN_5",
+        "c_20261001_COIN_6"
+      ]
+    },
+    {
+      "item": "Circle-Coinbase 분배계약 '2029년까지 기존 조건 갱신' 서사의 COIN 측 1차 확인 (이월)",
+      "reason": "Circle 측 2026-08-05 실적콜(CEO Jeremy Allaire 발언, CRCL 소스)에서 재확인됐으나 COIN 자신의 10-Q·8-K에는 여전히 해당 주석이 없다. CRCL 1차 자료는 P17상 본 에이전트 범위 밖이므로 COIN 자체 공시로 재확인이 필요하다.",
+      "next_check": "COIN 10-Q(Q3) 관계사·계약 주석 또는 신규 8-K",
+      "related_claims": []
+    },
+    {
+      "item": "USDC 수익 절대액의 Q3 2026 신규 공시 (이월)",
+      "reason": "1차 자료로 확보된 최신치는 여전히 Q2 2026 Stablecoin revenue $292.147M(10-Q, 창 밖)이며 Q3 수치는 이번 창에 제출되지 않았다.",
+      "next_check": "Q3 2026 실적 발표(회사 IR 공식 공지 확인 후)",
+      "related_claims": []
+    },
+    {
+      "item": "Q3 2026 실적 발표일 회사 IR 공식 공지 (이월)",
+      "reason": "이번 창에서도 investor.coinbase.com의 공식 공지를 확인하지 못했다. 검색에 등장하는 2026-10-29는 애그리게이터(wallstreethorizon 등) 추정으로 F1상 판정 근거 불가. 카드 earnings_checkpoints.date는 여전히 null.",
+      "next_check": "investor.coinbase.com 공식 공지",
+      "related_claims": []
+    },
+    {
+      "item": "Deribit 'Starbase' 이전 완료 및 RWA 무기한선물의 실제 매출·거래량 기여 (이월)",
+      "reason": "4개 run 연속으로 실측 거래량·수수료 매출이 공개되지 않았다.",
+      "next_check": "Q3 실적 또는 COIN 공시의 파생상품 매출 세부",
+      "related_claims": []
+    },
+    {
+      "item": "예치자산 순유출(가격효과 제외) 분기 데이터 — KC-COIN-2 판정 입력 (이월)",
+      "reason": "이번 창 내 회사 공시 net inflow/outflow 수치가 제출되지 않았다. F3상 명목 잔액 대체 판정 금지.",
+      "next_check": "Q3 2026 실적 자료(Shareholder Letter의 Platform assets 항목)",
+      "related_claims": []
+    }
+  ]
+}

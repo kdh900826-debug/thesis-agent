@@ -1,0 +1,427 @@
+{
+  "as_of": "2026-10-09",
+  "ticker": "CRCL",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261009_CRCL_13",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261009_CRCL_14",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261009_CRCL_1",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle 공식 IR 공지(circle.com/pressroom, 2026-10-07): Q3 2026 실적을 2026-11-04(수) 발표하며 8am ET 라이브 웹캐스트를 진행한다. 주주 사전질문 접수창은 10/28 9am ET ~ 11/3 9am ET. 공지에 재무 가이던스·전망 서술은 없다. 이는 직전 run들에서 애그리게이터·증권사 경로가 추정한 '11월 12일'(F1상 판정 근거 불가, c_20261001_CRCL_9)과 8일 다르며, 카드 earnings_checkpoints.date(null)를 확정할 수 있는 최초의 1차 일정 공지다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_ir_press_release",
+        "url": "https://www.circle.com/pressroom/circle-to-announce-q3-2026-financial-results-on-november-4-2026",
+        "filed_at": "2026-10-07",
+        "note": "WebFetch로 pressroom 목록 및 공지 본문 직접 열람. 직전 run unconfirmed '공식 IR 공지 없음' 항목 해소."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_2",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "발행사 공개 API(api.circle.com/v1/stablecoins, circle.com 도메인) 조회 결과 USDC 총 유통량은 $73,159,469,377(약 $73.16B), 갱신시각 2026-10-09 00:24 UTC. 체인별: Ethereum 약 $48.75B, HyperEVM 약 $6.71B, Solana 약 $6.59B, Base 약 $4.36B, Arbitrum 약 $2.82B, Polygon 약 $0.61B, Arc 약 $0.52B, Avalanche 약 $0.43B. 비교 기준(관측 시각·소스 병기): 직전 run의 발행사 공표 실시간 계열 2026-09-19 $74.287B(c_20260925 계열) 대비 약 -$1.13B(-1.5%), 분기 공시 계열(회사 정의·분기말 스냅샷) Q2'26 분기말 $73.3B와는 거의 같은 수준(-$0.14B). 두 값은 동일 계열이 아니므로(실시간 API vs 분기 공시) 직접 시계열로 이어 붙이지 않는다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "issuer_public_api",
+        "url": "https://api.circle.com/v1/stablecoins",
+        "filed_at": "2026-10-09",
+        "note": "최신 관측점 확보: 'USDC 유통량 최신치' 계류 항목. 직전 run은 circle.com/transparency JS 렌더링 제약으로 수치 추출에 실패했으나 API 엔드포인트로 직접 확인."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_3",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "[inference · medium] c_20261009_CRCL_2의 발행사 실시간 계열은 9/19 $74.29B → 10/9 $73.16B로 약 3주간 소폭 감소(-1.5%)했고 Q2 분기말 수준으로 되돌아왔다. Reserve Income의 분자(USDC 잔액)가 직전 관측 대비 줄었다는 방향 관측이며, 증가 추세의 반전이라고 단정할 규모는 아니다. 한정 조건: (a) 3자 집계(c_20261009_CRCL_4)상 Q3 분기말(9/30) 스냅샷은 약 $74.6B로 Q2말 $73.3B보다 높아, 이번 감소는 Q3 분기말 이후(10월) 구간에 발생했다 — 11/4 공개될 Q3 분기말 수치에는 반영되지 않는다. (b) 감소 원인은 확인되지 않았다 — OUSD 성장(c_20261009_CRCL_5)과 시기가 겹치나 인과는 입증 자료가 없다(시간적 동시성만). 정성 추론이며 P2상 단독 등급 근거 불가.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "derived_from_issuer_api",
+        "url": "https://api.circle.com/v1/stablecoins",
+        "filed_at": "2026-10-09",
+        "note": "근거 Claim: c_20261009_CRCL_2, c_20261009_CRCL_4, c_20261009_CRCL_5"
+      },
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_4",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "[삼각검증 전용] DefiLlama 스테이블코인 API(stablecoins.llama.fi, sources.yaml 미등재 default grade 4) 일별 USDC 시리즈: 9/25 $76.44B → 9/30 $74.58B → 10/1 $74.14B → 10/3~10/7 $74.20~74.33B → 10/8 $73.85B, 조회 시점 스냅샷(2026-10-09) $73.19B. 같은 조회의 전체 페그 USD 스테이블코인 합계는 약 $312.8B, USDC 비중 약 23.4%(3자 집계 분모=전체 공급; 직전 run 기록 약 24%와 약 -0.6%p). 이 비중은 회사 정의 계열(유통량 $100M 이상·정기 어테스테이션 보유 코인으로 한정한 Q2'26 27%)과 분모 정의가 달라 직접 비교 불가이며 KC-CRCL-2 판정에 사용하지 않는다(삼각검증·조기경보 한정). 발행사 API(c_20261009_CRCL_2) 값과 소폭 차이($73.16B vs $73.19B)는 측정 시각 차이 범위.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_api",
+        "url": "https://stablecoins.llama.fi/stablecoin/2",
+        "filed_at": "2026-10-09",
+        "note": "전체 목록: https://stablecoins.llama.fi/stablecoins?includePrices=false . 9/25 시리즈 값($76.44B)은 발행사 9/19 값($74.29B)보다 높아 집계 정의 차이 가능성 — 추세 참고만."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_5",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "OUSD 실측 유통량(경쟁 경로): (1) 발행사 Bridge 준비금 대시보드(reserves.bridge.xyz/ousd) 직접 조회 — 순유통량 789,650,657 OUSD, 준비자산 $791,650,772(100.25% 담보), 구성 현금 $94.76M(12.0%)·재무부/MMF $694.89M(88.0%), 갱신 2026-10-09 00:00 UTC, 월간 어테스테이션(Big Four, 목록상 2026 최신분은 8월). (2) 같은 시점 DefiLlama 'Open USD' 약 $787.6M(전일 $719.8M, 1주 전 $489.3M). 추이: 9/30 $477.3M → 10/1 $468.4M(c_20261001_CRCL_3) → 10/4 약 $666.3M(cryptobriefing, 프로젝트 제공치 인용) → 10/9 $789.65M, 즉 10/1 대비 +68.6%. 규모는 발행사 API USDC($73.16B, c_20261009_CRCL_2) 대비 약 1.08%. 준비금 구성이 10/1(현금 54.9%)에서 현금 12.0%·재무부 88.0%로 이동했다. 주의: 티커 OUSD를 공유하는 무관한 구형 토큰 'Origin Dollar'(DefiLlama 약 $6.1M)가 있어 혼동 금지. 발행사 대시보드·DefiLlama 모두 sources.yaml 미등재 도메인(default grade 4)이라 사실 확정이 아닌 확인 대상이며, 발행사 수치와 독립 온체인 집계가 일치해 삼각검증은 충족된다. 별도 보도(cryptobriefing 헤드라인 '1주 +$626.3M')는 위 수치 추이와 맞지 않아 사용하지 않는다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "issuer_reserve_dashboard",
+        "url": "https://reserves.bridge.xyz/ousd",
+        "filed_at": "2026-10-09",
+        "note": "교차: https://stablecoins.llama.fi/stablecoins (Open USD 항목), https://cryptobriefing.com/open-standard-ousd-stablecoin-market-cap/ (10/4, grade 4). 카드 경쟁 축 후속 관측점('OUSD 유통량 지속 추이') 해당."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_6",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "[inference · medium] OUSD 실측이 출시 후 9일간 약 $0.47B → $0.79B로 확대돼, 카드가 '수익모델 정면 위협'으로 정의한 구조(무수수료 발행·환매 + 준비금 수익 환원)가 실체화되는 방향이 유지됐다. 단 규모는 USDC의 약 1%로 현시점 Reserve Income 직접 잠식은 미미하며 점유율이 유의미하게 이동했다는 의미가 아니다. 출시 초기 유통량은 파트너 초기 유동성 공급($1B 이상 약정 보도, 2차 매체)에 의해 부풀 수 있어 자생적 수요 증가인지 구분되지 않는다. USDC 감소(c_20261009_CRCL_3)와의 인과는 입증되지 않았으며(weak 수준의 시간적 동시성), 다음 관측점은 월간 어테스테이션과 Q3'26 실적(11/4)의 경영진 코멘트다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "derived_from_dashboard",
+        "url": "https://reserves.bridge.xyz/ousd",
+        "filed_at": "2026-10-09",
+        "note": "근거 Claim: c_20261009_CRCL_5, c_20261009_CRCL_2"
+      },
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_7",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "$YLDS 발행사 Figure Technology Solutions(FIGR, CIK 0002064124)가 2026-10-06 8-K(Item 2.02, EX-99.1 — furnished·비감사 예비 운영지표)로 공시: $YLDS 유통잔액(기말) 2026-09월말 $504M, 8월말 $446M(MoM +13%), 2026 Q3말 $504M vs Q2말 $556M(QoQ -9%), 전년동기(2025-09) $21M. 시계열 4Q25 $328.193M → 1Q26 $598M → 2Q26 $556.033M → 3Q26 $504M. FIGR 정의상 $YLDS는 Figure Certificate Company 발행 무담보 face-amount certificate 잔액이다. 독립 교차: DefiLlama YLDS 약 $495M(2026-10-09). 월간 변동성이 있어(8월 $446M → 9월 $504M) 분기말 값 기준으로만 QoQ를 해석한다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K_EX-99.1",
+        "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226046036/ex99-1.htm",
+        "filed_at": "2026-10-06",
+        "note": "출처 FIGR 8-K: https://www.sec.gov/Archives/edgar/data/2064124/000149315226046036/form8-k.htm . 직전 run(c_20261001_CRCL_6)은 FIGR 공시가 없어 2Q26 수치를 유지했다 — 이번에 3Q26 최신 grade 1 수치 확보."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_8",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "[inference · medium] $YLDS 분기말 잔액이 1Q26 $598M 고점 이후 2개 분기 연속 감소(-7.0%, -9%, 누적 -15.7%)해 근접 위협은 완화 방향이 유지됐고, 규모는 USDC(c_20261009_CRCL_2) 대비 약 0.69%로 1% 미만이다. 한정 조건: 구조적 리스크(이자부 스테이블코인의 법적 취급 — CLARITY 이자조항 문언)는 미해소이며, 문언이 확정되지 않았다(c_20261009_CRCL_14, sector scope). 8→9월 +13% 반등처럼 월간 변동이 크고 Q3 수치는 비감사 예비치라 Q3 정식 10-Q(11월) 확인 전까지 추세 확정으로 읽지 않는다. 위협 소멸의 증거가 아니다(P5).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "derived_from_8k",
+        "url": "https://www.sec.gov/Archives/edgar/data/2064124/000149315226046036/ex99-1.htm",
+        "filed_at": "2026-10-06",
+        "note": "근거 Claim: c_20261009_CRCL_7, c_20261009_CRCL_2, c_20261009_CRCL_14"
+      },
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_9",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle 내부자 거래(EDGAR Form 4/144, 전부 company_specific): (1) CEO Jeremy Allaire Form 4(제출 10/5): 2026-10-05 Class A 62,264주 처분 — 직접 보유분 56,200주(가중평균 $82.75~$85.24 구간 4개 체결가) + 자녀 신탁 4곳(Oak·Chestnut·Beech·Spruce) 각 1,516주 합 6,064주, 총 약 $5.20M(주식수×체결가 합산 산출), 10b5-1 계획에 따른 매각. 10/1 RSU 15,195주 결제(Class B 취득) 및 8,404주 세금 원천징수(코드 F)가 별도 신고됨. (2) 임원 정기 베스팅 세금 원천징수(10/1, 주당 $82.17): CFO Fox-Geen 3,876주·CPTO Chandhok 3,815주·CCO Razzaghi 1,717주·CAO Schulz 1,031주·President Tarbert 7,988주. (3) 10b5-1 계획 매각(10/2, 주당 $85.78): Fox-Geen 4,238주·Razzaghi 1,830주·Schulz 1,194주. (4) Form 144: 전 이사 P. Sean Neville 50,000주(약 $4.09M, 예정일 10/1, 매각계획 채택 2026-02-27, 2026-06-08 스톡옵션 행사분), CPTO Chandhok 26,668주(약 $2.12M, 예정일 10/8, 계획 채택 2026-03-10; 10/1 베스팅 3,334주 + 10/8 옵션 행사 23,334주 포함). Form 144는 매각 예정 통지이며 체결 여부·체결가는 Form 4로만 확정된다(Chandhok·Neville 체결 Form 4 이번 창 미제출).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "Form4_Form144",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000288/wk-form4_1791407022.xml",
+        "filed_at": "2026-10-08",
+        "note": "Form 4 각 건: .../000187604226000281~000187604226000288/ (EDGAR submissions API 전 서식 조회). Form 144: 0001959173-26-007158, -007200, -007202, -007210, -007311 (primary_doc.xml). 카드 key_metrics '내부자 거래' 항목 해당."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_10",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "[inference · weak] 이번 창의 임원 매각은 모두 2026-02-27~03-10(Neville·Chandhok·Fox-Geen 3/6·Razzaghi 3/10) 또는 그 이전(Schulz 2025-06-12)에 채택된 10b5-1 계획 하의 사전 설정 매각이라, 9/25 임원 교체 공시(c_20261001_CRCL_1) 이후의 신규 판단으로 읽을 근거가 없다. CEO·다수 임원이 같은 주에 동시 처분했다는 점은 사실이나 정기 베스팅 직후 패턴과 구별되지 않으며, 매출·마진·가이던스를 바꾸지 않는 정보라 P3상 축 방향 근거에서 제외한다. CEO Allaire 계획의 채택일은 Form 4 주석상 10b5-1 계획 여부까지만 확인되고 채택일은 미확인.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "derived_from_form4",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000288/wk-form4_1791407022.xml",
+        "filed_at": "2026-10-08",
+        "note": "근거 Claim: c_20261009_CRCL_9. CEO 계획 채택일은 Form 4 본문에 없음(Form 144 채택일은 Neville·Chandhok·Schulz·Razzaghi·Fox-Geen 건에서 확인, 건별 주식수로 대응 매칭)."
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_11",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "SEC EDGAR 조회(CIK 0001876042, since 2026-10-01): (a) edgar_fulltext.py --forms 10-K 10-Q 8-K S-1 결과 0건 — 이번 창 Circle 8-K 신규 제출 없음. (b) submissions API 직접 조회(필터 없음) 결과 신규는 Form 4 7건(10/5 6건·10/7 1건)·Form 144 5건(10/1·10/2×3·10/8)뿐이다. 따라서 이번 창에 Item 1.01/1.02(Coinbase 분배계약 변경·종료 포함), Item 5.02(CFO 후임 선임), Tazapay 종결 공시, Binance 계약 추가 공시는 없다. 직전 run 기산(약 38일, 2026-10-01 기준) 연장 시 Coinbase 관련 Item 1.01/1.02 무공시 구간은 약 46일이다 — 무공시는 무변경의 증명이 아니다(P5). 확인 못한 것은 '10-Q 주석 확인 불가'뿐이며 계약 내용은 Q3 10-Q(11/4 실적 전후)에서 확인 가능하다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_submissions_api",
+        "url": "https://data.sec.gov/submissions/CIK0001876042.json",
+        "filed_at": "2026-10-09",
+        "note": "원자료(--forms 필터): output/20261009_0920/02_company/_raw_edgar_CRCL.json (items 0). 무공시 일수는 직전 run 산출 기준일(2026-08-24 기산)을 연장한 산술."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_12",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle 공식 보도자료(circle.com/pressroom, 2026-09-25 'Circle Announces CFO Transition Plan') 재열람(2026-10-09): CFO Jeremy Fox-Geen은 2026년 12월 말까지 재직(후임 조기 선임 시 그 시점까지)하며 회사는 전문 서치펌으로 후임 탐색 중이다. 후임자·임시 CFO는 지명되지 않았다. 별도 8-K(Item 5.02) 후속 제출도 없다(c_20261009_CRCL_11). Q3 실적발표(11/4, c_20261009_CRCL_1)는 Fox-Geen 재직 중에 진행된다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_ir_press_release",
+        "url": "https://www.circle.com/pressroom/circle-announces-cfo-transition-plan",
+        "filed_at": "2026-09-25",
+        "note": "원 사건일 2026-09-25(창 밖) — 후속 선임 공시 계류 확인 목적의 재열람."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": true
+    },
+    {
+      "id": "c_20261009_CRCL_15",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "발행사 공개 API 조회(2026-10-09 00:24 UTC): Arc 체인상 USDC 약 $523.9M, EURC 약 $5.46M. 직전 run의 Arc 관련 수치(DeFi TVL·스테이블코인 잔액, 전부 2차 집계 grade 4)와 측정 계열이 달라 비교·합산하지 않는다. Arc 메인넷(9/16 출시) 이후 네트워크 수수료·매출 인식 수치는 이번 창에도 회사 공시에 없다(c_20261009_CRCL_11 — 8-K 0건). 네트워크 거래 수수료는 Circle 재무제표 매출과 동일하지 않다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "issuer_public_api",
+        "url": "https://api.circle.com/v1/stablecoins",
+        "filed_at": "2026-10-09",
+        "note": "체인별 amount·updateDate 필드 직접 열람. Arc 후속 지표('Arc 메인넷 이후 지표') 계류 항목."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false
+    },
+    {
+      "id": "c_20261009_CRCL_16",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "[삼각검증 전용] DefiLlama 체인 TVL(api.llama.fi/v2/chains, default grade 4) Arc 약 $544.4M(2026-10-09 조회). 직전 run 기록 대비: 약 $348M(~9/21) → 약 $494M(9/26, 2차 매체 인용) → 약 $544M(10/9). DefiLlama 스테이블코인 체인별 합계 Arc 약 $525M. TVL 증가(+10% vs 9/26)는 지속적이나 이는 DeFi 예치 지표이며 Circle 매출이 아니다. 트래픽 구성(밈코인 vs 기관) 분석은 이번 창에도 신뢰할 출처가 없다. 'Arc 수수료 $100K 미만' 류 보도는 원문 확인 시 근거 없음으로 판명돼 사용하지 않는다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "aggregator_api",
+        "url": "https://api.llama.fi/v2/chains",
+        "filed_at": "2026-10-09",
+        "note": "스테이블코인: https://stablecoins.llama.fi/stablecoinchains . 직전 run c_20261001_CRCL_4와 동일 집계 계열 연속성은 보장되지 않음."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false,
+      "out_of_window": false
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "usdc_circulation_scale",
+      "direction": "weaken",
+      "prior_state": "직전 run(10/1): 신규 1차 수치 없음(2차 집계 상충 $74.36B vs $75.2B, confirmed:false) → neutral. 발행사 실시간 계열 9/19 $74.287B, 분기 공시 Q2'26 분기말 $73.3B(+19% YoY·평잔 +25% YoY).",
+      "new_state": "발행사 API 1차 수치 확보: 2026-10-09 00:24 UTC $73.159B(c_20261009_CRCL_2) — 9/19 대비 -$1.13B(-1.5%), Q2 분기말 수준 복귀. 3자 집계(grade 4)는 9/25 고점 $76.4B 대비 약 -$3.3B로 더 큰 폭 감소를 보이나 집계 정의 차이로 삼각검증에만 사용(c_20261009_CRCL_4). Q3 분기말(9/30)은 3자 집계상 Q2말보다 높아(약 $74.6B) 이번 감소는 분기 이후 구간 — 11/4 Q3 공시에는 반영되지 않는다. 약한 감소 방향이며 원인 불명(OUSD 인과 미입증), 증가 추세 반전 단정 불가. 추세 전제 없이 관측 방향만 weaken으로 기재.",
+      "risk_transfer_to": [
+        "Q3'26 실적(11/4) 분기말·평잔 공식 수치와 Q4 가이던스·코멘트",
+        "OUSD 유통량 확대(competition_ousd_consortium)",
+        "Reserve Income 분자 감소 시 reserve_income 축"
+      ],
+      "supporting_claims": [
+        "c_20261009_CRCL_2",
+        "c_20261009_CRCL_3",
+        "c_20261009_CRCL_4"
+      ]
+    },
+    {
+      "axis": "usdc_market_share",
+      "direction": "neutral",
+      "prior_state": "회사 정의 계열 Q2'26 27%(-1%p QoQ). 3자 집계(DefiLlama 기반) 약 24%. KC-CRCL-2 판정 분모 = 회사 정의(Circle 공시) 계열.",
+      "new_state": "회사 정의 계열 신규치 없음(다음 공시 Q3'26 실적 11/4) — KC-CRCL-2 판정 입력 부재, 관측 0건으로만 기록(P5). 3자 집계 비중 약 23.4%(c_20261009_CRCL_4, 분모 정의 상이·grade 4·조기경보 한정)로 직전 약 24% 대비 소폭 낮으나 계열 간 직접 비교 불가이므로 방향 근거에서 제외. OUSD 약 $0.79B는 분모 재계산 시 소규모(USDC의 약 1.1%).",
+      "risk_transfer_to": [
+        "Q3'26 실적의 회사 정의 점유율 신규치(KC-CRCL-2 입력)",
+        "OUSD 유통량이 3자 집계 분모에서 차지하는 비중 추이"
+      ],
+      "supporting_claims": [
+        "c_20261009_CRCL_4",
+        "c_20261009_CRCL_5"
+      ]
+    },
+    {
+      "axis": "reserve_income",
+      "direction": "neutral",
+      "prior_state": "Coinbase 분배계약 Item 1.01/1.02 무공시 약 38일(10/1). Binance 5년 재계약(9/22 공시) 월간 인센티브 요율 비공개.",
+      "new_state": "이번 창 8-K 0건 — Coinbase 관련 무공시 구간 약 46일로 연장(c_20261009_CRCL_11), Binance 요율 여전히 비공개. Reserve Income 직접 수치 신규 공시 없음. 분자(USDC 잔액) 소폭 감소(c_20261009_CRCL_3)는 usdc_circulation_scale 축에서 처리. 차기 확정 게이트: Q3'26 실적 2026-11-04 공식 공지(c_20261009_CRCL_1) — Reserve Income 절대액·유통비용 비중·Coinbase/Binance 분배조건 대조 가능. 내부자 매각(c_20261009_CRCL_9)은 P3상 이 축의 방향 근거가 아니다.",
+      "risk_transfer_to": [
+        "11/4 Q3 실적·10-Q 계약 주석의 Coinbase·Binance 분배조건 원문 대조",
+        "CFO 후임 선임 후 코멘트 연속성(Fox-Geen 12월 말까지 재직)"
+      ],
+      "supporting_claims": [
+        "c_20261009_CRCL_1",
+        "c_20261009_CRCL_11",
+        "c_20261009_CRCL_12"
+      ]
+    },
+    {
+      "axis": "competition_ousd_consortium",
+      "direction": "weaken",
+      "prior_state": "10/1 부호 활성화 관측: 2026-09-30 공식 출시, 실측 $477.3M → $468.4M(10/1 12:50 UTC), USDC 대비 약 0.6%. 24시간 스냅샷 소폭 감소로 추세 판단 불가. KC-CRCL-2 not_met/provisional.",
+      "new_state": "출시 9일차 실측 확대: 발행사 대시보드 $789.65M(10/9 00:00 UTC)·DefiLlama $787.6M로 독립 일치(c_20261009_CRCL_5) — 10/1 대비 +68.6%, USDC 대비 약 1.08%. '24시간 소폭 감소' 불확실성은 해소돼 성장 방향이 확인됐으나, 초기 파트너 유동성 영향 분리 불가·규모 1% 수준이라 점유율 이동이나 수익 직접 잠식으로 읽지 않는다. 근거 등급 4(미등재 도메인)라 confirmed=false 확인 대상(P4). 준비금 구성 현금 54.9%→12.0%로 변화.",
+      "risk_transfer_to": [
+        "OUSD 월간 어테스테이션(8월분만 등재, 9월분 공표 시)",
+        "Q3'26 실적(11/4)의 OUSD 관련 경영진 코멘트·대응 및 OUSD발 USDC 잠식 신호",
+        "reserves.bridge.xyz 등급 등재 여부(사람 영역)"
+      ],
+      "supporting_claims": [
+        "c_20261009_CRCL_5",
+        "c_20261009_CRCL_6"
+      ]
+    },
+    {
+      "axis": "competition_yield_bearing",
+      "direction": "strengthen",
+      "prior_state": "$YLDS 2Q26 $556.033M(QoQ -7.0%), 최신 grade 1 관측. CLARITY 이자조항 문언 미확정.",
+      "new_state": "FIGR 8-K(2026-10-06, EX-99.1 비감사 예비치): $YLDS 3Q26말 $504M(QoQ -9%), 1Q26 고점 $598M 대비 -15.7%, 2개 분기 연속 감소(c_20261009_CRCL_7). USDC 대비 약 0.69%. 월간 변동(8월 $446M → 9월 $504M)이 커 추세 확정 불가. 위협의 실질(CLARITY 이자조항 문언 조건부)은 미해소 — 소멸이 아닌 근접 위협 완화 신호(c_20261009_CRCL_8). sector scope CLARITY 재료(c_20261009_CRCL_14)는 방향 근거에서 제외.",
+      "risk_transfer_to": [
+        "FIGR Q3 정식 실적/10-Q(11월) $YLDS 확정치",
+        "CLARITY 이자부 스테이블코인 조항 문언 확정 경로(레임덕 세션)"
+      ],
+      "supporting_claims": [
+        "c_20261009_CRCL_7",
+        "c_20261009_CRCL_8"
+      ]
+    },
+    {
+      "axis": "regulation_company_licensing",
+      "direction": "neutral",
+      "prior_state": "OCC(Circle National Trust, 2026-07-10 최종 인가)·NYDFS(Circle New York Trust, 2026-07-31) 인가 이후 신규 인가·감독조치 관측 없음(직전 run 연속).",
+      "new_state": "이번 창 EDGAR 8-K 0건(c_20261009_CRCL_11), 웹검색에서도 OCC/NYDFS 신규 조치·개점 공지는 찾지 못했다 — 관측 0건으로만 기록하며 조치 부존재의 증명으로 취급하지 않는다(P5). 이번 창 임원 관련 공시(CFO 이행계획, c_20261009_CRCL_12)는 창 밖 사건의 후속 확인이다.",
+      "risk_transfer_to": [
+        "OCC·NYDFS 감독보고서·제재 공표",
+        "Circle National Trust 개점·업무범위 확대 공지"
+      ],
+      "supporting_claims": [
+        "c_20261009_CRCL_11",
+        "c_20261009_CRCL_12"
+      ]
+    },
+    {
+      "axis": "diversification",
+      "direction": "neutral",
+      "stage": "P7 1단계(계약/네트워크 존재)~이행 개시 — 매출 인식 수치 미공시",
+      "prior_state": "10/1: Arc 메인넷 10일차 DeFi TVL 약 $494M(+44.5% WoW, 2차 매체 grade 4) 지속 성장이나 구성 분석 저신뢰 → strengthen(약). Tazapay 종결 미발생, Allaire 9/23 발언 기준 첫 주 수수료 약 $0.5M.",
+      "new_state": "발행사 API상 Arc 체인 USDC 약 $0.52B(c_20261009_CRCL_15, grade 1), DefiLlama Arc TVL 약 $544M로 9/26 대비 +10%(c_20261009_CRCL_16, grade 4). 성장세는 둔화(WoW +44% → 2주간 +10%). Circle 재무제표상 Arc 수수료·매출 인식 수치는 미공시이며 EDGAR 8-K 0건 — Tazapay 종결 공시도 없음. 신규 정량 매출 기여 증거가 없고 grade 1 지표 간 직전 대비 비교 계열이 없어 방향 판정 보류(neutral). 파트너십 공지(Tereina/SAP, 10/7)는 조건 비공개로 노이즈 처리(로그).",
+      "risk_transfer_to": [
+        "Q3'26 실적(11/4)·10-Q의 Arc 관련 매출·수수료 인식 여부",
+        "Tazapay 거래 종결 공시(최대 15개월 내)",
+        "Arc 트래픽 구성 신뢰 출처 확보"
+      ],
+      "supporting_claims": [
+        "c_20261009_CRCL_15",
+        "c_20261009_CRCL_16"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "CFO 후임자 및 선임 시점",
+      "detail": "Fox-Geen 2026-12-31까지(또는 후임 선임 시까지) 재직. 서치펌 착수 외 후보·시점 공시 없음. 이번 창 후속 8-K 0건.",
+      "reason": "event_may_be_pending"
+    },
+    {
+      "topic": "Coinbase 분배계약 조건 원문",
+      "detail": "Item 1.01/1.02 무공시 구간 약 46일로 연장. 확인 게이트는 Q3'26 10-Q(실적 11/4 전후). Q3 10-Q 주석 확인은 이번 창 대상 아님.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "Binance 월간 인센티브 수수료 요율·산식",
+      "detail": "9/22 8-K 이후 추가 공시 없음. 과거 요율 대입 금지.",
+      "reason": "not_disclosed_in_primary_source"
+    },
+    {
+      "topic": "USDC 감소(9/19 $74.29B → 10/9 $73.16B)의 원인",
+      "detail": "OUSD 성장과 시기가 겹치나 인과 입증 자료 없음. 발행·환매 흐름 상세(주간 발행/환매) 1차 수치 미확보.",
+      "reason": "no_causal_evidence"
+    },
+    {
+      "topic": "OUSD 월간 어테스테이션(9월분)·초기 파트너 유동성 약정의 실제 집행 규모",
+      "detail": "대시보드는 2026년 8월분 어테스테이션만 등재. 유통량 증가가 파트너 시드 유동성인지 자생 수요인지 분리 불가.",
+      "reason": "event_may_be_pending"
+    },
+    {
+      "topic": "GENIUS §3 NPRM에 대한 Circle 의견서",
+      "detail": "마감 2026-10-19. regulations.gov 도켓(TREAS-DO-2026-0496) 제출자 목록 미확인(이번 run 접근 시도 안 함).",
+      "reason": "not_checked_this_run"
+    },
+    {
+      "topic": "CLARITY Act 재표결 일정·이자조항 문언",
+      "detail": "신규 상원 일정 2차 매체에서도 미발견. senate.gov/congress.gov 접근 403.",
+      "reason": "access_blocked_and_event_pending"
+    },
+    {
+      "topic": "Arc 메인넷 매출·수수료 인식 및 트래픽 구성",
+      "detail": "회사 재무제표상 수치 미공시. 구성 분석 신뢰 출처 없음. 'Arc 매출 $100K 미만' 보도는 원문 근거 없음으로 배제.",
+      "reason": "not_disclosed_in_primary_source"
+    },
+    {
+      "topic": "Neville·Chandhok Form 144 매각의 실제 체결",
+      "detail": "Form 144는 예정 통지. 체결 Form 4 이번 창 미제출.",
+      "reason": "event_may_be_pending"
+    },
+    {
+      "topic": "회사 정의 점유율 Q3'26 신규치(KC-CRCL-2 입력)",
+      "detail": "다음 공시는 Q3 실적(2026-11-04). 3자 집계는 삼각검증·조기경보 한정.",
+      "reason": "event_may_be_pending"
+    }
+  ]
+}

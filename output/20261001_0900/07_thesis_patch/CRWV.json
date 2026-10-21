@@ -1,0 +1,67 @@
+{
+  "as_of": "2026-10-01",
+  "run_id": "20261001_0900",
+  "staleness_days": 0,
+  "ticker": "CRWV",
+  "layer": "thesis_patch_index",
+  "skill": "thesis-refine (S7) — L4 cio-portfolio 절차 4",
+  "patch_count": 3,
+  "patches": [
+    "CRWV_catalysts_vera_rubin_production.json",
+    "CRWV_axes_customer_concentration_new_names.json",
+    "CRWV_earnings_checkpoints_margin_qoq_align.json"
+  ],
+  "apply_artifacts": [
+    "output/20261001_0900/07_thesis_patch/CRWV_catalysts_vera_rubin_production.md",
+    "output/20261001_0900/07_thesis_patch/CRWV_axes_customer_concentration_new_names.md",
+    "output/20261001_0900/07_thesis_patch/CRWV_earnings_checkpoints_margin_qoq_align.md"
+  ],
+  "requires_human_approval": true,
+  "apply_ready": false,
+  "apply_note": "[fact] 본 파일은 묶음 인덱스이며 approvals.py 적용 대상이 아니다(큐 미등재). 개별 패치 파일만 승인 큐에 등재한다.",
+  "basis_claims": [
+    "c_20261001_CRWV_2",
+    "c_20261001_CRWV_1",
+    "c_20260919_CRWV_5"
+  ],
+  "card_full_read": {
+    "path": "state/thesis_cards/CRWV.yaml",
+    "lines": 86,
+    "yaml_parse": "ok",
+    "counts": {
+      "axes": 7,
+      "key_metrics": 10,
+      "catalysts": 4,
+      "risks": 5,
+      "kill_conditions_ref": 4,
+      "version_history": 12,
+      "earnings_checkpoints.items": 8
+    }
+  },
+  "approval_order": "[fact] 3건은 서로 다른 행을 치환하고 counts는 자기 필드만 검사 — 순서 무관(드라이런 정순·역순 PASS).",
+  "dry_run": "[fact] scratchpad 사본에 approvals.py 동일 절차 적용 후 verify_after_apply — 단독·정순·역순 모두 PASS. 병합 미리보기: CRWV_dryrun_merged_preview.yaml. 실카드 미수정.",
+  "memo_check": "[fact] 직전 메모의 key_metrics '마진 59%로 하락 추세'·risks '마진 하락 추세(59%)'는 2026-09-25 승인 패치로 이미 QoQ 기준 정정 적용(카드 41~42·58~59행) — 충돌 없음, 재패치 불요. 잔여 YoY 전제 문구 1건(earnings_checkpoints '59%에서 추가 하락 여부')만 CRWV_earnings_checkpoints_margin_qoq_align으로 상정. [fact] axes.margin_trend 라벨 앞부분의 'YoY 기준 … 압축' 서술은 기준 병기 원문(P9 보존)이며 확정 기준 주석이 뒤따르므로 충돌로 보지 않았다.",
+  "excluded_candidates": [
+    {
+      "candidate": "axes gpu_priority Vera Rubin 프로덕션 주석",
+      "decision": "merged",
+      "reason": "[fact] 동일 재료(c_2)를 catalysts 패치에 기재 — 중복 패치 회피."
+    },
+    {
+      "candidate": "CEO '주문 감소 없음' 발언 반영",
+      "decision": "skipped_logged",
+      "reason": "[fact] c_20261001_CRWV_3 grade4·confirmed=false, 1차 원문 역추적 실패 — 단독 근거 불가(P4)."
+    },
+    {
+      "candidate": "Cheyenne 88MW 앵커테넌트(Related Digital) 반영",
+      "decision": "skipped_logged",
+      "reason": "[fact] c_20261001_CRWV_5 grade3·confirmed=false, 2025-10-07 기존 사실(창 내 신규 아님) — 근거 부족."
+    },
+    {
+      "candidate": "earnings_checkpoints.date(Q3 실적일)",
+      "decision": "skipped_logged",
+      "reason": "[fact] 회사 공식 일정 Claim 없음 — null 유지(F1)."
+    }
+  ],
+  "kc_context": "[fact] 03_signal/CRWV.json proposed_signal 🔴🔴(규칙1, KC-1 매크로 경로) — 종목 KC 3건 경고·발동 단계 모두 not_met. 본 패치는 등급과 무관."
+}

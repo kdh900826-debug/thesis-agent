@@ -1,0 +1,164 @@
+{
+  "sector": "neocloud",
+  "as_of": "2026-09-05",
+  "run_id": "20260905_0618",
+  "staleness_days": 0,
+  "members": ["IREN", "NBIS", "CRWV"],
+  "missing_inputs": [],
+  "single_ticker_view": false,
+
+  "generation_method": "manual_hand_aggregation",
+  "generation_note": "[fact] consensus_aggregate.py --sector neocloud --run-id 20260905_0618 실행이 KeyError로 중단되어 산출 파일을 생성하지 못했다(traceback: line 44, `bucket = by_axis[d['axis']][d.get('direction','neutral')]` → KeyError: '혼재'). 원인은 02_company/IREN.json의 deltas[].direction이 한국어 라벨(혼재/강화/훼손/중립)이고, 스크립트의 방향 버킷은 영문 4키(strengthen/weaken/neutral/break) 고정 dict라 미등록 키 접근 시 예외가 발생하는 것이다. 따라서 본 파일은 스크립트 출력이 아니라 SKILL.md 처리 1~5항을 수기로 적용해 작성한 집계본이다. 상세 감사는 04_sector/neocloud.json의 aggregate_audit 참조.",
+  "manual_aggregation_basis": "[fact] 입력 3개 파일의 deltas 배열 전수 재계수 — IREN 6건, NBIS 2건, CRWV 2건, 합계 10건. 축 문자열 distinct 10개. 동일 종목이 동일 축에 복수 Delta를 낸 사례 0건(종목 단위 dedup 경로 미발동). coverage_count>=2인 축 0개.",
+  "direction_label_normalization": [
+    {"raw": "혼재", "normalized": "mixed", "source_ticker": "IREN", "note": "[fact] 스크립트 방향 버킷 4키에 없는 라벨. 강화/훼손 어느 쪽으로도 환원하지 않고 별도 값으로 보존한다."},
+    {"raw": "강화", "normalized": "strengthen", "source_ticker": "IREN"},
+    {"raw": "훼손", "normalized": "weaken", "source_ticker": "IREN"},
+    {"raw": "중립", "normalized": "neutral", "source_ticker": "IREN"},
+    {"raw": "weaken", "normalized": "weaken", "source_ticker": "NBIS"},
+    {"raw": "strengthen", "normalized": "strengthen", "source_ticker": "NBIS/CRWV"}
+  ],
+
+  "axis_view": [
+    {
+      "axis": "funding_dilution",
+      "direction": "mixed",
+      "direction_raw": "혼재",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": [], "break": [], "mixed": ["IREN"]},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": true,
+      "interpretation": null
+    },
+    {
+      "axis": "execution_delivery",
+      "direction": "strengthen",
+      "direction_raw": "강화",
+      "supporters": {"strengthen": ["IREN"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    },
+    {
+      "axis": "btc_mining",
+      "direction": "weaken",
+      "direction_raw": "훼손",
+      "supporters": {"strengthen": [], "weaken": ["IREN"], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    },
+    {
+      "axis": "ai_cloud_conversion",
+      "direction": "neutral",
+      "direction_raw": "중립",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["IREN"], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    },
+    {
+      "axis": "power_permit",
+      "direction": "neutral",
+      "direction_raw": "중립",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["IREN"], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    },
+    {
+      "axis": "margin_structure",
+      "direction": "neutral",
+      "direction_raw": "중립",
+      "supporters": {"strengthen": [], "weaken": [], "neutral": ["IREN"], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["IREN"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "null_observation_record": true,
+      "null_observation_note": "[fact] 이 Delta는 supporting_claims=[] / magnitude='없음'으로, 신규 자료 부재를 명시적으로 기록한 항목이다(02_company/IREN.json). 관측된 변화가 아니라 '변화 없음의 기록'이므로 축 방향 집계 대상으로는 계상하되 실질 관측 축 수에서는 분리한다.",
+      "interpretation": null
+    },
+    {
+      "axis": "leverage_burden",
+      "direction": "weaken",
+      "direction_raw": "weaken",
+      "supporters": {"strengthen": [], "weaken": ["NBIS"], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["NBIS"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    },
+    {
+      "axis": "funding_access",
+      "direction": "strengthen",
+      "direction_raw": "strengthen",
+      "supporters": {"strengthen": ["NBIS"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["NBIS"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    },
+    {
+      "axis": "customer_concentration",
+      "direction": "strengthen",
+      "direction_raw": "strengthen",
+      "supporters": {"strengthen": ["CRWV"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["CRWV"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    },
+    {
+      "axis": "gpu_priority",
+      "direction": "strengthen",
+      "direction_raw": "strengthen",
+      "supporters": {"strengthen": ["CRWV"], "weaken": [], "neutral": [], "break": [], "mixed": []},
+      "dispersion": "single_ticker",
+      "coverage_tickers": ["CRWV"],
+      "coverage_count": 1,
+      "intra_ticker_dispersion": [],
+      "intra_axis_mixed": false,
+      "interpretation": null
+    }
+  ],
+
+  "aggregate_summary": {
+    "total_deltas": 10,
+    "deltas_by_ticker": {"IREN": 6, "NBIS": 2, "CRWV": 2},
+    "distinct_axes": 10,
+    "axes_with_coverage_ge_2": 0,
+    "axes_all_single_ticker": true,
+    "delta_contributing_tickers": ["IREN", "NBIS", "CRWV"],
+    "zero_delta_tickers": [],
+    "substantive_axes_excluding_null_records": 9,
+    "sector_direction_computable": false,
+    "dispersion_computable": false,
+    "note": "[fact] 10개 축 전부 coverage_count=1(dispersion=single_ticker)이므로 SKILL.md 처리 3항의 low/medium/high 분산은 산출 대상이 없다. 직전 run(20260820_1932)과 동일하게 2회차 연속 축 중첩 0건이다."
+  },
+
+  "sector_unconfirmed": [],
+  "signal_mutation": null,
+  "_note": "[fact] 수기 집계본 — 스크립트 미실행(KeyError 중단). LLM 해석은 04_sector/neocloud.json에서 수행한다."
+}

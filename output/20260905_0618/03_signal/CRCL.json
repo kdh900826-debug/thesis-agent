@@ -1,0 +1,158 @@
+{
+ "as_of": "2026-09-05T06:18",
+ "run_id": "20260905_0618",
+ "ticker": "CRCL",
+ "input_source": "output/20260905_0618/03_input/arbiter_CRCL.json",
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260905_CRCL_0618_001",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_fulltext_and_submissions_api",
+   "filed_at": "2026-09-05",
+   "summary": "EDGAR 재조회(2026-09-05): 최신 8-K는 여전히 2026-08-05(Q2 실적건), since 8/20 조회 0건 + 보강조회 since 8/1(22건, 최신 8/5) 확인 — 8/6~9/5 신규 8-K 0건. Coinbase 분배계약 자동갱신 발효(8/18) 후 SEC 8-K 제출기한(발효 후 4영업일, ~8/24) 경과 12일째(8/24~9/5)까지 계약변경(Item 1.01/1.02) 공시 부재 지속 — 8/16·8/20 관측과 정합."
+  },
+  {
+   "id": "c_20260905_CRCL_0618_002",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "10-Q_and_8-K_exhibit",
+   "filed_at": "2026-08-14",
+   "summary": "FIGR($YLDS 발행사, 타종목) 10-Q(2026-08-14 제출, 6/30 마감)+8-K EX-99.1(8/13) 원문: $YLDS 유통량 2026-06-30 기준 $556.033M(2025-12-31 $328.193M 대비 +69.4%). CRCL 카드 competition_ousd 축 위험지표를 직접 구성하는 CRCL 특정 관측 대상으로 scope=company_specific 태깅(오케스트레이터 판정, arbiter는 그대로 수용)."
+  },
+  {
+   "id": "c_20260905_CRCL_0618_003",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "8-K_exhibit",
+   "filed_at": "2026-05-12",
+   "summary": "FIGR 8-K(2026-05-12, 1Q26 실적) EX-99.1: $YLDS 유통량 2026-03-31 기준 $598M(2025-03-31 $3M 대비 n.m.). 8/15 Run 이후 카드에 grade4·confirmed=false로 등재돼 있던 동일 수치가 이번 조회로 1차 공시(grade1)로 격상 확인. c_002와 결합 시 1Q26→2Q26 QoQ -7.0% 감소((556.033-598)/598)."
+  },
+  {
+   "id": "c_20260905_CRCL_0618_004",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "aggregator_onchain_estimate",
+   "filed_at": "2026-09-03",
+   "summary": "웹검색(LLM)+온체인 애그리게이터(CoinGecko·CoinMarketCap, 2026-09-03): USDC 유통량 약 $73.8~74.2B, 8월 $72.7~73.7B 구간 대비 완만히 증가. 1차 공시(10-Q/보도자료) 역추적 실패(D15) — sources.yaml 미등재 도메인 default_grade=4, confirmed=false 유지, 단독 판단 근거 불가(P4)."
+  },
+  {
+   "id": "c_20260905_CRCL_0618_006",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "form_4",
+   "filed_at": "2026-09-03",
+   "summary": "SEC Form 4 재조회(2026-09-05): 2026-09-01~09-03 구간 CRCL 임원·이사 7건 제출(CEO/CFO/CPTO/이사 등, RSU 베스팅 원천징수 코드F + 10b5-1 사전계획 매도 코드S 다수). 8/21·8/24 Form4와 동일 정기 패턴으로 판단 — 신규 성격변화(대량 비정기 매도·임원 이탈 신호) 근거 없어 축 Delta 미생성, 리스크 모니터링 로그로만 등재(오케스트레이터 판정)."
+  }
+ ],
+ "filter_bug_report": "없음 — arbiter_CRCL.json의 claims 5건 전부 scope=company_specific 확인. removed_claims 1건(005)은 scope=sector로 정상 제거(필터 정상 동작) — F13 위반 없음.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-1~10(macro, 전건)",
+    "verdict": "not_met",
+    "verdict_confidence": "오케스트레이터 발췌 기준 — arbiter는 개별 KC 정의 원문 미접근(P17), 이번 입력에 macro 지표 갱신 claim 없음"
+   },
+   {
+    "kc_id": "KC-CRCL-1",
+    "description": "USDC 유통량 수축(경고/발동 2단, usdc_circulation_30d_avg_vs_90d_peak<=-20%, kill은 RI 2분기 연속 감소 동반)",
+    "verdict": "not_met (경고·발동 모두)",
+    "verdict_confidence": "c_004(grade4, unconfirmed) 기준 USDC 유통량은 8월 $72.7~73.7B → 9/3 $73.8~74.2B로 완만한 증가 방향 — -20% 수축 시나리오와 정합하지 않음. grade4로 단독 확정 근거는 아니나 '증가 방향'과 '-20% 수축'은 양립 불가하므로 not_met 판정에는 grade 한계가 문제되지 않음."
+   },
+   {
+    "kc_id": "KC-CRCL-2",
+    "description": "점유율 잠식(usdc_stablecoin_share_qoq<=-3%p, 회사 정의 계열 기준)",
+    "verdict": "not_met / 이번 Run 신규 분기 데이터 없음",
+    "verdict_confidence": "이번 입력에 분기 점유율 갱신 claim 없음 — 직전 확인치(Q2'26 27%, QoQ -1%p) 그대로 carry"
+   },
+   {
+    "kc_id": "KC-CRCL-3",
+    "description": "Coinbase 분배계약 변경(event형, trigger=분배율 상향·구조변경 공시 발생, 경중불문 즉시)",
+    "verdict": "not_met (사건 미발생)",
+    "verdict_confidence": "c_001: 8-K 제출기한(~8/24) 경과 후 12일째(9/5)까지 계약변경 공시 0건 지속 — '변경 이벤트 미발생'의 정황 근거는 8/20 Run(발효+2일) 대비 강화됐으나(P5의 역도 동일 적용: 정보부재가 무변경의 완전한 증명은 아님), 규칙1(Kill 우선)의 'met' 자체가 성립하지 않아 confirmed 여부를 따질 대상이 아님. 계약 조건 원문의 최종 확인은 Q3'26 10-Q 각주(통상 11월)까지 보류(unconfirmed u_20260905_CRCL_0618_b)."
+   },
+   {
+    "kc_id": "KC-CRCL-4",
+    "description": "인가·감독 조치(OCC/NYDFS 신탁 인가 또는 GENIUS Act 발행자 인가 관련)",
+    "verdict": "not_met / 이번 Run 관련 claim 없음",
+    "verdict_confidence": "입력에 감독조치·인가 관련 관측 없음"
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "규칙1(Kill 우선: KC met AND confirmed)에 해당하는 KC 없음. KC-CRCL-3은 'met'(계약변경 공시 발생) 자체가 성립하지 않아 확정 판정 대상이 아니며, 계약 조건 원문 최종 확인은 Q3 10-Q까지 보류(P5). KC-CRCL-1·2·4도 신규 발동·경고 관측 없음 — 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향게이트(quantitative_evidence AND company_specific AND revenue_recognized 전부 충족, 단일 claim 기준)는 3조건 동시충족 필요. 이번 5건 중 quantitative=true인 claim(c_002·c_003·c_004·c_006)도 각각 (a) 경쟁사(FIGR) $YLDS 유통량 — CRCL 자체 매출·마진·현금흐름·가이던스가 아님, (b) 온체인 애그리게이터 추정치(grade4·confirmed=false, 단독 근거 불가), (c) 임원 Form4 신고 건수 — 어느 것도 P7의 계약존재/이행/매출인식 3단 중 revenue_recognized 단계에 해당하지 않음. c_001(계약변경 8-K 부재)은 정성(quantitative=false)이며 부작위 확인일 뿐 매출인식 사건도 아님. 따라서 상향 게이트 미충족 — 등급 유지 + 사유기록(P12)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "c_002/c_003(경쟁 스테이블코인 $YLDS 유통량 QoQ -7.0% 감소)은 CRCL 훼손이 아니라 경쟁 위협의 완화 방향(오케스트레이터 Delta d_002: competition_ousd strengthen). c_004(USDC 자체 유통량 완만한 증가 지속)도 훼손 아님. c_006(내부자 Form4)은 정기적 RSU베스팅·10b5-1 패턴으로 오케스트레이터가 이미 축 Delta 미생성 판정 — 훼손 신호 없음.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "grade<=2 정성 claim 중 훼손 방향은 없음. 오케스트레이터 전달 Delta 3건(strengthen×2 [reserve_income, competition_ousd] + neutral×1 [usdc_circulation_scale]) 전건 비훼손 — arbiter는 P13/P17에 따라 하위 판정 결과를 재해석하지 않고 그대로 수용.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "이번 5건 claim 및 오케스트레이터 전달 Delta 전건 비훼손 — 규칙3(비대칭 하향) 트리거 조건 불성립."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "reserve_income",
+   "direction": "strengthen",
+   "supporting_claims": ["c_20260905_CRCL_0618_001"],
+   "risk_transfer_to": "Q3'26 10-Q 계약 주석 대조(차기 확인 게이트) — 계약 조건 원문 불변의 최종 확인 전까지는 '공시의무 없는 자동갱신 완료'를 잠정 확정으로만 취급(P5, unconfirmed u_20260905_CRCL_0618_b)."
+  },
+  {
+   "axis": "competition_ousd",
+   "direction": "strengthen (강도 medium)",
+   "supporting_claims": ["c_20260905_CRCL_0618_002", "c_20260905_CRCL_0618_003"],
+   "risk_transfer_to": "없음 — 경쟁사 $YLDS 유통량 QoQ -7.0% 감속은 근접 위협 완화 신호이나, 카드 서술상 위협의 실질은 규모가 아니라 CLARITY 이자조항 문언 확정 여부에 조건부이므로 구조적 리스크 자체는 미해소(강도 medium에 그침)."
+  },
+  {
+   "axis": "usdc_circulation_scale",
+   "direction": "neutral",
+   "supporting_claims": ["c_20260905_CRCL_0618_004"],
+   "risk_transfer_to": "없음 — 방향 전환 없음(grade4·unconfirmed 온체인 추정치). 다음 grade1 갱신은 Q3 10-Q(미도래)."
+  }
+ ],
+ "alert": {
+  "ticker_event": "CRCL — Coinbase 분배계약 자동갱신(8/18 발효) 8-K 계약변경 공시 부재, 제출기한(~8/24) 경과 12일째(9/5)까지 지속 + 경쟁 스테이블코인($YLDS) 유통량 QoQ -7.0% 감속 + USDC 자체 유통량 완만한 증가 지속(온체인 추정) + 임원 Form4 매도 클러스터(정기 패턴)",
+  "facts": "① EDGAR 재조회(2026-09-05): 최신 8-K 여전히 2026-08-05, 8/6~9/5 신규 8-K 0건 — 분배계약 자동갱신 발효(8/18) 후 SEC 8-K 제출기한(~8/24) 경과 12일째까지 계약변경(Item1.01/1.02) 공시 부재 지속 [SEC EDGAR fulltext/submissions API, 2026-09-05, grade1 confirmed]. ② FIGR 10-Q(2026-08-14)+8-K EX-99.1(8/13): $YLDS 유통량 2Q26(6/30) $556.033M(2025-12-31 $328.193M 대비 +69.4%) [grade1 confirmed]. ③ FIGR 8-K(2026-05-12): $YLDS 유통량 1Q26(3/31) $598M — 산술상 1Q26→2Q26 QoQ -7.0% 감소, 기존 grade4 수치가 grade1로 격상 확인 [grade1 confirmed]. ④ 온체인/애그리게이터(CoinGecko·CoinMarketCap, 2026-09-03): USDC 유통량 약 $73.8~74.2B, 8월 $72.7~73.7B 대비 완만한 증가 — 1차 공시 미확인, grade4·confirmed=false [단독 근거 불가, P4]. ⑤ Form 4(2026-09-01~09-03, 7건): CEO/CFO/CPTO/이사 RSU베스팅·10b5-1 매도, 정기 패턴 [SEC data.sec.gov, 2026-09-03, grade1 confirmed].",
+  "inference": "없음 — 이번 입력 5건 전부 claim_type=fact, inference_strength=null. 오케스트레이터 Delta의 '잠정확정 격상' 서술은 상위 레이어(company/필터) 판단이며 arbiter가 채택한 추론이 아님 — Kill 게이트 판단에서는 P5(정보부재≠반증) 원칙에 따라 KC-CRCL-3을 여전히 최종 미확정(not_met/unconfirmed)으로 유지.",
+  "classification": "holding_reinforcement (등급 유지 + 사유기록, P12) — 상향 게이트(P2/P6/P7) 미충족: 어떤 claim도 revenue_recognized 단계에 해당하지 않음(경쟁사 지표·부작위 확인·애그리게이터 추정·내부자신고는 모두 CRCL 자체 매출/마진/현금흐름/가이던스 수치가 아님). 하향 트리거 미성립: 훼손 방향 없음(Delta strengthen×2 + neutral×1).",
+  "thesis_delta": "reserve_income 축 strengthen(c_001, 계약변경 공시 부재 12일 지속 — 리스크 이관: Q3 10-Q 계약 주석 대조 전까지 잠정), competition_ousd 축 strengthen medium(c_002·c_003, 경쟁 $YLDS QoQ -7.0% 감속이나 CLARITY 이자조항 미해소로 구조적 리스크 잔존), usdc_circulation_scale 축 neutral(c_004, 방향전환 없음). c_006(내부자 Form4)은 정기 패턴으로 축 Delta 미생성 — 모니터링 로그로만 등재. OUSD 공식 출시·실측 유통량은 이번 Run 상태 변화 없음(unconfirmed u_a).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🔴(비중 조절 검토, OUSD 위협) 유지 권고(maintain). Kill 게이트 미충족(KC met&confirmed 없음, KC-CRCL-3은 'met' 자체 미성립 — 계약변경 미발생, 계약 원문 최종확인은 Q3 10-Q까지 보류). 상향 게이트 미충족(revenue_recognized 단계 claim 없음). 하향 게이트 미충족(훼손 방향 없음). 🔴🔴 사람 확인 요청 대상 아님.",
+  "next_check": "① [사건형·관측가능] Q3'26 10-Q(통상 11월) 계약 주석 대조로 Coinbase 분배계약 조건 원문 불변 최종 확인(KC-CRCL-3 최종판정, 현재 unconfirmed). ② [정량] Q3'26 실적 — USDC 유통량 QoQ 부호, 회사 자체 정의 점유율(%) 방향, Reserve Income 절대액·YoY 지속성(기존 게이트 승계, 변경 없음)."
+ },
+ "next_gate": "Q3'26 10-Q 계약 주석 대조(Coinbase 분배계약 조건 불변 최종 확인, KC-CRCL-3) + Q3'26 실적(USDC 유통량 QoQ 부호·회사 정의 점유율%·Reserve Income 지속성) — 기존 게이트 승계, 8/24 제출기한은 이미 경과·해소(부재 지속 확인)",
+ "unconfirmed_carried": [
+  {"topic": "Coinbase 분배계약 자동갱신 — 계약 조건 원문 불변의 최종(1차 공시 기반) 확정", "reason": "8-K 부재 지속(제출기한 경과 12일)은 '공시의무 없음'의 강한 정황이나 계약 조건 자체를 원문으로 재확인한 것은 아님 — Q3 10-Q(CRCL·COIN 공통, 통상 11월 제출) 계약 주석에서만 최종 확인 가능(P5)"},
+  {"topic": "USDC 유통량 온체인/애그리게이터 실시간 추정치($73.8~74.2B, 2026-09-03)", "reason": "1차 공시(10-Q/보도자료) 역추적 실패 — grade4, sources.yaml 미등재 도메인. 다음 grade1 갱신은 Q3 10-Q"},
+  {"topic": "OUSD 공식 출시·실측 유통량", "reason": "2026년 하반기 출시 목표(Solana 우선) 반복 보도만 존재, 8/20 Run 대비 상태 변화 없음 — noise_filter.yaml 기준 비승격 유지"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 등급 유지가 P12 기본경로에 따라 적용됨. KC-CRCL-3 관련 8-K 부재는 제출기한(~8/24) 경과 12일째까지 지속 확인돼 '자동갱신 조건불변' 정황이 강화됐으나(D d_20260905_CRCL_0618_001), 최종판정은 Q3'26 10-Q 계약 주석 공시(통상 11월) 시점까지 arbiter 레벨에서 unconfirmed 유지 권고. c_006(내부자 Form4 클러스터)은 정기 패턴으로 이번 Run에서도 축 Delta 미생성 — 향후 비정기·대량 매도 패턴 전환 시 재평가 필요."
+}

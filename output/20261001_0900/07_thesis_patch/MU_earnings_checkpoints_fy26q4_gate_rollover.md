@@ -1,0 +1,64 @@
+# ThesisPatch — MU / earnings_checkpoints — 경과한 2026-09-30 게이트 정리 — items 8개에 9/30 결과·다음 게이트 덧붙임, date를 FQ1-27(2026-12, 정확일 미공시)로 이월, FQ1-27 가이던스 대조 항목 추가(8 → 9) / amend
+
+- **Run**: 20261001_0900 · as_of 2026-10-01 · 스킬 `thesis-refine`(S7) · L4 cio-portfolio 절차 4
+- **patch_id**: `MU_earnings_checkpoints_fy26q4_gate_rollover` · priority: high
+- **대상 필드**: `earnings_checkpoints` — 경과한 2026-09-30 게이트 정리 — items 8개에 9/30 결과·다음 게이트 덧붙임, date를 FQ1-27(2026-12, 정확일 미공시)로 이월, FQ1-27 가이던스 대조 항목 추가(8 → 9)
+- **승인 필요**: 예 (requires_human_approval: true, F17) / **핵심 논거 역전**: 아니오
+- **선행 인간 결정 의존**: 없음
+- **적용 순서**: 순서 무관 — MU 5건(key_metrics / earnings_checkpoints / catalysts / risks / axes)은 서로 다른 행을 치환하고 counts는 각자 필드만 검사한다(드라이런 단독·순차 모두 통과). 권장: MU_key_metrics → MU_earnings_checkpoints → MU_catalysts → MU_risks → MU_axes
+- **사전 확인(F20)**: `state/thesis_cards/MU.yaml` 전문 80행 열람, before 출현 1회 확인. 현재 계수 axes 7 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / version_history 8 / earnings_checkpoints.items 8
+- **expected_after**: counts [{"path": "earnings_checkpoints.items", "n": 9}] · contains 5건 · not_contains 2건
+
+## diff
+
+```diff
+--- state/thesis_cards/MU.yaml (before)
++++ state/thesis_cards/MU.yaml (after 제안)
+-earnings_checkpoints:
+-  # 2026-09-05 ThesisPatch(amend, run 20260905_0618) — 이전: date: "2026-09-22"(가정일). 회사 공식 확정일 2026-09-30으로 정정(c_20260905_MU_02, grade 1). items 7개는 전건 미확인 상태로 불변 이월.
+-  date: "2026-09-30"
+-  items:
+-    - "SCA 가이던스"
+-    - "$50B CapEx 계획"
+-    - "CXMT/YMTC 대응 (8/21 서한 결과 연계)"
+-    - "LTA 비중 및 방향"
+-    - "선수금·계약부채 잔액 (고객 신용 리스크 선제 회수 구조)"
+-    - "비트그로스 vs ASP 분해"
+-    - "HBM 마진 vs 범용 마진 직접 확인"
+-    # 2026-09-25 ThesisPatch(amend, run 20260925_1015) — 항목 추가 7 → 8(전문 75행 기준 계수). 기존 7개 항목은 전건 미확인 상태로 불변 이월(P9). 근거: ITC 337-TA-1523 조사개시(c_20260925_MU_3, grade 1)에도 창 내 회사 8-K·보도자료 기술 0건(c_20260925_MU_1·c_20260925_MU_2).
+-    - "소송 공시 기술 — ITC 337-TA-1523 조사개시(2026-09-24)에 대한 9/30 실적 발표·컨퍼런스콜 언급 여부와 후속 FY26 10-K(제출일 미확인)의 소송·우발부채 각주 기재 여부, 병행 CDCA·D.Del·CAFC 건 포함 여부 (결과 추정 금지)"
++earnings_checkpoints:
++  # 2026-09-05 ThesisPatch(amend, run 20260905_0618) — 이전: date: "2026-09-22"(가정일). 회사 공식 확정일 2026-09-30으로 정정(c_20260905_MU_02, grade 1). items 7개는 전건 미확인 상태로 불변 이월.
++  # 2026-10-01 ThesisPatch(amend, run 20261001_0900) — 이전 date: "2026-09-30"(회사 공식 확정일, 2026-09-30 실적 발표로 경과). 2026-09-30 게이트를 정리한다: 기존 items 8개 원문은 각 항목 앞부분에 그대로 보존하고 '[9/30 결과]'·'[다음 게이트]'만 덧붙인다(P9, 삭제 없음). 항목 수 8 → 9(FQ1-27 가이던스 대조 항목 1개 추가, 전문 기준 계수). date는 FQ1-27 실적으로 이월하되 회사 공식 일정 공지 전이므로 월 단위 가정 표기다(F1 — 애그리게이터·추정 일정을 확정일로 쓰지 않는다).
++  date: "2026-12 (FQ1-27 실적 — 정확일 미공시, 회사 공식 확정 공지 전 가정)"
++  items:
++    - "SCA 가이던스 — [9/30 결과] SCA 누적 26건(분기 중 10건 신규)·RPO 약 $150B·고객 재무약정 $32B(c_20261001_MU_6, grade2). 향후 SCA 체결 목표치 형태의 가이던스는 창 내 Claim에 없음(P5) [다음 게이트] SCA 건수·RPO 추이, 26건 기준 커버리지 비율 공개 여부"
++    - "$50B CapEx 계획 — [9/30 결과] 연간 $50B 미재확인, FY27 FQ1 약 $11.5B·상반기 약 $25B·하반기 '더 높음'(c_20261001_MU_8, grade2) [다음 게이트] FY27 연간 capex 총액 확정 여부"
++    - "CXMT/YMTC 대응 (8/21 서한 결과 연계) — [9/30 결과] 보도자료·준비발언·콜 전사에서 CXMT·YMTC·Apple 언급 0건(c_20261001_MU_9, grade1). 무언급은 해소 근거가 아니다(P5) [다음 게이트] 이월"
++    - "LTA 비중 및 방향 — [9/30 결과] LTA 비중 수치는 창 내 Claim에 없음(미확인, P5) [다음 게이트] 이월"
++    - "선수금·계약부채 잔액 (고객 신용 리스크 선제 회수 구조) — [9/30 결과] 고객 현금예치금 FQ4 수령 $12.3B·분기말 잔액 $12.7B(c_20261001_MU_6, grade2). 계약부채 총액 미확인 [다음 게이트] 잔액 방향·반환 스케줄, FY26 10-K 주석"
++    - "비트그로스 vs ASP 분해 — [9/30 결과] DRAM 비트 QoQ 중간 한자릿수%·가격 고10%대, NAND 비트 약 10%·가격 약 30%(c_20261001_MU_7, grade2) — 가격 주도, 해석은 양방향(피크 역설 판정은 사람 영역) [다음 게이트] FQ1-27 비트/ASP 재분해"
++    - "HBM 마진 vs 범용 마진 직접 확인 — [9/30 결과] CEO가 갭 '축소 중' 직접 발언, %p 비공개(c_20261001_MU_5, grade2). Cloud Memory BU 매출총이익률 83% vs CDBU·MCBU 90%(c_20261001_MU_4, 근사치) [다음 게이트] 갭 %p 공개 여부"
++    # 2026-09-25 ThesisPatch(amend, run 20260925_1015) — 항목 추가 7 → 8(전문 75행 기준 계수). 기존 7개 항목은 전건 미확인 상태로 불변 이월(P9). 근거: ITC 337-TA-1523 조사개시(c_20260925_MU_3, grade 1)에도 창 내 회사 8-K·보도자료 기술 0건(c_20260925_MU_1·c_20260925_MU_2).
++    - "소송 공시 기술 — ITC 337-TA-1523 조사개시(2026-09-24)에 대한 9/30 실적 발표·컨퍼런스콜 언급 여부와 후속 FY26 10-K(제출일 미확인)의 소송·우발부채 각주 기재 여부, 병행 CDCA·D.Del·CAFC 건 포함 여부 (결과 추정 금지) — [9/30 결과] 보도자료·준비발언·콜 Q&A 전사에서 Netlist·ITC·litigation·patent 키워드 0건(c_20261001_MU_9, grade1). 무언급은 리스크 해소 근거가 아니다(P5). 조사개시일은 09-23 표기 자료가 추가로 포착돼 09-24와 병기(c_20261001_MU_11, grade3·confirmed=false) [다음 게이트] FY26 10-K 각주 — 2026-09-29 Netlist 2차 ITC 제소(HBM3E·HBM4·HBM4E, c_20261001_MU_10) 포함 여부까지 확인"
++    # 2026-10-01 ThesisPatch(amend, run 20261001_0900) — 항목 추가 8 → 9. 근거: FQ1-27 회사 공식 가이던스(c_20261001_MU_3, grade1).
++    - "FQ1-27 가이던스 대조 — 매출 $61.5B ± $1.5B, Non-GAAP 매출총이익률 약 86.25%, Non-GAAP EPS $38.15 ± $1.00(GAAP $37.84 ± $1.00)(c_20261001_MU_3) 대비 실측. 기준선: FQ4-26 매출 $54,229M·Non-GAAP 매출총이익률 87.0%·Non-GAAP EPS $33.42(c_20261001_MU_2) (결과 추정 금지)"
+```
+
+## 왜
+
+[fact] state/thesis_cards/MU.yaml 전문 80행을 읽고 yaml.safe_load로 목록형 필드를 실제 계수했다 — axes 7 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / earnings_checkpoints.items 8 / version_history 8(F20). [fact] earnings_checkpoints.date '2026-09-30'은 2026-09-30 실적 발표(8-K, c_20261001_MU_1, grade1)로 경과했으며 items 8개는 모두 '9/30 확인 대상'으로만 남아 있어 현 시점 관측 상태를 반영하지 못한다. [fact] 9/30 자료로 항목별 결과를 확인한 범위: SCA·RPO(c_6), CapEx 미재확인(c_8), CXMT/YMTC·소송 무언급(c_9), 현금예치금(c_6), 비트/ASP(c_7), HBM 마진 갭 방향(c_5·c_4). LTA 비중·계약부채 총액은 창 내 Claim이 없어 미확인 이월(P5). [fact] FQ1-27 가이던스(c_3, grade1)는 회사 공식 수치로 다음 게이트의 대조 기준이다. [inference · moderate] 차기 실적월 '2026-12'는 회계분기 구조(FQ4-26 2026-09-03 종료)와 03_signal next_gate('약 2026-12월')에 근거한 가정이며 회사 확정 공지가 아니다 — date 문자열에 '정확일 미공시·가정'을 명기했다(F1). [fact] 337-TA-1523 조사개시일은 기존 항목 원문의 '2026-09-24'를 정정하지 않고 09-23 자료를 병기했다(P9, c_11 grade3·confirmed=false).
+
+**역전 판정 주석**: [fact] 관측 게이트 이월·결과 기록이며 thesis·conclusion·시그널 등급을 수정하지 않는다.
+
+## 근거 Claim
+
+c_20261001_MU_1, c_20261001_MU_2, c_20261001_MU_3, c_20261001_MU_4, c_20261001_MU_5, c_20261001_MU_6, c_20261001_MU_7, c_20261001_MU_8, c_20261001_MU_9, c_20261001_MU_10, c_20261001_MU_11
+
+[fact] grade1·confirmed: c_1·c_2·c_3·c_4·c_9·c_10. grade2·confirmed: c_5~c_8. c_11은 grade3·confirmed=false — 날짜 병기 용도로만 쓰고 사실 확정에 쓰지 않았다(P4).
+
+출처: `output/20261001_0900/03_signal/MU.json#claims,thesis_delta_summary · output/20261001_0900/04_sector/memory.json#axis_view,earnings_cycle_context · output/20261001_0900/03_input/arbiter_MU.json(수치·문구 대조)`
+
+**F20 주석**: [fact] before는 카드 59~71행(earnings_checkpoints: 키부터 8번째 항목까지, 기존 주석 2행 포함) 원문 복사이며 출현 1회 확인. 기존 주석 2행(2026-09-05·2026-09-25)은 after에 그대로 보존된다. not_contains 1번째는 경과한 date 행, 2번째는 결과 미기입 원 항목 단독 행이다 — 이전 date 값은 신규 주석 안에 'date: "2026-09-30"'이 아니라 '이전 date: "2026-09-30"'으로 남지만 not_contains는 앞 공백 2칸 포함 '  date: "2026-09-30"' 패턴이므로 주석 문자열('이전 date: …')과 충돌하지 않는다.
+
+> 이 패치는 제안이며 자동 반영되지 않는다(F17). 적용은 사람의 `approve <id>` 이후 `approvals.py`가 수행한다(백업 → 적용 → expected_after 자동 대조 → 실패 시 원복).

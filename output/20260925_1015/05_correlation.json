@@ -1,0 +1,1121 @@
+{
+ "as_of": "2026-09-25T10:37",
+ "run_id": "20260925_1015",
+ "pair_overlap": [
+  {
+   "pair": [
+    "COIN",
+    "CRCL"
+   ],
+   "grade": "상",
+   "shared_axes": [
+    "CRYPTO",
+    "REGULATION",
+    "RATES"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "USDC_DISTRIBUTION_ECONOMICS",
+     "hedge_strength": "중",
+     "note": "COIN + vs CRCL - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "COIN",
+    "CRWV"
+   ],
+   "grade": "하",
+   "shared_axes": [
+    "RISK_APPETITE"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "COIN + vs CRWV - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "COIN",
+    "HOOD"
+   ],
+   "grade": "상",
+   "shared_axes": [
+    "RISK_APPETITE",
+    "CRYPTO",
+    "REGULATION",
+    "RATES"
+   ]
+  },
+  {
+   "pair": [
+    "COIN",
+    "IREN"
+   ],
+   "grade": "중",
+   "shared_axes": [
+    "RISK_APPETITE",
+    "CRYPTO"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "COIN + vs IREN - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "COIN",
+    "MU"
+   ],
+   "grade": "하",
+   "shared_axes": [],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "COIN + vs MU - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "COIN",
+    "NBIS"
+   ],
+   "grade": "하",
+   "shared_axes": [
+    "RISK_APPETITE"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "COIN + vs NBIS - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "CRCL",
+    "CRWV"
+   ],
+   "grade": "하",
+   "shared_axes": [],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "상",
+     "note": "CRCL + vs CRWV - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "CRCL",
+    "HOOD"
+   ],
+   "grade": "상",
+   "shared_axes": [
+    "CRYPTO",
+    "REGULATION",
+    "RATES"
+   ]
+  },
+  {
+   "pair": [
+    "CRCL",
+    "IREN"
+   ],
+   "grade": "하",
+   "shared_axes": [
+    "CRYPTO"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "CRCL + vs IREN - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "CRCL",
+    "MU"
+   ],
+   "grade": "하",
+   "shared_axes": [],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "CRCL + vs MU - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "CRCL",
+    "NBIS"
+   ],
+   "grade": "하",
+   "shared_axes": [],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "CRCL + vs NBIS - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "CRWV",
+    "HOOD"
+   ],
+   "grade": "중",
+   "shared_axes": [
+    "RISK_APPETITE"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "CRWV - vs HOOD + — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "CRWV",
+    "IREN"
+   ],
+   "grade": "상",
+   "shared_axes": [
+    "RISK_APPETITE",
+    "AI_CAPEX",
+    "GPU_SUPPLY",
+    "RATES"
+   ]
+  },
+  {
+   "pair": [
+    "CRWV",
+    "MU"
+   ],
+   "grade": "중",
+   "shared_axes": [
+    "AI_CAPEX",
+    "RATES"
+   ]
+  },
+  {
+   "pair": [
+    "CRWV",
+    "NBIS"
+   ],
+   "grade": "상",
+   "shared_axes": [
+    "RISK_APPETITE",
+    "AI_CAPEX",
+    "GPU_SUPPLY",
+    "RATES"
+   ]
+  },
+  {
+   "pair": [
+    "HOOD",
+    "IREN"
+   ],
+   "grade": "중",
+   "shared_axes": [
+    "RISK_APPETITE",
+    "CRYPTO"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "HOOD + vs IREN - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "HOOD",
+    "MU"
+   ],
+   "grade": "하",
+   "shared_axes": [
+    "RISK_APPETITE"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "HOOD + vs MU - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "HOOD",
+    "NBIS"
+   ],
+   "grade": "중",
+   "shared_axes": [
+    "RISK_APPETITE"
+   ],
+   "inverse_axes": [
+    {
+     "axis": "RATES",
+     "hedge_strength": "중",
+     "note": "HOOD + vs NBIS - — 자연 헤지"
+    }
+   ]
+  },
+  {
+   "pair": [
+    "IREN",
+    "MU"
+   ],
+   "grade": "중",
+   "shared_axes": [
+    "AI_CAPEX"
+   ]
+  },
+  {
+   "pair": [
+    "IREN",
+    "NBIS"
+   ],
+   "grade": "상",
+   "shared_axes": [
+    "RISK_APPETITE",
+    "AI_CAPEX",
+    "GPU_SUPPLY",
+    "RATES"
+   ]
+  },
+  {
+   "pair": [
+    "MU",
+    "NBIS"
+   ],
+   "grade": "중",
+   "shared_axes": [
+    "AI_CAPEX"
+   ]
+  }
+ ],
+ "kc_propagation": [
+  {
+   "kc_id": "KC-1",
+   "group": "macro",
+   "affected": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "RATES",
+     "adverse_sign": "-"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-2",
+   "group": "macro",
+   "affected": [
+    "COIN",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 6,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "RISK_APPETITE",
+     "adverse_sign": "+"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-3",
+   "group": "macro",
+   "affected": [
+    "COIN",
+    "CRCL",
+    "HOOD",
+    "IREN"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "CRYPTO",
+     "adverse_sign": "+"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-4",
+   "group": "macro",
+   "affected": [
+    "COIN",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 6,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "RISK_APPETITE",
+     "adverse_sign": "+"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-5",
+   "group": "macro",
+   "affected": [
+    "COIN",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 6,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "RISK_APPETITE",
+     "adverse_sign": "+"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-6",
+   "group": "macro",
+   "affected": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "AI_CAPEX",
+     "adverse_sign": "+"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-7",
+   "group": "macro",
+   "affected": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "AI_CAPEX",
+     "adverse_sign": "+"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-8",
+   "group": "macro",
+   "affected": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "AI_CAPEX",
+     "adverse_sign": "+"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-9",
+   "group": "macro",
+   "affected": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "RATES",
+     "adverse_sign": "-"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-10",
+   "group": "macro",
+   "affected": [
+    "IREN"
+   ],
+   "count": 1,
+   "weight_pct_upper": 95.0,
+   "mapping_status": "defined",
+   "mapped_axes": [
+    {
+     "axis": "POWER_PERMIT",
+     "adverse_sign": "-"
+    }
+   ]
+  },
+  {
+   "kc_id": "KC-CRCL-1",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "CRCL"
+  },
+  {
+   "kc_id": "KC-CRCL-2",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "CRCL"
+  },
+  {
+   "kc_id": "KC-CRCL-3",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "CRCL"
+  },
+  {
+   "kc_id": "KC-CRCL-4",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "CRCL"
+  },
+  {
+   "kc_id": "KC-COIN-1",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "COIN"
+  },
+  {
+   "kc_id": "KC-COIN-2",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "COIN"
+  },
+  {
+   "kc_id": "KC-COIN-3",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "COIN"
+  },
+  {
+   "kc_id": "KC-COIN-4",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "COIN"
+  },
+  {
+   "kc_id": "KC-HOOD-1",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "HOOD"
+  },
+  {
+   "kc_id": "KC-HOOD-2",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "HOOD"
+  },
+  {
+   "kc_id": "KC-HOOD-3",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "HOOD"
+  },
+  {
+   "kc_id": "KC-NBIS-1",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "NBIS"
+  },
+  {
+   "kc_id": "KC-NBIS-2",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "NBIS"
+  },
+  {
+   "kc_id": "KC-NBIS-3",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "NBIS"
+  },
+  {
+   "kc_id": "KC-CRWV-1",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "CRWV"
+  },
+  {
+   "kc_id": "KC-CRWV-2",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "CRWV"
+  },
+  {
+   "kc_id": "KC-CRWV-3",
+   "group": "company",
+   "affected": null,
+   "count": null,
+   "weight_pct_upper": null,
+   "mapping_status": "undefined",
+   "note": "KC_AXIS에 축 매핑이 정의되지 않아 파급을 산출할 수 없다. 이 부재는 '파급 없음'을 뜻하지 않는다(P5).",
+   "ticker": "CRWV"
+  }
+ ],
+ "kc_propagation_coverage": {
+  "active_total": 27,
+  "macro_active": 10,
+  "company_active": 17,
+  "mapped": 10,
+  "undefined": 17,
+  "undefined_kc_ids": [
+   "KC-CRCL-1",
+   "KC-CRCL-2",
+   "KC-CRCL-3",
+   "KC-CRCL-4",
+   "KC-COIN-1",
+   "KC-COIN-2",
+   "KC-COIN-3",
+   "KC-COIN-4",
+   "KC-HOOD-1",
+   "KC-HOOD-2",
+   "KC-HOOD-3",
+   "KC-NBIS-1",
+   "KC-NBIS-2",
+   "KC-NBIS-3",
+   "KC-CRWV-1",
+   "KC-CRWV-2",
+   "KC-CRWV-3"
+  ],
+  "note": "undefined는 축 매핑 미정의로 파급 산출이 불가능한 KC다. 값이 비어 있는 것이 아니라 '산출 불가'라는 정보이며, 파급이 없다는 뜻이 아니다(P5). 매핑 추가는 사람 승인 영역이다."
+ },
+ "shared_axis_kc_groups": [
+  {
+   "axis": "AI_CAPEX",
+   "kc_ids": [
+    "KC-6",
+    "KC-7",
+    "KC-8"
+   ],
+   "note": "동일 축을 공유하는 KC들이다 — 각각의 파급 종목 집합이 겹치는 것은 정상이며, 서로 다른 위험이 중복 계상된 것이 아니라 같은 전달 경로를 공유한다는 뜻이다. 축 집중도 합산 시 이 중복을 두 번 세지 않도록 주의한다."
+  },
+  {
+   "axis": "RATES",
+   "kc_ids": [
+    "KC-1",
+    "KC-9"
+   ],
+   "note": "동일 축을 공유하는 KC들이다 — 각각의 파급 종목 집합이 겹치는 것은 정상이며, 서로 다른 위험이 중복 계상된 것이 아니라 같은 전달 경로를 공유한다는 뜻이다. 축 집중도 합산 시 이 중복을 두 번 세지 않도록 주의한다."
+  },
+  {
+   "axis": "RISK_APPETITE",
+   "kc_ids": [
+    "KC-2",
+    "KC-4",
+    "KC-5"
+   ],
+   "note": "동일 축을 공유하는 KC들이다 — 각각의 파급 종목 집합이 겹치는 것은 정상이며, 서로 다른 위험이 중복 계상된 것이 아니라 같은 전달 경로를 공유한다는 뜻이다. 축 집중도 합산 시 이 중복을 두 번 세지 않도록 주의한다."
+  }
+ ],
+ "axis_concentration": [
+  {
+   "axis": "AI_CAPEX",
+   "tickers": [
+    "CRWV",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "threshold_breach": true,
+   "basis": "positions.yaml 비중 범위 상단"
+  },
+  {
+   "axis": "RATES",
+   "tickers": [
+    "COIN",
+    "CRCL",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 7,
+   "weight_pct_upper": 95.0,
+   "threshold_breach": true,
+   "basis": "positions.yaml 비중 범위 상단"
+  },
+  {
+   "axis": "CRYPTO",
+   "tickers": [
+    "COIN",
+    "CRCL",
+    "HOOD",
+    "IREN"
+   ],
+   "count": 4,
+   "weight_pct_upper": 95.0,
+   "threshold_breach": true,
+   "basis": "positions.yaml 비중 범위 상단"
+  },
+  {
+   "axis": "REGULATION",
+   "tickers": [
+    "COIN",
+    "CRCL",
+    "HOOD"
+   ],
+   "count": 3,
+   "weight_pct_upper": 0.0,
+   "threshold_breach": false,
+   "basis": "positions.yaml 비중 범위 상단"
+  },
+  {
+   "axis": "GPU_SUPPLY",
+   "tickers": [
+    "CRWV",
+    "IREN",
+    "NBIS"
+   ],
+   "count": 3,
+   "weight_pct_upper": 95.0,
+   "threshold_breach": true,
+   "basis": "positions.yaml 비중 범위 상단"
+  },
+  {
+   "axis": "POWER_PERMIT",
+   "tickers": [
+    "IREN"
+   ],
+   "count": 1,
+   "weight_pct_upper": 95.0,
+   "threshold_breach": true,
+   "basis": "positions.yaml 비중 범위 상단"
+  },
+  {
+   "axis": "RISK_APPETITE",
+   "tickers": [
+    "COIN",
+    "CRWV",
+    "HOOD",
+    "IREN",
+    "MU",
+    "NBIS"
+   ],
+   "count": 6,
+   "weight_pct_upper": 95.0,
+   "threshold_breach": true,
+   "basis": "positions.yaml 비중 범위 상단"
+  },
+  {
+   "axis": "USDC_DISTRIBUTION_ECONOMICS",
+   "tickers": [
+    "COIN",
+    "CRCL"
+   ],
+   "count": 2,
+   "weight_pct_upper": 0.0,
+   "threshold_breach": false,
+   "basis": "positions.yaml 비중 범위 상단"
+  }
+ ],
+ "vector_change_proposals": [
+  {
+   "id": "vcp_01",
+   "status": "carried_unresolved",
+   "runs_carried": 4,
+   "carried_since": "2026-08-15 (vcp_20260815_2307_01 사용자 처리 시 재평가 예약)",
+   "target": "exposures.IREN.CRYPTO",
+   "current_vector": "sign +, strength M",
+   "requested_change": "basis 문언 갱신 여부 검토 (부호·강도 변경은 제안하지 않음)",
+   "reason": "[fact] 현행 basis의 '8/27 실적 매출 믹스 확인 후 재평가' 예약 문언은 기준일이 29일 경과했다.",
+   "this_run_evidence": "[fact] 04_sector/neocloud.json의 IREN btc_mining 축은 null_observation=true이며 창 내 신규 자료 0건, 종료 목표(2026-12월 말) 불변으로 기록됐다. [fact] IREN 신규 1차 공시 공백은 L2 기록상 4개 회차 연속이다.",
+   "basis_claims": [],
+   "basis_claims_note": "[fact] 신규 Claim 0건 — 근거는 관측 부재이며 반증이 아니다(P5). 참조 필드: 04_sector/neocloud.json#axis_view[btc_mining].",
+   "proposal": "[inference/중] 부호·강도 변경 근거는 본 회차에도 없다. [inference/중] 04_sector에 기록된 BTC 채굴 종료 목표(2026-12월 말)가 도래하면 CRYPTO 노출의 구조 논거 자체가 바뀌므로, 예약 문언의 기준일을 FY27 Q1 10-Q(2026-11월경) 또는 채굴 종료 공시 중 먼저 오는 쪽으로 교체할지가 사람 판단 대상이다.",
+   "owner": "사람(config/correlation_matrix.yaml)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_02",
+   "status": "carried_unresolved",
+   "runs_carried": 4,
+   "carried_since": "2026-08-15 (vcp_20260815_2307_05 — NBIS RATES -H 재검토 이월)",
+   "target": "exposures.NBIS.RATES",
+   "current_vector": "sign -, strength M",
+   "requested_change": "강도 재검토(-M 유지 대 -H) — 본 회차 판정 불가",
+   "reason": "[fact] 현행 basis는 'CapEx $20-25B vs 현금 $8B — 외부 조달 필요'라는 구조 논거이며 실제 조달 조건 관측으로 갱신된 적이 없다.",
+   "this_run_evidence": "[fact] 04_sector/neocloud.json 기록상 NBIS는 창 내 20-F/6-K/F-3/424B 신규 제출 0건·신규 채무 발행 0건이다. [fact] 같은 창에 조달을 결제한 종목은 CRWV 단독(2033년 만기 전환사채 $4.2B, 쿠폰 2.875%, 순수취금 $4,137.0M)이며 L3 su_4는 3사 동일 창 비교쌍 부재를 2회차 연속 기록했다.",
+   "basis_claims": [
+    "c_20260925_CRWV_1"
+   ],
+   "basis_claims_note": "[fact] 인용 Claim은 CRWV 측 관측이며 '비교쌍 부재'의 출처 표시 목적이다 — NBIS 강도 변경의 근거로 전이하지 않는다(P6·P13).",
+   "proposal": "[inference/중] 강도 변경을 제안하지 않는다. 갱신 시점은 NBIS 차기 6-K·424B5의 신규 조달 조건 공시다.",
+   "owner": "사람(config/correlation_matrix.yaml)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_03",
+   "status": "carried_unresolved",
+   "runs_carried": 2,
+   "carried_since": "2026-09-19 (run 20260919_2209 신규)",
+   "target": "axes.GPU_SUPPLY (축 정의) 및 exposures.{IREN,NBIS,CRWV}.GPU_SUPPLY",
+   "current_vector": "IREN -M / NBIS -M / CRWV -H",
+   "requested_change": "축 분해(배정 접근권 대 감가·담보가치) 또는 축소 중 선택 — 사람 판단",
+   "reason": "[fact] 축 label 'GPU 공급·감가'가 방향이 반대일 수 있는 두 전달 경로(배정 일정·감가상각 정책)를 겸한다.",
+   "this_run_evidence": "[fact] 본 회차 CRWV gpu_priority 축은 신규 자료 부재로 neutral 이월(직전 strengthen)이며, L3 su_1은 3사 GPU 감가상각 정책 신규 1차 자료가 0건이라고 2회차 연속 기록했다. [inference/중] 본 회차에는 분해·축소 어느 쪽을 지지하는 신규 관측도 없다.",
+   "basis_claims": [],
+   "basis_claims_note": "[fact] 본 회차 신규 Claim 0건. 직전 회차 근거(c_20260919_CRWV_8·9·10·12)가 유효한 제안 근거로 남는다.",
+   "proposal": "[inference/중] 직전 회차 선택지(① P8 하위 축 분해 ② 축소) 유지. [fact] ②는 CRWV 담보가치 경로(KC-CRWV-3 연동) 정보 손실을 낳는다.",
+   "owner": "사람(config/correlation_matrix.yaml)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_04",
+   "status": "carried_monitoring",
+   "runs_carried": 3,
+   "carried_since": "2026-09-12 사용자 확정 (ENERGY 축 미신설 + KC-9 → RATES(-) 매핑)",
+   "target": "KC-9 축 매핑(correlation_map.py KC_AXIS) 및 conditional_exposures.ENERGY_DIRECT_COST",
+   "current_vector": "KC-9 → RATES, adverse_sign '-' (mapping_status: defined)",
+   "requested_change": "매핑 유지 — 직전 회차의 '2026-10-10까지 미해소 시 재검토' 조건 갱신 여부만 사람 판단",
+   "reason": "[fact] 직전 회차 제안은 비금리 전력비 경로 공백이 KC-9 duration 시한(2026-10-10)까지 해소되지 않으면 재검토하자는 조건부였다.",
+   "this_run_evidence": "[fact] 01_macro_kc.json 기준 KC-9는 not_met/provisional(brent 114.89 < 120, as_of 2026-09-22, stale 3 = 한도 3)이며, L1은 브렌트가 2026-09-18부로 임계 아래로 재하락해 duration이 사실상 리셋됐다고 기록했다. [fact] ENERGY_DIRECT_COST 재평가 트리거 3개 중 본 회차 충족 0건 — 04_sector 3개 파일 어디에도 전력 단위원가·전력 조달 계약 구조 관측이 없다.",
+   "basis_claims": [],
+   "basis_claims_note": "[fact] 신규 Claim 0건 — 트리거 미충족이라는 관측 부재다(P5).",
+   "proposal": "[inference/중] 현행 매핑 유지를 제안한다. [inference/중] KC-9가 met에서 이탈했으므로 '10-10 시한' 연동 재검토 조건은 실효가 약해졌다 — 재검토 조건을 시한 기준이 아니라 ENERGY_DIRECT_COST reassess_trigger 3개 기준으로 일원화할지가 사람 판단 대상이다. [fact] 비금리 전력비 경로가 RATES 축에 포착되지 않는다는 구조 공백 자체는 해소되지 않았다.",
+   "owner": "사람(config/correlation_matrix.yaml 및 kill_conditions.yaml)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_05",
+   "status": "carried_unresolved",
+   "runs_carried": 2,
+   "carried_since": "2026-09-19 (L3 esc_2209_05 전제 정정)",
+   "target": "exposures.CRCL.RATES",
+   "current_vector": "sign +, strength H (as_of 2026-08-15)",
+   "requested_change": "부호·강도 변경 제안 없음 — 강도 H 근거 재확인 여부만",
+   "reason": "[fact] 직전 회차에 L3가 받은 '벡터 미정의' 전제가 오류였음을 정정했다(CRCL.RATES는 +H로 정의돼 있다).",
+   "this_run_evidence": "[fact] 04_sector/stablecoin.json은 CRCL reserve_income의 본 회차 weaken이 금리가 아니라 Binance 분배비용 구조에서 나왔고, HOOD rates_income은 neutral이며, 섹터 공통 축 '금리(이자수입)'가 어느 종목에서도 금리 자체를 원인으로 부호를 만들지 않았다고 기록했다. [fact] 본 회차 L3 stablecoin은 전제 오류를 반복하지 않았다.",
+   "basis_claims": [
+    "c_20260925_CRCL_1"
+   ],
+   "basis_claims_note": "[fact] 인용 Claim은 'reserve_income weaken의 원인이 금리가 아니다'라는 사실의 출처이며 금리 강도 판정의 근거가 아니다.",
+   "proposal": "[fact] 벡터 수정 제안을 내지 않는다. [inference/중] FFR 인상(KC-1 met)이 2회차 지속됐는데도 금리 경로가 CRCL 종목 층위 관측에 나타나지 않은 것은 창 내 1차 자료(분기 Reserve Income)가 없기 때문이다 — 강도 H 재확인 시점은 Q3'26 실적이다.",
+   "owner": "사람(config/correlation_matrix.yaml)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_06",
+   "status": "new_this_run",
+   "target": "exposures.CRCL.USDC_DISTRIBUTION_ECONOMICS basis 및 axes.USDC_DISTRIBUTION_ECONOMICS label",
+   "current_vector": "CRCL -M / COIN +M (label: '분배자 수취 몫 확대 — 발행자·분배자 제로섬')",
+   "requested_change": "basis 문언 갱신(다자 분배 구조 반영) — 부호·강도 변경 제안 없음",
+   "reason": "[fact] 현행 축 정의와 basis는 CRCL–COIN 양자 제로섬을 전제로 쓰였다(KC-CRCL-3·KC-COIN-4 연동).",
+   "this_run_evidence": "[fact] 04_sector/stablecoin.json(sie_usdc_distribution_economics)에 따르면 Binance가 2026-09-17 Circle과 5년 재계약(8-K 2026-09-22, grade 1)으로 'USDC 보유액 연동 월간 인센티브 수수료' 구조를 재고정했고 요율은 비공개다. [fact] L3는 CRCL 측 비용 단면만 움직였고 그 수취자는 COIN이 아니라 Binance이므로 'CRCL 유통비용 악화 → COIN 수익 개선'으로 읽지 말라고 명시했다. [fact] Coinbase 분배계약 관련 8-K는 약 32일째 0건이다.",
+   "basis_claims": [
+    "c_20260925_CRCL_1",
+    "c_20260925_CRCL_6"
+   ],
+   "proposal": "[inference/중] 축의 구조 논거는 여전히 성립하나, 분배자가 Coinbase 단일이 아니라 다자(Coinbase·Binance)임이 1차 자료로 드러났으므로 CRCL basis에 'Binance 5년 인센티브 계약(요율 비공개)' 다리를 병기하고, 축 label의 '제로섬'이 CRCL–COIN 쌍의 역노출을 과대 표현하지 않는지 사람이 검토할 것을 제안한다. [inference/중] 강도는 요율 비공개로 정량화 불가 상태가 그대로이므로 M 유지가 적절하다고 본다. [fact] 역노출 쌍(CRCL–COIN)은 양 종목 미보유로 현 장부에서 작동하지 않는다.",
+   "owner": "사람(config/correlation_matrix.yaml)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_07",
+   "status": "new_this_run",
+   "target": "exposures.COIN.REGULATION basis (및 구조적 역노출 후보 sie_event_contract_state_federal 처리)",
+   "current_vector": "COIN REGULATION +H (basis: 'CLARITY Act 수혜 전제') / HOOD REGULATION +M (basis: 'CLARITY + 예측시장 규제 명확화')",
+   "requested_change": "COIN basis에 예측시장·이벤트 계약 관할 경로 병기 검토 — 부호·강도 변경 제안 없음, 역노출 축 신설 제안 없음",
+   "reason": "[fact] 현행 COIN REGULATION basis는 CLARITY 단일 경로만 적고, 예측시장 규제 경로는 HOOD basis에만 있다.",
+   "this_run_evidence": "[fact] 04_sector/stablecoin.json은 코네티컷 C&D(2026-09-10) 수신자에 Coinbase·Robinhood가 모두 포함되고 미시간에서 양사 모두 스포츠 이벤트 계약 제공을 중단했다고 기록하며, 직전 회차의 역노출 후보 sie_event_contract_state_federal을 '공통 노출(주 집행, 동일 부호)'로 재분류할 것을 제안했다(esc_1015_04). [fact] 근거는 전부 grade 4·confirmed=false이며, COIN 파생(무기한 증권선물) 신고만 grade 1이다.",
+   "basis_claims": [
+    "c_20260925_COIN_1",
+    "c_20260925_COIN_2",
+    "c_20260925_COIN_3",
+    "c_20260925_HOOD_5"
+   ],
+   "proposal": "[inference/중] 예측시장 주 집행 노출은 COIN·HOOD에 같은 부호로 걸리며 이는 기존 REGULATION 축(+/+)이 이미 동일 부호 공유로 표현하는 구조다 — 새 축이나 역노출 쌍을 만들 근거는 없다. [inference/중] 다만 COIN basis가 CLARITY만 적고 있어 이 공유의 내용이 벡터 문언에 드러나지 않으므로 basis 병기를 제안한다. [fact] 근거 등급(grade 4)이 낮아 강도 변경 근거로는 부적격하다(P4).",
+   "owner": "사람(config/correlation_matrix.yaml, 구조적 역노출 등재부)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_08",
+   "status": "new_this_run",
+   "target": "conditional_exposures.YIELD_BEARING_STABLECOIN_CLAUSE.reassess_trigger",
+   "current_vector": "조건부 감시 목록(집계 제외) — reassess_trigger: '2026-09-15 CLARITY 상원 절차 표결 이후 이자조항 문언 확정'",
+   "requested_change": "재평가 트리거 문언의 시점 표기 갱신 — 승격·부호 부여 제안 없음",
+   "reason": "[fact] 트리거에 적힌 2026-09-15 표결은 클로처 부결로 끝났고 이자조항 문언은 확정되지 않았다.",
+   "this_run_evidence": "[fact] 04_sector/stablecoin.json(sie_yield_bearing_stablecoin_clause)은 2026-09-25까지 재표결이 실시되지 않았고 11월 이후 레임덕 세션 지연이 관측되며, 미해결 쟁점에 이자부 스테이블코인 금지 조항이 재확인됐다고 기록했다(grade 4·scope=sector). [fact] $YLDS 2Q26 $556.033M 유지(grade 1)이며, config status 문언의 '$YLDS 실측 $598M(grade 4)'와 수치가 다르다.",
+   "basis_claims": [
+    "c_20260925_CRCL_7",
+    "c_20260925_CRCL_10"
+   ],
+   "proposal": "[inference/중] 트리거의 날짜 앵커가 소멸했으므로 '재표결 실시 및 이자·보상 조항 최종 문언 확정'이라는 사건 기준으로 바꿀지, 그리고 status 문언의 $YLDS 수치를 grade 1 공시치로 교체할지가 사람 판단 대상이다. [fact] 부호 미확정 상태는 변하지 않았으므로 exposures 승격은 제안하지 않는다.",
+   "owner": "사람(config/correlation_matrix.yaml)",
+   "auto_edit_performed": false
+  },
+  {
+   "id": "vcp_09",
+   "status": "new_this_run",
+   "target": "exposures.CRWV.RATES basis / exposures.CRWV.AI_CAPEX basis (문언 시점 정합)",
+   "current_vector": "CRWV RATES -H (basis: '이자 커버리지 ~2.2x') / CRWV AI_CAPEX +H (basis: 'FY26 매출 $12.4-13.2B ⚠️갱신 대상')",
+   "requested_change": "basis 수치 표기의 기준 시점 명기 — 부호·강도 변경 제안 없음",
+   "reason": "[fact] config/kill_conditions.yaml KC-CRWV-3 주석(2026-09-20 사용자 확정)은 '구 ~2.2x는 Q1'26 2.16x 시점값, 현 Q2'26 2.36x'라고 적고 있으나 correlation_matrix.yaml CRWV.RATES basis는 '~2.2x'로 남아 있다 — 같은 사용자 영역 config 두 파일 간 표기 시점이 다르다.",
+   "this_run_evidence": "[fact] 04_sector/neocloud.json은 확정 발행규모($4.2B) 반영 정태 추정 약 2.21x(inference/weak, 실측은 Q3 10-Q 대기)를 기록했다. [fact] 03_signal/CRWV.json unconfirmed_carried는 FY26 매출·CapEx 가이던스 재대조가 이번 창에도 미완이라고 기록했다.",
+   "basis_claims": [
+    "c_20260925_CRWV_1",
+    "c_20260925_CRWV_2"
+   ],
+   "proposal": "[inference/중] 강도 H의 논거(레버리지 건설 모델·차환 의존)는 영향받지 않는다. basis 수치에 기준 분기를 병기해 두 config 간 표기 불일치를 해소할지가 사람 판단 대상이다. [fact] AI_CAPEX basis의 '⚠️갱신 대상' 표기는 재대조 미완으로 유지된다.",
+   "owner": "사람(config/correlation_matrix.yaml)",
+   "auto_edit_performed": false
+  }
+ ],
+ "coefficient_used": false,
+ "layer": "correlation",
+ "produced_by": "cio-portfolio (L4)",
+ "staleness_days": 0,
+ "as_of_note": "[fact] 최상위 as_of(2026-09-25T10:37)는 [CODE] correlation_map.py 실행 시각이다. [fact] LLM 계층(vector_change_proposals 등)은 2026-09-25T10:43에 추가했다. [fact] 입력 config와 01_macro_kc.json의 as_of는 inputs_used에 개별 기재했다(P16).",
+ "llm_layer_as_of": "2026-09-25T10:43",
+ "inputs_used": [
+  {
+   "path": "config/correlation_matrix.yaml",
+   "as_of": "2026-08-15",
+   "staleness_days": 41,
+   "status": "active",
+   "note": "[fact] status=active이므로 U4 중단 사유에 해당하지 않는다(P11). [fact] 노출 벡터 as_of는 41일 경과 상태이며 이 파일의 정확성이 본 레이어 정확성의 상한이다."
+  },
+  {
+   "path": "config/positions.yaml",
+   "as_of": "2026-09-19",
+   "staleness_days": 6
+  },
+  {
+   "path": "config/kill_conditions.yaml",
+   "as_of": "2026-08-15",
+   "staleness_days": 41,
+   "note": "[fact] correlation_map.py가 KC 파급 산출에 사용. [fact] 파일 내 KC-CRWV-3 주석은 2026-09-20 사용자 산식 확정을 기록하나 최상위 as_of는 갱신되지 않았다."
+  },
+  {
+   "path": "output/20260925_1015/01_macro_kc.json",
+   "as_of": "2026-09-25T10:18",
+   "staleness_days": 0
+  },
+  {
+   "path": "output/20260925_1015/04_sector/neocloud.json",
+   "as_of": "2026-09-25",
+   "staleness_days": 0
+  },
+  {
+   "path": "output/20260925_1015/04_sector/memory.json",
+   "as_of": "2026-09-25",
+   "staleness_days": 0,
+   "reused_from": "output/20260919_2209/04_sector/memory.json",
+   "note": "[fact] 파일 자체의 reused_from은 스키마·연속성 참조이며 본문은 본 회차 입력으로 재작성됐다고 L3가 기록했다."
+  },
+  {
+   "path": "output/20260925_1015/04_sector/stablecoin.json",
+   "as_of": "2026-09-25",
+   "staleness_days": 0
+  },
+  {
+   "path": "output/20260925_1015/03_signal/*.json",
+   "as_of": "2026-09-25",
+   "staleness_days": 0,
+   "usage": "[fact] 구조화 판정(등급 후보·KC 판정 기록) 확인 전용 — 개별 종목 근거로 인용하지 않았고 어떤 값도 수정하지 않았다(P13)."
+  },
+  {
+   "path": "output/20260919_2209/05_correlation.json",
+   "as_of": "2026-09-19T22:58",
+   "staleness_days": 6,
+   "usage": "[fact] 스키마 템플릿·vcp_01~05 이월 연속성 확인 전용."
+  }
+ ],
+ "input_scope_note": "[fact] 본 레이어는 P17에 따라 구조화 산출물과 config만 로드했다 — 02_company/* 원문, _raw_* 수집 원문, state/thesis_cards/*는 열지 않았다. [fact] 03_signal/*.json은 구조화 판정 확인 목적으로만 열람했고 어떤 값도 수정하지 않았다(P13).",
+ "matrix_status_check": {
+  "file": "config/correlation_matrix.yaml",
+  "status": "active",
+  "verdict": "[fact] draft가 아니므로 U4 중단 조건에 해당하지 않는다 — 절차를 계속했다(P11).",
+  "conditional_exposures_excluded": [
+   "OUSD_CONSORTIUM",
+   "YIELD_BEARING_STABLECOIN_CLAUSE",
+   "ENERGY_DIRECT_COST"
+  ],
+  "conditional_note": "[fact] conditional_exposures 3건은 [CODE] 집계에서 제외된다. [fact] 제외는 '노출 없음'을 뜻하지 않는다(P5)."
+ },
+ "code_diff_vs_prior_run": {
+  "compared_with": "output/20260919_2209/05_correlation.json",
+  "verdict": "구조 변화 없음",
+  "detail": "[fact] 입력 config 3개(correlation_matrix.yaml as_of 2026-08-15, positions.yaml as_of 2026-09-19, kill_conditions.yaml as_of 2026-08-15)가 직전 회차 이후 바뀌지 않았으므로 pair_overlap 21쌍·KC 파급 27건·축 집중도 8건·매핑 커버리지(산출 10 / 미정의 17)가 직전 회차와 같다. [inference/강] 스크립트는 03_signal·04_sector를 읽지 않으므로 본 회차 신규 Delta는 [CODE] 산출을 움직이지 않는다 — 신규 Delta의 벡터 영향은 아래 vector_change_proposals(LLM)에서만 다룬다."
+ },
+ "pair_overlap_reliability_ceiling": {
+  "statement": "[fact] pair_overlap의 공유 축은 correlation_matrix.yaml의 8개 축 이름 위에서만 계산된다 — 종목 thesis card의 축 체계와는 별개의 축 집합이다.",
+  "sector_layer_finding_this_run": [
+   "[fact] neocloud — delta 기준 종목 간 공유 축명 0개(L3 기록상 5회 연속). L3는 본 회차에 원인을 명명 불일치 외에 '무변화 축 delta 발행 규약 불일치'로 확장했다 — NBIS는 신규 자료가 없는 축에 delta를 내지 않고 IREN·CRWV는 neutral delta를 전량 발행하므로, NBIS·CRWV 카드가 funding_access·customer_concentration 축명을 이미 공유함에도 집계에서 결합되지 않았다.",
+   "[fact] stablecoin — 명목 공유 축 1개(prediction_market: COIN·HOOD)가 네 run 연속 0개 이후 재발생했으나, HOOD 축은 2026-09-19 분해로 매출 기여만 담고 COIN 축(2026-09-20 신설)은 규제·매출 통합 범위여서 '이름은 같고 정의가 다른' 결합이 외견상 분산(diverge·high)을 산출했다. L3는 이를 실질 이견이 아니라고 판정했다.",
+   "[fact] memory — 단일 종목 뷰. L2 축명 hbm_demand_strength와 arbiter 표기 hbm_demand가 달랐다(방향 일치로 영향 없음)."
+  ],
+  "measurement_system_divergence": "[fact] 같은 쌍에 대해 두 측정 체계가 다른 등급을 낸다 — 본 파일(벡터 8축 기준) IREN–CRWV·IREN–NBIS는 '상', L3 neocloud의 카드 축 렌즈 기준은 둘 다 '하', NBIS–CRWV는 본 파일 '상'·L3 '중'이다. [inference/강] 이는 한쪽의 오류가 아니라 벡터(사람이 정의한 구조 노출)와 카드 축(이번 창에 관측이 발생한 단위)이 서로 다른 질문에 답하기 때문이다. [fact] 본 레이어는 두 등급을 조정·통합하지 않는다(P13).",
+  "consequence_for_this_layer": "[inference/강] pair_overlap 등급의 신뢰도 상한은 벡터 정의의 정확성과 같다. 카드 축과 벡터 축의 대사표가 없어 교차검증되지 않는다.",
+  "not_a_correction": "[fact] 위 서술은 pair_overlap 값을 수정하지 않는다(P13·CLAUDE.md §9)."
+ },
+ "vector_change_considered_not_proposed": [
+  {
+   "item": "MU — ip_litigation(ITC 337-TA-1523) 축 신설",
+   "reason": "[fact] L3 memory는 이 재료를 company_specific(MU 고유)으로 귀속 판정했다. [inference/강] 종목 고유 소송은 종목 간 공동 노출 축이 아니므로 벡터에 넣으면 pair_overlap에 기여하지 않고 오히려 축 집중도에 단일 종목 축을 추가할 뿐이다 — 벡터 제안 대상이 아니라 종목 KC 정의(esc_L4_1015_06) 대상이다."
+  },
+  {
+   "item": "NBIS — on-demand 가격 인상(grade 1)에 따른 AI_CAPEX 강도 변경",
+   "reason": "[fact] L3 neocloud는 이를 단일 종목 리스트 가격 게시(P7 1단, 발효 2026-10-01 미도래)로 기록했고 섹터 공통 단가 상승의 증거가 아니라고 명시했다. [inference/중] AI_CAPEX 노출의 구조 논거(수요 측 CapEx 연동)를 바꾸는 재료가 아니다."
+  },
+  {
+   "item": "CRWV — 전환사채 결제에 따른 RATES 강도 변경",
+   "reason": "[fact] 조달 성사와 순현금 효과 축소(capped call 실비 초과)가 공존하고 정태 커버리지는 사실상 불변(-0.01x)이다. [inference/중] 강도 변경 근거가 없다 — 기준 시점 표기만 vcp_09로 분리했다."
+  }
+ ],
+ "vector_change_proposals_summary": {
+  "count": 9,
+  "new_this_run": 4,
+  "carried": 5,
+  "carried_status": {
+   "vcp_01": "carried_unresolved(4회차)",
+   "vcp_02": "carried_unresolved(4회차)",
+   "vcp_03": "carried_unresolved(2회차)",
+   "vcp_04": "carried_monitoring(3회차)",
+   "vcp_05": "carried_unresolved(2회차)"
+  },
+  "sign_or_strength_change_proposed": 0,
+  "auto_edits_performed": 0,
+  "guard": "[fact] config/*.yaml은 사용자 직접 편집 영역이다 — 본 에이전트는 제안만 기록했고 파일을 수정하지 않았다(CLAUDE.md §9). [fact] 어떤 제안도 개별 종목 시그널 등급의 근거로 사용되지 않았다(P13). [fact] 9건 중 부호·강도 변경을 요구하는 제안은 0건이며 전부 basis 문언·트리거 문언·축 정의 검토다."
+ },
+ "limits": {
+  "P14": "[fact] 수치형 상관계수를 산출·표기하지 않았다(coefficient_used=false). 축 공유도는 상/중/하 등급 + 공유 축 + 근거로만 기술했다.",
+  "P13": "[fact] 하위 계층(03_signal·04_sector) 산출물을 수정하지 않았고, 본 레이어의 어떤 값도 개별 종목 시그널 근거로 제공되지 않는다.",
+  "P16": "[fact] 최상위 as_of·staleness_days를 기재했고 입력별 as_of를 inputs_used에 개별 기재했다.",
+  "P17": "[fact] 02_company 원문·_raw_* 수집 원문·thesis card를 로드하지 않았다.",
+  "vector_dependency": "[fact] 본 레이어의 모든 산출은 사람이 편집한 correlation_matrix.yaml에서 파생된다 — 벡터 as_of는 2026-08-15로 41일 경과했다.",
+  "position_degeneracy": "[inference/강] 보유 종목이 IREN 단독이므로 축 집중도 weight_pct_upper는 95.0 또는 0.0 두 값만 취한다 — 축 간 상대 비교의 판별력이 구조적으로 없다(4회차 연속).",
+  "kc_mapping_coverage": "[fact] active KC 27건 중 17건(종목 KC 전부)은 축 매핑 미정의로 파급 산출이 불가능하다 — 부재는 파급 없음이 아니다(P5). 매핑 추가는 사람 승인 영역이다."
+ },
+ "disclaimer": "본 상관은 구조적 노출 판정이며 실제 가격 동조화를 예측하지 않는다. 축 노출이 낮아도 유동성 이벤트에서 동반 하락할 수 있다. 노출 벡터는 사람이 편집한 correlation_matrix.yaml에 의존하므로, 벡터의 정확성이 곧 이 레이어의 정확성 상한이다."
+}

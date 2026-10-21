@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thesis 종목 리포트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f6f7f9;--paper:#ffffff;--ink:#1a2330;--ink2:#4a5566;--ink3:#7b8494;--line:#dfe3ea;--line2:#eef0f4;--accent:#0f6e6e;--accent-bg:#e4f2f1;
+--fact:#1f5f8b;--fact-bg:#e6f0f8;--inf:#7a4f9e;--inf-bg:#f0e9f7;--good:#1f7a4d;--good-bg:#e3f3ea;--warn:#a8650b;--warn-bg:#fbefd9;--bad:#a83232;--bad-bg:#fbe5e5;--kill:#7a1010;--kill-bg:#f7d6d6;
+--g1:#1f5f8b;--g2:#2f7d6f;--g3:#a8650b;--g4:#8a8f99;--sh:0 1px 2px rgba(20,30,50,.06);}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f1319;--paper:#161b23;--ink:#e6eaf0;--ink2:#aeb6c2;--ink3:#7f8895;--line:#2a3140;--line2:#1f2530;--accent:#4fb3b0;--accent-bg:#12302f;
+--fact:#7fb3e0;--fact-bg:#15283a;--inf:#c1a3e0;--inf-bg:#2a1f3a;--good:#5fc48d;--good-bg:#12301f;--warn:#e0a95a;--warn-bg:#3a2a10;--bad:#e07a7a;--bad-bg:#3a1818;--kill:#ff9a9a;--kill-bg:#4a1414;--g1:#7fb3e0;--g2:#7fcbb8;--g3:#e0a95a;--g4:#8a8f99;--sh:none;}}
+:root[data-theme="dark"]{--bg:#0f1319;--paper:#161b23;--ink:#e6eaf0;--ink2:#aeb6c2;--ink3:#7f8895;--line:#2a3140;--line2:#1f2530;--accent:#4fb3b0;--accent-bg:#12302f;
+--fact:#7fb3e0;--fact-bg:#15283a;--inf:#c1a3e0;--inf-bg:#2a1f3a;--good:#5fc48d;--good-bg:#12301f;--warn:#e0a95a;--warn-bg:#3a2a10;--bad:#e07a7a;--bad-bg:#3a1818;--kill:#ff9a9a;--kill-bg:#4a1414;--g1:#7fb3e0;--g2:#7fcbb8;--g3:#e0a95a;--g4:#8a8f99;--sh:none;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "IBM Plex Sans KR",-apple-system,"Segoe UI","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased}
+.mono,code,.cid{font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace;font-size:.86em} .small{font-size:.85em;color:var(--ink2)}
+a{color:var(--accent)} h2,h3,h4{text-wrap:balance;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-block:20px 48px;padding-inline:16px}
+.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+.top h1{font-size:22px;font-weight:600;margin:0;letter-spacing:-.01em} .top .meta{color:var(--ink2);font-size:13px}
+.disclaimer{font-size:12.5px;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin-bottom:16px}
+.macro{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:13.5px;margin-bottom:18px;padding:10px 14px;border-left:3px solid var(--bad);background:var(--bad-bg);border-radius:0 6px 6px 0}
+.layout{display:grid;grid-template-columns:232px 1fr;gap:24px;align-items:start}
+nav.rail{position:sticky;top:env(safe-area-inset-top,0px);display:flex;flex-direction:column;gap:6px}
+.tab{display:grid;grid-template-columns:1fr auto;grid-template-areas:"tt tkill" "tsec tsec" "tsig tsig";gap:2px 6px;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;color:var(--ink);font:inherit;box-shadow:var(--sh)}
+.tab:hover{border-color:var(--accent)} .tab[aria-selected="true"]{border-color:var(--accent);background:var(--accent-bg)} .tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab .tt{grid-area:tt;font-weight:700;letter-spacing:.02em} .tab .tsec{grid-area:tsec;font-size:11.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em} .tab .tsig{grid-area:tsig;display:flex;gap:4px;align-items:center;margin-top:2px} .tab .tkill{grid-area:tkill;font-size:10.5px;font-weight:700;color:var(--kill);background:var(--kill-bg);border-radius:4px;padding:0 5px;align-self:start}
+.arrow{color:var(--ink3);margin:0 4px}
+main{min-width:0} .ticker{display:flex;flex-direction:column;gap:18px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px 20px} section h3{font-size:16px;font-weight:600;margin-bottom:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:baseline} section h3 small,section h4 small{font-weight:400;font-size:12.5px;color:var(--ink3)} section h4{font-size:13.5px;color:var(--ink2);margin:14px 0 8px}
+.thead{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px} .trow{display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between;align-items:center} .eyebrow{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3)} .thead h2{font-size:30px;font-weight:700;letter-spacing:-.01em;line-height:1.1}
+.transition{display:flex;align-items:center;gap:6px;flex-wrap:wrap} .cand{font-size:11.5px;color:var(--ink3);border:1px dashed var(--line);border-radius:4px;padding:0 6px}
+.thesis{margin:12px 0 0;color:var(--ink2);max-width:70ch}
+.sig{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:600;border:1px solid transparent} .sig.sm{padding:0 7px;font-size:11.5px}
+.s-green{background:var(--good-bg);color:var(--good)} .s-yellow{background:var(--warn-bg);color:var(--warn)} .s-orange{background:#fde7d3;color:#9a4a0b} .s-red{background:var(--bad-bg);color:var(--bad)} .s-kill{background:var(--kill-bg);color:var(--kill);border-color:var(--kill)} .s-none{background:var(--line2);color:var(--ink3)}
+:root[data-theme="dark"] .s-orange,:root:not([data-theme="light"]) .s-orange{background:#3a2410;color:#f0a86a} @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .s-orange{background:#fde7d3;color:#9a4a0b}}
+.kv{display:grid;gap:10px 16px;margin-top:14px} .kv>div{display:grid;grid-template-columns:104px 1fr;gap:10px} .kv dt{color:var(--ink3);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;padding-top:3px} .kv dd{margin:0;min-width:0;overflow-wrap:anywhere} .kv ul,.kv ol{margin:0;padding-left:18px} .kv li{margin:3px 0}
+.banner{margin-top:14px;padding:10px 14px;border-radius:6px;font-size:14px} .banner.kill{background:var(--kill-bg);color:var(--ink);border-left:3px solid var(--kill)}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.04em;border-radius:3px;padding:0 5px;margin-right:4px;vertical-align:1px;font-family:"IBM Plex Mono",monospace} .t-fact{background:var(--fact-bg);color:var(--fact)} .t-inf{background:var(--inf-bg);color:var(--inf)} .t-lbl{background:var(--line2);color:var(--ink2)}
+ol.circ{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px} ol.circ li{overflow-wrap:anywhere} dl.mini{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:13.5px} dl.mini dt{color:var(--ink3)} dl.mini dd{margin:0}
+.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:12px} .gate{border:1px solid var(--line2);border-radius:8px;padding:12px 14px;background:var(--bg)} .gname{font-size:12.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em} .gval{margin:6px 0} .gate p{margin:8px 0 0;font-size:13.5px;color:var(--ink2)} .conds{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-direction:column;gap:3px;font-size:13px} .conds li{display:flex;justify-content:space-between;gap:8px}
+.chk{display:inline-block;font-size:11.5px;font-weight:600;border-radius:4px;padding:0 7px} .chk.ok{background:var(--good-bg);color:var(--good)} .chk.no{background:var(--line2);color:var(--ink2)} .chk.kill{background:var(--kill-bg);color:var(--kill)}
+.axis{border-top:1px solid var(--line2)} .axis:first-of-type{border-top:0} .axis summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 0;cursor:pointer;list-style:none} .axis summary::-webkit-details-marker{display:none} .axis summary::before{content:"▸";color:var(--ink3);width:12px} .axis[open] summary::before{content:"▾"}
+.axid{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:13.5px;min-width:190px} .axlabel{color:var(--ink3);font-size:12.5px;flex:1;min-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dir{font-size:11.5px;font-weight:600;border-radius:4px;padding:0 7px} .d-strengthen{background:var(--good-bg);color:var(--good)} .d-weaken{background:var(--bad-bg);color:var(--bad)} .d-neutral{background:var(--line2);color:var(--ink2)} .d-mixed,.d-break{background:var(--warn-bg);color:var(--warn)}
+.axbody{display:grid;gap:8px;padding:4px 0 14px 22px;font-size:14px} .axbody>div{display:grid;grid-template-columns:84px 1fr;gap:10px} .axbody dt{color:var(--ink3);font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding-top:2px} .axbody dd{margin:0;overflow-wrap:anywhere}
+.claim{border-top:1px solid var(--line2);padding:12px 0} .claim:first-of-type{border-top:0;padding-top:4px} .claim p{margin:6px 0;overflow-wrap:anywhere} .cmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center} .cmeta .cid{margin-left:auto;color:var(--ink3)} .csrc{font-size:12.5px;color:var(--ink2)} .cnote{margin-top:4px;color:var(--ink3);font-size:12.5px;border-left:2px solid var(--line);padding-left:8px}
+.grade{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600;border-radius:4px;padding:0 6px;color:#fff} .g1{background:var(--g1)} .g2{background:var(--g2)} .g3{background:var(--g3)} .g4{background:var(--g4)} .g-na{background:var(--line2);color:var(--ink3)}
+.flag{font-size:10.5px;border-radius:3px;padding:0 5px;background:var(--line2);color:var(--ink2)} .flag.warn{background:var(--warn-bg);color:var(--warn)}
+.hint{font-size:12.5px;color:var(--ink3);margin:-4px 0 10px} .empty{color:var(--ink3);font-style:italic}
+.tscroll{overflow-x:auto} .kct{width:100%;min-width:760px;border-collapse:collapse;font-size:13px} .kct th:nth-child(1){width:80px} .kct th:nth-child(2){width:24%} .kct th:nth-child(3){width:120px} .kct th{text-align:left;font-weight:600;color:var(--ink3);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;padding:6px 8px;border-bottom:1px solid var(--line)} .kct td{padding:7px 8px;border-bottom:1px solid var(--line2);vertical-align:top} .kct tr.kc-met td{background:var(--kill-bg)}
+.verdict{font-weight:600;border-radius:4px;padding:0 6px;font-size:12px} .verdict.kc-met{background:var(--kill);color:#fff} .verdict.kc-ok{background:var(--good-bg);color:var(--good)}
+.unc,.noise,.patches{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px} .unc li,.patches li{border-top:1px solid var(--line2);padding-top:10px} .unc li:first-child,.patches li:first-child{border-top:0;padding-top:0} .unc strong{display:inline-block;margin-right:8px} .unc .reason{color:var(--ink3);font-size:11.5px} .unc p,.noise p,.patches p{margin:4px 0 0;font-size:13.5px;color:var(--ink2);overflow-wrap:anywhere} .noise li{font-size:13.5px} .noise strong{font-weight:500}
+.pmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+details.plain summary{cursor:pointer;list-style:none} details.plain summary::-webkit-details-marker{display:none} details.plain summary h3{margin:0} details.plain[open] summary h3{margin-bottom:12px}
+.concl p{margin:0;font-size:15px;max-width:72ch}
+@media (max-width:900px){.layout{grid-template-columns:1fr} nav.rail{position:static;flex-direction:row;overflow-x:auto;padding-bottom:6px} .tab{min-width:150px} .gates{grid-template-columns:1fr} .kv>div,.axbody>div{grid-template-columns:1fr} .axlabel{white-space:normal}}
+@media (prefers-reduced-motion: no-preference){.tab{transition:border-color .15s}}
+</style></head><body>
+<div class="wrap">
+  <div class="top"><h1>Thesis 종목 리포트</h1><div class="meta">run <code>20260925_1015</code> · L1 as_of 2026-09-25T10:18 · signals.json as_of 2026-09-05 · 생성 2026-09-25</div></div>
+  <div class="disclaimer">본 페이지는 에이전트 산출물을 종목 단위로 재구성한 열람용이다. 모든 등급은 <strong>후보</strong>이며 확정 권한은 사람에게 있다. 매수·매도 지시·목표가를 포함하지 않는다. 문장의 <span class="tag t-fact">fact</span> / <span class="tag t-inf">inference</span> 태그와 자료 등급(G1~G4)은 원 산출물 그대로다.</div>
+  <div class="macro"><span>매크로 KC 발동</span><strong>KC-1</strong> met/confirmed<span class="small">— 파급 종목은 각 탭의 <em>KC</em> 표시</span></div>
+  <div class="layout">
+    <nav class="rail" role="tablist" aria-label="종목"><button class="tab" data-t="IREN" id="tab-IREN"><span class="tt">IREN</span><span class="tsec">neocloud</span><span class="tsig"><span class="sig s-yellow sm">🟡</span><span class="arrow">→</span><span class="sig s-kill sm">🔴🔴</span></span><span class='tkill'>KC</span></button><button class="tab" data-t="NBIS" id="tab-NBIS"><span class="tt">NBIS</span><span class="tsec">neocloud</span><span class="tsig"><span class="sig s-yellow sm">🟡</span><span class="arrow">→</span><span class="sig s-kill sm">🔴🔴</span></span><span class='tkill'>KC</span></button><button class="tab" data-t="CRWV" id="tab-CRWV"><span class="tt">CRWV</span><span class="tsec">neocloud</span><span class="tsig"><span class="sig s-yellow sm">🟡</span><span class="arrow">→</span><span class="sig s-kill sm">🔴🔴</span></span><span class='tkill'>KC</span></button><button class="tab" data-t="MU" id="tab-MU"><span class="tt">MU</span><span class="tsec">memory</span><span class="tsig"><span class="sig s-orange sm">🟠</span><span class="arrow">→</span><span class="sig s-kill sm">🔴🔴</span></span><span class='tkill'>KC</span></button><button class="tab" data-t="CRCL" id="tab-CRCL"><span class="tt">CRCL</span><span class="tsec">stablecoin</span><span class="tsig"><span class="sig s-red sm">🔴</span><span class="arrow">→</span><span class="sig s-red sm">🔴</span></span></button><button class="tab" data-t="COIN" id="tab-COIN"><span class="tt">COIN</span><span class="tsec">stablecoin</span><span class="tsig"><span class="sig s-orange sm">🟠</span><span class="arrow">→</span><span class="sig s-orange sm">🟠</span></span></button><button class="tab" data-t="HOOD" id="tab-HOOD"><span class="tt">HOOD</span><span class="tsec">stablecoin</span><span class="tsig"><span class="sig s-yellow sm">🟡</span><span class="arrow">→</span><span class="sig s-yellow sm">🟡</span></span></button></nav>
+    <main><div class="ticker" id="tk-IREN" hidden>
+<header class="thead">
+  <div class="trow">
+    <div><span class="eyebrow">neocloud</span><h2>IREN</h2></div>
+    <div class="transition"><span class="sig s-yellow">🟡</span><span class="arrow">→</span><span class="sig s-kill">🔴🔴</span><span class="cand">후보</span></div>
+  </div>
+  <p class="thesis">토지·전력·DC·GPU 수직 통합으로 임차형 대비 구조적 마진 우위(자체 ~14% vs 임차 ~5%)를 확보한 사업자가, BTC 채굴 현금흐름을 AI Cloud 계약 매출로 전환한다. MS $9.7B + NVIDIA $3.4B + 신규 $2.8B = TCV ~$15.9B. Mirantis 인수로 소프트웨어 레이어 보강.</p>
+  <div class="kv">
+    <div><dt>판정 성격</dt><dd>kill_priority_candidate</dd></div>
+    <div><dt>다음 게이트</dt><dd>① KC-1 재확인(차기 FOMC) — 최우선, 사람 확인 대상. ② FY27 Q1 10-Q(2026-11월경, 승계). ③ SB6/PUCT 커테일먼트 적용 MW 공시(승계). ④ BC Hydro Call for Demand 결과 공표(승계, 지연 중). 전항목 관측 가능한 정량 항목.</dd></div>
+    <div><dt>조사 창</dt><dd><code>2026-09-18 → 2026-09-25</code> · 1차 사건일 2026-08-27 · staleness 0일</dd></div>
+  </div>
+  <div class='banner kill'><strong>Kill 우선 규칙 발동</strong> — KC-1 단독 (직전 회차와 동일 — KC-9는 이번 회차에서 met 자체가 해제됨). </div>
+</header>
+<section><h3>등급 판정 근거 <small>arbiter 규칙 — 확정은 사람</small></h3>
+<div class="gates">
+  <div class="gate"><div class="gname">규칙1 · Kill 우선</div><div class="gval"><span class="chk kill">트리거</span></div><p></p></div>
+  <div class="gate"><div class="gname">규칙2 · 상향 게이트</div><div class="gval"><span class="chk no">미충족</span></div>
+    <ul class="conds"><li>정량 근거 <span class="chk no">미충족</span></li><li>회사 고유 <span class="chk no">미충족</span></li><li>매출 인식 단계 <span class="chk no">미충족</span></li></ul>
+    <p></p></div>
+  <div class="gate"><div class="gname">규칙3 · 하향(비대칭)</div><div class="gval"><span class="chk ok">미해당</span></div>
+    <ul class="conds"><li>정량 훼손 없음</li><li>grade≤2 정성 훼손 없음</li></ul>
+    <p></p></div>
+</div></section>
+<section><h3>Thesis 축 Delta <small>6축 · 강화 0 / 약화 0 / 중립 6</small></h3>
+
+<details class="axis">
+  <summary><span class="axid">power_permit</span><span class="dir d-neutral">중립</span><span class="axlabel">전력·인허가 (TX SB6, PUCT, DC 모라토리엄). 관측점 2026-09-08(회사 보도자료 grade 1 confirmed): 2GW Sweetwater Hub(Sweetwater1 1,400MW + Sweetwater2 600MW) 전량이 </span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): 2026-09-08 Sweetwater Hub 2GW 조건부 Base Load 분류, SB6 적용 MW 미공시로 KC-10 첫 조건 분모 부재 지속, ERCOT 감사 진행 중. BC Hydro 2026 Call for Demand 선정자 통보(2026-09 중순 목표)가 창에 걸치나 결과 미공표 — unconfirmed 신규 편입.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창(09-18~09-25)에 IREN 고유의 전력·인허가 신규 1차 자료는 없다(c_20260925_IREN_1, c_20260925_IREN_2). Sweetwater Batch Zero 조건부 지위·SB6 공백·ERCOT 감사 상태 모두 이월. BC Hydro 선정 결과는 2026-09 중순 목표 시점이 지났음에도 여전히 공표되지 않았다(c_20260925_IREN_3) — 지연 자체는 관측되나 1차 확정 인용이 불안정해 축 판정 근거로 승격하지 않는다. direction=neutral 유지.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#IREN-c_20260925_IREN_1" class="cid">c_20260925_IREN_1</a> <a href="#IREN-c_20260925_IREN_2" class="cid">c_20260925_IREN_2</a> <a href="#IREN-c_20260925_IREN_3" class="cid">c_20260925_IREN_3</a></dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">execution_delivery</span><span class="dir d-neutral">중립</span><span class="axlabel">Horizons 인도·480MW 진척 (계약존재≠이행≠매출인식, P7)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): Horizon 1 인도·인수 완료. Horizons 2-4는 calendar Q4 2026 목표, 10-K 계약 유예(2026 Q4 중반~2027 Q2 초) 유지. Horizon 2 인도·인수 완료 여부 unconfirmed.</dd></div>
+    <div><dt>이번 회차</dt><dd>창 내 신규 1차 공시·보도자료 0건(c_20260925_IREN_1, c_20260925_IREN_2). 웹검색에서 재확인된 &#x27;Horizon 2 commissioning 진행, Horizon 3-4 late-stage construction, Q4 2026 목표&#x27; 서술은 전량 8/27 콜·8/13 보도자료의 2차 재인용으로 신규 정보가 아니다(P3). P7 3단 분리 상태 불변.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#IREN-c_20260925_IREN_1" class="cid">c_20260925_IREN_1</a> <a href="#IREN-c_20260925_IREN_2" class="cid">c_20260925_IREN_2</a></dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">ai_cloud_conversion</span><span class="dir d-neutral">중립</span><span class="axlabel">BTC 채굴→AI Cloud 매출 전환 (비중·과금 가동률·MFU)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): Q4 FY26 AI Cloud 매출 비중 51.4% 역전(FY26 연간 18.2%), 과금 가동률·MFU unconfirmed. 가동 ARR $1.0B 대 계약 ARR $4.0B 갭, 해소 기한 2026-12-31.</dd></div>
+    <div><dt>이번 회차</dt><dd>창 내 과금 가동률·MFU·가동 ARR 진척에 관한 신규 공시·경영진 발언 0건. 일부 애그리게이터(TipRanks)가 FY27 Q1 실적일을 2026-12-01로 표기하나 회사 공식 확인 없음 — 애그리게이터 자동추정 라벨은 1차 공시로 취급 금지(F1), 카드의 &#x27;FY27 Q1(2026-11경, 정확일 미공시)&#x27; 기준선 변경 근거로 사용하지 않는다. 다음 관측점 불변, unconfirmed 이월.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#IREN-c_20260925_IREN_1" class="cid">c_20260925_IREN_1</a> <a href="#IREN-c_20260925_IREN_2" class="cid">c_20260925_IREN_2</a></dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">margin_structure</span><span class="dir d-neutral">중립</span><span class="axlabel">수직 통합 마진 우위 (자체 ~14% vs 임차 ~5%), MW당 매출</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): 신규 정량 자료 없음. MW당 매출은 계약 단가 기준만 존재(F3).</dd></div>
+    <div><dt>이번 회차</dt><dd>창 내 신규 정량 자료 0건. AI Cloud 부문 감가상각 배분 검증 재료는 FY27 Q1 체크포인트로 이월 불변.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#IREN-c_20260925_IREN_1" class="cid">c_20260925_IREN_1</a> <a href="#IREN-c_20260925_IREN_2" class="cid">c_20260925_IREN_2</a></dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">funding_dilution</span><span class="dir d-neutral">중립</span><span class="axlabel">현금·희석 (완전희석 주수, RSU, ATM, Mirantis 재판매)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): 완전희석 주수 range(394,058,648~558,718,254+) 유지(F9). FY27 capex $25-30bn(grade2), 잔여 조달 목표 ~$8bn. 2026-09-16 FOMC 25bp 인상의 IREN 조달조건 연동 미확인.</dd></div>
+    <div><dt>이번 회차</dt><dd>창 내 424B5/424B7/S-8/8-K 등 조달·희석 관련 신규 공시 0건(c_20260925_IREN_1), 회사 보도자료도 0건(c_20260925_IREN_2). FOMC 이후 가격이 매겨진 신규 발행·차환 공시 여전히 0건 — 종목 고유 금리 연동 사실 미확보 상태 유지. 완전희석 주수 range 갱신 근거 없음.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#IREN-c_20260925_IREN_1" class="cid">c_20260925_IREN_1</a> <a href="#IREN-c_20260925_IREN_2" class="cid">c_20260925_IREN_2</a></dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">btc_mining</span><span class="dir d-neutral">중립</span><span class="axlabel">BTC 채굴 현금흐름 (KC-3 연동). ⚠️2026-08-27 FY26 실적콜에서 CFO Anthony Lewis가 &#x27;We currently expect mining operations to be effectively decommission</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): CFO 발언(grade2, 8/27)으로 채굴 종료 목표 2026-12월 말 제시. 리스크는 ai_cloud_conversion으로 완전 이관.</dd></div>
+    <div><dt>이번 회차</dt><dd>창 내 신규 경영진 발언·월간 채굴 실적 업데이트·1차 공시 0건(c_20260925_IREN_1, c_20260925_IREN_2). 종료 목표 시점·리스크 이관 상태 불변.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#IREN-c_20260925_IREN_1" class="cid">c_20260925_IREN_1</a> <a href="#IREN-c_20260925_IREN_2" class="cid">c_20260925_IREN_2</a></dd></div>
+  </div>
+</details></section>
+<section><h3>확정 사실·추론 <small>fact 3 · inference 0 · 등급 G1 2 / G2 0 / G3 0 / G4 1</small></h3>
+<p class="hint">G1 1차 공시 · G2 경영진 직접 발언 · G3 2차 매체 · G4 애그리게이터. G3·G4는 삼각검증용이며 단독 판단 근거가 될 수 없다(P4).</p>
+
+<article class="claim" id="IREN-c_20260925_IREN_1">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_IREN_1</span></div>
+  <p>SEC EDGAR submissions API(CIK 0001878848) 및 EDGAR full-text 검색(edgar_fulltext.py --forms 8-K 10-Q 10-K 424B5 424B7 S-8 &quot;SCHEDULE 13G&quot; --since 2026-09-01)을 2026-09-25 시점에 재조회한 결과, 신규 공시 0건이다. 등재된 최신 공시는 여전히 2026-08-27자 10-K(accession 0001878848-26-000052)와 8-K(accession 0001878848-26-000051)이며, 전체 8-K atom feed(최근 4건: 2026-08-27, 2026-08-13, 2026-08-04, 이전)에서도 2026-08-27 이후 신규 8-K는 없다. 즉 신규 1차 공시 부재 상태가 4개 회차(0905·0911·0919·0925) 연속으로 이어진다. 2026-09-16 FOMC 25bp 인상 이후 가격이 매겨진 IREN 고유 신규 발행·차환 공시도 0건이다.</p>
+  <div class="csrc">출처 <a href="https://data.sec.gov/submissions/CIK0001878848.json" target="_blank" rel="noopener">edgar_api</a> · 2026-09-25<div class='cnote'>edgar_fulltext.py 결과 0건 + submissions API filingDate 최댓값 재확인(2026-08-27) + 8-K atom feed 개별 필터링(accession 0001140361-26-031053은 검색엔진 스니펫 상 신규처럼 보였으나 filing-date 2026-08-04로 확인 — 기존 재료, 신규 아님).</div></div>
+</article>
+<article class="claim" id="IREN-c_20260925_IREN_2">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_IREN_2</span></div>
+  <p>회사 IR 뉴스 페이지(iren.com/investors/news) 조회 결과 2026년 9월 중 발행된 보도자료는 2026-09-08 &#x27;Sweetwater Hub ERCOT Batch Zero&#x27; 1건뿐이며, 조사 창(2026-09-18~2026-09-25) 안에 신규 발행된 회사 보도자료는 0건이다. FY27 Q1 실적일에 대한 회사 공식 발표도 확인되지 않는다(FY27 Q1 10-Q 정확일 여전히 미공시).</p>
+  <div class="csrc">출처 <a href="https://iren.com/investors/news" target="_blank" rel="noopener">company_ir_newsroom</a> · 2026-09-25<div class='cnote'>2026-09-08 보도자료는 직전 2개 회차(0911, 0919)에서 이미 적재 완료 — 본 회차의 신규 재료가 아니다.</div></div>
+</article>
+<article class="claim" id="IREN-c_20260925_IREN_3">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="flag">sector</span><span class="cid mono">c_20260925_IREN_3</span></div>
+  <p>BC Hydro 2026 Call for Demand for Emerging Industries의 선정 결과·선정 기업 명단은 2026-09-25 시점까지 공표되지 않았다. 직전 회차(0919)가 파악한 &#x27;선정자 통보 2026-09 중순&#x27; 목표 시점이 지났음에도 결과 공표는 확인되지 않는다. app.bchydro.com 공식 페이지에 대한 두 차례 조회에서 피드백 시점(feasibility 결과 전달일·통보 목표일)에 관한 서술이 서로 불일치했다 — 이는 안정적인 1차 인용으로 확정할 수 없어 시점 변경 자체는 Claim화하지 않는다.</p>
+  <div class="csrc">출처 <a href="https://app.bchydro.com/accounts-billing/electrical-connections/large-load/emerging-industries-connections.html" target="_blank" rel="noopener">regulator_utility_page_and_web_search</a> · 2026-09-25<div class='cnote'>bchydro.com/news.gov.bc.ca 도메인은 config/sources.yaml에 미등재 — default_grade=4 적용(스크립트가 아닌 판정 원칙 그대로 준수, config는 사용자 편집 영역이라 수정하지 않음). 단독 4등급이며 P4상 판정 근거 불가. &#x27;통보 시점이 mid-Sept에서 end-Sept로 지연됐다&#x27;는 일부 조회 결과는 재조회 시 재현되지 않아(WebFetch 요약 불일치) confirmed=false로 유지하고 별도 사실로 승격하지 않았다. IREN 신청·노출 여부(BC 3개 사이트 160MW gross)는 여전히 미확인 — c_20260919_IREN_3·_4의 unconfirmed 상태 그대로 이월.</div></div>
+</article></section>
+<section><h3>Kill Condition 상태</h3>
+<h4>종목 전용 KC</h4>
+<p class='empty'>kill_conditions.yaml#company에 해당 종목 전용 active KC 미정의</p>
+<h4>파급되는 매크로 KC <small>노출 벡터상 불리 방향 축에 연결된 것만</small></h4>
+<div class="tscroll"><table class="kct"><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>사전 정의 결과</th></tr></thead><tbody><tr class="kc-met"><td class="mono">KC-1</td><td>FFR 인상 리스크</td><td><span class="verdict kc-met">met</span> <small>confirmed</small></td><td class="mono small">FFR 4.0 &gt; 3.75</td><td class="small">레버리지 전액 해제 + Edge/Next 50% 축소 검토</td></tr><tr class="kc-ok"><td class="mono">KC-2</td><td>변동성 급등</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">VIX 15.670000076293945 &gt;= 30</td><td class="small">레버리지 해제 검토</td></tr><tr class="kc-ok"><td class="mono">KC-3</td><td>크립토 붕괴 + 위험회피 동시</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">BTC 84653.665 &lt; 55000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)</td></tr><tr class="kc-ok"><td class="mono">KC-4</td><td>유동성 위기 신호</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">ON_RRP 630000000.0 &gt;= 200000000000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-5</td><td>TAIEX 음전환 (아시아 리스크 프록시)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">TAIEX_vs_20dma_pct 3.44 &lt; 0 · TAIEX_1m_return_pct 7.58 &lt; 0</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-6</td><td>AI 토큰 지출 급감</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">SDLLMTK_change_pct  &lt;= -30 (2주 지속)</td><td class="small">Base·Edge 전제 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-7</td><td>하이퍼스케일러 합산 FCF 악화</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">hyperscaler_fcf_sum 6835000000 &lt; 0 (2분기 연속)</td><td class="small">CapEx 감속 시나리오 검토</td></tr><tr class="kc-ok"><td class="mono">KC-8</td><td>Microsoft FCF 마이너스 (최후의 보루)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">msft_fcf 19640000000 &lt; 0</td><td class="small">AI CapEx 축 전면 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-9</td><td>에너지 쇼크</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">brent 114.89 &gt;= 120 (1개월 지속)</td><td class="small">에너지+인플레이션 시나리오 검토</td></tr><tr class="kc-ok"><td class="mono">KC-10</td><td>IREN 계약 용량의 10%+ 강제 감축 대상 분류, 또는 보유 사이트 전력접속·인허가 취소·보류 공시</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">Edge 마진 전제 재검토</td></tr></tbody></table></div>
+</section>
+<section><h3>알림 요약 <small>7필드 Alert</small></h3>
+<div class="kv">
+  <div><dt>이벤트</dt><dd><span class="tag t-lbl">P1</span> IREN — 매크로 KC-1(FFR 인상)이 직전 회차(0919)에 이어 본 회차에서도 met+confirmed 유지(FFR=4.00%, 임계 3.75%). 동시에 회사 자체는 조사 창(09-18~09-25) 내 신규 1차 공시·보도자료 0건.</dd></div>
+  <div><dt>확정 사실</dt><dd><ol class='circ'><li><span class="tag t-lbl">P1</span><span class="tag t-lbl">출처·시각</span></li><li>① FRED 계열(KC 발췌본) 재대사 결과 FFR=4.00%(목표 상단) &gt; KC-1 임계 3.75%, as_of 2026-09-24, confirmed — 직전 회차와 동일 값, 신규 하락 없음.</li><li>② brent=114.89(2026-09-22 기준, stale 3일) &lt; KC-9 임계 120으로 전환, verdict=not_met, provisional — 직전 회차(130.8, met)에서 하락.</li><li>③ EDGAR CIK0001878848 재조회(2026-09-25) 신규 1차 공시 0건, 최종 공시 2026-08-27 [c_20260925_IREN_1, grade1, confirmed].</li><li>④ 회사 IR 조회, 조사 창 내 신규 보도자료 0건 [c_20260925_IREN_2, grade1, confirmed].</li></ol></dd></div>
+  <div><dt>추론</dt><dd><span class="tag t-lbl">high, 판정근거</span> KC-1의 met+confirmed 지속은 규칙1 문언을 그대로 재충족하는 매크로 오버레이 트리거이며 종목 펀더멘털과는 별개 경로다. <span class="tag t-lbl">low</span> BC Hydro 선정 결과 공표 지연은 관측되나 grade4·confirmed=false 서술이라 축 판정 변경 근거로 승격하지 않는다.</dd></div>
+  <div><dt>분류</dt><dd>규칙1(Kill 우선) 트리거 지속 — kill_priority_candidate (직전 회차 20260919_2209와 동일 결론 재확인). 회사 펀더멘털 경로만 보면 상향 게이트(P2/P6/P7) 미충족(revenue_recognized=false)·하향 게이트(규칙3) 미충족(정량 훼손 없음, evidence_grade≤2 정성 훼손 후보 없음)으로 P12 정상 경로는 등급유지(maintain)였을 것이나, 규칙1이 이 경로에 우선 적용된다. KC-9는 이번 회차에서 met 상태 자체가 해제되어 더 이상 경고 관찰 대상도 아니다.</dd></div>
+  <div><dt>Thesis 변화</dt><dd>6개 축 전부 중립 유지(신규 1차 자료 없음). 축간 리스크 이관 없음(기존 btc_mining→ai_cloud_conversion 이관 상태만 유지). KC-1 met+confirmed 지속에 따른 포트폴리오 레벨 매크로 오버레이(레버리지 전액 해제 + Edge/Next 50% 축소 검토)는 회사 펀더멘털 축 구조 자체를 변경하지 않으며 포지션 전체 재검토 트리거로 별도 존재한다.</dd></div>
+  <div><dt>신호 판정</dt><dd>🔴🔴 후보(규칙1 Kill 우선, 직전 회차와 동일 결론) — 사람 확인 요청. state/signals.json 현행 등급은 🟡(as_of 2026-09-05)로 아직 갱신되지 않아, 직전 0919 회차의 동일 후보가 사람 확정을 아직 받지 못한 것으로 판단된다. 펀더멘털만 보면 maintain(🟡)이 정상 경로였으나 KC-1 met+confirmed가 이를 우선한다.</dd></div>
+  <div><dt>다음 확인</dt><dd><ol class='circ'><li>① <span class="tag t-lbl">정량, 최우선</span> KC-1 재확인 — 차기 FOMC 및 FFR 갱신치(현 4.00%, 임계 3.75% 상회 지속 여부).</li><li>② <span class="tag t-lbl">정량, 승계</span> FY27 Q1 10-Q(2026-11월경, 정확일 미공시) ASC842 매출 최초 인식액·가동 ARR $1.0B→$4.0B 진척·과금가동률.</li><li>③ <span class="tag t-lbl">정량, 승계</span> SB6/PUCT 커테일먼트 적용 MW 공시(KC-10 분모, 기한 2026-12-31).</li><li>④ <span class="tag t-lbl">정량, 승계</span> BC Hydro 2026 Call for Demand 결과 공표(IREN 신청·선정 여부, 목표 09월 중순 경과·지연 중).</li></ol></dd></div>
+</div></section>
+<section><h3>미확인·이월 <small>10건 — 찾지 못함 ≠ 반증(P5)</small></h3>
+<ul class="unc"><li><strong>BC Hydro 2026 Call for Demand — 선정 결과·IREN 신청 여부 [갱신]</strong><span class='reason mono'>no_disclosure</span><p>2026-09-25 시점까지 선정 결과·명단 미공표 — 회사 공표 목표였던 &#x27;2026-09 중순&#x27;이 지났음에도 결과 없음. 일부 웹조회에서 통보 목표가 &#x27;2026-09 말&#x27;로 지연됐다는 서술이 나왔으나 재조회 시 재현되지 않아(WebFetch 요약 불일치) 사실로 승격하지 않았다(c_20260925_IREN_3, 근거등급 4·confirmed=false). IREN의 BC 노출(Canal Flats 30 + Prince George 50 + Mackenzie 80 = 160MW gross)과 신청·선정 여부의 연결은 여전히 미확인. 다음 관측점: BC Hydro 결과 공표 또는 FY27 Q1 10-Q.</p></li><li><strong>FY27 Q1 실적일 확정</strong><span class='reason mono'>no_disclosure</span><p>카드 기준선은 &#x27;2026-11 경, 정확일 미공시&#x27;. 애그리게이터(TipRanks) 스니펫은 &#x27;2026-12-01 장마감 후&#x27;를 표기하나 회사 IR·GlobeNewswire에서 공식 확인되지 않음 — 애그리게이터 자동추정 라벨은 판정 근거 불가(F1). 카드 갱신 근거로 사용하지 않고 관측 대상으로만 등재.</p></li><li><strong>SB6/PUCT 커테일먼트 적용 MW (KC-10 첫 조건 분모)</strong><span class='reason mono'>carried_over_from_prior_run</span><p>IREN 계약 용량 중 SB6 비상시 강제 감축 의무 적용 MW 여전히 미공시. PUCT 최종 규칙 시한 2026-12-31.</p></li><li><strong>Governor Abbott 지시 ERCOT 데이터센터 감사 최종 결과</strong><span class='reason mono'>audit_in_progress</span><p>2026-12(경) 완료 목표로 진행 중. IREN 사이트별 개별 감사 결과 미공표. 창 내 진전 사항 미확인.</p></li><li><strong>ERCOT Batch Zero 비조건부(최종) 분류 시점</strong><span class='reason mono'>carried_over_from_prior_run</span><p>2026-09-08 공시의 &#x27;Base Load&#x27;는 조건부이며 최종 접속 승인이 아니다. 송배전사업자 계통접속계약 체결 전제, 최종 확정 시점·에너지화 일자 미공시.</p></li><li><strong>Horizon 2 인도·인수 완료 여부</strong><span class='reason mono'>no_disclosure</span><p>8/27 콜 기준 commissioning 진행 중, Horizon 3-4는 late-stage construction, calendar Q4 2026 인도 목표. 계약상 유예 2026 Q4 중반~2027 Q2 초. 창 내 인도·인수 공시 없음 — P7 2단(이행) 미확인 상태 유지.</p></li><li><strong>과금 가동률(billing utilization) / MFU</strong><span class='reason mono'>carried_over_from_prior_run</span><p>8/27 FY26 실적에서 미공개. 창 내 신규 자료 없음. 다음 관측점 FY27 Q1 10-Q.</p></li><li><strong>완전희석 주수 갱신치 (8/14 이후)</strong><span class='reason mono'>no_disclosure</span><p>창 내 신규 EDGAR 공시가 없어 카드 range(하한 394,058,648 ~ 상한 558,718,254+) 갱신 불가. F9 range 유지, 단일값 사용 금지.</p></li><li><strong>매니지드 서비스 믹스(Mirantis 매출 비중) 정량치</strong><span class='reason mono'>carried_over_from_prior_run</span><p>Mirantis는 2026-08-03/04 종결로 FY26 미반영. FY27 Q1이 첫 연결 분기이며 창 내 정량·정성 신규 언급 없음.</p></li><li><strong>신규 축 제안</strong><span class='reason mono'>not_applicable</span><p>이번 회차에서 카드 6개 축 밖의 신규 축 제안 사유는 발생하지 않았다.</p></li></ul></section>
+<section><h3>이번 회차 Thesis 카드 패치 <small>0건</small></h3>
+<ul class="patches"><li class='empty'>패치 없음</li></ul></section>
+<section><details class="plain"><summary><h3>폐기한 노이즈 <small>5건 — P3 기준</small></h3></summary>
+<ul class="noise"><li><strong>Neocloud 주가 동반 하락 — GPU 가격 우려 (CoreWeave·Nebius·IREN, 2026-09-22~23)</strong><p>scope=sector 일반론 + noise_filter#common &#x27;단순 주가 변동·일간 등락&#x27;. IREN 고유 정량 데이터 없음(P6)</p></li><li><strong>&#x27;IREN이 가격결정력을 보이고 있다&#x27; 류 애널리스트 코멘트 (2026-09-22)</strong><p>noise_filter#common &#x27;애널리스트 PT·투자의견 변경 단독&#x27; — 회사 고유 정량 데이터 없음(P3)</p></li><li><strong>IREN 비정상 옵션 거래 포착 보도 (2026-09-25)</strong><p>noise_filter#common 성격의 파생 거래·단기 시장 신호 — 매출·마진·현금흐름·고객·수주·양산일정 어느 것도 변화시키지 않음(P3)</p></li><li><strong>IREN Analyst &#x27;Buy&#x27; 컨센서스 15개사 재확인 보도 (2026-09-23)</strong><p>noise_filter#common &#x27;애널리스트 PT·투자의견 변경&#x27; 반복 집계 — 신규 정보 없음(P3)</p></li><li><strong>Enverus 블로그 &#x27;Sweetwater Batch Zero 마일스톤&#x27; 해설 기사</strong><p>2026-09-08 원 공시의 2차 재해설 — 신규 근거 아님(P3). Sweetwater1 300MW(gross) Q4 2027 목표는 카드에 이미 반영된 기존 정보</p></li></ul></details></section><section class="concl"><h3>카드 결론 <small>state/thesis_cards/IREN.yaml · as_of 2026-08-15</small></h3><p>8/27 FY26 실적으로 물리적 이행과 재무적 전환이 각각 한 단계씩 진전했으나 서로 다른 계약에서 진전했다. Horizon 1은 Microsoft에 인도·인수됐고(P7 2단 통과) Q4 AI Cloud 매출 비중은 51.4%로 채굴을 역전했다. 그러나 Microsoft·Horizon 계약은 ASC842 리스로 분류돼 FY26 인식 매출이 0이므로, Q4 매출 역전을 만든 $70.5M에는 thesis의 핵심 계약이 포함돼 있지 않다. 즉 재무적 전환은 계량되기 시작했으나 thesis가 근거로 삼는 계약의 전환은 아직 손익계산서에 진입하지 않았다. 실행 갭의 성격도 이동했다 — &quot;미계약 $600M&quot;이 해소되고 &quot;계약 완료·미가동 $3.0B&quot;가 그 자리에 들어섰으며, 그 해소 기한(2026-12-31)이 Horizons 2-4 인도 기한과 같은 구간에 몰려 있다. 상향 게이트는 여전히 정량 수치이며, 다음 판정점은 FY27 Q1의 ASC842 리스 매출 최초 인식 금액이다.</p></section></div><div class="ticker" id="tk-NBIS" hidden>
+<header class="thead">
+  <div class="trow">
+    <div><span class="eyebrow">neocloud</span><h2>NBIS</h2></div>
+    <div class="transition"><span class="sig s-yellow">🟡 관망 (신규 커버리지 초기화)</span><span class="arrow">→</span><span class="sig s-kill">🔴🔴</span><span class="cand">후보</span></div>
+  </div>
+  <p class="thesis">대규모 자본시장 접근성 + 최고 성장률 + 고객 선불금 기반 확장 — 단 재무구조는 이자부 부채 &gt; 현금으로 전환(6/30/26 확정)됐고, 확장의 조달 형태는 부채성·조건부 잠재 희석이 병존한다. Full-stack + 소프트웨어 (Token Factory, Echo) 보유로 MW당 수익화에서 bare-metal 대비 우위. NVIDIA·Meta 엔도스먼트. [✍ 2026-09-05 재작성(run 20260905_0618) — 사용자 결정: esc_20260905_0618_nbis_thesis_rewrite 선택지 A 채택. 이전 문장(P9 보존): &quot;순현금 재무구조 + 최고 성장률 + 고객 선불금 기반 저희석 확장.&quot; 재작성 근거는 아래 (1)~(4) 재대조·결제 확정 주석과 동일 — &quot;순현금&quot; 불성립(6/30 Debt $8,545.7M &gt; 현금 $8,042.1M, 8/24 결제로 원금 격차 확대 방향), &quot;저희석&quot; 미성립(ATM $2.8B·12.7M주 기집행 + $800M 교환 ~15.8M주 + 전환사채 원금 ~$15.0B의 조건부 잠재 희석 — 단 신규분 전환 프리미엄 +40~45%로 즉시 희석은 아님, P7). 조달 접근성 자체는 2026-08-24 $5.75B 클로징(그린슈 전액 행사)으로 실증. 이로써 아래 주석 말미의 &#x27;사람 결정 대기&#x27;는 본 재작성으로 해소됨] [⚠️ 2026-09-05 재대조·결제 확정 주석(run 20260905_0618) — 2026-08-15 주석이 보류한 이자부 부채 총액 재대조를 완료하고, 만료된 2026-08-20 주석 패치(ap_20260820_2235_thesis_patch_nbis_debt_annotate)를 최신 사실로 재생성한다. (1) 6/30/26 기준(6-K Ex-99.2, grade 1): 전환사채 원금 $10,041.8M·상각후원가 $8,499.0M(6개 시리즈, Note 12), Debt 유동+비유동 $8,545.7M &gt; 현금 $8,042.1M. 종전 기재 $4,337.5M은 2026년 3월 발행분만의 부분치였다. 운용리스 $1,625.3M 별도, 금융리스 유무 미확인, ABL $775M(SOFR+2.50%, 7/10)은 6/30 미반영. (2) 2026-08-24 신규 전환사채 클로징 완료(6-K Ex-99.1, grade 1): 최초매수인 그린슈 옵션 전액 행사로 발행 원금이 $5.0B에서 $5.75B로 확대(2030년물 0.50% $3.45B + 2034년물 4.50% $2.3B). 기존 2029·2031년물 $800M의 Class A 약 15.8M주 지분교환은 계약 체결 단계로 재확인되나 주식 인도 완료 시점은 동 문서에 명시되지 않아 unconfirmed(P7 3단 분리). (3) 전환사채 원금 총액은 $10,041.8M + $5,750M − $800M = 약 $14,991.8M 수준으로 추정된다(inference:medium) — 직전 run이 제시한 범위 $14.2~15.0B의 상단이 실현되는 방향. 총 발행대금 $5.75B(gross) 유입 시 현금은 약 $13.79B 수준일 수 있으나 발행 수수료·할인이 공시문에 없어 순조달액은 확정 불가 — 확정 수치는 Q3 2026 재무제표에서 재검증한다. (4) 상충 프레임: 같은 사건이 두 축에 반대 부호로 걸린다. leverage_burden 훼손(원금 총액 확대·듀레이션 이관)과 funding_access 강화(최초 launch $4.50B 대비 +27.8%, upsize 확정 $5.0B 대비 +15%가 결제 단계까지 완결)가 동시 성립하므로 한 부호로 합산하지 않는다. 조달의 양은 강화됐고 조달의 질(비희석·비부채)은 개선되지 않았다. &quot;순현금 재무구조&quot;·&quot;저희석 확장&quot; 문장 자체의 유지/재작성은 핵심 논거 판정이므로 자동 패치하지 않는다 — esc_20260905_0618_nbis_thesis_rewrite로 사람 결정 대기. 2026-08-20 에스컬레이션의 선택지 C(8/24 결제 확인 후 판정)의 전제 조건은 본 주석으로 충족됐다]</p>
+  <div class="kv">
+    <div><dt>판정 성격</dt><dd>Kill 우선 트리거(rule 1) — 사람 확인 요청, 2026-09-19 run에서와 동일한 경로로 재트리거됨(반복). NBIS 자체 등급(🟡)의 상향/하향 요건은 이번 run 근거로는 미충족(P12) — 본 Kill 후보는 매크로 KC-1 경로이며 종목 고유 KC(KC-NBIS-1~3) 훼손과는 별개(아래 kill_check 참조).</dd></div>
+    <div><dt>다음 게이트</dt><dd>멀티플 조정 또는 2027 가이던스 확정</dd></div>
+    <div><dt>조사 창</dt><dd><code>2026-09-18 → 2026-09-25</code> · 1차 사건일 2026-09-25 · staleness 0일</dd></div>
+  </div>
+  <div class='banner kill'><strong>Kill 우선 규칙 발동</strong> — . </div>
+</header>
+<section><h3>등급 판정 근거 <small>arbiter 규칙 — 확정은 사람</small></h3>
+<div class="gates">
+  <div class="gate"><div class="gname">규칙1 · Kill 우선</div><div class="gval"><span class="chk kill">트리거</span></div><p></p></div>
+  <div class="gate"><div class="gname">규칙2 · 상향 게이트</div><div class="gval"><span class="chk no">미충족</span></div>
+    <ul class="conds"><li>정량 근거 <span class="chk no">미충족</span></li><li>회사 고유 <span class="chk no">미충족</span></li><li>매출 인식 단계 <span class="chk no">미충족</span></li></ul>
+    <p></p></div>
+  <div class="gate"><div class="gname">규칙3 · 하향(비대칭)</div><div class="gval"><span class="chk ok">미해당</span></div>
+    <ul class="conds"><li>정량 훼손 없음</li><li>grade≤2 정성 훼손 없음</li></ul>
+    <p></p></div>
+</div></section>
+<section><h3>Thesis 축 Delta <small>1축 · 강화 1 / 약화 0 / 중립 0</small></h3>
+
+<details class="axis">
+  <summary><span class="axid">on_demand_pricing_power</span><span class="dir d-strengthen">강화</span><span class="axlabel">on-demand 리스트 가격 결정력 — 회사 공식 가격 페이지 기준선(2026-09-19 조회, grade 1): HGX H100 $3.85 / H200 $4.50 / B200 $7.15, GB300 NVL72 미게시. 2026-05 1차 인상(on</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>가격 고지 1차 자료 확정 단계 (발효일 2026-10-01, 매출 인식 이전 — P7 1단)</dd></div>
+    <div><dt>직전 상태</dt><dd>카드 축 정의(2026-09-19 patch) 기준선: 회사 공식 가격 페이지(2026-09-19 조회, grade 1) H100 $3.85 / H200 $4.50 / B200 $7.15, GB300 NVL72 미게시. 2026-10-01 발효 예정 2차 인상은 2026-09-17 보도(grade 3, confirmed:false)로만 파악돼 1차 경로 미확인 상태였다.</dd></div>
+    <div><dt>이번 회차</dt><dd>2026-09-25 조회 시점 회사 공식 가격 페이지가 인상 후 단가(H100 $4.50 / H200 $5.40 / B200 $8.50, 각 +16.9%/+20.0%/+18.9%)와 발효일(2026-10-01)을 직접 게시 — 3개 모델 기준 grade 3→1, confirmed:false→true로 격상(c_20260925_NBIS_1). B300/GB300 계열은 여전히 비공개(&#x27;Contact sales&#x27;)로 미확인 유지. P2상 리스트 가격 게시는 확정 매출·마진·가이던스 수치가 아니므로 시그널 상향 근거로는 부적격이며, P7상 발효(10/1)·매출 인식은 차기 회차 이후 재확인 대상이다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#NBIS-c_20260925_NBIS_1" class="cid">c_20260925_NBIS_1</a> <a href="#NBIS-c_20260925_NBIS_2" class="cid">c_20260925_NBIS_2</a></dd></div>
+  </div>
+</details></section>
+<section><h3>확정 사실·추론 <small>fact 1 · inference 1 · 등급 G1 1 / G2 0 / G3 0 / G4 0</small></h3>
+<p class="hint">G1 1차 공시 · G2 경영진 직접 발언 · G3 2차 매체 · G4 애그리게이터. G3·G4는 삼각검증용이며 단독 판단 근거가 될 수 없다(P4).</p>
+
+<article class="claim" id="NBIS-c_20260925_NBIS_1">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_NBIS_1</span></div>
+  <p>2026-09-25 조회 시점 회사 공식 가격 페이지(nebius.com/prices, grade 1)에 2026-10-01 발효 가격 인상이 직접 게시돼 있다 — NVIDIA HGX H100: 현재 $3.85/GPU-hour → 2026-10-01부터 $4.50/GPU-hour(+16.9%), HGX H200: $4.50 → $5.40(+20.0%), HGX B200: $7.15 → $8.50(+18.9%). HGX B300 및 GB300 NVL72/GB200 NVL72는 현재·인상 후 단가 모두 &#x27;Contact sales&#x27;로 비공개 상태다. 페이지에는 &#x27;Prices are shown without any applicable taxes, including VAT&#x27;라는 안내와 함께 인상 예정 문구가 명시돼 있다. 2026-09-19 직전 run 조회 시점에는 동일 페이지에 인상 고지 문구가 게시돼 있지 않았다(c_20260919_NBIS_1) — 창 내(09-19~09-25) 사이 회사가 1차 채널(자사 가격 페이지)에 인상을 직접 게시한 것으로 확인된다.</p>
+  <div class="csrc">출처 <a href="https://nebius.com/prices" target="_blank" rel="noopener">회사 공식 가격 페이지 (nebius.com)</a> · 2026-09-25<div class='cnote'>직전 run의 unconfirmed 항목(&#x27;2026-10-01 발효 가격 인상의 1차 자료 확인&#x27;)에 대한 후속 확인이다. H100/H200/B200 3개 모델은 회사 1차 자료로 인상 후 단가까지 확정됐다. B300/GB300 계열은 여전히 비공개(&#x27;Contact us&#x27;)여서 c_20260919_NBIS_2가 2차 매체에서 보도한 B300 $7.85→$9.50(+21%) 수치는 이번에도 1차 자료로 교차검증되지 않는다. 어디까지나 on-demand 리스트 가격이며 ACV/MW 3단 계약형 단가 체계(contract_monetization 축)와는 별개 레이어다.</div></div>
+</article>
+<article class="claim" id="NBIS-c_20260925_NBIS_2">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-inf">inference · high</span><span class="cid mono">c_20260925_NBIS_2</span></div>
+  <p>c_20260925_NBIS_1로 인상 후 단가가 1차 자료로 확정됨에 따라, on_demand_pricing_power 축의 방향 판정 근거는 grade 3(2차 매체, confirmed:false)에서 grade 1(회사 공식 페이지, confirmed:true)로 격상된다. 다만 (i) 발효일 2026-10-01은 as_of(2026-09-25) 기준 아직 도래하지 않은 미래 시점이고, (ii) 이는 on-demand 리스트 가격 게시일 뿐 매출·마진·가이던스 수치의 확정 변화가 아니므로(P2) 시그널 상향의 단독 근거가 될 수 없다. P7 3단 분리 기준으로 본 사건은 &#x27;가격 고지 확정&#x27; 단계이며 &#x27;매출 인식&#x27;과는 별개다. commitment discount 적용 대상($1B+ 계약 고객)에의 전가 여부도 여전히 미확인 상태로, contract_monetization 축과는 부호를 분리 유지한다.</p>
+  <div class="csrc">출처 <a href="https://nebius.com/prices" target="_blank" rel="noopener">c_20260925_NBIS_1(grade1) 단독 — 별도 대조 자료 없음</a> · 2026-09-25<div class='cnote'>inference_strength high는 &#x27;1차 자료로 확정됐다&#x27;는 등급 격상 판단 자체에 대한 것이며, 인상이 실제 매출·마진에 미칠 영향의 크기에 대한 것이 아니다.</div></div>
+</article></section>
+<section><h3>Kill Condition 상태</h3>
+<h4>종목 전용 KC</h4>
+<div class='tscroll'><table class='kct'><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>근거·결과</th></tr></thead><tbody><tr class="kc-ok"><td class="mono">KC-NBIS-1</td><td>대형 고객 계약 훼손 ($1B+ 전체)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">P1 — 03_kc_excerpt는 own KC 3건에 대해 verdict 필드를 제공하지 않음(description/consequence만). 03_input 2건 claims는 가격 정책 사안이며 대형 계약 해지·축소·재협상을 다루지 않음 — 훼손 근거 없어 not_met 유지.</td></tr><tr class="kc-ok"><td class="mono">KC-NBIS-2</td><td>용량 인도 지연 (경고/발동 2단)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">P5 — 03_input unconfirmed 목록에 Vineland 공사중지명령 해제 여부가 이번 창에서도 확인되지 않았다고 명시(1차·2차 자료 모두 신규 없음). 판정 보류 상태를 met으로 격상할 근거 없음.</td></tr><tr class="kc-ok"><td class="mono">KC-NBIS-3</td><td>조달 조건 악화 (현금&lt;$5B 또는 신규부채 스프레드≥300bp)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">P5 — 03_input unconfirmed 목록: EDGAR 조회(20-F/6-K/F-3/424B5/424B3/424B1, since 2026-08-28) 신규 제출 0건. 임계 근접을 시사하는 1차 관측치 없음.</td></tr></tbody></table></div>
+<h4>파급되는 매크로 KC <small>노출 벡터상 불리 방향 축에 연결된 것만</small></h4>
+<div class="tscroll"><table class="kct"><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>사전 정의 결과</th></tr></thead><tbody><tr class="kc-met"><td class="mono">KC-1</td><td>FFR 인상 리스크</td><td><span class="verdict kc-met">met</span> <small>confirmed</small></td><td class="mono small">FFR 4.0 &gt; 3.75</td><td class="small">레버리지 전액 해제 + Edge/Next 50% 축소 검토</td></tr><tr class="kc-ok"><td class="mono">KC-2</td><td>변동성 급등</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">VIX 15.670000076293945 &gt;= 30</td><td class="small">레버리지 해제 검토</td></tr><tr class="kc-ok"><td class="mono">KC-4</td><td>유동성 위기 신호</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">ON_RRP 630000000.0 &gt;= 200000000000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-5</td><td>TAIEX 음전환 (아시아 리스크 프록시)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">TAIEX_vs_20dma_pct 3.44 &lt; 0 · TAIEX_1m_return_pct 7.58 &lt; 0</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-6</td><td>AI 토큰 지출 급감</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">SDLLMTK_change_pct  &lt;= -30 (2주 지속)</td><td class="small">Base·Edge 전제 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-7</td><td>하이퍼스케일러 합산 FCF 악화</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">hyperscaler_fcf_sum 6835000000 &lt; 0 (2분기 연속)</td><td class="small">CapEx 감속 시나리오 검토</td></tr><tr class="kc-ok"><td class="mono">KC-8</td><td>Microsoft FCF 마이너스 (최후의 보루)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">msft_fcf 19640000000 &lt; 0</td><td class="small">AI CapEx 축 전면 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-9</td><td>에너지 쇼크</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">brent 114.89 &gt;= 120 (1개월 지속)</td><td class="small">에너지+인플레이션 시나리오 검토</td></tr></tbody></table></div>
+</section>
+<section><h3>알림 요약 <small>7필드 Alert</small></h3>
+<div class="kv">
+  <div><dt>이벤트</dt><dd>NBIS — KC-1(FFR&gt;3.75%) met&amp;confirmed 상태가 2026-09-19 run에 이어 지속되어 RATES 축 불리 노출 종목으로 Kill-priority(🔴🔴) 후보 재트리거(rule 1). 별도로 2026-10-01 발효 예정 자체 가격 인상이 회사 1차 자료로 확정됐으나(grade1) 이는 Kill 판정과 무관한 별도 트랙(holding_reinforcement).</dd></div>
+  <div><dt>확정 사실</dt><dd><ul><li>P1 — FFR 4.00% &gt; 3.75% 임계 초과 지속. FRED DFEDTARU api 대사로 confirmed(as_of 2026-09-24). KC-1은 2026-09-19 run에서 최초 초과 확인 이후 이번 run도 met&amp;confirmed 유지. <span class='small'>— output/20260925_1015/03_kc_excerpt/NBIS.json (KC-1) · 2026-09-25T10:26</span></li><li>P16 — brent 114.89(as_of 2026-09-22, staleness_days 3) &lt; 임계 120 — KC-9는 not_met/provisional로 이번 run 미기여(2026-09-19 run 대비 하락 이탈). <span class='small'>— output/20260925_1015/03_kc_excerpt/NBIS.json (KC-9) · 2026-09-25T10:26</span></li><li>P1 — NBIS 종목 고유 KC(KC-NBIS-1~3) 3건 전건 not_met/provisional — 대형계약 훼손·인도지연·조달악화 어느 것도 이번 run 1차 근거로 확인되지 않음. <span class='small'>— output/20260925_1015/03_input/arbiter_NBIS.json (unconfirmed) · 2026-09-25</span></li><li>P1 — nebius.com/prices 2026-09-25 조회 기준 2026-10-01 발효 가격 인상이 회사 공식 페이지에 직접 게시: H100 $3.85→$4.50(+16.9%), H200 $4.50→$5.40(+20.0%), B200 $7.15→$8.50(+18.9%). B300/GB300은 여전히 &#x27;Contact sales&#x27; 비공개. 2026-09-19 조회 시점에는 인상 고지가 게시돼 있지 않았음. <span class='small'>— c_20260925_NBIS_1, c_20260925_NBIS_2 · 2026-09-25</span></li></ul></dd></div>
+  <div><dt>추론</dt><dd><ul><li>P1 — rule 1 문언(KC met AND confirmed)에는 매크로/종목 구분 예외가 없고, correlation_matrix가 NBIS를 RATES 축 불리 노출로 명시하므로 KC-1은 NBIS에 대해 Kill-priority를 재트리거한다. <span class='small'>— high — 규칙 문언과 노출 매핑이 명시적, 2026-09-19 run과 동일 근거 구조</span></li><li>다만 KC-1의 predefined consequence는 포트폴리오 레버리지/Edge·Next 북 조치이며 KC-NBIS-1의 &#x27;포지션 리뷰&#x27;와는 성격이 다르다 — 종목 thesis 자체(대형계약·인도·조달)는 이번 run 근거로도 무결하다. <span class='small'>— medium — 규칙 해석의 뉘앙스, 최종 판단은 사람 몫</span></li><li>P4/P7 — on_demand_pricing_power 축 근거등급이 grade3→1로 격상됐으나, 매출 인식 이전 단계이므로 시그널 상향과는 독립적으로 취급해야 한다. <span class='small'>— high — &#x27;1차 자료로 확정됐다&#x27;는 등급 격상 판단 자체에 한정, 매출·마진 영향 크기에 대한 것 아님</span></li></ul></dd></div>
+  <div><dt>분류</dt><dd>kill_priority_candidate (rule 1, 재트리거) — 사람 확인 요청(🔴🔴). 상향 게이트(P2/P6/P7): not_met(vacuous, revenue_recognized 미충족) — on_demand_pricing_power는 holding_reinforcement로만 분류. 하향 게이트(rule 3): not_triggered. P12 — 종목 자체 상향/하향 요건 미충족은 정상 경로이며 실패가 아니다.</dd></div>
+  <div><dt>Thesis 변화</dt><dd>rates_exposure(매크로) 축: 리스크가 종목 thesis에서 포트폴리오 레버리지/Edge·Next 북 레벨로 이관 지속(risk_transfer_to=[portfolio_leverage_book, Edge/Next 축소 검토]). on_demand_pricing_power 축: strengthen 방향이며 근거등급 grade1로 격상됐으나 매출 인식 이전 단계 — 상향 근거 아님, holding_reinforcement(risk_transfer_to=[]). NBIS 개별 KC(대형계약·인도·조달) 3건은 이번 run 독립적으로 not_met 유지.</dd></div>
+  <div><dt>신호 판정</dt><dd>🔴🔴 Kill-priority 후보 재트리거 — 사람 확인 요청. 사유: KC-1 met&amp;confirmed(2026-09-19 run부터 지속) + RATES 축 불리 노출(rule 1, 예외 없음). 단 이는 매크로/포트폴리오 경로이며 NBIS 종목 고유 KC 3건은 전건 not_met — 종목 자체 🟡 등급의 승격/강등 요건은 이번 run 근거로 미충족(P12). 최종 등급·포트폴리오 조치는 사람이 확정한다.</dd></div>
+  <div><dt>다음 확인</dt><dd><ul><li>next_gate(정량·관측가능): 차기 FOMC/FRED DFEDTARU 갱신 — FFR 인하 전환 또는 추가 인상 여부(KC-1 지속성 재확인)</li><li>next_gate(정량·관측가능): 2026-10-01 이후 nebius.com/prices 재조회로 가격 인상 발효분 1차 확인, Q3 2026 실적자료의 단가·ARPU·commitment discount 언급 대조</li><li>next_gate(정량·관측가능): B300/GB300 NVL72 계열 인상 후 단가 공개 여부(현재 &#x27;Contact sales&#x27;)</li><li><span class="tag t-lbl">carried</span> Q3 2026 실적 발표일 — 애그리게이터 상충(investing.com류 10/22 vs public.com류 11/10) 지속, 회사 IR 공식 공지 미확보</li><li><span class="tag t-lbl">carried</span> Vineland 공사중지명령(08-06/08-10)의 1차 확인·해제 여부 — 6-K/Q3 실적자료 대조</li><li><span class="tag t-lbl">carried</span> KC-NBIS-3 조달 조건 — 신규 채무 발행 시 스프레드, Q3 재무제표 현금잔고</li></ul></dd></div>
+</div></section>
+<section><h3>미확인·이월 <small>8건 — 찾지 못함 ≠ 반증(P5)</small></h3>
+<ul class="unc"><li><strong></strong><span class='reason mono'>as_of(2026-09-25) 기준 발효일이 아직 도래하지 않았고, B300/GB300은 회사 페이지에서도 여전히 &#x27;Contact sales&#x27;로 비공개다. commitment discount 적용 범위(계약형 $1B+ 고객 전가 여부)도 이번 창에서 확인되지 않았다.</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창(09-18~09-25)에서도 nebius.com/newsroom·웹검색 모두에서 회사 IR 공식 공지를 확보하지 못했다. 애그리게이터 상충 지속(investing.com류 2026-10-22 vs public.com류 2026-11-10) — F1상 판정 근거 불가, 여전히 아무 소스도 채택하지 않는다.</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창에서 재검색했으나 명령 해제·허가 취득을 보도한 신규 1차·2차 자료를 확보하지 못했다(P5 — 부재는 반증이 아님). DataOne 측 &#x27;인도 일정 영향 없음&#x27; 입장은 직전 run 이후 갱신되지 않았다.</span><p></p></li><li><strong></strong><span class='reason mono'>본 run EDGAR 조회(20-F/6-K/F-3/424B5/424B3/424B1, since 2026-08-28)에서 신규 제출 0건 — ATM 관련 6-K·424B5를 확인하지 못했다. noise_filter#NBIS promote_if 조건(&#x27;ATM 실제 발행&#x27;) 미충족 상태 지속.</span><p></p></li><li><strong></strong><span class='reason mono'>본 run 창 내 EDGAR 제출목록에 관련 후속 6-K가 없다(Form 4 1건 09-21만 확인, 내용은 CRO의 사전계획 매도로 무관).</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창 회사 공지·보도에서 &#x27;later this year&#x27; 이상의 구체 일자 언급을 확보하지 못했다.</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창 후속 6-K·보도자료에서 정량 조건 공개를 확인하지 못했다.</span><p></p></li><li><strong></strong><span class='reason mono'>Vineland 공사중지명령 해제 여부가 미확인 상태로 유지돼(위 항목) 관측 강화 권고 상태를 벗어나지 못한다. 창 내 새로운 1차 자료(회사 일정 변경 공시)는 없다.</span><p></p></li></ul></section>
+<section><h3>이번 회차 Thesis 카드 패치 <small>1건</small></h3>
+<ul class="patches"><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">axes</span><span class="mono small">annotate</span><span class='flag warn'>선행 결정: partial — L4 tpc_05 human_decision_dependency 원문: &#x27;무변화 축 delta 발행 규약(신규 발견) 결정 시 NBIS 카드의 무변화 축 처리 규칙도 함께 바뀔 수 있음&#x27;. 오케스트레이터 지시에서는 axis-naming 결정으로 표기됨. 어느 쪽이든 본 패치는 축 id·축 수를 바꾸지 않는 라벨 주석이므로 해당 결정과 독립적으로 승인 가능하다(inference:medium). 순서 판단은 사람이 한다.</span></div><p><span class="tag t-fact">fact</span> 카드 전문(state/thesis_cards/NBIS.yaml, 105행)을 열람하고 yaml.safe_load로 계수한 결과 axes는 8개다 — growth_arr, margin_transition, funding_access, leverage_burden, capacity_delivery, contract_monetization, on_demand_pricing_power, customer_concentration(F20 전문 기준 계수). <span class="tag t-fact">fact</span> 현재 on_demand_pricing_power 라벨은 2026-10-01 발효 2차 인상을 &#x27;grade 3·confirmed=false, 1차 공시 경로 부재&#x27;로 기록하고 있고, 카드 어디에도 인상 후 단가나 run 20260925_1015 기록이 없다 — 카드가 아직 grade 1을 반영하지 않았으므로 후보를 드롭하지 않는다. <span class="tag t-fact">fact</span> c_20260925_NBIS_1(grade 1, confirmed): 2026-09-25 nebius.com/prices에 H100 $3.85→$4.50(+16.9%), H200 $4.50→$5.40(+20.0%), B200 $7.15→$8.50(+18.9%)와 발효일 2026-10-01이 직접 게시됐고, B300/GB300 계열은 &#x27;Contact sales&#x27;로 비공개다. <span class="tag t-fact">fact</span> 게시된 &#x27;현재&#x27; 단가 3개는 카드 라벨의 2026-09-19 기준선(H100 $3.85 / H200 $4.50 / B200 $7.15</p></li></ul></section>
+<section><details class="plain"><summary><h3>폐기한 노이즈 <small>3건 — P3 기준</small></h3></summary>
+<ul class="noise"><li><strong></strong><p>거래일(06/15·07/15)로부터 제출일(09/21)까지 지연이 있으나 사전계획(10b5-1)에 따른 매도이고 매출·가이던스·마진·현금흐름·고객명·수주·양산일정 중 어느 것도 변화시키지 않는다(P3). 제출 지연 자체는 사실로 기록해 감사 추적 확보하되 axis Delta는 생성하지 않는다.</p></li><li><strong></strong><p>JPMorgan 상향의 대상은 NBIS가 아닌 CRWV이며, NBIS에 대한 애널리스트 직접 판정 변경이 아니다. noise_filter 공통 패턴(&#x27;3사 상대 주가 변동&#x27;) 및 &#x27;애널리스트 PT·투자의견 변경 단독&#x27;에 해당 — NBIS 고유 펀더멘털 변화 없음(P3). 근거로 인용된 가격 인상 자체는 c_20260925_NBIS_1로 별도 적재해 중복 회피.</p></li><li><strong></strong><p>개인 기고자의 투자 논평(2차 매체 미만, seekingalpha.com 기고문 섹션은 sources.yaml 등재 도메인이 아닌 개인 분석 콘텐츠) — 해석·전망 서술이며 1차 사실이 아니다. 근거 사실(가격 인상)은 c_20260925_NBIS_1로 이미 적재.</p></li></ul></details></section><section class="concl"><h3>카드 결론 <small>state/thesis_cards/NBIS.yaml · as_of 2026-08-15</small></h3><p>3사 중 마진 전환 속도가 가장 명확하고 자본시장 접근성은 8/24 $5.75B 클로징으로 실증됐으나, 재무구조는 이자부 부채 &gt; 현금으로 전환됐고(6/30/26 확정) 밸류에이션이 성장률을 상당 부분 반영. 진입 판단 게이트는 멀티플 조정 또는 2027 가이던스 확정 중 하나(완전희석 기준 필수 — valuation.caution).</p></section></div><div class="ticker" id="tk-CRWV" hidden>
+<header class="thead">
+  <div class="trow">
+    <div><span class="eyebrow">neocloud</span><h2>CRWV</h2></div>
+    <div class="transition"><span class="sig s-yellow">🟡 관망 (신규 커버리지 초기화, Q2 수치 재대조 대기)</span><span class="arrow">→</span><span class="sig s-kill">🔴🔴</span><span class="cand">후보</span></div>
+  </div>
+  <p class="thesis">네오클라우드 스케일 1위. 대규모 백로그를 레버리지로 건설하고 매출로 상환하는 모델. Full-stack + 소프트웨어(Mission Control, ARIA) + NVIDIA 지분·백스톱으로 GPU 공급 최우선권.</p>
+  <div class="kv">
+    <div><dt>판정 성격</dt><dd>Kill 후보 (규칙1 Kill 우선 적용) — 사람 확인 요청. 등급 확정 권한은 사람에게 있다. (전회 20260919_2209 run에서도 동일 근거로 최초 트리거됐으나 state/signals.json상 아직 사람 확정 미반영 — 재확인 요청 지속)</dd></div>
+    <div><dt>다음 게이트</dt><dd>관측 가능 정량 항목: (1) Q3 2026 10-Q 이자커버리지 실측치(Adj.EBITDA/Interest expense,net, 분기 연환산) 3x 초과 여부 — 현재 정태 추정 2.21x는 참고치이며 실측 대기, (2) 다음 FOMC(약 2026-11월경) 결정 후 FFR이 3.75 이하로 재하락하는지 여부(KC-1 met 해제 관측), (3) 영업현금흐름-CapEx 기준 FCF 흑자 전환 여부(Q3 10-Q). 3개 동시 충족 전까지 상향 게이트 미충족 지속.</dd></div>
+    <div><dt>조사 창</dt><dd><code>2026-09-18 → 2026-09-25</code> · 1차 사건일 2026-09-22 · staleness 3일</dd></div>
+  </div>
+  <div class='banner kill'><strong>Kill 우선 규칙 발동</strong> — KC-1. KC-1(FFR 인상)이 전회 run(20260919_2209)에 이어 본 run에서도 met AND confirmed 요건을 유지해 규칙1(Kill 우선)이 재트리거된다. 종목 KC 3건(KC-CRWV-1/2/3)은 전부 not_met이며, 이번 창의 회사 고유 재료(전환사채 결제 완료·옵션 전액 행사)는 funding_access 강화·leverage_coverage 중립으로 규칙3(하향) 자체도 미충족이나, 규칙1은 회사 펀더멘털과 무관하게 매크로 KC 충족 시 우선 적용된다(v1 §6-2). state/signals.json상 CRWV 등급은 아직 🟡로 남아 있어 전회 Kill 후보에 대한 사람 확정이 이뤄지지 않은 것으로 판단되며, 본 run은 동일 근거의 재확인 요청으로 종료한다. → 🔴🔴 Kill 후보 판정, 사람 확인 요청 + 근거 패키지 제출로 종료. 자동 실행 없음.</div>
+</header>
+<section><h3>등급 판정 근거 <small>arbiter 규칙 — 확정은 사람</small></h3>
+<div class="gates">
+  <div class="gate"><div class="gname">규칙1 · Kill 우선</div><div class="gval"><span class="chk kill">트리거</span></div><p>KC-1(FFR 인상)이 전회 run(20260919_2209)에 이어 본 run에서도 met AND confirmed 요건을 유지해 규칙1(Kill 우선)이 재트리거된다. 종목 KC 3건(KC-CRWV-1/2/3)은 전부 not_met이며, 이번 창의 회사 고유 재료(전환사채 결제 완료·옵션 전액 행사)는 funding_access 강화·leverage_coverage 중립으로 규칙3(하향) 자체도 미충족이나, 규칙1은 회사 펀더멘털과 무관하게 매크로 KC 충족 시 우선 적용된다(v1 §6-2). state/signals.json상 CRWV 등급은 아직 🟡로 남아 있어 전회 Kill 후보에 대한 사람 확정이 이뤄지지 않은 것으로 판단되며, 본 run은 동일 근거의 재확인 요청으로 종료한다. → 🔴🔴 Kill 후보 판정, 사람 확인 요청 + 근거 패키지 제출로 종료. 자동 실행 없음.</p></div>
+  <div class="gate"><div class="gname">규칙2 · 상향 게이트</div><div class="gval"><span class="chk no">미충족</span></div>
+    <ul class="conds"><li>정량 근거 <span class="chk ok">충족</span></li><li>회사 고유 <span class="chk ok">충족</span></li><li>매출 인식 단계 <span class="chk no">미충족</span></li></ul>
+    <p>이번 창 Claim 2건 모두 quantitative=true·company_specific=true이나 부채 결제·이자커버리지 재계산에 국한되며 stage=revenue_recognized에 해당하는 신규 매출·마진·가이던스 수치는 없다. 인도(결제) 완료·옵션 행사는 P7상 &#x27;이행&#x27; 단계이나 매출 인식과는 무관 — holding_reinforcement 분류만 적용, 상향 근거로 사용하지 않는다.</p></div>
+  <div class="gate"><div class="gname">규칙3 · 하향(비대칭)</div><div class="gval"><span class="chk ok">미해당</span></div>
+    <ul class="conds"><li>정량 훼손 없음</li><li>grade≤2 정성 훼손 없음</li></ul>
+    <p>funding_access축은 strengthen(옵션 전액 행사·결제 완료), leverage_coverage축은 neutral(정태 추정 -0.01x, 방향성 불변)로 델타 2건 모두 evidence_grade 1. capped call 실비 초과($566.2M&gt;$498.8M 예시치)는 조달 순현금 효과를 소폭 줄이는 요소이나 funding_access 델타 자체는 strengthen으로 분류돼 있어 정량 훼손 요건 미충족. 회사 고유 정량·정성 훼손 근거 없음 — 규칙3(하향) 자체는 미충족.</p></div>
+</div></section>
+<section><h3>Thesis 축 Delta <small>7축 · 강화 1 / 약화 0 / 중립 6</small></h3>
+
+<details class="axis">
+  <summary><span class="axid">funding_access</span><span class="dir d-strengthen">강화</span><span class="axlabel">조달 접근성 — 신규 차입 성사 여부·조달 스프레드·covenant 준수·미인출 한도</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>강(strong)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(20260919_2209): 2033년 전환사채가 2026-09-18 가격결정 단계에서 $3.0B→$3.7B로 상향(옵션 $500M 별도, 미행사)됐고 결제는 2026-09-22 예정으로 기재됐다. covenant 관련 신규 공시는 당시 없었다.</dd></div>
+    <div><dt>이번 회차</dt><dd>결제가 실제로 완료됐다(2026-09-22 Indenture 체결) — 계약 존재(가격결정)에서 이행 완료(결제)로 단계가 진전(P7). 추가매입 옵션 $500M이 전액 행사돼 총 발행규모가 $3.7B→$4.2B로 재상향됐고, 순수취금 $4,137.0M을 실제 수취했다. 자본시장 접근이 예상보다 더 강하게 성사됐다는 신호(전액 옵션 행사)다. 동시에 이번 8-K가 교차부도 covenant 문턱(&#x27;$200M 또는 LTM EBITDA의 5% 중 큰 금액&#x27;)을 처음으로 1차 공시해 조달 접근성 축의 covenant 하위 요소에 대한 정량 기준이 처음 확보됐다. 반대 방향 요소: capped call 실제 비용이 $566.2M으로 사전 예시치($498.8M)보다 커져 조달 순현금 유입 효과가 그만큼 줄었다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRWV-c_20260925_CRWV_1" class="cid">c_20260925_CRWV_1</a> · 리스크 이관 → leverage_coverage</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">leverage_coverage</span><span class="dir d-neutral">중립</span><span class="axlabel">레버리지·커버리지 — 총부채 잔액·이자비용·이자 커버리지·부채상환 대비 영업활동현금흐름</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>약(weak)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run: KC-CRWV-3 공식 산식(분자 Adj. EBITDA/분모 Interest expense, net·분기 연환산) 확정(사용자, 2026-09-20). 관측치 Q2&#x27;26 2.36x. $3.7B·2.875% 가정 시 TTM 정태 추정 약 2.22x.</dd></div>
+    <div><dt>이번 회차</dt><dd>확정 발행규모가 $4.2B로 늘어남에 따라 동일 방법으로 재계산한 TTM 정태 추정치는 약 2.21x로 사실상 불변이다(c_20260925_CRWV_2). 실제 관측치(Q3 2026 10-Q 대기)는 여전히 미확보이며, 총이자비용·자본화이자 분리 수치·covenant 준수 여부·미인출 한도 관련 신규 1차 자료도 이번 창에 없다. 방향성 판단을 바꿀 재료는 없어 neutral로 유지한다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRWV-c_20260925_CRWV_1" class="cid">c_20260925_CRWV_1</a> <a href="#CRWV-c_20260925_CRWV_2" class="cid">c_20260925_CRWV_2</a></dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">backlog_scale</span><span class="dir d-neutral">중립</span><span class="axlabel">백로그·스케일 (~$104B ⚠️갱신)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run: 백로그 $104.2B 1차 재확인, $25B+ 순신규 확약(out_of_window) 포착, 총 계약전력 4.2GW.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창(2026-09-18~09-25)에 백로그·계약전력 관련 신규 1차 공시나 보도자료 없음(coreweave.com 뉴스룸 직접 확인, EDGAR 재조회). 상태 유지.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd>—</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">margin_trend</span><span class="dir d-neutral">중립</span><span class="axlabel">Adj. EBITDA 마진 추세 — ⚠️기준 기간 명시 필요. YoY 기준: Q2 59%(전년 62%)·H1 57%(전년 62%)로 압축 / 시퀀셜 기준: Q1 약 56%→Q2 59%로 개선. 기준에 따라 방향이 반대이므로 축 판정 시 기준을 먼저 고</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run: 5분기 Adj. EBITDA 마진 시계열 확보(62/61/57/56/59%). 2026-09-20 사용자 확정 — 축 판정 기준은 시퀀셜(QoQ), Q1&#x27;26 56%→Q2&#x27;26 59%로 개선. YoY(62%→59%)는 참고치.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창에 마진 관련 신규 1차 자료 없음. 카드 확정 사항 재확인 목적의 note를 아래에 별도 기재.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd>—</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">gpu_priority</span><span class="dir d-neutral">중립</span><span class="axlabel">NVIDIA 지분·백스톱·GPU 공급 우선권</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run: 2026-09-16 멀티랙 Vera Rubin NVL72 클러스터 가동 공지, Caterpillar Vera Rubin 배치 공시.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창에 GPU 공급·배포 관련 신규 1차 자료 없음. 상태 유지.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd>—</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">customer_concentration</span><span class="dir d-neutral">중립</span><span class="axlabel">고객 집중 (OpenAI·Meta 등)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run: 금융서비스 고객 백로그 비중 약 10% 최초 정량 공시, Caterpillar·CrowdStrike SafeMind 실명 공시, Managed Inference booked ARR $1M→$100M+.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창에 고객 집중도·신규 계약 관련 신규 1차 자료 없음(웹검색으로 09-19~09-25 신규 고객 발표 조회했으나 미확인). 상태 유지. Caterpillar·CrowdStrike 계약금액·기간은 여전히 unconfirmed.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd>—</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">litigation</span><span class="dir d-neutral">중립</span><span class="axlabel">증권 집단소송</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run: Masaitis v. CoreWeave(D.N.J. 2:26-cv-00355) 2026-03-13 리드플레인티프 지정 마감 이후 공개 업데이트 미확인 지속.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창 웹검색으로도 디스커버리·화해·리드플레인티프 지정 관련 신규 공개 업데이트를 확보하지 못했다(검색 결과는 2026-02~03월 리드플레인티프 모집 공고 재유통뿐). 424B5·8-K 어디에도 소송 절차 진전 기술 없음. P5에 따라 정보 공백을 훼손·강화 판단에 사용하지 않는다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd>—</dd></div>
+  </div>
+</details></section>
+<section><h3>확정 사실·추론 <small>fact 1 · inference 1 · 등급 G1 1 / G2 0 / G3 0 / G4 0</small></h3>
+<p class="hint">G1 1차 공시 · G2 경영진 직접 발언 · G3 2차 매체 · G4 애그리게이터. G3·G4는 삼각검증용이며 단독 판단 근거가 될 수 없다(P4).</p>
+
+<article class="claim" id="CRWV-c_20260925_CRWV_1">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRWV_1</span></div>
+  <p>CoreWeave는 2026-09-22 8-K(Items 1.01/3.02/8.01/9.01, 서명일 2026-09-22, 이벤트일 표지 2026-09-17)를 제출해 2026-09-17 가격결정된 전환사채의 실제 결제(settlement)를 공시했다. 최초매입자가 추가매입 옵션 $500M을 전액 행사해 총 발행규모는 당초 상향분 $3.7B에서 $4.2B로 재상향(upsized)됐다. Indenture는 2026-09-22자로 CoreWeave·보증인단(기존 9.250%~8.500% 시니어노트 및 1.75% 전환사채 보증 자회사와 동일)·U.S. Bank Trust Company(수탁자) 간 체결됐다. 순수취금은 $4,137.0M(발행비용 차감 전 인수수수료만 차감)이며 이 중 일부를 capped call 비용에, 잔여는 general corporate purposes에 사용한다고 재확인했다. Capped Call Transactions은 Base(2026-09-17, Barclays·Credit Agricole·Citibank·Deutsche Bank·Bank of Nova Scotia·Goldman Sachs·HSBC·Wells Fargo 8개사)와 Additional(2026-09-18, 옵션 행사분 대응)로 나뉘며 총 비용은 약 $566.2M(발행 전 프레젠테이션상 예시치 $498.8M보다 확정 후 실제 비용이 더 큼 — 옵션 전액 행사분 반영), cap price는 최초 $199.70/주(2026-09-17 종가 대비 150% 프리미엄)로 최종 확정됐다. Indenture의 event of default 조항 중 교차부도(cross-default) 트리거가 처음으로 1차 공시됐다 — CoreWeave 또는 &#x27;significant subsidiaries&#x27;(그룹 합산 포함)의 차입채무 중 원금 &#x27;$200M 또는 LTM EBITDA의 5% 중 큰 금액&#x27; 이상에 대한 디폴트 발생 시(30일 유예 후) 교차부도 사유가 된다. 최대 전환 시 발행가능 주식수는 52,578,540주(최대 전환율 12.5187주/천달러 기준)로 상한이 명시됐다.</p>
+  <div class="csrc">출처 <a href="https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/crwv-20260917.htm" target="_blank" rel="noopener">sec_filing_8k</a> · 2026-09-22<div class='cnote'>noise_filter#CRWV promote_if &#x27;차환·리파이낸싱 성공/실패&#x27; 및 &#x27;covenant 관련 공시&#x27;에 해당 — 승격 처리. P7 3단 분리: 2026-09-17(계약 존재/가격결정) → 2026-09-18(옵션행사/추가 capped call) → 2026-09-22(Indenture 체결·결제 완료, 본 claim)로 단계가 완결됐다. 이 8-K에는 Item 2.03(직접 재무의무 발생)이 별도 표기되지 않았으나 Item 1.01 본문에 동일 내용(신규 채무 발생)이 기재돼 있다.</div></div>
+</article>
+<article class="claim" id="CRWV-c_20260925_CRWV_2">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-inf">inference · weak</span><span class="cid mono">c_20260925_CRWV_2</span></div>
+  <p>c_20260925_CRWV_1의 확정 발행규모($4.2B, 2.875%)를 이전 run의 5분기 Adj. EBITDA/순이자비용 시계열(output/20260919_2209#c_20260919_CRWV_5,6)에 정태적으로 대입하면, 연 추가이자는 약 $120.75M(=$4.2B×2.875%, 종전 $3.7B 가정 시 예시치 약 $106M보다 큼)이다. 이를 TTM 분모(Q3&#x27;25~Q2&#x27;26 $1,875M)에 단순 가산하면 $1,995.75M이 되고, TTM Adj. EBITDA $4,403M 기준 이자 커버리지는 약 2.21x로 산출된다(종전 run의 $3.7B 가정 정태치 약 2.22x 대비 -0.01x, 옵션 전액 행사 반영분 차이). 이는 조달금 운용 이자수익·DDTL 5.5 이자·Q3 Adj. EBITDA 성장분을 반영하지 않은 정태적 예시 계산이며, KC-CRWV-3 공식 산식(분기 연환산, 2026-09-20 사용자 확정)의 실제 관측치는 Q3 2026 10-Q 공시를 기다려야 한다.</p>
+  <div class="csrc">출처 <a href="https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/crwv-20260917.htm" target="_blank" rel="noopener">sec_filing_8k</a> · 2026-09-22<div class='cnote'>1차 공시 수치(확정 발행규모)와 직전 run 1차 수치(Adj. EBITDA/순이자비용 시계열)의 산술 결합 파생값이므로 inference 태깅(P1). 옵션 전액 행사로 종전 예시 대비 총부채가 더 늘었으나 커버리지 영향은 미미(-0.01x)함을 확인 — 방향 판단에 실질적 영향 없음.</div></div>
+</article></section>
+<section><h3>Kill Condition 상태</h3>
+<h4>종목 전용 KC</h4>
+<div class='tscroll'><table class='kct'><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>근거·결과</th></tr></thead><tbody><tr class="kc-ok"><td class="mono">KC-CRWV-1</td><td>대형 고객 계약 훼손 ($1B+ 전체)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">이번 창 Claim 2건은 전환사채 결제·이자커버리지 재계산에 국한되며 고객계약 해지·축소·재협상 사건 없음. P5 준수 — &#x27;사건 부재 확인&#x27;이지 반증은 아니므로 confidence는 provisional 유지.</td></tr><tr class="kc-ok"><td class="mono">KC-CRWV-2</td><td>용량·차세대 GPU 배포 지연 (경고/발동 2단)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">이번 창에 GPU 배포·용량 관련 신규 1차 자료 없음(자본조달 이벤트만 발생). 지연 시사 자료 없음 — P5에 따라 provisional.</td></tr><tr class="kc-ok"><td class="mono">KC-CRWV-3</td><td>이자 커버리지·차환 (경고 &lt;1.5x / 발동 &lt;1.0x)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">—</td><td class="small">2026-09-20 사용자 확정 산식(Adj.EBITDA/Interest expense,net, 분기 연환산) 유지. 확정 발행규모($4.2B) 반영 정태 재계산 결과 약 2.21x(c_20260925_CRWV_2)로 전회(2.22x) 대비 -0.01x, 경고(1.5x)·발동(1.0x) 양 임계 여전히 상회. 실제 관측치(총이자비용 분리 포함)는 Q3 2026 10-Q 대기(U4, 지표정의 최종 확정은 사람 영역).</td></tr></tbody></table></div>
+<h4>파급되는 매크로 KC <small>노출 벡터상 불리 방향 축에 연결된 것만</small></h4>
+<div class="tscroll"><table class="kct"><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>사전 정의 결과</th></tr></thead><tbody><tr class="kc-met"><td class="mono">KC-1</td><td>FFR 인상 리스크</td><td><span class="verdict kc-met">met</span> <small>confirmed</small></td><td class="mono small">FFR 4.0 &gt; 3.75</td><td class="small">레버리지 전액 해제 + Edge/Next 50% 축소 검토</td></tr><tr class="kc-ok"><td class="mono">KC-2</td><td>변동성 급등</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">VIX 15.670000076293945 &gt;= 30</td><td class="small">레버리지 해제 검토</td></tr><tr class="kc-ok"><td class="mono">KC-4</td><td>유동성 위기 신호</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">ON_RRP 630000000.0 &gt;= 200000000000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-5</td><td>TAIEX 음전환 (아시아 리스크 프록시)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">TAIEX_vs_20dma_pct 3.44 &lt; 0 · TAIEX_1m_return_pct 7.58 &lt; 0</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-6</td><td>AI 토큰 지출 급감</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">SDLLMTK_change_pct  &lt;= -30 (2주 지속)</td><td class="small">Base·Edge 전제 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-7</td><td>하이퍼스케일러 합산 FCF 악화</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">hyperscaler_fcf_sum 6835000000 &lt; 0 (2분기 연속)</td><td class="small">CapEx 감속 시나리오 검토</td></tr><tr class="kc-ok"><td class="mono">KC-8</td><td>Microsoft FCF 마이너스 (최후의 보루)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">msft_fcf 19640000000 &lt; 0</td><td class="small">AI CapEx 축 전면 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-9</td><td>에너지 쇼크</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">brent 114.89 &gt;= 120 (1개월 지속)</td><td class="small">에너지+인플레이션 시나리오 검토</td></tr></tbody></table></div>
+</section>
+<section><h3>알림 요약 <small>7필드 Alert</small></h3>
+<div class="kv">
+  <div><dt>이벤트</dt><dd>CRWV — 2026-09-22 8-K: 2026-09-17 가격결정 전환사채($3.7B, 2.875%) 결제 완료 + 추가매입옵션 $500M 전액 행사로 $4.2B 재상향(fact). 회사 고유 재료는 funding_access 강화·leverage_coverage 중립이나, 매크로 KC-1(FFR&gt;3.75)이 전회에 이어 본 run에서도 met AND confirmed 유지 — 규칙1(Kill 우선) 재트리거로 🔴🔴 Kill 후보 판정(사람 확인 요청)(fact/inference 결합 판정)</dd></div>
+  <div><dt>확정 사실</dt><dd><ul><li>2026-09-22 8-K: 전환사채 결제 완료(Indenture 체결), 옵션 $500M 전액 행사로 발행규모 $3.7B→$4.2B, 순수취금 $4,137.0M. 교차부도 covenant 문턱($200M 또는 LTM EBITDA 5% 중 큰 금액, 30일 유예) 최초 공시. Capped call 실비 $566.2M, cap price $199.70 확정. <span class='small'>— arbiter_CRWV.json c_20260925_CRWV_1 (SEC 8-K, grade 1) · 2026-09-22</span></li><li>FFR 목표범위 4.00%(임계 3.75 초과) — FRED api 대사 confirmed. 전회 run(20260919_2209)에서 최초 met/confirmed 충족된 KC-1이 본 run에도 동일 상태로 지속. <span class='small'>— output/20260925_1015/03_kc_excerpt/CRWV.json KC-1 (오케스트레이터 전달, FRED api) · 2026-09-24</span></li><li>brent 114.89(2026-09-22)로 KC-9 임계(120) 미달 전환 — 전회(130.8, provisional met) 대비 하락, 규칙1 트리거 요건 해당 없음. <span class='small'>— output/20260925_1015/03_kc_excerpt/CRWV.json KC-9 · 2026-09-22</span></li></ul></dd></div>
+  <div><dt>추론</dt><dd><ul><li>확정 발행규모($4.2B) 반영 정태 이자커버리지 재계산 약 2.21x — 전회 가정치(2.22x) 대비 -0.01x로 방향 판단에 실질적 영향 없음. 회사가 직접 공시한 지표가 아니라 1차 공시 구성요소의 산술 결합 파생값. <span class='small'>— weak (c_20260925_CRWV_2)</span></li></ul></dd></div>
+  <div><dt>분류</dt><dd>kill_candidate (규칙1 Kill 우선 적용, 재확인) — 사람 확인 요청. 참고: 회사 고유 재료(funding_access strengthen·leverage_coverage neutral)는 그 자체로 holding_reinforcement 성격이나, 매크로 Kill 우선 규칙 앞에서는 등급 유지·상향 근거로 작동하지 않으며 최종 판정을 뒤집지 않는다.</dd></div>
+  <div><dt>Thesis 변화</dt><dd>funding_access(강, strengthen)→leverage_coverage(약, neutral)로 리스크 이관 구도 유지. next_gate의 &#x27;금리 경로 확정&#x27; 항목은 KC-1이 (불리한 방향으로) 지속 충족 중이라는 이유로 상향에 유리하게 계상하지 않는다(P6/P13) — 오히려 규칙1 Kill 트리거의 근거로만 사용.</dd></div>
+  <div><dt>신호 판정</dt><dd>🔴🔴 Kill 후보 (규칙1 우선 적용, 사람 확인 요청 재발) — 등급 확정은 사람이 한다. 근거: KC-1(FFR&gt;3.75) met AND confirmed가 전회 run 이후 지속. 종목 KC 3건 전부 not_met, 회사 2축(funding_access strengthen·leverage_coverage neutral)이므로 규칙3(하향) 자체는 미충족이나, 규칙1이 규칙3보다 우선 적용된다(v1 §6-2). 규칙2(상향)도 stage=revenue_recognized 미충족으로 별도 불가. state/signals.json상 등급이 아직 🟡로 남아 있어 전회 요청에 대한 사람 확정이 미반영된 것으로 보이며, 조속한 확인을 요청한다.</dd></div>
+  <div><dt>다음 확인</dt><dd><ul><li><span class="tag t-lbl">사람 확인 필요</span> KC-1 Kill 후보에 대한 최종 등급·포지션 조치 확정 — 전회 run(20260919_2209)부터 대기 중, 시스템은 후보 판정과 근거 패키지 제출까지만 수행</li><li>이자 커버리지 실측: Q3 2026 10-Q에서 총이자비용·자본화이자·이자수익 분리 수치 및 결제 반영 후 총부채·가중평균이자율 확정(U4)</li><li>ATM 실사용 개시 여부(30일 lock-up 경과 후) 및 실제 매각 수량</li><li>FY26 매출($12.4-13.2B)·CapEx($35-39B) 가이던스 1차 자료 재대조 (이번 창도 미포함)</li><li>Masaitis 증권집단소송 디스커버리·화해 진행상황 공개 여부</li></ul></dd></div>
+</div></section>
+<section><h3>미확인·이월 <small>6건 — 찾지 못함 ≠ 반증(P5)</small></h3>
+<ul class="unc"><li><strong>이자 커버리지 잔여 정의 공백 — 총이자비용·자본화이자·이자수익 분리 수치</strong><span class='reason mono'>awaiting_q3_10q</span><p>[u_20260905_001/u_20260815_004에서 이관, 2026-09-19 run에서 부분 해소] 분자(Adj. EBITDA)·분모(Interest expense, net) 기준 산식은 확정(2026-09-20 사용자 결정)됐고 관측치는 Q2&#x27;26 2.36x다. 이번 창의 신규 조달($4.2B 확정)을 반영해도 정태 추정치는 약 2.21x로 사실상 불변(c_20260925_CRWV_2). 잔여 공백은 총이자비용·자본화이자·이자수익 분리 수치이며 Q3 2026 10-Q 대기.</p></li><li><strong>CoreWeave Q2 2026 CapEx 현금흐름표 브리지(회사 정의 $9,352M vs GAAP PP&amp;E 매입액 $6,422M)</strong><span class='reason mono'>not_disclosed_awaiting_q3_10q</span><p>[u_20260905_002/u_20260815_002에서 이관] 정의적 원인은 확정(2026-09-19 run)됐으나 현금흐름표 항목별 브리지(금융리스 취득액·미지급 CapEx 변동)는 이번 창에도 미공시.</p></li><li><strong>FY26 매출 가이던스($12.4-13.2B)·CapEx 가이던스($35-39B)의 1차 자료 재대조</strong><span class='reason mono'>not_included_in_window_documents</span><p>카드 key_metrics 두 항목은 여전히 ⚠️갱신 표시 상태. 이번 창 문서(2026-09-22 8-K)에도 가이던스 수치는 포함되지 않았다 — 재대조 미완 지속.</p></li><li><strong>신규 전환사채 확정 결제 후 총부채·미인출 한도·covenant 준수 상태</strong><span class='reason mono'>no_disclosure_awaiting_q3_10q</span><p>[이관] 2026-09-22 8-K로 발행규모($4.2B)·순수취금($4,137.0M)·capped call 실비($566.2M)·교차부도 covenant 문턱은 확정됐으나, 결제 반영 후 총부채 총액·가중평균 이자율·DDTL 5.5 포함 통합 수치는 공시되지 않았다. ATM 실제 매각 수량도 여전히 0건(30일 lock-up 경과 후 개시 예정). Q3 10-Q 대기.</p></li><li><strong>Masaitis v. CoreWeave 증권집단소송 디스커버리·화해 진행상황</strong><span class='reason mono'>carried_over_from_prior_run</span><p>[u_20260919/u_20260911/u_20260905_003/u_20260815_003에서 이관] 2026-03-13 리드플레인티프 지정 마감 이후 공개 업데이트를 이번 창에서도 확보하지 못했다. CourtListener 도켓(2:26-cv-00355) 직접 조회는 본 run의 검색 예산 내에서 수행하지 않았다.</p></li><li><strong>창 내 신규 고객 계약(Caterpillar·CrowdStrike SafeMind)의 계약금액·기간·매출 인식 시점</strong><span class='reason mono'>contract_terms_not_disclosed</span><p>[이관] 2026-09-17 프레젠테이션이 실명 공시했으나 TCV·계약기간·인식 개시 시점은 여전히 미공시. 이번 창에 별도 8-K·보도자료 확인되지 않음.</p></li></ul></section>
+<section><h3>이번 회차 Thesis 카드 패치 <small>4건</small></h3>
+<ul class="patches"><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">key_metrics[6] (&#x27;이자 커버리지&#x27; 항목) 말미 — 2026-09-20 산식 확정 주석 뒤</span><span class="mono small">annotate</span></div><p><span class="tag t-fact">fact</span> 카드 내 &#x27;$3.7B&#x27;는 key_metrics &#x27;이자 커버리지&#x27; 항목의 2026-09-19 병기 주석 (4)에 1회만 등장하며, 이는 당시(가격결정 단계) 시점 기록이다. <span class="tag t-fact">fact</span> 2026-09-22 8-K로 옵션 $500M 전액 행사·결제 완료, 확정 규모 $4.2B·순수취금 $4,137.0M·capped call 실비 약 $566.2M(c_20260925_CRWV_1, grade 1). <span class="tag t-inf">inference · weak</span> 확정 규모 반영 TTM 정태 커버리지 약 2.21x(c_20260925_CRWV_2). <span class="tag t-fact">fact</span> 기록 시점 주석을 덮어쓰면 P9(오류 이력 삭제 금지·시점 기록 보존) 위반이므로 amend가 아닌 annotate로 말미에 확정치를 병기한다. <span class="tag t-fact">fact</span> 카드의 다른 조달 금액 서술(catalysts &#x27;차환·리파이낸싱 성공/실패&#x27;, axes<span class="tag t-lbl">funding_access</span> 라벨)에는 금액이 없어 정정 대상 없음.</p></li><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">key_metrics[4] (&#x27;Adj. EBITDA 마진 ...&#x27; 항목)</span><span class="mono small">amend</span></div><p><span class="tag t-fact">fact</span> 2026-09-20 사용자가 margin_trend 축 판정 기준을 시퀀셜(QoQ)로 확정했다(ap_20260920_0804_thesis_patch_crwv_margin_basis_adopted, approved; 카드 axes<span class="tag t-lbl">margin_trend</span> &#x27;✅ 2026-09-20 기준 확정&#x27; 주석). <span class="tag t-fact">fact</span> 같은 주석이 &#x27;key_metrics 마진 59%로 하락 추세 문구는 YoY 전제이므로 정정 후보 상정&#x27;을 후속 과제로 명기했다. <span class="tag t-fact">fact</span> 5분기 Adj. EBITDA 마진 실측 Q2&#x27;25 62%→Q3&#x27;25 61%→Q4&#x27;25 57%→Q1&#x27;26 56%→Q2&#x27;26 59%(c_20260919_CRWV_5, grade 1). <span class="tag t-inf">inference · strong</span> 확정 기준(QoQ)으로 읽으면 현 항목의 &#x27;하락 추세&#x27;는 Q1&#x27;26→Q2&#x27;26 +3%p 개선과 부호가 반대이므로, 수치는 유지하고 방향 서술만 확정 기준으로 정합한다. <span class="tag t-fact">fact</span> 이전 원문은 주석 행으로 보존(P9). <span class="tag t-fact">fact</span> 이번 창 신규 마진 Claim 0건 — 근거는 직전 회차 Claim과 승인된 사람 결정이다. <span class="tag t-fact">fact</span> &#x27;⚠️갱신&#x27; 표지 제거 여부</p></li><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">risks[0] (&#x27;부채 리스크 #1&#x27; 항목) — kill_conditions_ref는 KC ID 문자열 목록(로드 키)이라 주석 삽입 시 KC 참조 파싱을 훼손할 수 있어 대상에서 제외</span><span class="mono small">annotate</span></div><p><span class="tag t-fact">fact</span> 2026-09-22 8-K(Items 1.01/3.02/8.01/9.01)가 $4.2B 2.875% 2033 전환사채 Indenture의 교차부도 트리거(&#x27;$200M 또는 LTM EBITDA 5% 중 큰 금액&#x27;, 30일 유예)를 최초 1차 공시했다(c_20260925_CRWV_1, grade 1, confirmed). <span class="tag t-fact">fact</span> L2는 이를 noise_filter#CRWV promote_if &#x27;covenant 관련 공시&#x27;로 승격했고, KC-CRWV-3 refinancing_failure_or_covenant_breach 서브 조건의 최초 정량 기준으로 기록했다(02_company/CRWV.json notes). <span class="tag t-fact">fact</span> 카드에 covenant 문턱 서술은 없었다(전문 계수: &#x27;교차부도&#x27; 0회, &#x27;covenant&#x27;는 axes<span class="tag t-lbl">funding_access</span> 라벨 1회). <span class="tag t-inf">inference · weak</span> 문턱 추정 약 $220M은 TTM Adj. EBITDA(c_20260919_CRWV_6)의 산술 파생이며 Indenture EBITDA 정의 미확인. <span class="tag t-fact">fact</span> 배치 판단: kill_conditions_ref는 KC ID 로드 목록이라 주석을 넣지 않고, 부채·조달 위험 항목인 risks<span class="tag t-lbl">0</span>에 병기했다. KC 정의 문언 변경은 conf</p></li><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">risks[1] (&#x27;마진 하락 추세(59%)...&#x27; 항목)</span><span class="mono small">amend</span></div><p><span class="tag t-fact">fact</span> tpc_01과 동일 근거 — 2026-09-20 사용자 확정 기준 = QoQ, 카드 axes<span class="tag t-lbl">margin_trend</span> 확정 주석이 risks &#x27;마진 하락 추세(59%)&#x27; 문구를 정정 후보로 명기. <span class="tag t-fact">fact</span> Q1&#x27;26 56%→Q2&#x27;26 59%(c_20260919_CRWV_5, grade 1). <span class="tag t-fact">fact</span> 순이자비용 5분기 $267M→$640M(c_20260919_CRWV_5 조정표, 카드 key_metrics 2026-09-20 확정 주석에 기재). <span class="tag t-fact">fact</span> 회사 예시곡선: 다수 배치 동시 램프 시 aggregate contribution margin 단기 25%→5% 압축 후 mid 20%s 안정화 — 예시치이며 실적 아님(c_20260919_CRWV_11, grade 1). <span class="tag t-inf">inference · moderate</span> 확정 기준상 현재 마진은 개선 국면이므로 &#x27;하락 추세&#x27;라는 현재형 서술은 부정확하나, 램프 구간 마진 재압축과 이자부담 증가가 겹칠 위험은 여전히 유효하다 — 리스크를 삭제하지 않고 조건부로 재서술한다. <span class="tag t-fact">fact</span> 이전 원문은 주석 행으로 보존(P9).</p></li></ul></section>
+<section><details class="plain"><summary><h3>폐기한 노이즈 <small>2건 — P3 기준</small></h3></summary>
+<ul class="noise"><li><strong>Michael Intrator(CEO) Form 4 — 2026-09-22 주식매도 $26,713,370(가격 $84.83~$89.17)</strong><p>noise_filter#CRWV &#x27;CEO 인사이더 매도 반복 보도 (사실은 기록, 반복은 노이즈)&#x27; 적용 — 10b5-1 등 반복적 처분으로 판단되며 매출·마진·현금흐름·고객·수주·양산일정 중 어느 것도 변화시키지 않음(P3). 개별 Claim화하지 않고 존재만 기록.</p></li><li><strong>&#x27;CoreWeave stock could nearly double&#x27; 류 목표가·낙관 전망 기사(pluang.com 등)</strong><p>정성적 전망·목표가 서술이며 1차 자료 아님(P4 ③④ 단독 판단 근거 불가). 정량 재료 없음 — discard.</p></li></ul></details></section><section class="concl"><h3>카드 결론 <small>state/thesis_cards/CRWV.yaml · as_of 2026-08-15</small></h3><p>스케일과 GPU 공급 우선권은 3사 중 최상위이나 재무 리스크도 최상위. 진입 검토 조건은 FCF 흑자 전환 + 이자 커버리지 3x 이상 + 금리 경로 확정의 동시 충족.</p></section></div><div class="ticker" id="tk-MU" hidden>
+<header class="thead">
+  <div class="trow">
+    <div><span class="eyebrow">memory</span><h2>MU</h2></div>
+    <div class="transition"><span class="sig s-orange">🟠</span><span class="arrow">→</span><span class="sig s-kill">🔴🔴</span><span class="cand">후보</span></div>
+  </div>
+  <p class="thesis">HBM 수요가 AI CapEx에 직접 연동되는 구간에서, SCA(장기공급계약)·take-or-pay·최소가격 보장 구조를 통해 CXMT/YMTC發 commodity DRAM 침식을 구조적으로 방어하고 매출 가시성을 확보한다.</p>
+  <div class="kv">
+    <div><dt>판정 성격</dt><dd>kill_priority_candidate — 규칙1(Kill 우선) 적용, 직전 회차(20260919)와 동일 트리거(KC-1)가 이번 회차에도 met+confirmed로 유지된다. 다만 이번 회차는 직전과 달리 회사 펀더멘털 경로 자체도 maintain이 아니라 규칙3(비대칭 하향) 독립 충족 후보로 전환됐다 — 세부는 gate_check 참조.</dd></div>
+    <div><dt>다음 게이트</dt><dd>① KC-1 재확인(차기 FOMC·FFR 공식 발표치) — 최우선, 사람 확인 대상. ② ITC 337-TA-1523 ALJ 배정·목표완결일 공식 공표(관측 가능한 날짜/절차 항목). ③ 2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해·선수금 방향(회사 공식 확정일, 2026-08-26 보도자료 grade1) — 회사 고유 6축 게이트의 1차 관측점. ④ CDCA 8:26-cv-02167 확정 답변시한. ⑤ D.Del 1:26-cv-01014 2026-10-01 답변. 전항목 관측 가능한 정량/일자 확정 항목.</dd></div>
+    <div><dt>조사 창</dt><dd><code>2026-09-18 → 2026-09-25</code> · 1차 사건일 2026-09-24 · staleness 0일</dd></div>
+  </div>
+  <div class='banner kill'><strong>Kill 우선 규칙 발동</strong> — KC-1 단독 (KC-9는 이번 회차 not_met로 소멸). </div>
+</header>
+<section><h3>등급 판정 근거 <small>arbiter 규칙 — 확정은 사람</small></h3>
+<div class="gates">
+  <div class="gate"><div class="gname">규칙1 · Kill 우선</div><div class="gval"><span class="chk kill">트리거</span></div><p></p></div>
+  <div class="gate"><div class="gname">규칙2 · 상향 게이트</div><div class="gval"><span class="chk no">미충족</span></div>
+    <ul class="conds"><li>정량 근거 <span class="chk no">미충족</span></li><li>회사 고유 <span class="chk no">미충족</span></li><li>매출 인식 단계 <span class="chk no">미충족</span></li></ul>
+    <p></p></div>
+  <div class="gate"><div class="gname">규칙3 · 하향(비대칭)</div><div class="gval"><span class="chk ok">미해당</span></div>
+    <ul class="conds"><li>정량 훼손 없음</li><li>grade≤2 정성 훼손 없음</li></ul>
+    <p></p></div>
+</div></section>
+<section><h3>Thesis 축 Delta <small>7축 · 강화 0 / 약화 1 / 중립 6</small></h3>
+
+<details class="axis">
+  <summary><span class="axid">ip_litigation_risk</span><span class="dir d-weaken">약화</span><span class="axlabel">특허소송 리스크 — Netlist가 2026-08-12 ITC에 Micron 포함 4개사를 상대로 특허 4건(US 10,025,731 / 10,217,523 / 12,373,366 / 12,675,407, DDR5 RDIMM·MRDIMM) 침해 제소하</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>L2_draft</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): ITC 제소는 DN 3930으로 특정됐으나 2026-09-19 시점 관보 게재분 기준 조사개시(institution) 공고는 게재되지 않음(c_20260919_MU_7). CDCA 8:26-cv-02167 답변시한 연장 후 새 시한 미특정(c_8, grade4). Micron의 D.Del 1:26-cv-01014 확인의 소 최초 포착(c_9, grade4). CAFC 2025-1936 구두변론(09-09) 미선고.</dd></div>
+    <div><dt>이번 회차</dt><dd>본 회차에 핵심 관측점이던 &#x27;ITC institution 여부&#x27;가 해소됐다 — USITC가 2026-09-24 Investigation No. 337-TA-1523의 조사개시를 표결했고(c_3, grade1, 5중 교차검증), 대상 특허 4건·피조사자 4개사·배제명령 청구가 확정 서술됐다. 이는 리스크 경감이 아니라 절차가 실체 심리 단계로 정식 진입한 것이므로 방향을 weaken(risk 축 악화)으로 표기한다. 동시에 CDCA(c_4)·D.Del(c_5) 두 건은 여전히 grade4 단독 소스이며, D.Del 사건의 대상 특허가 3건(9,128,632 신규 편입)으로 갱신됐고 답변시한이 10/1로 재연장됐다. CDCA 사건은 대상 특허 2건이 ITC 대상 4건의 부분집합임이 처음 확인돼(c_4) 3개 절차(ITC·CDCA·D.Del)가 서로 무관한 별건이 아니라 동일 특허군을 둘러싼 다중 전선임이 드러났다. CAFC 2025-1936은 선고 대기 상태로 변화 없음(c_6).</dd></div>
+    <div><dt>주의</dt><dd>법률 절차의 진행이지 매출·마진·현금흐름·가이던스 수치가 아니므로 시그널 등급 상향/하향 근거로 쓸 수 없다(P2) — 본 delta는 thesis 축 서술 갱신에 한정된다. weaken 방향은 조사개시라는 절차적 사실에 근거하며, ITC의 최종 위반 판정·배제명령 여부는 아직 수년 소요될 수 있는 별개 사건이다(P5, 조사개시 ≠ 위반 확정). ip_litigation_risk 축 서술 원문의 CDCA 제소일 표기 불일치(2026-08-12 vs 도켓 2026-08-10)와 D.Del 소송 누락은 여전히 근거 grade4라 정정(ThesisPatch) 근거로 쓰지 못하며 다음 회차로 이월한다.</dd></div>
+    <div><dt>근거 Claim</dt><dd><a href="#MU-c_20260925_MU_3" class="cid">c_20260925_MU_3</a> <a href="#MU-c_20260925_MU_4" class="cid">c_20260925_MU_4</a> <a href="#MU-c_20260925_MU_5" class="cid">c_20260925_MU_5</a> <a href="#MU-c_20260925_MU_6" class="cid">c_20260925_MU_6</a> · 리스크 이관 → ITC 337-TA-1523 ALJ 배정·심리 일정·증거개시 진행, CDCA 8:26-cv-02167 확정 답변시한 및 답변 내용(grade4, 확인 대상), D.Del 1:26-cv-01014 2026-10-01 답변 및 §1659 정지 신청 여부, CAFC 2025-1936 선고</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">production_continuity</span><span class="dir d-neutral">중립</span><span class="axlabel">생산 가동 연속성 — 수요와 무관하게 공급 실행이 끊길 수 있는 차원(대만 Taoyuan·Taichung 노사 조정 절차 등). 분해 사유: 대만 노사 리스크가 hbm_demand 축 아래 기록돼 왔으나 그 축의 방향(수요 강·약)과 리스크의 성격(가</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>monitor</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): 대만 노사분쟁은 조정 절차 안에 머물러 있고 파업 미선언. 신규 확정 사실은 09-04 결렬·2차 조정 09-21 지정·회사 코멘트뿐(grade3, confirmed false). 방향 미부여(no_change).</dd></div>
+    <div><dt>이번 회차</dt><dd>카드가 지목한 관측점(2026-09-21 2차 조정 결과)이 이번 회차에 확정됐다 — 조정은 합의 없이 종료됐고 노조는 파업투표 절차 개시를 발표했다(c_7, grade3). 그러나 여전히 유일 소스가 grade3(Reuters 재유통)·confirmed:false이고 회사 1차 자료(뉴스룸 c_2, EDGAR c_1)에는 미등재이므로, 카드의 명시적 제약(&#x27;이 축의 존재 근거는 축 구조 문제에 한정되며 방향 판정 부여하지 않음, P4&#x27;)을 그대로 적용해 direction은 neutral로 유지한다. 3차 조정(Taichung, 10/22)이 확정돼 다음 관측점이 됐다.</dd></div>
+    <div><dt>주의</dt><dd>P4 — grade3 단독 소스이므로 강화·훼손 방향 판정 자체를 부여하지 않는다. 03_signal 규칙3 하향 자격(grade≤2) 미달 상태도 불변.</dd></div>
+    <div><dt>근거 Claim</dt><dd><a href="#MU-c_20260925_MU_1" class="cid">c_20260925_MU_1</a> <a href="#MU-c_20260925_MU_2" class="cid">c_20260925_MU_2</a> <a href="#MU-c_20260925_MU_7" class="cid">c_20260925_MU_7</a> · 리스크 이관 → 파업투표 실제 실시 여부 및 결과, 2026-10-22 Taichung 노조 3차 조정, 2026-09-30 FY26 Q4 실적 콜 경영진 코멘트, 회사 8-K·IR 등재 여부</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">hbm_demand_strength</span><span class="dir d-neutral">중립</span><span class="axlabel">HBM 수요 강·약 — HBM 매출 비중·마진 (AI CapEx 연동). 분해 전 hbm_demand 축의 원래 방향 차원을 그대로 승계한다. 방향 판정은 확정된 매출·마진·현금흐름·가이던스 수치로만 한다(P2). 2026-09-19 시점 창 내 신규</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>monitor</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run: 창 내 HBM 비중·마진·고객·HBM4 일정 1차 자료 없음. 관측점 2026-09-30 실적으로 이월.</dd></div>
+    <div><dt>이번 회차</dt><dd>본 회차 창 내에도 HBM 비중·마진에 관한 신규 1차 자료가 없다(c_1·c_2). no_change 이월.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#MU-c_20260925_MU_1" class="cid">c_20260925_MU_1</a> <a href="#MU-c_20260925_MU_2" class="cid">c_20260925_MU_2</a> · 리스크 이관 → 2026-09-30 FY26 Q4 실적 — HBM 비중·마진</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">sca_defense</span><span class="dir d-neutral">중립</span><span class="axlabel">SCA·LTA·선수금 방어구조 (CXMT/YMTC 침식 방어)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>monitor</dd></div>
+    <div><dt>직전 상태</dt><dd>SCA 16건, DRAM 20%+/NAND 1/3 커버리지. FY26 Q3 이후 갱신 없음.</dd></div>
+    <div><dt>이번 회차</dt><dd>창 내 SEC 공시 0건·회사 보도자료 0건 모두 SCA 신규 체결·조건 변경 기재 없음(c_1, c_2). noise_filter promote_if 최우선 항목 표적 점검 결과다. no_change 이월.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#MU-c_20260925_MU_1" class="cid">c_20260925_MU_1</a> <a href="#MU-c_20260925_MU_2" class="cid">c_20260925_MU_2</a> · 리스크 이관 → 2026-09-30 FY26 Q4 실적 — SCA 가이던스·LTA 비중·선수금/계약부채 잔액</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">cycle_position</span><span class="dir d-neutral">중립</span><span class="axlabel">사이클 위치 — 비트그로스 vs ASP 분해 (&#x27;순수 P 사이클&#x27; 가설)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>monitor</dd></div>
+    <div><dt>직전 상태</dt><dd>비트그로스 vs ASP 분해 미확정. 최신 기준선 FY26 Q3 10-Q.</dd></div>
+    <div><dt>이번 회차</dt><dd>창 내 1차 자료에 비트그로스·ASP 분해 수치 없음. 기준선 불변(c_1, c_2).</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#MU-c_20260925_MU_1" class="cid">c_20260925_MU_1</a> <a href="#MU-c_20260925_MU_2" class="cid">c_20260925_MU_2</a> · 리스크 이관 → 2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">china_supply</span><span class="dir d-neutral">중립</span><span class="axlabel">CXMT·YMTC 공급 확대</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>monitor</dd></div>
+    <div><dt>직전 상태</dt><dd>8/21 상원 서한 이후 Apple向 CXMT/YMTC 소싱 허용 검토설, 09-24 미중 정상회담 연계 불확실성.</dd></div>
+    <div><dt>이번 회차</dt><dd>09-24~25 트럼프-시진핑 정상회담이 실제로 열려 무역휴전 연장에 합의했다고 보도됐으나(scope=sector, 매크로/양자 사안) MU 개별 축인 CXMT/YMTC 소싱 승인 여부에 대한 확정 발표는 창 내에서 확인되지 않았다(c_8). no_change 이월.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#MU-c_20260925_MU_8" class="cid">c_20260925_MU_8</a> · 리스크 이관 → Apple/백악관 공식 발표, 2026-09-30 실적 콜 경영진 코멘트</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">valuation_paradox</span><span class="dir d-neutral">중립</span><span class="axlabel">P/E 피크 역설 (저 P/E ≠ 밸류)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>monitor</dd></div>
+    <div><dt>직전 상태</dt><dd>NTM Forward P/E ~5.95-6.9x는 피크 역설 구간. 판정 축은 P/E가 아니라 비트/ASP 분해와 선수금 방향.</dd></div>
+    <div><dt>이번 회차</dt><dd>판정 입력(비트/ASP 분해, 선수금 방향) 모두 창 내 갱신 없음. 저 P/E·매수 타이밍 서술은 noise_filter.yaml#MU &#x27;P/E 단독 저평가 서술&#x27;에 해당해 전량 폐기했다(c_9). no_change 이월.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#MU-c_20260925_MU_9" class="cid">c_20260925_MU_9</a> · 리스크 이관 → 2026-09-30 FY26 Q4 실적 — 선수금·계약부채 잔액 방향, 비트/ASP 분해</dd></div>
+  </div>
+</details></section>
+<section><h3>확정 사실·추론 <small>fact 8 · inference 1 · 등급 G1 4 / G2 0 / G3 2 / G4 2</small></h3>
+<p class="hint">G1 1차 공시 · G2 경영진 직접 발언 · G3 2차 매체 · G4 애그리게이터. G3·G4는 삼각검증용이며 단독 판단 근거가 될 수 없다(P4).</p>
+
+<article class="claim" id="MU-c_20260925_MU_1">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_MU_1</span></div>
+  <p>SEC EDGAR submissions API(CIK 0000723125)를 2026-09-25에 직접 파싱한 결과, filingDate 기준 2026-08-28(Form 4) 이후 창(2026-08-28~2026-09-25) 내 신규 SEC 공시는 Form 4(내부자 보고, 08-28) 1건과 Form 144(08-21, 08-18)뿐이며 8-K·10-Q·10-K 신규 등재는 0건이다. edgar_fulltext.py --ticker MU --forms 8-K 10-Q 10-K --since 2026-08-28 결과도 0건으로 일치했다. 카드가 언급한 &#x27;pre-earnings 8-K&#x27; 유형의 신규 공시는 확인되지 않았다.</p>
+  <div class="csrc">출처 <a href="https://data.sec.gov/submissions/CIK0000723125.json" target="_blank" rel="noopener">edgar_api</a> · 2026-09-25<div class='cnote'>P5 — 공시 부재는 소송·노사분쟁·계약 변동의 부존재 근거로 사용하지 않는다. 연속 4개 회차(0911·0919·0925) 신규 실질 공시 0건.</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_2">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_MU_2</span></div>
+  <p>Micron 뉴스룸(micron.com/about/press/news)을 직접 조회한 결과, 2026-09-15 이후(직전 회차 적재분 2건 이후) 신규 발행된 회사 보도자료는 2026-09-25 시점까지 0건이다. SCA 신규 체결, 대만 노사분쟁, CXMT/YMTC 대응에 관한 회사 1차 발표도 창 내에 없다.</p>
+  <div class="csrc">출처 <a href="https://www.micron.com/about/press/news" target="_blank" rel="noopener">company_ir_newsroom</a> · 2026-09-25<div class='cnote'>noise-triage 표적 점검: SCA·LTA·China supply·대만 노사 4개 promote_if 항목 모두 회사 1차 채널에서 창 내 갱신 없음을 직접 확인했다(예산 사유 아님).</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_3">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_MU_3</span></div>
+  <p>미국 국제무역위원회(USITC)가 2026-09-24 Netlist, Inc.의 제소(2026-08-11 접수, 2026-08-25 보충서)에 기반해 Investigation No. 337-TA-1523(Certain DRAM Devices, Products Containing the Same, and Components Thereof (III))의 조사개시(institution)를 표결했다. 대상 특허는 US 10,025,731 / 10,217,523 / 12,373,366 / 12,675,407(DDR5 RDIMM·MRDIMM 관련) 4건이며, 피조사자는 Micron Technology, Inc., Supermicro, HPE, Lenovo 4개사다. Netlist는 배제명령(exclusion order)·중지명령(cease-and-desist order)을 청구했다. Netlist CEO C.K. Hong은 보도자료에서 &#x27;We are pleased with the ITC&#x27;s decision to institute this investigation. The Samsung agreement established an important industry benchmark for the value of our IP&#x27;라고 직접 언급했다.</p>
+  <div class="csrc">출처 <a href="https://www.prnewswire.com/news-releases/us-international-trade-commission-votes-to-institute-investigation-into-micron-technology-inc-302888468.html" target="_blank" rel="noopener">company_press_release</a> · 2026-09-24<div class='cnote'>발행 주체는 Netlist(상대방이자 이해관계자)이나 도메인은 sources.yaml grade_1(prnewswire.com)이고, 정부기관 조치(투자·번호·대상특허·피조사자)는 investing.com/tradingkey.com/futunn.com/lelezard.com/biggo.com 등 5개 이상 독립 매체가 동일 투자번호·동일 특허·동일 피조사자로 교차 일치해 삼각검증됐다(D15). usitc.gov 원 공지 페이지는 접근 시 403으로 직접 확인 실패 — 공식 문서 확보는 실패했으나 발행처 자기공시+5중 교차검증으로 grade1 유지. usitc.gov·federalregister.gov 도메인이 sources.yaml에 미등재된 점은 사용자에게 추가를 제안한다(에이전트는 config를 직접 수정하지 않음). ⚠️이는 리스크 해소가 아니라 &#x27;조사 절차의 정식 개시&#x27;로, 배제명령·중지명령 청구가 실체 심리 단계로 진입함을 뜻한다 — 판정(강화/훼손) 방향은 delta에서 별도 표기.</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_4">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_MU_4</span></div>
+  <p>Netlist가 CDCA(중부 캘리포니아지구)에 제기한 사건(도켓번호 8:26-cv-02167로 보도됨, 2026-08-10 제소·08-20 송달 완료로 보도)에서 다투는 특허는 US 10,217,523 및 US 12,675,407 2건이며, 이는 ITC Investigation 337-TA-1523의 대상 특허 4건 중 2건과 겹친다는 점이 이번 회차에 확인됐다. 도켓번호 자체는 여전히 PACER/CourtListener 원문으로 직접 확인되지 않고 애그리게이터(2차) 보도로만 조회된다.</p>
+  <div class="csrc">출처 <a href="https://www.tipranks.com/news/the-fly/netlist-files-new-legal-action-against-samsung-micron-thefly" target="_blank" rel="noopener">aggregator_news</a> · 2026-09-25<div class='cnote'>P4 — grade4 단독 소스로 사실 확정 불가, 확인 대상으로만 적재. 다만 &#x27;특허 2건이 ITC 대상 4건의 부분집합&#x27;이라는 구조적 사실은 직전 회차 unconfirmed 항목(카드 기재 08-12 vs 도켓 08-10 불일치 등)에 새 맥락을 더한다 — CDCA·ITC가 완전히 별개 특허가 아니라 중첩 청구라는 것.</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_5">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_MU_5</span></div>
+  <p>Micron Technology, Inc. et al v. Netlist, Inc.(D. Del., 1:26-cv-01014, Micron이 원고인 비침해 확인의 소, 2026-08-10 제소, Hall 판사 배정)의 도켓 조회 결과, 대상 특허는 US 9,128,632 / 10,217,523 / 12,675,407 3건으로 파악되며(카드·직전 회차가 기재한 2건에서 1건 추가), Netlist의 답변기한은 2026-09-01에서 1차로 2026-09-01, 이후 2026-10-01로 재차 연장됐다. 2026-09-25 기준 답변·각하/이송 신청·§1659 정지 신청은 도켓에 등재되지 않았다.</p>
+  <div class="csrc">출처 <a href="https://www.pacermonitor.com/public/case/66193794/Micron_Technology,_Inc_et_al_v_Netlist,_Inc" target="_blank" rel="noopener">aggregator_docket_mirror</a> · 2026-09-23<div class='cnote'>PacerMonitor는 sources.yaml 미등재 도메인(default_grade 4)이자 PACER 미러 단독 소스라 P4상 단독 판단 근거 불가 — 확인 대상 이월. 답변시한이 09-01에서 10-01로 재연장된 점은 직전 회차 unconfirmed(답변기한 09-01) 대비 진전된 관측이나, 여전히 실체 답변 전이므로 방향 판정에 쓰지 않는다.</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_6">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_MU_6</span></div>
+  <p>CAFC 사건 2025-1936(Netlist, Inc. v. Micron Technology Texas, LLC)은 법원 자체 페이지 기준 2026-09-09 구두변론이 실시됐고 오디오 파일이 게시돼 있다(직전 회차 c_20260919_MU_10과 동일 사실, 본 회차에 CAFC 원문 페이지로 직접 재확인). 2026-09-25 시점까지 선고 결과는 게시되지 않았다.</p>
+  <div class="csrc">출처 <a href="https://www.cafc.uscourts.gov/09-09-2026-2025-1936-netlist-inc-v-micron-technology-texas-llc-audio-uploaded/" target="_blank" rel="noopener">federal_court_docket_page</a> · 2026-09-25<div class='cnote'>신규 정보 증분 없음(carry-forward 재확인). cafc.uscourts.gov는 sources.yaml 미등재이나 법원 자체 공표 원문이므로 P4 서열에 따라 grade1 수동 부여(직전 회차와 동일 처리).</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_7">
+  <div class="cmeta"><span class="grade g3">G3</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_MU_7</span></div>
+  <p>대만 Taoyuan 노조(Micron Taiwan)는 2026-09-21 2차 조정이 합의 없이 종료됐다고 밝혔고, 회사가 구체적 이익분배 제안을 내지 않았다며 노동쟁의조정법(Act for Settlement of Labor-Management Disputes)에 따른 파업투표 절차를 개시하겠다고 발표했다(파업투표 실시 여부 자체는 아직 미확인). 노조는 영업이익의 15%를 이익분배에 배정할 것을 요구해왔고, 회사는 2026-09-11 사전 협의 없이 1인당 NT$100만(약 $31,544) 일시 보너스를 발표한 바 있어 노조 반발을 샀다. Taichung 노조와의 3차 조정은 2026-10-22로 예정됐다(창 밖).</p>
+  <div class="csrc">출처 <a href="https://www.tradingview.com/news/reuters.com,2026:newsml_P8N44P08V:0-micron-s-taoyuan-union-in-taiwan-says-it-plans-to-hold-strike-vote-after-mediation-ended-without-agreement/" target="_blank" rel="noopener">news_wire_syndication</a> · 2026-09-22<div class='cnote'>Reuters 재유통본(grade3) + Digitimes·Newsquawk·BigGo·Fool 등 5개 매체 일치하나 회사 1차 자료(c_2 기준 뉴스룸 0건, EDGAR c_1 기준 8-K 0건) 미등재 — confirmed:false. 금액은 직전 회차 두 이견(NT$170만/$53,700 vs NT$100만/$31,498) 중 NT$100만/약 $31,544 쪽으로 5개 매체가 수렴해 불일치가 사실상 해소됐으나, grade3 단독이라 정정(P9)은 다음 회차 1차 자료 확보 후 판단한다. 카드 관측점 &#x27;2026-09-21 2차 조정 결과·파업투표 실시 여부&#x27; 중 조정 결과(결렬)는 확인, 파업투표 실시 여부는 여전히 미확인.</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_8">
+  <div class="cmeta"><span class="grade g3">G3</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="flag">sector</span><span class="cid mono">c_20260925_MU_8</span></div>
+  <p>2026-09-24~25 백악관 트럼프-시진핑 정상회담에서 양측은 2026-11-10 만료 예정이던 무역휴전 연장에 합의했다고 보도됐으나(매크로·양자 사안, MU 특정 아님), Apple의 CXMT/YMTC 메모리 소싱 승인 여부에 대한 명시적 결론은 2026-09-25 시점 보도에서 확인되지 않았다. 8/21 상원 서한 시한 이후 결과도 별도 확정 발표를 찾지 못했다.</p>
+  <div class="csrc">출처 <a href="https://www.npr.org/2026/09/24/g-s1-144806/trump-xi-summit" target="_blank" rel="noopener">news_wire</a> · 2026-09-24<div class='cnote'>P6 — 무역휴전 연장 자체는 매크로/양자 사안이라 scope=sector로 태깅했고 MU 개별 축 상향 근거로 쓰지 않는다. P5 — CXMT/YMTC 승인 여부 미확인은 &#x27;허용되지 않았다&#x27;는 반증이 아니라 정보 공백이다. china_supply 축은 no_change 이월.</div></div>
+</article>
+<article class="claim" id="MU-c_20260925_MU_9">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-inf">inference · weak</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_MU_9</span></div>
+  <p>창 내 검색으로 회수된 &#x27;NTM P/E 저평가·목표주가·9/30 이전 매수 타이밍&#x27; 류 서술(예: Motley Fool 9/21·9/22·9/23·9/24 다수 기사)은 noise_filter.yaml#MU &#x27;P/E 단독 저평가 서술&#x27; 및 common &#x27;IB/애널리스트 PT 단독&#x27; 패턴과 일치해 전량 폐기했다. CXMT/YMTC가 &#x27;Apple은 시험대일 뿐, 북미 클라우드 시장까지 노린다&#x27;는 주제형 해설(Digitimes 08-26)도 정량 데이터 없이 확대 해석해 노이즈로 폐기했다.</p>
+  <div class="csrc">출처 <a href="https://www.fool.com/investing/2026/09/22/should-you-buy-micron-before-sept-30/" target="_blank" rel="noopener">aggregator_news</a> · 2026-09-25<div class='cnote'>discarded_noise_log에 상세 기재. 판정에 사용하지 않음.</div></div>
+</article></section>
+<section><h3>Kill Condition 상태</h3>
+<h4>종목 전용 KC</h4>
+<div class='tscroll'><table class='kct'><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>근거·결과</th></tr></thead><tbody><tr class="kc-ok"><td class="mono">verdict</td><td>(발췌본에 상세 없음)</td><td><span class="verdict kc-ok"></span> <small></small></td><td class="mono small">—</td><td class="small"></td></tr><tr class="kc-ok"><td class="mono">verdict_confidence</td><td>(발췌본에 상세 없음)</td><td><span class="verdict kc-ok"></span> <small></small></td><td class="mono small">—</td><td class="small"></td></tr><tr class="kc-ok"><td class="mono">note</td><td>(발췌본에 상세 없음)</td><td><span class="verdict kc-ok"></span> <small></small></td><td class="mono small">—</td><td class="small"></td></tr></tbody></table></div>
+<h4>파급되는 매크로 KC <small>노출 벡터상 불리 방향 축에 연결된 것만</small></h4>
+<div class="tscroll"><table class="kct"><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>사전 정의 결과</th></tr></thead><tbody><tr class="kc-met"><td class="mono">KC-1</td><td>FFR 인상 리스크</td><td><span class="verdict kc-met">met</span> <small>confirmed</small></td><td class="mono small">FFR 4.0 &gt; 3.75</td><td class="small">레버리지 전액 해제 + Edge/Next 50% 축소 검토</td></tr><tr class="kc-ok"><td class="mono">KC-2</td><td>변동성 급등</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">VIX 15.670000076293945 &gt;= 30</td><td class="small">레버리지 해제 검토</td></tr><tr class="kc-ok"><td class="mono">KC-4</td><td>유동성 위기 신호</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">ON_RRP 630000000.0 &gt;= 200000000000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-5</td><td>TAIEX 음전환 (아시아 리스크 프록시)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">TAIEX_vs_20dma_pct 3.44 &lt; 0 · TAIEX_1m_return_pct 7.58 &lt; 0</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-6</td><td>AI 토큰 지출 급감</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">SDLLMTK_change_pct  &lt;= -30 (2주 지속)</td><td class="small">Base·Edge 전제 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-7</td><td>하이퍼스케일러 합산 FCF 악화</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">hyperscaler_fcf_sum 6835000000 &lt; 0 (2분기 연속)</td><td class="small">CapEx 감속 시나리오 검토</td></tr><tr class="kc-ok"><td class="mono">KC-8</td><td>Microsoft FCF 마이너스 (최후의 보루)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">msft_fcf 19640000000 &lt; 0</td><td class="small">AI CapEx 축 전면 재검토</td></tr><tr class="kc-ok"><td class="mono">KC-9</td><td>에너지 쇼크</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">brent 114.89 &gt;= 120 (1개월 지속)</td><td class="small">에너지+인플레이션 시나리오 검토</td></tr></tbody></table></div>
+</section>
+<section><h3>알림 요약 <small>7필드 Alert</small></h3>
+<div class="kv">
+  <div><dt>이벤트</dt><dd><span class="tag t-lbl">P1</span> MU — 매크로 KC-1(FFR 인상)이 직전 회차에 이어 met+confirmed 유지(2026-09-24 대사, 4.00%, 임계 3.75%), MU는 RATES 축 불리 노출 종목. 동시에 회사 고유 재료로 2026-09-24 USITC가 Netlist 제소 건 조사개시(institution)를 표결 — Micron 포함 4개사 대상, 배제명령·중지명령 청구가 실체 심리 단계 진입(c_3). 대만 노조는 2차 조정 결렬 후 파업투표 절차 개시 발표(grade3, 미확정). FY26 Q4 실적일(9/30) 변경 없음.</dd></div>
+  <div><dt>확정 사실</dt><dd><ol class='circ'><li><span class="tag t-lbl">P1</span><span class="tag t-lbl">출처·시각</span></li><li>① FRED 계열 API 대사 FFR=4.00%(목표 상단) &gt; KC-1 임계 3.75%, as_of 2026-09-24, confirmed <span class="tag t-lbl">grade1</span>.</li><li>② brent=114.89(2026-09-22) &lt; KC-9 임계 120 — 이번 회차 not_met, 트리거 소멸 <span class="tag t-lbl">grade1</span>.</li><li>③ USITC 2026-09-24 Investigation No. 337-TA-1523 조사개시 표결, 대상 특허 4건·피조사자 4개사(Micron·Supermicro·HPE·Lenovo), 배제명령·중지명령 청구 [c_3, grade1, confirmed, 5중 교차검증].</li><li>④ CDCA 8:26-cv-02167 대상 특허 2건이 ITC 대상 4건의 부분집합 확인 [c_4, grade4, confirmed:false].</li><li>⑤ D.Del 1:26-cv-01014 대상 특허 3건 갱신, 답변시한 2026-10-01 재연장 [c_5, grade4, confirmed:false].</li><li>⑥ CAFC 2025-1936 2026-09-09 구두변론 완료, 선고 미게시 [c_6, grade1, confirmed].</li><li>⑦ EDGAR·IR 조회, 조사 창 내 신규 1차 공시 0건·보도자료 0건 [c_1·c_2, grade1, confirmed].</li><li>⑧ 대만 Taoyuan 노조 2차 조정(09-21) 결렬, 파업투표 절차 개시 발표 [c_7, grade3, confirmed:false].</li><li>⑨ FY26 Q4 실적일 2026-09-30 변경 없음(직전 회차 c_13 재확인, 본 회차 c_1·c_2로 변경 부재 재검증).</li></ol></dd></div>
+  <div><dt>추론</dt><dd><span class="tag t-lbl">high, 판정근거</span> KC-1의 met+confirmed 유지는 규칙1 문언을 그대로 충족하는 매크로 오버레이 트리거이며 종목 펀더멘털과는 별개 경로다. [moderate, gate_check] ITC 조사개시(c_3)는 grade1·confirmed의 정성적 훼손으로 규칙3 하향 자격을 독립적으로 충족한다 — 규칙1이 없었다면 하향(🔴) 후보였을 것이다. <span class="tag t-lbl">weak, c_7</span> 대만 노사분쟁 파업투표 절차 개시는 실행리스크 신호이나 grade3 단독이라 매출·가이던스 영향 확정 아님.</dd></div>
+  <div><dt>분류</dt><dd>규칙1(Kill 우선) 트리거 — kill_priority_candidate. 회사 펀더멘털 경로는 이번 회차 상향 게이트 미충족 + 하향 게이트(비대칭) 독립 충족(ip_litigation_risk=weaken, c_3, grade1) — 규칙1이 없었다면 정상 경로는 하향(🔴) 후보였다(직전 회차의 maintain 결론과 달라짐). 규칙1이 이를 우선해 🔴🔴로 override.</dd></div>
+  <div><dt>Thesis 변화</dt><dd>ip_litigation_risk: weaken(ITC 조사개시, grade1 정성적 훼손 — 규칙3 하향 자격 성립). production_continuity: neutral(대만 노사, grade3 단독). hbm_demand·sca_defense·cycle_position·china_supply·valuation_paradox: neutral(no_change). 신규 사항: 개별 축 강화(holding_reinforcement)가 아니라 ip_litigation_risk 축의 훼손 방향 확정과, 포트폴리오 레벨 매크로 오버레이(KC-1 consequence: 레버리지 전액 해제 + Edge/Next 50% 축소 검토)가 동시에 존재.</dd></div>
+  <div><dt>신호 판정</dt><dd>🔴🔴 후보(규칙1 Kill 우선) — 사람 확인 요청. 현행 🟠(주의, 피크 역설)에서 재분류 후보. 회사 펀더멘털 경로만 보면 이번 회차는 하향(🔴) 후보였을 것(ip_litigation_risk=weaken, grade1, 규칙3 독립 충족)이나 KC-1(met+confirmed, 값 불변 4.00%)이 이를 우선한다. KC-9(브렌트)는 이번 회차 not_met로 트리거 소멸.</dd></div>
+  <div><dt>다음 확인</dt><dd><ol class='circ'><li>① <span class="tag t-lbl">정량, 최우선</span> KC-1 재확인 — 차기 FOMC 및 FFR 갱신치(현 4.00%, 임계 3.75% 상회 지속 여부).</li><li>② <span class="tag t-lbl">정량</span> ITC 337-TA-1523 ALJ 배정·목표완결일(target date) 공표.</li><li>③ <span class="tag t-lbl">정량, next_gate</span> 2026-09-30 FY26 Q4 실적 — 비트그로스 vs ASP 분해·선수금 방향.</li><li>④ <span class="tag t-lbl">정량</span> CDCA 8:26-cv-02167 확정 답변시한 및 답변 내용.</li><li>⑤ <span class="tag t-lbl">정량</span> D.Del 1:26-cv-01014 2026-10-01 답변·§1659 정지 신청 여부.</li><li>⑥ <span class="tag t-lbl">정량</span> CAFC 2025-1936 판결 선고.</li></ol></dd></div>
+</div></section>
+<section><h3>미확인·이월 <small>8건 — 찾지 못함 ≠ 반증(P5)</small></h3>
+<ul class="unc"><li><strong>ITC 337-TA-1523 ALJ 배정 및 심리 일정</strong><span class='reason mono'>not_yet_scheduled</span><p>조사개시(institution)는 확인됐으나(c_3) ALJ 배정, 목표 완결일(target date), 증거개시 일정은 창 내 공표되지 않았다.</p></li><li><strong>CDCA 8:26-cv-02167 도켓 원문 확인 및 확정 답변시한</strong><span class='reason mono'>primary_docket_unavailable</span><p>대상 특허가 ITC 4건 중 2건과 겹친다는 점은 확인됐으나(c_4) 도켓번호·답변시한·답변 내용은 여전히 애그리게이터(grade4) 단독 소스다. usitc.gov·PACER 직접 접근은 403/미러 지연으로 실패했다.</p></li><li><strong>D.Del 1:26-cv-01014 2026-10-01 답변 내용 및 §1659 정지 여부</strong><span class='reason mono'>future_deadline</span><p>답변시한이 10/1로 재연장됐고 대상 특허가 3건(9,128,632 포함)으로 갱신됐다(c_5, grade4). 실제 답변·§1659 정지 신청 여부는 미확인.</p></li><li><strong>CAFC 2025-1936 선고</strong><span class='reason mono'>pending_decision</span><p>2026-09-09 구두변론 이후 2026-09-25 시점까지 선고 없음(c_6, grade1).</p></li><li><strong>대만 노조 파업투표 실제 실시 여부·결과</strong><span class='reason mono'>primary_source_unavailable</span><p>2차 조정 결렬은 확인됐으나(c_7) 파업투표 자체의 실시·가결 여부는 미확인이며 회사 1차 자료 등재도 없다.</p></li><li><strong>Apple向 CXMT/YMTC 소싱 승인 여부</strong><span class='reason mono'>no_official_decision_yet</span><p>09-24~25 미중 정상회담이 열렸으나 이 사안에 대한 명시적 결론 보도를 확인하지 못했다(c_8).</p></li><li><strong>SCA 신규 체결·조건 변경 및 선수금·계약부채 잔액 방향</strong><span class='reason mono'>primary_source_unavailable</span><p>창 내 1차 채널(EDGAR·회사 IR)에서 해당 변동 기재를 확보하지 못했다(c_1, c_2). 2026-09-30 실적이 다음 관측점이다.</p></li><li><strong>비트그로스 vs ASP 분해 및 HBM 마진 vs 범용 마진 직접 확인</strong><span class='reason mono'>primary_source_unavailable</span><p>카드 key_metrics·earnings_checkpoints 항목이나 창 내 1차 자료 없음. 2026-09-30 실적으로 이월.</p></li></ul></section>
+<section><h3>이번 회차 Thesis 카드 패치 <small>2건</small></h3>
+<ul class="patches"><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">axes[ip_litigation_risk] — 관측점 ⑤~⑧ 추가(ITC 337-TA-1523 조사개시 + 병행 절차 갱신)</span><span class="mono small">amend</span></div><p><span class="tag t-fact">fact</span> state/thesis_cards/MU.yaml 전문 75행을 읽고 목록형 필드를 yaml.safe_load로 실제 계수했다 — axes 7 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / earnings_checkpoints.items 7 / version_history 6(F20). 본 패치는 기존 ip_litigation_risk 축 1개의 라벨 끝에 관측점을 덧붙이고 그 앞에 주석 1행을 둘 뿐이므로 axes는 7개 불변이다. <span class="tag t-fact">fact</span> 카드 ②는 &#x27;2026-09-19 시점 조사개시(institution) 공고는 관보 미게재&#x27;로 기록돼 있으나, USITC가 2026-09-24 337-TA-1523 조사개시를 표결했다(c_20260925_MU_3, grade 1·confirmed, 5중 교차검증) — 카드의 해당 관측 상태가 부정확해졌다. ② 원문은 삭제하지 않고 ⑤에서 해소를 표기한다(P9). [inference · strong] DN 3930과 337-TA-1523의 동일성은 대상 특허 4건·피조사자 4개사 일치에 근거한 추론이며, 명시적 번호 대조 1차 자료는 없다. <span class="tag t-fact">fact</span> CDCA(c_4)·D.Del(c_5) 세부 갱신은 모두 grade 4·confirmed=false 단독 소스이므로 &#x27;확인 대상 · 단독 근거 부적격&#x27; 표기로만 기입했다(P4). <span class="tag t-fact">fact</span> 오케스트레이터 지시는 &#x27;CDCA 답변시한 10/1&#x27;로 기술했으나</p></li><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">earnings_checkpoints.items — 소송 공시 기술 체크포인트 1개 추가 (7 → 8)</span><span class="mono small">amend</span></div><p><span class="tag t-fact">fact</span> 카드 전문 75행 기준 earnings_checkpoints.date = 2026-09-30, items 7개(전건 재무·계약 항목, 소송 관련 항목 0개)를 계수했다(F20). <span class="tag t-fact">fact</span> USITC가 2026-09-24 337-TA-1523 조사개시를 표결했다(c_20260925_MU_3, grade 1·confirmed). <span class="tag t-fact">fact</span> 창 내 Micron의 8-K·10-Q·10-K 신규 등재 0건, 2026-09-15 이후 회사 보도자료 0건이다(c_20260925_MU_1·c_20260925_MU_2) — 회사 측 1차 기술이 아직 없다. P5상 공시 부재는 영향 부재의 근거가 아니다. [inference · moderate] 따라서 9/30 실적은 회사가 이 절차를 처음 1차 자료로 기술할 수 있는 관측점이며, 현 7개 항목만으로는 ip_litigation_risk 축의 1차 확인 경로가 체크포인트에 없다. <span class="tag t-fact">fact</span> FY26 10-K 제출일은 확인하지 않았으므로 &#x27;후속·제출일 미확인&#x27;으로만 표기했다. 결과·금액 추정은 포함하지 않는다. <span class="tag t-fact">fact</span> 04_sector/memory.json risk_transfer_to에 &#x27;2026-09-30 실적 콜·10-K 소송 각주의 ITC 건 기술&#x27;이 관측점으로 기재돼 있고 L4 tpc_03이 이를 후보로 올렸다.</p></li></ul></section>
+<section><details class="plain"><summary><h3>폐기한 노이즈 <small>5건 — P3 기준</small></h3></summary>
+<ul class="noise"><li><strong>Should You Buy Micron Before Sept. 30? / Act Now: Micron Could Skyrocket After Sept. 30 (Motley Fool, 09-21~09-24)</strong><p>noise_filter.yaml#MU &#x27;P/E 단독 저평가 서술&#x27; + common &#x27;애널리스트 PT 단독&#x27;</p></li><li><strong>MU 주가 일간 등락 보도 (09-22 +0.30% 등)</strong><p>common &#x27;단순 주가 변동·일간 등락&#x27;</p></li><li><strong>Apple is only the test: CXMT/YMTC target North American cloud market (Digitimes, 08-26)</strong><p>noise_filter.yaml#MU &#x27;CXMT=Micron 위기&#x27; 과장 보도 — 정량 데이터 없는 주제형 확대 해석</p></li><li><strong>Form 4 내부자 거래 보고 (09-23~09-24)</strong><p>common 패턴 외 항목이나 매출·마진·가이던스 무관 — noise-triage 판정 폐기, dedup_key만 로그 보존</p></li><li><strong>Netlist CFO 사전예정 주식매도 관련 기사 (ad-hoc-news.de)</strong><p>Netlist(상대방) 임원 개인 거래 — MU 축 7개 promote_if 어디에도 해당 없음</p></li></ul></details></section><section class="concl"><h3>카드 결론 <small>state/thesis_cards/MU.yaml · as_of 2026-08-15</small></h3><p>방어 논거(SCA·LTA·선수금)는 강화 추세이나 밸류에이션 지표가 사이클 피크를 동시에 시사. P/E가 아니라 비트/ASP 분해와 선수금 잔액의 방향이 판정 축이다.</p></section></div><div class="ticker" id="tk-CRCL" hidden>
+<header class="thead">
+  <div class="trow">
+    <div><span class="eyebrow">stablecoin</span><h2>CRCL</h2></div>
+    <div class="transition"><span class="sig s-red">🔴</span><span class="arrow">→</span><span class="sig s-red">🔴</span><span class="cand">후보</span></div>
+  </div>
+  <p class="thesis">규제 선점(GENIUS Act·MiCA) + USDC 유통량 기반 준비자산 이자 수입. 스테이블코인 시장 자체의 파이 성장이 경쟁 침식을 상쇄한다는 구조.</p>
+  <div class="kv">
+    <div><dt>판정 성격</dt><dd>maintain</dd></div>
+    <div><dt>다음 게이트</dt><dd>Q3&#x27;26 실적(USDC 유통량 QoQ 부호·회사정의 점유율%·Reserve Income 절대액·Binance 인센티브수수료 반영규모) + Q3 10-Q 계약주석으로 Binance/Coinbase 분배계약 조건 최종확인(11월경) — signals.json 기존 게이트에 Binance 요율 확인 항목 추가 제안(ThesisPatch 후보, 사람 승인 필요). 아직 도래하지 않아 등급 유지가 정상 경로(P12).</dd></div>
+    <div><dt>조사 창</dt><dd><code>2026-09-18 → 2026-09-25</code> · 1차 사건일 2026-09-23 · staleness 2일</dd></div>
+  </div>
+  
+</header>
+<section><h3>등급 판정 근거 <small>arbiter 규칙 — 확정은 사람</small></h3>
+<div class="gates">
+  <div class="gate"><div class="gname">규칙1 · Kill 우선</div><div class="gval"><span class="chk ok">미해당</span></div><p></p></div>
+  <div class="gate"><div class="gname">규칙2 · 상향 게이트</div><div class="gval"><span class="chk no">미충족</span></div>
+    <ul class="conds"><li>정량 근거 <span class="chk no">미충족</span></li><li>회사 고유 <span class="chk no">미충족</span></li><li>매출 인식 단계 <span class="chk no">미충족</span></li></ul>
+    <p></p></div>
+  <div class="gate"><div class="gname">규칙3 · 하향(비대칭)</div><div class="gval"><span class="chk ok">미해당</span></div>
+    <ul class="conds"><li>정량 훼손 없음</li><li>grade≤2 정성 훼손 없음</li></ul>
+    <p></p></div>
+</div></section>
+<section><h3>Thesis 축 Delta <small>8축 · 강화 2 / 약화 2 / 중립 4</small></h3>
+
+<details class="axis">
+  <summary><span class="axid">reserve_income</span><span class="dir d-weaken">약화</span><span class="axlabel">Reserve Income·마진 (금리 직결)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>하(약)</dd></div>
+    <div><dt>직전 상태</dt><dd>Coinbase 분배계약 무공시 지속(약 26일)으로 유통비용 구조 무변화 잠정 확정. Binance 분배관계는 카드에 별도 관측 이력 없음.</dd></div>
+    <div><dt>이번 회차</dt><dd>2026-09-17 발효(공시 9/22)된 Binance 5년 재계약이 기존 2024/2025년 계약을 대체하며 USDC 보유액 연동 월간 인센티브 수수료 구조를 5년간 재고정했다(c_20260925_CRCL_1, grade 1). 요율 자체는 비공개라 정량 마진 영향은 산출 불가하나(c_20260925_CRCL_11, inference:medium), 유통비용 항목이 장기 계약으로 재확장된 것은 마진 축에 대한 방향성 있는 관측이다. P7 3단 분리상 이는 신규 계약 체결(1단)이 아니라 기존 운영 관계의 갱신·확장으로 이미 &#x27;이행 중&#x27;인 항목이며 매출 인식은 항상 발생해온 것이라 3단계 여부 판정은 해당 없음. stage는 요율 비공개로 &#x27;하(약)&#x27;에 한정.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_1" class="cid">c_20260925_CRCL_1</a> <a href="#CRCL-c_20260925_CRCL_11" class="cid">c_20260925_CRCL_11</a> · 리스크 이관 → Q3 10-Q 유통비용(파트너 분배) 비중 공시에서 Binance 연동 수수료 실제 반영 규모, 요율·산식 원문 확보(현재 8-K 비공개)</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">usdc_circulation_scale</span><span class="dir d-strengthen">강화</span><span class="axlabel">USDC 유통량 절대 규모·성장률 (Reserve Income 분자 — 분기말 스냅샷·30일 평잔 병기, KC-CRCL-1 측정 기준 정합. Q2&#x27;26 분기말 $73.3B +19% YoY·평잔 +25% YoY)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>하(약)</dd></div>
+    <div><dt>직전 상태</dt><dd>발행사 공표 실시간 API 계열 2026-09-19 기준 $74.287B. 분기 공시 계열(회사 정의) Q2&#x27;26 분기말 $73.3B +19% YoY가 최신 확정치.</dd></div>
+    <div><dt>이번 회차</dt><dd>Binance 5년 재계약·$100M 지분투자(c_20260925_CRCL_1)는 카드 diversification·경쟁 축과 별개로 기존 최대 유통 채널 중 하나인 Binance 지갑 내 USDC 프로모션을 장기 고정한 유통 확장 조치다. Allaire는 동일 심포지엄에서 &#x27;Binance Wallet·Trust Wallet을 통해 달러 스테이블코인 결제 볼륨의 약 70%가 흐른다&#x27;고 언급했다(c_20260925_CRCL_5의 부속 발언, grade 2) — 정량 유통량 증분 자체는 이번 창에 확보되지 않아 stage는 &#x27;하(약)&#x27;에 한정한다. OUSD·이자부 경쟁 심화 국면에서 기존 채널을 선제 방어·확장하는 성격의 조치로 해석되나 이는 inference이며 회사가 그렇게 명시하지 않았다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_1" class="cid">c_20260925_CRCL_1</a> <a href="#CRCL-c_20260925_CRCL_5" class="cid">c_20260925_CRCL_5</a> · 리스크 이관 → Q3 분기말·30일 평잔 공시에서 Binance 채널 기여분 분해 가능 여부(현재 채널별 분해 데이터 없음), KC-CRCL-1 측정 기준(분기말·평잔) 대조는 여전히 Q3 실적 공시에서만 가능</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">diversification</span><span class="dir d-strengthen">강화</span><span class="axlabel">비이자 매출 다각화 — (a) 자체 구축 채널: ARC·CPN. (b) M&amp;A 채널: Tazapay Pte. Ltd.(싱가포르 크로스보더 결제) 확정계약 2026-09-04 체결·2026-09-08 8-K 공시(Item 1.01/3.02/7.0</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>하(약)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(9/19): Arc 메인넷 2026-09-16 출시(회사 보도자료) — 매출 인식 전, ARC 체인 USDC $624.435M 최초 관측.</dd></div>
+    <div><dt>이번 회차</dt><dd>출시 후 첫 성과 지표가 최초로 확보됐다. CEO Allaire 직접 발언(c_20260925_CRCL_3, grade 2): 네트워크 가치 &#x27;거의 $1B에 근접&#x27;, 거래수수료 약 $50만(USDC 기준), FDV $3B, Circle 지분 25%. 2차 매체 교차 수치(c_20260925_CRCL_4, grade 4·confirmed=false)는 DeFi TVL $348M·스테이블코인 $630M·주소 253만·DEX 거래량 $497M로 측정 기준이 달라 직접 합산 불가하다. Allaire 본인이 &#x27;출시 시점의 폭발적 반응&#x27;이라 규정하며 지속가능성을 유보했으므로 P7상 여전히 &#x27;이행 개시&#x27; 단계이고, 보도자료·발언 어디에도 매출·수수료의 회사 재무제표 반영 수치는 없어 매출 인식(3단계)은 미확정이다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_3" class="cid">c_20260925_CRCL_3</a> <a href="#CRCL-c_20260925_CRCL_4" class="cid">c_20260925_CRCL_4</a> · 리스크 이관 → Arc 지표의 지속성(런칭 버스트 vs 안정화 추세) — Allaire 본인이 명시한 불확실성, Q3 실적에서 Arc 관련 매출·수수료 인식 여부 및 비이자 매출 비중 변화</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">usdc_market_share</span><span class="dir d-neutral">중립</span><span class="axlabel">스테이블코인 시장 내 USDC 점유율 (경쟁 침식 관측 — KC-CRCL-2 판정 대상 -3%p QoQ). 회사 정의 점유율 Q1&#x27;26 28% → Q2&#x27;26 27% (-1%p QoQ, YoY -66bps, grade 1 confirm</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>회사 정의 계열 Q2&#x27;26 27%(-1%p QoQ). 3자 집계(DefiLlama 등) 약 24%(grade 4). 두 계열은 분모 정의가 달라 직접 비교 불가.</dd></div>
+    <div><dt>이번 회차</dt><dd>Allaire가 Visa 데이터를 인용해 제시한 &#x27;거래 유틸리티 70%&#x27;(c_20260925_CRCL_5)는 기존 두 계열과 전혀 다른 제3의 측정 계열(결제 볼륨/유틸리티 기준)이다. 단일 경영진 재인용치이고 원 데이터셋 미확인이라 이번 run에서 축을 움직이는 근거로 채택하지 않으며, 카드가 이 계열의 취급 기준(채택 여부·분모 정의)을 아직 규정하지 않아 축 매핑을 임의로 확정하지 않는다(P8 취지에 따라 신규 계열 발견으로만 기록, 임의 편입 금지). 회사 정의·3자 집계 두 계열 모두 이번 창 신규 관측치 없음 — neutral 유지.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_5" class="cid">c_20260925_CRCL_5</a> · 리스크 이관 → 신규 제3계열(거래 유틸리티 기준) 채택 여부에 대한 카드 소유 계층 판단</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">regulation_sector_legislation</span><span class="dir d-weaken">약화</span><span class="axlabel">섹터 입법·규제 게이트 (SEC Innovation Exemption·CLARITY Act — 2차 독립 게이트. 2026-08 Run 관측: SEC 토큰화 면제 8/14 시점 재지연·예정 회의 취소 grade 4 confirmed=false, CLA</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>하(약)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(9/19): 2026-09-15 클로처 표결 49-50 부결 확인, Tillis 재의동의로 재표결 경로는 남았으나 실시 여부 미확인 상태.</dd></div>
+    <div><dt>이번 회차</dt><dd>2026-09-25 현재까지 재표결이 실시되지 않았고, 복수 2차 매체(grade 4)는 11월 중간선거 이후 레임덕 세션으로의 지연 가능성을 지목한다(c_20260925_CRCL_7). 미해결 쟁점에 &#x27;이자부 스테이블코인 금지 조항&#x27;(Coinbase 수익 위협 추정치 포함)이 재확인되며, 이는 competition_yield_bearing·competition_ousd_consortium 축의 조건부 트리거(이자조항 문언 확정)가 추가 지연됨을 시사한다. scope=sector이므로 P6·P13에 따라 개별 종목 등급 근거로 사용할 수 없고, 1차 자료 미확보로 grade 4·confirmed=false다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_7" class="cid">c_20260925_CRCL_7</a> · 리스크 이관 → 레임덕 세션 재표결 실시 여부·시점, senate.gov 1차 자료 확보(누적 403 차단), 이자부 스테이블코인 조항 문언 확정 시점의 추가 지연</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">regulation_company_licensing</span><span class="dir d-neutral">중립</span><span class="axlabel">회사 개별 인허가 (OCC의 Circle National Trust 설립 최종 인가·NYDFS의 Circle New York Trust 승인 — grade 1 confirmed. scope=company_specific, 자사 사업 인가 진척의 관측 </span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>OCC·NYDFS 기존 인가(2026-07) 이후 신규 인가·조치 관측 없음.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창에도 신규 인가 취득·감독조치 어느 쪽도 관측되지 않았다(c_20260925_CRCL_9). 관측 0건으로만 기록하며 부재를 조치 부존재의 증명으로 취급하지 않는다(P5).</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_9" class="cid">c_20260925_CRCL_9</a> · 리스크 이관 → OCC·NYDFS 감독보고서·제재 공표</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">competition_yield_bearing</span><span class="dir d-neutral">중립</span><span class="axlabel">경쟁 — 이자부 스테이블코인 ($YLDS 등). 실측 관측이 가능한 축. $YLDS 유통량 4Q25 $328.193M → 1Q26 $598M → 2Q26 $556.033M(QoQ -7.0%), 전부 발행사 FIGR 1차 공시 grade 1. USDC </span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>$YLDS 2Q26 $556.033M(QoQ -7.0%), CLARITY 이자조항 문언 미확정.</dd></div>
+    <div><dt>이번 회차</dt><dd>$YLDS 신규 공시 없음(c_20260925_CRCL_10) — 2Q26 수치 유지. CLARITY 재표결 지연(d_20260925_CRCL_5)으로 이자조항 문언 확정도 함께 지연돼 위협의 활성화·소멸 어느 쪽도 확정 신호가 아니다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_10" class="cid">c_20260925_CRCL_10</a> <a href="#CRCL-c_20260925_CRCL_7" class="cid">c_20260925_CRCL_7</a> · 리스크 이관 → FIGR 3Q26 공시(통상 11월), CLARITY 이자조항 문언 확정 경로</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">reserve_income</span><span class="dir d-neutral">중립</span><span class="axlabel">Reserve Income·마진 (금리 직결)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>없음</dd></div>
+    <div><dt>직전 상태</dt><dd>Coinbase 분배계약 무공시 지속(약 26일).</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창에도 Coinbase 관련 Item 1.01/1.02 8-K는 0건으로 무공시 구간이 약 32일로 연장됐다(c_20260925_CRCL_6) — 기존 잠정 확정 상태에 변화 없음. GENIUS §3 NPRM 마감(10/19)도 무변화(c_20260925_CRCL_8, sector scope).</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#CRCL-c_20260925_CRCL_6" class="cid">c_20260925_CRCL_6</a> <a href="#CRCL-c_20260925_CRCL_8" class="cid">c_20260925_CRCL_8</a> · 리스크 이관 → Q3 10-Q 계약 주석의 Coinbase 분배조건 원문 대조(통상 11월)</dd></div>
+  </div>
+</details></section>
+<section><h3>확정 사실·추론 <small>fact 10 · inference 1 · 등급 G1 5 / G2 2 / G3 0 / G4 3</small></h3>
+<p class="hint">G1 1차 공시 · G2 경영진 직접 발언 · G3 2차 매체 · G4 애그리게이터. G3·G4는 삼각검증용이며 단독 판단 근거가 될 수 없다(P4).</p>
+
+<article class="claim" id="CRCL-c_20260925_CRCL_1">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRCL_1</span></div>
+  <p>Circle이 2026-09-22 제출한 8-K(사건일 2026-09-17, Item 8.01)에 따르면 Circle 자회사와 Binance가 Circle의 Modular Smart Contract Wallet 서비스를 통한 USDC 프로모션 관련 상업적 협력관계를 5년 기간으로 확장·갱신했으며, 이 신규 계약이 2024년 11월·2025년 8월 체결된 기존 계약을 대체·대신한다(&#x27;supersedes and replaces&#x27;). Circle은 Binance에 &#x27;USDC 보유액의 일정 비율을 나타내는 월간 인센티브 수수료&#x27;를 지급하며, 구체적 요율·산식은 8-K 원문에 공개되지 않았다. 계약은 &#x27;특정 사건 발생 시&#x27; 조기 해지 조항을 포함하나 해지 트리거 세부 내용은 원문에 명시되지 않았다. 동시에 Binance는 Circle Class A 보통주 1,237,011주를 주당 $80.84에 사모 인수해 총 $1억을 납입했으며(증권법 등록 면제), 종결 후 2년간 처분제한(락업) 대상이나 의결권 등 주주 권리는 보유한다. 직전 2개 run(9/11, 9/19)까지 이 계약은 관측되지 않았던 신규 재료다.</p>
+  <div class="csrc">출처 <a href="https://www.sec.gov/Archives/edgar/data/1876042/000187604226000276/crcl-20260917.htm" target="_blank" rel="noopener">8-K</a> · 2026-09-22</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_2">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRCL_2</span></div>
+  <p>SEC EDGAR Form 4(제출 2026-09-24, 거래일 2026-09-22)에 따르면 CFO Jeremy Fox-Geen이 기존 스톡옵션 행사·베스팅으로 Class A 보통주 598주(행사가 $48.45, 옵션 만기 2032-05-04)와 2,155주(행사가 $32.95, 옵션 만기 2033-04-13)를 취득했다(거래코드 M, 정기 베스팅). 거래 후 실질 보유주식 311,044주. 신규 매도 예고나 비정기 대량 처분이 아닌 정기 보상 이행 항목으로, key_metrics &#x27;내부자 거래&#x27; 모니터링 로그에 등재하되 축 Delta는 생성하지 않는다.</p>
+  <div class="csrc">출처 <a href="https://www.sec.gov/Archives/edgar/data/1876042/000181800826000002/xslF345X06/wk-form4_1790283660.xml" target="_blank" rel="noopener">form_4</a> · 2026-09-24</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_3">
+  <div class="cmeta"><span class="grade g2">G2</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRCL_3</span></div>
+  <p>Circle CEO Jeremy Allaire가 2026-09-23 Autonomous Research &#x27;Future of Commerce Symposium&#x27;(진행: Ken Suchoski)에서 Arc 메인넷(2026-09-16 출시) 첫 주 실적을 직접 언급했다: &#x27;네트워크상 가치가 거의 10억 달러에 근접(approaching $1 billion)&#x27;, &#x27;USDC로 약 50만 달러의 거래 수수료 발생&#x27;, &#x27;최근 완전희석가치(FDV) 30억 달러&#x27;, Circle은 Arc의 &#x27;25% 지분 보유자(25% stakeholder)&#x27;. Allaire는 이를 &#x27;출시 시점의 폭발적 반응(burst at the launch)&#x27;으로 규정하며 &#x27;시간이 지나며 지속되는지 지켜봐야 한다&#x27;고 명시해 지속가능성을 스스로 유보했다. 경영진 직접 인용 확인(D15) 후 grade 2 수동 부여.</p>
+  <div class="csrc">출처 <a href="https://www.investing.com/news/transcripts/circle-at-autonomous-2026-future-of-commerce-symposium-arc-launch-gains-93CH-4914297" target="_blank" rel="noopener">executive_direct_quote_conference_transcript</a> · 2026-09-23</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_4">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_CRCL_4</span></div>
+  <p>복수 2차 매체(kucoin.com, thedefiant.io — 둘 다 sources.yaml 미등재, default grade 4)에 따르면 Arc 메인넷 출시 첫 주 온체인 지표는 DeFi TVL 약 $348M, 스테이블코인 잔액 약 $630M, 상호작용 주소 253만 개, DEX 거래량 $497M(이 중 Uniswap $479M)으로 집계됐다. 이 수치는 c_20260925_CRCL_3의 Allaire 발언(&#x27;네트워크 가치 approaching $1B&#x27;)과 측정 기준(온체인 DeFi TVL vs &#x27;네트워크상 가치&#x27; 포괄 개념)이 달라 직접 합산·대체 불가하다 — 계열 구분 필요. grade 4·confirmed=false로 삼각검증 전용 적재(P4).</p>
+  <div class="csrc">출처 <a href="https://www.kucoin.com/news/flash/circle-stock-rises-as-arc-layer-1-tvl-and-stablecoin-growth-surpass-300m" target="_blank" rel="noopener">news_secondary_aggregator</a> · 2026-09-22</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_5">
+  <div class="cmeta"><span class="grade g2">G2</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRCL_5</span></div>
+  <p>동일 심포지엄(c_20260925_CRCL_3)에서 Allaire는 Visa 데이터를 인용해 &#x27;6월 말 기준 USDC가 스테이블코인 거래 유틸리티(transaction utility)의 70%를 차지했고, 그 외 모든 달러 스테이블코인을 합쳐도 0.5% 미만&#x27;이라고 발언했다. 【계열 명기 필수】 이는 카드가 정의한 기존 두 계열(①회사 정의 유통량 기준 점유율 Q2&#x27;26 27%, ②DefiLlama 등 3자 집계 유통공급 기준 약 24%)과 분모·측정 대상이 전혀 다른 제3의 계열(거래 유틸리티/결제 볼륨 기준, Visa 원자료, 경영진 재인용)이다. 세 계열은 상호 대체 불가하며 혼용 시 점유율 축소 서사가 왜곡된다. 원출처(Visa) 데이터셋 자체는 확인하지 못해 경영진 재인용에 한정된 grade 2로 적재한다.</p>
+  <div class="csrc">출처 <a href="https://www.investing.com/news/transcripts/circle-at-autonomous-2026-future-of-commerce-symposium-arc-launch-gains-93CH-4914297" target="_blank" rel="noopener">executive_direct_quote_conference_transcript</a> · 2026-09-23</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_6">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRCL_6</span></div>
+  <p>EDGAR 전 서식 조회(2026-08-28~2026-09-24) 결과 이번 창에도 Coinbase 분배계약 변경·해지를 다루는 Item 1.01/1.02 8-K는 0건이다. 2026-08-18 자동갱신 예정일 기준 공시 무변화 관측 구간이 약 32일로 연장됐다(직전 run 26일). 무공시는 계약 무변경의 증명이 아니다(P5) — 최종 대조는 Q3 10-Q 계약 주석에서만 가능하다.</p>
+  <div class="csrc">출처 <a href="https://data.sec.gov/submissions/CIK0001876042.json" target="_blank" rel="noopener">sec_edgar_submissions_api</a> · 2026-09-24</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_7">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="flag">sector</span><span class="cid mono">c_20260925_CRCL_7</span></div>
+  <p>복수 2차 매체(crypto.news, homecryptoinvest.com, bitso.com — 전부 sources.yaml 미등재 grade 4)에 따르면 2026-09-15 클로처 부결 후 Thom Tillis 상원의원의 재의동의(motion to reconsider)에도 불구하고 2026-09-25 현재까지 신규 재표결 일정이 잡히지 않았으며, 업계 관측은 11월 중간선거 이후 레임덕 세션으로 처리 시점이 미뤄질 가능성을 지목한다. 미해결 쟁점 3가지로 ①트럼프 대통령 개인 가상자산 보유 관련 윤리 조항, ②Section 604 DeFi 개발자 책임, ③이자부 스테이블코인 금지 조항(Coinbase 연간 USDC 리워드 수익 약 $13.5억 위협 추정, crypto.news 자체 추정치)이 재확인됐다. 1차 자료(senate.gov) 접근은 이번 창에도 시도하지 않았다(직전 2회 403 이력) — grade 4·confirmed=false로 삼각검증 적재.</p>
+  <div class="csrc">출처 <a href="https://crypto.news/clarity-act-senate-vote-september-15-provisions/" target="_blank" rel="noopener">news_secondary_aggregator</a> · 2026-09-15</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_8">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="flag">sector</span><span class="cid mono">c_20260925_CRCL_8</span></div>
+  <p>GENIUS Act 제3조 NPRM(연방관보 2026-08-18 게재, 문서번호 2026-16796)의 공개의견 접수 마감일은 2026-10-19로 이번 창에도 변경·연장 없이 유지된다. Circle 명의 의견서 제출 여부는 이번 창에서도 확인하지 못했다(regulations.gov 도켓 열람 미실시). 상태 무변화 재확인 목적. scope=sector.</p>
+  <div class="csrc">출처 <a href="https://www.federalregister.gov/documents/2026/08/18/2026-16796/genius-act-regulations-on-payment-stablecoin-issuance-offer-and-sale" target="_blank" rel="noopener">federal_register</a> · 2026-08-18</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_9">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRCL_9</span></div>
+  <p>KC-CRCL-4(인가·감독 조치) 관측: EDGAR 전 서식 조회(2026-08-28~2026-09-24)에서 OCC·NYDFS의 Circle 관련 인가 취소·정지·제재·동의명령을 공시하는 8-K는 0건이며, 병행 웹검색(occ.gov 2026-09월 집행조치 목록 포함)에서도 Circle 관련 신규 감독조치는 포착되지 않았다. 또한 circle.com 프레스룸 조회 결과 2026-09-17~09-25 구간 공지는 Binance 계약(9/22)·CDFI 보조금(9/22) 2건뿐이며 &#x27;Q3 2026 실적 발표 예정&#x27; 유형의 IR 공지는 이번 창에도 없다 — 카드 earnings_checkpoints.date null 유지가 타당하다(F1, 애그리게이터 추정일 배제).</p>
+  <div class="csrc">출처 <a href="https://data.sec.gov/submissions/CIK0001876042.json" target="_blank" rel="noopener">sec_edgar_submissions_api</a> · 2026-09-24</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_10">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_CRCL_10</span></div>
+  <p>$YLDS 발행사 FIGR(CIK 0002064124) EDGAR 전 서식 조회(2026-09-09~2026-09-24) 결과 이번 창 신규 제출 0건. 2Q26(2026-06-30 마감) $556.033M(QoQ -7.0%)이 여전히 최신 grade 1 관측치이며 변동 없음. 다음 갱신 게이트는 FIGR 3Q26 실적(통상 11월).</p>
+  <div class="csrc">출처 <a href="https://data.sec.gov/submissions/CIK0002064124.json" target="_blank" rel="noopener">sec_edgar_submissions_api</a> · 2026-09-24</div>
+</article>
+<article class="claim" id="CRCL-c_20260925_CRCL_11">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-inf">inference · medium</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_CRCL_11</span></div>
+  <p>c_20260925_CRCL_1(Binance 5년 재계약, 월간 인센티브 수수료가 USDC 보유액 비율에 연동)의 구조상, 이는 유통비용(파트너 분배) 비중을 5년간 고정적으로 재확장하는 계약이며 변동 요율은 향후 금리·잔액 성장에 연동될 가능성이 있다. 다만 정확한 요율·산식이 8-K 원문에 비공개라 정량 마진 영향은 산출 불가하다. 2025년 Binance向 유통비용 실측치(약 $152.1M, 2차 매체 grade 4 추정)는 신규 계약과 무관한 과거 수치로 참고용일 뿐 대입 근거로 사용하지 않는다.</p>
+  <div class="csrc">출처 <a href="https://www.sec.gov/Archives/edgar/data/1876042/000187604226000276/crcl-20260917.htm" target="_blank" rel="noopener">derived_from_primary_8k</a> · 2026-09-22</div>
+</article></section>
+<section><h3>Kill Condition 상태</h3>
+<h4>종목 전용 KC</h4>
+<p class='empty'>종목 전용 KC 미정의</p>
+<h4>파급되는 매크로 KC <small>노출 벡터상 불리 방향 축에 연결된 것만</small></h4>
+<div class="tscroll"><table class="kct"><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>사전 정의 결과</th></tr></thead><tbody><tr class="kc-ok"><td class="mono">KC-3</td><td>크립토 붕괴 + 위험회피 동시</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">BTC 84653.665 &lt; 55000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)</td></tr></tbody></table></div>
+</section>
+<section><h3>알림 요약 <small>7필드 Alert</small></h3>
+<div class="kv">
+  <div><dt>이벤트</dt><dd>CRCL — Binance 5년 재계약+$100M 지분투자(공시 9/22) + Arc 메인넷 첫주 지표(Allaire 발언, 9/23) + Coinbase 분배계약 8-K 부재 32일째 + KC-CRCL-4 감독조치 관측 0건 + $YLDS 무변경</dd></div>
+  <div><dt>확정 사실</dt><dd><ol class='circ'><li>① Circle 8-K(2026-09-22, 사건일 9/17): Binance-Circle 5년 재계약(구계약 대체), USDC보유액 연동 월간 인센티브 수수료(요율 비공개), Binance $100M 사모 Class A 1,237,011주 인수(2년 락업) [8-K+보도자료 교차, grade1 confirmed, staleness 3일].</li><li>② CFO Form4(2026-09-24): 정기 옵션행사 2,753주(거래코드M), 비정기 매도 아님 [form_4, grade1 confirmed, staleness 1일].</li><li>③ CEO Allaire 발언(Autonomous Research 심포지엄, 2026-09-23): Arc 메인넷 첫주 네트워크가치 약$1B근접·수수료 약$0.5M·FDV$3B, 본인이 &#x27;출시버스트&#x27;로 규정하며 지속성 유보 [경영진 직접인용, grade2 confirmed, staleness 2일].</li><li>④ 동일 발언: Visa인용 USDC거래유틸리티 70%(제3계열, 계열구분 필요) [grade2 confirmed, staleness 2일].</li><li>⑤ EDGAR 재조회: Coinbase 분배계약 8-K 0건, 무공시 약32일 지속 [SEC EDGAR, grade1 confirmed, staleness 1일].</li><li>⑥ KC-CRCL-4: 감독조치 8-K 0건+웹검색 0건 [SEC EDGAR, grade1 confirmed, staleness 1일].</li><li>⑦ FIGR $YLDS 신규공시 0건, 2Q26 $556.033M 유지 [SEC EDGAR, grade1 confirmed, staleness 1일].</li><li>⑧ 매크로 KC-3: BTC 84,653.665·VIX 15.67 not_met/confirmed(오케스트레이터 전달).</li></ol></dd></div>
+  <div><dt>추론</dt><dd>medium — c_20260925_CRCL_11: Binance 재계약 구조상 유통비용(파트너분배) 비중이 5년간 재확장될 가능성. 단 요율·산식 비공개로 정량 마진영향 산출 불가(confirmed=false, 하향근거로 단독 채택 불가).</dd></div>
+  <div><dt>분류</dt><dd>holding_reinforcement (등급 유지+사유기록, P12) — 상향게이트(P2/P6/P7) 미충족: 매출인식(3단계) claim 없음. 하향 트리거 미성립: 확정된 정량 훼손 없음(요율비공개), grade&lt;=2 확정 정성훼손 없음.</dd></div>
+  <div><dt>Thesis 변화</dt><dd>reserve_income 축 weaken<span class="tag t-lbl">약</span>(c_1·c_11, Binance 5년 재계약 유통비용 재고정 — 요율비공개로 정량화 불가, 방향성 관측에 한정). usdc_circulation_scale 축 strengthen<span class="tag t-lbl">약</span>(c_1·c_5, Binance 채널 유통 확장 방어 조치 — 실측 증분 없음). diversification 축 strengthen<span class="tag t-lbl">약</span>(c_3·c_4, Arc 첫주 성과 — Allaire 본인 지속성 유보, 측정계열 상이한 2차수치는 삼각검증용). usdc_market_share·regulation_company_licensing·competition_yield_bearing 축 전부 neutral(갱신자료 없음/신규 제3계열은 미채택).</dd></div>
+  <div><dt>신호 판정</dt><dd>등급 전이 후보 아님 — 현행 🔴(비중조절 검토, OUSD 위협) 유지 권고(maintain). Kill 게이트 미충족(KC met&amp;confirmed 없음, Binance 재료는 정의된 KC 범위 밖). 상향 게이트 미충족(매출인식 claim 부재). 하향 게이트 미충족(정량 훼손 미확정). 🔴🔴 사람확인 요청 대상 아님.</dd></div>
+  <div><dt>다음 확인</dt><dd><ol class='circ'><li>① <span class="tag t-lbl">정량</span> Q3 10-Q 유통비용(파트너분배) 주석에서 Binance 연동 인센티브 수수료 실반영 규모·요율(reserve_income 축 확정).</li><li>② <span class="tag t-lbl">정량</span> Q3&#x27;26 실적 USDC 유통량 QoQ 부호(분기말·30일평잔 계열)·회사정의 점유율%.</li><li>③ <span class="tag t-lbl">정량</span> Arc 관련 매출·수수료의 Q3 재무제표 인식 여부(비이자매출 비중 변화).</li></ol></dd></div>
+</div></section>
+<section><h3>미확인·이월 <small>9건 — 찾지 못함 ≠ 반증(P5)</small></h3>
+<ul class="unc"><li><strong>Binance 월간 인센티브 수수료의 정확한 요율·산식</strong><span class='reason mono'>not_disclosed_in_primary_source</span><p>8-K 원문은 &#x27;USDC 보유액의 일정 비율&#x27;이라고만 서술하고 구체 요율·산식을 공개하지 않았다. 2차 매체(grade 4)가 인용한 과거(2024년 계약) 요율 구조나 2025년 실측 비용(약 $152.1M)은 신규 계약과 별개 수치로 대입 근거로 쓰지 않는다.</p></li><li><strong>Arc 메인넷 지표의 지속가능성</strong><span class='reason mono'>event_may_be_pending</span><p>Allaire 본인이 &#x27;출시 시점 버스트&#x27;로 규정하고 지속 여부를 유보했다. 2주 차 이후 추세는 이번 창에 확인되지 않았다.</p></li><li><strong>CLARITY Act 레임덕 세션 재표결 일정</strong><span class='reason mono'>access_blocked_and_event_pending</span><p>재의동의는 제출됐으나 2026-09-25 현재 신규 표결 일정 미확정. 1차 자료(senate.gov) 접근은 누적 403 차단으로 이번 창도 재시도하지 않았다.</p></li><li><strong>OUSD 공식 출시일·실측 유통량</strong><span class='reason mono'>carried_over_from_prior_run</span><p>이번 창 웹검색에서도 공식 출시·토큰 컨트랙트·순환공급 수치는 포착되지 않았다. noise_filter.yaml#CRCL 승격 요건 미충족으로 비승격 유지 — 5 run 연속 상태 진전 없음. 부재는 위협 소멸의 반증이 아니다(P5).</p></li><li><strong>Coinbase 분배계약 조건 원문의 1차 자료 기반 최종 확인</strong><span class='reason mono'>no_disclosure</span><p>8-K 부재가 약 32일로 연장됐으나 계약 조건 자체의 원문 대조는 아니다. 최종 확인 게이트는 Q3 10-Q(통상 11월).</p></li><li><strong>Q3&#x27;26 실적 발표일 공식 IR 공지</strong><span class='reason mono'>no_official_ir_notice</span><p>circle.com 프레스룸에 &#x27;Circle to Announce Q3 2026 Financial Results on...&#x27; 유형 공지가 이번 창에도 없다. 카드 earnings_checkpoints.date는 null 유지가 타당하다(F1).</p></li><li><strong>GENIUS Act §3 NPRM에 대한 Circle 의견서 제출 여부</strong><span class='reason mono'>not_checked_this_run</span><p>의견 마감 2026-10-19은 유지되나 regulations.gov 도켓의 제출자 목록은 이번 창에도 확인하지 않았다.</p></li><li><strong>신규 제3계열(Visa 거래 유틸리티 기준) USDC 점유율의 카드 채택 여부</strong><span class='reason mono'>requires_human_decision</span><p>Allaire가 인용한 &#x27;70%&#x27;는 기존 두 계열과 분모가 달라 직접 대입 불가. 카드가 이 계열을 공식 관측 대상으로 채택할지는 사람 판단 영역이다(ThesisPatch 후보로만 표기).</p></li><li><strong>KC-CRCL-4 관련 감독당국 비공개 조치</strong><span class='reason mono'>absence_is_not_disproof</span><p>8-K·웹검색 모두 관측 0건이나, 비공개 감독서한·MOU 등은 8-K 의무 대상이 아닐 수 있어 부존재 증명이 아니다(P5).</p></li></ul></section>
+<section><h3>이번 회차 Thesis 카드 패치 <small>3건</small></h3>
+<ul class="patches"><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">catalysts[CLARITY Act 상원 경로] — 9/15 이후 상태(미확정) 병기</span><span class="mono small">amend</span></div><p><span class="tag t-fact">fact</span> state/thesis_cards/CRCL.yaml 전문 86행을 읽었다(F20). 계수 — axes 8 / key_metrics 7 / catalysts 4 / risks 5 / kill_conditions_ref 6 / earnings_checkpoints.items 6 / version_history 12. yaml.safe_load 파싱 정상. before 문자열은 스크립트로 카드 내 출현 횟수 1회를 확인했다. <span class="tag t-fact">fact</span> 2차 매체(grade 4·confirmed=false·scope=sector)에 따르면 9/15 클로처 부결 후 재의동의에도 9/25 현재 재표결 일정이 없고 레임덕 세션 지연 가능성이 지목됐으며 이자부 스테이블코인 금지 조항이 미해결이다(c_20260925_CRCL_7). senate.gov 1차 확인은 불가했다. <span class="tag t-fact">fact</span> 카드 catalysts 항목은 &#x27;상원 경로&#x27;만 적어 현재 상태를 담지 않았다. after는 전 내용을 &#x27;확인 대상&#x27;으로 표기하고 사실로 확정하지 않는다(P4). <span class="tag t-fact">fact</span> scope=sector이므로 개별 종목 등급·방향 근거로 쓰지 않는다(P6·P13). <span class="tag t-inf">inference</span> 재의 경로가 남아 있어 &#x27;CLARITY 최종 실패&#x27; KC 충족으로 읽지 않는다. 핵심 논거 역전 아님.</p></li><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">axes[diversification] — Arc 메인넷 첫 주 기준선 관측 추가</span><span class="mono small">annotate</span></div><p><span class="tag t-fact">fact</span> state/thesis_cards/CRCL.yaml 전문 86행을 읽었다(F20). 계수 — axes 8 / key_metrics 7 / catalysts 4 / risks 5 / kill_conditions_ref 6 / earnings_checkpoints.items 6 / version_history 12. yaml.safe_load 파싱 정상. before 문자열은 스크립트로 카드 내 출현 횟수 1회를 확인했다. <span class="tag t-fact">fact</span> CEO Allaire가 2026-09-23 Arc 첫 주 지표(네트워크상 가치 약 $1B 근접, 수수료 약 $0.5M, FDV $3B, Circle 25% 지분)를 직접 언급했고 스스로 지속성을 유보했다 — grade 2(c_20260925_CRCL_3). <span class="tag t-fact">fact</span> 온체인 수치(c_20260925_CRCL_4)는 grade 4·confirmed=false이고 측정 계열이 달라 삼각검증 전용 표기로만 기입했다(P4). <span class="tag t-fact">fact</span> 카드 diversification 축은 Arc 출시 후 지표가 없었다 — 기존 (a)(b) 서술은 그대로 두고 (c)만 덧붙인다. <span class="tag t-inf">inference</span> 네트워크 수수료는 회사 매출이 아니며 P7상 매출 인식 이전이다 — 상향 근거로 쓸 수 없다(P2). 핵심 논거 역전 아님.</p></li><li><div class="pmeta"><span class="chk no">생성</span><span class="mono small">axes[reserve_income] — 유통비용(파트너 분배) 구조 관측 병기</span><span class="mono small">amend</span></div><p><span class="tag t-fact">fact</span> state/thesis_cards/CRCL.yaml 전문 86행을 읽었다(F20). 계수 — axes 8 / key_metrics 7 / catalysts 4 / risks 5 / kill_conditions_ref 6 / earnings_checkpoints.items 6 / version_history 12. yaml.safe_load 파싱 정상. before 문자열은 스크립트로 카드 내 출현 횟수 1회를 확인했다. <span class="tag t-fact">fact</span> 2026-09-22 제출 8-K(사건일 09-17, grade 1)로 Binance와의 USDC 프로모션 계약이 5년 갱신됐고, 월간 인센티브 수수료가 USDC 보유액 비율에 연동되며 요율은 비공개다. $1억 사모(1,237,011주 @ $80.84, 2년 락업)가 동시 체결됐다(c_20260925_CRCL_1). <span class="tag t-fact">fact</span> 카드의 reserve_income 라벨은 &#x27;금리 직결&#x27;만 적어 분배비용 구조가 축 서술 밖에 있었다 — 이번 1차 자료가 이 서술을 불완전하게 만들었다. [inference·medium] 비용 구조는 5년간 고정됐으나 요율 비공개로 크기는 산출 불가하다(c_20260925_CRCL_11) — after는 크기를 단정하지 않는다. <span class="tag t-fact">fact</span> 04_sector/stablecoin.json axis_view<span class="tag t-lbl">reserve_income</span>은 intra_ticker(Binance weaken vs Coinbase neutral)로 기록했다. <span</p></li></ul></section>
+<section><details class="plain"><summary><h3>폐기한 노이즈 <small>5건 — P3 기준</small></h3></summary>
+<ul class="noise"><li><strong>&#x27;CLARITY Act vote lands September 15&#x27; 류 사전 전망 기사군 (crypto.news, finance.yahoo.com 등, 창 밖 8/28~9/14 발행)</strong><p>창 밖 + 표결 결과 자체는 이미 직전 run에서 승격 완료(c_20260919_CRCL_4). 사전 전망·확률(Polymarket 82%→16%) 서술은 D3 보호 대상, 판정 근거 불가(P3)</p></li><li><strong>&#x27;Circle Stock Rises&#x27; 류 주가 반응 헤드라인 (kucoin.com flash, thestreet.com)</strong><p>온체인 지표 사실 부분만 c_20260925_CRCL_4로 승격, 주가 등락 서술은 common.noise &#x27;단순 주가 변동&#x27; 배제 대상(P3)</p></li><li><strong>&#x27;Circle: Arc&#x27;s Launch Is Real, But Its 2026 Earnings Boost Is One-Time&#x27; (Seeking Alpha 애널리스트 기고)</strong><p>애널리스트 전망·밸류에이션 의견 — 1차 자료 없는 해석. D3 보호 대상, 판정 근거 불가</p></li><li><strong>&#x27;The GENIUS Act Compliance Cliff: 137 Days to a Deadline&#x27; (finance.yahoo.com)</strong><p>마감일 자체(10/19)는 c_20260925_CRCL_8로 이미 확인된 무변화 상태의 재탕 서술. 카운트다운형 논조는 노이즈</p></li><li><strong>Circle Foundation CDFI 보조금 공지 (circle.com, 2026-09-22)</strong><p>매출·마진·가이던스·고객명·수주·양산일정 어느 것도 변화시키지 않는 CSR성 공지 — noise_filter.yaml 공통 배제 대상(P3)</p></li></ul></details></section><section class="concl"><h3>카드 결론 <small>state/thesis_cards/CRCL.yaml · as_of 2026-08-15</small></h3><p>경쟁(OUSD)·규제(SEC 면제 지연)·금리(이자수입) 3중 게이트가 동시에 열려 있다. KC 정량 임계는 §8-7 초안 반영 — kill_conditions.yaml에서 수치 확정 후 활성화.</p></section></div><div class="ticker" id="tk-COIN" hidden>
+<header class="thead">
+  <div class="trow">
+    <div><span class="eyebrow">stablecoin</span><h2>COIN</h2></div>
+    <div class="transition"><span class="sig s-orange">🟠</span><span class="arrow">→</span><span class="sig s-orange">🟠</span><span class="cand">후보</span></div>
+  </div>
+  <p class="thesis">&quot;Everything Exchange&quot; — 거래 수수료 의존을 낮추고 구독·서비스 매출(스테이블코인 수익 포함) 비중을 높여 사이클 저항성을 확보한다. 파생상품·Base 생태계 확장.</p>
+  <div class="kv">
+    <div><dt>판정 성격</dt><dd>maintain</dd></div>
+    <div><dt>다음 게이트</dt><dd>Q3 2026 실적 — 예측시장 부문 매출의 코네티컷·미시간 조치 영향 정량치 + 구독·서비스 비중 방향 + Stablecoin(USDC) 수익 절대액(직전 $292.147M) + platform assets net inflow/outflow(가격효과 제외)</dd></div>
+    <div><dt>조사 창</dt><dd><code>2026-08-28 → 2026-09-25</code> · 1차 사건일 2026-09-23 · staleness 0일</dd></div>
+  </div>
+  
+</header>
+<section><h3>등급 판정 근거 <small>arbiter 규칙 — 확정은 사람</small></h3>
+<div class="gates">
+  <div class="gate"><div class="gname">규칙1 · Kill 우선</div><div class="gval"><span class="chk ok">미해당</span></div><p></p></div>
+  <div class="gate"><div class="gname">규칙2 · 상향 게이트</div><div class="gval"><span class="chk no">미충족</span></div>
+    <ul class="conds"><li>정량 근거 <span class="chk no">미충족</span></li><li>회사 고유 <span class="chk no">미충족</span></li><li>매출 인식 단계 <span class="chk no">미충족</span></li></ul>
+    <p>P2/P6/P7 3요건 중 quantitative·scope_company_specific은 c_20260925_COIN_3(SEC Federal Register 원문, grade1, confirmed=true)이 충족하나, stage_revenue_recognized는 claim 자체가 명시하듯 &#x27;신고서 제출&#x27; 단계에 불과하고 CFTC 승인·실제 상장·매출 인식 중 어느 것도 확인되지 않아 미충족(P7 3단 분리 엄수). 3요건 전부 충족이 아니므로 overall_upgrade_gate_met=false. 병행 CFTC 트랙(c_20260925_COIN_4)은 quantitative=false·confirmed=false로 게이트 대상도 아님. derivatives_base 축은 holding_reinforcement로만 분류한다.</p></div>
+  <div class="gate"><div class="gname">규칙3 · 하향(비대칭)</div><div class="gval"><span class="chk ok">미해당</span></div>
+    <ul class="conds"><li>정량 훼손 없음</li><li>grade≤2 정성 훼손 없음</li></ul>
+    <p>prediction_market 축은 방향 weaken(코네티컷 C&amp;D·미시간 철수)이나, 근거 claim(c_20260925_COIN_1/_2)이 전부 evidence_grade=4로 규칙3의 grade≤2 임계를 충족하지 못해 하향 게이트 발동 요건 미달 — 비대칭 하향조차 근거등급 하한선(grade≤2)을 요구하는 설계이므로, 방향성이 부정적이라는 사실만으로 자동 하향되지 않는다. 매출·마진·현금흐름 등 정량 훼손 확정치도 이번 창 없음(quantitative_deterioration=false) — CT·미시간 조치의 매출 영향은 unconfirmed(정량화 미공시, next_check 이관). 따라서 overall_downgrade_gate_met=false.</p></div>
+</div></section>
+<section><h3>Thesis 축 Delta <small>2축 · 강화 1 / 약화 1 / 중립 0</small></h3>
+
+<details class="axis">
+  <summary><span class="axid">prediction_market</span><span class="dir d-weaken">약화</span><span class="axlabel">예측시장·이벤트 계약 (잠정 id — axis_naming_standardization 결정 전. 【관측 상태: 미관측(unconfirmed)】). 이 축은 COIN의 예측시장·이벤트 계약 사업과 그에 대한 주(州) 단위 규제 조치를 관측하기 위한 *</span></summary>
+  <div class="axbody">
+    
+    <div><dt>직전 상태</dt><dd>카드 신설(2026-09-19 run, ThesisPatch)) 시점 관측 0건 — &#x27;빈 슬롯&#x27;, 미관측(unconfirmed) 상태. 카드 주석은 &#x27;COIN이 코네티컷 C&amp;D를 수신했다&#x27;는 정황이 HOOD 수집분에서 파생된 것으로 P4·P17상 COIN 사실 근거로 부적격하다고 명시하며, COIN 자체 1차 수집(주 증권감독기관 공개 문서·회사 공시·IR)에 의한 확인을 다음 관측점으로 지정했다.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 run에서 COIN 자체 1차 수집(portal.ct.gov 주정부 발표문 + 삼각검증된 2차 매체)으로 코네티컷 DCP가 2026-09-10 Coinbase를 포함한 9개사에 스포츠 이벤트 계약 C&amp;D를 발부한 사실을 확인했다(c_20260925_COIN_1) — 카드 주석이 요구한 확인 절차가 이번 회차에서 충족됐다. 동시에 2026-09-22 Coinbase가 제6순회법원 소송 정리를 기다리며 미시간주 스포츠 이벤트 계약을 자발적으로 철수한 사실도 확인됐다(c_20260925_COIN_2). 두 건 모두 개별 주(州) 단위의 접근 제한이며, 회사측 입장(연방 CFTC 규율 대상이라는 선점 이론)과 Coinbase가 2025-12 코네티컷·일리노이·미시간을 상대로 제기한 선제적 소송(카드·직전 run 배경 정보, 이번 창 신규 자료 아님)은 아직 법원에서 확정되지 않았다. 이번 창 내 신규 자료 기준으로는 &#x27;주 정부의 직접적 영업 제한 조치가 코네티컷·미시간 2개 주에서 COIN에 구체적으로 적용됨&#x27;이 처음으로 확정됐고, 이를 상쇄하는 승소·면제 판결이나 매출 영향 완화 자료는 확보되지 않았다. 따라서 방향은 weaken으로 기록하되 확신도는 낮게 표기한다 — ①법적 최종 결론(선점 여부) 미확정 ②코네티컷·미시간 매출 기여분의 구체적 규모 미공시 ③Q3 실적 등 정량적 영향 자료 부재.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#COIN-c_20260925_COIN_1" class="cid">c_20260925_COIN_1</a> <a href="#COIN-c_20260925_COIN_2" class="cid">c_20260925_COIN_2</a> · 리스크 이관 → 제6순회항소법원 및 D.Conn 계류 소송의 최종 판단(연방 선점 인정 여부) — 향후 run에서 판결 자체를 별도 이벤트로 추적, 코네티컷·미시간 외 추가 주(州)의 동일 조치 확산 여부 — 카드 catalysts/risks 미기재 항목으로 다음 회차 감시 대상, 예측시장 부문 매출·거래량에 대한 주별 제한의 실제 기여도 — 회사가 지역별 매출 분해를 공시하지 않는 한 정량 판정 불가, Q3 실적 이관</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">derivatives_base</span><span class="dir d-strengthen">강화</span><span class="axlabel">파생상품·Base 생태계 확장</span></summary>
+  <div class="axbody">
+    
+    <div><dt>직전 상태</dt><dd>20260919 run: strengthen(확신도 낮음) — 2026-09-18 개별주식 무기한선물 상장 신청 보도(WSJ 재인용, grade4·confirmed=false) 및 2026-09-01 Form 1-N/BD-N 제출 보도(grade3, 창 밖)만 확보. P7 기준 &#x27;신청 제출&#x27; 단계이며 1차 문서는 미확보 상태로 이월.</dd></div>
+    <div><dt>이번 회차</dt><dd>이번 창에서 1차 문서(govinfo.gov Federal Register, SR-COIN-2026-002)로 신고서 실체를 확인했다 — CDE 규칙집 Chapter 12 신설(Rules 1201-1225), 개별주식·ETF 대상 무기한 증권선물, 구체적 상장 기준(시총 $100B·ADV $450M·유통주식 2천만주 초과) 명시, 의견마감 2026-10-14, CFTC 승인 후 SEC 60일 사후무효화권 유보(c_20260925_COIN_3). 병행 트랙으로 CFTC 자기인증(Submission #2026-62, AAPL 대표상품) 보도도 존재하나 1차 대조는 미완(c_20260925_COIN_4, confirmed=false). 등급이 news(3~4)에서 1차 공시(1)로 상향됐고 신고 내용이 구체화됐다는 점에서 방향은 전 run과 동일하게 strengthen 유지하되, P7상 여전히 &#x27;신고 제출&#x27; 단계이며 CFTC 승인·실제 상장·매출 인식 중 어느 것도 확인되지 않아 확신도는 낮게 유지한다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#COIN-c_20260925_COIN_3" class="cid">c_20260925_COIN_3</a> <a href="#COIN-c_20260925_COIN_4" class="cid">c_20260925_COIN_4</a> · 리스크 이관 → CFTC 승인 여부 및 소요 기간 — 승인 시점까지 derivatives_base 축의 &#x27;확인&#x27; 단계는 신고 단계에 머무름, CME v. CFTC 소송(제3자 간, 무기한선물 상품 분류 권한 다툼)의 결과 — COIN은 당사자 아니나 CFTC의 심사 여력·법적 근거에 영향, SEC의 60일 사후 무효화권 행사 여부 — 승인 이후에도 뒤집힐 절차적 리스크가 남음</dd></div>
+  </div>
+</details></section>
+<section><h3>확정 사실·추론 <small>fact 4 · inference 0 · 등급 G1 1 / G2 0 / G3 0 / G4 3</small></h3>
+<p class="hint">G1 1차 공시 · G2 경영진 직접 발언 · G3 2차 매체 · G4 애그리게이터. G3·G4는 삼각검증용이며 단독 판단 근거가 될 수 없다(P4).</p>
+
+<article class="claim" id="COIN-c_20260925_COIN_1">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag">창 밖</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_COIN_1</span></div>
+  <p>코네티컷 주지사실(governor&#x27;s office) 보도자료(2026-09-10)는 코네티컷주 소비자보호국(Department of Consumer Protection, DCP)이 스포츠 이벤트 계약(sports event contracts)을 제공하는 9개 예측시장 플랫폼에 cease-and-desist를 발부했다고 명시하며, 대상 9개사 명단에 Polymarket·Coinbase·Crypto.com·Robinhood·ProphetX·Novig·Webull·Gemini·Underdog Predict가 포함된다고 확인한다. 명령은 각사에 코네티컷 주민 대상 &#x27;스포츠 이벤트 계약&#x27; 또는 기타 무허가 온라인 도박 형태의 광고·제공·판촉을 즉시 중단하고, 주민이 플랫폼 보유 자금을 인출할 수 있도록 할 것을 지시한다. 인용 법적 근거는 Conn. Gen. Stat. §53-278b 등 코네티컷 도박 관련 제정법 및 코네티컷 불공정거래관행법(CUTPA)이다. DCP는 별도로 게이밍서비스 제공업체·미디어 대상 약 30건의 소환장도 발부했다. 보도자료는 개별 회사에 대한 인출 이행 확인 수치나 매출 영향을 제시하지 않는다.</p>
+  <div class="csrc">출처 <a href="https://portal.ct.gov/governor/news/press-releases/2026/09-2026/governor-lamont-announces-new-actions-against-illegal-prediction-markets-offering-sports-wagers" target="_blank" rel="noopener">state government press release (Governor&#x27;s office, hosted on portal.ct.gov)</a><div class='cnote'>이번 run 신규 수집 지시(주 규제기관 조치)에 따라 COIN 자체 1차 수집으로 확인. 등급 처리: portal.ct.gov는 config/sources.yaml에 미등재 도메인이므로 default_grade=4를 기계적으로 부여했다(상위 지시 — config는 수정하지 않음). 내용 성격상 정부 1차 발표문이나, VALIDATE_V2 규칙(P4 — grade 3·4는 confirmed=true 불가, 삼각검증용 단독 근거 불가)에 따라 confirmed=false로 기계적으로 유지한다. 삼각검증: 다수 2차 매체(gambling.com·defirate.com·pymnts.com·predictionnews.com·wshu.org·nbcconnecticut.com)가 동일 9개사 명단·발부일을 일치 보도해 명단 정확성 자체의 신뢰도는 높으나, 게이트 규칙상 grade4 단독으로는 confirmed=true를 부여하지 않는다. NBC Connecticut 보도에 따르면 Robinhood·Polymarket·Coinbase는 &#x27;연방 당국이 예측시장을 규율한다&#x27;는 입장을 밝혔다(회사 코멘트는 2차 매체 인용이며 원문 성명서 링크 미확보). 카드의 prediction_market 축 신설 주석이 명시한 &#x27;차기 회차 COIN 자체 1차 수집으로 확인 대상&#x27;에 대해 이번 run에서 정부 공개 문서(portal.ct.gov)까지 직접 확인했다는 점에서 이전(HOOD 수집분 파생·근거 부적격) 상태보다는 명확히 진전됐음을 기록하되, 형식 등급상 confirmed는 false로 표기한다.</div></div>
+</article>
+<article class="claim" id="COIN-c_20260925_COIN_2">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_COIN_2</span></div>
+  <p>2026-09-22 보도(Law360)에 따르면 Coinbase(Coinbase Financial Markets)는 제6순회항소법원(Sixth Circuit)이 미시간·타 주 예측시장 스포츠 상품 적법성 관련 소송들을 정리하는 동안 미시간주 내 스포츠 이벤트 계약 제공을 자발적으로 중단하기로 했다. 해당 조치는 미시간 동부지구 연방지방법원(Eastern District of Michigan) Shalina D. Kumar 판사가 앞서 Coinbase Financial Markets의 주(州) 집행 금지 가처분 신청을 기각하고 &#x27;해당 계약이 상품거래법(CEA)상 스왑으로서 주 도박법을 선점(preempt)한다&#x27;는 핵심 주장을 배척한 데 이은 것이다. 복수 2차 매체(defirate.com, tradingview.com/cointelegraph 재게시, brightsideofnews.com, pro.stateaffairs.com)가 동일 취지(Coinbase의 미시간 스포츠 상품 자발적 철수, 제6순회법원 계류)를 일치 보도한다.</p>
+  <div class="csrc">출처 <a href="https://www.law360.com/articles/2528161/coinbase-halts-mich-sports-offerings-amid-litigation" target="_blank" rel="noopener">news (Law360, 삼각검증: defirate.com·tradingview.com·brightsideofnews.com·pro.stateaffairs.com)</a><div class='cnote'>law360.com·defirate.com·tradingview.com·brightsideofnews.com 모두 sources.yaml 미등재(default_grade=4)이며, 4개 독립 2차 매체가 동일 사실(날짜·법원·자발적 철수)을 일치 보도해 사실관계 신뢰도는 높으나 VALIDATE_V2 규칙(P4 — grade 3·4 fact는 confirmed=true 불가)에 따라 confirmed=false로 기계적으로 유지한다. Coinbase 자사 블로그·법원 도킷 원문은 이번 창에서 직접 확보하지 못했다(1차 URL 역추적 실패 — 유료 구독 제한). P7 3단 분리: 이는 &#x27;자발적 상품 철수&#x27; 이벤트이며 법원의 최종 판단(주 도박법 vs 연방 선점)은 아직 계류 중 — 법적 결론으로 해석하지 않는다.</div></div>
+</article>
+<article class="claim" id="COIN-c_20260925_COIN_3">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_COIN_3</span></div>
+  <p>Federal Register(govinfo.gov 공식 원문, 2026-09-23 게재, 문서번호 2026-19407, SR-COIN-2026-002)에 따르면 Coinbase Derivatives, LLC(CDE)는 2026-09-18 SEC에 &#x27;자기 인증(self-certification)&#x27; 성격의 규칙 변경 신고서를 제출했다. 신고 내용은 CDE 규칙집에 신규 Chapter 12(Security Futures Products, Rules 1201~1225)를 채택해 개별 상장주식 및 상장지수펀드(ETF) 주식을 기초자산으로 하는 현금결제 방식의 무기한(perpetual, &#x27;no fixed expiration date&#x27;) 증권선물(security futures)을 상장·거래하겠다는 것이다. 원문에 명시된 상장 기준은 ①기초 증권 시가총액 $100B 이상 ②직전 6개월 일평균 거래대금 $450M 이상 ③인도가능 유통주식수(estimated deliverable supply) 2,000만주 초과이며, 개별 종목·상장 시점은 이번 신고서에 특정되지 않았다(향후 개별 상품 신고로 결정). 신고는 증권거래법 제19(b)(7)조 및 제6(g)조 통지등록 절차를 이용했고, SEC는 CFTC 승인 후 60일 이내 이를 사후적으로 무효화(summarily abrogate)할 권한을 유보하며, 의견 제출 마감은 2026-10-14이다. 즉 이번 창에서 확인된 것은 &#x27;신고서 제출&#x27; 단계뿐이며, CFTC 승인·실제 상장·매출 인식 중 어느 것도 이번 문서에서 확인되지 않는다.</p>
+  <div class="csrc">출처 <a href="https://www.govinfo.gov/content/pkg/FR-2026-09-23/html/2026-19407.htm" target="_blank" rel="noopener">Federal Register (SEC self-certification filing text, GPO 발행 공식 원문)</a> · 2026-09-18<div class='cnote'>등급 부여 근거: govinfo.gov는 sources.yaml 미등재이나 GPO가 발행하는 Federal Register 원문으로, 직전 run(c_20260919_COIN_2)에서 이미 동일 사유로 congress.gov(등재 도메인, &#x27;법안 원문&#x27;)와 동일 계열의 1차 입법·행정기록으로 보아 수동 grade 1을 부여한 전례를 따른다(설정 파일 수정 없음 — 제안만). P7 3단 분리 엄수: &#x27;신고서 제출&#x27;(이번 claim) / &#x27;승인&#x27; / &#x27;거래 개시·매출 인식&#x27;을 별도 단계로 유지하며 본 claim은 1단계만 확정한다. 09-04·09-18 보도(직전 run c_20260919_COIN_7·_4, grade3/4·confirmed=false)가 예고했던 절차의 1차 문서 확인에 해당한다.</div></div>
+</article>
+<article class="claim" id="COIN-c_20260925_COIN_4">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_COIN_4</span></div>
+  <p>복수 2차 매체(kucoin.com 뉴스, cryptorank.io, stocktwits.com, cryptoninjas.net, hokanews.com)는 Coinbase Derivatives가 2026-09-18 CFTC에 별도로 &#x27;CFTC 규정 41.23(b)&#x27; 경로의 자기인증 신고(Coinbase Derivatives Submission #2026-62)를 제출해 Apple(AAPL)을 대표 상품으로 하는 개별주식 무기한선물(예: AAPL·TSLA 등 미국 대형주 약 50~60종목 대상 &#x27;Equity Perpetual Contracts&#x27;)의 상장을 추진 중이라고 보도한다. 보도에 따르면 CFTC 신고 페이지상 해당 상품 상태는 &#x27;Approval Pending (45)&#x27;(45일 심사)로 표기돼 있다고 전해지나, 본 에이전트는 cftc.gov의 해당 신고 원문 페이지를 이번 창에서 직접 열람·대조하지 못했다.</p>
+  <div class="csrc">출처 <a href="https://www.kucoin.com/news/flash/coinbase-files-for-u-s-stock-perpetual-futures-with-cftc-approval" target="_blank" rel="noopener">news (aggregator 다수 재인용)</a><div class='cnote'>1차 자료(cftc.gov 자기인증 신고 원문) 역추적 시도했으나 이번 창에서 접근·대조하지 못해 confirmed=false(D15). c_20260925_COIN_3(SEC/govinfo 1차 문서)과 동일한 &#x27;개별주식 무기한선물&#x27; 사업 이니셔티브를 SEC 경로(증권선물)와 CFTC 경로(상품선물/자기인증)로 병행 추진하는 것으로 보이나, 두 신고가 동일 상품군을 지칭하는지 별개 트랙인지는 이번 창의 자료만으로 확정할 수 없다 — 구분 모호성을 그대로 기록하며 임의로 통합 서술하지 않는다.</div></div>
+</article></section>
+<section><h3>Kill Condition 상태</h3>
+<h4>종목 전용 KC</h4>
+<div class='tscroll'><table class='kct'><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>근거·결과</th></tr></thead><tbody><tr class="kc-ok"><td class="mono">KC-COIN-1</td><td>구조 전환 실패(구독 비중 하락 + 거래매출 동반 감소, all_of)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">이번 창 구독·서비스 비중 관련 신규 수치 없음(unconfirmed 이월). 판정 입력 부재 — met 근거 없음(P5).</td></tr><tr class="kc-ok"><td class="mono">KC-COIN-2</td><td>예치자산 순유출(가격 변동 제외)</td><td><span class="verdict kc-ok">not_met</span> <small>provisional</small></td><td class="mono small">—</td><td class="small">이번 창 platform assets net inflow/outflow 신규 공시 없음(unconfirmed 항목 이월). 명목 잔액 대체 판정 금지(F3) — met 근거 없음.</td></tr><tr class="kc-ok"><td class="mono">KC-COIN-3</td><td>규제 소송(중대 건 한정)</td><td><span class="verdict kc-ok">met_candidate</span> <small>unconfirmed</small></td><td class="mono small">—</td><td class="small">이번 창 신규: 코네티컷 DCP의 C&amp;D 발부(c_20260925_COIN_1)와 미시간 자발적 철수(c_20260925_COIN_2) — 사건 발생 자체는 정부 공개문서·법원 관련 보도로 실질 확인되나, 두 claim 모두 evidence_grade=4이며 P4 규칙(grade 3·4 fact는 confirmed=true 불가, 삼각검증만으로 단독 판단 근거 부적격)에 따라 confirmed=false로 기계적 유지. 따라서 &#x27;중대 건&#x27;에 해당할 소지가 있는 사건이 실제 발생했음에도 Kill 규칙의 confirmed 요건을 충족하지 못해 met_and_confirmed=false — 이는 사건 부재가 아니라 근거등급 게이트 미달에 따른 것임을 명시한다. 두 건 모두 개별 주(州) 단위 조치이며 연방 선점 여부 등 법적 결론은 계류 중(P7).</td></tr><tr class="kc-ok"><td class="mono">KC-COIN-4</td><td>USDC 연동 수익 훼손(교차 KC, 방향 조건부)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">—</td><td class="small">이번 창 Circle 분배계약·USDC 수익 관련 신규 훼손 자료 없음. KC-CRCL-3 발췌 트리거 관련 언급도 없음(전 run 대비 변화 없음).</td></tr></tbody></table></div>
+<h4>파급되는 매크로 KC <small>노출 벡터상 불리 방향 축에 연결된 것만</small></h4>
+<div class="tscroll"><table class="kct"><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>사전 정의 결과</th></tr></thead><tbody><tr class="kc-ok"><td class="mono">KC-2</td><td>변동성 급등</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">VIX 15.670000076293945 &gt;= 30</td><td class="small">레버리지 해제 검토</td></tr><tr class="kc-ok"><td class="mono">KC-3</td><td>크립토 붕괴 + 위험회피 동시</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">BTC 84653.665 &lt; 55000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)</td></tr><tr class="kc-ok"><td class="mono">KC-4</td><td>유동성 위기 신호</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">ON_RRP 630000000.0 &gt;= 200000000000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-5</td><td>TAIEX 음전환 (아시아 리스크 프록시)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">TAIEX_vs_20dma_pct 3.44 &lt; 0 · TAIEX_1m_return_pct 7.58 &lt; 0</td><td class="small">광범위 디리스킹 검토</td></tr></tbody></table></div>
+</section>
+<section><h3>알림 요약 <small>7필드 Alert</small></h3>
+<div class="kv">
+  <div><dt>이벤트</dt><dd>COIN — 코네티컷 DCP의 예측시장 스포츠 계약 C&amp;D(09-10, 9개사 대상) + Coinbase의 미시간 자발적 철수(09-22, 제6순회법원 소송 계류 중) 신규 확인. 동시에 SEC Federal Register 원문으로 개별주식 무기한 증권선물 자기인증 신고 실체 확인(09-23 게재)</dd></div>
+  <div><dt>확정 사실</dt><dd><ul><li>[portal.ct.gov 주정부 보도자료, 2026-09-10, 2차매체 6건 삼각검증] 코네티컷 DCP가 Coinbase 포함 9개 예측시장 플랫폼에 스포츠 이벤트 계약 cease-and-desist 발부, 주민 대상 광고·제공 중단 및 인출 허용 지시. 회사별 매출 영향 수치 미제시(c_20260925_COIN_1, grade4, confirmed=false).</li><li>[Law360, 2026-09-22, 4개 2차매체 삼각검증] Coinbase Financial Markets가 제6순회항소법원 소송 정리를 기다리며 미시간주 스포츠 이벤트 계약 자발적 철수 — 앞서 D.Mich 법원이 CEA 선점 항변을 배척(c_20260925_COIN_2, grade4, confirmed=false).</li><li>[govinfo.gov Federal Register, 문서번호 2026-19407, 제출 2026-09-18/게재 2026-09-23] Coinbase Derivatives가 개별주식·ETF 대상 무기한 증권선물 신설(Chapter 12) 자기인증 신고, 상장기준(시총$100B·ADV$450M·유통주식2천만주) 명시. 개별종목·승인·상장·매출인식 전부 미확인(c_20260925_COIN_3, grade1, confirmed=true — &#x27;신고 제출&#x27; 단계 한정).</li><li>[aggregator 다수, 2026-09-18] CFTC 41.23(b) 경로 별도 자기인증(#2026-62, AAPL 대표상품, &#x27;Approval Pending 45일&#x27;) 보도, cftc.gov 원문 미대조(c_20260925_COIN_4, grade4, confirmed=false).</li></ul></dd></div>
+  <div><dt>추론</dt><dd>예측시장 부문은 이번 창에서 처음으로 개별 주(州) 단위의 구체적 영업 제한이 2개 주(코네티컷·미시간)에서 동시 확인되며 weaken 방향이 열렸다. 다만 법적 최종 결론(연방 선점 여부) 미확정, 매출 영향 정량 미공시, 근거등급 grade4로 확신도는 낮다. 반대로 파생상품 온쇼어화 트랙은 SEC 1차 문서로 &#x27;신고 제출&#x27; 실체가 확인돼 strengthen 방향의 신뢰도가 높아졌으나 여전히 매출 인식과는 거리가 먼 초기 단계다.</dd></div>
+  <div><dt>분류</dt><dd>혼합 — 규제 리스크 신규 확인(prediction_market weaken, holding 감시 강화)과 정성적 사업 진전(derivatives_base holding_reinforcement) 병존. 등급 변경 근거 없음(P2/P6/P13).</dd></div>
+  <div><dt>Thesis 변화</dt><dd><dl class='mini'><dt>axes</dt><dd>[{&quot;axis&quot;: &quot;prediction_market&quot;, &quot;direction&quot;: &quot;weaken&quot;, &quot;detail&quot;: &quot;코네티컷 C&amp;D·미시간 자발적 철수 최초 확인, 법적 결론 미확정, 매출 영향 미정량화, grade4/confirmed=false.&quot;, &quot;risk_transfer&quot;: [&quot;제6순회항소법원·D.Conn 소송 최종판단&quot;, &quot;추가 주 확산 여부&quot;, &quot;예측시장 매출 기여도의 실제 정량화&quot;]}, {&quot;axis&quot;: &quot;derivatives_base&quot;, &quot;direction&quot;: &quot;strengthen&quot;, &quot;detail&quot;: &quot;SEC Federal Register 1차 문서로 신고 실체 확인(grade1, confirmed=true), 여전히 &#x27;신고 제출&#x27; 단계.&quot;, &quot;risk_transfer&quot;: [&quot;CFTC 승인 여부·소요기간&quot;, &quot;CME v. CFTC 소송 결과(제3자)&quot;, &quot;SEC 60일 사후무효화권 행사 여부&quot;]}]</dd></dl></dd></div>
+  <div><dt>신호 판정</dt><dd>🟠 주의(Q2 매출 miss) 등급 유지(후보) — 상향 게이트 미충족(stage_revenue_recognized=false, derivatives_base는 holding_reinforcement일 뿐 상향 근거 아님). 하향 게이트도 미충족(prediction_market weaken 방향은 존재하나 근거등급 grade4&gt;2로 규칙3 임계 미달). Kill 규칙 미해당 — KC-COIN-3에서 실질 사건(주정부 C&amp;D·법원발 철수)은 발생했으나 근거등급 게이트(P4)로 confirmed=true 부여 불가해 met_and_confirmed=false. **사람 검토 권고:** KC-COIN-3 근접 사건이므로 1차 문서(코네티컷 DCP 명령서 원문, 미시간 법원 도킷)의 직접 확보와 매출 영향 정량화가 확보되면 다음 run에서 Kill 조건 재평가 필요. 최종 등급 확정은 사람이 한다.</dd></div>
+  <div><dt>다음 확인</dt><dd><ul><li>Q3 2026 실적 — 예측시장(prediction market) 부문 매출의 코네티컷·미시간 조치 영향 정량치 (prediction_market 축·KC-COIN-3 판정용)</li><li>Q3 2026 실적 — 구독·서비스 매출 절대액 및 비중 방향, 거래매출 QoQ 부호 (KC-COIN-1 판정용)</li><li>회사 공시 platform assets net inflow/outflow(가격효과 제외) 분기치 (KC-COIN-2 판정용)</li><li>Q3 2026 Stablecoin revenue 절대액(직전 $292.147M) (KC-COIN-4 판정용)</li><li>코네티컷 DCP 명령서 원문·미시간 D.Mich/제6순회법원 도킷 직접 확보 및 confirmed 등급 재평가</li><li>cftc.gov 자기인증 게시판에서 Submission #2026-62 원문 대조</li></ul></dd></div>
+</div></section>
+<section><h3>미확인·이월 <small>9건 — 찾지 못함 ≠ 반증(P5)</small></h3>
+<ul class="unc"><li><strong></strong><span class='reason mono'>복수 2차 매체(crypto.news 등)가 회사 Q2 2026 주주서한을 인용해 &#x27;예측시장 계약·매출이 QoQ 106% 성장, Q2 중 연환산 매출 $100M 돌파&#x27;라고 전하나, 이번 창에서 SEC EDGAR 8-K 주주서한 원문(투자자 IR q2 shareholder letter)을 직접 열람·대조하지 못했다. Q2 실적 자체는 창 밖(2026-07-30 발표)이라 out_of_window 신규 claim으로 적재하지 않고 unconfirmed로만 남긴다.</span><p></p></li><li><strong></strong><span class='reason mono'>cftc.gov 자기인증 게시판 원문을 이번 창에서 확인하지 못해 c_20260925_COIN_4는 confirmed=false 상태다.</span><p></p></li><li><strong></strong><span class='reason mono'>두 주(州) 조치 모두 회사가 정량적 매출 영향(해당 주 거래대금·매출 비중)을 공시하지 않았다.</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창(08-28~09-25)에도 COIN 특정 OUSD 참여 조건·수익 배분 비율을 담은 1차 자료를 확보하지 못했다. noise_filter.yaml#COIN의 promote_if 트리거 미발생 상태로 재이월(P5).</span><p></p></li><li><strong></strong><span class='reason mono'>1차 자료로 확보된 최신치는 여전히 Q2 2026 Stablecoin revenue $292.147M(10-Q, 창 밖)이며 Q3 수치는 이번 창에 제출되지 않았다.</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창 EDGAR 조회(10-K/10-Q/8-K, since=2026-09-17)도 0건 — 신규 8-K 없음. COIN 1차 주석에 의한 확인은 여전히 미완.</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창에서도 investor.coinbase.com의 &#x27;Coinbase Announces Date of Third Quarter 2026 Financial Results&#x27; 공지를 확인하지 못했다. 검색 결과에 등장하는 10/29 추정은 애그리게이터(wallstreethorizon 등) 추정으로 F1상 판정 근거 불가. 카드 earnings_checkpoints.date는 여전히 null.</span><p></p></li><li><strong></strong><span class='reason mono'>3개 run 연속으로 실측 거래량·수수료 매출이 공개되지 않았다.</span><p></p></li><li><strong></strong><span class='reason mono'>이번 창 내 회사 공시 net inflow/outflow 수치가 제출되지 않았다. F3상 명목 잔액 대체 판정 금지.</span><p></p></li></ul></section>
+<section><h3>이번 회차 Thesis 카드 패치 <small>0건</small></h3>
+<ul class="patches"><li class='empty'>패치 없음</li></ul></section>
+<section><details class="plain"><summary><h3>폐기한 노이즈 <small>4건 — P3 기준</small></h3></summary>
+<ul class="noise"><li><strong></strong><p>noise_filter.yaml#COIN의 &#x27;BTC 일간 변동&#x27;. scope=macro(KC-3 영역)로 COIN 개별 축 근거 불가(P6).</p></li><li><strong></strong><p>D3(전망 서사 배제) 대상. 1차·삼각검증된 사실(C&amp;D 발부, 자발적 철수)만 claim화하고 논평은 배제.</p></li><li><strong></strong><p>두 건 모두 retro sweep 기준일(2026-08-28) 이전 발생 사건으로 이번 run의 신규 수집 대상 기간 밖이다. prediction_market 축 delta의 배경 맥락으로만 참조하고 별도 claim으로 승격하지 않는다(P3 — 이번 창 내 변화 없음).</p></li><li><strong></strong><p>retro sweep 기준일(2026-08-28) 이전 발생 또는 이번 창 내 상태 변화가 확인되지 않은 사건. 코네티컷·미시간 2건만 이번 창 신규/확인 사실로 claim화했다.</p></li></ul></details></section><section class="concl"><h3>카드 결론 <small>state/thesis_cards/COIN.yaml · as_of 2026-08-15</small></h3><p>규제 촉매(CLARITY)와 구조 전환(구독 비중)이 모두 진행 중이나 Q2 매출 miss로 전환 속도가 검증 대상. OUSD 참여는 강세 재료가 아니라 USDC 수익과의 상충 여부를 확인해야 할 축이다.</p></section></div><div class="ticker" id="tk-HOOD" hidden>
+<header class="thead">
+  <div class="trow">
+    <div><span class="eyebrow">stablecoin</span><h2>HOOD</h2></div>
+    <div class="transition"><span class="sig s-yellow">🟡</span><span class="arrow">→</span><span class="sig s-yellow">🟡</span><span class="cand">후보</span></div>
+  </div>
+  <p class="thesis">리테일 금융 수퍼앱. 크립토·예측시장·현금관리로 수익원을 다각화하며 계정당 수익(ARPU)과 AUA를 동시 성장시킨다.</p>
+  <div class="kv">
+    <div><dt>판정 성격</dt><dd>maintain</dd></div>
+    <div><dt>다음 게이트</dt><dd>① 2026-09-28 SCOTUS long conference 처리 결과(cert granted/denied, 관측 가능 정량 이벤트) ② Q3 2026 실적의 이벤트 계약 매출 절대액·QoQ(주별 중단 반영 여부, stage=revenue_recognized 재판정) ③ 2026-10-09 미시간 청산 기한 실이행 여부</dd></div>
+    <div><dt>조사 창</dt><dd><code>2026-08-28 → 2026-09-25</code> · 1차 사건일 2026-09-17 · staleness 0일</dd></div>
+  </div>
+  
+</header>
+<section><h3>등급 판정 근거 <small>arbiter 규칙 — 확정은 사람</small></h3>
+<div class="gates">
+  <div class="gate"><div class="gname">규칙1 · Kill 우선</div><div class="gval"><span class="chk ok">미해당</span></div><p></p></div>
+  <div class="gate"><div class="gname">규칙2 · 상향 게이트</div><div class="gval"><span class="chk no">미충족</span></div>
+    <ul class="conds"><li>정량 근거 <span class="chk no">미충족</span></li><li>회사 고유 <span class="chk no">미충족</span></li><li>매출 인식 단계 <span class="chk no">미충족</span></li></ul>
+    <p></p></div>
+  <div class="gate"><div class="gname">규칙3 · 하향(비대칭)</div><div class="gval"><span class="chk ok">미해당</span></div>
+    <ul class="conds"><li>정량 훼손 없음</li><li>grade≤2 정성 훼손 없음</li></ul>
+    <p></p></div>
+</div></section>
+<section><h3>Thesis 축 Delta <small>7축 · 강화 0 / 약화 0 / 중립 7</small></h3>
+
+<details class="axis">
+  <summary><span class="axid">prediction_market</span><span class="dir d-neutral">중립</span><span class="axlabel">예측시장 — 매출 기여 vs 규제 리스크. 기준선(Q2&#x27;26, 8-K Ex-99.1 grade 1): 이벤트 계약 매출 $156M·YoY 10배+, 분기 계약 13.6B건 — 거래매출 $776M 구성에서 크립토($100M)·주식($129M)을</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>existence_metric_update (건수 지표 갱신, 매출 미확인)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): direction=weaken — 규제 리스크 경로에 실제 상품 제공 중단(미시간) 확정 사례가 처음 발생했다는 사실에 근거. 단, 2026-09-19 ThesisPatch(decompose)로 규제 리스크의 방향 판정은 하위 축(state_enforcement·federal_jurisdiction)으로 이관됐고 본 축은 매출 기여 기준선(Q2&#x27;26 $156M·13.6B건) 보유 축으로 존치됐다.</dd></div>
+    <div><dt>이번 회차</dt><dd>본 창에서 축 판정에 새로 반영할 매출 데이터는 없다. 다만 소급 스윕으로 확보한 8월 Event Contracts Traded(4.7B건, MoM -23%, YoY +15배)와 Average Daily Volumes(1.52억 건, MoM -23%, YoY +14배)는 카드가 명시한 &#x27;월드컵 계절성 여부&#x27; 관측점에 대응하는 최초의 하락 신호다(c_20260925_HOOD_2·8). 건수는 매출이 아니므로(P7) 이를 근거로 강화/훼손 방향을 부여하지 않고 neutral로 유지하되, Q3 실적 확인 전까지 지속성 미검증 상태가 이어진다는 점을 명기한다. 규제 리스크 방향은 여전히 하위 축에서만 판정한다(P8, 축 분해 유지).</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#HOOD-c_20260925_HOOD_2" class="cid">c_20260925_HOOD_2</a> <a href="#HOOD-c_20260925_HOOD_8" class="cid">c_20260925_HOOD_8</a> · 리스크 이관 → Q3 실적의 이벤트 계약 매출 절대액·QoQ (World Cup 계절성 검증), 9월 운영지표(통상 10월 중순)의 Event Contracts Traded MoM 방향</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">prediction_market_state_enforcement</span><span class="dir d-neutral">중립</span><span class="axlabel">예측시장 규제 — 주(州) 집행 경로. 관측 단위: 개별 주의 명령·합의 및 Robinhood의 실제 상품 제공 중단 여부(주 수가 아니라 &#x27;실제 중단이 확정된 관할&#x27;을 센다). 2026-09 관측 — 미시간: 서부연방지법 승인 st</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>no_status_change (미시간·코네티컷·미주리 모두 이행 확정 보도 없음)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): 미시간(신규 제공 09-09 중단·기존 포지션 10-09 청산 확정), 코네티컷(09-10 C&amp;D·소환장), 미주리(09-16 기산 30일 C&amp;D)를 grade4·confirmed=false로 적재. 코네티컷·미주리는 이행 여부 미확인 상태.</dd></div>
+    <div><dt>이번 회차</dt><dd>09-18~09-25 구간에 코네티컷·미주리의 실제 이행/불이행이나 신규 주(州) 조치는 확인되지 않았다(c_20260925_HOOD_5). 미시간 청산 기한(10-09)과 미주리 기한(약 10-16)은 모두 창 밖 미래 시점이라 관측 대상 자체가 아직 도래하지 않았다. 상태를 변경할 근거가 없어 이전 판정을 그대로 이월한다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#HOOD-c_20260925_HOOD_5" class="cid">c_20260925_HOOD_5</a> · 리스크 이관 → 2026-10-09 미시간 청산 기한 실이행 여부, 미주리 기한(약 2026-10-16) 도과 후 조치, 코네티컷 이행 여부</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">prediction_market_federal_jurisdiction</span><span class="dir d-neutral">중립</span><span class="axlabel">예측시장 규제 — 연방(CFTC·연방법원) 관할 경로. 관측 단위: 연방 전속관할을 확인·부인하는 절차의 진척과 그 계류 상태. 2026-09 관측 — CFTC가 D.Conn.에 코네티컷 주법 집행을 막는 예비적 금지명령을 신청하고 Robinhood가</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>docket_confirmed_no_ruling (도켓번호 확정, 실체 판단 없음)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): CFTC의 D.Conn. 예비적 금지명령 신청·Robinhood 소송참가 신청 계류(09-11), Robinhood·Crypto.com SCOTUS 상고 제출(제출일 매체 불일치, 도켓번호 미부여, 첫 검토 기회 2026-09-28 long conference).</dd></div>
+    <div><dt>이번 회차</dt><dd>Robinhood 상고 사건이 No. 26-338로 정식 등재(2026-09-14, 응답기한 10-14)돼 직전 회차의 &#x27;도켓번호 미부여&#x27; 불확실성이 해소됐다(c_20260925_HOOD_3) — 절차적 확정일 뿐 실체 판단은 아니다. D.Conn. 예비적 금지명령·소송참가 신청은 여전히 계류(c_20260925_HOOD_4), Kalshi의 9순회 en banc 신청도 계류(c_20260925_HOOD_5)다. 2026-09-28 long conference는 창 밖(미래)이라 처리 결과는 다음 회차 관측 대상이다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#HOOD-c_20260925_HOOD_3" class="cid">c_20260925_HOOD_3</a> <a href="#HOOD-c_20260925_HOOD_4" class="cid">c_20260925_HOOD_4</a> <a href="#HOOD-c_20260925_HOOD_5" class="cid">c_20260925_HOOD_5</a> · 리스크 이관 → 2026-09-28 SCOTUS long conference에서 No. 26-338·No. 26-299 처리 여부, D. Conn. 예비적 금지명령·소송참가 인용 여부, 제9순회 en banc 신청 인용 여부</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">aua_inflow</span><span class="dir d-neutral">중립</span><span class="axlabel">AUA·순유입 (유지 근거의 핵심)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>no_new_primary_data</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): 8월 운영지표(Total Platform Assets $383.7B, 월간 순입금 $4.0B, Funded Customers 28.6M) grade1로 strengthen 판정 후 이월.</dd></div>
+    <div><dt>이번 회차</dt><dd>본 창(09-18~09-25)에 AUA·순유입 관련 신규 1차 자료는 확인되지 않았다(c_20260925_HOOD_1). 9월분 운영지표는 통상 10월 중순 공개 예정이며 아직 창 밖이다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#HOOD-c_20260925_HOOD_1" class="cid">c_20260925_HOOD_1</a> · 리스크 이관 → 9월 월간 운영지표(2026-10 중순 예상), Q3 실적의 거래매출 QoQ</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">arpu_mix</span><span class="dir d-neutral">중립</span><span class="axlabel">ARPU·매출 mix (크립토/예측시장/이자수입)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>new_product_pathway_exists_no_revenue (P7 1단계)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): mix 변화 경로로 미시간 중단(축소 방향)과 OG.com 라우팅 확대·지분 취득(확대 방향)이 병존, 매출 금액 미공개로 neutral 유지.</dd></div>
+    <div><dt>이번 회차</dt><dd>SEC의 &#x27;Innovation Exemption&#x27;(2026-09-17, sector-scope)과 이를 활용한 Robinhood의 토큰화 주식 거래 계획 공표(c_20260925_HOOD_6)가 mix 변화의 잠재 경로로 추가됐다. 다만 (a) SEC 조치 자체는 전업계 대상이라 단독으로 HOOD 축 판정 근거가 될 수 없고(P6·P13), (b) Robinhood의 활용 계획은 구체 출시일·매출 인식 이전 단계다(P7 1단계, 종목 특이 주의사항 준용). 카드에 &#x27;토큰화&#x27;를 담을 축이 없어 기존 arpu_mix에 존재 사실만 병기하고 방향은 부여하지 않는다. 축 신설 필요성은 아래 escalation_notes에 별도 제안한다(P8 — 임의로 우겨넣지 않음).</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#HOOD-c_20260925_HOOD_6" class="cid">c_20260925_HOOD_6</a> · 리스크 이관 → Robinhood의 토큰화 주식 거래 실제 출시일·매출 인식 시점, Q3 실적의 거래매출 구성(옵션·이벤트·주식·크립토 분해)</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">crypto_cycle</span><span class="dir d-neutral">중립</span><span class="axlabel">크립토 매출 비중 (KC-3 연동)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>no_new_primary_data (가스비 보조금 종료일 도래 전)</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): 8월 크립토 명목거래액 $17.5B(MoM +61%, YoY -38%) — 09-29 종료 예정 가스비 보조금 구간 중 반등이라 지속성 미검증, neutral 유지.</dd></div>
+    <div><dt>이번 회차</dt><dd>본 창에 크립토 매출·거래액 관련 신규 1차 자료는 확인되지 않았다. 가스비 보조금 종료 예정일(2026-09-29)은 창 밖(4일 후)이며, 연장·조건 변경 공지도 확인되지 않았다 — 종료 예정일은 직전 회차와 동일하게 유지된다(unconfirmed 적재). 2026-09-29~30 HOOD Summit에서 관련 발표 가능성이 있으나 아직 발생하지 않은 미래 이벤트라 본 회차 판정에 반영하지 않는다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#HOOD-c_20260925_HOOD_1" class="cid">c_20260925_HOOD_1</a> · 리스크 이관 → 2026-09-29 가스비 보조금 종료 후 거래액 잔존율, 2026-09-29~30 HOOD Summit 발표 내용, Q3 실적의 크립토 매출 절대액·비중</dd></div>
+  </div>
+</details>
+<details class="axis">
+  <summary><span class="axid">rates_income</span><span class="dir d-neutral">중립</span><span class="axlabel">이자수입 (금리 민감)</span></summary>
+  <div class="axbody">
+    <div class='stage'><dt>단계</dt><dd>no_company_statement</dd></div>
+    <div><dt>직전 상태</dt><dd>직전 run(0919): Margin Book $21.5B(MoM +4%, YoY +72%)와 증권대차수익 $36M(MoM -10%, YoY -32%)의 방향 혼재로 neutral 유지.</dd></div>
+    <div><dt>이번 회차</dt><dd>본 창에 이자수입·순이자수익과 금리를 명시적으로 연결한 회사 1차 발언·공시는 확인되지 않았다. 매크로 재료(금리 동향)는 P6·P13에 따라 개별 축 판정 근거로 사용하지 않으며 자체 추정도 수행하지 않는다(P5). 축 상태는 직전 회차 그대로 이월한다.</dd></div>
+    
+    <div><dt>근거 Claim</dt><dd><a href="#HOOD-c_20260925_HOOD_1" class="cid">c_20260925_HOOD_1</a> · 리스크 이관 → Q3 실적의 순이자수익 항목 및 경영진 금리 민감도 발언</dd></div>
+  </div>
+</details></section>
+<section><h3>확정 사실·추론 <small>fact 7 · inference 1 · 등급 G1 3 / G2 0 / G3 0 / G4 4</small></h3>
+<p class="hint">G1 1차 공시 · G2 경영진 직접 발언 · G3 2차 매체 · G4 애그리게이터. G3·G4는 삼각검증용이며 단독 판단 근거가 될 수 없다(P4).</p>
+
+<article class="claim" id="HOOD-c_20260925_HOOD_1">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="cid mono">c_20260925_HOOD_1</span></div>
+  <p>SEC EDGAR submissions를 2026-09-25 시점 재조회한 결과, Robinhood Markets(CIK 0001783879)가 2026-09-01~09-25 구간에 제출한 8-K·10-Q·10-K는 0건이다(edgar_fulltext.py --ticker HOOD --forms 8-K 10-Q 10-K --since 2026-09-01 → 0건). 같은 구간 Form 4는 2026-09-23 Vladimir Tenev 명의 1건이 추가 확인됐다(2026-09-21 실행분, 약 $32.5M 상당 매도, 사전신고 거래계획(10b5-1) 기반, 2026년 세 번째 처분).</p>
+  <div class="csrc">출처 <a href="https://data.sec.gov/submissions/CIK0001783879.json" target="_blank" rel="noopener">edgar_api / edgar_fulltext.py</a> · 2026-09-25<div class='cnote'>직전 run과 동일하게 창 내 8-K/10-Q/10-K 신규 제출 없음을 재확인. Tenev 매도는 정형 10b5-1 계획·유사 규모 반복(직전 2건과 동일 패턴)이라 promote_if 미해당으로 노이즈 처리(discarded_noise_log).</div></div>
+</article>
+<article class="claim" id="HOOD-c_20260925_HOOD_2">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="flag">창 밖</span><span class="cid mono">c_20260925_HOOD_2</span></div>
+  <p>회사 공식 &#x27;August 2026 Operating Data&#x27;(2026-09-10 배포, GlobeNewswire/투자자 IR 페이지)에는 직전 run이 적재하지 않은 예측시장 전용 지표가 포함돼 있다: Event Contracts Traded(월간 계약 체결 건수) 47억 건 — 전월 대비 -23%, 전년동기 대비 +15배. Average Daily Volumes(일평균 계약 건수) 1.52억 건 — 전월 대비 -23%, 전년동기 대비 +14배. 그 외 지표(Total Platform Assets $383.7B, 월간 순입금 $4.0B, Funded Customers 28.6M, 크립토 명목거래액 $17.5B, 옵션 계약 2.925억 건, Margin Balances $21.5B, 증권대차수익 $36M)는 직전 run(c_20260919_HOOD_2)이 이미 적재한 값과 일치한다.</p>
+  <div class="csrc">출처 <a href="https://www.globenewswire.com/news-release/2026/09/10/3359962/0/en/robinhood-markets-inc-reports-august-2026-operating-data.html" target="_blank" rel="noopener">company press release (GlobeNewswire distribution / investors.robinhood.com)</a> · 2026-09-10<div class='cnote'>발표일(09-10)은 직전 run 창(09-10~09-19) 안이었으나 Event Contracts Traded·Average Daily Volumes 항목은 두 차례 회차 모두 미포착이었다 — 본 run 소급 스윕에서 원문 재대조로 확보. 08-28 소급 기준의 &#x27;카드 축에 직접 대응하는 미포착 정량 지표&#x27;에 해당해 out_of_window: true로 적재한다(P9 — 직전 run 기록을 대체하지 않고 보완). 계약 &#x27;건수&#x27;는 매출이 아니다(P7) — 카드 기준선(Q2&#x27;26 이벤트 계약 매출 $156M, 분기 13.6B건)과 단위·기간이 달라 직접 비교 불가.</div></div>
+</article>
+<article class="claim" id="HOOD-c_20260925_HOOD_3">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_HOOD_3</span></div>
+  <p>Robinhood는 2026-09-10 미국 연방대법원에 상고허가신청(petition for a writ of certiorari)을 제출했고, 동 사건은 2026-09-14 No. 26-338로 정식 등재됐다(응답 기한 2026-10-14). 직전 run이 미확정으로 남겼던 도켓번호가 본 창에서 확정됐다. 별건인 뉴저지의 상고(No. 26-299, 2026-09-08 접수)와는 별개 사건이다.</p>
+  <div class="csrc">출처 <a href="https://www.supremecourt.gov/docket/docketfiles/html/public/26-338.html" target="_blank" rel="noopener">federal court docket (원문 직접 fetch 확인)</a> · 2026-09-14<div class='cnote'>supremecourt.gov 원문을 직접 fetch해 도켓 엔트리(제출일 09-10·응답기한 10-14·등재일 09-14)를 확인했으나 sources.yaml 미등재 도메인이라 기계적으로 grade 4·confirmed=false를 부여한다(P4, 직전 run c_20260919_HOOD_4·10과 동일 규칙 적용 — 원문 확인 성공 여부와 무관). 2026-09-28 long conference에서의 처리 여부는 창 밖 다음 관측점으로 이월한다.</div></div>
+</article>
+<article class="claim" id="HOOD-c_20260925_HOOD_4">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_HOOD_4</span></div>
+  <p>2026-09-11 제출된 CFTC의 D. Conn. 예비적 금지명령 신청과 Robinhood의 소송참가(intervene) 신청은 2026-09-25 조회 시점까지 어느 쪽도 법원의 인용·기각 결정이 나지 않은 계류 상태다. 코네티컷주는 Robinhood의 소송참가에 반대하지 않는다는 입장을 유지하고 있다. 동일 소송 계열에서 별도로 Underdog(경쟁사)가 2026-09-17 코네티컷주를 상대로 직접 제소했다는 보도가 있으나 Robinhood 관련 사실이 아니므로 본 카드 축의 근거로 사용하지 않는다.</p>
+  <div class="csrc">출처 <a href="https://www.gamblinginsider.com/news/195374/prediction-markets-supreme-court-nfl-gambling-sponsors" target="_blank" rel="noopener">2차 매체 종합 (D.Conn. 도켓 원문 미대조)</a> · 2026-09-2x<div class='cnote'>직전 run(c_20260919_HOOD_5)의 계류 상태에서 변화 없음을 확인하는 이월 확인 Claim. grade 4·confirmed=false — 단독 판단 근거 불가(P4). Underdog 자체 제소 건은 scope=sector로도 채택하지 않음(HOOD 비관련 당사자).</div></div>
+</article>
+<article class="claim" id="HOOD-c_20260925_HOOD_5">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_HOOD_5</span></div>
+  <p>Kalshi의 제9순회항소법원 전원재판부(en banc) 재심리 신청(2026-09-09 제출)은 2026-09-25 조회 시점까지 인용·기각 결정 없이 계류 상태다. 법원이 네바다주에 답변을 요구했는지 여부는 확인되지 않았다. 미시간·코네티컷·미주리의 Robinhood 대상 조치에 대해서는 09-18~09-25 구간에 신규 이행·불이행 확정 보도가 확인되지 않았다 — 미시간 기존 포지션 청산 기한(2026-10-09)과 미주리 30일 기한(2026-10-16 전후)은 모두 창 밖(미래)이다.</p>
+  <div class="csrc">출처 <a href="https://www.ingame.com/ninth-circuit-states-plan-predictions-stopped/" target="_blank" rel="noopener">2차 매체 종합</a> · 2026-09-16<div class='cnote'>카드 하위축(state_enforcement·federal_jurisdiction)의 &#x27;다음 관측점&#x27; 상태를 재확인하는 carry-over Claim. 신규 사실 없음이며, 직전 회차 판정을 뒤집지 않는다.</div></div>
+</article>
+<article class="claim" id="HOOD-c_20260925_HOOD_6">
+  <div class="cmeta"><span class="grade g1">G1</span><span class="tag t-fact">fact</span><span class="flag">sector</span><span class="cid mono">c_20260925_HOOD_6</span></div>
+  <p>SEC는 2026-09-17 보도자료(2026-90)로 &#x27;Innovation Exemption&#x27;을 발표했다 — Tokenized Securities Venue가 허가형 자동시장조성자(permissioned AMM)·유동성풀을 이용해 토큰화된 NMS 주식을 거래소 등록 없이 취급할 수 있도록 5년 한시·조건부 면제를 부여하는 내용이며, 공시·거래 투명성·기록보관·기술 안전장치 등 조건이 부과된다. Robinhood는 자사 뉴스룸·경영진 발언(Vlad Tenev: &#x27;토큰화가 미국에 오고 있다&#x27;)을 통해 동 면제를 활용한 토큰화 주식 거래를 계획한다고 밝혔으나, 구체적 출시일·매출 인식 시점은 공개되지 않았다.</p>
+  <div class="csrc">출처 <a href="https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment" target="_blank" rel="noopener">SEC press release (sec.gov — sources.yaml 미등재이나 federalreserve.gov 등과 동일 성격의 연방기관 1차 자료 — 아래 note 참조)</a> · 2026-09-17<div class='cnote'>sec.gov는 config/sources.yaml grade_1 목록에 sec.gov(도메인) 자체가 아니라 efts.sec.gov·sec.gov EDGAR 하위경로만 명시돼 있어 본 보도자료 URL이 목록과 정확히 일치하는지 애매하다 — 보수적으로 confirmed는 원문 직접 fetch 성공을 근거로 true를 유지하되, 등급 매핑의 애매성을 기록한다. SEC 조치 자체는 전(全)업계 대상 규제이므로 scope=sector이며 단독으로 HOOD 축 상향 근거가 될 수 없다(P6·P13). Robinhood의 활용 계획 언급은 회사 발언이나 상품 출시·매출 전환 이전 단계(P7 1단계, 존재)다.</div></div>
+</article>
+<article class="claim" id="HOOD-c_20260925_HOOD_7">
+  <div class="cmeta"><span class="grade g4">G4</span><span class="tag t-fact">fact</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_HOOD_7</span></div>
+  <p>회사는 2026-09-23 16:05 EDT &#x27;Robinhood: 5 Years Since IPO&#x27; 제목의 보충 투자자 프레젠테이션(투자자 IR 사이트 게시)을 발표했다. investors.robinhood.com 원문은 반복 접속 시도(WebFetch)가 모두 60초 타임아웃으로 실패해 본문 대조를 완료하지 못했다 — 2차 매체 요약을 통해 8월 운영지표(c_20260925_HOOD_2와 동일 수치) 재인용과 Robinhood Chain 누적 거래량 $10억+ 언급을 확인했으나, 신규 정량 수치(매출·마진·가이던스)는 확인되지 않았다.</p>
+  <div class="csrc">출처 <a href="https://www.fool.com/investing/2026/09/21/prediction-robinhood-will-launch-tokenized-stock-trading-in-the-u-s-before-the-end-of-2027/" target="_blank" rel="noopener">2차 매체 요약 (1차 IR 페이지 접속 실패)</a> · 2026-09-23<div class='cnote'>investors.robinhood.com/events, /news-releases 두 URL 모두 WebFetch 60s timeout(직전 run의 investors.robinhood.com 접속 실패 전례와 동일). 1차 자료 미확보로 unconfirmed 병행 적재(P5).</div></div>
+</article>
+<article class="claim" id="HOOD-c_20260925_HOOD_8">
+  <div class="cmeta"><span class="grade g-na">—</span><span class="tag t-inf">inference · medium</span><span class="flag warn">unconfirmed</span><span class="cid mono">c_20260925_HOOD_8</span></div>
+  <p>c_20260925_HOOD_2의 Event Contracts Traded MoM -23%(8월, 7월 대비)는 카드가 남겨둔 &#x27;월드컵 계절성 여부&#x27; 관측점에 대한 최초의 정량적 반대 신호다 — 계약 건수 기준으로는 7월 대비 감소가 확인돼, 이전 회차의 누적치 서술(8월까지 누적 300억 건 이상)이 시사하던 지속 성장 인상과 달리 월간 활동은 정점 통과 가능성을 시사한다. 다만 건수는 매출이 아니며(P7), YoY +15배로 기저 자체는 여전히 매우 높다 — Q3 실적의 이벤트 계약 매출 절대액·QoQ가 확인되기 전까지는 방향 판정을 유보한다.</p>
+  <div class="csrc">출처 <div class='cnote'>근거는 grade1 회사 공시(c_20260925_HOOD_2)이나 건수→매출 환산은 본 계층이 수행하지 않는다(P5, P7).</div></div>
+</article></section>
+<section><h3>Kill Condition 상태</h3>
+<h4>종목 전용 KC</h4>
+<p class='empty'>종목 전용 KC 미정의</p>
+<h4>파급되는 매크로 KC <small>노출 벡터상 불리 방향 축에 연결된 것만</small></h4>
+<div class="tscroll"><table class="kct"><thead><tr><th>KC</th><th>조건</th><th>판정</th><th>입력</th><th>사전 정의 결과</th></tr></thead><tbody><tr class="kc-ok"><td class="mono">KC-2</td><td>변동성 급등</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">VIX 15.670000076293945 &gt;= 30</td><td class="small">레버리지 해제 검토</td></tr><tr class="kc-ok"><td class="mono">KC-3</td><td>크립토 붕괴 + 위험회피 동시</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">BTC 84653.665 &lt; 55000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">IREN 50% 축소 + Next 진입 보류 검토 (파급: IREN·COIN·HOOD·CRCL)</td></tr><tr class="kc-ok"><td class="mono">KC-4</td><td>유동성 위기 신호</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">ON_RRP 630000000.0 &gt;= 200000000000 · VIX 15.670000076293945 &gt;= 25</td><td class="small">광범위 디리스킹 검토</td></tr><tr class="kc-ok"><td class="mono">KC-5</td><td>TAIEX 음전환 (아시아 리스크 프록시)</td><td><span class="verdict kc-ok">not_met</span> <small>confirmed</small></td><td class="mono small">TAIEX_vs_20dma_pct 3.44 &lt; 0 · TAIEX_1m_return_pct 7.58 &lt; 0</td><td class="small">광범위 디리스킹 검토</td></tr></tbody></table></div>
+</section>
+<section><h3>알림 요약 <small>7필드 Alert</small></h3>
+<div class="kv">
+  <div><dt>이벤트</dt><dd>HOOD — 이번 창(09-18~09-25) 규제 축은 실체 변화 없이 절차만 진행: Robinhood SCOTUS 상고가 No. 26-338로 정식 등재(응답기한 10-14)됐으나 실체 판단 없음. D.Conn. 예비적 금지명령·9순회 en banc은 계류 지속, 코네티컷·미주리 실이행 여부 미확인. 별도로 소급 스윕에서 8월 Event Contracts Traded·ADV가 MoM -23%로 처음 하락 전환한 사실을 신규 확보(회사 공시, grade1).</dd></div>
+  <div><dt>확정 사실</dt><dd>[c_20260925_HOOD_3, grade4, confirmed=false, 2026-09-14] Robinhood SCOTUS 상고 No. 26-338 정식 등재, 응답기한 10-14. [c_20260925_HOOD_4, grade4, confirmed=false, 2026-09-11~25] CFTC D.Conn. 예비적 금지명령·Robinhood 소송참가 신청 계류 지속. [c_20260925_HOOD_5, grade4, confirmed=false, 2026-09-16] Kalshi 9순회 en banc 신청 계류, 미시간·코네티컷·미주리 이행 상태 변화 없음. [c_20260925_HOOD_2, grade1, confirmed=true, 2026-09-10] 8월 Event Contracts Traded 47억 건(MoM -23%, YoY +15배), ADV 1.52억 건(MoM -23%, YoY +14배). [c_20260925_HOOD_1, grade1, confirmed=true, 2026-09-25] 09-01~09-25 EDGAR 8-K/10-Q/10-K 0건, Form 4(Tenev 10b5-1 매도) 1건.</dd></div>
+  <div><dt>추론</dt><dd><span class="tag t-lbl">강도: medium</span> c_20260925_HOOD_8 — 계약 건수 MoM -23%는 카드의 &#x27;월드컵 계절성&#x27; 관측점에 대한 최초 하락 신호이나, 건수는 매출이 아니며(P7) YoY 기저는 여전히 매우 높음. Q3 실적의 매출 절대액·QoQ 확인 전까지 방향(정점 통과 여부) 판정 유보.</dd></div>
+  <div><dt>분류</dt><dd>행동 없음(P12 기본 경로). 상향 후보 아님 — quantitative_evidence·company_specific 충족하나 revenue_recognized 불충족(계약 건수는 매출 아님, P7). 하향 후보 아님 — 정량 훼손(매출·마진·현금흐름 기준) 불성립, evidence_grade&lt;=2 신규 정성 훼손 근거도 없음. 🔴🔴(사람 확인 요청) 대상 아님(Kill 미충족).</dd></div>
+  <div><dt>Thesis 변화</dt><dd>prediction_market 축 neutral(방향 판정 유보, risk_transfer: Q3 실적 이벤트계약 매출·QoQ) / prediction_market_state_enforcement·federal_jurisdiction 축 neutral(SCOTUS 절차 진전은 실체 아님, risk_transfer: 09-28 long conference·10-09 미시간 청산·D.Conn.·9순회 en banc 결과) / aua_inflow·crypto_cycle·rates_income 축 neutral(이월, 신규 1차 자료 없음).</dd></div>
+  <div><dt>신호 판정</dt><dd>등급 유지 후보(🟡 관망 → 🟡 관망, maintain). Kill 후보 아님 — KC-HOOD-1~3·macro KC-2~5 전부 met+confirmed 조합 0건. 상향 후보 아님(revenue_recognized 미충족). 하향 후보 아님(규칙3 정량·정성 요건 모두 미충족).</dd></div>
+  <div><dt>다음 확인</dt><dd><ol class='circ'><li>① 2026-09-28 SCOTUS long conference에서 No. 26-338·No. 26-299 처리 여부(관측 가능: cert granted/denied)</li><li>② 2026-10-09 미시간 기존 포지션 청산 기한 실이행 여부</li><li>③ 코네티컷·미주리 실제 제공 중단 여부(미주리 기한 약 10-16)</li><li>④ Q3 2026 실적의 이벤트 계약 매출 절대액·QoQ(주별 중단 반영 여부, revenue_recognized 재판정 기준).</li></ol></dd></div>
+</div></section>
+<section><h3>미확인·이월 <small>6건 — 찾지 못함 ≠ 반증(P5)</small></h3>
+<ul class="unc"><li><strong>코네티컷·미주리에서 Robinhood의 sports event contract 실제 중단 여부</strong><span class='reason mono'>not_found</span><p>09-18~09-25 구간에도 코네티컷(09-10 명령)·미주리(09-16 기산 30일)의 이행·불이행을 특정하는 신규 보도를 확보하지 못했다. 미시간만 법원 승인 합의로 상태가 확정돼 있다.</p></li><li><strong>2026-09-28 SCOTUS long conference 처리 결과</strong><span class='reason mono'>event_not_yet_occurred</span><p>조회 시점(09-25) 기준 아직 도래하지 않은 미래 일정이라 결과 자체가 존재하지 않는다. No. 26-338·No. 26-299 모두 해당.</p></li><li><strong>&#x27;Robinhood: 5 Years Since IPO&#x27; 투자자 프레젠테이션 원문</strong><span class='reason mono'>primary_url_not_retrievable</span><p>investors.robinhood.com/events, /news-releases 접속이 반복적으로 60초 타임아웃 처리돼 원문 대조를 완료하지 못했다. 2차 매체 요약만 확보(c_20260925_HOOD_7).</p></li><li><strong>Q3 2026 실적 발표일</strong><span class='reason mono'>aggregator_estimate_only</span><p>thesis card earnings_checkpoints.date가 여전히 null이다. 애그리게이터(tipranks 등)는 2026-11-04 발표를 추정하나 회사 IR 공식 공지로 확정하지 못해 채택하지 않는다(F1).</p></li><li><strong>가스비 보조금(2026-09-29 종료 예정) 연장·조건 변경 공지</strong><span class='reason mono'>not_announced_within_window</span><p>본 창 내 회사의 종료일 변경 공지를 확인하지 못했다. 직전 회차와 동일 상태.</p></li><li><strong>SEC &#x27;Innovation Exemption&#x27; 보도자료의 sources.yaml 등급 일치 여부</strong><span class='reason mono'>grade_mapping_ambiguous</span><p>sec.gov 도메인이 grade_1 목록에 EDGAR 하위경로(efts.sec.gov 등) 위주로 등재돼 있어 newsroom 경로 보도자료가 동일 등급으로 기계 매핑되는지 스크립트 대조를 완료하지 못했다. 원문 직접 fetch 성공을 근거로 confirmed=true를 유지했다.</p></li></ul></section>
+<section><h3>이번 회차 Thesis 카드 패치 <small>0건</small></h3>
+<ul class="patches"><li class='empty'>패치 없음</li></ul></section>
+<section><details class="plain"><summary><h3>폐기한 노이즈 <small>5건 — P3 기준</small></h3></summary>
+<ul class="noise"><li><strong>Vladimir Tenev 2026-09-21 실행·09-23 Form 4 공시 약 $32.5M 매도 (2026년 세 번째 처분, 10b5-1 계획)</strong><p>1차 공시(EDGAR)이나 정형·반복 매도 패턴(직전 2건과 유사 규모·동일 계획 근거)으로 매출·마진·현금흐름·가이던스 변화 없음(P3). common.promote_if &#x27;경영진·거버넌스·자본배분 리스크&#x27;에 해당할 이례적 규모·패턴 변화 없음</p></li><li><strong>09-22~09-24 일간 주가 변동 보도 (ad-hoc-news.de 등, +0.77%~+2.90%)</strong><p>단순 주가 변동·일간 등락 — common.noise</p></li><li><strong>HOOD Summit &#x27;26 (09-29~30 Houston) 예고·프로모션 트윗</strong><p>미도래 미래 이벤트의 홍보성 예고 — 콘텐츠 자체가 아직 존재하지 않아 P3 변화 항목 판정 불가. 다음 회차 관측 대상으로 이월</p></li><li><strong>&#x27;Robinhood 토큰화 주식 2027년 내 출시 예측&#x27; 류 애널리스트 코멘터리 (Motley Fool 등)</strong><p>애널리스트 전망·추측 — common.noise &#x27;애널리스트 PT·투자의견 변경 단독&#x27;. 원출처(SEC 보도자료·회사 뉴스룸)의 사실만 c_20260925_HOOD_6으로 채택</p></li><li><strong>Robinhood Chain 수수료·DEX 거래량 재가공 보도 (KuCoin 등)</strong><p>3자 온체인 데이터 재가공, 회사 공시 아님 — common.noise &#x27;원출처 없는 정량 수치 인용 보도&#x27; / HOOD.noise &#x27;일간 거래량 변동&#x27;. 직전 2개 회차와 동일 사유로 폐기</p></li></ul></details></section><section class="concl"><h3>카드 결론 <small>state/thesis_cards/HOOD.yaml · as_of 2026-08-15</small></h3><p>Q2 전면 beat로 단기 실행은 확인됐으나 매출 구성이 크립토 사이클과 규제 미확정 상품에 걸쳐 있어, AUA 순유입과 mix의 지속성이 유지 근거다.</p></section></div></main>
+  </div>
+</div>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab')),panels={};
+  tabs.forEach(function(b){panels[b.dataset.t]=document.getElementById('tk-'+b.dataset.t);});
+  function show(t,push){
+    tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.t===t?'true':'false');});
+    Object.keys(panels).forEach(function(k){panels[k].hidden=(k!==t);});
+    try{localStorage.setItem('tk_tab',t);}catch(e){}
+    if(push){try{history.replaceState(null,'','#'+t);}catch(e){}}
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t,true);window.scrollTo({top:0});});});
+  document.addEventListener('click',function(e){var a=e.target.closest('a.cid');if(!a)return;var id=a.getAttribute('href').slice(1);var el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({block:'center'});el.style.outline='2px solid var(--accent)';setTimeout(function(){el.style.outline='';},1600);}});
+  var init=(location.hash||'').slice(1);
+  if(!panels[init]){try{init=localStorage.getItem('tk_tab');}catch(e){}}
+  if(!panels[init]) init='IREN';
+  show(init,false);
+})();
+</script>
+</body></html>

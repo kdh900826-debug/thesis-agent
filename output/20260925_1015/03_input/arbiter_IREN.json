@@ -1,0 +1,176 @@
+{
+  "as_of": "2026-09-25",
+  "ticker": "IREN",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20260925_IREN_3",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20260925_IREN_1",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "SEC EDGAR submissions API(CIK 0001878848) 및 EDGAR full-text 검색(edgar_fulltext.py --forms 8-K 10-Q 10-K 424B5 424B7 S-8 \"SCHEDULE 13G\" --since 2026-09-01)을 2026-09-25 시점에 재조회한 결과, 신규 공시 0건이다. 등재된 최신 공시는 여전히 2026-08-27자 10-K(accession 0001878848-26-000052)와 8-K(accession 0001878848-26-000051)이며, 전체 8-K atom feed(최근 4건: 2026-08-27, 2026-08-13, 2026-08-04, 이전)에서도 2026-08-27 이후 신규 8-K는 없다. 즉 신규 1차 공시 부재 상태가 4개 회차(0905·0911·0919·0925) 연속으로 이어진다. 2026-09-16 FOMC 25bp 인상 이후 가격이 매겨진 IREN 고유 신규 발행·차환 공시도 0건이다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "edgar_api",
+        "url": "https://data.sec.gov/submissions/CIK0001878848.json",
+        "secondary_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001878848&type=8-K&dateb=&owner=include&count=40&output=atom",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "edgar_fulltext.py 결과 0건 + submissions API filingDate 최댓값 재확인(2026-08-27) + 8-K atom feed 개별 필터링(accession 0001140361-26-031053은 검색엔진 스니펫 상 신규처럼 보였으나 filing-date 2026-08-04로 확인 — 기존 재료, 신규 아님)."
+    },
+    {
+      "id": "c_20260925_IREN_2",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "회사 IR 뉴스 페이지(iren.com/investors/news) 조회 결과 2026년 9월 중 발행된 보도자료는 2026-09-08 'Sweetwater Hub ERCOT Batch Zero' 1건뿐이며, 조사 창(2026-09-18~2026-09-25) 안에 신규 발행된 회사 보도자료는 0건이다. FY27 Q1 실적일에 대한 회사 공식 발표도 확인되지 않는다(FY27 Q1 10-Q 정확일 여전히 미공시).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_ir_newsroom",
+        "url": "https://iren.com/investors/news",
+        "filed_at": "2026-09-25"
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true,
+      "out_of_window": false,
+      "note": "2026-09-08 보도자료는 직전 2개 회차(0911, 0919)에서 이미 적재 완료 — 본 회차의 신규 재료가 아니다."
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "power_permit",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0919): 2026-09-08 Sweetwater Hub 2GW 조건부 Base Load 분류, SB6 적용 MW 미공시로 KC-10 첫 조건 분모 부재 지속, ERCOT 감사 진행 중. BC Hydro 2026 Call for Demand 선정자 통보(2026-09 중순 목표)가 창에 걸치나 결과 미공표 — unconfirmed 신규 편입.",
+      "new_state": "이번 창(09-18~09-25)에 IREN 고유의 전력·인허가 신규 1차 자료는 없다(c_20260925_IREN_1, c_20260925_IREN_2). Sweetwater Batch Zero 조건부 지위·SB6 공백·ERCOT 감사 상태 모두 이월. BC Hydro 선정 결과는 2026-09 중순 목표 시점이 지났음에도 여전히 공표되지 않았다(c_20260925_IREN_3) — 지연 자체는 관측되나 1차 확정 인용이 불안정해 축 판정 근거로 승격하지 않는다. direction=neutral 유지.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260925_IREN_1",
+        "c_20260925_IREN_2"
+      ]
+    },
+    {
+      "axis": "execution_delivery",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0919): Horizon 1 인도·인수 완료. Horizons 2-4는 calendar Q4 2026 목표, 10-K 계약 유예(2026 Q4 중반~2027 Q2 초) 유지. Horizon 2 인도·인수 완료 여부 unconfirmed.",
+      "new_state": "창 내 신규 1차 공시·보도자료 0건(c_20260925_IREN_1, c_20260925_IREN_2). 웹검색에서 재확인된 'Horizon 2 commissioning 진행, Horizon 3-4 late-stage construction, Q4 2026 목표' 서술은 전량 8/27 콜·8/13 보도자료의 2차 재인용으로 신규 정보가 아니다(P3). P7 3단 분리 상태 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260925_IREN_1",
+        "c_20260925_IREN_2"
+      ]
+    },
+    {
+      "axis": "ai_cloud_conversion",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0919): Q4 FY26 AI Cloud 매출 비중 51.4% 역전(FY26 연간 18.2%), 과금 가동률·MFU unconfirmed. 가동 ARR $1.0B 대 계약 ARR $4.0B 갭, 해소 기한 2026-12-31.",
+      "new_state": "창 내 과금 가동률·MFU·가동 ARR 진척에 관한 신규 공시·경영진 발언 0건. 일부 애그리게이터(TipRanks)가 FY27 Q1 실적일을 2026-12-01로 표기하나 회사 공식 확인 없음 — 애그리게이터 자동추정 라벨은 1차 공시로 취급 금지(F1), 카드의 'FY27 Q1(2026-11경, 정확일 미공시)' 기준선 변경 근거로 사용하지 않는다. 다음 관측점 불변, unconfirmed 이월.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260925_IREN_1",
+        "c_20260925_IREN_2"
+      ]
+    },
+    {
+      "axis": "margin_structure",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0919): 신규 정량 자료 없음. MW당 매출은 계약 단가 기준만 존재(F3).",
+      "new_state": "창 내 신규 정량 자료 0건. AI Cloud 부문 감가상각 배분 검증 재료는 FY27 Q1 체크포인트로 이월 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260925_IREN_1",
+        "c_20260925_IREN_2"
+      ]
+    },
+    {
+      "axis": "funding_dilution",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0919): 완전희석 주수 range(394,058,648~558,718,254+) 유지(F9). FY27 capex $25-30bn(grade2), 잔여 조달 목표 ~$8bn. 2026-09-16 FOMC 25bp 인상의 IREN 조달조건 연동 미확인.",
+      "new_state": "창 내 424B5/424B7/S-8/8-K 등 조달·희석 관련 신규 공시 0건(c_20260925_IREN_1), 회사 보도자료도 0건(c_20260925_IREN_2). FOMC 이후 가격이 매겨진 신규 발행·차환 공시 여전히 0건 — 종목 고유 금리 연동 사실 미확보 상태 유지. 완전희석 주수 range 갱신 근거 없음.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260925_IREN_1",
+        "c_20260925_IREN_2"
+      ]
+    },
+    {
+      "axis": "btc_mining",
+      "direction": "neutral",
+      "stage": "없음",
+      "prior_state": "직전 run(0919): CFO 발언(grade2, 8/27)으로 채굴 종료 목표 2026-12월 말 제시. 리스크는 ai_cloud_conversion으로 완전 이관.",
+      "new_state": "창 내 신규 경영진 발언·월간 채굴 실적 업데이트·1차 공시 0건(c_20260925_IREN_1, c_20260925_IREN_2). 종료 목표 시점·리스크 이관 상태 불변.",
+      "risk_transfer_to": [],
+      "supporting_claims": [
+        "c_20260925_IREN_1",
+        "c_20260925_IREN_2"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "BC Hydro 2026 Call for Demand — 선정 결과·IREN 신청 여부 [갱신]",
+      "detail": "2026-09-25 시점까지 선정 결과·명단 미공표 — 회사 공표 목표였던 '2026-09 중순'이 지났음에도 결과 없음. 일부 웹조회에서 통보 목표가 '2026-09 말'로 지연됐다는 서술이 나왔으나 재조회 시 재현되지 않아(WebFetch 요약 불일치) 사실로 승격하지 않았다(c_20260925_IREN_3, 근거등급 4·confirmed=false). IREN의 BC 노출(Canal Flats 30 + Prince George 50 + Mackenzie 80 = 160MW gross)과 신청·선정 여부의 연결은 여전히 미확인. 다음 관측점: BC Hydro 결과 공표 또는 FY27 Q1 10-Q.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "FY27 Q1 실적일 확정",
+      "detail": "카드 기준선은 '2026-11 경, 정확일 미공시'. 애그리게이터(TipRanks) 스니펫은 '2026-12-01 장마감 후'를 표기하나 회사 IR·GlobeNewswire에서 공식 확인되지 않음 — 애그리게이터 자동추정 라벨은 판정 근거 불가(F1). 카드 갱신 근거로 사용하지 않고 관측 대상으로만 등재.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "SB6/PUCT 커테일먼트 적용 MW (KC-10 첫 조건 분모)",
+      "detail": "IREN 계약 용량 중 SB6 비상시 강제 감축 의무 적용 MW 여전히 미공시. PUCT 최종 규칙 시한 2026-12-31.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "Governor Abbott 지시 ERCOT 데이터센터 감사 최종 결과",
+      "detail": "2026-12(경) 완료 목표로 진행 중. IREN 사이트별 개별 감사 결과 미공표. 창 내 진전 사항 미확인.",
+      "reason": "audit_in_progress"
+    },
+    {
+      "topic": "ERCOT Batch Zero 비조건부(최종) 분류 시점",
+      "detail": "2026-09-08 공시의 'Base Load'는 조건부이며 최종 접속 승인이 아니다. 송배전사업자 계통접속계약 체결 전제, 최종 확정 시점·에너지화 일자 미공시.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "Horizon 2 인도·인수 완료 여부",
+      "detail": "8/27 콜 기준 commissioning 진행 중, Horizon 3-4는 late-stage construction, calendar Q4 2026 인도 목표. 계약상 유예 2026 Q4 중반~2027 Q2 초. 창 내 인도·인수 공시 없음 — P7 2단(이행) 미확인 상태 유지.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "과금 가동률(billing utilization) / MFU",
+      "detail": "8/27 FY26 실적에서 미공개. 창 내 신규 자료 없음. 다음 관측점 FY27 Q1 10-Q.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "완전희석 주수 갱신치 (8/14 이후)",
+      "detail": "창 내 신규 EDGAR 공시가 없어 카드 range(하한 394,058,648 ~ 상한 558,718,254+) 갱신 불가. F9 range 유지, 단일값 사용 금지.",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "매니지드 서비스 믹스(Mirantis 매출 비중) 정량치",
+      "detail": "Mirantis는 2026-08-03/04 종결로 FY26 미반영. FY27 Q1이 첫 연결 분기이며 창 내 정량·정성 신규 언급 없음.",
+      "reason": "carried_over_from_prior_run"
+    },
+    {
+      "topic": "신규 축 제안",
+      "detail": "이번 회차에서 카드 6개 축 밖의 신규 축 제안 사유는 발생하지 않았다.",
+      "reason": "not_applicable"
+    }
+  ]
+}

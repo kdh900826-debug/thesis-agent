@@ -1,0 +1,26 @@
+{
+  "ticker": "IREN",
+  "cik": "0001878848",
+  "items": [
+    {
+      "id": "edgar_2026-08-13_8-K_0",
+      "form": "8-K",
+      "filed_at": "2026-08-13",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126032638/ef20080141_8k.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-08-12_SCHEDULE 13G_1",
+      "form": "SCHEDULE 13G",
+      "filed_at": "2026-08-12",
+      "title": "SCHEDULE 13G filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000088698226000449/xslSCHEDULE_13G_X02/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

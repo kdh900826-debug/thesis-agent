@@ -1,0 +1,34 @@
+{
+ "as_of": "2026-08-15",
+ "reused_from": "20260815_1408",
+ "staleness_days": 0,
+ "kc": [
+  {
+   "kc_id": "KC-3",
+   "verdict": "not_met",
+   "verdict_confidence": "confirmed",
+   "as_of": null
+  },
+  {
+   "kc_id": "KC-CRCL-1",
+   "ticker": "CRCL",
+   "threshold": "usdc_circulation_30d_avg_vs_90d_peak <= -20% (경고) + reserve_income_qoq_declines >= 2분기 (발동)",
+   "observed": "[fact] Q2 분기말 유통량 $73.3B, +19% YoY·평잔 +25% YoY(grade1 confirmed) — 방향이 임계와 반대다. [fact] Reserve Income $668M(+5% YoY)로 QoQ 연속 감소 조건도 미충족이다. [fact] 8/6 기준 온체인 관측 약 $71.8B(30일 -2%)는 grade4·confirmed=false로 단독 근거 불가(su_stablecoin_06).",
+   "state": "미충족 (경고 단계 포함)"
+  },
+  {
+   "kc_id": "KC-CRCL-2",
+   "ticker": "CRCL",
+   "threshold": "usdc_stablecoin_share_qoq <= -3%p",
+   "observed": "[fact] OUSD는 2026-08 현재 출시 전 단계로 실측 유통량 데이터가 없어 점유율 변화를 산출할 수 없다(su_stablecoin_01). [fact] 자료 부재를 위협 소멸의 반증으로 해석하지 않는다(P5).",
+   "state": "판정 불가 — 관측 부재"
+  },
+  {
+   "kc_id": "KC-CRCL-3 / KC-COIN-4",
+   "ticker": "CRCL·COIN (교차)",
+   "threshold": "분배율 상향·구조 변경 공시 발생 (경중 불문 즉시) / COIN에 불리한 방향만 KC-COIN-4 발동",
+   "observed": "[fact] 양사 CFO가 2023-08-18 발효 계약의 2026-08-18 3년 자동 갱신을 각각 확인했다(CRCL 8/5 grade2, COIN 7/30 grade2) — 기존 조건 유지이므로 '변경' 공시가 아니다. [fact] 갱신 실행 자체를 확인하는 공시는 아직 없고 8/18은 미도래다(su_stablecoin_04). [fact] Hyperliquid 관련 USDC 잔고의 약 90%가 Coinbase 플랫폼, 약 10%가 Circle 플랫폼에 분기말 기준 보유되며 이 배분의 유통비용 영향은 Q3부터 반영된다(grade2, confirmed).",
+   "state": "미발동 — 2026-08-18 확인 대기"
+  }
+ ]
+}

@@ -1,0 +1,283 @@
+{
+  "as_of": "2026-10-01",
+  "ticker": "CRCL",
+  "filtered_by": "filter_arbiter_input.py (P6/P13 — scope!=company_specific 물리적 제거)",
+  "removed_claims": [
+    {
+      "id": "c_20261001_CRCL_7",
+      "scope": "sector"
+    },
+    {
+      "id": "c_20261001_CRCL_8",
+      "scope": "sector"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c_20261001_CRCL_1",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "Circle이 2026-09-25 제출한 8-K(사건일 2026-09-25, Item 5.02)에 따르면: (1) 공동창업자이자 이사 P. Sean Neville이 이사회에 즉시 사임을 통보(개인 사유, 2016년부터 재임) — 이사회 정원이 8인에서 7인으로 축소됨. (2) CFO Jeremy Fox-Geen이 사임 의사를 회사에 통지 — 후임 선임 전까지 2026년 12월 31일까지 CFO직을 유지하며 원활한 전환을 지원, 회사는 전문 서치펌을 통해 후임 탐색 착수. 두 건 모두 회사 운영·정책과의 의견 불일치에 기인하지 않는다고 명시. Fox-Geen과는 'Post-Termination Restrictive Covenant Agreement' 체결 — 전환 기간 중 기본급($500,000 연환산) 유지, 2026년 연간 인센티브(기준 110%, 실제 성과 연동) 유지, 기존 지분보상 베스팅 계속; 퇴직 조건으로 (i) 12개월간 분할 지급되는 현금 $1,050,000, (ii) RSU 2개월분 가속 베스팅, (iii) 미행사 스톡옵션 행사기간 12개월 연장 제공. 24개월 직원 비유인·비채용 및 12개월 경업금지 조항 포함. 동일 사건일(9/25) Form 4에 따르면 Neville은 Calico Trust 명의로 보유한 Class A 보통주 33,568주 관련 거래를 신고(이사회 퇴임에 따른 기술적 신고로 추정, 거래 성격 상세는 코드 대조 미실시).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000279/crcl-20260925.htm",
+        "filed_at": "2026-09-25",
+        "note": "Form4(Neville, Calico Trust) 교차 확인: https://www.sec.gov/Archives/edgar/data/1876042/000206051126000002/xslF345X06/wk-form4_1790367093.xml . 2차 매체 다수(tradingview, kucoin, benzinga, crypto.news 등) 사실관계 일치 — 1차 공시가 이미 확보되어 2차 매체는 교차검증 목적으로만 참조."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20261001_CRCL_2",
+      "ticker": "CRCL",
+      "claim_type": "inference",
+      "text": "c_20261001_CRCL_1의 CFO 교체는 카드 axes 어디에도 직접 대응하지 않는 거버넌스·경영승계 리스크다. Fox-Geen은 과거 run에서 Reserve Income·Coinbase 배분계약·OUSD 대응 등 핵심 경영진 발언의 주 출처였다(c_20260815_CRCL_008/009/012 등) — 후임 미정 상태가 지속되면 향후 실적콜에서의 경영진 코멘트 연속성(특히 reserve_income·diversification 축 관측)에 불확실성을 더할 수 있다. 다만 Fox-Geen은 2026-12-31까지(또는 후임 선임 시까지) 재직하므로 임박한 Q3'26 10-Q 서명 권한 공백은 이번 창 기준 확인되지 않는다. 정성적 추론이며 P2상 등급 상향·하향 근거로 단독 사용 불가.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "derived_from_primary_8k",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000279/crcl-20260917.htm",
+        "filed_at": "2026-09-25",
+        "note": "근거 Claim: c_20261001_CRCL_1(회사 1차 공시)."
+      },
+      "inference_strength": "weak",
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20261001_CRCL_3",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "OUSD(Open Standard 발행 컨소시엄 스테이블코인, 발행사 Bridge — Stripe 자회사)가 2026-09-30 공식 출시(Base·Ethereum·Solana·Tempo 4개 체인). 참여: Coinbase·Stripe·Visa·Mastercard·Shopify 등 창립 파트너 + 200개 이상 기관. 1:1 무료 민팅·환매, 준비자산 수탁은 BlackRock·Lead Bank·BNY, 월간 어테스테이션 공표 예정. 발행사 자체 준비금 대시보드(reserves.bridge.xyz/ousd) 직접 조회 결과 유통량이 $477,338,360(2026-09-30 19:30 UTC 기준) → $468,445,392(2026-10-01 12:50 UTC 기준, 현금 54.9%·MMF/T-bill 45.1%, 100.00% 담보)로 24시간이 안 되는 구간에 소폭 감소했다 — 이는 노이즈 필터의 승격 조건('OUSD 공식 출시 및 실측 유통량')과 카드 경쟁 축의 '부호 활성화 조건(공식 출시 + 실측 유통량 최초 공시)'을 동시에 충족하는 최초 사건이다. joinopenstandard.com(발행 컨소시엄 자체 블로그)·reserves.bridge.xyz 모두 config/sources.yaml 미등재 도메인(default grade 4) — CRCL 전담 화이트리스트는 circle.com·coinbase.com만 grade1이며 경쟁사 발행 주체 도메인에는 확장되지 않는다. 다수 독립 2차 매체(blockhead.co, pymnts.com, cryptotimes.io, chaincatcher.com, coingape.com 등, 전부 grade 3·4)가 핵심 사실(출시일·체인·파트너·수탁기관)을 상호 일치 보도해 삼각검증은 두텁다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "issuer_blog_and_reserve_dashboard",
+        "url": "https://joinopenstandard.com/blog/ousd-is-live",
+        "filed_at": "2026-09-30",
+        "note": "준비금 수치 직접 열람: https://reserves.bridge.xyz/ousd (2026-10-01 12:50 UTC 스냅샷). 교차: https://www.blockhead.co/2026/10/01/open-usd-goes-live-on-four-chains-with-coinbase-stripe-visa-and-mastercard-as-on-ramps/ , https://www.pymnts.com/cryptocurrency/2026/payment-giants-launch-open-usd-stablecoin-to-kill-conversion-fees/ (모두 미등재 도메인, grade 4)."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20261001_CRCL_4",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "2차 매체(kucoin.com flash, tokenpost.com — 둘 다 sources.yaml 미등재 grade 4, DefiLlama 집계 인용)에 따르면 Arc 메인넷(9/16 출시) 10일 차(약 2026-09-26 기준) DeFi TVL이 약 $494M로, 직전 주 대비 +44.52% 증가(최상위 체인 중 최고 증가율로 보도됨). 별도 출처(GitHub 'release' 형태의 비제도권 비교분석 포스트 — 통상적 언론·1차 자료가 아니며 신뢰도 최하 등급으로 취급)는 동 기간 1일차 DEX 거래량의 약 82%가 밈코인 런치패드發이라고 주장 — 기관 결제용 트래픽이 아닌 투기적 활동이 TVL 증가를 상당 부분 견인했을 가능성을 시사하나, 이 출처 자체의 방법론·신뢰성은 검증하지 못했다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "news_secondary_aggregator",
+        "url": "https://www.kucoin.com/news/flash/arc-mainnet-defi-tvl-surpasses-490m-in-10-days-grows-44-52-in-a-week",
+        "filed_at": "2026-09-26",
+        "note": "밈코인 비중 주장 출처(품질 미검증): https://github.com/Ricosworks1/blockchain-payment-flow-analysis/releases/tag/comparative-analysis-circle-arc-institutional-l1-memecoin-paradox-sept-2026 . 교차: tokenpost.com, pluang.com (모두 grade 4)."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    },
+    {
+      "id": "c_20261001_CRCL_5",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "SEC EDGAR 전 서식 조회(CIK 0001876042, since 2026-09-24, 필터 없음) 결과 신규 제출은 Form4 2건(9/24 CFO Fox-Geen 정기 베스팅 — 직전 run c_20260925_CRCL_2로 기등재, 9/25 이사 Neville 신탁 관련 신고 — c_20261001_CRCL_1 참조) + 8-K 1건(9/25, 임원 교체 — c_20261001_CRCL_1)뿐이다. Item 1.01/1.02(Coinbase 분배계약 변경) 8-K는 이번 창에도 0건 — 2026-08-18 자동갱신 예정일 기준 무공시 구간이 약 38일로 연장(직전 run 32일 + 6일). OCC·NYDFS의 인가 취소·정지·제재·동의명령을 공시하는 8-K도 0건 — KC-CRCL-4 관련 신규 감독조치 미관측.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_submissions_api",
+        "url": "https://data.sec.gov/submissions/CIK0001876042.json",
+        "filed_at": "2026-10-01",
+        "note": "원자료(--forms 10-K/10-Q/8-K/S-1 필터): output/20261001_0900/02_company/_raw_edgar_CRCL.json(1건, 8-K만 매치 — Form4는 필터 서식 밖이라 별도 submissions API 직접 조회로 확인)."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20261001_CRCL_6",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "$YLDS 발행사 FIGR(CIK 0002064124) EDGAR 전 서식 조회(since 2026-09-09) 결과 신규 제출은 Form4 3건(9/14 x2, 9/15)·Form144 2건(9/9)뿐이며 $YLDS 유통량을 공시하는 8-K·10-Q는 0건이다. 2Q26(6/30 마감) $556.033M(QoQ -7.0%)이 여전히 최신 grade 1 관측치로 변동 없음. 다음 갱신 게이트는 FIGR 3Q26 실적(통상 11월).",
+      "evidence_grade": 1,
+      "source": {
+        "type": "sec_edgar_submissions_api",
+        "url": "https://data.sec.gov/submissions/CIK0002064124.json",
+        "filed_at": "2026-10-01",
+        "note": "발행사는 타 종목이나 competition_yield_bearing 축 위험지표 구성 대상으로 취급(기존 run과 동일 관례)."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20261001_CRCL_9",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "circle.com/pressroom 직접 열람 및 'Circle to Announce Third Quarter 2026 Financial Results' 유형 공지 대상 표적 검색 결과, 이번 창(10/1)까지 Q3'26 실적발표 공식 IR 공지는 확인되지 않았다. 애그리게이터·증권사 리서치 경로(itiger.com 등)는 '11월 12일 개장 전' 추정을 보도하나 이는 자동 추정 라벨로 등급과 무관하게 판정 근거 불가(F1) — 카드 earnings_checkpoints.date는 null 유지가 타당하다.",
+      "evidence_grade": 1,
+      "source": {
+        "type": "company_pressroom_direct_check",
+        "url": "https://www.circle.com/pressroom",
+        "filed_at": "2026-10-01",
+        "note": "과거 공지 패턴(2/25, 5/11, 8/5 각각 사전 2~3주 전 보도자료 공지) 대비 11/12 추정일까지는 아직 공지 시점 이전일 가능성도 있음 — 부재가 반증은 아니다(P5)."
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20261001_CRCL_10",
+      "ticker": "CRCL",
+      "claim_type": "fact",
+      "text": "USDC 유통량 수치가 소스·관측시각에 따라 상충 보도됨: (a) 2차 집계(kucoin.com flash)는 2026-09-30 기준 약 $74.36B, 직전 7일(9/14~9/21) 구간 발행 $10.1B·환매 $9.8B로 순증 $300M이라고 보도. (b) 별도 2차 요약(eco.com)은 circle.com/transparency 수치를 인용해 2026-09-24 기준 $75.2B라고 서술. 두 수치는 시점이 다름에도 (b)가 (a)보다 크고 날짜도 더 이전이라 단순 연속 추세로 해석 불가 — 서로 다른 집계방법론(발행사 공식 어테스테이션 vs 온체인/API 추정)일 가능성이 높다. circle.com/transparency 페이지를 직접 조회했으나 수치는 JS 렌더링 대시보드 안에 있어 텍스트 수준에서 추출하지 못했다(날짜 라벨 'Sep 24, 2026'만 확인) — 1차 사이트 접속은 확인했으나 숫자 자체의 1차 확인은 실패. 종목 특이 주의사항(관측시각·소스 명기)에 따라 confirmed:false 유지.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "secondary_media_conflicting",
+        "url": "https://www.kucoin.com/news/flash/usdc-circulation-increases-by-300m-in-7-days",
+        "filed_at": "2026-09-30",
+        "note": "교차(상충): eco.com 'Is USDC Safe? Reserves, Risks, and How to Verify in 2026' (circle.com/transparency 인용, 2026-09-24 기준 $75.2B 서술). 1차 직접 확인 시도: https://www.circle.com/transparency (날짜 라벨만 확인, 수치 미추출)."
+      },
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": false
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "usdc_circulation_scale",
+      "direction": "neutral",
+      "prior_state": "직전 run(9/25): 발행사 공표 실시간 API 계열 9/19 기준 $74.287B. 분기 공시 계열(회사 정의) Q2'26 분기말 $73.3B(+19% YoY).",
+      "new_state": "이번 창 신규 공시(10-Q 등)는 없고, 2차 집계만 상충 보도됨(c_20261001_CRCL_10) — $74.36B(9/30, kucoin) vs $75.2B(9/24, circle.com 인용 2차 서술). 두 수치 모두 1차 숫자 자체를 직접 확인하지 못해 confirmed:false이며, 방향성(증가/감소) 판단에 사용하지 않는다. Q3 분기말 공식 수치는 다음 실적(추정 11/12, 미확정)에서만 확인 가능.",
+      "risk_transfer_to": [
+        "Q3'26 10-Q/실적발표 공식 분기말·평잔 수치",
+        "circle.com/transparency 수치 1차 직접 확인(JS 렌더링 제약 해소 필요)"
+      ],
+      "supporting_claims": [
+        "c_20261001_CRCL_10"
+      ]
+    },
+    {
+      "axis": "reserve_income",
+      "direction": "neutral",
+      "prior_state": "Coinbase 분배계약 무공시 지속(약 32일, 직전 run). Binance 5년 재계약(9/22 공시)의 월간 인센티브 요율은 비공개로 정량 마진 영향 산출 불가.",
+      "new_state": "Coinbase 관련 Item 1.01/1.02 8-K 이번 창도 0건 — 무공시 구간이 약 38일로 연장(c_20261001_CRCL_5). Binance 요율은 이번 창에도 비공개 상태 유지(신규 공시 없음). GENIUS §3 NPRM 마감(10/19)도 무변화(c_20261001_CRCL_8, sector scope). CFO 교체(c_20261001_CRCL_1)는 향후 실적콜에서의 reserve_income 관련 경영진 코멘트 연속성에 불확실성 요인이나(c_20261001_CRCL_2, inference:weak), 이번 창 자체의 수치 변화는 없다.",
+      "risk_transfer_to": [
+        "Q3 10-Q 계약 주석의 Coinbase·Binance 분배조건 원문 대조(통상 11월)",
+        "CFO 후임 선임 후 reserve_income 코멘트 연속성"
+      ],
+      "supporting_claims": [
+        "c_20261001_CRCL_5",
+        "c_20261001_CRCL_2"
+      ]
+    },
+    {
+      "axis": "competition_ousd_consortium",
+      "direction": "weaken",
+      "prior_state": "2026-09-05 기준(최근 3개 run 연속) 미출시 — 실측 유통량 부재. 부호 활성화 조건(카드 정의) = '공식 출시 + 실측 유통량 최초 공시' 미충족 상태 지속.",
+      "new_state": "2026-09-30 OUSD가 공식 출시(Base·Ethereum·Solana·Tempo, Coinbase·Stripe·Visa·Mastercard·Shopify 등 200+사)했고 발행사 자체 준비금 대시보드에서 실측 유통량이 최초로 공시됐다 — $477.3M(9/30 19:30 UTC) → $468.4M(10/1 12:50 UTC), 100% 담보(c_20261001_CRCL_3). 카드 정의 부호 활성화 조건을 처음으로 충족해 축이 '미출시 관측대기'에서 '실측 가능 위협'으로 전환된다. 다만 [inference] 규모 자체는 USDC(약 $74-75B, c_20261001_CRCL_10) 대비 약 0.6% 수준으로 현시점 수익모델 직접 잠식은 미미하다 — '수익모델 정면 위협'이라는 카드 risks 서술의 구조적 성격이 최초로 실체화됐다는 의미이며, 점유율 수치 자체가 유의미하게 이동했다는 의미는 아니다(과대해석 주의). grade 4·confirmed=false 단독 — joinopenstandard.com·reserves.bridge.xyz가 sources.yaml 미등재 도메인이라 복수 독립 2차 매체 삼각검증에 의존(P4).",
+      "risk_transfer_to": [
+        "OUSD 유통량 24시간 이후 지속 성장 여부(첫 스냅샷은 소폭 감소 — 추세 판단 이름)",
+        "Q3'26 실적에서 OUSD발 USDC 유통량 잠식 신호 유무",
+        "reserves.bridge.xyz를 config/sources.yaml에 등재할지 여부(사용자 영역, 에이전트는 제안만)"
+      ],
+      "supporting_claims": [
+        "c_20261001_CRCL_3",
+        "c_20261001_CRCL_10"
+      ]
+    },
+    {
+      "axis": "competition_yield_bearing",
+      "direction": "neutral",
+      "prior_state": "$YLDS 2Q26 $556.033M(QoQ -7.0%), CLARITY 이자조항 문언 미확정.",
+      "new_state": "$YLDS 신규 공시 없음(c_20261001_CRCL_6) — 2Q26 수치 유지. CLARITY는 재표결 일정 미확정 지속, 이자부 스테이블코인 금지 조항 문언도 확정되지 않았다(c_20261001_CRCL_7) — 위협의 활성화·소멸 어느 쪽도 확정 신호가 아니다.",
+      "risk_transfer_to": [
+        "FIGR 3Q26 공시(통상 11월)",
+        "CLARITY 이자조항 문언 확정 경로·레임덕 세션 실시 여부"
+      ],
+      "supporting_claims": [
+        "c_20261001_CRCL_6"
+      ]
+    },
+    {
+      "axis": "regulation_company_licensing",
+      "direction": "neutral",
+      "prior_state": "OCC·NYDFS 기존 인가 이후 신규 인가·감독조치 관측 없음(직전 3개 run 연속).",
+      "new_state": "이번 창에도 신규 인가 취득·감독조치 어느 쪽도 관측되지 않았다(c_20261001_CRCL_5, EDGAR 전 서식 조회 0건). 관측 0건으로만 기록하며 부재를 조치 부존재의 증명으로 취급하지 않는다(P5). 이번 창의 유일한 Item 5.02(임원 교체, c_20261001_CRCL_1)는 인가·감독 조치가 아니다.",
+      "risk_transfer_to": [
+        "OCC·NYDFS 감독보고서·제재 공표"
+      ],
+      "supporting_claims": [
+        "c_20261001_CRCL_5"
+      ]
+    },
+    {
+      "axis": "diversification",
+      "direction": "strengthen",
+      "stage": "하(약) — 지속",
+      "prior_state": "직전 run(9/25): Arc 메인넷 첫 주 — Allaire 발언 기준 네트워크 가치 '~$1B' 근접, 수수료 ~$50만, FDV $3B. 2차 매체(온체인) DeFi TVL $348M·스테이블코인 $630M(측정 계열 상이, confirmed=false).",
+      "new_state": "10일 차 DeFi TVL이 약 $494M로 WoW +44.52% 증가 보도(c_20261001_CRCL_4) — 성장세 자체는 지속. 다만 품질 미검증 출처(GitHub 비교분석 포스트)가 동 기간 DEX 거래량의 약 82%를 밈코인 런치패드發로 추정해, 성장의 구성이 기관 결제·정산 트래픽이 아닌 투기적 활동일 가능성을 제기한다 — 이 출처의 신뢰도는 검증하지 못해 방향 판정에 비중을 두지 않는다. Allaire 본인이 직전 run에서 '출시 시점 버스트'로 유보한 전제가 여전히 유효하며, 매출 인식(3단계) 관련 신규 공시는 이번 창에도 없다.",
+      "risk_transfer_to": [
+        "Arc 트래픽 구성(기관 결제 vs 투기적 밈코인)의 신뢰할 수 있는 출처를 통한 재확인",
+        "Q3 실적에서 Arc 관련 매출·수수료 인식 여부"
+      ],
+      "supporting_claims": [
+        "c_20261001_CRCL_4"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "topic": "CFO 후임자 및 선임 시점",
+      "detail": "Fox-Geen은 2026-12-31까지(또는 후임 선임 시까지) 재직. 서치펌 착수만 공시되었고 후보·시점은 확인되지 않음.",
+      "reason": "event_may_be_pending"
+    },
+    {
+      "topic": "Q3'26 실적발표 공식 일정",
+      "detail": "circle.com 프레스룸에 공식 IR 공지 없음(c_20261001_CRCL_9). 애그리게이터 추정(11/12)은 F1상 판정 근거 불가 — 카드 earnings_checkpoints.date null 유지 타당.",
+      "reason": "no_official_ir_notice"
+    },
+    {
+      "topic": "Binance 월간 인센티브 수수료 요율·산식",
+      "detail": "9/22 8-K 비공개 상태 이번 창도 유지. 과거 요율 대입 금지 원칙 동일 유지.",
+      "reason": "not_disclosed_in_primary_source"
+    },
+    {
+      "topic": "Coinbase 분배계약 조건 원문",
+      "detail": "무공시 구간 약 38일로 연장. 최종 확인 게이트는 Q3 10-Q(통상 11월).",
+      "reason": "no_disclosure"
+    },
+    {
+      "topic": "OUSD 유통량의 24시간 이후 지속 추세",
+      "detail": "최초 두 스냅샷(9/30 19:30 UTC $477.3M → 10/1 12:50 UTC $468.4M)은 소폭 감소 — 출시 직후 변동성 구간으로 추세 판단에는 더 긴 관측 기간 필요.",
+      "reason": "event_may_be_pending"
+    },
+    {
+      "topic": "CLARITY Act 레임덕 세션 재표결 일정·이자조항 문언",
+      "detail": "상원 10/5~11/6 회기 확인되었으나 재표결 자체는 미확정. 1차 자료(senate.gov) 접근 누적 403 차단 지속.",
+      "reason": "access_blocked_and_event_pending"
+    },
+    {
+      "topic": "GENIUS Act §3 NPRM에 대한 Circle 의견서 제출 여부",
+      "detail": "마감 10/19 유지. regulations.gov 도켓의 제출자 목록은 이번 창에도 확인하지 않았다.",
+      "reason": "not_checked_this_run"
+    },
+    {
+      "topic": "USDC 유통량 수치 — 소스 간 불일치",
+      "detail": "kucoin($74.36B, 9/30) vs eco.com이 인용한 circle.com 수치($75.2B, 9/24) 상충. circle.com/transparency 직접 조회는 JS 렌더링 제약으로 숫자 추출 실패.",
+      "reason": "requires_human_decision"
+    },
+    {
+      "topic": "Arc Mainnet 트래픽 구성(밈코인 vs 기관) 출처 신뢰도",
+      "detail": "GitHub 'release' 형태 포스트가 유일한 출처 — 언론·1차 자료가 아니라 방법론 검증 불가. 참고용으로만 적재.",
+      "reason": "low_reliability_source"
+    }
+  ]
+}

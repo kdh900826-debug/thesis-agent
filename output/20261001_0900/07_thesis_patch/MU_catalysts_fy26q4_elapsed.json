@@ -1,0 +1,41 @@
+{
+  "as_of": "2026-10-01",
+  "run_id": "20261001_0900",
+  "staleness_days": 0,
+  "ticker": "MU",
+  "patch_id": "MU_catalysts_fy26q4_elapsed",
+  "card_field": "catalysts",
+  "card_field_detail": "catalysts[0] '9/30 Q4 FY26 실적'에 경과·이행 표기 + 다음 실적 촉매(FQ1-27, 정확일 미공시) 병기",
+  "operation": "amend",
+  "priority": "medium",
+  "before": "  - \"9/30 Q4 FY26 실적 — 회사 공식 확정(2026-08-26 보도자료, 2026-09-30 14:30 MT 실적 발표·컨퍼런스콜)\"",
+  "after": "  - \"9/30 Q4 FY26 실적 — 회사 공식 확정(2026-08-26 보도자료, 2026-09-30 14:30 MT 실적 발표·컨퍼런스콜) — [경과 2026-10-01 정리] 2026-09-30 8-K(Item 2.02) 제출로 이행 완료(c_20261001_MU_1). 결과는 key_metrics·earnings_checkpoints 참조. 다음 실적 촉매: FQ1-27 실적(2026-12 추정, 정확일 미공시 — 회사 공지 전 가정, F1)\"",
+  "reason": "[fact] state/thesis_cards/MU.yaml 전문 80행을 읽고 yaml.safe_load로 목록형 필드를 실제 계수했다 — axes 7 / key_metrics 7 / catalysts 4 / risks 4 / kill_conditions_ref 5 / earnings_checkpoints.items 8 / version_history 8(F20). [fact] catalysts 1번째 항목은 2026-09-30 실적을 미래 촉매로 기재하고 있으나 2026-09-30 Form 8-K(Item 2.02·9.01, accession 0000723125-26-000018)가 제출돼 촉매가 경과했다(c_20261001_MU_1, grade1·confirmed). 원문은 보존하고 경과 표기만 덧붙인다(P9). [inference · moderate] 다음 실적 촉매 월(2026-12)은 회사 확정 공지가 아닌 회계분기 구조상 가정이다(F1). [fact] '8/21 Apple CXMT/YMTC 상원 서한 시한' 항목도 일자가 경과했으나 창 내 결과를 보여 주는 Claim이 없어(c_9 무언급만 존재) 본 패치 범위에서 제외했다(근거 부족 — 패치 금지 규칙).",
+  "basis_claims": [
+    "c_20261001_MU_1"
+  ],
+  "basis_claims_note": "[fact] c_1: SEC EDGAR 8-K, grade1·confirmed.",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "reverses_core_thesis_note": "[fact] 촉매 경과 표기이며 논거와 무관.",
+  "depends_on_human_decision": null,
+  "apply_order": "순서 무관 — MU 5건(key_metrics / earnings_checkpoints / catalysts / risks / axes)은 서로 다른 행을 치환하고 counts는 각자 필드만 검사한다(드라이런 단독·순차 모두 통과). 권장: MU_key_metrics → MU_earnings_checkpoints → MU_catalysts → MU_risks → MU_axes",
+  "axis_decomposition": null,
+  "expected_after": {
+    "contains": [
+      "[경과 2026-10-01 정리] 2026-09-30 8-K(Item 2.02) 제출로 이행 완료",
+      "회사 공식 확정(2026-08-26 보도자료, 2026-09-30 14:30 MT 실적 발표·컨퍼런스콜)"
+    ],
+    "not_contains": [
+      "14:30 MT 실적 발표·컨퍼런스콜)\"\n"
+    ],
+    "counts": [
+      {
+        "path": "catalysts",
+        "n": 4
+      }
+    ]
+  },
+  "source_artifact": "output/20261001_0900/03_signal/MU.json#claims,thesis_delta_summary · output/20261001_0900/04_sector/memory.json#axis_view,earnings_cycle_context · output/20261001_0900/03_input/arbiter_MU.json(수치·문구 대조)",
+  "f20_note": "[fact] before는 카드 45행 전체 원문이며 출현 1회 확인. after는 닫는 따옴표 앞에 서술을 덧붙인 형태 — not_contains(원 항목 종결부+개행)로 덧붙임 적용을, contains 2번째로 원문 보존을 검증한다."
+}

@@ -1,0 +1,170 @@
+{
+ "as_of": "2026-09-12",
+ "run_id": "20260911_2308",
+ "ticker": "CRCL",
+ "input_source": "output/20260911_2308/03_input/arbiter_CRCL.json",
+ "prior_signal": "🔴",
+ "proposed_signal": "🔴",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260911_CRCL_1",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "sec_edgar_fulltext_and_submissions_api",
+   "filed_at": "2026-09-12",
+   "summary": "EDGAR 재조회(2026-08-28~2026-09-12) 결과 이번 창 신규 8-K는 Tazapay 인수계약(c_2) 1건뿐이며 Coinbase 분배계약 관련 Item 1.01/1.02 공시는 이번 창도 0건. 직전 run과 정합적으로 부재 지속, 8/24 제출기한 경과 후 관측구간 약 19일로 연장."
+  },
+  {
+   "id": "c_20260911_CRCL_2",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "8-K",
+   "filed_at": "2026-09-08",
+   "summary": "Circle 8-K(2026-09-08 제출, 사건일 9/4): 싱가포르 크로스보더결제사 Tazapay Pte. Ltd. 인수 확정계약 체결 — 대금 전액 Circle Class A 보통주 약 $400M 상당(종결시 주가조정), 에스크로(5%·3%)·핵심인력 유지(75%+)·규제승인·최대 15개월 종결기한 조건부. Item 1.01/3.02/7.01/9.01 공시. 계약 체결 단계(P7) — 종결·매출인식 아님."
+  },
+  {
+   "id": "c_20260911_CRCL_3",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "8-K",
+   "filed_at": "2026-09-01",
+   "summary": "FIGR($YLDS 발행사, 타종목) 8-K(2026-09-01): Kiavi Inc. 인수완료(대금 $590M 현금, 2031년만기 8.5% 시니어노트 $600M 조달) 공시이며 $YLDS 유통량 언급 없음. 이번 창 $YLDS 관련 신규 1차 공시 없어 직전 확정 2Q26 $556.033M(QoQ -7.0%)이 최신 grade1 관측치로 유지."
+  },
+  {
+   "id": "c_20260911_CRCL_5",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "form_4",
+   "filed_at": "2026-09-10",
+   "summary": "SEC EDGAR 조회 결과 2026-09-09·09-10에 Form 4 각 1건 추가 제출(직전 9/1~9/3 클러스터 7건 이후 정기 제출로 관측). 웹검색·WebFetch 예산 제약으로 개별 XML(제출자·거래유형·수량) 미판독 — 제출 건수·일자만 확인, 축 Delta 미생성(비정기 대량매도·경영진 이탈 신호 부재)."
+  }
+ ],
+ "filter_bug_report": "없음 — arbiter_CRCL.json의 claims 4건(c_1·c_2·c_3·c_5) 전부 scope=company_specific 확인. removed_claims 1건(c_4, scope=sector)은 필터가 정상 제거 — F13 위반 없음.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "KC-CRCL-1",
+    "description": "USDC 유통량 수축 (경고/발동 2단, usdc_circulation_30d_avg_vs_90d_peak<=-20% AND reserve_income_qoq_declines>=2)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "이번 입력에 두 지표 갱신 claim 없음 — KC 발췌본 상 inputs 전부 unconfirmed, not_met/provisional 그대로 유지."
+   },
+   {
+    "kc_id": "KC-CRCL-2",
+    "description": "점유율 잠식 (usdc_stablecoin_share_qoq<=-3%p, OUSD·이자부 코인 포함)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "이번 입력에 분기 점유율 갱신 claim 없음."
+   },
+   {
+    "kc_id": "KC-CRCL-3",
+    "description": "분배율 상향·구조 변경 공시 발생 (이벤트형, 경중불문 즉시)",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "c_1: 8-K 부재가 8/24 제출기한 경과 후 약 19일째 지속 — '사건 미발생' 정황은 강화되나 met 자체가 성립하지 않아 확정 판정 대상 아님. 계약 조건 원문 최종확인은 Q3'26 10-Q 각주(통상 11월)까지 보류(P5, 정보부재≠반증)."
+   },
+   {
+    "kc_id": "KC-CRCL-4",
+    "description": "OCC·NYDFS 인가 취소·정지·중대 영업제한 또는 GENIUS Act 발행자 인가 거부·철회 확정",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "reason": "이번 입력에 감독조치·인가 관련 관측 없음. c_2(Tazapay M&A)는 규제 '승인 신청' 전제 거래로 KC-CRCL-4(인가 취소·거부)와 무관."
+   },
+   {
+    "kc_id": "KC-3",
+    "description": "크립토 붕괴 + 위험회피 동시 (macro, CRCL 파급)",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "reason": "BTC 77,252.68(임계 <55,000 미충족) · VIX 15.84(임계 >=25 미충족), 2026-09-11/12 관측 — 경계 접촉 아님, stale 아님(0일)."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "규칙1(Kill 우선: KC met AND confirmed)에 해당하는 KC 없음 — 종목 KC 4건 전부 not_met/provisional, macro 파급 KC-3은 not_met/confirmed. KC-CRCL-3은 8-K 부재 지속(19일)으로 '변경 미발생' 정황이 강화됐으나 met 자체가 미성립해 confirmed 여부를 따질 대상이 아님. 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2·P6·P7 상향게이트는 quantitative_evidence AND company_specific AND revenue_recognized 3조건 동시충족 필요. c_2(Tazapay 인수)는 quantitative=true·scope=company_specific이나, 2026-09-04 체결된 것은 '확정 계약(definitive agreement)' — P7의 계약존재/계약이행/매출인식 3단 분리상 1단계(계약 존재)에 불과하다. 대금은 규제승인·최대 15개월 거래종결 기한 조건부이며, 거래 종결 및 매출 인식은 아직 발생하지 않았다. 따라서 revenue_recognized=false. c_5(Form4 제출 2건)도 quantitative=true·company_specific=true이나 매출·마진·현금흐름·가이던스와 무관한 내부자신고 건수일 뿐 revenue_recognized 근거가 될 수 없다. c_1·c_3은 quantitative=false. 3요건 전부 충족되지 않아 상향 게이트 미충족 — holding_reinforcement 분류로 등급 유지(P12)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "이번 입력 4건 중 훼손 방향 claim 없음. c_2(Tazapay 인수 확정계약)는 diversification 축 strengthen 방향(비이자 매출 다각화의 신규 M&A 채널), c_1(분배계약 8-K 부재 지속)·c_3(FIGR $YLDS 무변경 유지)은 neutral, c_5(Form4 정기 제출 패턴)는 축 Delta 미생성 — 성격변화 신호 없음.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "오케스트레이터가 전달한 Delta 3건(diversification strengthen ×1, reserve_income/competition_yield_bearing neutral ×2) 전건 evidence_grade=1·비훼손 방향 — arbiter는 P13/P17에 따라 하위 판정 결과를 재해석하지 않고 그대로 수용한다.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "정량 훼손 없음 + evidence_grade<=2 정성 훼손 없음 — 규칙3(비대칭 하향) 트리거 조건 불성립."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "diversification",
+   "direction": "strengthen",
+   "supporting_claims": ["c_20260911_CRCL_2"],
+   "risk_transfer_to": "거래 종결 공시(최대 15개월 내, 규제승인 전제) + 종결 후 매출기여 정량화(차기 10-Q/10-K) — Tazapay는 ARC/CPN과 별개의 신규 M&A 채널로, 카드 key_metrics/diversification 축 서술에 현재 미반영(ThesisPatch 후보, arbiter는 제안만 언급하며 직접 생성하지 않음)."
+  },
+  {
+   "axis": "reserve_income",
+   "direction": "neutral",
+   "supporting_claims": ["c_20260911_CRCL_1"],
+   "risk_transfer_to": "Q3'26 10-Q 계약 주석 대조(통상 11월) — 8-K 부재 19일 지속은 기존 잠정확정 상태를 유지시킬 뿐 신규 강화신호는 아님."
+  },
+  {
+   "axis": "competition_yield_bearing",
+   "direction": "neutral",
+   "supporting_claims": ["c_20260911_CRCL_3"],
+   "risk_transfer_to": "없음 — 방향전환 없음. 다음 grade1 갱신은 FIGR 3Q26 공시(미도래)."
+  }
+ ],
+ "alert": {
+  "ticker_event": "CRCL — Circle의 Tazapay(싱가포르 크로스보더결제) 인수 확정계약 체결(9/4 체결, 9/8 공시, 전액 주식 약 $400M 상당) + Coinbase 분배계약 관련 8-K 부재 19일째 지속 + 경쟁 스테이블코인($YLDS) 2Q26 수치 무변경 유지 + Form4 정기 제출 2건",
+  "facts": "① Circle 8-K(2026-09-08 제출, 사건일 2026-09-04): Tazapay Pte. Ltd. 인수 확정계약 — 대금 전액 Class A 보통주 약 $400M 상당(종결시 주가조정), 에스크로(5%·3%)·핵심인력유지(75%+)·규제승인·최대 15개월 종결기한 조건부, Item 1.01/3.02/7.01/9.01 [SEC EDGAR 8-K, 2026-09-08, grade1 confirmed]. ② EDGAR 재조회(2026-09-12): Coinbase 분배계약 관련 Item1.01/1.02 8-K 이번 창(8/28~9/12)도 0건, 8/24 제출기한 경과 후 약 19일 지속 [SEC EDGAR fulltext/submissions API, 2026-09-12, grade1 confirmed]. ③ FIGR 8-K(2026-09-01): Kiavi 인수완료 공시이며 $YLDS 유통량 언급 없음 — 2Q26(6/30) $556.033M(QoQ -7.0%)이 최신 grade1 관측치로 유지 [SEC EDGAR 8-K, 2026-09-01, grade1 confirmed]. ④ Form4(2026-09-09·09-10 각 1건): 직전 클러스터(9/1~9/3, 7건) 이후 정기 제출로 관측, 예산제약으로 개별 XML 미판독 [SEC EDGAR form4, 2026-09-10, grade1 confirmed(제출사실만)].",
+  "inference": "없음 — 이번 입력 4건 전부 claim_type=fact, inference_strength=null. Tazapay 거래의 향후 종결 여부·시점·최종 대가는 추론이 아니라 unconfirmed(deal_not_closed)로 적재하며 확정으로 취급하지 않는다.",
+  "classification": "holding_reinforcement (등급 유지 + 사유기록, P12) — 상향게이트(P2/P6/P7) 미충족: Tazapay 인수는 quantitative·company_specific 조건은 충족하나 계약 존재 단계(규제승인·최대 15개월 종결 조건부)로 revenue_recognized=false. 하향 트리거 미성립: 훼손 방향 없음(Delta strengthen×1 + neutral×2).",
+  "thesis_delta": "diversification 축 strengthen(c_2, Tazapay 인수 확정계약 — ARC/CPN과 별개의 신규 M&A 채널이나 계약 체결 단계·리스크 이관: 거래 종결 공시 및 종결 후 매출기여 정량화). reserve_income 축 neutral(c_1, 8-K 부재 19일 지속 — 기존 잠정확정 상태 유지, 리스크 이관: Q3 10-Q 계약주석 대조). competition_yield_bearing 축 neutral(c_3, 경쟁 $YLDS 유통량 무변경 유지). c_5(Form4)는 축 Delta 미생성(모니터링 로그).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🔴(비중조절 검토, OUSD 위협) 유지 권고(maintain). Kill 게이트 미충족(KC met&confirmed 없음). 상향 게이트 미충족(P2/P6/P7 — Tazapay는 계약존재 단계, 거래종결·매출인식 아님). 하향 게이트 미충족(훼손 없음). 🔴🔴 사람확인 요청 대상 아님.",
+  "next_check": "① [사건형·관측가능] Tazapay 거래 종결 공시(최대 15개월 내, 규제승인 전제) 및 종결 후 매출기여 정량화(차기 10-Q/10-K). ② [정량] Q3'26 실적 — USDC 유통량 QoQ 부호·회사 정의 점유율(%)·Reserve Income 지속성. ③ Q3 10-Q 계약 주석 대조로 Coinbase 분배계약 조건 불변 최종 확인(KC-CRCL-3)."
+ },
+ "next_gate": "Q3'26 실적(USDC 유통량 QoQ 부호·회사 정의 점유율%·Reserve Income 지속성) + Q3 10-Q 계약 주석으로 분배계약 조건 불변 최종 확인(11월경) — 기존 게이트 승계, 변경 없음. [보조 관측점] Tazapay 거래 종결 공시(최대 15개월 내, 규제승인 전제) 발생 시 종결대가(최종 주식수)·매출기여 정량화 게이트 신규 추가.",
+ "unconfirmed_carried": [
+  {
+   "topic": "OUSD 공식 출시·실측 유통량",
+   "reason": "2026-06-30 발표(140+사, Open Standard) 이후 상태 변화 없음 — '2026년 하반기 목표(Solana 우선)'만 반복 확인. noise_filter.yaml#CRCL 승격 요건(공식 출시·실측 유통량) 미충족으로 비승격 유지."
+  },
+  {
+   "topic": "'21개 은행 참여 USD 스테이블코인 컨소시엄' 보도(2026-09-02, cryptonomist.ch)",
+   "reason": "OUSD와 동일 여부 미확인. 원문 WebFetch가 HTTP 403으로 차단돼 1차 자료 미확보 — 비승격 유지, 차기 run에서 재시도 필요(access_blocked)."
+  },
+  {
+   "topic": "CLARITY Act 이자부 스테이블코인 조항 문언 확정 여부",
+   "reason": "SOFR 연동 이자 지급 등 법적 취급 문언 여전히 미확정 — 9/15는 절차(클로처) 표결이며 실질 조항 협상은 진행 중(negotiation_ongoing, 2차 보도 컨텍스트 참고용)."
+  },
+  {
+   "topic": "Coinbase 분배계약 조건 원문의 최종(1차 공시 기반) 확정",
+   "reason": "8-K 부재가 19일째 지속되나 계약 조건 자체를 원문으로 재확인한 것은 아님 — Q3 10-Q(통상 11월)까지 no_disclosure. 정보부재를 무변경의 완전한 증명으로 사용하지 않는다(P5)."
+  },
+  {
+   "topic": "Tazapay 인수 거래 종결 시점·규제 승인 진행 상황",
+   "reason": "c_2 공시는 계약 체결(9/4) 단계이며 규제승인·최대 15개월 종결기한 조건부 — 종결 여부·시점·최종 대가(주가조정 후 실제 주식수) 미확정(deal_not_closed)."
+  }
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 등급 유지가 P12 기본경로에 따라 적용됨. Tazapay 인수(c_2)는 diversification 축 강화 방향이나 계약체결 단계(P7)로 상향 근거 불가 — 카드 key_metrics에 M&A 신규채널 서술 슬롯이 없어 ThesisPatch 후보이나(diversification 축에 하위항목 추가), arbiter는 하위→상위 근거 원칙(P13/P17)상 패치를 직접 생성하지 않고 언급만 한다. KC-CRCL-3 관련 8-K 부재는 19일째 지속 — 최종판정은 Q3'26 10-Q까지 unconfirmed 유지 권고. c_5(Form4 클러스터)는 정기 패턴으로 이번 run도 축 Delta 미생성, 향후 비정기·대량매도 전환 시 재평가 필요."
+}

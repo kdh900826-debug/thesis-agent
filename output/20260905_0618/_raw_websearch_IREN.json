@@ -1,0 +1,65 @@
+{
+  "note": "source-ingest [LLM 웹검색] 경로 원문 발췌 축적 — 감사 추적용. edgar_fulltext.py는 0건(아래 _raw_edgar_IREN.json 참조)이므로 이번 run 신규 자료는 전량 웹검색 경로.",
+  "as_of": "2026-09-05",
+  "window": "2026-08-29 ~ 2026-09-05 (신규 자료 중심; 08-27 실적콜 자체는 08-29 run에서 이미 다룸 — 이번 run은 그 콜의 미확보 전사 세부 발언을 복수 독립 전사로 추가 확보)",
+  "items": [
+    {
+      "query": "IREN Q4 2026 earnings call transcript fool.com WebFetch",
+      "url": "https://www.fool.com/earnings/call-transcripts/2026/08/31/iren-iren-q4-2026-earnings-call-transcript/",
+      "published_at": "2026-08-31",
+      "extract": "CFO Anthony Lewis: 'For FY '27, we're guiding CapEx of approximately $25 billion to $30 billion.' / 'The actual CapEx for the year will depend on a range of factors, including final costings, construction schedules, delivery time lines for GPUs.' / 'Approximately $14 billion of existing cash and committed GPU financing and prepayments...We're targeting roughly an additional $8 billion of GPU financing.' / CEO Daniel Roberts: 'With prepayments funding half the GPU CapEx upfront on top of the 90% financing we're getting already, these guys are sending a pretty clear signal.' / Daniel Roberts: 'Horizon 2 is in the process of working towards commissioning, 3 and 4 are in late construction. So all 3 are targeting delivery in the December quarter.' / Kent Draper (CCO) on Mirantis: 'Mirantis service offering...opens up effectively new customer classes to us.' / Kent Draper on Gov. Abbott directive: 'Everything that we've done in setting up our sites and our portfolio is in line with what Governor Abbott came out with in his directive.' / Second fetch: Anthony Lewis: 'We currently expect mining operations to be effectively decommissioned by the end of December 2026.' Daniel Roberts (paraphrase confirmed consistent): mining discontinuation end of Dec 2026 as facilities convert to AI cloud."
+    },
+    {
+      "query": "seekingalpha/benzinga/stockanalysis/investing.com cross-check of same quotes",
+      "urls": [
+        "https://seekingalpha.com/article/4941042-iren-limited-iren-q4-2026-earnings-call-transcript",
+        "https://www.benzinga.com/news/26/08/61484057/full-transcript-iren-q4-2026-earnings-call",
+        "https://stockanalysis.com/stocks/iren/transcripts/662889-q4-2026/",
+        "https://www.investing.com/news/transcripts/earnings-call-transcript-iren-q4-2026-revenue-misses-as-ai-cloud-expands-93CH-4880306",
+        "https://seekingalpha.com/news/4637746-iren-targets-25b-30b-fy-27-capex-as-4b-arr-is-contracted"
+      ],
+      "extract": "동일 인용문(FY27 capex $25-30bn, $14bn 확보+$8bn 추가 조달 목표, mining decommission by end of Dec 2026)이 4개 독립 매체 전사·요약에서 일치 확인. 회사 공식 웹캐스트 원본(iren.com/investor/events replay)은 이 세션에서 직접 접근하지 않음 — 잔여 캐비어트로 유지."
+    },
+    {
+      "query": "stockanalysis.com IREN quote page WebFetch",
+      "url": "https://stockanalysis.com/stocks/iren/",
+      "retrieved_at": "2026-09-05",
+      "extract": "종가 $44.68 (+7.27%), 2026-09-04 4:00PM EDT. 시가총액 $17.61B. 발행주식 394.06M."
+    },
+    {
+      "query": "Texas Governor Abbott data center audit / ERCOT Batch Zero",
+      "urls": [
+        "https://gov.texas.gov/news/post/governor-abbott-directs-comprehensive-data-center-audit",
+        "https://www.utilitydive.com/news/ercot-texas-puc-data-center-audit/828472/",
+        "https://www.texastribune.org/2026/08/14/texas-data-center-approval-pause-ercot-power-grid/",
+        "https://www.houstonpublicmedia.org/articles/news/energy-environment/2026/08/03/558529/gov-greg-abbott-pauses-new-data-centers-until-ercot-puct-audit-energy-water-usage/"
+      ],
+      "extract": "2026-08-03 Abbott 지시 → ERCOT Batch Zero 절차 일시 정지. 2026-08-20 PUCT가 ERCOT의 Batch Zero 기한 연장(good cause exception) 승인. ERCOT는 2026-12-10까지 약 300개 프로젝트(대부분 데이터센터) 감사 완료 목표. 총 접속 신청 약 474GW, 이 중 데이터센터가 약 90%. IREN 개별 사이트에 대한 감사 결과·MW 수치는 미확인. sources.yaml에 gov.texas.gov·ercot.com·utilitydive.com 미등재 → default grade 4 적용(제안: 정부 1차 도메인 등재 검토 — config는 사용자 편집 영역이므로 제안만)."
+    },
+    {
+      "query": "PUCT Docket 59220 SB6 first ruling",
+      "urls": [
+        "https://www.whitecase.com/insight-alert/puct-affirms-curtailment-authority-over-co-located-data-centers-first-net-metering",
+        "https://www.tftc.io/puct-docket-59220-crusoe-ensign-goodnight-wind-ai-campus-sb6-curtailment"
+      ],
+      "extract": "2026-07-24 PUCT 명령 — Crusoe/Ensign·Goodnight 1 풍력(265.5MW) 배후 525.5MW AI 데이터센터 캠퍼스의 net metering 승인 + SB6상 최초 커테일먼트 판정: 배후 발전기 용량에 캡되지 않는 비상시 30분 내 전량 감축 의무. IREN 사안 아님(Crusoe) — scope=sector, IREN 자체 계약 용량 대조 불가."
+    },
+    {
+      "query": "IREN Sweetwater 2 / BC Canada expansion pace",
+      "url": "https://thelogic.co/news/iren-ai-data-centres-canada-us/",
+      "extract": "Sweetwater 2(600MW) 서브스테이션 에너지화 목표 2027년 말. Sweetwater 1(1.4GW)은 2026년 4월 에너지화(이미 알려진 사실). BC Hydro는 향후 2년간 섹터 전체에 400MW 배분 — Canada 확장 둔화, 회사 초점이 미국으로 이동한다는 매체 해석. 단일 저등급 출처(default grade4) — 미확인 처리."
+    },
+    {
+      "query": "analyst PT/rating changes late Aug-Sep 2026 (noise check)",
+      "extract": "Cantor Fitzgerald $27→$41 overweight(8/29), Roth Capital buy $35(8/29), Canaccord $23→$37 buy(8/29), Jones Trading buy→hold(9/2), Bernstein/Citizens 코멘터리. noise_filter#common '애널리스트 PT·투자의견 변경 단독' 해당 — 승격 조건(매출·가이던스·마진·현금흐름 변화) 미충족 → 폐기(로그만 유지)."
+    },
+    {
+      "query": "13G passive filings (noise check)",
+      "extract": "BofA 5.8%, Goldman Sachs 9.4%(6/30 기준), Jane Street 5.2% — noise_filter#common '패시브 13G 지분 보도의 기관 매수=강세 해석' 해당, 매출·가이던스 등 7항목 무변화 → 폐기(로그만 유지)."
+    },
+    {
+      "query": "edgar_fulltext.py result",
+      "extract": "0건 (2026-08-29 이후 8-K/10-Q/10-K/424B5/424B7/S-8/SCHEDULE 13G 신규 제출 없음) — output/20260905_0618/_raw_edgar_IREN.json 참조."
+    }
+  ]
+}

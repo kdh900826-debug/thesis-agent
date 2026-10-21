@@ -1,0 +1,40 @@
+# ThesisPatch — HOOD / key_metrics / amend
+
+- **Run**: 20260911_2308 · as_of 2026-09-12 (L4 `cio-portfolio` 병행 `thesis-refine`)
+- **대상 필드**: `key_metrics` (expected_after.counts: key_metrics=7 — F20)
+- **operation**: `amend`
+- **승인 필요**: 예 (requires_human_approval: true, F17) / **핵심 논거 역전**: 아니오
+- **사전 확인**: 대상 카드 **전문** 열람 후 before 문자열의 원문 일치·목록 항목 수 확인 완료 (F20 — 부분 읽기 기반 '부재' 판정 없음)
+
+## diff
+
+```diff
+--- state/thesis_cards/HOOD.yaml (before)
++++ state/thesis_cards/HOOD.yaml (after 제안)
+-  - "AUA(운용자산) 및 순유입"
+-  - "ARPU"
+-  - "크립토 매출 비중"
++  # 2026-09-12 ThesisPatch(amend, run 20260911_2308) — 이전 항목: AUA(운용자산) 및 순유입(단문, 정량 기준선 부재, P9 보존). 회사 공식 8월 월간 운영지표(2026-09-10 배포, grade 1 confirmed)로 기준선을 채운다. 항목 수 7개 불변(전문 기준 계수).
++  - "AUA(운용자산) 및 순유입 — 8월 실측(회사 공식 월간 운영지표, 2026-09-10, grade 1 confirmed): Total Platform Assets $383.7B(MoM +8%, YoY +26%), 월간 순입금 $4.0B(TTM $74.1B, 자산 대비 +24% — c_20260911_HOOD_1 기록 표기), 펀드고객 28.6M(MoM 약 +12만). 운영지표이며 매출·마진·현금흐름·가이던스 수치가 아니다 — 자산 유입과 매출 인식은 분리해 읽는다(P7). 다음 관측점: 9월 운영지표(통상 10월 중순)와 Q3 실적의 거래매출 QoQ"
++  - "ARPU"
++  # 2026-09-12 ThesisPatch(amend, run 20260911_2308) — 이전 항목: 크립토 매출 비중(단문, 정량 기준선 부재, P9 보존). 8월 명목거래액 실측을 선행지표로 병기하되 매출 비중과 혼용하지 않는다. 항목 수 7개 불변.
++  - "크립토 매출 비중 — 매출 비중 자체는 분기 실적에서만 확인된다. 선행지표(8월 월간 운영지표, 2026-09-10, grade 1 confirmed): 크립토 명목거래액 총 $17.5B(MoM +61%, YoY -38%; App $7.4B MoM +72%/YoY -46%, Bitstamp $10.1B MoM +53%/YoY -30%). [inference:medium] MoM 반등은 2026-09-29 종료 예정인 가스비 무료 보조금 시행 구간에서 발생했고 YoY는 다년 하락을 유지하므로, 명목거래액 반등을 구조적 mix 강화로 등치하지 않는다. 명목거래액은 수수료·매출 수치가 아니다(P7). 다음 관측점: 보조금 종료 후 9월 운영지표의 거래액 잔존율, Q3 실적의 크립토 매출 절대액·비중"
+```
+
+## 왜
+
+[fact] state/thesis_cards/HOOD.yaml 전문(67행)을 읽고 확인한 결과 key_metrics 7개 항목 중 'AUA(운용자산) 및 순유입'과 '크립토 매출 비중'이 둘 다 단문이며 정량 기준선이 없다. [fact] 두 항목은 카드에서 'ARPU'를 사이에 두고 연속 배치돼 있어 한 건의 amend로 처리한다 — 중간의 ARPU 항목은 원문 그대로 유지한다. [fact] 이번 창에 회사 공식 8월 월간 운영지표가 확보됐다 — c_20260911_HOOD_1(grade 1, confirmed, quantitative): Total Platform Assets $383.7B(MoM +8%·YoY +26%), 월간 순입금 $4.0B(TTM $74.1B), 펀드고객 28.6M(MoM 약 +12만). c_20260911_HOOD_2(grade 1, confirmed, quantitative): 크립토 명목거래액 총 $17.5B(MoM +61%·YoY -38%, App $7.4B MoM +72%/YoY -46%, Bitstamp $10.1B MoM +53%/YoY -30%). [fact] 04_sector/stablecoin.json은 이 계열 확보로 직전 run의 결측(su_20260905_08)이 해소되고 aua_inflow 축이 새로 열렸다고 기록했다. [fact] 03_signal/HOOD.json은 동일 재료에 대해 상향 게이트 3요건 중 revenue_recognized 미충족으로 등급 유지를 판정했고, c_20260911_HOOD_4(inference, 강도 medium)로 'MoM +61%는 2026-09-29 종료 예정 가스비 무료 보조금 시행 기간 중 발생, YoY -38% 다년 하락 유지 — 구조적 mix 강화로 볼 근거 부족'을 기록해 crypto_cycle 축을 neutral로 두었다. [fact] 따라서 본 패치는 수치를 기입하되 방향 판정을 카드에 심지 않으며, 운영지표와 매출 인식, 명목거래액과 매출 비중이 각각 다른 계측임을 라벨 안에 고정한다(P7·P3·P13). [fact] 04_sector/stablecoin.json의 risk_of_misreading도 aua_inflow strengthen을 매출·마진 개선으로 읽는 것을 오독 목록에 포함했다. [inference:medium] 기준선이 비어 있는 지표는 다음 회차에 방향 판정의 준거가 없으므로, 상향 근거가 아니라 관측 기준선으로서의 가치가 크다. [fact] 항목 수는 전문 기준 7개(AUA·ARPU·크립토 매출 비중·예측시장 매출·거래량·신규 계정·이자수입·EPS)로 불변이며 이전 항목명은 주석으로 보존한다(P9·F20).
+
+**역전 판정 주석**: [fact] thesis 본문(리테일 금융 수퍼앱·수익원 다각화)과 시그널 등급(🟡)에 대한 판정을 포함하지 않는다. [fact] 운영지표 기준선의 기입이며 방향 판정을 하지 않는다 — 크립토 항목에는 오히려 방향 판정을 금지하는 캐비어트를 함께 기입한다.
+
+**후속 주의**: [fact] rates_income 축의 8월 관측(Margin Book $21.5B MoM +4%·YoY +72% 대 증권대차수익 $36M MoM -10%·YoY -32%, c_20260911_HOOD_3)은 arbiter가 '방향 혼재로 축 단독 판정 근거 불가'로 판정했으므로 이번 패치에 포함하지 않았다 — 기준선 기입 여부는 Q3 실적의 이자수입 항목 전체가 나온 뒤 판단 대상이다. [fact] earnings_checkpoints의 date는 여전히 null이며 Q3 실적일이 1차 자료로 확정되지 않았다(F1) — 이번 패치 대상이 아니다.
+
+## 근거 Claim
+
+c_20260911_HOOD_1, c_20260911_HOOD_2, c_20260911_HOOD_4
+
+출처: `output/20260911_2308/03_signal/HOOD.json#claims[c_20260911_HOOD_1,c_20260911_HOOD_2,c_20260911_HOOD_4] · #thesis_delta_summary[aua_inflow,crypto_cycle] · output/20260911_2308/04_sector/stablecoin_aggregate.json#axis_view[aua_inflow]`
+
+**F20 주석**: [fact] state/thesis_cards/HOOD.yaml 전문 67행을 읽은 뒤 before 문자열(3행 연속)의 원문 일치와 key_metrics 7개 계수를 확인했다(F20). [fact] not_contains는 key_metrics 구간에만 존재하는 3행 연속 형태로 지정했다 — 단행 '- "크립토 매출 비중"'은 earnings_checkpoints 항목에도 부분 일치하므로 사용하지 않았고, P9 보존 주석에는 따옴표 없는 항목명만 기록해 자기모순을 피했다(2026-08-16 자동 원복 사고 유형 회피).
+
+> 이 패치는 제안이며 자동 반영되지 않는다(F17). 적용은 사람의 `approve <id>` 이후 `approvals.py`가 수행한다(백업 → 적용 → expected_after 자동 대조 → 실패 시 원복).

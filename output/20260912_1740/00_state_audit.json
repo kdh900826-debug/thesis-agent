@@ -1,0 +1,53 @@
+{
+  "as_of": "2026-09-12",
+  "run_id": "20260912_1740",
+  "command": "",
+  "pending_approvals": [
+    {
+      "approval_id": "ap_20260912_1738_thesis_patch_crcl",
+      "type": "thesis_patch",
+      "age_days": 0,
+      "artifact": "output/20260911_2308/07_thesis_patch/CRCL.md"
+    },
+    {
+      "approval_id": "ap_20260912_1738_thesis_patch_hood",
+      "type": "thesis_patch",
+      "age_days": 0,
+      "artifact": "output/20260911_2308/07_thesis_patch/HOOD.md"
+    },
+    {
+      "approval_id": "ap_20260912_1738_thesis_patch_iren",
+      "type": "thesis_patch",
+      "age_days": 0,
+      "artifact": "output/20260911_2308/07_thesis_patch/IREN.md"
+    }
+  ],
+  "expired_now": [],
+  "config_errors": [],
+  "config_warnings": [],
+  "latest_run": "20260911_2308",
+  "artifacts": {
+    "macro_kc": {
+      "exists": true,
+      "path": "output\\20260911_2308\\01_macro_kc.json",
+      "age": 0,
+      "unit": "calendar_days",
+      "limit": 5,
+      "stale": false
+    },
+    "correlation": {
+      "exists": true,
+      "path": "output\\20260911_2308\\05_correlation.json",
+      "age": 1,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": false
+    },
+    "positions": {
+      "age": 28,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": false
+    }
+  }
+}

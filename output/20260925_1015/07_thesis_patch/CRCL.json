@@ -1,0 +1,52 @@
+{
+  "as_of": "2026-09-25",
+  "run_id": "20260925_1015",
+  "staleness_days": 0,
+  "ticker": "CRCL",
+  "layer": "thesis_patch_index",
+  "skill": "thesis-refine (S7)",
+  "patch_count": 3,
+  "patches": [
+    "CRCL_reserve_income_binance_renewal.json",
+    "CRCL_diversification_arc_baseline.json",
+    "CRCL_catalysts_clarity_status.json"
+  ],
+  "requires_human_approval": true,
+  "basis_claims": [
+    "c_20260925_CRCL_1",
+    "c_20260925_CRCL_3",
+    "c_20260925_CRCL_4",
+    "c_20260925_CRCL_6",
+    "c_20260925_CRCL_7",
+    "c_20260925_CRCL_11"
+  ],
+  "card_full_read": {
+    "path": "state/thesis_cards/CRCL.yaml",
+    "lines": 86,
+    "yaml_parse": "ok",
+    "counts": {
+      "axes": 8,
+      "key_metrics": 7,
+      "catalysts": 4,
+      "risks": 5,
+      "kill_conditions_ref": 6,
+      "earnings_checkpoints.items": 6,
+      "version_history": 12
+    }
+  },
+  "dry_run": "[fact] scratchpad 사본에 3건 순차 적용(approvals.py 동일 로직: replace 1회 → version_history 삽입 → verify_after_apply) — 3건 모두 before 출현 1회·yaml.safe_load 통과·expected_after 위반 0건. 역순 적용도 위반 0건. 병합 미리보기: CRCL_dryrun_merged_preview.yaml. state/thesis_cards/ 미수정, approvals.py 미호출.",
+  "approval_order": "[fact] 세 패치의 before 영역은 서로 겹치지 않고(axes 25행 / axes 33행 / catalysts 51행) 목록 계수도 불변이라 승인 순서 무관. 권장 순서(우선순위): tpc_06 → tpc_09 → tpc_08.",
+  "excluded_candidates": [
+    {
+      "candidate_id": "tpc_07",
+      "card_field": "axes.usdc_market_share (제3계열 정의)",
+      "decision": "skipped_logged",
+      "reason": "[fact] Visa 인용 '거래 유틸리티 70%'(c_20260925_CRCL_5) 계열 채택 여부가 사람 결정(su_1015_10, requires_human_decision)에 종속된다 — 결정 전 카드 문안 확정 불가. unconfirmed 이월."
+    }
+  ],
+  "dropped_for_missing_basis": [],
+  "observed_not_patched": [
+    "[fact] axes.regulation_sector_legislation 라벨의 '9/15 절차 표결 순연 grade 3'과 risks[1]의 '2026-09-15 절차 표결은 최종 표결이 아니고' 서술은 c_20260925_CRCL_7(9/15 클로처 부결, grade 4)과 시점이 어긋난다. L4 후보 범위 밖이라 패치하지 않았다 — 차기 refine 후보로 기록."
+  ],
+  "queue_note": "[fact] state/pending_approvals.json 등재는 수행하지 않았다(지시 범위). 오케스트레이터가 approvals.py add --type thesis_patch --artifact output/20260925_1015/07_thesis_patch/CRCL_<slug>.md 로 3건 등재 필요."
+}

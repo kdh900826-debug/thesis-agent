@@ -1,0 +1,166 @@
+{
+ "as_of": "2026-09-12",
+ "run_id": "20260911_2308",
+ "ticker": "MU",
+ "input_source": "output/20260911_2308/03_input/arbiter_MU.json",
+ "prior_signal": "🟠",
+ "proposed_signal": "🟠",
+ "transition_candidate": "maintain",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보이며 확정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "c_20260911_MU_01",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "EDGAR submissions API (직접 조회)",
+   "filed_at": "2026-09-12",
+   "summary": "SEC EDGAR API(CIK0000723125) 조회 — 2026-08-28~2026-09-12 구간 10-K/10-Q/8-K 신규 공시 0건. P5(부재≠반증) — Netlist 소송 관련 회사측 8-K 부재는 '미확인 상태 지속'의 근거로만 사용, 소송 종결·기각의 근거로 사용 금지."
+  },
+  {
+   "id": "c_20260911_MU_02",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "company IR page / press release",
+   "filed_at": "2026-08-26",
+   "summary": "FY26 Q4 실적 발표·컨퍼런스콜 2026-09-30 개최 공지가 2026-09-12 기준 변경 없이 유지(직전 run c_20260905_MU_02 재확인, no_change). 애그리게이터 캘린더는 판정근거 불가(F1)."
+  },
+  {
+   "id": "c_20260911_MU_03",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "secondary media (AFP wire, RTE 유통)",
+   "filed_at": "2026-09-11",
+   "summary": "Micron이 대만 노조 측에 FY26 일회성 인센티브 35~68개월분(최소 현금보장 NT$170만, 약 $53,700) 제시. 노조는 요구안(83개월분+FY27부터 영업이익 15% 분기배분)에 미달한다며 반발. 정부중재 협상 9월 중순까지 진행, 결렬 시 파업투표 예정. 등급4 단독소스, 회사·노조 1차자료 접근 실패 — confirmed:false(P4)."
+  },
+  {
+   "id": "c_20260911_MU_04",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "court docket search (미특정/불일치)",
+   "filed_at": "2026-09-12",
+   "summary": "Netlist v. Micron CDCA 소송의 정확한 사건번호·답변 제출여부·2026-09-10 시한 결과를 검색예산 내 확정 못함. 회수도켓(1:26-cv-00362)은 별건(공동피고 Avnet)으로 배제 확인. 재검색 회수 사건번호도 상호불일치 — 검증 불가. P5 적용, 도켓 미특정을 어느 방향으로도 해석하지 않음."
+  },
+  {
+   "id": "c_20260911_MU_05",
+   "claim_type": "fact",
+   "evidence_grade": 4,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": false,
+   "source_type": "web search summary (출처 혼입 의심)",
+   "filed_at": "2026-09-12",
+   "summary": "ITC institution(조사개시) 관련 스니펫이 Netlist-Micron(2026-08-12 제소) 건과 Netlist v. Samsung(337-TA-1511, HBM/DDR5) 별건을 혼입했을 위험. Micron 건 institution 여부는 신뢰 가능하게 확인 안 됨 — 타종목 오염 방지(P17)로 Micron 건 확정근거로 미채택."
+  },
+  {
+   "id": "c_20260911_MU_06",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "source_type": "scope note (EDGAR 채널 확인만 수행)",
+   "filed_at": "2026-09-12",
+   "summary": "신규 SCA 체결·조건변경 및 비트그로스 vs ASP 분해 신규 확정수치 표적 재확인 미수행(예산 절제, 이번 run 우선순위 밖). sca_defense·cycle_position·valuation_paradox 축은 no_change로 이월(P5), 2026-09-30 실적에서 재확인."
+  }
+ ],
+ "filter_bug_report": "없음 — 03_input/arbiter_MU.json의 claims 6건 전부 scope=company_specific, removed_claims 0건. F13 위반 없음.",
+ "kill_check": {
+  "kc_reference": [
+   {
+    "kc_id": "MU 종목 전용 KC",
+    "verdict": "not_defined",
+    "verdict_confidence": "n/a",
+    "note": "kill_conditions.yaml#company에 KC-MU-* 항목 부재 — 3회 연속(20260820, 20260905, 20260911) 미정의 상태. Kill 후보 판정 대상 없음."
+   },
+   {
+    "kc_id": "macro KC-1,2,4,5,6,7,8 (MU 불리방향 노출벡터로 전파)",
+    "verdict": "전건 not_met",
+    "verdict_confidence": "KC-2/4/5=confirmed, KC-1/6/7=provisional",
+    "note": "met 판정 0건 — 규칙1(Kill 우선) 발동 대상 없음. KC-1(FFR>3.75)은 이격 0.00pp 경계접촉(2026-09-16 FOMC 대기)이나 현재 판정은 not_met — 확률·전망을 근거로 met로 취급하지 않음(F1/P5, KC 발췌본 caution 명시 사항 준수)."
+   }
+  ],
+  "ticker_event_kc_observed": false,
+  "triggered": false,
+  "reason": "MU 종목 전용 KC 미정의 + 전파된 매크로 KC 7건 전부 not_met → 규칙1(Kill 우선: KC met AND confirmed) 판정 대상 자체가 없음. 🔴🔴 후보 아님."
+ },
+ "gate_check": {
+  "upgrade_gate": {
+   "quantitative_evidence": true,
+   "company_specific": true,
+   "revenue_recognized": false,
+   "result": "not_met",
+   "reason": "P2/P6/P7 상향 게이트(quantitative_evidence AND company_specific AND revenue_recognized 전부 충족)는 세 조건이 동시에 성립해야 한다. 이번 입력에서 quantitative:true인 claim은 c_01(EDGAR 신규공시 0건 — 공시채널 부재확인 사실, 매출·마진·현금흐름·가이던스 수치 아님)과 c_03(대만 노사협상 조건 내 수치 — 개월수·최저보장액, grade4·confirmed:false)뿐이며 둘 다 매출인식(revenue_recognized) 단계 진술이 아니다. c_02(실적일 유지)·c_06(재확인 미수행 scope note)은 quantitative:false. 확정된 매출·마진·현금흐름·가이던스 수치 자체가 이번 run 입력에 없어 게이트 불충족 — 2026-09-30 FY26Q4 실적 발표 전까지 충족 불가(P12: 게이트 미충족은 실패가 아니라 등급유지 정상경로)."
+  },
+  "downgrade_check": {
+   "quantitative_impairment_detected": false,
+   "impairment_basis": "없음 — c_03(대만 노사협상, quantitative:true)에 포함된 수치(협상 개월수·달러 최저보장액)는 P2/P3가 정의하는 '정량 훼손'(매출·마진·현금흐름·가이던스 수치 악화) 대상이 아니라 노사협상이라는 정성적 사안 내부의 부수 수치다. 매출·마진·현금흐름·가이던스를 직접 악화시키는 확정 수치는 이번 입력에 없음.",
+   "evidence_grade_le2_qualitative_impairment": false,
+   "impairment_basis_detail": "hbm_demand 축 weaken 방향은 c_03(evidence_grade=4, confirmed:false, AFP/RTE 단독 2차매체)에만 근거 — 하향 트리거 자격 기준(evidence_grade≤2)에 크게 못 미침. ip_litigation_risk 축은 방향 자체가 'neutral'(no_change)이며 근거 c_04·c_05도 각각 evidence_grade=4·confirmed:false로 동일하게 자격 미달.",
+   "asymmetric_downgrade_triggered": false,
+   "reason": "핵심 판정(대만 노사분쟁·소송 관련 훼손 근거 처리): 규칙3(비대칭 하향)은 두 경로만 인정한다 — (a) 정량 훼손, (b) evidence_grade≤2의 정성 훼손. c_03은 claim 레벨에서 quantitative:true 태그가 있으나 이는 협상조건 내부수치일 뿐 (a) 경로가 정의하는 매출·마진·현금흐름·가이던스 훼손이 아니므로 (a)로 인정하지 않는다. 따라서 (b) 정성 훼손 경로로만 평가 가능한데, c_03의 evidence_grade는 4로 기준(≤2)을 충족하지 못하고 confirmed:false·단독소스(P4: ③④ 등급은 삼각검증용, 단독 판단 근거 불가)라 이 경로도 자격이 없다. 즉 '노사분쟁 관련 훼손 근거가 grade4 단독'이라는 사실 자체가 (a)·(b) 두 경로 모두에서 하향 자격을 박탈하는 근거다. ip_litigation_risk 축(c_04, c_05)도 동일하게 grade4·confirmed:false이고 방향이 애초에 neutral이라 하향 대상이 아니다. 결론: 규칙3 불성립 — 등급 유지(P12)."
+  }
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "ip_litigation_risk",
+   "direction": "neutral (no_change)",
+   "supporting_claims": ["c_20260911_MU_01", "c_20260911_MU_04", "c_20260911_MU_05"],
+   "risk_transfer_to": "ITC institution 투표 결과(제소 후 통상 30~45일 관행상 임박), CDCA 답변제출·화해·기각 여부"
+  },
+  {
+   "axis": "hbm_demand",
+   "direction": "weaken (provisional — grade4 단독근거)",
+   "supporting_claims": ["c_20260911_MU_03"],
+   "risk_transfer_to": "9월 중순 정부중재 협상 결과, 파업투표 실시 여부·결과, 10월 회사측 최종안 발표"
+  },
+  {
+   "axis": "sca_defense",
+   "direction": "neutral (no_change)",
+   "supporting_claims": ["c_20260911_MU_06"],
+   "risk_transfer_to": "2026-09-30 FY26Q4 실적"
+  },
+  {
+   "axis": "cycle_position",
+   "direction": "neutral (no_change)",
+   "supporting_claims": ["c_20260911_MU_06"],
+   "risk_transfer_to": "2026-09-30 FY26Q4 실적"
+  },
+  {
+   "axis": "valuation_paradox",
+   "direction": "neutral (no_change)",
+   "supporting_claims": ["c_20260911_MU_06"],
+   "risk_transfer_to": "2026-09-30 FY26Q4 실적"
+  }
+ ],
+ "alert": {
+  "ticker_event": "MU — 대만 노사분쟁 협상조건 구체화(회사 카운터오퍼 vs 노조 거부) + Netlist CDCA소송·ITC institution 상태 여전히 미확정 + FY26Q4 실적일(9/30) 변경없이 유지.",
+  "facts": "① SEC EDGAR API 조회(2026-09-12): 2026-08-28~09-12 구간 10-K/10-Q/8-K 신규공시 0건 [grade1, confirmed]. ② Micron IR/GlobeNewswire(2026-08-26, 2026-09-12 재확인): FY26Q4 실적발표 2026-09-30 산악시간 오후2:30 변경없이 유지 [grade1, confirmed]. ③ AFP(RTE 유통, 2026-09-11): 회사측 대만노조에 35~68개월분+최저$53,700 제시, 노조는 요구(83개월+영업이익15%)에 미달한다며 거부, 정부중재 진행중 [grade4, confirmed:false — 단독소스]. ④ CourtListener 도켓조회: CDCA 소송 정확 사건번호·9/10 답변시한 결과 미확정, 회수도켓은 별건으로 배제 [grade4, confirmed:false]. ⑤ ITC institution 여부: Samsung 별건(337-TA-1511) 혼입 의심으로 Micron 건 확정 불가 [grade4, confirmed:false].",
+  "inference": "[강도: weak, c_20260911_MU_03 기반] 대만 노사분쟁이 위협 단계에서 구체적 조건협상 단계로 진전했으나 여전히 미해결이며, Taoyuan·Taichung은 HBM 핵심 생산기지라 실행리스크 성격을 띠나, 등급4 단독소스·confirmed:false 상태라 실제 생산차질 발생 전까지는 '신호' 수준일 뿐 매출·가이던스 영향 확정 아님(P7).",
+  "classification": "holding_reinforcement (등급 유지 + 사유 기록, P12) — 상향 게이트 미충족(revenue_recognized 조건 불성립). 하향 게이트도 미충족(대만 노사분쟁·Netlist 소송 근거 전부 grade4 단독, P4상 하향 트리거 자격 없음).",
+  "thesis_delta": "hbm_demand: weaken 방향이나 grade4 단독근거라 provisional(등급판정 미반영). ip_litigation_risk/sca_defense/cycle_position/valuation_paradox: no_change. 리스크 이관: ITC institution 결정·CDCA 답변결과(ip_litigation_risk), 정부중재 결과·파업투표·10월 최종안(hbm_demand), 2026-09-30 실적(sca_defense/cycle_position/valuation_paradox 공통).",
+  "signal_verdict": "등급 전이 후보 아님 — 현행 🟠(주의, 피크 역설 구간) 유지 권고(maintain). Kill 게이트: 종목 KC 미정의 + 매크로 KC 7건 전건 not_met, 판정대상 없음. 상향 게이트: 미충족(revenue_recognized 조건 불성립). 하향 게이트: 미충족(grade4 단독소스, P4 자격미달). 🔴🔴 사람 확인 요청 대상 아님.",
+  "next_check": "① [next_gate·정량] 2026-09-30 FY26Q4 실적 — 비트그로스 vs ASP 분해·선수금 방향. ② 대만 정부중재 협상 결과(9월 중순 시한)·파업투표 실시 여부. ③ CDCA 소송 답변제출·화해·기각 여부(정확 사건번호 확인). ④ ITC institution(조사개시) 여부(usitc.gov EDIS 원문 대조). ⑤ 10월 회사측 노사협상 최종안 발표."
+ },
+ "next_gate": "2026-09-30 Q4 FY26 실적 — 비트그로스 vs ASP 분해·선수금 방향 (회사 공식 확정일, 2026-08-26 보도자료 grade1, 2026-09-12 재확인 no_change).",
+ "unconfirmed_carried": [
+  {"topic": "Netlist v. Micron CDCA 소송 정확 사건번호·2026-09-10 답변시한 준수·연장·미준수 여부", "reason": "회수 도켓이 별건으로 확인·배제, 재검색 사건번호 상호불일치 — 예산절제로 반복조회 중단(u_20260911_MU_01)"},
+  {"topic": "2026-08-12 Netlist-Micron ITC 제소(4개사 대상) institution(조사개시) 투표 여부", "reason": "검색요약이 Netlist v. Samsung(337-TA-1511) 별건과 혼입 의심 — Micron 건 확정근거로 미채택(P17)(u_20260911_MU_02)"},
+  {"topic": "대만 Micron 노사분쟁(FY26 보너스·FY27 인센티브 개편)에 대한 회사 1차공시 또는 노조 원문성명", "reason": "AFP/Reuters 인용 2차보도만 확인, 1차자료 접근 실패, grade4 단독(u_20260911_MU_03)"},
+  {"topic": "DigiTimes(2026-09-04) HBM 캐파 연말 월10만웨이퍼·HBM4비중50% 확대설", "reason": "2026-09-05 run 이월항목, 이번 run 재검색 미수행, 상태불변(u_20260911_MU_04)"},
+  {"topic": "트럼프 행정부의 Apple CXMT/YMTC(중국向) 소싱 허용 검토 공식발표 여부", "reason": "이번 run 우선순위 밖, 예산절제로 재검색 미수행, 2026-09-05 run 상태 그대로 이월(u_20260911_MU_05)"}
+ ],
+ "human_confirmation_required": false,
+ "note_for_orchestrator": "🔴🔴 판정 아님 — 자동 후속 단계 진행 가능. 등급 유지가 P12 기본경로에 따라 적용됨. 플래그: (1) MU 종목 전용 KC가 kill_conditions.yaml#company에 3회 연속(20260820,20260905,20260911) 부재 — KC 신설 필요성 사람 판단 재상정 권고. (2) ip_litigation_risk(Netlist ITC/CDCA)가 여전히 thesis card 축에 미매핑 — thesis-delta/thesis-refine 재검토 권고, 이번 run 기준 진행상태 변화 없음(도켓 미특정 지속). (3) hbm_demand 축 내 대만 노사분쟁이 위협단계→조건협상 단계로 격화되었으나 grade4 단독이라 등급판정 미반영 — 1차자료 확보(회사 10월 발표) 시 재평가 필요. (4) sca_defense·cycle_position·valuation_paradox 3축은 이번 run 예산절제로 표적 재확인 미수행 — 2026-09-30 실적 run에서 우선 재확인 권고."
+}

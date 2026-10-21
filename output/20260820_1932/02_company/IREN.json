@@ -1,0 +1,184 @@
+{
+  "ticker": "IREN",
+  "run_id": "20260820_1932",
+  "as_of": "2026-08-20",
+  "staleness_days": 0,
+  "period_reviewed": {"since": "2026-08-15", "until": "2026-08-20", "note": "EDGAR 신규 서식 조회는 since=2026-08-15 기준 0건. 424B7(Mirantis 재판매, filed 2026-08-04)은 filed_at 기준 review window 이전이나, 직전 run(0815)의 EDGAR 조회 시작일(since=2026-08-08)에도 포함되지 않았던 gap(08-01~08-07 미조회)에 위치 — F9(완전희석 주수) 관련 1차 자료 공백을 메우기 위해 예외적으로 포함(P5 취지: 자료 공백을 방치하지 않음). filed_at을 명시해 시점 혼동을 방지함."},
+
+  "claims": [
+    {
+      "id": "c_20260820_IREN_001",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "IREN Limited가 2026-08-04 제출한 424B7(Mirantis 인수 관련 매각주주 재판매 등록, Registration No. 333-284369)에 따르면, 2026-04-30 기준 보통주(Ordinary shares) 발행주식수는 357,378,674주이며, 이는 다음을 제외한다: (1) 주식매입선택권(옵션) 행사 시 발행 가능 4,987,244주(가중평균 행사가 $72.71), (2) RSU 베스팅 시 발행 가능 38,645,505주(2026-07-01 공동 CEO 부여분 포함), (3) 기존 전환사채 전환 시 발행 가능 최대 165,640,942주. 동 문서는 Mirantis 합병대가 총 13,673,894주 중 비공인(unaccredited) 보유자 현금 대체분을 제외한 최대 11,981,668주를 매각주주 재판매용으로 등록했다.",
+      "evidence_grade": 1,
+      "source": {"type": "424B7", "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126031055/ny20079234x1_424b7.htm", "filed_at": "2026-08-04"},
+      "inference_strength": null,
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true,
+      "note": "직접 원문 다운로드(SEC User-Agent 헤더 지정) 후 본문 대조 확인. 카드에 기재된 'Mirantis 11.98M주 재판매'(risks 항목)와 수치 일치(11,981,668주) — 기존 서술의 1차 자료 정확 확인."
+    },
+    {
+      "id": "c_20260820_IREN_002",
+      "ticker": "IREN",
+      "claim_type": "inference",
+      "text": "c_20260820_IREN_001의 구성요소를 단순 합산하면 basic 357,378,674 + 옵션 4,987,244 + RSU 38,645,505 + 전환사채 전환상한 165,640,942 = 최대 약 566.65M주로, 카드 key_metrics에 기재된 완전희석 주수 range(495M~508M, 출처: 시장데이터 소스 추정)의 상단을 상회한다. 다만 이는 전환사채 100% 전환(if-converted) 가정의 상한값이며, 실제 회계상 '완전희석 주수'는 in-the-money 여부·treasury-stock method 등 방법론에 따라 달라진다 — 이번 자료로 495M/508M 충돌이 해소되는 것은 아니고, 오히려 상단 리스크가 시장 추정보다 더 클 가능성이 있음을 시사하는 수준.",
+      "evidence_grade": 1,
+      "source": {"type": "derived_calculation_from_424B7", "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126031055/ny20079234x1_424b7.htm", "filed_at": "2026-08-04"},
+      "inference_strength": "medium",
+      "quantitative": true,
+      "scope": "company_specific",
+      "confirmed": true
+    },
+    {
+      "id": "c_20260820_IREN_003",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "2026-08-03 텍사스 주지사 지시(전 run 확인)에 따른 ERCOT 'Batch Zero' 분류통지 유예와 관련해, ERCOT가 2026-08-10 PUCT에 good-cause exception(분류 마감기한, Quarterly Stability Assessment 처리, 동적 데이터 결함통지 시한 등에 대한 구제)을 신청했고, PUCT는 2026-08-20(자료수집 당일) 정례회의(open meeting)에서 이 신청을 처리할 예정이라고 다수 법무법인 client alert(Troutman Pepper Locke, Gibson Dunn, Greenberg Traurig 등)가 보도했다. 회의 처리 결과는 자료수집 시점까지 공개된 1차 자료로 확인되지 못했다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "law_firm_client_alert_secondary",
+        "url": "https://www.troutman.com/insights/texas-hits-pause-on-data-center-grid-connections-amid-growing-oversight-push/",
+        "published_at": "2026-08-18",
+        "corroborating_urls": [
+          "https://www.gibsondunn.com/what-governor-abbotts-data-center-audit-directive-means-for-ercot-and-the-batch-zero-study-process/",
+          "https://www.gtlaw.com/en/insights/2026/8/texas-imposes-new-audit-requirement-for-data-center-projects-delaying-ercot-interconnection-reviews",
+          "https://www.ercot.com/services/comm/mkt_notices/M-A080326-01"
+        ]
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false,
+      "note": "1차 URL 역추적 시도: ercot.com 마켓노티스·puc.texas.gov 문서 직접 접근 모두 403(봇 차단)으로 실패 — D15 규칙에 따라 grade는 실제 사용한 2차 소스 도메인 기준(미등재→default 4) 유지, confirmed=false. IREN의 Childress/Sweetwater 프로젝트가 이 절차의 직접 대상인지는 여전히 unconfirmed(하단 참조)."
+    },
+    {
+      "id": "c_20260820_IREN_004",
+      "ticker": "IREN",
+      "claim_type": "fact",
+      "text": "PUCT가 2026-07-24 Docket No. 59220(Crusoe→Ensign Infrastructure 승계, Goodnight 1 풍력단지 배후 525.5MW AI 데이터센터 병행배치 프로젝트)에서 SB6하 최초의 net metering 판정을 내려, 병행배치 데이터센터에 대한 비상시 부하차단(curtailment) 권한이 배후발전기(BTM) 용량에 상한되지 않는다는 원칙을 확정했다(30분 내 전량 차단 능력 요구, 수요반응 프로그램 참여 금지 병행). 이 사안은 IREN을 언급하지 않으며 IREN의 프로젝트가 아니다.",
+      "evidence_grade": 4,
+      "source": {
+        "type": "law_firm_insight_secondary",
+        "url": "https://www.whitecase.com/insight-alert/puct-affirms-curtailment-authority-over-co-located-data-centers-first-net-metering",
+        "published_at": "2026-08-04",
+        "corroborating_urls": [
+          "https://www.utilitydive.com/news/texas-approves-ai-data-center-co-location-next-to-wind-farm-with-curtailme/826617/",
+          "https://www.tftc.io/puct-docket-59220-crusoe-ensign-goodnight-wind-ai-campus-sb6-curtailment"
+        ]
+      },
+      "inference_strength": null,
+      "quantitative": false,
+      "scope": "sector",
+      "confirmed": false,
+      "note": "puc.texas.gov interchange 문서(primary) 직접 접근 시도 — Cloudflare 403으로 실패, 2차 소스 등급 유지. IREN이 배후발전기 병행배치(BTM co-location) 구조를 보유하는지 자체가 카드·본 조회 자료로 확인되지 않아, 이 판례의 IREN 적용 가능성은 미확인. scope=sector로 태깅하며 P6에 따라 IREN 축 판정 근거로 단독 사용하지 않음."
+    }
+  ],
+
+  "deltas": [
+    {
+      "axis": "funding_dilution",
+      "direction": "weaken",
+      "prior_state": "카드: 완전희석 주수 495M vs 508M 출처 충돌(단일값 사용 금지, F9). 희석 오버행 = Mirantis 11.98M주 재판매 + RSU + ATM. CEO RSU ~$687-749M 성과조건 부재(별도 리스크).",
+      "new_state": "1차 자료(424B7, c_20260820_IREN_001)로 2026-04-30 기준 basic 357,378,674주 및 옵션·RSU·전환사채 각 구성요소 수치를 처음으로 확인. 단순 합산 상한은 약 566.7M주(c_20260820_IREN_002, inference/medium)로 카드 range 상단(508M)을 상회하나, if-converted 가정과 실제 회계 방법론 차이로 495M/508M 충돌을 해소하지는 못함 — F9 range 원칙(단일값 금지)은 그대로 유지. 다만 상단 리스크가 기존 추정보다 클 가능성이 새로 인지되어 방향을 'weaken'으로 기록. 8/27 실적에서 '완전희석 주수 확정'(카드 checkpoint 항목)이 이 range를 좁힐 핵심 이벤트.",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260820_IREN_001", "c_20260820_IREN_002"]
+    },
+    {
+      "axis": "power_permit",
+      "direction": "neutral",
+      "prior_state": "카드: TX SB6 최종 규칙(2026말 예정) 강제 감축·MW당 $50K 담보 리스크. 2026-08-03 주지사 지시로 ERCOT 신규 접속대기 프로젝트 감사·보류 개시(전 run, c_20260815_IREN_001) — IREN 프로젝트 적용 범위는 unconfirmed 상태로 이관.",
+      "new_state": "ERCOT가 2026-08-10 good-cause exception을 PUCT에 신청, 2026-08-20(자료수집 당일) PUCT 정례회의에서 처리 예정이라는 사실을 다수 2차 소스로 확인(c_20260820_IREN_003) — 처리 결과는 미확인. 별도로 PUCT Docket 59220(2026-07-24 확정)에서 병행배치 데이터센터 커테일먼트 권한에 대한 SB6 최초 판례가 나왔음을 확인(c_20260820_IREN_004)하나, IREN과 무관한 프로젝트이고 IREN의 BTM 병행배치 여부 자체가 미확인 — scope=sector, P6에 따라 IREN 축 판정을 변경하는 근거로 사용하지 않음. 축 판정은 전 run과 동일하게 '모니터링 유지', 신규 확정 영향 없음.",
+      "risk_transfer_to": [],
+      "supporting_claims": ["c_20260820_IREN_003", "c_20260820_IREN_004"]
+    }
+  ],
+
+  "unconfirmed": [
+    {
+      "topic": "8/27 FY26 실적 관련 회사 자체 사전 공시·프리뷰(가이던스 수정 등) 1차 자료",
+      "detail": "이번 조회에서 회사(IREN) 발표 형태의 사전 가이던스 수정·실적 프리뷰는 발견되지 못했다. 발견된 것은 애널리스트 추정치뿐이며, 소스 간 편차가 매우 크다(예: 매출 추정이 한 소스는 ~$165M, 다른 소스는 ~$1.4B로 8배 이상 차이 — 지표 정의·기간 혼동 가능성 시사). 애그리게이터·애널리스트 추정치는 회사 확정 발표가 아니므로 판정 근거로 사용할 수 없다(P2/P4).",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). D-7 시점 신규 근거 부재는 반증이 아니라 quiet period 등 정상적 상태일 수 있음."
+    },
+    {
+      "topic": "TX 주지사 지시·ERCOT/PUCT 절차의 IREN 프로젝트(Childress·Sweetwater) 적용 여부 및 2026-08-20 PUCT 회의 처리 결과",
+      "detail": "PUCT의 good-cause exception 처리 결과, 그리고 이번 절차 전반이 IREN의 기존 계약·시공 중 프로젝트에 적용되는지 여부가 자료수집 시점(2026-08-20)까지 1차 자료로 확인되지 못했다.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). 전 run(0815)에서 이관된 동일 항목의 연장."
+    },
+    {
+      "topic": "완전희석 주수 495M vs 508M 출처 충돌 해소",
+      "detail": "424B7(2026-04-30 기준)로 basic 주식수 및 옵션·RSU·전환사채 구성요소는 확인됐으나, 카드에 기재된 495M/508M 자체의 산출 방법론(어느 소스가 어떤 가정을 썼는지)은 이번 조회로도 특정되지 못했다.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). F9 range 유지, 8/27 실적 checkpoint에서 확정 예정."
+    },
+    {
+      "topic": "Horizons 2-4 구체 일정",
+      "detail": "이번 조회 기간 내 'later this year' 외의 구체 일정(월 단위 등)을 공개한 1차 자료를 찾지 못했다.",
+      "reason": "noise_filter.yaml#IREN promote_if 조건 미충족 — 승격 없음, unconfirmed 적재."
+    },
+    {
+      "topic": "2026년 7~8월 BTC 채굴 월간 비즈니스 업데이트(해시레이트·채굴량·전력단가)",
+      "detail": "이번 조회에서도 신규 월간 업데이트를 발견하지 못했다. 검색 결과 상 최근 인덱싱된 월간 업데이트는 2025년 자료 위주였다 — 발행 주기상 8월 업데이트 미발행 가능성과 검색 인덱싱 지연 가능성을 구분하지 못함.",
+      "reason": "1차 자료 미확보 — unconfirmed 적재(P5). 전 run(0815)에서 이관된 동일 항목."
+    }
+  ],
+
+  "noise_log": [
+    {
+      "dedup_key": "iren_analyst_earnings_estimates_fy26q4_preview_20260816_20",
+      "title": "IREN Stock: Earnings Could Spark Big Move / Q2 2026 Earnings Preview 등 애널리스트 추정치 기사군",
+      "source_url": "https://daytraders.com/news/2026/08/16/iren-stock-earnings-could-spark-a-big-move-as-short-interest-reaches-26",
+      "verdict": "discard_as_noise",
+      "reason": "회사 확정 발표가 아닌 애그리게이터·애널리스트 추정치(2차/4차). 소스 간 매출 추정치가 8배 이상 벌어져 신뢰도 낮음. P2/P4상 판정 근거 불가 — unconfirmed 항목으로 별도 기록."
+    },
+    {
+      "dedup_key": "iren_gb300_vr200_substitution_clause_social_20260819",
+      "title": "$IREN GB300 or VR200 for $MSFT? (하드웨어 대체조항 관련 X 게시물·Substack 분석)",
+      "source_url": "https://x.com/FransBakker9812/status/2021113606608388348",
+      "verdict": "discard_as_noise",
+      "reason": "grade 4 단독(소셜미디어/뉴스레터), 1차 공시 원문 재확인 실패. 카드 earnings_checkpoints에 'GPU 대체 조항(GB300→VR200 단가 재협상)'으로 이미 등재된 항목과 동일 — 신규 확정 정보 없음."
+    },
+    {
+      "dedup_key": "iren_28bn_contracts_rehash_20260717",
+      "title": "IREN Signs $2.8bn in New Customer Contracts... (7/20 발표 재보도, Perplexity/Figure AI/Together AI 등)",
+      "source_url": "https://www.globenewswire.com/news-release/2026/07/20/3329624/0/en/iren-signs-2-8bn-in-new-customer-contracts-with-leading-ai-developers-raises-2026-arr-target-to-over-4bn.html",
+      "verdict": "discard_as_noise",
+      "reason": "noise_filter.yaml#IREN '$2.8B 계약 반복 보도(v19 반영 완료)' 매치. filed_at 2026-07-20으로 review window(since 08-15) 이전이며 카드 thesis에 이미 반영됨(TCV ~$15.9B 산식)."
+    },
+    {
+      "dedup_key": "iren_stock_price_move_20260818",
+      "title": "IREN 옵션 센티먼트 혼조·8/18 주가 -5.08% / CoreWeave·Nebius 실적 서프라이즈 이후 IREN 주목",
+      "source_url": "https://www.benzinga.com/trading-ideas/movers/26/08/61308764/whats-going-on-with-iren-stock-wednesday",
+      "verdict": "discard_as_noise",
+      "reason": "common.noise '단순 주가 변동' + '네오클라우드 마진 개선 일반론(피어 비교)' 매치. IREN 특정 데이터 없음."
+    }
+  ],
+
+  "sources_checked": {
+    "edgar_fulltext": {
+      "primary_query": {"forms": ["8-K", "10-Q", "10-K", "424B5", "424B7", "S-8", "SCHEDULE 13G"], "since": "2026-08-15", "result_count": 0, "out": "output/20260820_1932/02_company/_raw_edgar_IREN.json"},
+      "sanity_check": {"forms": ["8-K", "10-Q", "10-K", "424B5", "424B7", "S-8", "SCHEDULE 13G"], "since": "2026-08-01", "result_count": 5, "note": "스크립트 정상 동작 확인(0건이 오류가 아님을 검증) — 8/3·8/4·8/12·8/13 필링 5건 정상 조회됨. 검증 후 sanity 출력 파일은 삭제."}
+    },
+    "direct_fetch_attempts": [
+      {"url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126031055/ny20079234x1_424b7.htm", "method": "curl + SEC 권장 User-Agent 헤더", "result": "성공(200) — c_20260820_IREN_001/002 근거"},
+      {"url": "https://www.whitecase.com/insight-alert/puct-affirms-curtailment-authority-over-co-located-data-centers-first-net-metering", "method": "WebFetch", "result": "403 — WebSearch 요약으로 대체"},
+      {"url": "https://www.ercot.com/services/comm/mkt_notices/M-A080326-01", "method": "WebFetch", "result": "403"},
+      {"url": "https://interchange.puc.texas.gov/Documents/55999_116_1491473.PDF", "method": "curl + User-Agent", "result": "403(Cloudflare) — puc.texas.gov 1차 문서 역추적 실패, D15 규칙에 따라 confirmed=false 유지"}
+    ],
+    "web_search_queries": [
+      "\"IREN\" earnings August 27 2026 preview guidance revenue",
+      "\"IREN\" Iris Energy news August 2026 Horizon 2 3 4 delivery schedule",
+      "Texas PUCT SB6 data center August 2026 final rule ERCOT moratorium update",
+      "IREN Limited 8-K investor presentation August 17 18 19 2026",
+      "PUCT open meeting August 20 2026 ERCOT good cause exception decision granted denied",
+      "IREN monthly business update August 2026 bitcoin mined hashrate",
+      "IREN Mirantis shares resale fully diluted shares outstanding August 2026",
+      "\"IREN\" news August 18 OR August 19 OR August 20 2026",
+      "PUCT co-located data center curtailment authority net metering case decision 2026",
+      "IREN Childress Sweetwater ERCOT interconnection audit exempt existing contracted capacity",
+      "IREN GB300 VR200 GPU replacement pricing renegotiation 2026",
+      "IREN new customer contract announcement August 2026 diversification beyond Microsoft",
+      "IREN pre-earnings guidance update SEC filing August 2026 8-K revenue"
+    ]
+  }
+}
