@@ -56,6 +56,22 @@ DC = ROOT / "state" / "dc_top90.json"
 DC_STAGES = ["0", "1", "2", "3", "X", "C"]
 DC_STALE_DAYS = 8   # 마지막 점검이 이보다 오래되면 안내
 
+# AI 신용 경보 캐시 — FRED 공개 시계열(국채 금리·ICE BofA 회사채 스프레드·신규 실업수당 청구). 렌더는 캐시만 읽고,
+# 수집은 --update-credit에서만 한다. ai_watch(1단계 AI 고유 지표 — 오라클·CoreWeave CDS, 채권 수익률, 데이터센터 ABS 등)는
+# 무료 시계열이 없어 사람이 원장처럼 적고 수집 때 보존된다. 기준선은 이 페이지가 정한 참고선이며 판정(등급·KC)이 아니다.
+CREDIT = ROOT / "state" / "weekly_credit.json"
+FRED_API = "https://api.stlouisfed.org/fred/series/observations?series_id={sid}&api_key={key}&file_type=json&observation_start={start}"
+CREDIT_SERIES = {   # id: (쉬운 이름, 단위, 단계)
+    "BAMLH0A0HYM2": ("하이일드 스프레드", "%p", 2), "BAMLH0A3HYC": ("CCC 등급 스프레드", "%p", 2),
+    "BAMLC0A4CBBB": ("BBB 등급 스프레드", "%p", 2), "BAMLC0A0CM": ("투자등급 스프레드", "%p", 2),
+    "DGS10": ("10년물 국채 금리", "%", 3), "DGS2": ("2년물 국채 금리", "%", 3), "ICSA": ("신규 실업수당 청구", "천 건", 3),
+}
+CREDIT_WINDOWS = [("1주", 7, 0.05), ("4주", 28, 0.10), ("13주", 91, 0.20)]   # 비교 기간 · '뚜렷한 움직임' 최소 폭(%p)
+CREDIT_RULES = {"hy_4w": 0.50, "ccc_4w": 1.00, "ig_4w": 0.15,          # 2단계: 4주 확대 폭(%p)
+                "r10_4w": -0.25, "r2_4w": -0.30, "claims_up": 15,      # 3단계: 4주 금리 하락 폭(%p) · 청구 증가율(%)
+                "s1_worse": 2}                                          # 1단계: '악화' 지표 수
+CREDIT_STALE_DAYS = 10
+
 
 def unit_price(c):
     """평균 단가 = 계약가치 ÷ 기간 ÷ 용량(계산값, $M / MW·년). unit_mw가 있으면 그 용량 기준(예: IT 용량 추정치), 없으면 it_mw.
@@ -288,6 +304,153 @@ def weekly_tga(cache, first_monday, this_monday, today):
         plan.append(q)
     return {"weeks": weeks, "daily": [r for r in daily if r[0] >= start], "plan": plan, "plan_note": cache.get("plan_note", ""),
             "as_of": cache.get("as_of"), "source": cache.get("source", ""), "last": [last_d, daily[-1][1]]}
+
+
+def fetch_credit(start):
+    """FRED API(환경변수 FRED_API_KEY — kc-eval과 같은 키) → {id: [[날짜, 값]]}. 결측('.')은 건너뛴다.
+    실업수당 청구는 천 건 단위로 바꾼다. (fredgraph.csv 주소는 Python 요청에 응답하지 않아 쓰지 않는다.)"""
+    import os, urllib.request
+    key = os.environ.get("FRED_API_KEY")
+    if not key:
+        raise RuntimeError("FRED_API_KEY 미설정 — setup_fred_key.ps1로 등록")
+    out = {}
+    for sid in CREDIT_SERIES:
+        with urllib.request.urlopen(FRED_API.format(sid=sid, key=key, start=start.isoformat()), timeout=30) as r:
+            obs = json.load(r)["observations"]
+        rows = []
+        for o in obs:
+            try:
+                x = float(o["value"])
+            except ValueError:
+                continue
+            rows.append([o["date"], round(x / 1000, 1) if sid == "ICSA" else round(x, 2)])
+        out[sid] = rows
+    return out
+
+
+def update_credit(start, today):
+    cache = load_json(CREDIT) or {"series": {}, "ai_watch": {"asof": "", "rows": []}}
+    for sid, rows in fetch_credit(start).items():
+        merged = {r[0]: r for r in cache["series"].get(sid, [])}
+        merged.update({r[0]: r for r in rows})
+        cache["series"][sid] = [merged[k] for k in sorted(merged)]
+    cache.update({"as_of": today.isoformat(),
+                  "source": "FRED(세인트루이스 연준) — 미 재무부 국채 금리, ICE BofA 회사채 지수 옵션 조정 스프레드, 노동부 신규 실업수당 청구"})
+    CREDIT.write_text(json.dumps(cache, ensure_ascii=False, indent=1), encoding="utf-8")
+    return cache
+
+
+def _at(rows, d):
+    """d 이전(같은 날 포함) 마지막 관측값. 없으면 None."""
+    hit = None
+    for r in rows:
+        if r[0] > d:
+            break
+        hit = r
+    return hit
+
+
+def credit_combo(d10, dhy, d2, thr):
+    """금리·스프레드 조합과 금리 곡선 모양을 쉬운 말로. 움직임이 thr보다 작으면 '뚜렷하지 않음'."""
+    def sgn(v):
+        return 0 if v is None or abs(v) < thr else (1 if v > 0 else -1)
+    r, s = sgn(d10), sgn(dhy)
+    combo = {(-1, 1): ("금리↓ + 스프레드↑", "영상이 말한 위험 신호 모양 — 돈이 국채로 피하고 회사채는 외면"),
+             (1, 1): ("금리↑ + 스프레드↑", "긴축·재정 부담형 — 돈 빌리는 비용이 전부 오름"),
+             (-1, -1): ("금리↓ + 스프레드↓", "완화 기대형 — 돈 빌리는 비용이 전부 내림"),
+             (1, -1): ("금리↑ + 스프레드↓", "경기 낙관형 — 성장 기대로 금리는 오르고 신용은 편안")}.get(
+        (r, s), ("뚜렷한 조합 없음", f"둘 중 하나 이상이 ±{thr:.2f}%p 안에서 움직임"))
+    curve = ("뚜렷한 움직임 없음", "")
+    if d10 is not None and d2 is not None and max(abs(d10), abs(d2)) >= thr:
+        if d10 < 0 and d2 < 0:
+            curve = ("강세 스티프닝", "2년물이 더 빨리 내림 — 침체를 가격에 반영할 때 흔한 모양(2001·2007)") if d2 < d10 else \
+                    ("강세 플래트닝", "장기물이 더 빨리 내림")
+        elif d10 > 0 and d2 > 0:
+            curve = ("약세 스티프닝", "장기물이 더 빨리 오름 — 재정·기간 프리미엄 부담 때 흔한 모양") if d10 > d2 else \
+                    ("약세 플래트닝", "단기물이 더 빨리 오름 — 긴축 기대")
+        else:
+            curve = ("엇갈림", "2년물과 10년물이 반대로 움직임")
+    return {"combo": combo[0], "combo_note": combo[1], "curve": curve[0], "curve_note": curve[1]}
+
+
+def credit_section(cache, first_monday, this_monday, today, todo):
+    """3단계 신용 경보: 지표별 지금 값·기간별 변화·1년 범위, 조합 읽기, 단계별 기준선 충족 여부, 주별 값, 1년 일별 선.
+    1단계 수동 지표가 이번 주에 확인되지 않았거나 시계열이 오래되면 todo에 안내를 넣는다."""
+    if not cache or not cache.get("series"):
+        return None
+    S, y1 = cache["series"], (today - timedelta(days=365)).isoformat()
+    ind = {}
+    for sid, (name, unit, stage) in CREDIT_SERIES.items():
+        rows = S.get(sid) or []
+        if not rows:
+            continue
+        last = rows[-1]
+        rec = {"id": sid, "name": name, "unit": unit, "stage": stage, "d": last[0], "v": last[1], "chg": {}}
+        for lab, days, _ in CREDIT_WINDOWS:
+            p = _at(rows, (date.fromisoformat(last[0]) - timedelta(days=days)).isoformat())
+            rec["chg"][lab] = round(last[1] - p[1], 2) if p else None
+        yr = [r[1] for r in rows if r[0] >= y1]
+        rec["lo"], rec["hi"] = min(yr), max(yr)
+        ind[sid] = rec
+    g = lambda sid, lab: (ind.get(sid) or {}).get("chg", {}).get(lab)
+    combos = [dict(credit_combo(g("DGS10", lab), g("BAMLH0A0HYM2", lab), g("DGS2", lab), thr), w=lab,
+                   d10=g("DGS10", lab), d2=g("DGS2", lab), dhy=g("BAMLH0A0HYM2", lab)) for lab, _, thr in CREDIT_WINDOWS]
+    R = CREDIT_RULES
+
+    def cond(text, val, ok):
+        return {"text": text, "val": val, "ok": None if val is None else bool(ok)}
+    fmt = lambda v: "—" if v is None else f"{v:+.2f}%p"
+    hy, ccc, ig = g("BAMLH0A0HYM2", "4주"), g("BAMLH0A3HYC", "4주"), g("BAMLC0A0CM", "4주")
+    r10, r2 = g("DGS10", "4주"), g("DGS2", "4주")
+    # 신규 실업수당 청구: 최근 4주 평균 vs 13주 전 4주 평균
+    cl, claims = S.get("ICSA") or [], None
+    if len(cl) >= 17:
+        a, b = sum(r[1] for r in cl[-4:]) / 4, sum(r[1] for r in cl[-17:-13]) / 4
+        claims = round((a / b - 1) * 100, 1)
+    watch = cache.get("ai_watch") or {}
+    wrows = watch.get("rows", [])
+    worse = sum(1 for r in wrows if r.get("state") == "악화")
+    stages = [
+        {"n": 1, "title": "AI 쪽 약한 고리", "q": "빚으로 AI 투자를 하는 회사의 채권·CDS가 나빠지는가",
+         "conds": [cond(f"AI 고유 지표 {R['s1_worse']}개 이상이 4주 전보다 '악화'", f"악화 {worse}개 / {len(wrows)}개", worse >= R["s1_worse"])],
+         "asof": watch.get("asof", "")},
+        {"n": 2, "title": "시장 전체로 번짐", "q": "약한 고리의 문제가 회사채 시장 전체의 비용으로 번지는가",
+         "conds": [cond(f"하이일드 스프레드 4주 +{R['hy_4w']:.2f}%p 이상", fmt(hy), hy is not None and hy >= R["hy_4w"]),
+                   cond(f"CCC 등급 스프레드 4주 +{R['ccc_4w']:.2f}%p 이상", fmt(ccc), ccc is not None and ccc >= R["ccc_4w"]),
+                   cond(f"투자등급 스프레드 4주 +{R['ig_4w']:.2f}%p 이상", fmt(ig), ig is not None and ig >= R["ig_4w"])]},
+        {"n": 3, "title": "경기침체 가격 반영", "q": "장기금리가 떨어지는데 스프레드는 벌어지는가 (확인 신호 — 늦게 켜짐)",
+         "conds": [cond(f"4주 10년물 {R['r10_4w']:.2f}%p 이하 + 하이일드 +{R['hy_4w']:.2f}%p 이상 (영상 신호)",
+                        f"10년물 {fmt(r10)} · 하이일드 {fmt(hy)}", r10 is not None and hy is not None and r10 <= R["r10_4w"] and hy >= R["hy_4w"]),
+                   cond(f"4주 2년물 {R['r2_4w']:.2f}%p 이하 + 10년물보다 더 하락 (강세 스티프닝)",
+                        f"2년물 {fmt(r2)} · 10년물 {fmt(r10)}", r2 is not None and r10 is not None and r2 <= R["r2_4w"] and r2 < r10),
+                   cond(f"신규 실업수당 청구 최근 4주 평균이 13주 전보다 {R['claims_up']}% 이상 많음",
+                        "—" if claims is None else f"{claims:+.1f}%", claims is not None and claims >= R["claims_up"])]},
+    ]
+    for s in stages:
+        s["met"] = sum(1 for c in s["conds"] if c["ok"])
+    if not wrows:
+        todo.append("credit/ai_watch: 1단계 AI 고유 지표가 아직 없음 — state/weekly_credit.json ai_watch에 적어야 함")
+    elif not watch.get("asof") or date.fromisoformat(watch["asof"]) < this_monday:
+        todo.append("credit/ai_watch: 1단계 AI 고유 지표를 이번 주에 확인하지 않음 — 칸별 재확인 후 asof 갱신 필요")
+    newest = max((r["d"] for r in ind.values()), default=None)
+    if newest and (today - date.fromisoformat(newest)).days > CREDIT_STALE_DAYS:
+        todo.append(f"credit: 시계열 마지막 값이 {newest} — --update-credit로 다시 수집 필요")
+    weeks = {}
+    for sid in ("BAMLH0A0HYM2", "DGS10"):
+        by_w = {}
+        for r in S.get(sid) or []:
+            by_w[monday(date.fromisoformat(r[0]))] = r
+        w = first_monday
+        while w <= this_monday:
+            cur, prev = by_w.get(w), by_w.get(w - timedelta(days=7))
+            if cur:
+                weeks.setdefault(w.isoformat(), {})[sid] = {"v": cur[1], "last": md(date.fromisoformat(cur[0])),
+                                                            "chg": round(cur[1] - prev[1], 2) if prev else None}
+            w += timedelta(days=7)
+    daily = {sid: [r for r in rows if r[0] >= y1] for sid, rows in S.items() if sid in CREDIT_SERIES}
+    return {"ind": ind, "combos": combos, "stages": stages, "watch": wrows, "watch_asof": watch.get("asof", ""),
+            "watch_note": watch.get("note", ""), "weeks": weeks, "daily": daily, "first_week": first_monday.isoformat(),
+            "rules": R, "as_of": cache.get("as_of"), "source": cache.get("source", "")}
 
 
 PS_METRICS =[("rev", "주당 최근 분기 매출(연환산)"), ("arr_live", "주당 가동 중 ARR"), ("arr_contract", "주당 계약 ARR")]
@@ -634,6 +797,12 @@ def build(today, store, tickers):
         for wk in weeks:   # 각 주 카드에 그 주의 재무부 현금 잔고를 붙인다
             wk["tga"] = by_t.get(cur.isoformat())
             cur -= timedelta(days=7)
+    credit = credit_section(load_json(CREDIT), first, monday(today), today, todo)
+    if credit:
+        cur = monday(today)
+        for wk in weeks:   # 각 주 카드에 그 주의 하이일드 스프레드·10년물 금리를 붙인다
+            wk["credit"] = credit["weeks"].get(cur.isoformat())
+            cur -= timedelta(days=7)
 
     upcoming = [u for u in store.get("upcoming", [])
                 if not u.get("until") or date.fromisoformat(u["until"]) >= today]
@@ -666,7 +835,7 @@ def build(today, store, tickers):
     last_check = max((d for d in by_day), default=None)
     return {"weeks": weeks, "status": status, "upcoming": upcoming, "axes": axes, "exp_rows": exp_rows,
             "last_check": last_check, "first_week": first, "threads": threads, "overlay": overlay,
-            "off_matrix": off, "warnings": warnings, "explainer_todo": todo, "prices": prices, "tga": tga,
+            "off_matrix": off, "warnings": warnings, "explainer_todo": todo, "prices": prices, "tga": tga, "credit": credit,
             "peers": peer_tables(load_json(PEERS), today), "per_share": per_share, "dc": dc}
 
 
@@ -706,7 +875,7 @@ def render_html(today, store, tickers, data):
                     + (f'<b>매트릭스 밖 노출 (관찰 메모)</b> <span class="small">— 지금 매트릭스에 없는 축에 닿은 소식. 매트릭스 변경은 사용자 결정 영역</span><ul>{off_notes}</ul>' if off_notes else "")
                     + "</div>")
     payload = json.dumps({"status": data["status"], "upcoming": data["upcoming"], "weeks": data["weeks"],
-                          "threads": data["threads"], "prices": data["prices"], "tga": data.get("tga"), "peers": data.get("peers"),
+                          "threads": data["threads"], "prices": data["prices"], "tga": data.get("tga"), "credit": data.get("credit"), "peers": data.get("peers"),
                           "per_share": data.get("per_share"), "dc": data.get("dc")},
                          ensure_ascii=False, default=str).replace("</", "<\\/")
     tks = " · ".join(tickers)
@@ -750,6 +919,7 @@ def main(argv=None):
     ap.add_argument("--check-only", action="store_true")
     ap.add_argument("--update-prices", action="store_true", help="yfinance로 일별 종가를 받아 state/weekly_prices.json 갱신 후 렌더")
     ap.add_argument("--update-tga", action="store_true", help="재무부 일일 재무제표로 TGA 잔고를 받아 state/weekly_tga.json 갱신 후 렌더")
+    ap.add_argument("--update-credit", action="store_true", help="FRED로 국채 금리·회사채 스프레드·실업수당 청구를 받아 state/weekly_credit.json 갱신 후 렌더")
     a = ap.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
     store = load_json(STORE)
@@ -779,6 +949,13 @@ def main(argv=None):
             print(f"TGA 갱신: {c['daily'][-1][0]} ${c['daily'][-1][1]:,.1f}B ({len(c['daily'])}일)")
         except Exception as ex:   # 네트워크 실패 시 캐시로 렌더
             print(f"TGA 갱신 실패 — 캐시로 렌더: {ex}")
+    if a.update_credit:
+        try:
+            c = update_credit(today - timedelta(days=400), today)
+            hy, r10 = c["series"]["BAMLH0A0HYM2"][-1], c["series"]["DGS10"][-1]
+            print(f"신용 갱신: 하이일드 {hy[1]:.2f}%p ({hy[0]}) · 10년물 {r10[1]:.2f}% ({r10[0]})")
+        except Exception as ex:   # 네트워크 실패 시 캐시로 렌더
+            print(f"신용 갱신 실패 — 캐시로 렌더: {ex}")
     data = build(today, store, tickers)
     for w in data["warnings"]:
         print(f"경고(연결): {w}")
@@ -904,6 +1081,9 @@ table.dc .nm{{font-weight:500;min-width:170px}} table.dc td.stx{{min-width:220px
 .stg.s0,.stg.s1{{background:var(--goodbg);color:var(--good)}} .stg.sX{{background:var(--mixbg);color:var(--mix)}} .stg.sC{{background:var(--badbg);color:var(--bad)}}
 .dc-ev{{padding:9px 0;border-top:1px solid var(--line);font-size:14px}} .dc-ev:first-child{{border-top:none}} .dc-ev .h{{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}}
 .wk-dc{{font-size:12.5px;color:var(--ink2);margin:-4px 0 8px}} .dc-sel{{font:inherit;font-size:13px;padding:3px 8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}}
+.cr-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px}} @media(max-width:640px){{.cr-grid{{grid-template-columns:1fr}}}} .cr-t{{font-weight:700;font-size:16px;margin:2px 0}}
+.cr-c{{list-style:none;padding:0;margin:6px 0 0;font-size:13.5px}} .cr-c li{{margin:7px 0}} .card.cr-st.on{{border-color:var(--mix)}}
+.g.warn{{background:var(--mixbg);color:var(--mix)}} .exk.na{{background:var(--neubg);color:var(--ink3)}} tr.hlrow td{{background:var(--hl)}} .nw{{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -939,6 +1119,9 @@ table.dc .nm{{font-weight:500;min-width:170px}} table.dc td.stx{{min-width:220px
 <div class="card" id="pershare"></div>
 <h2>주간 주가 추이</h2>
 <div class="card" id="prices"></div>
+<h2 id="credit-h">AI 신용 경보 — 돈 빌리는 비용이 먼저 흔들리는가</h2>
+<p class="sub" style="margin-top:-4px">AI 데이터센터 투자는 갈수록 빚(회사채·전환사채·사모 대출)으로 조달합니다. 이 돈줄에 문제가 생기면 주가보다 채권시장, 즉 돈 빌리는 비용이 먼저 반응하는 경우가 많습니다. 그래서 세 단계로 나눠 봅니다. ① AI 쪽 약한 고리(빚으로 투자하는 회사)의 채권·신용부도스와프(CDS) ② 그 문제가 회사채 시장 전체로 번지는지 ③ 시장이 경기침체를 가격에 반영하는지(장기금리는 떨어지는데 스프레드는 벌어지는 모양 — 2000년·2007년에 나타남). ③은 이미 상황이 꽤 진행된 뒤에 켜지는 확인 신호이고, 대응을 시작할 신호는 ①·②입니다. 체크 기준은 이 페이지가 정한 참고선이며 시스템 판정이 아닙니다.</p>
+<div id="credit"></div>
 <h2>미국 재무부 현금(TGA) 잔고 추이</h2>
 <p class="sub" style="margin-top:-4px">미국 재무부가 연준에 둔 통장(TGA, Treasury General Account)의 하루 마감 잔고입니다. 잔고가 늘면 그만큼 은행 시스템의 돈(지급준비금)이 재무부 통장으로 옮겨 가고, 줄면 다시 풀립니다. 세금이 들어오는 날(분기 중순 법인세·개인 세금 마감일)에는 늘고, 월초 지급일에는 줄어드는 날짜 패턴이 큽니다. 동그라미·띠는 재무부가 분기 국채 발행 계획에서 밝힌 잔고 가정으로, 약속이 아니라 국채를 얼마나 찍을지 계산하려고 쓴 전제입니다.</p>
 <div class="card" id="tga"></div>
@@ -976,7 +1159,7 @@ function render(f) {{
    return `<div class="ev ${{it.kind||""}}"${{it.id?` id="ev-${{esc(it.id)}}"`:""}}><div class="d">${{esc(it.dt)}}</div><div class="who">${{tkSpan(it.tk)}}</div>
     <div class="body"><p>${{esc(it.text)}}</p>${{it.why?`<p class="why">${{esc(it.why)}}</p>`:""}}${{extra(it)}}${{tags.length?`<div class="tags">${{tags.join("")}}</div>`:""}}</div></div>`;
   }}).join("") : `<div class="empty">${{w.now ? "이번 주에 기록된 소식이 아직 없습니다." : "이 주에는 해당 소식이 없습니다."}}</div>`;
-  return `<div class="card week"><div class="wk-h"><span class="wk-date">${{esc(w.d)}}</span><span class="wk-title">${{esc(w.title)}}</span>${{w.now?'<span class="wk-now">이번 주</span>':""}}</div>${{priceLine(w)}}${{tgaLine(w)}}${{dcLine(w)}}${{body}}</div>`;
+  return `<div class="card week"><div class="wk-h"><span class="wk-date">${{esc(w.d)}}</span><span class="wk-title">${{esc(w.title)}}</span>${{w.now?'<span class="wk-now">이번 주</span>':""}}</div>${{priceLine(w)}}${{tgaLine(w)}}${{creditLine(w)}}${{dcLine(w)}}${{body}}</div>`;
  }}).join("");
  renderThreads(f);
 }}
@@ -1127,6 +1310,100 @@ function renderTGA() {{
  hit.addEventListener("mouseleave", () => {{ tip.style.display = "none"; xh.style.display = "none"; }});
 }}
 renderTGA();
+const crV = (v, u) => v==null ? "—" : u==="천 건" ? `${{(v/10).toFixed(1)}}만 건` : `${{v.toFixed(2)}}${{u}}`;
+const crD = (v, u) => v==null ? "—" : `${{v>0?"▲":v<0?"▼":"–"}} ${{u==="천 건" ? (Math.abs(v)/10).toFixed(1)+"만" : Math.abs(v).toFixed(2)+"%p"}}`;
+function creditLine(w) {{
+ const c = w.credit; if (!c) return "";
+ const part = (k, name, u) => c[k] ? `${{name}} ${{crV(c[k].v, u)}} (${{esc(c[k].last)}}, 전주 대비 ${{crD(c[k].chg, u)}})` : "";
+ return `<div class="wk-tga"><span class="small">신용:</span> ${{[part("BAMLH0A0HYM2", "하이일드 스프레드", "%p"), part("DGS10", "10년물", "%")].filter(Boolean).join(" · ")}} <a class="small" href="#credit">경보 보기</a></div>`;
+}}
+function crTicks(lo, hi) {{
+ const step = [0.05, 0.1, 0.25, 0.5, 1, 2, 5, 10, 20, 50, 100].find(s => (hi-lo)/s <= 5) || 100, out = [];
+ for (let v = Math.ceil(lo/step)*step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(2));
+ return out;
+}}
+function crChart(pid, title, ser, unit, C) {{
+ const D = C.daily, S = ser.filter(([k]) => (D[k]||[]).length);
+ if (!S.length) return {{html: ""}};
+ const ts = d => Date.parse(d + "T00:00:00Z");
+ const t0 = Math.min(...S.map(([k]) => ts(D[k][0][0]))), t1 = Math.max(...S.map(([k]) => ts(D[k][D[k].length-1][0])));
+ const vals = S.flatMap(([k]) => D[k].map(r => r[1]));
+ let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi-lo)*0.12 || 0.1; lo -= pad; hi += pad;
+ const w0 = 320, h0 = 180, ml = 42, mr = 10, mt = 10, mb = 22, iw = w0-ml-mr, ih = h0-mt-mb;
+ const x = d => ml + (ts(d)-t0)/((t1-t0)||1)*iw, y = v => mt + (hi-v)/(hi-lo)*ih;
+ const tl = v => unit==="천 건" ? `${{+(v/10).toFixed(1)}}만` : `${{+v.toFixed(2)}}${{unit==="%"?"%":""}}`;
+ let g = `<g class="grid">${{crTicks(lo, hi).map(v => `<line x1="${{ml}}" x2="${{ml+iw}}" y1="${{y(v)}}" y2="${{y(v)}}"/><text x="${{ml-5}}" y="${{y(v)+4}}" text-anchor="end">${{tl(v)}}</text>`).join("")}}</g>`;
+ const months = []; {{ const d0 = new Date(t0); let m = new Date(Date.UTC(d0.getUTCFullYear(), d0.getUTCMonth()+1, 1));
+  while (m.getTime() <= t1) {{ months.push(m.toISOString().slice(0,10)); m = new Date(Date.UTC(m.getUTCFullYear(), m.getUTCMonth()+1, 1)); }} }}
+ g += months.map((m,i) => i%3===0 ? `<text x="${{x(m)}}" y="${{h0-6}}" text-anchor="middle">${{m.slice(2,4)}}.${{+m.slice(5,7)}}</text>` : "").join("");
+ const a = Math.max(ml, x(C.first_week));
+ g = `<rect class="period" x="${{a}}" y="${{mt}}" width="${{Math.max(0, ml+iw-a)}}" height="${{ih}}"/>` + g;
+ let ends = S.map(([k, name], i) => {{ const L = D[k][D[k].length-1]; return {{k, name, i, x: x(L[0]), y: y(L[1]), v: L[1]}}; }});
+ if (ends.length === 2 && Math.abs(ends[0].y - ends[1].y) < 14) {{ const up = ends[0].y <= ends[1].y ? 0 : 1; ends[up].ly = ends[up].y - 9; ends[1-up].ly = ends[1-up].y + 13; }}
+ const lines = S.map(([k], i) => `<path class="ln ${{i?"bench":"tga"}}" d="${{D[k].map((r,j) => (j?"L":"M")+x(r[0]).toFixed(1)+" "+y(r[1]).toFixed(1)).join(" ")}}"/>`).join("") +
+  ends.map(e => `<circle class="dot" cx="${{e.x}}" cy="${{e.y}}" r="3.5" style="fill:var(${{e.i?"--bench":"--macro"}})"/><text class="end halo" x="${{e.x-6}}" y="${{(e.ly ?? (e.y + (e.y < mt+ih/2 ? 16 : -8)))}}" text-anchor="end">${{S.length>1?esc(e.name)+" ":""}}${{crV(e.v, unit)}}</text>`).join("");
+ const legend = S.length > 1 ? `<div class="pc-legend">${{S.map(([, n], i) => `<span class="${{i?"lg-bench":"lg-tga"}}">${{esc(n)}}</span>`).join("")}}</div>` : "";
+ const html = `<div><div class="sec-h">${{esc(title)}}</div>${{legend}}<div class="pc-wrap"><svg class="pc" id="${{pid}}" viewBox="0 0 ${{w0}} ${{h0}}" role="img" aria-label="${{esc(title)}} 최근 1년 추이">${{g}}${{lines}}<line class="xh" y1="${{mt}}" y2="${{mt+ih}}" style="display:none"/><rect class="hit" x="${{ml}}" y="${{mt}}" width="${{iw}}" height="${{ih}}" fill="transparent"/></svg><div class="pc-tip"></div></div></div>`;
+ return {{html, pid, x, S, D, unit, ml, iw}};
+}}
+function crHover(c) {{
+ if (!c.pid) return;
+ const svgEl = document.getElementById(c.pid), wrap = svgEl.parentNode, tip = wrap.querySelector(".pc-tip"), xh = svgEl.querySelector(".xh"), hit = svgEl.querySelector(".hit");
+ const base = c.D[c.S[0][0]], xs = base.map(r => c.x(r[0]));
+ const valAt = (k, d) => {{ let h = null; for (const r of c.D[k]) {{ if (r[0] > d) break; h = r; }} return h; }};
+ hit.addEventListener("mousemove", ev => {{
+  const pt = svgEl.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+  const lx = pt.matrixTransform(svgEl.getScreenCTM().inverse()).x;
+  let i = 0; for (let k = 1; k < xs.length; k++) if (Math.abs(xs[k]-lx) < Math.abs(xs[i]-lx)) i = k;
+  const d = base[i][0];
+  xh.setAttribute("x1", xs[i]); xh.setAttribute("x2", xs[i]); xh.style.display = "";
+  tip.innerHTML = `<b>${{esc(d)}}</b>` + c.S.map(([k, n]) => {{ const r = valAt(k, d); return r ? `<div class="r"><span>${{esc(n)}}</span><span>${{crV(r[1], c.unit)}}</span></div>` : ""; }}).join("");
+  tip.style.display = "block";
+  const box = wrap.getBoundingClientRect(), px = ev.clientX - box.left;
+  tip.style.left = (px > box.width/2 ? px - tip.offsetWidth - 12 : px + 12) + "px"; tip.style.top = "4px";
+ }});
+ hit.addEventListener("mouseleave", () => {{ tip.style.display = "none"; xh.style.display = "none"; }});
+}}
+function renderCredit() {{
+ const C = DATA.credit, el = document.getElementById("credit");
+ if (!C) {{ el.innerHTML = `<div class="card empty">신용 지표 데이터가 없습니다 (--update-credit로 수집).</div>`; return; }}
+ const I = C.ind;
+ const mk = ok => ok===true ? `<span class="exk watch">✓ 충족</span>` : ok===false ? `<span class="exk na">✗ 아님</span>` : `<span class="exk na">? 자료 없음</span>`;
+ const chip = s => (s.n===1 && !C.watch.length) ? `<span class="g no">확인 전</span>` : s.met ? `<span class="g warn">기준 ${{s.met}}/${{s.conds.length}} 충족</span>` : `<span class="g no">기준 미충족 (0/${{s.conds.length}})</span>`;
+ const cards = `<div class="grid3">` + C.stages.map(s => `<div class="card cr-st${{s.met?" on":""}}"><div class="small">${{s.n}}단계${{s.n===3?" · 확인 신호":" · 대응 시작 신호"}}</div><div class="cr-t">${{esc(s.title)}}</div><div class="meta">${{esc(s.q)}}</div><div class="gate">${{chip(s)}}</div>
+   <ul class="cr-c">${{s.conds.map(c => `<li>${{mk(c.ok)}} ${{esc(c.text)}}<div class="small">지금: ${{esc(c.val)}}</div></li>`).join("")}}</ul>${{s.asof?`<div class="small">수동 지표 ${{esc(s.asof)}} 확인</div>`:""}}</div>`).join("") + `</div>`;
+ const cg = v => v==null ? "—" : `${{v>0?"+":""}}${{v.toFixed(2)}}%p`;
+ const combo = `<div class="card" style="margin-top:12px"><div class="sec-h">조합 읽기 — 금리와 스프레드가 같은 기간에 어느 쪽으로 움직였나</div><div class="tblwrap"><table class="xt"><thead><tr><th>기간</th><th>10년물</th><th>2년물</th><th>하이일드</th><th>금리·스프레드 조합</th><th>금리 곡선 모양</th></tr></thead><tbody>` +
+  C.combos.map(c => `<tr${{c.combo.startsWith("금리↓ + 스프레드↑")?' class="hlrow"':""}}><td class="nw">최근 ${{esc(c.w)}}</td><td class="nw">${{cg(c.d10)}}</td><td class="nw">${{cg(c.d2)}}</td><td class="nw">${{cg(c.dhy)}}</td><td><b>${{esc(c.combo)}}</b><div class="small">${{esc(c.combo_note)}}</div></td><td><b>${{esc(c.curve)}}</b><div class="small">${{esc(c.curve_note)}}</div></td></tr>`).join("") +
+  `</tbody></table></div><p class="small" style="margin:6px 0 0">마지막 값끼리 비교한 변화입니다. 1주 ±0.05%p, 4주 ±0.10%p, 13주 ±0.20%p보다 작은 움직임은 '뚜렷하지 않음'으로 봅니다. 노란 줄 = 영상이 말한 위험 신호 모양.</p></div>`;
+ const P = [crChart("cr-r", "국채 금리 (10년·2년)", [["DGS10", "10년물"], ["DGS2", "2년물"]], "%", C),
+            crChart("cr-hy", "하이일드 스프레드", [["BAMLH0A0HYM2", "하이일드"]], "%p", C),
+            crChart("cr-ig", "투자등급·BBB 스프레드", [["BAMLC0A4CBBB", "BBB 등급"], ["BAMLC0A0CM", "투자등급 전체"]], "%p", C),
+            crChart("cr-cl", "신규 실업수당 청구 (주간)", [["ICSA", "청구"]], "천 건", C)];
+ const ord = ["BAMLH0A0HYM2", "BAMLH0A3HYC", "BAMLC0A4CBBB", "BAMLC0A0CM", "DGS10", "DGS2", "ICSA"];
+ const rows = ord.filter(k => I[k]).map(k => {{ const r = I[k]; return `<tr><td class="nw">${{r.stage}}단계</td><td class="nw">${{esc(r.name)}}</td><td class="nw"><b>${{crV(r.v, r.unit)}}</b><div class="small">${{mdj(r.d)}}</div></td>${{["1주", "4주", "13주"].map(l => `<td class="nw">${{crD(r.chg[l], r.unit)}}</td>`).join("")}}<td class="small nw">${{crV(r.lo, r.unit)}} ~ ${{crV(r.hi, r.unit)}}</td></tr>`; }}).join("");
+ const charts = `<div class="card" style="margin-top:12px"><div class="sec-h">2·3단계 지표 — 최근 1년 (노란 바탕 = 이 페이지 기간)</div><div class="cr-grid">${{P.map(p => p.html).join("")}}</div>
+  <div class="tblwrap" style="margin-top:10px"><table class="xt"><thead><tr><th>단계</th><th>지표</th><th>지금 값</th><th>1주 변화</th><th>4주 변화</th><th>13주 변화</th><th>최근 1년 범위</th></tr></thead><tbody>${{rows}}</tbody></table></div>
+  <p class="small" style="margin:6px 0 0">스프레드 = 회사채 금리가 같은 만기 국채 금리보다 얼마나 높은지(%p). 클수록 돈을 빌려주는 쪽이 부도 위험을 더 크게 본다는 뜻입니다. CCC는 가장 약한 하이일드 등급이고, BBB는 투자등급 중 가장 낮은 등급(오라클이 여기에 속함)입니다.</p></div>`;
+ const stCls = {{"악화": "watch", "개선": "up"}};
+ const W = C.watch;
+ const wtab = W.length ? `<div class="tblwrap"><table class="xt"><thead><tr><th>지표</th><th>지금 값</th><th>4주 전과 비교</th><th>4주 전 대비</th><th>근거·확인 수준</th><th>다음 확인</th></tr></thead><tbody>` +
+  W.map(r => `<tr><td><b>${{esc(r.label)}}</b>${{r.why?`<div class="small">${{esc(r.why)}}</div>`:""}}</td><td><b>${{esc(r.value)}}</b><div class="small">${{esc(r.asof||"")}}</div></td><td>${{esc(r.prev||"")}}</td>
+   <td><span class="exk ${{stCls[r.state]||"na"}}">${{esc(r.state||"")}}</span></td><td class="small">${{esc(r.grade||"")}}${{(r.src||[]).map(s => `<div><a href="${{esc(s.u)}}" target="_blank" rel="noopener">${{esc(s.t)}}</a></div>`).join("")}}</td><td class="small">${{esc(r.next||"")}}</td></tr>`).join("") + `</tbody></table></div>`
+  : `<div class="empty">아직 입력 없음 — 다음 주간 갱신에서 작성</div>`;
+ const s1 = `<div class="card" style="margin-top:12px"><div class="sec-h">1단계 지표 — AI 쪽 약한 고리 (${{esc(C.watch_asof||"미확인")}} 확인)</div>${{wtab}}${{C.watch_note?`<p class="small" style="margin:6px 0 0">${{esc(C.watch_note)}}</p>`:""}}</div>`;
+ const hist = `<details class="xp" style="margin-top:12px"><summary>같은 모양이 나왔던 때 — 침체로 이어진 경우와 아닌 경우</summary><div class="tblwrap"><table class="xt"><thead><tr><th>시기 (분기 평균)</th><th>10년물</th><th>Baa 회사채 스프레드</th><th>무슨 일</th><th>이후 침체</th></tr></thead><tbody>
+  <tr><td>2000년 1분기 → 2001년 1분기</td><td>6.47 → 5.04%</td><td>1.86 → 2.84%p</td><td>닷컴 붕괴. 2000년 상반기 금리 하락에는 재정흑자에 따른 국채 매입 소각(국채가 귀해짐) 효과도 섞임</td><td>있음 (2001년 3~11월)</td></tr>
+  <tr><td>2007년 3분기 → 2008년 1분기</td><td>4.74 → 3.67%</td><td>1.90 → 3.08%p</td><td>서브프라임 부실</td><td>있음 (2007년 12월~2009년 6월)</td></tr>
+  <tr><td>2011년 2분기 → 4분기</td><td>3.20 → 2.05%</td><td>2.65 → 3.21%p</td><td>유럽 재정위기·미국 신용등급 강등</td><td>없음</td></tr>
+  <tr><td>2015년 2분기 → 2016년 1분기</td><td>2.16 → 1.91%</td><td>2.67 → 3.38%p</td><td>유가 폭락·에너지 회사채 부실</td><td>없음</td></tr>
+  <tr><td>2018년 4분기 → 2019년 1분기</td><td>3.04 → 2.65%</td><td>2.10 → 2.32%p</td><td>연준 긴축 우려</td><td>없음</td></tr>
+  </tbody></table></div><p class="small">출처: FRED DGS10·BAA10Y 분기 평균. 같은 모양이 나온 다섯 번 중 침체로 이어진 것은 두 번입니다. 이 모양은 '위험 회피가 시작됐다'는 뜻일 뿐이고, 원인이 AI인지는 1단계 지표로 따로 확인해야 합니다.</p></details>`;
+ el.innerHTML = cards + combo + charts + s1 + hist +
+  `<p class="small" style="margin:8px 0 0">출처: ${{esc(C.source)}} · 수집 ${{esc(C.as_of)}}. 1단계 지표는 무료 시계열이 없어 보도·공시로 확인해 적은 값입니다. 기준선(✓)은 이 페이지가 정한 참고선이며, 시스템 판정(등급·손절 조건)이 아니고 매수·매도 신호도 아닙니다.</p>`;
+ P.forEach(crHover);
+}}
+renderCredit();
 let peerCo = "all";
 function renderPeers() {{
  const P = DATA.peers, el = document.getElementById("peers");
