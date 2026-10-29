@@ -1084,12 +1084,35 @@ table.dc .nm{{font-weight:500;min-width:170px}} table.dc td.stx{{min-width:220px
 .cr-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px}} @media(max-width:640px){{.cr-grid{{grid-template-columns:1fr}}}} .cr-t{{font-weight:700;font-size:16px;margin:2px 0}}
 .cr-c{{list-style:none;padding:0;margin:6px 0 0;font-size:13.5px}} .cr-c li{{margin:7px 0}} .card.cr-st.on{{border-color:var(--mix)}}
 .g.warn{{background:var(--mixbg);color:var(--mix)}} .exk.na{{background:var(--neubg);color:var(--ink3)}} tr.hlrow td{{background:var(--hl)}} .nw{{white-space:nowrap}}
+.printbtn{{font:inherit;font-size:12.5px;padding:1px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;margin-left:6px;vertical-align:1px}}
+@page{{size:A4;margin:14mm 12mm}}
+@media print{{
+:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{{--bg:#fff;--card:#fff;--ink:#1d1d1f;--ink2:#45474c;--ink3:#6b6d72;--line:#d9d7d0;
+--IREN:#2a78d6;--NBIS:#eb6834;--CRWV:#1baf7a;--macro:#5b6270;--bench:#8a8c91;--good:#1a7f37;--bad:#cf222e;--mix:#9a6412;--neu:#6b6d72;
+--goodbg:#e8f5ec;--badbg:#fdecee;--mixbg:#fbf3e2;--neubg:#f0f0ee;--chip:#f0efea;--hl:#fff8e1}}
+html,body{{background:#fff}} body{{font-size:9.5pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.wrap{{max-width:none;padding:0}}
+h1{{font-size:17pt}} h2{{font-size:12.5pt;margin:16pt 0 6pt;break-after:avoid}} h3,.sec-h,.wk-h{{break-after:avoid}}
+.filters,.pf,.dc-sel,.pc-tip,.printbtn,svg.pc .xh{{display:none!important}}
+.card{{border-radius:6px;padding:8pt 10pt}} .callout{{padding:7pt 9pt}}
+.grid3,.howto{{grid-template-columns:repeat(3,minmax(0,1fr));gap:6pt}} .cr-grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tblwrap{{overflow:visible}} thead{{display:table-header-group}}
+table{{font-size:8pt}} th,td{{padding:3pt 4pt;white-space:normal}} table.xt{{font-size:8pt}}
+table.peer td,table.peer th,table.dc td,table.dc th{{font-size:8pt;padding:3pt 4pt}}
+table.peer td.who,table.dc td.stx,table.dc .nm,table.peer td.num{{min-width:0;max-width:none}}
+tr,.ev>.d,.ev>.who,.ev .body>p,.detail li,.dc-ev,.status,.exrow,.tl li,.pc-wrap,.callout,.howto>div{{break-inside:avoid}}
+.ev{{grid-template-columns:44px 40px 1fr;gap:6pt;padding:5pt 0}}
+details.xp{{background:#fff;padding:6pt 8pt}} details>summary{{list-style:none}} details>summary::-webkit-details-marker{{display:none}}
+a{{color:inherit;text-decoration:none}} .ev:target,.thr:target{{outline:none}}
+html.pr-brief .pr-skip,html.pr-brief #threads .thr:not(:has(.upd)),html.pr-brief #threads details,
+html.pr-brief #weeks .week:nth-child(n+3),html.pr-brief .ev .sec{{display:none!important}}
+}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <h1>{tks} 주간 이벤트</h1>
-<p class="sub">{period} 주 단위 정리 · 생성일 {today} · 마지막 시스템 점검 {last_check} · 원장 갱신 {updated}</p>
+<p class="sub">{period} 주 단위 정리 · 생성일 {today} · 마지막 시스템 점검 {last_check} · 원장 갱신 {updated}<button class="printbtn" onclick="printAs('brief')" title="상태·일정·이번 주 업데이트된 이야기·차트·최근 2주 소식">A4 인쇄 — 요약</button><button class="printbtn" onclick="printAs('full')" title="접힌 내용까지 모두 펼침(분량이 많음)">A4 인쇄 — 전체</button></p>
 <div class="grid3" id="status"></div>
 <div class="callout"><b>지금 가장 중요한 한 줄:</b> {headline}</div>
 {stale}
@@ -1553,6 +1576,27 @@ document.addEventListener("click", e => {{
   document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x.dataset.f==="all"));
   cur = "all"; render(cur);
  }}
+}});
+// A4 인쇄 — 요약(기본, Ctrl+P 포함): 읽는 법·Top 90·업계 계약·주당 매출, 이번 주 업데이트가 없는 이야기와 해설,
+// 최근 2주 밖의 소식, 소식별 매트릭스 영향·관련 과거 소식을 뺀다. 전체: 접힌 내용을 모두 펼쳐 인쇄하고, 끝나면 원래대로 되돌린다.
+const skipBlock = el => {{
+ if (!el) return;
+ el.classList.add("pr-skip");
+ let n = el;
+ while ((n = n.previousElementSibling) && n.tagName !== "H2") n.classList.add("pr-skip");
+ if (n) n.classList.add("pr-skip");
+}};
+[".howto", "#dc", "#peers", "#pershare"].forEach(s => skipBlock(document.querySelector(s)));
+let printMode = null, printOpened = [];
+function printAs(m) {{ printMode = m; window.print(); }}
+addEventListener("beforeprint", () => {{
+ const full = printMode === "full";
+ document.documentElement.classList.toggle("pr-brief", !full);
+ if (full) {{ printOpened = [...document.querySelectorAll("details:not([open])")]; printOpened.forEach(d => d.open = true); }}
+}});
+addEventListener("afterprint", () => {{
+ printOpened.forEach(d => d.open = false); printOpened = [];
+ document.documentElement.classList.remove("pr-brief"); printMode = null;
 }});
 </script>
 </body>

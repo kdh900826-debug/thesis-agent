@@ -17,6 +17,8 @@ python .claude/skills/weekly-events/scripts/weekly_events_render.py --pending
 python .claude/skills/weekly-events/scripts/weekly_events_render.py --update-prices --update-tga --update-credit
 ```
 
+**A4 인쇄 (2026-10-29~)**: 페이지 상단 버튼 두 개. '요약'(Ctrl+P 기본)은 읽는 법·Top 90·업계 계약·주당 매출, 이번 주 업데이트가 없는 이야기·해설, 최근 2주 밖의 소식, 소식별 매트릭스 영향·관련 과거 소식을 빼고 인쇄(10/29 기준 19쪽). '전체'는 접힌 내용을 모두 펼쳐 인쇄(약 90쪽). 인쇄 CSS는 렌더러 `@media print`, 모드 전환은 `beforeprint`/`afterprint`.
+
 ## 자동 생성 (원장에 쓰지 않는다)
 
 - **시스템 점검** — run별 `03_signal/{T}.json`의 등급 후보(같은 날 여러 run이면 종목별 마지막 run)
