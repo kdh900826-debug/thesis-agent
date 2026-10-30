@@ -1,0 +1,26 @@
+{
+  "ticker": "NBIS",
+  "cik": "0001513845",
+  "items": [
+    {
+      "id": "edgar_2026-10-29_144_0",
+      "form": "144",
+      "filed_at": "2026-10-29",
+      "title": "144 filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000195004726010478/xsl144X01/primary_doc.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-10-29_4_1",
+      "form": "4",
+      "filed_at": "2026-10-29",
+      "title": "PRIMARY DOCUMENT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000143/xslF345X06/form4.xml",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

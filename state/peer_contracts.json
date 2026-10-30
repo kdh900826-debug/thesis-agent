@@ -1,6 +1,6 @@
 {
  "_comment": "업계 AI 계약 비교 원장 — 채굴사 출신 데이터센터의 AI 임대·클라우드 계약과 자금 조달. weekly-events SKILL.md 23~27번. 정렬·단가는 렌더러가 계산한다(원장에 단가를 쓰지 않는다). 공개 자료(회사 보도자료·SEC 공시 우선, 2차 보도는 표시)만.",
- "asof": "2026-10-11",
+ "asof": "2026-10-30",
  "companies": {
   "IREN": "IREN", "HUT": "Hut 8", "CIFR": "Cipher Digital", "WULF": "TeraWulf", "CORZ": "Core Scientific",
   "GLXY": "Galaxy (Helios)", "APLD": "Applied Digital", "RIOT": "Riot", "CLSK": "CleanSpark", "BTDR": "Bitdeer"
@@ -64,6 +64,7 @@
   {"date": "2026-05-29", "co": "IREN", "target": "Microsoft 계약 GPU (자회사)", "instrument": "선순위 담보채(사모)", "amount_b": 2.1, "rate": "5.96%", "maturity": "2031-12-31", "note": "GPU·Microsoft 현금흐름 담보, 모회사 책임은 좁은 보증 2건뿐", "src": [{"t": "8-K", "u": "https://www.sec.gov/Archives/edgar/data/0001878848/000114036126023427/ef20075181_8k.htm"}]},
   {"date": "2026-05-29", "co": "IREN", "target": "Microsoft 계약 GPU (자회사)", "instrument": "인출형 대출(Goldman·JPMorgan)", "amount_b": 1.5, "rate": "SOFR+2.25%", "maturity": "2031-12-31", "note": "위 담보채와 같은 구조", "src": [{"t": "8-K", "u": "https://www.sec.gov/Archives/edgar/data/0001878848/000114036126023427/ef20075181_8k.htm"}]},
   {"date": "2026-08-25", "co": "IREN", "target": "GPU 장비 (자회사)", "instrument": "GPU 담보 대출+채권(Blue Owl 주도)", "amount_b": 2.4, "rate": "9.0%", "maturity": "비공개", "note": "GPU 투자액의 90% 조달, 투자등급 아님", "src": [{"t": "FY26 실적", "u": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000051/irenreportsfy26results.htm"}]},
+  {"date": "2026-10-28", "co": "IREN", "target": "가동 중 GPU 서버·네트워크 장비 리파이낸싱", "instrument": "장비 금융(Wingspire 주선, 6개 대주단 — Eldridge·Silver Point 주요 약정)", "amount_b": 0.363, "rate": "비공개", "maturity": "비공개", "note": "주로 해당 장비 담보, 여러 해짜리 고객 계약 뒷받침. 고객·부지·본체 상환 책임 비공개", "src": [{"t": "Business Wire 공동 보도자료", "u": "https://www.marketscreener.com/news/iren-and-wingspire-equipment-finance-complete-363-million-financing-for-high-density-ai-compute-ass-ce785cd2df88f526"}]},
 
   {"date": "2026-04-27", "co": "HUT", "target": "River Bend (자회사)", "instrument": "선순위 담보채(투자등급)", "amount_b": 3.25, "rate": "6.192% (실효 6.41%)", "maturity": "2042", "note": "2028-05부터 원금 분할상환, 만기 전 전액 상환. 모회사 상환 의무 없음", "src": [{"t": "10-Q", "u": "https://www.sec.gov/Archives/edgar/data/0001964789/000110465926090025/hut-20260630x10q.htm"}]},
   {"date": "2026-06-09", "co": "HUT", "target": "Beacon Point (자회사)", "instrument": "선순위 담보채(투자등급)", "amount_b": 4.25, "rate": "6.129%", "maturity": "2042-11-30", "note": "원금 상환 2030-05부터. 모회사 상환 의무 없음", "src": [{"t": "8-K", "u": "https://www.sec.gov/Archives/edgar/data/0001964789/000110465926070744/tm2616926d1_ex99-1.htm"}]},
