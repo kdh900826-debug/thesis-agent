@@ -1,0 +1,40 @@
+{
+ "checked_at": "2026-10-30",
+ "method_note_ko": "10/21 이후 바뀐 정책만 담음. 확인했으나 새 진척을 찾지 못한 정책: ERCOT Batch Zero 감사(12/10 보고서 일정 유지, 새 공지 못 찾음), 뉴욕 GEIS 최종 범위(10/20 의견 마감 뒤 확정 보도 못 찾음), DOE 202(c)(10월 새 명령·재연장 못 찾음, Campbell 11/14 만료 대기), FERC 대형부하 규칙(6/18 명령 이후 후속 결정 못 찾음), PJM RBP 재신청(10/29 무렵 재신청 보도 못 찾음 — FERC 도킷 ER26-3380 미확인).",
+ "policies": [
+  {
+   "id": "pol-tx-tceq-freeze",
+   "scope": "TX",
+   "title_ko": "주지사 지시로 TCEQ가 데이터센터 관련 환경 인허가 발급 중단(ERCOT 감사 완료까지)",
+   "effect": "freeze",
+   "applies_to_ko": "텍사스 데이터센터와 그 부속 시설(자가발전·가스 발전기 대기 허가, 공사 빗물 허가 등)의 TCEQ 인허가. 이미 받은 허가의 효력·공사 중단 여부는 건별로 다름",
+   "status_ko": "발효 중(2026-10-30 기준). 10/19 TCEQ가 주지사실에 이행 보고 — '데이터센터·부속 인프라에 허가를 내주지 않았다'고 주장(보도, 보고서 원문 미공개). 감시단체 보고서(10/19) 뒤 TCEQ가 데이터센터 공사 빗물 신고(NOI)를 정지(최소 17건, 10/22 Public Citizen 집계)하고 온라인 신청 시스템(STEERS)을 잠시 닫아 신청 건을 재분류. 다만 대기 배출 인증 7건은 여전히 '발급' 상태로 보이고, 가스 발전기 신청 일부는 '신속 처리' 표시가 남아 있음(보도). 해제 조건은 ERCOT 감사 완료(12월 중순 예상)이나 고정 종료일 없음",
+   "timeline": [
+    {
+     "date": "2026-10-19",
+     "what_ko": "TCEQ, 주지사실에 이행 보고 제출 — 데이터센터·부속 인프라에 허가를 내주지 않았다고 주장(보고서 원문 미공개). 같은 날 감시단체 FracTracker는 9/21 이후 데이터센터 관련 처리 35건(공고 3건 포함)이 있었다는 보고서를 냄. 10/20 주지사실 대변인 '승인된 허가 없음'",
+     "grade": 3,
+     "src": [
+      {"t": "Texas Tribune(2026-10-20)", "u": "https://www.texastribune.org/2026/10/20/data-center-permits-tceq-abbott-texas-pause/"},
+      {"t": "KUT(2026-10-20)", "u": "https://www.kut.org/energy-environment/2026-10-20/texas-continued-permitting-data-centers-after-abbotts-pause-report-finds"}
+     ]
+    },
+    {
+     "date": "2026-10-22",
+     "what_ko": "TCEQ가 데이터센터 관련 공사 빗물 신고(NOI)를 정지했다고 이메일로 확인(정지 날짜는 미공개). Public Citizen은 최소 17건, 약 5.2제곱마일 정지로 집계(예: Hudspeth 카운티 700에이커, Taylor 카운티 450에이커). TCEQ는 온라인 신청 시스템(STEERS)을 잠시 닫고 신청 건이 데이터센터 관련인지 재검토. 대기 배출 인증 7건(최근 10/16 Bexar 카운티)은 '발급' 상태 유지로 보임",
+     "grade": 3,
+     "src": [
+      {"t": "Texas Public Radio(2026-10-26)", "u": "https://www.tpr.org/environment/2026-10-26/tceq-suspends-stormwater-approvals-other-data-center-related-reviews-appear-unchanged-after-watchdog-report"},
+      {"t": "Community Impact", "u": "https://communityimpact.com/bastrop-cedar-creek/texas-legislature/texas-continued-processing-some-data-center-permits-after-gov-abbott-s-pause-records-show/"}
+     ]
+    }
+   ],
+   "next": [
+    {"date": "", "what_ko": "정지된 빗물 신고 부지에서 실제로 공사가 멈췄는지(감시단체 이행 점검 요청) — 추적 텍사스 프로젝트 포함 여부"},
+    {"date": "", "what_ko": "대기 배출 인증·가스 발전기 신청도 정지 대상에 넣는지(TCEQ 추가 조치)"},
+    {"date": "2026-12-17", "what_ko": "ERCOT 감사 결과 PUCT 논의 후 허가 동결 해제 시점"},
+    {"date": "2027-01", "what_ko": "텍사스 90회 의회(2027년 1월 개회)에서 DC 세제 인센티브 폐지 법안"}
+   ]
+  }
+ ]
+}

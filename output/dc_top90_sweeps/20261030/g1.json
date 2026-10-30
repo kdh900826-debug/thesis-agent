@@ -1,0 +1,419 @@
+{
+  "group": "g1",
+  "checked_at": "2026-10-30",
+  "window": ["2026-10-21", "2026-10-30"],
+  "search_budget_used": 25,
+  "projects": [
+    {
+      "id": "p01", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 공사 중(2026-09-09 보도) 상태 유지. 검색에서 나온 가장 최근 항목은 2026-05 Enchant Energy 탄소포집 의향서(LOI)이며 원장 사건에는 없던 참고 사실이다(착공·전력 가동 증거 아님).",
+      "holds": [],
+      "events": [],
+      "followup": null,
+      "tickers_touched": [],
+      "data_issues": [
+        "2026-05 Enchant Energy 탄소포집 개발 의향서(LOI)는 검색 요약으로만 확인(날짜 일 단위·원문 미확인). 사건으로 올리지 않음."
+      ]
+    },
+    {
+      "id": "p02", "searched": true, "found_update": true,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 새 진척 없음. 다만 원장에 없던 인허가 사실을 찾았다: 가스발전(PORTS Energy Center) 관련 Ohio EPA 허가 신청서가 5/28 접수됐고(WOUB, 2026-06 보도), 미 육군공병단 개별허가용 FAST-41 통지문이 올라 있다. 두 건 모두 결정 결과는 찾지 못함. NVIDIA 8/17 보도자료는 신용보강 금액·한도를 적지 않았다.",
+      "holds": ["오하이오 EPA·육군공병단 인허가 결정 전(결과 미확인)"],
+      "events": [
+        {
+          "date": "2026-05-28", "kind": "인허가",
+          "title_ko": "(기준선 이전·원장 누락분) 가스발전 단지 Ohio EPA 허가 신청서 접수, 육군공병단 개별허가 필요",
+          "detail_ko": [
+            "SB Energy 쪽 신청서가 5/28 Ohio EPA에 접수됐다(WOUB 6월 보도, 신청서 PDF 게시). 습지·하천·야생동물 영향 때문에 허가가 필요하다고 한다.",
+            "연방 쪽은 FAST-41 통지문에 SB Energy가 육군공병단 개별허가(Individual Permit)가 필요할 것으로 예상한다고 적혀 있다.",
+            "두 허가 모두 결정 결과를 찾지 못했다. Ohio Power Siting Board(OPSB) 사건은 이번 검색에서 확인되지 않았다. 7/31 PORTS Energy Center 공개 설명회에 주민 100명 이상이 참석했다고 보도됐다(Inside Climate News)."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "WOUB (Ohio EPA 신청 보도)", "u": "https://woub.org/?p=464357"},
+            {"t": "WOUB 게시 SB Energy 신청서", "u": "https://woub.org/wp-content/uploads/2026/06/SB-Energy-application.pdf"},
+            {"t": "Permitting Council FAST-41 통지문(Portsmouth Data Center)", "u": "https://www.permits.performance.gov/sites/permits.dot.gov/files/FAST-41%20Initiation%20Notice_Portsmouth%20Data%20Center_0.pdf"},
+            {"t": "Inside Climate News (2026-07-31)", "u": "https://insideclimatenews.org/news/31072026/us-largest-proposed-gas-power-plant-open-house/"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up — 질문별 답 확인", "questions": [],
+        "next_check": "2026-11 하순(NVIDIA 3분기 실적·10-Q, 날짜 미확인)",
+        "answered": [
+          {"q": "NVIDIA 10-Q/8-K에 보증 1,050억 달러가 어떤 조건(단계별 발동·한도)으로 적혀 있나?", "a": "아직 — NVIDIA 8/17 보도자료(1차 자료)는 '1차 4.25 IT-GW 확보를 위한 토지·전력·건물 공사 신용보강, 잔여 3.75 IT-GW는 옵션'이라고만 적고 금액·한도·조건·허가·착공은 적지 않음. 1,050억 달러는 증권 공시를 인용한 2차 보도뿐이라 공시 원문은 여전히 직접 확인 못함. 11월 NVIDIA 10-Q에서 확인 필요."},
+          {"q": "가스발전 9.2GW 인허가(오하이오 EPA·OPSB) 진행 상황은?", "a": "일부 — Ohio EPA 신청서 5/28 접수, 육군공병단 개별허가용 FAST-41 통지 확인. 결정 결과와 OPSB 사건은 못 찾음."},
+          {"q": "2028년 첫 800MW 일정에 맞춘 현장 공사 진척은?", "a": "아직 — 새 보도 없음. NVIDIA는 '2028년부터 단계적 가동'이라고만 표현."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["NVDA", "SFTBY"],
+      "data_issues": [
+        "WOUB 기사는 '신청한 회사'를 SB Energy로 직접 적지 않았으나 게시된 PDF 파일명이 SB Energy application임. 허가 신청 주체 표기는 해석.",
+        "가스발전소 소유 구조(미국 정부 소유·SB Energy 운영)는 검색 요약 한 줄 — 미확인."
+      ]
+    },
+    {
+      "id": "p03", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 2026-01 TCEQ 7.65GW 대기 허가, 계통 비연결 설계, 2027년 상반기 발전소 가동 목표(회사 주장)만 확인된다. 임차인·자금 조달 발표는 여전히 없다.",
+      "holds": ["텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 핵심 대기 허가는 1월 발급, 추가 승인은 묶일 수 있음"],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {"q": "부지정지 이후 실제 발전설비 공사가 시작됐나?", "a": "아직 — 새 보도 없음."},
+          {"q": "임차인(하이퍼스케일러)이나 프로젝트 파이낸싱이 발표됐나?", "a": "아직 — 파이낸싱 보도 못 찾음. 추적 사이트 한 곳이 Amazon을 연관 임차인으로 표시했으나 회사·제2 출처 확인 없음(4등급)."},
+          {"q": "9/21 동결로 보류된 추가 TCEQ 승인(물·변경허가)이 있나?", "a": "아직 — 확인 못함."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": ["추적 사이트(More Than Just Parks)가 GW Ranch를 'Amazon 연관'으로 표시 — 회사·2차 출처 없음, 사건으로 올리지 않음."]
+    },
+    {
+      "id": "p04", "searched": true, "found_update": true,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 Nexus Hubbard Power의 주요 배출원 대기 허가는 아직 최종 발급이 아니라 예비결정(NAPD) 단계다. Public Citizen 요약에 따르면 TCEQ가 9/22 예비결정 공고를 발송하고 9/24~10/23 의견 접수를 열었으며, 10/13 공청회 요청이 들어왔다. 주지사 9/21 중단 지시 이후에도 TCEQ가 이 절차를 계속 진행한 것으로 보인다(단체 주장). 8/20 자금 조달 소식 이후 새 자금 보도는 없다.",
+      "holds": ["텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — Nexus Hubbard Power 대기 허가는 예비결정 단계, 의견 마감(10/23)·공청회 요청(10/13) 후 처리 방식 미확인"],
+      "events": [
+        {
+          "date": "2026-09-22", "kind": "인허가",
+          "title_ko": "TCEQ, Nexus Hubbard Power 주요 배출원 대기 허가 예비결정 공고 발송 — 의견 마감 10/23, 공청회 요청 10/13",
+          "detail_ko": [
+            "Public Citizen 요약(10/19)에 따르면 TCEQ가 9/22 Nexus Hubbard(Hill County) 대기 허가 신청·예비결정 공고(NAPD)를 발송했고 9/24부터 10/23까지 의견을 받았다. 10/13에는 공청회 요청이 접수됐다.",
+            "같은 문서는 이 허가가 연 배출 약 2,400만 톤 규모로 VoltaGrid(애빌린)·NRG(그랜버리)와 함께 3건 중 가장 크다고 적었다(총 약 3,800만 톤). 공청회 허용 여부와 최종 발급 여부는 확인 못함.",
+            "의견 접수 개시 자체는 허가 발급이 아니다. 'TCEQ가 중단 지시 뒤에도 업무를 계속했다'는 평가는 감시단체의 주장이며 TCEQ·주지사실 반응은 찾지 못했다."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Public Citizen — 9/21 이후 TCEQ 발급 데이터센터 허가 요약(PDF)", "u": "https://www.citizen.org/wp-content/uploads/Summary_-Data-Center-Permits-Issued-by-TCEQ-After-9_21_2026.pdf"},
+            {"t": "Public Citizen (2026-10-19)", "u": "https://www.citizen.org/?p=127879"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up — 허가 공청회 요청 처리 확인", "questions": ["TCEQ가 Nexus Hubbard Power 대기 허가에 공청회를 허용했나, 최종 발급은 언제인가?"],
+        "next_check": "2026-11-06",
+        "answered": [
+          {"q": "TCEQ 허가 183046/PSDTX170이 9/21 이전에 발급됐나?", "a": "아니오 쪽으로 읽힘 — 9/22에 예비결정 공고가 나간 것으로 보아 9/21 이전 최종 발급은 아님. 다만 이 허가 번호와 NAPD 문서의 일치는 확인 못함(해석)."},
+          {"q": "Anthropic 임차·Google 자금지원 보도가 회사 발표로 확인됐나?", "a": "아직 — 새 회사 발표 없음."},
+          {"q": "TDLR에 등록된 HB1·HB2 건물 공사가 실제로 진행 중인가?", "a": "아직 — TDLR 등록 프로젝트 두 건(TABS2026022673 등)이 검색에 보이나 공사 진행 증거는 못 찾음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["GOOGL"],
+      "data_issues": ["NAPD 허가 번호는 문서 원문을 열지 못해 확인 못함. Public Citizen PDF는 텍스트 추출 실패, 검색 요약으로만 읽음."]
+    },
+    {
+      "id": "p05", "searched": true, "found_update": false,
+      "stage_base": "3", "stage_now": "3", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 검색에서 나온 가장 최근 Lea County 자료는 2025-11 토지 옵션 발표이며, 카운티 담당자는 위원회가 '훨씬 뒤 단계'에 관여한다고 말했었다(2025-11). 인허가·자금·착공 보도 없음.",
+      "holds": [],
+      "events": [],
+      "followup": null,
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p06", "searched": true, "found_update": true,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 공사 단계(1)는 유지. 고객 구도가 바뀐 것으로 보도됐다: 3월 Microsoft 1.35GW 의향서는 여름에 이탈한 것으로 알려졌고, Anthropic이 첫 건물 약 460MW(6년·약 450억 달러)를 임차했다는 보도(8/27), 10/19에는 두 번째 건물 추가 계약 협상 보도가 나왔다. Nscale·Anthropic의 공식 확인은 없다(모두 소식통 보도).",
+      "holds": [],
+      "events": [
+        {
+          "date": "2026-08-27", "kind": "고객",
+          "title_ko": "(원장 누락분) 보도: Anthropic, Monarch 첫 건물 약 460MW를 6년·약 450억 달러에 임차",
+          "detail_ko": [
+            "CNBC 인용 보도(ITPro 8/27)에 따르면 Anthropic과 Nscale이 6년 컴퓨팅 계약을 맺었다. 규모는 약 460MW, 엔비디아 Vera Rubin 칩 기반이며 2027년 말 가동이 목표라고 한다.",
+            "양사 모두 확인하지 않았고 Nscale 대변인은 보도 내용을 확인할 수 없다고 했다. 계약 발표와 이행·매출은 별개이며 아직 어느 쪽도 공식 문서가 없다."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "ITPro (2026-08-27, CNBC 인용)", "u": "https://www.itpro.com/infrastructure/reports-anthropic-signs-usd45bn-cloud-computing-deal-with-nscale"},
+            {"t": "Baxtel", "u": "https://baxtel.com/news/anthropic-nscale-in-talks-for-second-45b-deal-at-west-virginia-campus"}
+          ]
+        },
+        {
+          "date": "2026-08-28", "kind": "고객",
+          "title_ko": "보도: Google·Microsoft도 협상했으나 Anthropic으로 — Microsoft는 3월 의향서 뒤 여름에 이탈",
+          "detail_ko": [
+            "Semafor 8/28(독점 보도)과 WV Public Broadcasting은 3월 Microsoft 1.35GW 의향서가 여름 중 무산됐다고 전했다. 이탈 사유는 보도마다 달라 확인 못함(검색 요약에는 '전력망 연결 지연으로 공급 일정이 2030년대로 밀림', '데이터센터 포트폴리오 검토'가 각각 나옴).",
+            "Microsoft의 공식 입장은 이번 검색 범위에서 찾지 못했다."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Semafor (2026-08-28)", "u": "https://semafor.com/article/08/28/2026/google-and-microsoft-were-in-talks-for-nscale-compute-deal-that-went-to-anthropic"},
+            {"t": "WV Public Broadcasting", "u": "https://wvpublic.org/story/energy-environment/mason-county-data-center-reportedly-nets-muli-billion-dollar-client/"}
+          ]
+        },
+        {
+          "date": "2026-10-19", "kind": "고객",
+          "title_ko": "Bloomberg: Anthropic·Nscale, 두 번째 건물 약 450억 달러 추가 계약 협상 — 미확정",
+          "detail_ko": [
+            "Bloomberg(10/19, Baxtel은 10/20자로 소개)에 따르면 Nscale이 Anthropic에 두 번째 건물 용량(약 460MW, Vera Rubin)을 약 450억 달러(보도에 따라 446억 달러)에 파는 협상을 하고 있다. Reuters도 소식통으로 협상 진행을 전했다.",
+            "Anthropic은 세 번째 건물에 대한 우선협상권도 갖는다고 한다. 조건은 바뀔 수 있고 양사는 논평하지 않았다. 건물 수·MW는 매체마다 다르다(Baxtel 추적은 두 번째 건물 720MW)."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Baxtel (Bloomberg·Reuters 인용)", "u": "https://baxtel.com/news/anthropic-nscale-in-talks-for-second-45b-deal-at-west-virginia-campus"},
+            {"t": "W.Media", "u": "https://w.media/?p=44550"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "고객 변경(Microsoft 이탈·Anthropic 입주) 및 규모 확대 협상 — 공식 확인 필요",
+        "questions": [
+          "Nscale 또는 Anthropic이 Monarch 계약(460MW)을 공식 발표·공시했나?",
+          "Microsoft 1.35GW 의향서 철회가 Nscale 공시(IPO 관련 서류 포함)나 Microsoft 발언으로 확인되나?",
+          "두 번째 건물 계약이 확정되나, 규모(460MW vs 720MW)는?",
+          "WVDEP 건설허가·대기허가 진행은?"
+        ],
+        "next_check": "2026-11-06", "answered": [], "close": false, "close_why": ""
+      },
+      "tickers_touched": ["MSFT"],
+      "data_issues": [
+        "Baxtel은 'CNBC가 8월 계약을 확인했다'고 적었으나 ITPro는 양사가 확인하지 않았다고 적음 — 회사 공식 확인 없음으로 처리.",
+        "Nscale 상장 서류(prospectus)가 Microsoft·Anthropic을 예상 핵심 고객으로 적었다는 Baxtel 문장이 있음 — 서류 종류·날짜 미확인.",
+        "두 번째 건물 용량 460MW vs 720MW 불일치(2차 매체 간)."
+      ]
+    },
+    {
+      "id": "p07", "searched": true, "found_update": true,
+      "stage_base": "2", "stage_now": "2", "stage_candidate": "X",
+      "status_ko": "2026-10-30 기준 2단계(5월 카운티 승인) 유지하되 X 후보. 10/2 Deseret/KSL에 따르면 사업은 '사전 개발 단계, 멈추지 않음'이고 일정은 제시되지 않았다. 소송 3건(1지방법원 주민투표, 3지방법원 위헌, 연방법원 명예훼손)이 모두 미결이며 심리일은 보도되지 않았다. 수정 물 사용권 신청은 10월 첫 주 제출 예정이었으나 제출 확인은 못함.",
+      "holds": [
+        "주민단체 BEAR의 주민투표 청원 거부 불복 소송(제1지방법원 브리검시티, 기각 신청 계류, 심리 일정 미정)",
+        "MIDA·카운티 위헌 소송(제3지방법원 솔트레이크, 피고 미응답 단계, 10/2 기준)",
+        "물 사용권 신청 2건 철회 뒤 수정 신청 대기(제출 미확인)"
+      ],
+      "events": [
+        {
+          "date": "2026-10-02", "kind": "소송",
+          "title_ko": "Deseret/KSL: 소송 3건 계속, 사업은 '사전 개발 단계', 수정 물 사용권 신청 이번 주 제출 예정",
+          "detail_ko": [
+            "소송 ① 반대 측이 카운티·O'Leary Digital을 상대로 제1지방법원(브리검시티)에 주민투표 거부를 뒤집어 달라고 낸 소송 — 피고는 기각 신청. ② MIDA·카운티 위원들을 상대로 제3지방법원(솔트레이크)에 낸 위헌 소송 — 피고 답변 전. ③ 연방법원 명예훼손 소송(O'Leary·Fox News) — 피고 기각 신청. 어느 소송도 심리일이 보도되지 않았다.",
+            "CEO Palandjian은 사업이 멈추지 않았고 사전 개발(엔지니어링·환경·경제영향 조사) 단계라고 말했다. 카운티·MIDA와의 합의는 '실질적 형태로' 승인됐고 1단계 발전은 1.5GW 상한, 장기 최대 9GW다. 개발 일정은 제시되지 않았다.",
+            "수정 물 사용권 신청서(Loughlin Water Associates·Parr Brown 작성)는 기사 주에 유타 수자원국에 낼 예정이라고 했으나 제출은 확인되지 않았다. 앞선 신청 2건은 철회된 것으로 ABC4가 보도했다(날짜 확인 못함)."
+          ],
+          "grade": 3,
+          "src": [
+            {"t": "Deseret News/KSL (2026-10-02)", "u": "https://www.deseret.com/utah/2026/10/02/box-elder-county-data-center-plans-quietly-edging-ahead-though-debate-has-died-down/"},
+            {"t": "ABC4 (물 사용권 재신청)", "u": "https://www.abc4.com/news/northern-utah/stratos-project-developers-will-refile-water-rights/amp/"},
+            {"t": "KSL (BEAR 소송)", "u": "https://www.ksl.com/article/51506536/box-elder-county-data-center-foes-sue-to-reverse-decision-stalling-their-efforts-against-project"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "단계 2→X 후보, 소송 3건 계류, 물 사용권 수정 신청 대기",
+        "questions": [
+          "수정 물 사용권 신청이 수자원국에 접수됐나(이의 접수 여부 포함)?",
+          "제1지방법원 기각 신청 심리일·판결은?",
+          "제3지방법원 위헌 소송에 MIDA가 답변·기각 신청했나?",
+          "MIDA 사무총장 교체(Hemmert) 뒤 Stratos 협약이 재검토되나?"
+        ],
+        "next_check": "2026-11-06",
+        "answered": [
+          {"q": "축소안(1단계 1.5GW)이 MIDA·카운티에 정식으로 제출됐나?", "a": "일부 — 10/2 기사에 카운티·MIDA 합의가 '실질적 형태로' 승인됐고 1단계 1.5GW 상한이라고 적혀 있으나 정식 수정 문서는 못 봄."},
+          {"q": "BEAR 소송·MIDA 절차 소송의 법원·사건번호와 다음 심리일은?", "a": "일부 — 법원 확인: 제1지방법원(브리검시티, 판사 Spencer Walsh는 검색 요약), 제3지방법원(솔트레이크, MIDA·카운티 위원 상대 위헌 소송), 연방법원(명예훼손). 사건번호·심리일은 아직 — 10/2 기사에 심리일 없음."},
+          {"q": "수정 물 사용권 신청이 유타 수자원청에 접수됐나?", "a": "아직 — 10/2 기사는 '이번 주 제출 예정'이라고만 적음. 앞선 2건은 철회됨(ABC4)."},
+          {"q": "MIDA 지도부 교체 후 Stratos 협약이 재검토되나?", "a": "아직 — 이번 검색에서 Hemmert 관련 새 자료 못 찾음."},
+          {"q": "단계 2 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?", "a": "후보로만 기록 — 근거는 같은 날 Deseret/KSL 1건(grade 3)과 물 사용권 철회 보도. 인허가 승인(5/4 카운티 결의)은 유지되므로 정식 변경은 보류. 착공 일정 부재·소송 3건·물 사용권 공백은 '착공 임박' 정의와 맞지 않음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": [
+        "Deseret 기사에는 부지 면적이 없고 6/4 보도는 '면적 절반 축소(약 2만 에이커)'라 적음 — 면적 기준 정리 필요.",
+        "2건의 물 사용권 신청 철회 날짜는 확인 못함(ABC4 요약만)."
+      ]
+    },
+    {
+      "id": "p08", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. Fermi는 10/12 공지로 3분기 실적을 11/12 07:00 ET에 발표한다고 밝혔다. 8월 TensorWave 임차(15년·약 65억 달러), 6/30 Primoris 6기 터빈 주변설비 계약 등 기존 사실만 확인된다.",
+      "holds": [
+        "자금 부족(회사가 추가 자금 없이는 12개월 운영 불가 명시)",
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 추가 발전설비 허가"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "2026-11-12",
+        "answered": [
+          {"q": "TensorWave 계약의 보증 주체(AMD 여부)와 프로젝트 파이낸싱이 확정됐나?", "a": "아직 — 새 공시·보도 없음. 11/12 3분기 실적에서 확인."},
+          {"q": "200MW 첫 상업 전력이 2027년 2월 전후로 나오나?", "a": "아직(시점 전)."},
+          {"q": "전 CEO Neugebauer 소송 진행 상황은?", "a": "아직 — 소송은 못 찾음. 검색 요약에 7월 회사 성명이 있음: Neugebauer가 특별주총 소집 위임장 캠페인을 접어 특별주총은 열리지 않는다(날짜·원문 미확인)."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["FRMI", "AMD"],
+      "data_issues": ["Fermi 3분기 실적 발표일 11/12 07:00 ET(회사 공지 10/12, 검색 요약) — 원장 next_check '2026-11'을 11/12로 구체화 가능."]
+    },
+    {
+      "id": "p09", "searched": true, "found_update": false,
+      "stage_base": "3", "stage_now": "3", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 5GW 추가 허가 신청이 발급됐다는 보도는 없다. 참고: Public Citizen(10/19)에 따르면 TCEQ가 주지사 지시 이후에도 일부 데이터센터 허가 절차(예비결정·소규모 배출원·우수 허가)를 계속 진행했다 — Fermi 건이 포함됐는지는 확인 못함.",
+      "holds": [
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 미발급 5GW 대기 허가(동결 실효성은 단체 주장상 부분적, 확인 못함)",
+        "Fermi 자금 부족(p08과 공통)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "2026-11-12",
+        "answered": [
+          {"q": "리포트의 'Matador East'가 3/27 접수한 5GW 추가 허가 신청과 같은 것인가?", "a": "아직."},
+          {"q": "TCEQ가 10/19 주지사실에 낸 이행 보고에 진행 중 신청 처리가 어떻게 적혔나?", "a": "아직 — 10/19 보고 내용 보도 못 찾음. 감시단체는 TCEQ가 계속 처리했다고 주장."},
+          {"q": "동부 부지 토지 확보 계약이 마무리됐나?", "a": "아직."},
+          {"q": "단계 3 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?", "a": "아직 — 새 근거 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["FRMI"],
+      "data_issues": []
+    },
+    {
+      "id": "p10", "searched": true, "found_update": false,
+      "stage_base": "3", "stage_now": "3", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 추적 사이트는 '계획(2026년)' 상태이며 300MW 가스터빈 1단계 항목(Global Energy Monitor)이 있다. 허가 신청·자금·착공 보도 없음(정보 부재는 반증이 아님).",
+      "holds": ["텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 계통 분리형 현장 가스발전 대기 허가"],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {"q": "Webb County 현장 가스발전 TCEQ 허가 신청이 있나?", "a": "아직 — 못 찾음."},
+          {"q": "1단계 300MW(2026년 목표) 자금 조달이 발표됐나?", "a": "아직 — 못 찾음."},
+          {"q": "단계 3 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?", "a": "아직 — 공식·독립 보도 모두 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": ["원장 4.7GW vs 개발사 5~6GW 주장 — 기존 지적 유지. 1단계 300MW 가스터빈(GEM)과 '100% 녹색 전력' 홍보가 서로 다름."]
+    },
+    {
+      "id": "p11", "searched": true, "found_update": true,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 AWS 데이터센터 36동 계획(PIT100)은 9/9 Indiana County 계획위원회에서 보류(tabled)된 뒤 이후 표결·재심의 일정을 찾지 못했다. 가스발전 블록 1·2단계(Power Block)는 3월 계획위원회가 이미 승인했다. AWS는 8월 '협의 중, 확정 계약 없음'이었다.",
+      "holds": ["AWS 데이터센터 36동 예비계획 계획위원회 심의 보류(9/9), 이후 일정 미확인"],
+      "events": [
+        {
+          "date": "2026-09-09", "kind": "인허가",
+          "title_ko": "Indiana County 계획위원회, AWS PIT100 예비계획 심의 보류(tabled)",
+          "detail_ko": [
+            "WJAC를 인용한 Baxtel 보도: 9/9 계획위원회에 주민 100명 이상이 모여 소음·물·경계 문제를 제기했고 위원회가 신청을 보류했다. 사전 보도에서 카운티 계획국장은 '충분한 검토를 위해 보류할 것'으로 예상했었다.",
+            "이후 표결·재심의 날짜는 찾지 못했다. 카운티 신청서에는 AWS가 '예상 최종 사용자'로만 적혀 있고, 확정 계약이 있다는 문서는 없다(Baxtel 기사 제목·본문이 서로 다르게 표현)."
+          ],
+          "grade": 4,
+          "src": [
+            {"t": "Baxtel (WJAC 인용)", "u": "https://baxtel.com/news/aws-files-36-building-data-center-plan-at-4-5gw-homer-city-campus"},
+            {"t": "Indiana County Planning PIT100 프로젝트 서술서(8/27 자)", "u": "https://www.icopd.org/assets/pit100_project-narrative_082726.pdf"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "Indiana County 계획위원회 다음 정례회의(날짜 미확인)",
+        "answered": [
+          {"q": "Indiana County 계획위원회가 PIT100 예비계획을 언제 표결하나?", "a": "아직 — 9/9에 한 차례 보류됨(Baxtel/WJAC, 4등급 단독). 이후 일정 못 찾음. icopd.org 안건 페이지 직접 확인 필요."},
+          {"q": "AWS와 Homer City Redevelopment 간 확정 계약이 발표됐나?", "a": "아직 — 카운티 서류는 AWS를 '예상 최종 사용자'로 기재, 8월 AWS는 확정 계약 없음."},
+          {"q": "가스발전소 첫 전력 일정(2027년 말~2028년 초)이 유지되나?", "a": "아직 — 새 정보 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["AMZN"],
+      "data_issues": ["Baxtel 기사 리드는 'AWS 정식 계약'이라 쓰나 본문은 '예상 최종 사용자·확정 계약 없음' — 본문 기준 채택."]
+    },
+    {
+      "id": "p12", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 8/20 Oil & Gas Watch의 가스발전소 6곳 대기 허가 신청 이후 결과 보도가 없고, 가스관 협약(Z-2026-026) 최종 표결도 확인되지 않는다.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up(확인일 10/27 경과)", "questions": [],
+        "next_check": "2026-11-06",
+        "answered": [
+          {"q": "Millard County가 CUP(Z-2025-048)과 가스관 협약(Z-2026-026)을 최종 승인했나?", "a": "아직 — Z-2026-026은 24인치 가스 송관 개발협약 공청회 공고(4월 업로드 PDF)까지 확인. 6/2 회의 직전 위원회가 회의를 비공개로 돌렸다는 후보 측 보도자료가 있으나 표결 결과는 없음. 카운티 회의록 직접 확인 필요."},
+          {"q": "2026년 4분기 455MW 목표에 맞춘 실제 장비 반입·공사가 있나?", "a": "아직 — Wheeler가 636기 엔진을 3월부터 반입한다고 한 2025 발언 이후 2026 확인 자료 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": ["규모 불일치 지속: 리포트 4GW, 회사 웹사이트 12GW, BNEF 1단계 1.5GW, KSL 초기 1.3GW."]
+    },
+    {
+      "id": "p13", "searched": true, "found_update": false,
+      "stage_base": "3", "stage_now": "3", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 800에이커+ 재지정 신청의 심리일 보도 없음(7/28 이후 새 기사 없음). 1년 모라토리엄은 DCIP 진행 중 신청을 제외했다.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "DeSoto County 위원회 재지정 심리(날짜 미확인)",
+        "answered": [
+          {"q": "800에이커+ 재지정 신청의 계획위원회·카운티 위원회 심리일은?", "a": "아직 — 검색 결과에 10월 심리 일정 없음."},
+          {"q": "첫 34에이커 부지의 부지계획 승인·착공 신청이 있었나?", "a": "아직 — 3월 34에이커 재지정 승인 이후 새 정보 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p14", "searched": true, "found_update": false,
+      "stage_base": "2", "stage_now": "2", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 약 3,000에이커, 최대 4GW 가능(회사 측 설명), 2028년 계획이라는 기존 사실뿐이며 임차인은 확인되지 않는다. 참고: Public Citizen(10/19)에 Caldwell County 소규모 배출원 가스터빈·발전기 허가 1건이 언급되나 Tract 부지와의 연결은 확인 못함.",
+      "holds": [
+        "텍사스 8/3 ERCOT 대형부하(75MW+) 신규 연결 승인 중단·감사 대상(해석)",
+        "텍사스 9/21 TCEQ 데이터센터 인허가 전면 중단 대상(해석) — 현장 가스발전"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "2026-12 중순 ERCOT 감사 완료 시점",
+        "answered": [
+          {"q": "Tract 부지가 ERCOT 감사 대상 대형부하 대기열에 있나?", "a": "아직."},
+          {"q": "현장 가스발전 TCEQ 신청이 접수돼 있나?", "a": "아직 — Caldwell County 소규모 배출원 허가 1건이 Public Citizen 요약에 있으나 Tract 소속 여부 미확인."},
+          {"q": "임차인이나 착공 발표가 있었나?", "a": "아직 — 못 찾음."},
+          {"q": "단계 2 → X 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?", "a": "아직 — 새 근거 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": ["Caldwell County 허가가 Tract 부지인지 확인 못함 — 연결하지 않음."]
+    },
+    {
+      "id": "p15", "searched": true, "found_update": false,
+      "stage_base": "3", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 9/10 착공 발표 이후 임차인·DEP 대기 허가 보도 없음. 보도에 따라 초기 전력은 가스 발전기 2기(Shippingport 자치구 변호사 발언, 4등급 해석 요약)로 설명된다.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true, "why": "이미 열린 follow-up", "questions": [],
+        "next_check": "2026-11-17",
+        "answered": [
+          {"q": "임차인(하이퍼스케일러)이 발표됐나?", "a": "아직 — 회사·보도 모두 임차인 이름 없음."},
+          {"q": "현장 가스발전의 펜실베이니아 DEP 대기 허가는 받았나?", "a": "아직 — 못 찾음."},
+          {"q": "첫 가동 목표 시점은?", "a": "아직."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": ["전력 방식: 보도는 '가스 기반 발전기 2기'(Shippingport 변호사 Urick 인용, Frontier 전환 사업과 별개)라 적음 — 기존 data_issues의 '가스 연료전지' 설명과 엇갈림. 가스 쪽이 더 많은 보도에서 확인됨."]
+    }
+  ],
+  "cross_cutting": [
+    "2026-10-19 Public Citizen(감시단체)은 TCEQ 기록상 9/21 주지사 중단 지시 이후에도 1주 사이 데이터센터 허가 16건이 처리·발급됐다고 주장: 주요 배출원 대기 허가 예비결정 3건(VoltaGrid 애빌린, NRG Prairie Energy 그랜버리, Nexus Hubbard Power 3건 합쳐 연 배출 약 3,800만 톤), 소규모 가스발전 대기 허가 4건 이상(Caldwell County 1건 포함), Bitdeer Rockdale 산업폐수 허가, 건설 우수 허가 7건 이상. 단체 주장이며 TCEQ·주지사실 반응 미확인. 출처: https://www.citizen.org/?p=127879",
+    "TCEQ의 10/19 주지사실 이행 보고 내용은 이번에도 공개 보도에서 찾지 못함. 변호사 해설(Foley·Bracewell·DLA Piper 9/25 '허가 중단 확대' 제목 등)은 동결 범위(계통 비연결 시설 포함, PBR·표준허가 적용)가 불명확하다고 정리. DLA Piper 해설 본문은 미열람.",
+    "ERCOT 감사 일정은 변동 없음: 12/10 검증 보고서, 12/17 PUCT 회의. 10/12 ERCOT 지역사회 영향 RFI 응답 마감(Bracewell·검색 요약). 출처: https://www.bracewell.com/resources/governor-abbott-orders-tceq-to-pause-all-permit-issuance-for-data-center-projects/",
+    "Fermi 3분기 실적: 2026-11-12(목) 07:00 ET 발표, 9:00 ET 콜(회사 10/12 공지). p08·p09 next_check 기준일로 쓸 수 있음.",
+    "Anthropic이 여러 부지의 최종 임차인으로 보도됨(p04 Nexus Hubbard, p06 Monarch). 둘 다 회사 공식 확인은 없음(소식통 보도) — 임차인 보도를 계약 이행·매출로 읽지 않는다."
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "group": "g6",
+  "checked_at": "2026-10-30",
+  "window": ["2026-10-21", "2026-10-30"],
+  "projects": [
+    {
+      "id": "p76", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 가장 최근 확인 사실은 첫 건물 골조 완료(2026-05)와 공사 진행.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": ["검색 결과는 2025-01 발표, 40억 달러 녹색금융, 첫 건물 외관 공사 완료 등 기존 사실뿐. 건물 수 19동 vs 23~24동 불일치는 그대로."]
+    },
+    {
+      "id": "p77", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 공사 중. 전용 가스발전소(McCloud 366MW)는 텍사스 PUC 위원 5명의 표결 대기이며 안건 일정은 아직 잡히지 않았다(9/23 행정법 판사 권고 이후 새 결정 없음).",
+      "holds": [
+        "텍사스 PUC 위원 표결 대기: 행정법 판사들이 '요금 납부자에게 비용을 넘기지 않는 조건부 승인, 아니면 불허' 권고(9/23). 표결 일정 미정",
+        "McCloud TCEQ 대기 허가 상태 자료마다 다름(이미 취득 vs 추가 승인 필요) — 1차 자료 미확인"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "PUC 표결·합작 거래 종결·TCEQ 허가 상태가 아직 확인되지 않음",
+        "questions": [
+          "PUC 위원 표결 일정과 결과(조건부 승인 시 요금 전가 금지 조건 포함 여부)",
+          "BlackRock 합작 거래 종결 여부",
+          "McCloud TCEQ 대기 허가 번호·발급일(9/21 동결 이전 여부)"
+        ],
+        "next_check": "2026-11-17",
+        "answered": [
+          {"q": "PUC 위원 표결 일정과 결과", "a": "아직. 검색 결과에 위원 표결·최종 명령 없음. 안건 일정 미정이라는 9/24 보도 수준에서 변화 없음."},
+          {"q": "BlackRock 합작 거래 종결 여부", "a": "아직. 7/28 발표 자료는 '곧 종결'이라고만 했고 종결 확인 보도·공시 찾지 못함."},
+          {"q": "TCEQ 중단 대상인 다른 허가가 있는지", "a": "아직. 이번 검색 요약은 'TCEQ 대기 허가를 이미 취득했다'와 '허가가 필요하다'를 한 문단에 함께 적어 모순 — 허가 번호로 TCEQ 원문 확인 필요."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["META", "BLK"],
+      "data_issues": ["합작 거래 종결 여부 미확인(7/28 이후 보도 없음)", "McCloud TCEQ 허가 상태가 한 검색 요약 안에서도 상충"]
+    },
+    {
+      "id": "p78", "searched": true, "found_update": false,
+      "stage_base": "2", "stage_now": "2", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 알래스카 DNR 최종 결정(Final Finding and Decision) 발표 확인 못함. 예비 결정(2026-05-12)과 의견 수렴(7/17 마감) 이후 새 자료 없음. 착공 보도도 없음.",
+      "holds": ["알래스카 DNR 50년 토지 임대 최종 결정 대기(예비 판단만 존재)"],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "핵심 인허가가 예비 단계 — 최종 결정·착공 지연 여부 계속 확인",
+        "questions": [
+          "DNR 최종 결정(Final Finding and Decision) 발표 여부·날짜",
+          "2026년 여름 착공 계획이 실제로 미뤄졌는지",
+          "자금 조달처·가스 공급 계약 공개 여부"
+        ],
+        "next_check": "2026-11-17",
+        "answered": [
+          {"q": "DNR 최종 결정 발표 여부·날짜", "a": "아직. 검색 2회(10월 한정 포함)에도 최종 결정 문서·보도 없음. 최신 보도는 6~7월 수준. ADL 422741 공고 직접 확인은 하지 못함."},
+          {"q": "여름 착공 계획 지연 여부", "a": "아직. 착공 보도 없음 — 최종 임대 결정 전이라 현장 착공은 어려울 것으로 보이나(해석) 확인 자료는 없음."},
+          {"q": "자금 조달처·가스 공급 계약 공개 여부", "a": "아직. 보도에 투자자 미공개라고 적힘."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": ["기준선 '2026년 여름 착공 예정'과 달리 최종 인허가가 안 나와 일정이 밀린 것으로 보임(해석)"]
+    },
+    {
+      "id": "p79", "searched": true, "found_update": true,
+      "stage_base": "2", "stage_now": "2", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 착공 확인 자료 없음. 원장에 없던 7/29 지역 방송 보도는 착공이 '2026년 늦가을 또는 2027년 초'로 예상된다고 적었고, 카운티 의회 최종 용도변경 표결이 11/12 의회 회의에서 가능하다는 단체 공지(날짜 확인 약함)가 있다.",
+      "holds": ["카운티 의회 최종 승인 대기(11/12 회의에서 표결 가능성, 확인 약함)", "의회 후보·공화당 인사 일부가 2년 DC 모라토리엄 제안 예고"],
+      "events": [
+        {
+          "date": "2026-07-29", "kind": "공사",
+          "title_ko": "WNDU: Granger 착공은 2026년 늦가을~2027년 초 예상, 카운티 의원 후보가 모라토리엄 제안 예고",
+          "detail_ko": [
+            "지역 방송 WNDU(7/29)는 Microsoft Granger 시설이 '2026년 늦가을 또는 2027년 초'에 착공할 것으로 예상된다고 전했다. 3월 보도의 '4월 말~5월 초 착공'보다 늦춰진 것이다.",
+            "카운티 의회 후보 Jamie O'Brien은 현 의원 9명 중 4명이 모라토리엄을 지지한다고 주장하며 곧 제안서를 내겠다고 했다(후보 본인 주장).",
+            "카운티 의회의 최종 승인 여부는 이 기사에 없다. 점검 창(10/21~) 이전 기사지만 원장에 없어 보완한다."
+          ],
+          "grade": 3,
+          "src": [{"t": "WNDU (2026-07-29)", "u": "https://www.wndu.com/2026/07/29/st-joseph-county-council-candidate-calls-data-center-moratorium/"}]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "토공·수직 공사 착수와 카운티 의회 최종 승인이 미확인",
+        "questions": [
+          "2026년 5월 부지 정지 작업이 실제로 시작됐는지",
+          "세인트조지프 카운티 의회의 최종 승인(11/12 회의 여부) 및 모라토리엄 제안 결과",
+          "11~12월 건물(수직) 공사 착수 여부"
+        ],
+        "next_check": "2026-11-13",
+        "answered": [
+          {"q": "5월 부지 정지 착수 여부", "a": "아직. 확인 자료 없음. 7/29 WNDU는 착공을 '늦가을~2027년 초'로 예상해 5월 정지 착수와 맞지 않음."},
+          {"q": "카운티 의회 최종 승인 여부", "a": "아직. 한 단체(Audubon) 행사 공지가 11/12 회의에서 표결될 수 있다고 적음(grade 4, 날짜 미확인, URL https://www.sbeaudubon.org/events/st-joseph-county-council-meeting-data-centers). 결과 보도는 아직 없음."},
+          {"q": "11~12월 수직 공사 착수", "a": "아직. 계획 발언뿐."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["MSFT"],
+      "data_issues": ["11/12 의회 표결 가능성은 단체 행사 공지 1건(grade 4)이라 일정 확정으로 취급하지 않음"]
+    },
+    {
+      "id": "p80", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 2026-02 기공 후 공사 중, 첫 건물 가동 목표 2027년 말(보도).",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": ["META"],
+      "data_issues": []
+    },
+    {
+      "id": "p81", "searched": true, "found_update": false,
+      "stage_base": "3", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 공사 중 상태 유지. 10/1 MPSC의 DTE–Google 계약 조건부 승인과 10/14 부지계획 승인 이후 새 사실 없음. 주민 소환 투표 일정은 확인 못함.",
+      "holds": ["타운십 이사회 전체 대상 주민 소환 운동(투표일 미확인)"],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "MPSC 명령문 1차 확인과 소환 투표 일정이 남음",
+        "questions": [
+          "MPSC 최종 명령문(사건번호)에서 조건 수치 확인(1차 자료)",
+          "타운십 이사회 소환 투표 일정",
+          "건물(수직) 공사 시작 시점"
+        ],
+        "next_check": "2026-11-17",
+        "answered": [
+          {"q": "MPSC 명령문 조건 수치", "a": "일부. MPSC 보도자료(michigan.gov, 10/1; https://www.michigan.gov/mpsc/commission/news-releases/2026/10/01/mpsc-approves-dte-electric-google-data-center-and-contracts-protects-customers-from-project-cost)의 존재는 확인했으나 본문 열람은 403으로 실패. 사건번호는 U-22064로 추정(MPSC 공개 의견 안내 문구 기준, 확인 필요). 조건 수치(20년·15년치 최소 요금·재생 1,600MW·배터리 480MW)는 기존 Michigan Public 보도와 같음. 최소 요금 비율(80%)은 이번에 재확인 못함. U-21990은 Saline(Oracle) 건이라 이 프로젝트가 아님."},
+          {"q": "소환 투표 일정", "a": "아직. 6월 웨인 카운티 선거위원회의 청원 문구 승인만 확인. 서명 1,400~1,500명 보도. 투표일·성립 여부 없음."},
+          {"q": "수직 공사 시작 시점", "a": "아직. Google은 2027년 말 전력 인입 목표(보도)."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["GOOGL", "DTE"],
+      "data_issues": ["MPSC 사건번호 U-22064는 검색 요약 기반 추정(본문 403) — 확인 전까지 원장 반영 보류 권장", "일부 보도는 계획위 승인 투표를 5-2·230에이커로 적어 원장(5:1·282에이커)과 다름 — 보도 간 불일치"]
+    },
+    {
+      "id": "p82", "searched": true, "found_update": false,
+      "stage_base": "3", "stage_now": "3", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 육군(2026-03 발표)과 독점 협상 중이며 임대 체결 보도는 없음. 보도상 납품 목표 FY2029.",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": ["육군 1차 자료(army.mil)상 '조건부 합의·독점 협상 기간'이고 임대·전력·물 조건은 미정. 부지 1,201에이커."]
+    },
+    {
+      "id": "p83", "searched": true, "found_update": false,
+      "stage_base": "2", "stage_now": "2", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 가장 최근 자료는 2026-05(와코시에 4/7 ETJ 해제 청원, 편입 일정 없음). 검색 2회에도 10월 소식 없음.",
+      "holds": [
+        "와코시 ETJ 해제·레이시레이크뷰 편입 미완, 용수는 와코 협력 필요",
+        "텍사스 9/21 TCEQ 인허가 동결·ERCOT 연결 감사 영향권 가능성(해석)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "편입 미완·비구속 MOU — 단계 2→3 후보 유지, 텍사스 동결 영향권",
+        "questions": [
+          "와코시가 45일 안에 ETJ 해제를 처리했는지",
+          "레이시레이크뷰의 3마일 통로 포함 합병 완료 여부",
+          "가스발전소 TCEQ 허가 신청 여부와 9/21 동결 영향"
+        ],
+        "next_check": "2026-11-17",
+        "answered": [
+          {"q": "와코 ETJ 해제 처리 여부", "a": "아직. 청원 4/7, 법정 처리 기한은 약 5월 말인데 처리 결과 보도 못 찾음(최신 보도 5/13)."},
+          {"q": "합병 완료 여부", "a": "아직. 5/13 보도 '편입 일정 없음'이 최신."},
+          {"q": "가스발전소 TCEQ 허가 신청·동결 영향", "a": "아직. 관련 보도 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    },
+    {
+      "id": "p84", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 2026년 공사 진척을 확인하는 1차 자료·언론 보도 여전히 없음(검색 결과는 2024~2025 배경뿐, 검색 2회).",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": ["AMZN"],
+      "data_issues": ["FERC의 계량기 뒤 직결 방식 심사 결과는 이번에도 확인 못함", "추적 사이트 1곳이 'Operating'으로 적었으나 날짜 있는 근거 없음 — 단계 판단에 쓰지 않음"]
+    },
+    {
+      "id": "p85", "searched": true, "found_update": false,
+      "stage_base": "X", "stage_now": "X", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 신규 정보 찾지 못함. 집계 사이트(aterio)의 'Announcement' 항목만 있고 언론·1차 자료 없음. 뉴욕 환경허가 1년 보류(7/14~) 대상에 해당할 수 있음.",
+      "holds": ["뉴욕 50MW 이상 DC 환경허가 보류(행정명령, 7/14~) — 해당 여부 미확인"],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": ["Hogansburg 등 다른 지명과 연결되는 자료 없음. 프로젝트 존재 근거가 집계 사이트뿐."]
+    },
+    {
+      "id": "p86", "searched": true, "found_update": false,
+      "stage_base": "2", "stage_now": "2", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 2025-12 카운티 계획위 8:1 토지개발 허용이 최신 승인이고, DEP 침식·퇴적 허가 발급은 확인 못함. 2026-03 지역 잡지는 데이터센터 운영사·투자자가 아직 없고 가동 예상은 2029년 초라고 적었다.",
+      "holds": ["DEP 광업 허가 중복으로 침식·퇴적 신청서 재제출 요구(2025-11) — 이후 처리 확인 못함", "데이터센터 운영사·임차인 미확정"],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": ["WTRG"],
+      "data_issues": ["가동 시점이 '2028년 완공(초기 보도)'에서 '2029년 초(2026-03 GreeneScene)'로 늦춰짐 — 출처 1곳(grade 3), 날짜는 점검 창 이전", "추적 사이트 1곳은 '공사 중'으로 표기하나 근거 없음 — 단계 판단에 쓰지 않음"]
+    },
+    {
+      "id": "p87", "searched": true, "found_update": true,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 공사 중(두 번째 건물 골조 완료 보도). 10/19 카운티 판사가 대형 TID 주민투표 조례를 다툰 경제단체 소송을 기각해 조례가 유지됐고 경제단체는 상급심을 시사했다. 이 조례는 이미 승인된 Vantage TID 5에는 적용되지 않는다고 보도됨.",
+      "holds": ["TID 5 보조금 소송 서면 기각 명령·항소 여부 미확인(원고 단체는 계속 다툰다고 밝힘)"],
+      "events": [
+        {
+          "date": "2026-10-19", "kind": "소송",
+          "title_ko": "대형 TID 주민 승인 조례 소송 기각 — 조례 유지, 경제단체는 상급심 시사",
+          "detail_ko": [
+            "Ozaukee 카운티 Adam Gerol 판사가 10/19 구두로 밀워키 경제단체(MMAC) 등이 낸 소송을 기각했다. 소송은 4월 주민투표(약 66% 찬성)로 만든 '1,000만 달러 이상 TID는 주민 승인 필요' 조례를 무효로 하려던 것이다.",
+            "MMAC는 '상급심 검토가 필요하다'고 밝혔고 Fox6은 항소 의사를 시사했다고 전했다. 항소장 제출은 아직 확인되지 않았다.",
+            "이 조례는 향후 TID에만 적용되고 이미 승인된 Vantage TID 5(약 150억 달러 규모 캠퍼스 관련)에는 적용되지 않는다는 것이 이전 보도 설명이다. 프로젝트 직접 영향은 작다."
+          ],
+          "grade": 3,
+          "rumor": true,
+          "src": [
+            {"t": "Fox6 (2026-10-19)", "u": "https://www.fox6now.com/news/port-washington-data-center-judge-upholds-voter-approval-ordinance"},
+            {"t": "Wisconsin Public Radio (2026-10-21)", "u": "https://www.wpr.org/news/judge-dismisses-lawsuit-port-washington-ordinance-residents-development"}
+          ]
+        }
+      ],
+      "followup": {
+        "needed": true,
+        "why": "TID 5 소송 서면 기각·항소 여부, 조례 소송 항소 여부, 첫 건물 가동 시점이 남음",
+        "questions": [
+          "TID 5 소송 서면 기각 명령 서명·항소 여부",
+          "MMAC의 조례 소송 항소장 제출 여부",
+          "첫 건물 전력 공급(가동) 시점"
+        ],
+        "next_check": "2026-11-17",
+        "answered": [
+          {"q": "TID 5 소송 서면 기각 명령 서명·항소 여부", "a": "아직. 원고 단체 보도자료(WPR 첨부)는 9월 기각이 소장 작성 방식에 관한 것이지 TID 5 적법성 판단이 아니라고 주장. 항소 보도 없음."},
+          {"q": "10/19 주민투표 조례 소송 구두 판결 결과", "a": "답 나옴 — 10/19 기각(조례 유지). Fox6·WPR 2곳 확인. MMAC 상급심 시사."},
+          {"q": "첫 건물 가동 시점", "a": "아직. 새 자료 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["ORCL"],
+      "data_issues": ["WPR은 '월요일' 구두 판결로만 적었고 날짜는 Fox6(10/19 게재)로 확인", "WPR 이번 기사는 Vantage·TID 5를 직접 언급하지 않음 — 'TID 5에 미적용'은 기존 원장 보도(WPR·Civic Media) 근거"]
+    },
+    {
+      "id": "p88", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 2025-11-20 기공 후 공사 중, 1단계 300MW 2027년 1분기 목표(보도).",
+      "holds": [],
+      "events": [],
+      "followup": {"needed": false},
+      "tickers_touched": [],
+      "data_issues": ["초기 보도 '2026년 3분기 200MW' 일정은 폐기된 것으로 보임(2027 Q1 300MW가 최신)"]
+    },
+    {
+      "id": "p89", "searched": true, "found_update": false,
+      "stage_base": "1", "stage_now": "1", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 지난 점검 이후 신규 정보 찾지 못함. 현장 발전소 TCEQ 대기 허가 182126(Longhorn 9·10동)은 2025-11-07 접수된 신청 공고(1차)만 확인되고 발급 여부는 모름. TCEQ의 10/19 주지사실 이행 보고 내용은 이번에도 보도 없음.",
+      "holds": [
+        "텍사스 9/21 TCEQ 인허가 동결 영향권 가능성(해석) — 현장 발전소 대기 허가 182126 미발급이면 해당",
+        "ERCOT 연결 감사 대상 포함 여부 미확인(계량기 뒤 900MW 발전 설계)"
+      ],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "텍사스 주 동결 영향권, 발전소 허가 발급 미확인",
+        "questions": [
+          "현장 발전소 TCEQ 대기 허가(182126, Longhorn 9·10동) 발급 완료 여부와 9/21 중단 영향",
+          "TCEQ의 10/19 주지사실 이행 보고 내용",
+          "ERCOT 감사 대상 포함 여부"
+        ],
+        "next_check": "2026-12-17",
+        "answered": [
+          {"q": "허가 182126 발급 여부·중단 영향", "a": "아직. TCEQ 신청 공고(접수 2025-11-07, PSDTX1688·GHGPSDTX263 병행)만 확인. 발급 기록·동결 영향 보도 없음."},
+          {"q": "TCEQ 10/19 이행 보고 내용", "a": "아직. 10/30 기준으로도 보고 내용 보도 없음(검색 2회)."},
+          {"q": "ERCOT 감사 대상 포함 여부", "a": "아직. 확인 자료 없음."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": ["MSFT"],
+      "data_issues": ["Microsoft 임차 가동 시점: 첫 건물 2027년 중반(Crusoe 발표 보도) vs 2028 이후 가능성(다른 분석) — 자료 간 불일치"]
+    },
+    {
+      "id": "p90", "searched": true, "found_update": false,
+      "stage_base": "X", "stage_now": "C", "stage_candidate": null,
+      "status_ko": "2026-10-30 기준 5/27 하노버 카운티 감독위원회 4:3 부결 이후 재신청·소송 보도 없음. 소송 보도는 Tract의 다른 프로젝트(Goochland 카운티 Tuckahoe)에 관한 것으로 이 프로젝트와 별개.",
+      "holds": [],
+      "events": [],
+      "followup": {
+        "needed": true,
+        "why": "재신청·소송 여부만 남음",
+        "questions": ["Tract가 수정안 재신청이나 소송을 냈는지"],
+        "next_check": "2027-01-15",
+        "answered": [
+          {"q": "Tract 재신청·소송 여부", "a": "아직. 10/30 기준 보도 없음. Tract는 하노버 Ashland 인근 약 1,200에이커 캠퍼스는 계속 개발 중(별건)."}
+        ],
+        "close": false, "close_why": ""
+      },
+      "tickers_touched": [],
+      "data_issues": []
+    }
+  ],
+  "cross_cutting": [
+    "텍사스 TCEQ 인허가 동결(9/21 지시): TCEQ의 10/19 주지사실 이행 보고 내용은 10/30 검색에서도 보도 못 찾음. ERCOT 감사 완료는 12월(12/10 보고서, 12/17 PUCT 회의) 예상 — 출처: Bracewell(9/23), 검색 요약(DLA Piper 9/25). p77·p83·p89에 영향 가능(해석).",
+    "텍사스 비판 측이 12월 이전 특별회기 소집을 요구한다는 검색 요약 보도 1건 — 소집 사실은 확인 못함.",
+    "위스콘신 Port Washington: 10/19 카운티 판사가 대형 TID 주민 승인 조례 소송을 기각(Fox6 10/19, WPR 10/21). 조례는 신규 TID에만 적용 — p87 외 다른 추적 프로젝트로의 파급은 확인 못함.",
+    "인디애나 St. Joseph 카운티: 2년 DC 모라토리엄 제안 예고(7/29 WNDU 후보 발언) — 11/12 의회 회의 일정은 단체 공지 1건(p79)."
+  ]
+}
