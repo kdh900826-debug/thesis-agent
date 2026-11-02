@@ -1113,6 +1113,7 @@ html.pr-brief #weeks .week:nth-child(n+3),html.pr-brief .ev .sec{{display:none!i
 <div class="wrap">
 <h1>{tks} 주간 이벤트</h1>
 <p class="sub">{period} 주 단위 정리 · 생성일 {today} · 마지막 시스템 점검 {last_check} · 원장 갱신 {updated}<button class="printbtn" onclick="printAs('brief')" title="상태·일정·이번 주 업데이트된 이야기·차트·최근 2주 소식">A4 인쇄 — 요약</button><button class="printbtn" onclick="printAs('full')" title="접힌 내용까지 모두 펼침(분량이 많음)">A4 인쇄 — 전체</button></p>
+<p class="sub pr-skip" style="margin-top:-12px">처음 오셨나요? 네오클라우드가 무엇인지, 세 회사가 어떻게 다른지, 뉴스를 어떻게 읽을지는 <a href="neocloud_primer.html" style="text-decoration:underline">네오클라우드 입문</a>에 있습니다. 낯선 말은 <a href="neocloud_primer.html#s9" style="text-decoration:underline">용어집</a>에서 찾아보세요.</p>
 <div class="grid3" id="status"></div>
 <div class="callout"><b>지금 가장 중요한 한 줄:</b> {headline}</div>
 {stale}
@@ -1565,6 +1566,8 @@ function renderThreads(f) {{
 }}
 let cur = "all";
 render(cur);
+// 입문서·부록이 거는 #t-… 앵커는 렌더 뒤에 생기므로, 로드 시 해시가 있으면 다시 스크롤한다.
+if (location.hash) {{ const el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) setTimeout(() => el.scrollIntoView(), 0); }}
 document.getElementById("filters").addEventListener("click", e => {{
  const b = e.target.closest("button"); if (!b) return;
  document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x===b));

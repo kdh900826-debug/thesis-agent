@@ -138,6 +138,13 @@ python .claude/skills/weekly-events/scripts/weekly_events_render.py --update-pri
 28f. **follow-up**: 에이전트가 연 follow-up은 답(심리·표결 결과·공시)이 나올 때까지 매주 깊게 다시 본다. 확인일이 지나면 렌더러가 `안내(해설): dc-top90/<id>: follow-up 확인일 … 지남`을 낸다. 닫기는 질문에 모두 답이 나왔거나 4주간 새 소식이 없을 때만, 이유를 남긴다(이력은 지우지 않음 — 다시 열면 `followup_history`로 이동).
 28g. **세 종목 연결**: 합치기가 출력하는 '세 종목 관련 새 사건'(p41·p52 IREN, p62 NBIS, p48 CRWV — Poolside Horizon의 CoreWeave 임차)은 주간 원장 `events`에도 항목을 만들고(규칙 8~13, 해당 추적 이야기 — Sweetwater는 `t-iren-tx`) dc 원장 사건의 `weekly_id`에 그 id를 적어 잇는다. 텍사스·전력 정책 변화가 세 종목에 닿으면 `exposure`의 '전력·인허가'에 `watch` 기본으로 적는다. 판정(등급·KC)은 새로 만들지 않는다.
 
+## 입문서·부록 연결 (2026-11-02~ 적용)
+
+29a. **입문서** `output/neocloud_primer.html`(산업 소개·세 회사·뉴스 읽는 법·용어집)과 **부록** `output/neocloud_primer_shakeout.html`(2026년 10월 '네오클라우드 정리론' 점검)은 렌더러가 만들지 않는 수작업 정적 페이지다. 주간 페이지와 같은 폴더에 두고 상대 링크로 잇는다 — 배포할 때 세 파일을 함께 올린다.
+29b. **주간 → 입문서**: 렌더러가 제목 아래에 '처음 오셨나요?' 줄(입문서·용어집 링크)을 넣는다. 입문서 용어집 앵커는 `#g-<용어>`(예: `#g-arr`, `#g-cb`)다.
+29c. **입문서·부록 → 주간**: 추적 이야기 카드의 `id`(= 원장 `threads[].id`, 예: `#t-contract-exit`)와 `#credit`·`#pershare`·`#peers`·`#threads`로 건다. **추적 이야기 id를 바꾸거나 지우면 입문서·부록 링크가 끊기므로**, 바꿀 때는 `grep -o 'weekly_events.html#[a-z-]*' output/neocloud_primer*.html`로 링크를 찾아 함께 고친다.
+29d. 입문서·부록에는 등급(🔴🔴)·KC 임계·전망을 넣지 않는다(판정은 주간 페이지에서만). 고칠 때도 개인정보 가드 패턴(`PRIVACY_PATTERNS`)으로 직접 검사한다 — 렌더러를 거치지 않아 자동 검사가 없다. 숫자는 반올림 + 기준일, 최신 값은 주간 페이지로 넘긴다.
+
 ## 개인정보 금지 (공개 전제)
 
 - `config/positions.yaml`을 읽지 않는다. 보유 비중·보유/미보유·평단·주수·개인 가격선($30/$28 등)·계좌 집중도·"내 ~" 표현 금지.

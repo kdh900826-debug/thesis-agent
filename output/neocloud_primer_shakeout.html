@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>네오클라우드 정리론 점검</title>
+<meta name="description" content="2026년 10월 '네오클라우드 대부분은 혼자 못 버티고 정리된다'는 주장을 확인된 사실·발언자 주장·해설로 나눠 본 부록 페이지">
+<style>
+:root{--bg:#f7f6f3;--card:#fff;--ink:#1d1d1f;--ink2:#55575c;--ink3:#8a8c91;--line:#e4e2dc;
+--IREN:#2a78d6;--NBIS:#eb6834;--CRWV:#1baf7a;--macro:#5b6270;--bench:#8a8c91;
+--good:#1a7f37;--bad:#cf222e;--mix:#b7791f;--goodbg:#e8f5ec;--badbg:#fdecee;--mixbg:#fbf3e2;--neubg:#f0f0ee;--chip:#f0efea;--hl:#fff8e1;
+--interp:#7a4fd0;--interpbg:#f2ecfc}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121316;--card:#1b1d21;--ink:#ececee;--ink2:#b4b6bb;--ink3:#83868c;--line:#2c2f35;
+--IREN:#3987e5;--NBIS:#d95926;--CRWV:#199e70;--macro:#9aa3b2;--bench:#83868c;--good:#3fb950;--bad:#ff7b72;--mix:#e3b341;
+--goodbg:#16291c;--badbg:#2d1719;--mixbg:#2b2312;--neubg:#24262b;--chip:#25282d;--hl:#2a2614;--interp:#b79cf2;--interpbg:#241d33}}
+:root[data-theme="dark"]{--bg:#121316;--card:#1b1d21;--ink:#ececee;--ink2:#b4b6bb;--ink3:#83868c;--line:#2c2f35;
+--IREN:#3987e5;--NBIS:#d95926;--CRWV:#199e70;--macro:#9aa3b2;--bench:#83868c;--good:#3fb950;--bad:#ff7b72;--mix:#e3b341;
+--goodbg:#16291c;--badbg:#2d1719;--mixbg:#2b2312;--neubg:#24262b;--chip:#25282d;--hl:#2a2614;--interp:#b79cf2;--interpbg:#241d33}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Malgun Gothic",sans-serif;font-size:15px;line-height:1.7;word-break:keep-all}
+a{color:var(--IREN)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 16px 64px}
+.eyebrow{font-size:13px;color:var(--ink3);margin:0 0 6px}
+h1{font-size:26px;margin:0 0 6px;letter-spacing:-.3px;line-height:1.35}
+h2{font-size:19px;margin:44px 0 6px;line-height:1.4}
+h2 .no{color:var(--ink3);font-weight:500;margin-right:6px}
+h3{font-size:16px;margin:0 0 6px}
+.sub{color:var(--ink2);margin:0 0 16px}
+.lead{color:var(--ink2);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.stack>*+*{margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin:4px 0 0;padding:0;list-style:none}
+.toc a{color:var(--ink2);text-decoration:none;border-bottom:1px dotted var(--ink3)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13px;color:var(--ink2);margin-top:12px}
+.t{display:inline-block;font-size:12px;line-height:1.5;padding:0 7px;border-radius:6px;background:var(--chip);color:var(--ink2);white-space:nowrap;vertical-align:1px}
+.t.p1{background:var(--goodbg);color:var(--good)}
+.t.p2{border:1px dashed var(--ink3);background:transparent;color:var(--ink3)}
+.t.claim{background:var(--mixbg);color:var(--mix)}
+.t.yt{background:var(--badbg);color:var(--bad)}
+.interp{background:var(--interpbg);border-left:3px solid var(--interp);border-radius:0 8px 8px 0;padding:8px 12px;margin-top:8px;font-size:14.5px}
+.interp::before{content:"해석";display:inline-block;font-size:11.5px;font-weight:700;color:var(--interp);margin-right:6px;letter-spacing:.5px}
+.tk{font-weight:700;white-space:nowrap}
+.tk::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:1px;background:var(--macro)}
+.tk.IREN::before{background:var(--IREN)} .tk.NBIS::before{background:var(--NBIS)} .tk.CRWV::before{background:var(--CRWV)}
+.summary{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.summary h2{margin:0 0 10px;font-size:17px}
+.checks{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start}
+.checks .n{width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.checks b{display:block}
+.checks span{color:var(--ink2);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.stat .v{font-size:22px;font-weight:700;letter-spacing:-.3px}
+.stat .k{font-size:13px;color:var(--ink2)}
+.stat .v.dn{color:var(--bad)}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 10px 6px;margin-top:12px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .cap{font-size:12.5px;color:var(--ink3);padding:4px 6px 4px}
+.tl{list-style:none;margin:12px 0 0;padding:0}
+.tl li{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:none}
+.tl .d{font-size:13px;color:var(--ink3);padding-top:2px}
+.tl p{margin:0}
+.tl .why{color:var(--ink2);font-size:14px;margin-top:2px}
+.claim-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.claim-card .who{font-size:13px;color:var(--ink3);margin-bottom:4px}
+.claim-card .q{font-weight:700;font-size:15.5px;margin:0 0 8px}
+.claim-card ul{margin:0;padding-left:18px}
+.claim-card li{margin:3px 0;font-size:14.5px}
+.claim-card .lbl{font-size:12.5px;color:var(--ink3);margin:10px 0 2px;font-weight:700}
+.verdict{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 9px;border-radius:999px;margin-left:4px}
+.verdict.no{background:var(--badbg);color:var(--bad)}
+.verdict.part{background:var(--mixbg);color:var(--mix)}
+.verdict.ok{background:var(--goodbg);color:var(--good)}
+.verdict.open{background:var(--neubg);color:var(--ink2)}
+.tblwrap{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:none}
+th{color:var(--ink2);font-weight:500;font-size:13px;background:var(--chip)}
+td:first-child{color:var(--ink2);font-size:13.5px;width:120px}
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.path{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.path h3{font-size:15px}
+.path dl{margin:8px 0 0;display:grid;grid-template-columns:52px 1fr;gap:4px 8px;font-size:14px}
+.path dt{color:var(--ink3)}
+.path dd{margin:0}
+.callout{background:var(--hl);border-radius:10px;padding:12px 14px;font-size:14.5px;margin-top:12px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:12px}
+.col h3{display:flex;align-items:center;gap:6px}
+.col ul{margin:6px 0 0;padding-left:18px}
+.col li{margin:4px 0;font-size:14.5px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.watch{list-style:none;margin:12px 0 0;padding:0}
+.watch li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:8px;display:grid;grid-template-columns:88px 1fr;gap:10px}
+.watch .w{font-size:13px;color:var(--ink3);padding-top:1px}
+.watch p{margin:0}
+.watch .why{color:var(--ink2);font-size:14px}
+.foot{margin-top:44px;font-size:13.5px;color:var(--ink2);border-top:1px solid var(--line);padding-top:16px}
+.foot p{margin:6px 0}
+.src{font-size:13px;color:var(--ink2);padding-left:18px;margin:6px 0 0}
+.src li{margin:3px 0}
+@media(max-width:560px){h1{font-size:22px}.tl li{grid-template-columns:58px 1fr;gap:8px}.watch li{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<p class="eyebrow"><a href="neocloud_primer.html" style="color:inherit">← 네오클라우드 입문</a> · 부록 · 기준일 2026-11-02</p>
+<h1>네오클라우드 정리론 — 2026년 10월</h1>
+<p class="sub">"네오클라우드 대부분은 혼자 버티지 못하고 정리된다." 10월 내내 IREN·NBIS·CRWV 주가를 흔든 이 주장을 확인된 사실, 발언자의 주장, 해설자의 해석으로 나눠 봅니다. 세 회사가 살아남을지는 예측하지 않습니다. 대신 무엇을 보면 판단할 수 있는지 정리합니다.</p>
+<ul class="toc">
+  <li><a href="#s1">무슨 일이 있었나</a></li>
+  <li><a href="#s2">주장 뜯어보기</a></li>
+  <li><a href="#s3">세 회사에 대 보면</a></li>
+  <li><a href="#s4">회사와 주주는 다르다</a></li>
+  <li><a href="#s5">엔비디아가 지켜줄까</a></li>
+  <li><a href="#s6">반대쪽 숫자</a></li>
+  <li><a href="#s7">SpaceX가 살 유인</a></li>
+  <li><a href="#s8">앞으로 볼 것</a></li>
+</ul>
+<div class="legend">
+  <span><span class="t p1">1차</span> 회사 공시·공식 발표</span>
+  <span><span class="t p2">2차</span> 언론 보도(단독 근거로 쓰지 않음)</span>
+  <span><span class="t claim">주장</span> 발언자의 의견·예측</span>
+  <span><span class="t yt">해설</span> 유튜브 해설자의 풀이</span>
+  <span><span class="t" style="background:var(--interpbg);color:var(--interp)">해석</span> 이 페이지가 덧붙인 해석</span>
+</div>
+
+<section class="summary" style="margin-top:22px">
+  <h2>3분 요약</h2>
+  <p style="margin:0">10월에 세 종목은 회사 공시가 거의 없는데도 업종 전체에 대한 의심으로 크게 빠졌습니다. 의심은 "AI 매출이 충분한가"에서 출발해 "빚으로 짓는 회사가 버틸 수 있나"로 옮겨 갔고, 10/25 일론 머스크의 글이 이를 한 문장으로 만들었습니다. 이런 주장을 볼 때 확인할 세 가지는 다음과 같습니다.</p>
+  <ol class="checks">
+    <li><span class="n">1</span><div><b>돈을 빌릴 수 있나, 얼마에 빌리나</b><span>머스크는 빚 시장이 "닫혔다"고 했지만 세 회사는 10월에도 돈을 빌렸습니다. 관측된 변화는 길이 막힌 것이 아니라 비용이 오르고 만기가 짧아진 것입니다.</span></div></li>
+    <li><span class="n">2</span><div><b>회사가 살아남는 것과 주주가 살아남는 것은 다르다</b><span>업계가 정리돼도 건물·전력·계약은 대개 새 주인 아래서 계속 돌아갑니다. 손실은 지분이 나뉘거나 뒤로 밀리는 기존 주주에게 집중됩니다.</span></div></li>
+    <li><span class="n">3</span><div><b>엔비디아가 막아 주는 것과 못 막아 주는 것</b><span>엔비디아와의 관계는 GPU를 먼저 받는 데는 도움이 됩니다. 하지만 머스크가 겨눈 것은 빌리는 비용입니다. 둘은 서로 다른 문제입니다.</span></div></li>
+  </ol>
+  <div class="stats">
+    <div class="stat"><div class="k"><span class="tk IREN">IREN</span> 9/30→10/29</div><div class="v dn">−35.8%</div></div>
+    <div class="stat"><div class="k"><span class="tk NBIS">NBIS</span> 9/30→10/29</div><div class="v dn">−27.1%</div></div>
+    <div class="stat"><div class="k"><span class="tk CRWV">CRWV</span> 9/30→10/29</div><div class="v dn">−30.3%</div></div>
+    <div class="stat"><div class="k">나스닥100(QQQ, 비교)</div><div class="v">−3.3%</div></div>
+  </div>
+  <p class="lead" style="margin:10px 0 0;font-size:13.5px">종가 기준(yfinance). 같은 기간 세 회사의 계약 철회·대출 조건 위반 공시는 없었습니다. <span class="t p1">1차</span></p>
+</section>
+
+<h2 id="s1"><span class="no">1</span>무슨 일이 있었나 — 10월 타임라인</h2>
+<p class="lead">9/30 종가를 100으로 놓고 그린 그림입니다. 세 종목이 나스닥100과 따로 움직이기 시작한 날들을 표시했습니다.</p>
+<div class="chart">
+<svg viewBox="0 0 720 300" role="img" aria-label="2026년 9월 30일을 100으로 놓은 IREN, NBIS, CRWV, 나스닥100 종가 추이. 10월 29일 IREN 64.2, CRWV 69.7, NBIS 72.9, 나스닥100 96.7">
+  <g stroke="var(--line)" stroke-width="1">
+    <line x1="44" x2="650" y1="16" y2="16"/><line x1="44" x2="650" y1="62.2" y2="62.2"/><line x1="44" x2="650" y1="108.4" y2="108.4"/>
+    <line x1="44" x2="650" y1="154.5" y2="154.5"/><line x1="44" x2="650" y1="200.7" y2="200.7"/><line x1="44" x2="650" y1="246.9" y2="246.9"/>
+  </g>
+  <g fill="var(--ink3)" font-size="11" text-anchor="end">
+    <text x="38" y="20">110</text><text x="38" y="66">100</text><text x="38" y="112">90</text><text x="38" y="158">80</text><text x="38" y="204">70</text><text x="38" y="251">60</text>
+  </g>
+  <g stroke="var(--ink3)" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="332.6" x2="332.6" y1="24" y2="270"/><line x1="505.7" x2="505.7" y1="24" y2="270"/><line x1="563.4" x2="563.4" y1="24" y2="270"/>
+  </g>
+  <g fill="var(--ink2)" font-size="11" text-anchor="middle">
+    <text x="332.6" y="282">10/14</text><text x="505.7" y="282">10/22</text><text x="563.4" y="282">10/26</text>
+    <text x="44" y="282">9/30</text><text x="217.1" y="282">10/8</text><text x="650" y="282">10/29</text>
+  </g>
+  <g fill="var(--ink3)" font-size="10.5" text-anchor="middle">
+    <text x="332.6" y="296">채권 급락·Gartner</text><text x="490" y="296">자금 필요액 추정</text><text x="585" y="296">머스크 글 뒤</text>
+  </g>
+  <polyline fill="none" stroke="var(--bench)" stroke-width="2" stroke-dasharray="5 4" points="44.0,62.2 72.9,60.8 101.7,56.2 130.6,52.0 159.4,49.7 188.3,51.1 217.1,57.1 246.0,54.8 274.9,58.5 303.7,59.9 332.6,69.1 361.4,69.6 390.3,81.1 419.1,75.6 448.0,76.0 476.9,71.4 505.7,84.3 534.6,84.3 563.4,79.3 592.3,73.7 621.1,71.0 650.0,77.4"/>
+  <polyline fill="none" stroke="var(--NBIS)" stroke-width="2.2" points="44.0,62.2 72.9,69.1 101.7,48.8 130.6,68.6 159.4,34.9 188.3,59.9 217.1,94.0 246.0,91.3 274.9,112.5 303.7,119.0 332.6,159.6 361.4,155.0 390.3,199.8 419.1,190.6 448.0,188.3 476.9,188.3 505.7,212.3 534.6,213.2 563.4,223.8 592.3,190.1 621.1,167.0 650.0,187.3"/>
+  <polyline fill="none" stroke="var(--CRWV)" stroke-width="2.2" points="44.0,62.2 72.9,54.3 101.7,48.8 130.6,60.8 159.4,37.7 188.3,55.3 217.1,91.7 246.0,89.0 274.9,98.7 303.7,111.6 332.6,175.3 361.4,154.5 390.3,198.4 419.1,199.8 448.0,194.7 476.9,196.1 505.7,229.4 534.6,236.3 563.4,231.7 592.3,208.1 621.1,185.0 650.0,202.1"/>
+  <polyline fill="none" stroke="var(--IREN)" stroke-width="2.2" points="44.0,62.2 72.9,65.0 101.7,52.0 130.6,66.8 159.4,57.6 188.3,87.1 217.1,120.4 246.0,126.4 274.9,131.0 303.7,131.0 332.6,178.6 361.4,180.9 390.3,219.2 419.1,210.9 448.0,223.4 476.9,209.5 505.7,235.8 534.6,242.8 563.4,236.7 592.3,214.1 621.1,198.4 650.0,227.5"/>
+  <g font-size="12" font-weight="700">
+    <text x="657" y="81" fill="var(--bench)">QQQ 97</text>
+    <text x="657" y="184" fill="var(--NBIS)">NBIS 73</text>
+    <text x="657" y="204" fill="var(--CRWV)">CRWV 70</text>
+    <text x="657" y="231" fill="var(--IREN)">IREN 64</text>
+  </g>
+</svg>
+<div class="cap">9/30 종가 = 100. yfinance 일봉 종가. 점선은 나스닥100(QQQ). 10/25(일) 머스크 글 뒤 첫 거래일은 10/26입니다.</div>
+</div>
+
+<ul class="tl">
+  <li><span class="d">10/8</span><div><p><span class="t p2">2차</span> OpenAI의 연 환산 매출이 알려진 약 $700억보다 적은 약 $500억이라는 보도. 세 종목 −7~8%.</p><p class="why">의심의 출발점은 "AI 매출이 이 투자를 감당할 만큼 큰가"였습니다. 회계 기준(총매출 대 순매출) 차이라는 설명이 뒤따랐습니다.</p></div></li>
+  <li><span class="d">10/13~15</span><div><p><span class="t p2">2차</span> CoreWeave 2032년 만기 무담보채가 액면의 80% 아래로 떨어져 수익률이 약 15%가 됨(여름엔 약 9%). 5년 신용부도스와프(CDS)는 10/6 368bp에서 1,000bp를 넘음. 머스크는 이 채권 차트에 'yikes'라고 답글.</p><p class="why">의심이 "매출"에서 "빚"으로 옮겨 간 시점입니다. 신용평가사의 등급 조치나 회사의 대출 조건 위반 공시는 없었습니다.</p></div></li>
+  <li><span class="d">10/14</span><div><p><span class="t p2">2차</span> 조사기관 Gartner가 "네오클라우드의 80% 이상이 2030년까지 독립 운영을 멈출 것"이라는 전망을 냄. 같은 날 물가 지표도 예상보다 높았고, 세 종목은 −10~16%.</p><p class="why">머스크보다 11일 먼저 나온 같은 방향의 전망입니다. '정리론'은 한 사람의 의견이 아니라 10월 내내 쌓인 흐름이었습니다.</p></div></li>
+  <li><span class="d">10/15</span><div><p><span class="t p2">2차</span> 엔비디아 CEO가 "CoreWeave는 구제가 필요 없다"고 말함. CRWV는 장중 52주 최저에서 반등.</p></div></li>
+  <li><span class="d">10/18</span><div><p><span class="t p2">2차</span> 마이크로소프트가 영국 Nscale의 로턴 데이터센터 계약에서 빠졌다는 보도. 전력망 연결이 2030년대로 밀린 부지였습니다.</p><p class="why">같은 업종에서 고객이 계약을 접은 첫 보도 사례입니다. 이유는 공식 확인되지 않았습니다.</p></div></li>
+  <li><span class="d">10/22</span><div><p><span class="t p2">2차</span> 증권사 Bernstein이 "CoreWeave가 쌓인 계약을 이행하려면 약 $850억이 필요하다"고 추정(보고서 원문 미확인). CRWV −10.1%, IREN −8.4%, NBIS −7.2%.</p><p><span class="t p1">1차</span> 같은 날 NBIS는 Citi에서 1년 만기 $35억 담보 대출을 받았다고 공시.</p></div></li>
+  <li><span class="d">10/25(일)</span><div><p><span class="t claim">주장</span> 머스크가 X에 "200곳 넘는 네오클라우드가 정리되고, 살아남는 곳은 많지 않다"고 씀. 자세한 내용은 <a href="#s2">2장</a>.</p></div></li>
+  <li><span class="d">10/26~28</span><div><p><span class="t p2">2차</span> 월요일 장 초반 하락 뒤 반등. Anthropic 상장 신고서의 대규모 컴퓨팅 약정과 SK하이닉스 실적이 나오자 10/26→10/28 이틀 동안 IREN +13.4%, NBIS +19.0%, CRWV +15.8%.</p></div></li>
+  <li><span class="d">10/28</span><div><p><span class="t p1">1차</span> IREN이 이미 들여온 GPU 장비를 담보로 $3.63억을 다시 빌림. 새 주식은 찍지 않았습니다.</p><p><span class="t p2">2차</span> 장 마감 뒤 마이크로소프트가 "외부 GPU 업체의 공급 지연"으로 분기 투자액이 예상보다 적었다고 밝힘. 업체 이름은 밝히지 않았습니다.</p></div></li>
+  <li><span class="d">10/29</span><div><p><span class="t p1">1차</span> 아마존은 2026년 설비투자 약 $2,200억 전망을 유지(8-K). 그런데도 세 종목은 −5~9%로 마감.</p></div></li>
+</ul>
+<p class="lead" style="margin-top:10px;font-size:14px">날짜별 상세와 최신 흐름은 <a href="weekly_events.html#threads">주간 페이지의 '추적 중인 이야기'</a>에서 이어집니다.</p>
+
+<h2 id="s2"><span class="no">2</span>주장 뜯어보기 — 누가 무엇을 말했고, 무엇이 확인됐나</h2>
+<p class="lead">머스크 글의 원문은 직접 확인하지 못해 여러 보도가 일치하는 내용만 옮겼습니다. 이 글을 풀이한 <a href="https://youtu.be/AwJJIqQBkxE?t=123" rel="noopener">한 유튜브 해설(02:03~)</a>은 요약만 옮깁니다.</p>
+
+<div class="stack">
+  <div class="claim-card">
+    <div class="who"><span class="t claim">주장</span> 일론 머스크 · 10/25 X</div>
+    <p class="q">① "AI 데이터센터 말고 다른 큰 매출이 없는 회사에는 빚 시장이 거의 닫혔다"</p>
+    <div class="lbl">확인된 것</div>
+    <ul>
+      <li><span class="t p1">1차</span> 세 회사는 9~10월에도 돈을 빌렸습니다. NBIS는 Citi 1년 담보 대출 $35억(10/22 공시), IREN은 장비 담보 $3.63억(10/28), CRWV는 전환사채 $42억(이자 2.875%, 9/22 납입)입니다.</li>
+      <li><span class="t p1">1차</span> 조건은 나빠졌습니다. NBIS Citi 대출의 가산금리는 2.75%에서 시작해 90일마다 0.25%p씩 올라 최대 3.50%까지 가고, 만기는 1년입니다. 7월 대출은 2.50%에 2030년 만기였습니다.</li>
+      <li><span class="t p2">2차</span> 시장 금리도 올랐습니다. CoreWeave 기존 무담보채의 수익률은 약 15%(여름 약 9%)입니다.</li>
+    </ul>
+    <div class="lbl">판단 <span class="verdict part">일부만 맞음</span></div>
+    <div class="interp">"닫혔다"보다 "비싸지고 짧아졌다"가 10월에 관측된 사실과 맞습니다. 그래도 비용 상승은 계속 빌려서 짓는 사업에 실제 부담이므로 가볍게 볼 일은 아닙니다.</div>
+  </div>
+
+  <div class="claim-card">
+    <div class="who"><span class="t claim">주장</span> 일론 머스크 · 10/25 X</div>
+    <p class="q">② "200곳 넘는 네오클라우드가 정리·통합되고, 살아남는 곳은 많지 않다"</p>
+    <div class="lbl">확인된 것</div>
+    <ul>
+      <li><span class="t p2">2차</span> 비슷한 전망이 먼저 있었습니다. Gartner(10/14)는 "네오클라우드 80% 이상이 2030년까지 독립 운영을 멈춘다"고 했습니다.</li>
+      <li><span class="t p2">2차</span> 10월에 확인된 실제 사례는 파산이나 인수가 아니라 계약 철회 보도 2건입니다. 마이크로소프트가 Nscale 영국 부지에서 빠졌다는 보도와, 4월 CoreWeave가 텍사스 Poolside 캠퍼스 임차에서 빠졌다는 보도입니다.</li>
+      <li>'200곳'이라는 숫자의 근거는 보도에 나오지 않았습니다.</li>
+    </ul>
+    <div class="lbl">판단 <span class="verdict open">예측 — 아직 확인 대상</span></div>
+    <div class="interp">예측은 맞을 수도 틀릴 수도 있습니다. 이 페이지가 할 수 있는 일은 예측이 맞아 가는지 보여 줄 신호를 정해 두는 것입니다(<a href="#s8">8장</a>).</div>
+  </div>
+
+  <div class="claim-card">
+    <div class="who"><span class="t claim">주장</span> 일론 머스크 · 10/25 X</div>
+    <p class="q">③ "SpaceX는 GPU용 빚 $400억을 마련했다. 투자등급과 스타링크·발사 매출 덕분이다" · "SpaceX는 네오클라우드를 사지 않는다. 의미 없다"</p>
+    <div class="lbl">확인된 것</div>
+    <ul>
+      <li><span class="t p2">2차</span> 여러 매체가 $400억을 같은 숫자로 보도했습니다. 대부분 조기 상환이 가능한 빚이고, GPU는 2027년 상반기에 들어온다고 합니다. 로이터는 "'마련했다(closed)'가 무엇을 뜻하는지는 분명하지 않다"고 덧붙였습니다.</li>
+      <li><span class="t p2">2차</span> 인수 질문에 대한 답("사지 않는다")도 여러 매체가 같은 문장으로 옮겼습니다.</li>
+    </ul>
+    <div class="lbl">발언자의 위치</div>
+    <ul>
+      <li><span class="t p2">2차</span> SpaceX는 2026년 2월 xAI를 합병했습니다. 5월에는 Anthropic이 SpaceX의 Memphis 데이터센터(Colossus 1) 용량 전체를 쓰기로 했다는 보도가 나왔습니다. 그 뒤로 SpaceX가 컴퓨팅 임대 고객을 더 찾고 있다는 보도도 이어졌습니다.</li>
+    </ul>
+    <div class="interp">SpaceX도 AI 컴퓨팅을 빌려주는 쪽이라, 네오클라우드와 같은 시장에서 경쟁하는 회사의 경영자가 업계 전망을 말한 셈입니다. 틀렸다는 뜻은 아니지만 이해관계가 있는 발언으로 읽어야 합니다.</div>
+  </div>
+
+  <div class="claim-card">
+    <div class="who"><span class="t yt">해설</span> 유튜브 해설 · 02:03~</div>
+    <p class="q">④ "SpaceX는 1천억 달러 이상의 자금 조달에 성공했다"</p>
+    <div class="lbl">확인된 것</div>
+    <ul>
+      <li><span class="t p2">2차</span> 머스크가 10/25에 밝힌 숫자는 GPU용 빚 <b>$400억</b>입니다.</li>
+      <li><span class="t p2">2차</span> 1천억 달러에 가까운 숫자는 따로 있습니다. 6월 SpaceX 상장 조달액(약 $857억 보도)과 "현금이 $1,000억을 넘었다"는 보도입니다. 둘 다 이번 GPU 빚과는 다른 돈입니다.</li>
+    </ul>
+    <div class="lbl">판단 <span class="verdict no">숫자 불일치</span></div>
+    <div class="interp">서로 다른 돈(상장 조달, 회사 현금, GPU 빚)을 한 숫자로 합친 것으로 보입니다. "1천억"은 이번 사건의 숫자로 쓰지 않는 것이 맞습니다.</div>
+  </div>
+
+  <div class="claim-card">
+    <div class="who"><span class="t yt">해설</span> 유튜브 해설 · 02:03~</div>
+    <p class="q">⑤ "무너진 업체는 돈 많은 쪽이 싸게 사서 규격화·대형화한다. 대형마트와 자영업자의 구도다"</p>
+    <div class="lbl">확인된 것</div>
+    <ul>
+      <li><span class="t p2">2차</span> 해설이 예로 든 SpaceX는 머스크 본인이 "사지 않는다"고 답했습니다.</li>
+      <li><span class="t p2">2차</span> 업계 안 인수 시도의 선례는 있습니다. CoreWeave가 채굴사 출신 데이터센터 회사 Core Scientific을 약 $90억에 전액 주식으로 사려 했지만, 2025-10-30 Core Scientific 주주 투표에서 부결됐습니다. 2024년 6월 현금 인수 제안도 거절당했습니다.</li>
+      <li><span class="t p1">1차</span> 세 회사의 고객은 마이크로소프트·메타·OpenAI·엔비디아 같은 대형사입니다.</li>
+    </ul>
+    <div class="lbl">판단 <span class="verdict open">해석 — 사례로는 아직 미확인</span></div>
+    <div class="interp">비유가 놓치는 점이 있습니다. 이 업종에서 '대형마트'(빅테크)는 경쟁자이기 전에 고객입니다. 빅테크가 직접 짓지 않고 빌려 쓰는 이유(속도·장부 밖 처리·유연성)가 사라지지 않는 한 판매처는 남습니다. 거꾸로 그 이유가 약해지면 계약 철회 같은 신호가 먼저 보일 겁니다. 또 인수는 '싸게 사는 쪽'만 정하지 않습니다. Core Scientific 사례처럼 팔리는 쪽 주주가 거절할 수 있고, 대가가 주식이면 인수자의 주가가 곧 가격이 됩니다.</div>
+  </div>
+</div>
+
+<h2 id="s3"><span class="no">3</span>머스크의 기준을 세 회사에 대 보면</h2>
+<p class="lead">머스크가 제시한 기준은 "AI 데이터센터 밖의 매출"과 "빚 시장 접근"입니다. 순위를 매기는 표가 아니라 같은 질문에 대한 세 회사의 답을 나란히 놓은 표입니다. 표는 옆으로 밀어 볼 수 있습니다.</p>
+<div class="tblwrap">
+<table>
+  <thead><tr><th>질문</th><th><span class="tk IREN">IREN</span></th><th><span class="tk NBIS">NBIS</span></th><th><span class="tk CRWV">CRWV</span></th></tr></thead>
+  <tbody>
+    <tr><td>AI 데이터센터 밖 매출</td>
+      <td>비트코인 채굴. 2026년 6월 분기 매출의 약 절반(48.6%)이었지만, 회사는 12월 말 사실상 종료를 기대한다고 밝힘 <span class="t p2">2차 · 실적 발표 전사</span></td>
+      <td>본업 외 사업·지분: 데이터베이스 회사 ClickHouse 지분(약 25~28%, 매체마다 다름), 자율주행 Avride, 교육 TripleTen. 매출은 작지만 팔아서 현금으로 바꿀 수 있는 자산 <span class="t p2">2차 · 지분율은 공시로 확인 필요</span></td>
+      <td>AI 컴퓨팅 외 매출 없음 <span class="t p1">1차 · 사업 설명</span></td></tr>
+    <tr><td>9~10월 조달</td>
+      <td>10/28 장비 담보 $3.63억. 금리·만기 비공개, 새 주식 없음 <span class="t p1">1차</span></td>
+      <td>10/22 Citi 1년 담보 대출 $35억 <span class="t p1">1차</span><br>10/26 프랑스 부지 약 €2.5억 <span class="t p2">2차 · 회사 확인 없음</span></td>
+      <td>9/22 전환사채 $42억(이자 2.875%) <span class="t p1">1차</span><br>10월 신규 조달 공시 없음</td></tr>
+    <tr><td>시장이 매긴 빌리는 값</td>
+      <td>비교할 공개 회사채 시세를 찾지 못함</td>
+      <td>Citi 대출 가산금리 2.75%→최대 3.50%. 7월 대출(2.50%)보다 높게 시작 <span class="t p1">1차</span></td>
+      <td>기존 무담보채 수익률 약 15%, 5년 CDS 약 1,100bp <span class="t p2">2차</span></td></tr>
+    <tr><td>빚의 크기</td>
+      <td>차입 약 $76억 · 회사 현금(사용 제한분 포함) 약 $76억 (6/30) <span class="t p1">1차</span></td>
+      <td>전환사채 원금 약 $150억(8월 발행 반영 추정) · 회사 현금 $80억 (6/30) <span class="t p1">1차</span> + 추정</td>
+      <td>이자보상배율(조정 EBITDA÷순이자비용) 2.36배(2분기). 1분기 2.16배가 최저. 3분기 이자비용은 $8.6~9.4억으로 예고 <span class="t p1">1차</span></td></tr>
+    <tr><td>주요 고객</td>
+      <td>마이크로소프트(약 $97억), 엔비디아(약 $34억), 이름 없는 'AI 연구소'(Anthropic이라는 보도는 미확인) <span class="t p1">1차</span></td>
+      <td>메타·마이크로소프트 + 2분기 대형 계약 4건 <span class="t p1">1차</span></td>
+      <td>OpenAI·메타·마이크로소프트 등 <span class="t p1">1차</span></td></tr>
+    <tr><td>9/30→10/29 주가</td><td>−35.8%</td><td>−27.1%</td><td>−30.3%</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="interp">세 회사 모두 머스크의 첫 기준("AI 밖 매출")을 충족한다고 보기 어렵습니다. IREN은 그나마 있던 채굴 매출을 스스로 끝내는 중이고, NBIS의 본업 외 자산은 매출보다 '팔 수 있는 지분'에 가깝습니다. 다만 두 번째 기준(빚 시장 접근)에서는 10월에도 세 회사 모두 돈을 구했습니다. 차이는 조건에서 나타났습니다. CRWV는 채권시장이 매기는 값이 가장 높고, NBIS는 짧고 비싼 대출을 받았고, IREN은 조건을 공개하지 않았습니다.</div>
+
+<h2 id="s4"><span class="no">4</span>회사가 살아남는 것 ≠ 주주가 살아남는 것</h2>
+<p class="lead">"정리된다"는 말은 회사가 사라진다는 뜻으로 들리지만, 실제로 일어날 수 있는 경로는 세 가지이고 경로마다 누가 손실을 보는지가 다릅니다. 아래는 일반적인 구조 설명이며 세 회사에 대한 예측이 아닙니다.</p>
+<div class="paths">
+  <div class="path"><h3>① 스스로 계속 조달</h3>
+    <dl><dt>자산</dt><dd>그대로 운영</dd><dt>채권자</dt><dd>더 높은 이자를 받음</dd><dt>주주</dt><dd>새 주식·전환사채가 늘어난 만큼 한 주의 몫이 줄어듦(희석)</dd></dl></div>
+  <div class="path"><h3>② 인수·합병</h3>
+    <dl><dt>자산</dt><dd>새 주인 아래서 계속 운영</dd><dt>채권자</dt><dd>대개 승계되거나 상환</dd><dt>주주</dt><dd>인수 가격이 곧 결과. 헐값이면 손실이 확정되고, 주식 교환이면 인수자 주식으로 바뀜</dd></dl></div>
+  <div class="path"><h3>③ 채무 재조정·파산</h3>
+    <dl><dt>자산</dt><dd>채권자나 새 주인에게 넘어가 대개 계속 운영</dd><dt>채권자</dt><dd>담보 순서대로 회수</dd><dt>주주</dt><dd>가장 뒤 순서. 크게 줄거나 없어질 수 있음</dd></dl></div>
+</div>
+<div class="interp">전력망에 연결된 부지와 장기 고객 계약은 업계가 정리돼도 쓸모가 사라지지 않습니다. 그래서 주주에게 핵심 질문은 "회사가 버티나"보다 "버티는 동안 한 주의 몫이 얼마나 줄어드나"입니다. 영상 해설의 "싸게 산다"가 맞다면, 싸게 사는 쪽의 이익은 기존 주주의 손실과 같은 돈입니다.</div>
+<div class="callout"><b>주주 입장에서 볼 숫자</b> — ① 주식 수가 매출보다 빨리 늘어나는지(<a href="weekly_events.html#pershare">주간 페이지 '주당 매출·ARR 추이'</a>) ② 전환사채가 주식으로 바뀌는 가격(전환가)과 지금 주가의 거리 ③ 주식을 시장에 조금씩 파는 ATM의 분기 판매량. 세 숫자 모두 분기 보고서에 나옵니다.</div>
+
+<h2 id="s5"><span class="no">5</span>엔비디아 생태계라서 괜찮을까</h2>
+<p class="lead">세 회사 모두 엔비디아와 묶여 있지만 묶인 방식이 다릅니다.</p>
+<div class="tblwrap">
+<table>
+  <thead><tr><th>회사</th><th>엔비디아와의 관계</th><th>엔비디아의 역할</th></tr></thead>
+  <tbody>
+    <tr><td><span class="tk CRWV">CRWV</span></td><td>지분 약 10%. 2032년 4월까지 $63억 규모로 CoreWeave의 남는 용량을 사 주기로 약정 <span class="t p2">2차 · 약정은 회사 공시 기반</span></td><td>주주 + 수요 보증</td></tr>
+    <tr><td><span class="tk NBIS">NBIS</span></td><td>2026년 7월 지분 9.3% 공시(약 2,226만 주, $20억 투자에 딸린 워런트 포함) <span class="t p2">2차 · 공시 보도</span></td><td>주주</td></tr>
+    <tr><td><span class="tk IREN">IREN</span></td><td>5년 약 $34억 GPU 클라우드 계약(60MW, 2027년 초 가동 목표). 별도로 5년간 3천만 주를 $70에 살 권리 <span class="t p1">1차</span></td><td>고객 + 잠재 주주</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="two">
+  <div class="card col"><h3><span class="dot" style="background:var(--good)"></span>막아 주는 것</h3>
+    <ul>
+      <li><b>새 GPU 배정.</b> 예: CRWV가 Vera Rubin을 업계 처음으로 가동했습니다(8월) <span class="t p1">1차</span></li>
+      <li><b>남는 용량의 일부 수요.</b> CRWV의 용량 구매 약정이 여기에 해당합니다.</li>
+      <li><b>신뢰 신호.</b> 대주주·고객이 엔비디아라는 사실 자체가 대출을 받을 때 참고됩니다.</li>
+    </ul></div>
+  <div class="card col"><h3><span class="dot" style="background:var(--bad)"></span>막아 주지 못하는 것</h3>
+    <ul>
+      <li><b>빌리는 비용.</b> 엔비디아가 약 10%를 가진 CRWV의 채권도 수익률 약 15%로 거래됐습니다 <span class="t p2">2차</span></li>
+      <li><b>구형 GPU의 담보가치.</b> 엔비디아가 새 칩을 빨리 낼수록 기존 칩을 담보로 잡은 대출이 약해집니다.</li>
+      <li><b>주주 몫.</b> "구제가 필요 없다"(10/15)는 말은 구제할 계획이 없다는 뜻으로도 읽힙니다 <span class="t p2">2차</span></li>
+    </ul></div>
+</div>
+<div class="interp">엔비디아에게는 네오클라우드를 살려 둘 이유가 있습니다. 구글·아마존처럼 자체 칩을 만드는 빅테크와 달리 네오클라우드는 엔비디아 칩을 사는 통로이기 때문입니다. 하지만 엔비디아가 지키려는 것은 'GPU가 계속 돌아가는 곳'이지 특정 회사의 주주는 아닙니다. 경로 ②·③(<a href="#s4">4장</a>)에서도 GPU는 계속 돌아갑니다. 엔비디아의 도움은 GPU 공급 쪽에 있고, 머스크가 겨눈 위험은 자금 조달 쪽에 있습니다. 서로 다른 축이라 한쪽이 다른 쪽을 상쇄하지 않습니다.</div>
+<div class="callout"><b>'순환 구조' 논쟁</b> — 엔비디아가 투자하거나 구매를 약정하면, 그 돈과 신용으로 네오클라우드가 다시 엔비디아 GPU를 삽니다. 비판하는 쪽은 이 구조가 실제 수요를 부풀려 보이게 하고 한쪽이 약해지면 함께 흔들린다고 봅니다. 옹호하는 쪽은 공급망을 키우는 정상적인 생태계 투자라고 봅니다. 이 페이지는 어느 쪽도 판정하지 않습니다. 볼 숫자는 세 회사 매출 중 엔비디아에서 나오는 몫이 커지는지입니다.</div>
+
+<h2 id="s6"><span class="no">6</span>같은 기간, 반대쪽 숫자</h2>
+<p class="lead">10월의 하락은 수요가 꺾였다는 숫자보다 빚에 대한 의심에서 나왔습니다. 같은 기간 수요 쪽 숫자는 엇갈렸습니다.</p>
+<div class="two">
+  <div class="card col"><h3><span class="dot" style="background:var(--good)"></span>수요가 이어진다는 쪽</h3>
+    <ul>
+      <li>TSMC 3분기 매출 1년 전보다 +41%(10/15) <span class="t p1">1차</span></li>
+      <li>Anthropic 3분기 매출 $168억, 전 분기 대비 +45%(10/14) <span class="t p2">2차</span></li>
+      <li>Anthropic 상장 신고서(10/26)의 대규모 컴퓨팅 약정 <span class="t p2">2차</span></li>
+      <li>아마존 2026년 설비투자 약 $2,200억 유지, AWS 매출 +39%(10/29) <span class="t p1">1차</span></li>
+    </ul></div>
+  <div class="card col"><h3><span class="dot" style="background:var(--bad)"></span>의심을 키운 쪽</h3>
+    <ul>
+      <li>OpenAI 매출이 알려진 것보다 적다는 보도(10/8) <span class="t p2">2차</span></li>
+      <li>마이크로소프트·알파벳의 3분기 투자액이 예상보다 적음(10/28) <span class="t p2">2차</span></li>
+      <li>마이크로소프트 "외부 GPU 업체 공급 지연". 업체 이름은 미공개 <span class="t p2">2차</span></li>
+      <li>계약 철회 보도 2건(Nscale 영국, CoreWeave–Poolside) <span class="t p2">2차</span></li>
+    </ul></div>
+</div>
+<div class="interp">"AI 수요가 있느냐"와 "그 수요에 맞춰 빚으로 짓는 회사가 버티느냐"는 다른 질문입니다. 10월 숫자는 앞의 질문에는 대체로 '있다' 쪽이었고, 시장은 뒤의 질문에 반응했습니다. 마이크로소프트의 "공급 지연" 발언은 수요가 아니라 인도 문제로 읽히는데, 인도가 늦으면 고객이 해지할 수 있는 계약이 있어 두 질문이 이 지점에서 만납니다.</div>
+
+<h2 id="s7"><span class="no">7</span>SpaceX가 세 회사를 살 유인은 정말 없을까</h2>
+<p class="lead">머스크는 "SpaceX는 네오클라우드를 사지 않는다. 의미 없다"고 답했습니다. 하지만 인수에 관한 머스크의 말이 나중에 바뀐 전례도 있습니다(2022년 트위터 인수 합의 → 철회 통보 → 인수 완료). 그래서 발언 대신 사는 쪽과 팔리는 쪽의 사정을 여섯 갈래로 따져 봅니다. 인수 가능성을 점치려는 것이 아니라, 어떤 조건이 바뀌면 유인이 생기는지 정리하려는 것입니다.</p>
+
+<h3 style="margin-top:18px">7-1 지금의 SpaceX — 로켓 회사이자 컴퓨팅 임대 회사</h3>
+<div class="card">
+  <ul style="margin:0;padding-left:18px">
+    <li><span class="t p2">2차</span> 2026년 2월 xAI를 합병했고, 6월 상장으로 약 $857억을 조달했습니다. 현금은 $1,000억을 넘었다는 보도가 있습니다.</li>
+    <li><span class="t p2">2차</span> 컴퓨팅을 빌려주는 사업도 합니다. 테네시 Memphis 데이터센터(Colossus 1·2)를 Anthropic(월 약 $12.5억), 구글(월 약 $9.2억), Reflection(월 $1.5억, 2029년까지 최대 약 $63억)에 빌려줍니다. Reflection 계약은 첫 3개월이 지나면 양쪽 모두 90일 통보로 끝낼 수 있습니다.</li>
+    <li><span class="t p1">1차</span> <b>Reflection은 NBIS의 고객이기도 합니다.</b> NBIS가 2분기에 맺은 $10억 이상 대형 계약 4건 중 하나입니다. SpaceX와 세 회사는 이미 같은 고객을 놓고 경쟁하고 있습니다.</li>
+    <li><span class="t p2">2차</span> Colossus 2의 규모는 보도마다 약 350MW에서 1GW까지 엇갈립니다. 10월에 마련한 $400억 GPU 금융으로 사는 칩은 2027년 상반기에 들어옵니다.</li>
+  </ul>
+  <div class="interp">세 회사의 시가총액 합계는 약 $910억(10/29 종가 × 발행 주식, 계산)으로, 보도된 SpaceX 현금과 비슷한 규모입니다. 그러니 질문은 "살 돈이 있나"가 아니라 "살 이유가 있나"입니다.</div>
+</div>
+
+<h3 style="margin-top:22px">7-2 여섯 갈래로 따져 보기</h3>
+<div class="stack" style="margin-top:10px">
+  <div class="claim-card">
+    <p class="q">① 필요한 것과 세 회사가 가진 것</p>
+    <div class="lbl">사려는 쪽의 유인</div>
+    <ul><li>2027년 상반기에 들어올 GPU를 꽂을 <b>전력이 연결된 부지</b>가 필요합니다. 세 회사가 가진 것 중 가장 구하기 어려운 것도 이것입니다. 예를 들어 IREN의 텍사스 Sweetwater 2GW는 텍사스 전력망 운영기관(ERCOT)의 심사에서 조건부 기본 부하로 분류됐습니다 <span class="t p1">1차</span></li></ul>
+    <div class="lbl">걸림돌</div>
+    <ul><li>SpaceX의 강점은 직접 빨리 짓는 능력입니다(Colossus 1은 약 4개월 만에 지었다고 보도됨 <span class="t p2">2차</span>). 운영 소프트웨어도 자체적으로 갖고 있습니다. 회사 전체가 아니라 <b>부지와 전력만</b> 필요한 셈입니다.</li>
+      <li>CRWV는 데이터센터 대부분을 빌려 쓰는 구조라, 인수해도 직접 손에 들어오는 땅이 적습니다 <span class="t p1">1차 · 사업 설명</span></li></ul>
+  </div>
+
+  <div class="claim-card">
+    <p class="q">② 고객 계약 — 인수하면 오히려 흔들릴 수 있다</p>
+    <div class="lbl">사려는 쪽의 유인</div>
+    <ul><li>세 회사의 고객 명단(마이크로소프트·메타·OpenAI·엔비디아 등)을 한 번에 가져옵니다.</li></ul>
+    <div class="lbl">걸림돌</div>
+    <ul><li>그 고객 다수가 xAI의 경쟁사이거나 머스크와 분쟁 중입니다. 머스크는 OpenAI와 마이크로소프트를 상대로 낸 소송에서 5/18 1심 배심 평결로 졌고 항소를 예고했습니다 <span class="t p2">2차</span>. OpenAI는 CRWV의 주요 고객이고, 마이크로소프트는 세 회사 모두의 고객입니다.</li>
+      <li>회사 주인이 바뀔 때 고객이 계약을 끝낼 수 있는지는 공시로 확인하지 못했습니다.</li></ul>
+    <div class="interp">경쟁사가 소유한 회사에 AI 학습 인프라를 맡기는 것을 고객이 꺼릴 수 있습니다. 고객이 빠지면 인수로 얻으려던 가치의 핵심인 계약이 사라집니다. 세 회사의 몸값은 GPU보다 장기 고객 계약에서 나오기 때문에 이 걸림돌은 가볍지 않습니다.</div>
+  </div>
+
+  <div class="claim-card">
+    <p class="q">③ 빚과 신용등급 — 주식은 싸졌지만 빚은 액면 그대로</p>
+    <div class="lbl">사려는 쪽의 유인</div>
+    <ul><li>10월에 주가가 30% 안팎 떨어져 지분 가격은 낮아졌습니다.</li></ul>
+    <div class="lbl">걸림돌</div>
+    <ul><li>회사를 사면 빚도 함께 떠안습니다. CRWV 총부채는 2분기 약 $356억으로 시가총액 약 $335억보다 큽니다. 빚까지 합친 회사 값은 주가로 본 값의 약 2배입니다 <span class="t p1">1차</span> + 계산</li>
+      <li>NBIS의 전환사채 원금은 약 $150억(추정), IREN의 남은 전환사채 원금은 약 $67.5억입니다 <span class="t p1">1차</span> + 계산</li>
+      <li>CRWV의 $26억 대출 계약은 회사 주인이 바뀌는 것(지배권 변경)을 부도 사유로 적어 두었습니다 <span class="t p1">1차</span>. 전환사채도 대개 인수 때 조기 상환·전환 조건이 붙습니다(일반 구조, 회사별 세부는 확인 필요).</li></ul>
+    <div class="interp">머스크는 SpaceX가 돈을 빌릴 수 있는 비결로 투자등급을 꼽았습니다. 수익률 15%로 거래되는 빚을 떠안으면 그 비결을 스스로 깎는 셈입니다.</div>
+  </div>
+
+  <div class="claim-card">
+    <p class="q">④ 가격과 타이밍 — 기다릴수록 유리할 수 있다</p>
+    <div class="lbl">사려는 쪽의 유인</div>
+    <ul><li>주가가 많이 떨어졌습니다.</li></ul>
+    <div class="lbl">걸림돌</div>
+    <ul><li>상장사를 사려면 시장가에 웃돈(인수 프리미엄)을 얹어야 합니다. 반면 GPU는 시간이 갈수록 낡습니다.</li></ul>
+    <div class="interp">업체가 정말 무너지면 채무 재조정이나 파산 절차에서 부지와 장비만 골라 살 수 있습니다. 빚을 떠안지 않고, 기존 주주에게 웃돈을 줄 필요도 없습니다(<a href="#s4">4장</a> 경로 ③). "회사를 사는 건 의미 없다"는 머스크의 말은 이 계산과도 맞아떨어집니다.</div>
+  </div>
+
+  <div class="claim-card">
+    <p class="q">⑤ 경쟁 전략 — 사지 않아도 얻는 것</p>
+    <div class="lbl">사려는 쪽의 유인</div>
+    <ul><li>경쟁사를 흡수하면 공급을 더 많이 쥘 수 있습니다.</li></ul>
+    <div class="lbl">걸림돌</div>
+    <ul><li>사지 않아도 얻는 것이 있습니다. 경쟁사의 조달 비용이 오르면 고객이 SpaceX로 옮겨 올 수 있고, 가격을 정하는 힘도 커집니다.</li></ul>
+    <div class="interp">SpaceX 입장에서는 경쟁사를 사는 것보다 경쟁사가 약해지는 것이 더 싼 선택일 수 있습니다. 머스크의 공개 경고가 실제로 경쟁사의 자금 사정에 영향을 줬는지는 이 페이지가 판단하지 않습니다.</div>
+  </div>
+
+  <div class="claim-card">
+    <p class="q">⑥ 지배구조와 규제 — 팔리는 쪽이 거절할 수 있다</p>
+    <div class="lbl">걸림돌</div>
+    <ul>
+      <li><span class="tk CRWV">CRWV</span> 창업자 3명이 1주 10표인 Class B 주식을 갖고 있습니다. 7/31 기준 Class B는 전체 주식의 16.8%지만 의결권은 약 66.9%입니다(10-Q 표지 숫자로 계산) <span class="t p1">1차</span>. 창업자가 동의하지 않으면 인수할 수 없습니다.</li>
+      <li><span class="tk NBIS">NBIS</span> Class B 3,346만 주(주식의 약 12%)는 의결권이 더 큰 주식으로 알려져 있습니다. 1주 10표라면 의결권은 약 58%입니다(계산, 의결권 구조는 연차보고서로 확인 필요). 네덜란드 법인이고 부지가 핀란드·프랑스에 있어 유럽 당국의 심사도 거칩니다.</li>
+      <li><span class="tk IREN">IREN</span> 호주 법인이라 외국 회사가 인수하려면 호주 외국인투자 심사와 호주식 인수 절차(주주 총회와 법원 승인)를 거쳐야 합니다(일반 절차).</li>
+      <li>CoreWeave–Core Scientific 사례(2025년 부결)처럼 팔리는 쪽 주주가 거절할 수도 있습니다.</li>
+    </ul>
+  </div>
+</div>
+
+<h3 style="margin-top:22px">7-3 회사별로 대 보면</h3>
+<p class="lead">가능성 순위가 아니라 사는 쪽이 탐낼 만한 것과 걸림돌을 나란히 놓은 표입니다. 시가총액은 10/29 종가 × 발행 주식(계산)입니다.</p>
+<div class="tblwrap">
+<table>
+  <thead><tr><th>회사</th><th>사는 쪽이 탐낼 만한 것</th><th>걸림돌</th></tr></thead>
+  <tbody>
+    <tr><td><span class="tk IREN">IREN</span><br>약 $106억</td><td>직접 가진 텍사스·캐나다 전력 부지(Sweetwater 2GW 등). 세 회사 중 가장 작은 시가총액</td><td>마이크로소프트 계약(고객 반응), 호주 법인 인수 절차, 텍사스 인허가 동결, 채굴 종료로 사업을 바꾸는 중</td></tr>
+    <tr><td><span class="tk NBIS">NBIS</span><br>약 $468억</td><td>유럽 부지, 자체 소프트웨어(Token Factory)</td><td>가장 큰 시가총액, 고객이 겹침(Reflection), 창업자 쪽 의결권, 큰 전환사채, 엔비디아가 9.3% 주주</td></tr>
+    <tr><td><span class="tk CRWV">CRWV</span><br>약 $335억</td><td>업계 최대 규모와 운영 경험, 엔비디아와의 관계</td><td>OpenAI가 주요 고객, 총부채 약 $356억과 수익률 15% 회사채, 창업자 의결권 약 67%, 데이터센터 대부분 임차</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="interp">여섯 갈래를 합치면 '회사째 사는' 유인은 약하고 걸림돌은 많습니다. 유인이 남는 형태는 셋입니다. (a) 무너진 업체의 부지·장비만 사는 것, (b) 세 회사의 부지나 용량을 빌려 쓰는 것, (c) 경쟁사가 약해질 때 그 고객을 데려가는 것입니다. 어느 경로든 자산이나 고객은 SpaceX 쪽으로 가지만 기존 주주에게 인수 웃돈은 돌아가지 않습니다(<a href="#s4">4장</a>). 그래서 "SpaceX가 사 줄 것"이라는 시나리오는 주주 입장에서 기대할 근거가 약합니다.</div>
+<div class="callout"><b>유인이 바뀌었다는 신호</b> — SpaceX가 세 회사 중 한 곳의 지분을 사들였다는 신고(SEC 13D·13G) · SpaceX가 세 회사의 부지나 용량을 빌리는 계약 · 세 회사 고객 계약의 지배권 변경 조항 공시 · 업계에서 무너진 업체의 자산 매각 사례 · 머스크 발언의 변화</div>
+
+<h2 id="s8"><span class="no">8</span>앞으로 무엇을 보면 되나</h2>
+<p class="lead">정리론이 맞아 가는지 틀려 가는지를 보여 줄 관찰 항목입니다. 기준선이나 판정은 넣지 않았습니다.</p>
+<ul class="watch">
+  <li><span class="w">11/5</span><div><p><span class="tk IREN">IREN</span> 1분기 실적</p><p class="why">마이크로소프트 계약 매출이 처음 장부에 잡히는지, 10/28 장비 대출의 금리·만기, 12월 분기 건물 인도 일정이 유지되는지</p></div></li>
+  <li><span class="w">11/10 (보도)</span><div><p><span class="tk CRWV">CRWV</span> 3분기 보고서</p><p class="why">실제 이자비용(예고 $8.6~9.4억)과 이자보상배율, 주식 판매(ATM) 실적, Poolside 철회의 회계 처리</p></div></li>
+  <li><span class="w">11월 중 (예상)</span><div><p><span class="tk NBIS">NBIS</span> 3분기 실적</p><p class="why">현금과 전환사채 확정치, Citi 대출을 실제로 꺼내 썼는지, 1년 안에 장기 자금으로 바꿀 계획</p></div></li>
+  <li><span class="w">매주</span><div><p>채권·CDS 새 값과 신용평가사 조치</p><p class="why">빌리는 비용이 계속 오르는지가 정리론의 핵심 전제입니다 → <a href="weekly_events.html#credit">주간 페이지 'AI 신용 경보'</a></p></div></li>
+  <li><span class="w">수시</span><div><p>실제 정리 사례 — 파산, 헐값 인수, 계약 철회</p><p class="why">예측이 사례로 바뀌는지. 세 회사 밖 업체의 사례부터 나올 가능성이 큽니다(해석) → <a href="weekly_events.html#threads">주간 페이지 '추적 중인 이야기'</a></p></div></li>
+  <li><span class="w">수시</span><div><p>새 대출·사채의 조건</p><p class="why">만기가 짧아지는지, 가산금리가 오르는지, 담보 범위가 넓어지는지. "닫힘"이 아니라 "비싸짐"이 어디까지 가는지 보여 줍니다</p></div></li>
+  <li><span class="w">수시</span><div><p>SpaceX의 움직임 — 지분 신고, 부지·용량 임차, 고객 이동</p><p class="why">'회사째 인수'보다 자산이나 고객을 흡수하는 쪽으로 움직이는지(<a href="#s7">7장</a>)</p></div></li>
+  <li><span class="w">11월 중순 (보도)</span><div><p>Anthropic 상장과 SpaceX의 컴퓨팅 임대 확대</p><p class="why">큰 고객의 자금 사정, 그리고 같은 시장에 새 경쟁자가 얼마나 들어오는지</p></div></li>
+</ul>
+
+<div class="foot">
+  <p><b>이 페이지에 대해.</b> 이 페이지는 판단을 돕기 위한 정리이며 매수·매도 지시가 아닙니다. 세 회사의 생존 여부를 예측하지 않고, 시스템의 등급·판정도 옮기지 않았습니다. '해석' 표시는 이 페이지가 덧붙인 해석이고, 나머지는 회사 공시(1차)와 언론 보도(2차)를 옮긴 것입니다. 2차 보도는 단독 판단 근거로 쓰지 않습니다.</p>
+  <p>기준일 2026-11-02. 주가는 2026-10-29 종가까지입니다. 날짜별 사건과 회사 공시 숫자는 <a href="weekly_events.html">IREN·NBIS·CRWV 주간 이벤트</a> 원장에서 가져왔고, 아래 외부 자료로 보완했습니다. 유튜브 해설은 요약만 옮겼습니다.</p>
+  <ul class="src">
+    <li><a href="https://investinglive.com/stocks/musk-says-spacex-closed-40-billion-gpu-debt-deal-predicts-neocloud-shakeout/" rel="noopener">investingLive — Musk says SpaceX closed $40 billion GPU debt deal, predicts neocloud shakeout</a></li>
+    <li><a href="https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/" rel="noopener">TechCrunch — SpaceX locks in $40B GPU financing deal with Apollo</a></li>
+    <li><a href="https://thenextweb.com/news/elon-musk-neoclouds-guppy-level-death-debt-markets" rel="noopener">The Next Web — Elon Musk says debt markets have shut out neoclouds</a></li>
+    <li><a href="https://www.thestar.com.my/tech/tech-news/2026/10/26/musk-says-spacex-raised-40-billion-in-debt-for-gpus" rel="noopener">The Star (Reuters) — Musk says SpaceX raised $40 billion in debt</a></li>
+    <li><a href="https://www.kucoin.com/news/flash/spacex-ipo-raises-85-7-billion-surpasses-previous-record" rel="noopener">KuCoin News — SpaceX IPO raises $85.7 billion</a></li>
+    <li><a href="https://www.datacenterdynamics.com/en/news/musk-spacex-xai-is-actively-seeking-more-ai-compute-customers-following-anthropic-deal/" rel="noopener">DCD — SpaceX/xAI seeking more AI compute customers after Anthropic deal</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2025-10-30/core-scientific-investors-spurn-coreweave-takeover-bid-in-vote" rel="noopener">Bloomberg — Core Scientific investors spurn CoreWeave takeover bid in vote</a></li>
+    <li><a href="https://www.investing.com/news/stock-market-news/nvidia-discloses-93-stake-in-neocloud-computing-firm-nebius-4801817" rel="noopener">Investing.com — Nvidia discloses 9.3% stake in Nebius</a></li>
+    <li><a href="https://www.nasdaq.com/articles/can-nebius-noncore-stakes-support-long-term-ai-expansion" rel="noopener">Nasdaq (Zacks) — Can Nebius' noncore stakes support long-term AI expansion?</a></li>
+    <li><a href="https://www.datacenterdynamics.com/en/news/spacex-secures-63bn-compute-capacity-deal-from-ai-startup-reflection/" rel="noopener">DCD — SpaceX secures $6.3bn compute capacity deal from AI startup Reflection</a></li>
+    <li><a href="https://thenextweb.com/news/spacex-reflection-ai-6-3bn-compute-deal" rel="noopener">The Next Web — SpaceX lands $6.3bn compute deal with Reflection AI</a></li>
+    <li><a href="https://www.morningstar.com/stocks/spacex-strikes-40b-gpu-leasing-deal-with-private-credit-players" rel="noopener">Morningstar — SpaceX strikes $40B GPU leasing deal with private credit players</a></li>
+    <li><a href="https://www.aljazeera.com/news/2026/5/18/elon-musk-loses-lawsuit-against-openai" rel="noopener">Al Jazeera — Elon Musk loses US lawsuit against OpenAI</a></li>
+    <li><a href="https://sec-api.io/insights/coreweave-crwv-ownership-and-votes" rel="noopener">sec-api — CoreWeave ownership and votes</a></li>
+    <li><a href="https://youtu.be/AwJJIqQBkxE?t=123" rel="noopener">유튜브 해설 영상 (02:03~)</a></li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

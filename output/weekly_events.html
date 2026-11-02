@@ -132,6 +132,7 @@ html.pr-brief #weeks .week:nth-child(n+3),html.pr-brief .ev .sec{display:none!im
 <div class="wrap">
 <h1>IREN · NBIS · CRWV 주간 이벤트</h1>
 <p class="sub">2026년 8/3 주부터 주 단위 정리 · 생성일 2026-10-30 · 마지막 시스템 점검 2026-10-09 · 원장 갱신 2026-10-30<button class="printbtn" onclick="printAs('brief')" title="상태·일정·이번 주 업데이트된 이야기·차트·최근 2주 소식">A4 인쇄 — 요약</button><button class="printbtn" onclick="printAs('full')" title="접힌 내용까지 모두 펼침(분량이 많음)">A4 인쇄 — 전체</button></p>
+<p class="sub pr-skip" style="margin-top:-12px">처음 오셨나요? 네오클라우드가 무엇인지, 세 회사가 어떻게 다른지, 뉴스를 어떻게 읽을지는 <a href="neocloud_primer.html" style="text-decoration:underline">네오클라우드 입문</a>에 있습니다. 낯선 말은 <a href="neocloud_primer.html#s9" style="text-decoration:underline">용어집</a>에서 찾아보세요.</p>
 <div class="grid3" id="status"></div>
 <div class="callout"><b>지금 가장 중요한 한 줄:</b> 세 종목 모두 🔴🔴 유지(10/9 점검, 이후 21일째 점검 없음) — 원인은 기준금리(KC-1). 10/28 연준은 3.75~4.00% 동결(인상 주장 2명)이라 해소 조건(3.75% 이하)은 그대로. 이번 주는 10/25 머스크의 &#x27;네오클라우드 정리&#x27; 글로 약세 출발 뒤 Anthropic 상장 신고서(10/26)·SK하이닉스 실적 속에 10/27~28 반등 — 10/23 → 10/28 IREN +15.8%·NBIS +14.9%·CRWV +17.9%(나스닥100 +3.0%). 10/28 장 마감 뒤 마이크로소프트가 &#x27;외부 GPU 업체 공급 지연&#x27;으로 투자액이 예상보다 적었다고 밝혀(업체 미공개) 10/29 정규장 IREN -9.0%·NBIS -5.7%·CRWV -5.0%(나스닥100 -1.4%). 같은 날 아마존은 2026년 투자 약 $2,200억 전망 유지(8-K). 세 회사 계약·실적 공시는 그대로이고, IREN이 11/5 가장 먼저 실적을 냅니다.</div>
 <div class="callout warn">마지막 시스템 점검이 10/9(21일 전)입니다. 그 뒤 소식은 아직 반영되지 않았을 수 있습니다.</div>
@@ -584,6 +585,8 @@ function renderThreads(f) {
 }
 let cur = "all";
 render(cur);
+// 입문서·부록이 거는 #t-… 앵커는 렌더 뒤에 생기므로, 로드 시 해시가 있으면 다시 스크롤한다.
+if (location.hash) { const el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) setTimeout(() => el.scrollIntoView(), 0); }
 document.getElementById("filters").addEventListener("click", e => {
  const b = e.target.closest("button"); if (!b) return;
  document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x===b));
