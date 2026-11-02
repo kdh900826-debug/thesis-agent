@@ -114,6 +114,47 @@ details>div{padding:0 0 12px;font-size:14.5px}
 @media(max-width:560px){.steps{grid-template-columns:1fr}.step:first-child{border-radius:12px 12px 0 0}.step:last-child{border-radius:0 0 12px 12px}.step+.step{border-left:1px solid var(--line);border-top:none}}
 .case{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin:10px 0;font-size:14.5px}
 .case .h{font-size:13px;color:var(--ink3);font-weight:700}
+.cn{display:block;font-size:13px;color:var(--ink3)}
+.stack3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:14px 0 6px}
+.stack3 .col{display:flex;flex-direction:column;align-items:stretch}
+.stack3 .ch{text-align:center;margin-bottom:8px}
+.stack3 .ch .tk{font-size:15px}
+.stack3 .ch .s{display:block;font-size:12.5px;color:var(--ink3)}
+.stack3 .bx{border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;color:var(--ink2);background:var(--card)}
+.stack3 .bx b{display:block;font-size:14px;color:var(--ink)}
+.stack3 .bx.cust{background:var(--interpbg);border-color:transparent}
+.stack3 .bx.own{border:1.5px solid var(--ink3)}
+.stack3 .bx.lease{border:1.5px dashed var(--ink3);background:transparent}
+.stack3 .up{text-align:center;color:var(--ink3);font-size:14px;line-height:1;padding:4px 0}
+.stack3 .base{display:flex;gap:6px}
+.stack3 .base .bx{flex:1}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--ink3);margin:4px 0 12px}
+.legend i{display:inline-block;width:14px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.legend .cust{background:var(--interpbg)} .legend .own{border:1.5px solid var(--ink3)} .legend .lease{border:1.5px dashed var(--ink3)}
+@media(max-width:560px){.stack3{grid-template-columns:1fr;gap:18px}}
+.chartwrap{overflow-x:auto;margin:12px 0 4px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:10px 8px 4px}
+.chartwrap svg{display:block;width:100%;min-width:480px;max-width:760px;height:auto;margin:0 auto}
+.chartwrap .gl{stroke:var(--line);stroke-width:1}
+.chartwrap .zl{stroke:var(--ink3);stroke-width:1.5}
+.chartwrap .ax{fill:var(--ink3);font-size:12px}
+.chartwrap .lb{fill:var(--ink);font-size:13px;font-weight:700}
+.chartwrap .lb2{fill:var(--ink2);font-size:12px}
+.chartwrap .s1{stroke:var(--ink);stroke-width:2.5;fill:none}
+.chartwrap .s2{stroke:var(--ink2);stroke-width:2.5;fill:none;stroke-dasharray:7 5}
+.chartwrap .d1{fill:var(--ink);stroke:var(--card);stroke-width:2}
+.chartwrap .d2{fill:var(--card);stroke:var(--ink2);stroke-width:2}
+.chartwrap .hit{fill:transparent;cursor:default}
+.chartwrap .hit:hover+circle{r:7}
+.chartwrap .neg{fill:var(--badbg);opacity:.55}
+.flow{display:grid;grid-template-columns:minmax(110px,1fr) 2.2fr minmax(110px,1fr);gap:8px 10px;align-items:center;margin:14px 0 6px}
+.flow .nd{background:var(--card);border:1.5px solid var(--ink3);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;color:var(--ink2)}
+.flow .nd b{display:block;font-size:14.5px;color:var(--ink)}
+.flow .nd.spv{border-style:dashed}
+.flow .ar{font-size:13px;color:var(--ink2);text-align:center;line-height:1.5}
+.flow .ar .ln{display:block;color:var(--ink3);font-size:15px;letter-spacing:-1px}
+.flow .ar b{color:var(--ink)}
+.flow .gap{grid-column:1/-1;height:4px}
+@media(max-width:560px){.flow{grid-template-columns:1fr;gap:4px}.flow .ar .ln{display:none}.flow .ar::before{content:"↓";display:block;color:var(--ink3);font-size:16px}.flow .ar.back::before{content:"↑"}.flow .gap{height:14px}}
 .grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
 .grade{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px}
 .grade b{display:block;font-size:14.5px}
@@ -332,6 +373,174 @@ details>div{padding:0 0 12px;font-size:14.5px}
 </table>
 </div>
 
+<h3 id="s5-5">누가 건물을 갖고 있나 — 세 회사의 층 구조</h3>
+<div class="stack3" role="img" aria-label="세 회사의 층 구조: 맨 아래 건물과 전력, 가운데 GPU 클라우드, 맨 위 고객">
+  <div class="col">
+    <div class="ch"><span class="tk IREN">IREN</span><span class="s">수직 통합</span></div>
+    <div class="bx cust"><b>Microsoft · NVIDIA</b>AI 개발사 여러 곳</div>
+    <div class="up">↑</div>
+    <div class="bx own"><b>GPU 클라우드</b>GPU 직접 구매·운영</div>
+    <div class="up">↑</div>
+    <div class="bx own"><b>데이터센터 직접 소유</b>Childress · Sweetwater · BC</div>
+  </div>
+  <div class="col">
+    <div class="ch"><span class="tk NBIS">NBIS</span><span class="s">직접 짓기 + 빌리기 혼합</span></div>
+    <div class="bx cust"><b>Microsoft · Meta</b>AI 개발사</div>
+    <div class="up">↑</div>
+    <div class="bx own"><b>GPU 클라우드</b>GPU 직접 구매·운영</div>
+    <div class="up">↑</div>
+    <div class="base"><div class="bx own"><b>직접</b>핀란드 · Vineland · Independence 등</div><div class="bx lease"><b>임차</b>캔자스시티 · 파리 · 아이슬란드 등</div></div>
+  </div>
+  <div class="col">
+    <div class="ch"><span class="tk CRWV">CRWV</span><span class="s">건물은 임차 위주</span></div>
+    <div class="bx cust"><b>OpenAI · Meta</b>Microsoft 등</div>
+    <div class="up">↑</div>
+    <div class="bx own"><b>GPU 클라우드</b>GPU 직접 구매·운영</div>
+    <div class="up">↑</div>
+    <div class="bx lease"><b>코로케이션 임차</b>Core Scientific · Galaxy · Applied Digital 등</div>
+  </div>
+</div>
+<div class="legend"><span><i class="cust"></i>고객</span><span><i class="own"></i>회사가 직접 소유</span><span><i class="lease"></i>다른 회사에게서 빌림</span><span>↑ = 서비스 제공 방향</span></div>
+<p>세 회사 모두 GPU를 직접 사서 계산 능력을 판다는 점(가운데 층)은 같습니다. 차이는 그 아래, 건물과 전력을 누가 갖고 있느냐입니다.</p>
+<ul>
+  <li><span class="tk IREN">IREN</span>: 땅·전력망 연결·건물·GPU를 모두 직접 갖습니다. 남는 몫이 가장 크지만, 건물 투자비와 GPU 투자비를 모두 혼자 마련해야 합니다.</li>
+  <li><span class="tk NBIS">NBIS</span>: 핀란드처럼 직접 지은 곳과 다른 회사 건물을 빌린 곳(캔자스시티·파리·아이슬란드 등, 2026년 9월 AIB 50MW 임차 포함)이 섞여 있습니다.</li>
+  <li><span class="tk CRWV">CRWV</span>: 건물은 대부분 <a class="g" href="#g-colo">코로케이션</a> 회사에게서 빌립니다. 그래서 Core Scientific·Galaxy·Applied Digital에게는 고객이면서 가장 큰 임차인입니다.</li>
+</ul>
+
+<h3 id="s5-6">계약 예시 — 같은 1MW, 받는 돈과 내는 돈</h3>
+<p>① <b>GPU 클라우드 계약 (고객 → 세 회사)</b>: 세 회사가 받는 돈입니다. GPU 장비 값까지 들어간 금액입니다.</p>
+<div class="tblwrap">
+<table>
+  <thead><tr><th>회사</th><th>고객</th><th>발표</th><th>규모·기간</th><th>총액</th><th>MW·년당 (계산)</th></tr></thead>
+  <tbody>
+    <tr><td><span class="tk IREN">IREN</span></td><td>Microsoft</td><td>2025-11</td><td>200MW · 5년</td><td>$97억</td><td>약 $970만</td></tr>
+    <tr><td><span class="tk IREN">IREN</span></td><td>NVIDIA</td><td>2026-05</td><td>60MW · 5년</td><td>$34억</td><td>약 $1,130만</td></tr>
+    <tr><td><span class="tk IREN">IREN</span></td><td>AI 개발사 여러 곳</td><td>2026-07</td><td>기간 비공개<span class="cn">회사 전체 계약 평균 약 4년</span></td><td>$28억 (합계)</td><td>용량 비공개</td></tr>
+    <tr><td><span class="tk NBIS">NBIS</span></td><td>Microsoft</td><td>2025-09</td><td>약 5년 · 뉴저지 Vineland</td><td>$174억 (최대 $194억)</td><td>용량 비공개<span class="cn">Vineland 부지 전체 약 300MW(보도)로 나누면 약 $1,160만 — 추정 <span class="t p2">2차</span></span></td></tr>
+    <tr><td><span class="tk NBIS">NBIS</span></td><td>Meta</td><td>2025-11</td><td>5년</td><td>약 $30억</td><td>용량 비공개</td></tr>
+    <tr><td><span class="tk CRWV">CRWV</span></td><td>OpenAI</td><td>2025-03~09 (3건)</td><td>여러 해</td><td>약 $224억 (합계)</td><td>용량 비공개</td></tr>
+    <tr><td><span class="tk CRWV">CRWV</span></td><td>Meta</td><td>2025-09</td><td>2031년까지</td><td>약 $142억</td><td>용량 비공개</td></tr>
+    <tr><td><span class="tk CRWV">CRWV</span></td><td>Meta (새 주문서)</td><td>2026-04</td><td>2032년 12월까지 · Vera Rubin 포함</td><td>약 $210억</td><td>용량 비공개</td></tr>
+  </tbody>
+</table>
+</div>
+<p>② <b>코로케이션 임대 계약 (CRWV → 건물 주인)</b>: CRWV가 내는 돈입니다. 건물과 전력만 빌리고 GPU는 CRWV가 따로 삽니다.</p>
+<div class="tblwrap">
+<table>
+  <thead><tr><th>건물 주인</th><th>규모·기간</th><th>총액</th><th>MW·년당 (계산)</th></tr></thead>
+  <tbody>
+    <tr><td>Core Scientific</td><td>590MW · 12년</td><td>$102억</td><td>약 $140만</td></tr>
+    <tr><td>Galaxy Helios 1·2단계</td><td>393MW · 15년</td><td>$149억</td><td>약 $250만</td></tr>
+    <tr><td>Applied Digital Polaris Forge 1</td><td>400MW · 15년</td><td>$110억</td><td>약 $180만</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="interp">
+  <p style="margin:0 0 6px"><b>① 같은 1MW라도 받는 돈이 4~7배 차이 납니다.</b> GPU 클라우드는 MW·년당 약 $1,000만이고, 코로케이션 임대료는 약 $140만~250만입니다. 대신 GPU 클라우드 쪽은 GPU 값을 직접 대야 합니다(IREN–Microsoft 계약의 Dell 장비만 약 $58억).</p>
+  <p style="margin:0 0 6px"><b>② CRWV는 받는 계약과 내는 계약의 기간이 어긋나 있습니다.</b> 고객에게서 받는 계약은 4~6년이 많은데, 건물 주인에게 내는 임대 계약은 12~15년입니다. 고객 계약이 끝난 뒤 다시 계약하지 못해도 임대료는 계속 내야 합니다. 이 위험은 CRWV에게서 임대료를 받는 Core Scientific·Galaxy·Applied Digital에게도 이어집니다.</p>
+  <p style="margin:0"><b>③ IREN에게는 이 어긋남이 없습니다.</b> 건물이 자기 것이라 고객이 바뀌면 다른 고객에게 다시 팔면 됩니다. 대신 GPU 가치 하락(보통 5년 안팎에 걸쳐 감가상각)과 재계약 위험은 IREN이 혼자 집니다.</p>
+</div>
+<p style="font-size:14px;color:var(--ink2)">IREN 계약과 코로케이션 임대 계약 숫자는 주간 페이지의 '업계 AI 계약 비교' 원장(회사 공시·보도자료, 기준일 2026-10-30)에서 가져왔습니다. MW·년당은 총액 ÷ 기간 ÷ IT 용량으로 계산한 값이며, NVIDIA 계약의 60MW는 IT 기준인지 전체 기준인지 구분되지 않습니다. Galaxy 단가가 다른 임대보다 높은 것은 공사비 분담이나 임대 형태 차이 때문일 수 있어 회사 간 비교는 참고용입니다. NBIS·CRWV의 고객 계약은 원장에 없고 회사 발표 기준입니다. 2026-11-02에 다시 확인한 결과, GPU 클라우드 계약은 IREN의 Microsoft·NVIDIA 두 건만 용량을 공개했고 나머지는 회사 자료·공시 모두 용량(MW)을 밝히지 않았습니다. NBIS–Microsoft의 '부지 전체 300MW' 추정은 계약 용량이 아니라 부지 설계 용량(보도)이라 실제 단가와 다를 수 있습니다. CRWV–Meta 2026-04 계약은 2026-03-31 새 주문서로 공시됐고(8-K), 2025-09 계약과의 관계(추가인지 대체인지)는 공시에 적혀 있지 않습니다.</p>
+
+<h3 id="s5-7">돈은 먼저 나가고 나중에 들어온다 — 자금조달과 실행력</h3>
+<p>네오클라우드는 GPU와 건물을 먼저 사야 고객에게 돈을 받을 수 있습니다. 그래서 사업 초기에는 현금이 계속 빠져나갑니다. 예를 들어 NBIS는 2026년 1~3월 매출이 약 $4억이었는데, 같은 분기 설비투자는 $25억이었습니다. CRWV는 같은 분기 매출이 $20.8억으로 1년 전의 두 배를 넘었지만 순손실은 $7.4억이었습니다 <span class="t p2">2차 · KB증권 2026-07</span>.</p>
+<p style="margin:14px 0 0"><b>1GW 데이터센터 하나의 누적 현금</b> <span style="font-size:13px;color:var(--ink3)">(KB증권 시나리오, 단위 $억)</span></p>
+<div class="chartwrap">
+<svg viewBox="0 20 712 252" role="img" aria-labelledby="jc-t jc-d">
+  <title id="jc-t">1GW 데이터센터 누적 현금 — 계획대로 vs 1년 지연</title>
+  <desc id="jc-d">투자 시점 -450억 달러에서 시작해, 계획대로면 3년 뒤 -41억, 4년 뒤 +96억, 5년 뒤 +233억. 1년 늦어지면 5년 뒤 +85억.</desc>
+  <rect class="neg" x="70" y="111" width="530" height="135"/>
+  <line class="gl" x1="70" x2="600" y1="57" y2="57"/><line class="gl" x1="70" x2="600" y1="165" y2="165"/><line class="gl" x1="70" x2="600" y1="219" y2="219"/>
+  <line class="zl" x1="70" x2="600" y1="111" y2="111"/>
+  <text class="ax" x="62" y="61" text-anchor="end">+200</text><text class="ax" x="62" y="115" text-anchor="end">0</text><text class="ax" x="62" y="169" text-anchor="end">−200</text><text class="ax" x="62" y="223" text-anchor="end">−400</text>
+  <text class="ax" x="70" y="264" text-anchor="middle">투자</text><text class="ax" x="176" y="264" text-anchor="middle">1년</text><text class="ax" x="282" y="264" text-anchor="middle">2년</text><text class="ax" x="388" y="264" text-anchor="middle">3년</text><text class="ax" x="494" y="264" text-anchor="middle">4년</text><text class="ax" x="600" y="264" text-anchor="middle">5년</text>
+  <text class="lb2" x="590" y="238" text-anchor="end">누적 현금이 마이너스인 구간 — 이 기간을 빌린 돈으로 버팀</text>
+  <polyline class="s2" points="70,232.5 176,235.6 282,198.8 388,161.9 494,125 600,88.2"/>
+  <polyline class="s1" points="70,232.5 176,195.6 282,158.8 388,121.9 494,85.1 600,48.2"/>
+  <g>
+    <circle class="hit" cx="176" cy="235.6" r="12"><title>1년 지연 · 1년: −$462억 (매출 없이 운영비만)</title></circle><circle class="d2" cx="176" cy="235.6" r="4.5"/>
+    <circle class="hit" cx="282" cy="198.8" r="12"><title>1년 지연 · 2년: −$325억</title></circle><circle class="d2" cx="282" cy="198.8" r="4.5"/>
+    <circle class="hit" cx="388" cy="161.9" r="12"><title>1년 지연 · 3년: −$189억</title></circle><circle class="d2" cx="388" cy="161.9" r="4.5"/>
+    <circle class="hit" cx="494" cy="125" r="12"><title>1년 지연 · 4년: −$52억</title></circle><circle class="d2" cx="494" cy="125" r="4.5"/>
+    <circle class="hit" cx="600" cy="88.2" r="12"><title>1년 지연 · 5년: +$85억</title></circle><circle class="d2" cx="600" cy="88.2" r="4.5"/>
+    <circle class="hit" cx="70" cy="232.5" r="12"><title>투자 시점: −$450억 (GPU·서버 $340억 + 건물·전력 $110억)</title></circle><circle class="d1" cx="70" cy="232.5" r="4.5"/>
+    <circle class="hit" cx="176" cy="195.6" r="12"><title>계획대로 · 1년: −$314억</title></circle><circle class="d1" cx="176" cy="195.6" r="4.5"/>
+    <circle class="hit" cx="282" cy="158.8" r="12"><title>계획대로 · 2년: −$177억</title></circle><circle class="d1" cx="282" cy="158.8" r="4.5"/>
+    <circle class="hit" cx="388" cy="121.9" r="12"><title>계획대로 · 3년: −$41억</title></circle><circle class="d1" cx="388" cy="121.9" r="4.5"/>
+    <circle class="hit" cx="494" cy="85.1" r="12"><title>계획대로 · 4년: +$96억</title></circle><circle class="d1" cx="494" cy="85.1" r="4.5"/>
+    <circle class="hit" cx="600" cy="48.2" r="12"><title>계획대로 · 5년: +$233억</title></circle><circle class="d1" cx="600" cy="48.2" r="4.5"/>
+  </g>
+  <text class="lb" x="612" y="46">계획대로</text><text class="lb2" x="612" y="62">5년 뒤 +$233억</text>
+  <text class="lb" x="612" y="92">1년 지연</text><text class="lb2" x="612" y="108">5년 뒤 +$85억</text>
+</svg>
+</div>
+<div class="legend"><span>━ 계획대로 (KB증권 시나리오)</span><span>╍ 1년 지연 (이 페이지 계산)</span><span>점에 마우스를 올리면 해마다 값이 보입니다</span></div>
+<details><summary>숫자로 보기 · 가정</summary><div>
+  <div class="tblwrap" style="margin-top:0"><table>
+    <thead><tr><th>시점</th><th>투자</th><th>1년</th><th>2년</th><th>3년</th><th>4년</th><th>5년</th></tr></thead>
+    <tbody>
+      <tr><td>계획대로</td><td>−$450억</td><td>−$314억</td><td>−$177억</td><td>−$41억</td><td>+$96억</td><td>+$233억</td></tr>
+      <tr><td>1년 지연</td><td>−$450억</td><td>−$462억</td><td>−$325억</td><td>−$189억</td><td>−$52억</td><td>+$85억</td></tr>
+    </tbody>
+  </table></div>
+  <p>KB증권 가정: 엔비디아 차세대 랙(VR200 NVL72) 약 4,350대, GPU 약 31만 개. 투자비 $450억(GPU·서버·네트워크 $340억 + 건물·전력·냉각 $110억). 가동률 90%, GPU 시간당 $6(장기 계약 가정)로 연 매출 약 $148억, 전력비 등 운영비 연 $11.5억. 그래서 해마다 약 $136.5억이 들어옵니다. 보고서는 이 숫자로 '완전 가동된 데이터센터 자체는 수익성이 충분하다'고 봅니다.</p>
+  <p>이 페이지의 계산: 누적 현금은 위 숫자를 해마다 더한 값입니다. '1년 지연'은 첫해에 매출 없이 운영비만 나가고, GPU 수명(5년)은 그대로라 돈을 버는 해가 4년으로 줄어든다고 가정했습니다. 두 선 모두 이자와 세금은 빼고 계산했습니다. 실제로는 투자비 상당 부분을 빌리기 때문에 이자만큼 선이 더 아래로 내려갑니다.</p>
+</div></details>
+<div class="interp">계획대로면 약 3.3년 만에 투자비를 회수하고, 5년 뒤에는 $233억이 남습니다. 1년만 늦어져도 회수에 약 4.4년이 걸리고, 5년 뒤 남는 돈은 $85억으로 3분의 1 남짓으로 줄어듭니다. 그래서 네오클라우드에서는 두 가지가 실적을 가릅니다. 하나는 <b>자금조달</b>, 즉 마이너스 구간을 버틸 돈을 싸게 구하는 능력입니다. 다른 하나는 <b>실행력</b>, 즉 약속한 날짜에 가동하는 능력입니다. 아래 두 사례는 세 회사가 이 마이너스 구간을 어떻게 메우는지 보여 줍니다.</div>
+
+<p style="margin:22px 0 0"><b>사례 ① <span class="tk IREN">IREN</span> – Microsoft: 장기 계약 + 선급금</b></p>
+<div class="flow">
+  <div class="nd"><b>Microsoft</b>고객</div>
+  <div class="ar"><span class="ln">────→</span>① 5년 <b>$97억</b> GPU 클라우드 계약<br>② 선급금 20% <b>약 $19억</b> — 물량 인도 전 지급</div>
+  <div class="nd"><b>IREN</b>Childress 200MW</div>
+  <div class="gap"></div>
+  <div class="nd"><b>IREN</b></div>
+  <div class="ar"><span class="ln">────→</span>③ GB300 GPU·서버 대금 <b>약 $58억</b></div>
+  <div class="nd"><b>Dell</b>장비 공급</div>
+  <div class="gap"></div>
+  <div class="nd"><b>Microsoft</b></div>
+  <div class="ar back"><span class="ln">←────</span>④ 인수 뒤부터 이용료 지급<br>선급금은 24개월째부터 이용료에서 차감</div>
+  <div class="nd"><b>IREN</b>컴퓨팅 제공</div>
+</div>
+<ul>
+  <li><b>선급금이 장비값의 약 33%</b>입니다($19억 ÷ $58억). 나중에 이용료에서 깎이는 '미리 받은 돈'이라 이자가 없고 새 주식도 필요 없습니다 <span class="t p1">1차</span>.</li>
+  <li>나머지는 보유 현금·<a class="g" href="#g-cb">전환사채</a>·장비 담보 대출로 메웁니다. 5년짜리 Microsoft 계약이 있어 빌리기가 쉬워집니다.</li>
+  <li>2026년 6월 이후 맺은 계약은 선급금이 관련 GPU 투자비의 <b>약 45%</b>입니다 <span class="t p1">1차 · 2026-07</span>.</li>
+  <li><b>위험은 누가 지나:</b> Microsoft는 건물·GPU를 자기 장부에 올리지 않고 용량만 빌립니다(장부 밖, off-balance). 건설비 초과·전력 연결·장비 인도·GPU 가치 하락 위험은 IREN이 집니다. <b>인도가 늦으면 Microsoft는 계약을 해지할 수 있습니다</b> <span class="t p1">1차</span>.</li>
+</ul>
+
+<p style="margin:22px 0 0"><b>사례 ② <span class="tk CRWV">CRWV</span>: GPU와 고객 계약을 묶은 별도 회사(SPV)의 대출</b></p>
+<div class="flow">
+  <div class="nd"><b>CRWV</b>모회사</div>
+  <div class="ar"><span class="ln">────→</span>GPU와 <b>Meta $142억 계약</b>을 넘김</div>
+  <div class="nd spv"><b>별도 자회사(SPV)</b>CRWV가 망해도 분리</div>
+  <div class="gap"></div>
+  <div class="nd"><b>대출 기관</b></div>
+  <div class="ar"><span class="ln">────→</span><b>$85억</b> 대출(DDTL 4.0) · GPU 담보 대출 중 처음으로 투자등급</div>
+  <div class="nd spv"><b>SPV</b>GPU 구매</div>
+  <div class="gap"></div>
+  <div class="nd"><b>Meta</b>고객</div>
+  <div class="ar"><span class="ln">────→</span>매달 이용료 → 대출 원리금부터 갚음</div>
+  <div class="nd spv"><b>SPV</b></div>
+</div>
+<p>DDTL(지연 인출 대출)은 한도를 미리 정해 두고 GPU를 살 때마다 필요한 만큼만 꺼내 쓰는 대출입니다. 아직 꺼내지 않은 돈에는 이자를 내지 않고 작은 수수료만 냅니다. 같은 이름의 대출이라도 어떤 계약을 묶었느냐에 따라 금리가 크게 달라집니다.</p>
+<div class="tblwrap">
+<table>
+  <thead><tr><th>대출</th><th>시기</th><th>규모</th><th>금리</th><th>묶은 것</th></tr></thead>
+  <tbody>
+    <tr><td>DDTL 1.0</td><td>2023-08</td><td>$23억</td><td>약 15%</td><td>H100 GPU 중심</td></tr>
+    <tr><td>DDTL 3.0</td><td>2025-07</td><td>$26억</td><td>기준금리 + 4.00%</td><td>OpenAI 계약</td></tr>
+    <tr><td>DDTL 4.0</td><td>2026-03</td><td>$85억</td><td>기준금리 + 2.25% (고정 약 5.9%)<span class="cn">투자등급(A3)</span></td><td>Meta $142억 계약</td></tr>
+    <tr><td>DDTL 5.5</td><td>2026-08</td><td>$26억</td><td>기준금리 + 5.50%<span class="cn">모회사 보증</span></td><td>고객 계약 · 고객이 해지할 수 있는 상태가 되면 현금이 묶이는 조건 <span class="t p1">1차</span></td></tr>
+  </tbody>
+</table>
+</div>
+<p style="font-size:14px;color:var(--ink2)">DDTL 1.0~4.0은 KB증권 보고서(2026-07-27)의 정리이고 <span class="t p2">2차</span>, 5.5는 CRWV의 8/10 공시입니다(주간 페이지 <a href="weekly_events.html#t-crwv-debt">빚과 이자</a>). 기준금리는 SOFR입니다. KB증권은 5월에 'DDTL 5.0'($31억, 기준금리 + 4.50%)도 적었지만 이 페이지는 공시로 대조하지 않았습니다.</p>
+<div class="interp">금리를 낮춘 것은 CRWV 자체의 신용보다 묶어 둔 고객의 신용입니다. Meta 계약을 묶은 4.0은 투자등급을 받았지만, 8월의 5.5는 다시 기준금리 + 5.5%입니다. 대출 조건도 고객 계약 이행과 묶여 있습니다. 인도가 늦어 고객이 계약을 해지할 수 있는 상태가 되면 돈이 묶입니다. 자금조달과 실행력이 따로 있는 것이 아니라 한 줄로 이어져 있는 셈입니다.</div>
+<p><span class="tk NBIS">NBIS</span>도 같은 방향입니다. 2026년 7월 GPU와 투자등급 고객의 계약을 담보로 첫 담보 대출 약 $7.75억(기준금리 + 2.50%, 2030년 만기)을 받았습니다. 회사는 이 대출과 계약 현금으로 해당 GPU 투자의 100% 이상을 댈 수 있다고 밝혔습니다 <span class="t p2">2차 · KB증권</span>. 다만 10월에는 1년짜리 Citi 담보 대출 $35억(기준금리 + 2.75%에서 시작해 오름)을 썼습니다 <span class="t p1">1차</span>.</p>
+<div class="callout"><b>선급금과 계약 담보는 공짜 돈이 아닙니다.</b> 이자와 희석은 줄여 주지만, 그 대가로 특정 고객에게 더 묶이고 인도 일정의 무게가 커집니다. 뉴스에서 "대형 계약"을 보면 금액과 함께 <b>선급금이 있는지, 인도 기한과 해지 조건이 무엇인지</b>를 같이 확인하세요.</div>
+
 <!-- 6 -->
 <h2 id="s6"><span class="no">6</span>뉴스 읽는 법 — 세 회사 사례로</h2>
 <p class="lead">이 페이지를 만드는 시스템이 매일 쓰는 규칙을 쉬운 말로 옮긴 것입니다. 3분 요약의 세 가지를 실제 사례로 풀었습니다.</p>
@@ -415,10 +624,12 @@ details>div{padding:0 0 12px;font-size:14.5px}
     <tr><td>발행 주식</td><td>약 4.05억 주 (9/28)</td><td>약 2.72억 주 (6/30)</td><td>약 5.52억 주 (7/31)</td></tr>
     <tr><td>모두 주식이 되면(완전희석)</td><td>약 5.59억 주 · +38% (회사 제시, 6/30)</td><td>약 3.68억 주 · +35% (계산)</td><td>약 7.1억 주 · +29% (계산)</td></tr>
     <tr><td>남은 ATM</td><td>약 $35억어치</td><td>1,227만 주</td><td>최대 3,500만 주</td></tr>
+    <tr><td>주당 분기 매출 (계산)</td><td><b>$0.25~0.34</b><span class="cn">연환산(×4) $0.98~1.36</span><span class="cn">4~6월 매출 $1.37억</span></td><td><b>$2.14</b><span class="cn">연환산(×4) $8.57</span><span class="cn">4~6월 매출 $5.82억</span></td><td><b>$4.67</b><span class="cn">연환산(×4) $18.67</span><span class="cn">4~6월 매출 $25.75억</span></td></tr>
+    <tr><td>주당 가동 ARR (연환산, 계산)</td><td><b>$1.79~2.47</b><span class="cn">가동 ARR $10억 (8/26)</span></td><td><b>$11.04</b><span class="cn">ARR $30억 (6/30, 마지막 달 매출 × 12)</span></td><td><b>—</b><span class="cn">회사가 ARR을 공개하지 않음</span></td></tr>
   </tbody>
 </table>
 </div>
-<p style="font-size:14px;color:var(--ink2)">2026년 6~9월 공시 기준이며 계산값은 주간 페이지의 희석 점검표와 같습니다. 기준일이 서로 달라 단순 비교용입니다.</p>
+<p style="font-size:14px;color:var(--ink2)">2026년 6~9월 공시 기준이며 계산값은 주간 페이지의 희석 점검표와 같습니다. 기준일이 서로 달라 단순 비교용입니다. 주당 값은 회사가 낸 숫자가 아니라 매출·ARR을 주식 수로 나눈 계산입니다. IREN은 회사가 제시한 완전희석 주식(작은 값)~발행 주식(큰 값) 범위이고, NBIS·CRWV는 회사가 완전희석 주식 수를 제시하지 않아 발행 주식으로만 나눴습니다. 매출과 주식 수의 기준일이 달라(예: IREN 매출 4~6월, 발행 주식 9/28) 대략적인 크기만 보여 줍니다. ARR은 이미 1년 단위라 '연환산 매출'과 나란히 비교할 수 있지만, 회계 기준 숫자는 아닙니다.</p>
 <div class="interp">주식이 늘어나는 것 자체가 나쁜 것은 아닙니다. 그 돈으로 매출이 주식 수보다 빨리 늘면 한 주의 몫은 커집니다. 그래서 볼 숫자는 '주당 매출'이 오르는지입니다. 주간 페이지의 <a href="weekly_events.html#pershare">주당 매출·ARR 추이</a>가 이 질문을 매 분기 추적합니다.</div>
 <details><summary>전환사채는 언제 실제로 주식이 되나</summary><div>
   <p>전환사채는 주가가 정해진 전환가보다 높을 때 주식으로 바꾸는 것이 유리해집니다. 예를 들어 CRWV가 2026년 9월 발행한 전환사채의 전환가는 약 $97.85인데, 10/28 종가는 $63.93이었습니다. 주가가 전환가 아래에 있는 동안은 빚으로 남습니다. 많은 회사가 '캡드콜(capped call)'이라는 옵션을 함께 사서 일정 주가까지는 희석을 줄입니다.</p>
@@ -435,6 +646,7 @@ details>div{padding:0 0 12px;font-size:14.5px}
   <div id="g-mw"><dt>MW · GW (IT 기준 / 전체 기준)</dt><dd>데이터센터 규모를 재는 전력 단위. 1GW = 1,000MW. 'IT 기준'은 서버가 쓰는 전력만, '전체(gross)'는 냉각 등을 포함한 값이라 같은 시설도 숫자가 다릅니다.</dd></div>
   <div id="g-grid"><dt>전력망 연결 · ERCOT · SB6</dt><dd>데이터센터를 전력망에 붙이는 절차. ERCOT은 텍사스 전력망 운영기관이고, SB6는 텍사스의 대형 전력 사용자 규제법(비상시 원격 차단 장비 의무 등)입니다.</dd></div>
   <div id="g-vertical"><dt>수직 통합</dt><dd>땅·전력·건물·GPU·소프트웨어를 한 회사가 모두 직접 갖고 운영하는 방식. 반대는 건물이나 전력을 빌려 쓰는 임차형.</dd></div>
+  <div id="g-colo"><dt>코로케이션</dt><dd>전력과 냉각을 갖춘 데이터센터 건물을 다른 회사에 빌려주는 사업. 빌리는 쪽이 서버·GPU를 직접 들여놓습니다. 계약은 보통 10~15년이고 MW 단위로 임대료를 받습니다. Core Scientific·Galaxy·Applied Digital이 CRWV에게 이렇게 빌려줍니다.</dd></div>
   <div id="g-ondemand"><dt>온디맨드 · 장기 약정</dt><dd>온디맨드는 가격표대로 시간 단위로 빌리는 방식, 장기 약정은 수년간 정해진 용량을 묶어 두는 방식입니다. 장기 약정 고객은 보통 할인을 받습니다.</dd></div>
   <div id="g-delivery"><dt>인도 · 인수</dt><dd>데이터센터 계약에서 회사가 건물·GPU를 고객에게 넘기는 것이 인도, 고객이 시험을 마치고 넘겨받는 것이 인수입니다. 인수가 끝나야 매출이 시작되는 계약이 많습니다.</dd></div>
   <div class="gcat">매출·회계</div>
