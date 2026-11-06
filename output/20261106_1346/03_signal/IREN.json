@@ -1,0 +1,330 @@
+{
+ "as_of": "2026-11-06",
+ "run_id": "20261106_1346",
+ "ticker": "IREN",
+ "staleness_days": 0,
+ "input_source": "output/20261106_1346/03_input/arbiter_IREN.json",
+ "kc_excerpt_source": "output/20261106_1346/03_kc_excerpt/IREN.json",
+ "prior_signal": "🔴🔴",
+ "prior_signal_basis": "state/signals.json grades.IREN — 사람 확정 2026-10-03 (KC-1 FFR>3.75, trigger_source=[KC-1])",
+ "proposed_signal": "🔴🔴",
+ "transition_candidate": "maintain_confirmed_kill_state",
+ "candidate_disclaimer": "본 출력은 등급 전이 후보다. 현행 🔴🔴는 사람이 2026-10-03 확정한 상태이며 이번 회차는 신규 전이가 아니라 유지 후보다. 등급 확정·해소·재판정은 사람이 한다.",
+ "claims": [
+  {
+   "id": "IREN-2611-C01",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "revenue_recognized",
+   "summary": "[P1] Q1 FY27 총매출 $228m(QoQ +66%), AI Cloud $200m(Services $135m + Lease $65m), 채굴 $28m. 10-Q+보도자료 삼각검증."
+  },
+  {
+   "id": "IREN-2611-C03",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "revenue_recognized",
+   "summary": "[P1] AI Cloud Lease(ASC842) $65m = 확정·실질확정 고정 리스료 $49m(정액) + 가용성 조건부 $16m. 가용성 약정·SLA 크레딧이 리스에 포함."
+  },
+  {
+   "id": "IREN-2611-C04",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "revenue_recognized",
+   "summary": "[P1] 10-Q는 리스 매출 증가를 Microsoft Agreement 포함(including)으로 서술. $65m 중 Horizon 1 단독 금액은 10-Q·보도자료 어디에도 별도 표시 없음."
+  },
+  {
+   "id": "IREN-2611-C06",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "contract_schedule",
+   "summary": "[P1] 최소 리스료 스케줄 FY27 잔여 $271m·FY28 $363m 등 합계 $1,841m(가용성 조건부 제외). 리스 잔여 총가치 약 $13,957m."
+  },
+  {
+   "id": "IREN-2611-C09",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "delivery_pending",
+   "summary": "[P1] $4bn 초과 ARR 목표 가동 시점이 2026 말 → 2027-01-31(최대 2월 말)로 이동. 사유: 고객 요청 변경·공급업체 일정."
+  },
+  {
+   "id": "IREN-2611-C10",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "delivery_pending",
+   "summary": "[P1] Horizon 1은 2026-08 Microsoft 인도·인수·가동. Microsoft 요청 설계변경으로 Horizon 2-4 인도 연장(지연 크레딧 없음), 수수료·크레딧·비용 상환 협의 미종결. 일정 달성 보장 없음."
+  },
+  {
+   "id": "IREN-2611-C15",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "funding",
+   "summary": "[P1] 9/30 기준 잔여 FY27 capex $15bn = 확약성 $9bn + 시장 조건부 목표 $6bn."
+  },
+  {
+   "id": "IREN-2611-C19",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "balance_sheet",
+   "summary": "[P1] 순부채 $216m(6/30) → $4,430m(9/30), 현금 $3,522m, 총차입 $10,208m, 이연수익 $2,544m(리스 이연수익 $2,096m 포함)."
+  },
+  {
+   "id": "IREN-2611-C20",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "dilution",
+   "summary": "[P1] 10/30 기본 발행 424,357,381주(6/30 380,710,559주, +11.5%). ATM 누적 약 $3.7bn."
+  },
+  {
+   "id": "IREN-2611-C22",
+   "claim_type": "fact",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "revenue_recognized",
+   "summary": "[P1] 순손실 $(263)m, Adj. EBITDA $66m(마진 29%), 영업활동 현금흐름 +$529m(이연수익 증가 +$645m 포함)."
+  },
+  {
+   "id": "IREN-2611-I02",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": true,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "inference_only",
+   "summary": "[P1] Lease $49m 고정분은 Horizon 1 약 1.6개월분 정액과 규모가 일치하므로 Horizon 1이 주된 원천일 개연성이 있으나 단독 인식액은 확정 불가.",
+   "inference_strength": "medium"
+  },
+  {
+   "id": "IREN-2611-I03",
+   "claim_type": "inference",
+   "evidence_grade": 1,
+   "quantitative": false,
+   "scope": "company_specific",
+   "confirmed": true,
+   "stage": "inference_only",
+   "summary": "[P1] P7 3단 분리: Horizon 1은 계약→인도·인수→매출 인식 개시 통과. Horizon 2-4는 계약 단계(인도·인수·매출 인식 미도래). 리스크 이관 H1→H2-4는 유지.",
+   "inference_strength": "medium"
+  }
+ ],
+ "filter_bug_report": "없음(F13 위반 아님) — 필터본 claims 전부 scope=company_specific, removed_claims 0건.",
+ "kill_check": {
+  "triggered": true,
+  "trigger_source": [
+   "KC-1",
+   "KC-5"
+  ],
+  "trigger_source_note": "KC-1은 사람 확정(2026-10-03) 기존 trigger. KC-5(TAIEX 음전환)는 이번 회차 KC 발췌에서 신규로 met+confirmed(직전 2026-10-09 회차는 not_met) — 규칙1 문언상 trigger_source 확장 후보이며 확장 여부는 사람이 결정. KC-5 consequence는 광범위 디리스킹 검토(검토 의무, 실행 지시 아님, P15).",
+  "kc_reference": [
+   {
+    "kc_id": "KC-1",
+    "condition": "FFR 인상 리스크 (FFR > 3.75)",
+    "value": "4.00 (as_of 2026-11-05, api)",
+    "verdict": "met",
+    "verdict_confidence": "confirmed",
+    "note": "규칙1 발동 요건(met AND confirmed) 충족, 해소되지 않음. 🔴🔴 + 사람 확인 요청."
+   },
+   {
+    "kc_id": "KC-5",
+    "condition": "TAIEX 음전환 (아시아 리스크 프록시)",
+    "value": "vs 20DMA -13.47%, 1m -19.68% (as_of 2026-11-06, api)",
+    "verdict": "met",
+    "verdict_confidence": "confirmed",
+    "note": "규칙1 요건 형식상 충족(신규). 매크로 프록시 KC이므로 종목 펀더멘털 근거로는 쓰지 않는다(P6/P13)."
+   },
+   {
+    "kc_id": "KC-2/3/4",
+    "verdict": "not_met",
+    "verdict_confidence": "confirmed",
+    "note": "KC-2 VIX 28.18 < 30. KC-3 BTC 75,529 > 55,000. KC-4 ON_RRP 0.125B < 200B. 단 VIX 28.18은 KC-2 임계 30에 근접."
+   },
+   {
+    "kc_id": "KC-6/7/8/9",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "KC-9 brent 107.03 < 120(stale 3/3 경계). KC-6·7·8 provisional."
+   },
+   {
+    "kc_id": "KC-10",
+    "verdict": "not_met",
+    "verdict_confidence": "provisional",
+    "note": "이벤트형. 이번 필터본에서 강제 감축 분류·인허가 취소·보류 공시 미적재(C26: 10-Q Item 1A 변경 없음, SB6 적용 MW 미공시). 정보 부재이며 반증이 아니다(P5)."
+   }
+  ],
+  "own_company_kc": "종목 전용 active KC 미정의 — 종목 전용 KC 훼손 0건"
+ },
+ "gate_check": {
+  "quantitative_evidence": true,
+  "company_specific": true,
+  "revenue_recognized": false,
+  "detail": {
+   "quantitative": "true — AI Cloud Lease $65m(고정 $49m + 조건부 $16m) 등 확정 수치(C01·C03, grade 1, confirmed).",
+   "scope": "true — 필터본 전 Claim company_specific.",
+   "stage": "false(사전 정의 게이트 ⑪ 문언 기준) — ASC842 매출 $65m은 revenue_recognized 단계이나, 게이트 ⑪이 요구하는 Horizon 1분 단독 금액은 분리 공시되지 않음(C04, I02, u_20261106_IREN_06). 총액 중 Horizon 1 귀속분은 개연성 추론(medium)일 뿐 확정 사실이 아니다(P7). Horizon 2-4는 delivery_pending."
+  },
+  "upgrade_gate": {
+   "conditions_required": [
+    "quantitative == true",
+    "scope == company_specific",
+    "stage == revenue_recognized"
+   ],
+   "conditions_met": {
+    "quantitative": true,
+    "company_specific": true,
+    "revenue_recognized": false
+   },
+   "result": "not_met",
+   "gate_11": {
+    "definition": "ASC842 리스 매출 인식 금액(Horizon 1분)",
+    "result": "partial — 총액 관측 완료·Horizon 1 분리 미충족 → 상향 근거 불채택",
+    "observed": "AI Cloud Lease $65m(직전 분기 0), 고정 $49m + 조건부 $16m"
+   },
+   "reason": "게이트 ⑪은 총액 관측점(최초 리스 매출 인식)은 충족했으나 Horizon 1 단독 금액 미분리로 문언 미충족. 설령 충족으로 해석해도 규칙1(KC-1·KC-5 met+confirmed)이 우선하므로 상향 후보는 성립하지 않는다. 인도 완료·인수는 holding_reinforcement 분류만(규칙2)."
+  },
+  "note": "정량 확정 매출 개시는 thesis 강화 방향의 실질 진전이나, 상향 후보 요건·Kill 우선 모두 미충족. 게이트 미충족은 실패가 아니라 정상 경로(P12)."
+ },
+ "downgrade_check": {
+  "quantitative_impairment_detected": true,
+  "evidence_grade_le2_qualitative_impairment": true,
+  "asymmetric_downgrade_triggered": false,
+  "reason": "규칙3 요건 자체는 두 갈래에서 형식상 충족: (a) 정량 훼손 — funding_dilution: 순부채 $216m→$4,430m(C19), 기본 발행 주식 +11.5%(C20), 잔여 capex $15bn 중 $6bn 시장 조건부(C15). (b) grade≤2 훼손 — execution_delivery 하위 축 h2_4_delivery_timing: Horizon 2-4 및 $4bn ARR 목표 2026-12-31→2027-01-31(최대 2월 말) 이동(C09·C10, grade 1), 수수료·크레딧 협의 미종결. 그러나 현행 등급이 이미 최하위 🔴🔴이므로 추가 하향 여지가 없어 등급 영향 없음(triggered=false). 이 훼손 요인은 KC-1 해소 후 재판정 시 기저값 산정에 반영해야 한다. 반대 방향 상쇄: ai_cloud_conversion 강화(C01), 영업현금흐름 +$529m(이연수익 +$645m 의존, C22)."
+ },
+ "resolution_conditions": {
+  "to_exit_kill_state": "KC-1 not_met confirmed(FRED DFEDTARU ≤ 3.75 관측, 현재 4.00)와 KC-5 해소를 사람이 확인한 뒤 재판정. 자동 복귀 아님. 재판정 기저는 Horizon 1 분리 공시·Horizon 2-4 인도 이행 여부로 평가.",
+  "company_path_reference": "상향은 Horizon 1 분리 매출 또는 Horizon 2-4 인도 이후 매출 인식(정량·company_specific·revenue_recognized) 확인 시에만 검토."
+ },
+ "thesis_delta_summary": [
+  {
+   "axis": "ai_cloud_conversion",
+   "direction": "강화",
+   "magnitude": "대",
+   "note": "[P1] AI Cloud 매출 $200m(QoQ +182%), 총매출 +66%, 비중 87.7%. 최초 ASC842 리스 매출 $65m. 단 Horizon 1 단독 금액 미분리, 가동 ARR $1bn 기준일 불명, 과금 가동률·MFU 미공개(unconfirmed).",
+   "supporting_claims": [
+    "IREN-2611-C01",
+    "IREN-2611-C03",
+    "IREN-2611-C04",
+    "IREN-2611-I02"
+   ],
+   "risk_transfer_to": []
+  },
+  {
+   "axis": "execution_delivery",
+   "direction": "혼재",
+   "magnitude": "중",
+   "note": "[P1] P8 하위 축 분해: h1_revenue_recognition 강화 / h2_4_delivery_timing 훼손 / contract_exposure_credits_fees 미해결.",
+   "supporting_claims": [
+    "IREN-2611-C09",
+    "IREN-2611-C10",
+    "IREN-2611-I03"
+   ],
+   "risk_transfer_to": [
+    "ai_cloud_conversion: Horizon 1 매출 인식 개시 후 리스크가 Horizon 2-4 인도·크레딧 노출(이연 리스 수익 $2,096m 이행 의존)로 이관·유지, 시점 2027 Q1로 이동"
+   ]
+  },
+  {
+   "axis": "funding_dilution",
+   "direction": "훼손",
+   "magnitude": "중",
+   "note": "[P1] 순부채·주식수·약정 증가, 시장 조건부 조달 $6bn.",
+   "supporting_claims": [
+    "IREN-2611-C15",
+    "IREN-2611-C19",
+    "IREN-2611-C20"
+   ],
+   "risk_transfer_to": []
+  },
+  {
+   "axis": "margin_structure",
+   "direction": "유지",
+   "magnitude": "소",
+   "note": "[P1] AI Cloud 감가상각 제외 매출총이익률 86%(직전과 유사), 감가상각 부문 미배분으로 카드 전제 검증 불가.",
+   "supporting_claims": [
+    "IREN-2611-C22"
+   ],
+   "risk_transfer_to": []
+  },
+  {
+   "axis": "power_permit",
+   "direction": "유지",
+   "magnitude": "소",
+   "note": "[P1] SB6 적용 MW 미공시, 10-Q Item 1A 변경 없음. 정보 부재이며 반증 아님(P5).",
+   "supporting_claims": [],
+   "risk_transfer_to": []
+  },
+  {
+   "axis": "btc_mining",
+   "direction": "혼재",
+   "magnitude": "소",
+   "note": "[P1] 채굴 매출 $28m(QoQ -58%) 계획대로 감소, 종료 표현은 목표 수준으로 완화.",
+   "supporting_claims": [
+    "IREN-2611-C01"
+   ],
+   "risk_transfer_to": []
+  }
+ ],
+ "alert": {
+  "ticker_event": "[P1] IREN — FY27 Q1 실적(2026-11-05 장 마감 후, 10-Q): 총매출 $228m, ASC842 리스 매출 최초 인식 $65m. KC-1(FFR 4.00 > 3.75) met+confirmed 지속, KC-5(TAIEX) 신규 met+confirmed → 🔴🔴 유지 후보 + 사람 확인 요청.",
+  "facts": "[P1][출처·시각] ① 총매출 $228m(QoQ +66%), AI Cloud $200m(Services $135m + Lease $65m), 채굴 $28m [IREN-2611-C01, 10-Q+보도자료, grade 1, 2026-11-05]. ② Lease $65m = 고정 $49m + 가용성 조건부 $16m, Horizon 1 단독 금액은 미분리 [C03·C04, grade 1]. ③ Horizon 2-4 및 $4bn ARR 목표 가동 시점 2026 말 → 2027-01-31(최대 2월 말) 이동 [C09·C10, grade 1]; 수수료·크레딧 협의 미종결. ④ 순부채 $216m→$4,430m, 기본 발행 주식 +11.5%(10/30 424.36M주) [C19·C20, grade 1]. ⑤ 영업활동 현금흐름 +$529m(이연수익 증가 +$645m 포함), Adj. EBITDA $66m [C22]. ⑥ KC-1 FFR 4.00 met/confirmed (2026-11-05, api), KC-5 TAIEX vs 20DMA -13.47%·1m -19.68% met/confirmed (2026-11-06, api) [KC 발췌본].",
+  "inference": "[high, 판정근거] KC-1 met+confirmed는 규칙1 요건을 충족하며 종목 펀더멘털과 별개인 매크로 경로다. KC-5도 형식상 충족하나 매크로 프록시이므로 종목 근거가 아니다. [medium, IREN-2611-I02] Lease $49m 고정분은 Horizon 1 약 1.6개월분 정액과 규모가 일치해 주된 원천일 개연성이 있으나 Horizon 1 단독 인식액은 확정 불가. [medium, I03] Horizon 1은 3단(계약→인도→매출) 통과, Horizon 2-4는 계약 단계.",
+  "classification": "규칙1(Kill 우선) 유지 후보. 상향 게이트 ⑪: 총액 관측 완료·Horizon 1 분리 미충족 → 상향 불채택(규칙2). 최초 리스 매출 개시는 holding_reinforcement(thesis 보강, 등급 근거 아님). 하향(규칙3) 요건은 형식상 존재(funding_dilution 정량 훼손, h2_4 인도 지연)하나 이미 최하위 등급이라 등급 영향 없음. 게이트 미충족은 정상 경로(P12).",
+  "thesis_delta": "ai_cloud_conversion 강화(대) / execution_delivery 혼재(P8 분해: h1_revenue_recognition 강화, h2_4_delivery_timing 훼손, contract_exposure 미해결) / funding_dilution 훼손(중) / margin_structure·power_permit 유지 / btc_mining 혼재(소). 리스크 이관: Horizon 1 매출 인식 개시로 인도 리스크가 소멸한 것이 아니라 Horizon 2-4 인도 이행·크레딧 노출(이연 리스 수익 $2,096m)로 이관·유지되었고 시점이 2027 Q1로 이동했다. KC-1 consequence(레버리지 전액 해제 + Edge/Next 50% 축소 검토)는 검토 의무이며 실행 지시가 아니다(P15).",
+  "signal_verdict": "🔴🔴 유지 후보 (현행 사람 확정 2026-10-03과 동일). 사람 확인 요청: ① KC-1 지속 확인 ② KC-5 신규 met+confirmed를 trigger_source에 추가할지 ③ 실적 이후 thesis 강화·훼손 혼재 상태의 재판정 시점. 등급 확정은 사람.",
+  "next_check": "① Horizon 1 단독 AI Cloud Lease 매출(USD m, 분리 공시 여부) 및 Lease 매출 중 고정분/조건부분 — FY27 Q2 10-Q(2027-02 예상). ② Horizon 2-4 인도·인수 완료 일자: 2027-01-31 이내(최대 2027-02-28) 공시 여부, 8-K/10-Q. ③ KC-1: 차기 FOMC 후 FRED DFEDTARU ≤ 3.75 여부(현 4.00), KC-5 TAIEX vs 20DMA ≥ 0 복귀 여부(현 -13.47%). ④ FY28 최소 리스료 $363m 대비 AI Cloud Lease 분기 매출(USD m). ⑤ 순부채(USD m, 현 4,430)와 기본 발행 주식 수(현 424.36M주 10/30) 및 ATM 누적 $3.7bn 증가폭. ⑥ SB6/PUCT 커테일먼트 적용 MW(기한 2026-12-31). ⑦ 과금 가동률(%)·MFU 공개 여부."
+ },
+ "next_gate": "① Horizon 1 단독 ASC842 리스 매출 금액(USD m) 분리 공시 — FY27 Q2 10-Q ② Horizon 2-4 인도·인수 완료 일자(목표 2027-01-31, 최대 2027-02-28) ③ KC-1 FFR(DFEDTARU) ≤ 3.75 여부(현 4.00) 및 KC-5 TAIEX vs 20DMA ≥ 0 복귀(현 -13.47%) ④ 순부채 USD m(현 4,430)·기본 발행 주식 수(현 424.36M) ⑤ SB6/PUCT 적용 MW ⑥ 과금 가동률(%)",
+ "unconfirmed_carried": [
+  {
+   "topic": "Horizon 1 단독 리스 매출 금액",
+   "reason": "partial — u_20261106_IREN_06"
+  },
+  {
+   "topic": "과금 가동률 / MFU",
+   "reason": "u_20261106_IREN_01·02, 2회 연속 미공개 (P5: 부재는 반증 아님)"
+  },
+  {
+   "topic": "Horizon 2-4 크레딧 협의 결과",
+   "reason": "u_20261106_IREN_08"
+  },
+  {
+   "topic": "SB6 적용 MW / Sweetwater 최종 접속 승인",
+   "reason": "u_20261106_IREN_10·13"
+  },
+  {
+   "topic": "공식 웹캐스트 대조(11/5 콜)",
+   "reason": "u_20261106_IREN_15 — 경영진 발언 Claim(C11·C12·C18·C27·C30)은 비공식 전사"
+  },
+  {
+   "topic": "실적 후 주가 반응",
+   "reason": "u_20261106_IREN_14 — 11/5 종가는 실적 이전, 판정 비사용"
+  }
+ ],
+ "human_confirmation_required": true,
+ "note_for_orchestrator": "필터 버그 없음. KC-5가 직전 회차 not_met에서 met+confirmed로 전환 — trigger_source 확장은 사람 결정. KC-5 입력은 TAIEX 매크로 프록시이며 IREN 종목 근거로 사용하지 않았다(P6/P13). 주가 Claim(C31, grade 4)은 판정에 사용하지 않았다."
+}

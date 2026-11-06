@@ -1,0 +1,36 @@
+{
+  "as_of": "2026-11-06",
+  "run_id": "20261106_1346",
+  "staleness_days": 1,
+  "ticker": "IREN",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "source_artifact": "output/20261106_1346/02_company/IREN.json#thesis_patch_candidates · output/20261106_1346/02E_earnings/IREN_checkpoints_20261105.md §7",
+  "patch_id": "IREN_risks7_keymetrics1_arr_gap_deadline_b",
+  "card_field_detail": "risks[7]·key_metrics[1] — 가동 ARR 갭 기한 2027-01-31, 이연수익 $2,544M 갱신 (편집 2/2: key_metrics)",
+  "priority": "high",
+  "reason": "[fact] 가동 ARR 기한이 2027-01-31로 바뀌었고(IREN-2611-C09), 보도자료의 가동 ARR $1bn에는 기준일이 없다(IREN-2611-C08). [fact] 9/30 이연수익은 $2,544M이다(IREN-2611-C19). 두 필드가 같은 기한을 담고 있어 한 패치로 묶었다(목록 2개 편집 — 각 편집마다 F20 검증).",
+  "card_field": "key_metrics",
+  "operation": "amend",
+  "before": "  - \"ARR 실행 갭 — $4.0B 전액 계약 완료(미계약 갭 해소). 신규 갭 = 가동 중 $1.0B(8/26 기준) 대 계약 $4.0B, 미가동 ~$3.0B의 2026-12-31 기한 가동 여부. ARR은 비GAAP이며 회사가 '인식 매출은 실질적으로 더 낮을 수 있다'고 명시\"",
+  "after": "  # 2026-11-06 ThesisPatch(amend, run 20261106_1346) — 이전: ARR 실행 갭 — $4.0B 전액 계약 완료(미계약 갭 해소). 신규 갭 = 가동 중 $1.0B(8/26 기준) 대 계약 $4.0B, 미가동 ~$3.0B의 2026-12-31 기한 가동 여부. ARR은 비GAAP이며 회사가 '인식 매출은 실질적으로 더 낮을 수 있다'고 명시\n  - \"ARR 실행 갭 — $4.0B+ 전액 계약·자금 확보(11/5 회사 표현 fully contracted·fully funded, 확약 금융의 인출 조건 충족 전제 — 각주 5). 갭 = 가동 중 $1.0B(11/5 발표, 기준일 미기재) 대 계약 $4.0B+, 미가동 ~$3.0B의 2027-01-31(최대 2월 말; 종전 2026-12-31) 가동 여부. ARR은 비GAAP이며 회사가 '인식 매출은 실질적으로 더 낮을 수 있다'고 명시\"",
+  "basis_claims": [
+    "IREN-2611-C08",
+    "IREN-2611-C09"
+  ],
+  "expected_after": {
+    "contains": [
+      "fully contracted·fully funded",
+      "이전: ARR 실행 갭 — $4.0B 전액 계약 완료"
+    ],
+    "counts": [
+      {
+        "path": "key_metrics",
+        "n": 8
+      }
+    ]
+  },
+  "apply_order": "단독 패치(IREN) — 다른 9건과 대상 행이 겹치지 않아 순서 의존 없음",
+  "f20_note": "[fact] state/thesis_cards/IREN.yaml 전문 142행 열람 후 before 출현 1회 확인. 현재 계수 axes 6 / key_metrics 8 / catalysts 4 / risks 8 / earnings_checkpoints.items 14",
+  "sibling_patch": "IREN_risks7_keymetrics1_arr_gap_deadline_a — 같은 근거의 짝 패치. 대상 행이 달라 단독 승인·적용 가능하나 함께 처리 권장"
+}

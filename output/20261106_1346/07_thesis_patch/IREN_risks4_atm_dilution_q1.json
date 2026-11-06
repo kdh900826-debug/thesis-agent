@@ -1,0 +1,35 @@
+{
+  "as_of": "2026-11-06",
+  "run_id": "20261106_1346",
+  "staleness_days": 1,
+  "ticker": "IREN",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "source_artifact": "output/20261106_1346/02_company/IREN.json#thesis_patch_candidates · output/20261106_1346/02E_earnings/IREN_checkpoints_20261105.md §7",
+  "patch_id": "IREN_risks4_atm_dilution_q1",
+  "card_field_detail": "risks[4] — 희석 오버행 ATM 실현분·잠재주식 갱신(10/30 누적 76.8M주·약 $3.7B)",
+  "priority": "high",
+  "reason": "[fact] 10-Q는 ATM 누적 판매를 9/30 59,431,312주·약 $3.0B, 10/30 76,806,302주·약 $3.7B로 기재했다(IREN-2611-C20). [fact] 9/30 반희석 제외 잠재주식은 193,995,967주다(IREN-2611-C21).",
+  "card_field": "risks",
+  "operation": "amend",
+  "before": "  - \"희석 오버행 — ATM 실현: 2026-03-04 보충서(한도 $6.0B) 하 47,165,838주·약 $2.5B 발행 완료(8/14 기준). 잔여 한도 존재. FY26 반희석 제외 잠재주식(가중평균) 146,132,206주 = 옵션 5.50M + RSU 23.25M + Investment Rights 4.52M + 전환사채 71.83M + 캡드콜 32.11M + 선불선도 8.91M. Mirantis 재판매분 + RSU 지속\"",
+  "after": "  # 2026-11-06 ThesisPatch(amend, run 20261106_1346) — 이전: 희석 오버행 — ATM 실현: 2026-03-04 보충서(한도 $6.0B) 하 47,165,838주·약 $2.5B 발행 완료(8/14 기준). 잔여 한도 존재. FY26 반희석 제외 잠재주식(가중평균) 146,132,206주 = 옵션 5.50M + RSU 23.25M + Investment Rights 4.52M + 전환사채 71.83M + 캡드콜 32.11M + 선불선도 8.91M. Mirantis 재판매분 + RSU 지속\n  - \"희석 오버행 — ATM 실현(2026-03-04 보충서, 한도 $6.0B): 8/14 47,165,838주·약 $2.5B → 9/30 59,431,312주·약 $3.0B → 10/30 76,806,302주·약 $3.7B(분기 말 이후 17,374,990주·약 $630M, 평균 약 $36.3 — 계산). 잔여 한도 약 $2.3B. 9/30 반희석 제외 잠재주식 193,995,967주 = 옵션 5.05M + RSU 31.72M + Investment Rights 30.0M + 전환사채 127.23M(FY26 가중평균 146,132,206주와 산정 기준 다름 — 캡드콜·선불선도 미나열). Mirantis 12,632,234주 발행(2026-08-03) 재판매분 + RSU 지속\"",
+  "basis_claims": [
+    "IREN-2611-C20",
+    "IREN-2611-C21"
+  ],
+  "expected_after": {
+    "contains": [
+      "10/30 76,806,302주·약 $3.7B",
+      "이전: 희석 오버행 — ATM 실현"
+    ],
+    "counts": [
+      {
+        "path": "risks",
+        "n": 8
+      }
+    ]
+  },
+  "apply_order": "단독 패치(IREN) — 다른 9건과 대상 행이 겹치지 않아 순서 의존 없음",
+  "f20_note": "[fact] state/thesis_cards/IREN.yaml 전문 142행 열람 후 before 출현 1회 확인. 현재 계수 axes 6 / key_metrics 8 / catalysts 4 / risks 8 / earnings_checkpoints.items 14"
+}

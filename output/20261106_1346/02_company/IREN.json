@@ -1,0 +1,1632 @@
+{
+  "as_of": "2026-11-06",
+  "run_id": "20261106_1346",
+  "layer": "company",
+  "ticker": "IREN",
+  "mode": "S2E_earnings",
+  "event": "FY27 Q1 실적 발표 (분기 2026-07-01~09-30) — 2026-11-05 17:00 ET, 8-K Item 2.02 + Ex-99.1, Form 10-Q 동시 제출",
+  "staleness_days": 1,
+  "collection_note": "company-iren.md 절차(source-ingest, noise-triage, fact-split, thesis-delta)를 수행. 1차 자료(8-K Ex-99.1 보도자료, 10-Q 전문)를 직접 파싱해 Claim을 만들었고 state/signals.json은 열람하지 않았다(확증편향 차단). 카드는 F20에 따라 전문(142행)을 읽었고 earnings_checkpoints.items = 14개(13 + BC Hydro 1)로 계수했다. 경영진 발언은 비공식 유튜브 자동 전사(Q&A 27:39 이후만 존재, 발표부 없음)이며 회사 공식 웹캐스트 원본 대조 미실시. 노이즈 필터: Horizon 1 인수 반복 보도 등 noise 항목은 매출 인식 금액·H2-4 일정·계약 조건에 해당해 승격 처리했고, 컨퍼런스·애널리스트 PT 류는 수집 대상에서 제외했다. 이 산출물은 시그널 등급을 판정하지 않는다.",
+  "sources": [
+    {
+      "id": "S1",
+      "grade": 1,
+      "type": "Form 10-Q (분기 2026-09-30)",
+      "filed_at": "2026-11-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm"
+    },
+    {
+      "id": "S2",
+      "grade": 1,
+      "type": "8-K Item 2.02 Exhibit 99.1 (Q1 FY27 실적 보도자료)",
+      "filed_at": "2026-11-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm"
+    },
+    {
+      "id": "S3",
+      "grade": 1,
+      "type": "8-K 본문(Item 2.02, 9.01)",
+      "filed_at": "2026-11-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/iren-20261105.htm"
+    },
+    {
+      "id": "S4",
+      "grade": 2,
+      "type": "11/5 실적콜 질의응답 자동 전사(비공식 유튜브 중계, 27:39~). 경영진 직접 발언이나 공식 웹캐스트 원본 미대조",
+      "url": "https://www.youtube.com/watch?v=i98fTZ7gtKQ",
+      "local_path": "C:/Users/dhko/Desktop/클로드 코드/작업 3(영상 추출)/output/transcripts_raw/i98fTZ7gtKQ.txt"
+    },
+    {
+      "id": "S5",
+      "grade": 3,
+      "type": "8/27 FY26 실적콜 전사(Motley Fool 재게재, Webull) — u_20261018_IREN_01 대조용",
+      "url": "https://www.webull.com/news/15497683404186624"
+    },
+    {
+      "id": "S6",
+      "grade": 1,
+      "type": "8-K Ex-99.1 (FY26 실적 보도자료)",
+      "filed_at": "2026-08-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000051/irenreportsfy26results.htm"
+    },
+    {
+      "id": "S7",
+      "grade": 1,
+      "type": "Form 10-K (FY 2026-06-30)",
+      "filed_at": "2026-08-27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm"
+    },
+    {
+      "id": "S8",
+      "grade": 4,
+      "type": "가격 이력 애그리게이터(yfinance)",
+      "url": "https://finance.yahoo.com/quote/IREN/history/"
+    }
+  ],
+  "claims": [
+    {
+      "id": "IREN-2611-C01",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "Q1 FY27(2026-07-01~09-30) 총매출은 $228m로 직전 분기 $137m 대비 +66%(전년 동기 $240m)였다. AI Cloud 매출 $200m(AI Cloud Services $135m + AI Cloud Lease $65m, 직전 분기 $71m + 0), Bitcoin 채굴 매출 $28m(직전 분기 $67m)이다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 4 Revenue / Item 2 Results of Operations"
+      },
+      "triangulation": "S1+S2(보도자료 Consolidated Statement of Operations 일치)"
+    },
+    {
+      "id": "IREN-2611-C02",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "Q1 총매출 증가분 약 $91m는 AI Cloud +$129m(Services +$64m, Lease +$65m)와 채굴 -$39m의 합이다(보도자료 반올림 수치 기준). Q1 총매출 내 AI Cloud 비중은 87.7%(200/228)로 Q4 FY26 51.4%에서 상승했다.",
+      "source": {
+        "ref": "S2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+        "locator": "Consolidated Statement of Operations (산술 도출)"
+      }
+    },
+    {
+      "id": "IREN-2611-C03",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "AI Cloud Lease 매출 $65m(ASC 842, 직전 분기 0)는 확정·실질확정 고정 리스료 $49m(정액 인식)와 가용성 조건부 리스 매출 $16m로 구성된다. 10-Q는 가용성 약정과 서비스 수준 크레딧이 리스 약정에 포함된다고 기재했다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 4 Revenue 각주 1"
+      }
+    },
+    {
+      "id": "IREN-2611-C04",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "10-Q MD&A는 AI Cloud Lease 매출 증가를 '리스로 회계처리되는 AI Cloud 약정의 매출 인식 개시(Microsoft의 2026년 8월 Horizon 1 인수 이후 Microsoft Agreement 포함)'로 서술했다. 서술은 'including'이며 $65m 중 Horizon 1 단독분 금액은 10-Q·보도자료 어디에도 별도 표시되지 않았다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Item 2 AI Cloud Lease revenue; Note 4"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C05",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "Q1 비용(감가상각 제외): AI Cloud Services $17m, AI Cloud Lease $11m, 채굴 $18m. 보도자료는 AI Cloud 부문 매출총이익률(감가상각 제외, 사이트 비용 전)을 86%로 직전 분기와 유사하다고 기재했다. 산술상 Services 87.4%, Lease 83.1%, 채굴 35.7%다. 전력비는 AI Cloud $7m(AI Cloud 매출의 3.5%), 채굴 $14m(채굴 매출의 50%)다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 5 Cost of revenue; Note 3 Segment information"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C06",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "10-Q는 ASC 842 고정·실질확정 최소 리스료 스케줄을 처음 제시했다: FY27 잔여분 $271m, FY28 $363m, FY29 $362m, FY30 $362m, FY31 $362m, FY32 $121m, 합계 $1,841m(가용성 조건부분 제외). 인도 전 용량 포함 리스 계약 잔여 총가치는 약 $13,957m, ASC 606 RPO는 $6,347m($1,529m은 12개월 내 인식 예상)이다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 4 Remaining Performance Obligations"
+      }
+    },
+    {
+      "id": "IREN-2611-C07",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "수주잔고(revenue backlog)는 $20.3bn로 직전 분기 대비 +22%, 약 2/3가 투자등급 상대방이다. 정의는 RPO + 잔여 리스 약정 + 확약 계약 하에서 향후 인식 가능하다고 추정한 기타 금액이며 인도·가용성 요건을 전제로 한다. RPO $6,347m + 리스 잔여 총가치 $13,957m = $20,304m로 일치한다.",
+      "source": {
+        "ref": "S2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+        "locator": "Summary / Notes 3"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C08",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "10-Q 기준 9/30 운영 중 AI Cloud 용량은 약 93MW다(MW 기준이 IT인지 gross인지 문서에 특정되지 않음). 보도자료 인용문에서 공동 CEO는 '가동 ARR이 10억 달러로 두 배가 됐다(operating ARR doubled to a billion)'고 말했다. 보도자료 본문에는 이 $1bn의 기준일이 기재되지 않았다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Item 2 Overview; 보도자료 CEO 인용문"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C09",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "보도자료는 '$4bn 초과 ARR 목표(fully contracted, fully funded)'의 가동 시점을 종전 2026년 말에서 2027년 1월 31일로 이동했고 2027년 2월 말까지 연장될 수 있다고 기재했다. 사유는 고객 요청 변경과 공급업체 일정이다. 각주 4는 매출이 각 데이터센터 인도 후 커미셔닝·시험·고객 인수 이후 상승한다고 명시한다. 'fully funded'는 0.3GW(IT) 프로그램의 9/30 이후 잔여 capex를 대상으로 하며 확약 금융의 자금 집행 조건(에스크로 해제, 이용 가능 기간)을 전제한다(각주 5).",
+      "source": {
+        "ref": "S2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+        "locator": "Summary; Notes 4, 5"
+      }
+    },
+    {
+      "id": "IREN-2611-C10",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "10-Q는 'Horizon 1이 2026년 8월 Microsoft에 인도·인수되어 가동 중'이며, Microsoft 요청으로 Horizon 전반에 네트워크 설계 변경을 시행 중이라고 기재했다. Microsoft Agreement상 Microsoft 요청 변경에 따른 지연은 지연 크레딧 없이 인도일이 연장된다. 이 변경은 인도일과 수수료·크레딧·비용 상환의 적용 및 지급에 관한 협의와 병행 중이다. 또한 2026-12-31까지 인도하려 했던 일부 계약 용량이 고객 요청 설계 변경, 공급 일정, 제3자 지연으로 다음 분기에 인도될 예정이며 그 일정 달성은 보장되지 않는다고 기재했다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Item 2 Recent Developments — Customer Delivery; Factors Affecting Our Performance"
+      }
+    },
+    {
+      "id": "IREN-2611-C11",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 2,
+      "confirmed": true,
+      "text": "경영진(Daniel Roberts, 비공식 전사)은 Horizon 1 인도 이후 Microsoft가 200MW 용량을 최신 프런티어 모델용으로 쓰기 위한 네트워크 재구성·업그레이드를 요청했고 수락했다고 설명했다. '1월을 목표로 하며 공급업체 일정에 따라 2월 말로 밀릴 가능성이 충분하다. 12월 31일을 맞추고 싶었으나 1월, 잠재적으로 2월이 될 것'이라고 말했다. 이 설계 변경의 증분 capex는 전체 클러스터 capex 대비 '전적으로 미미(entirely immaterial)'하다고 말했다.",
+      "source": {
+        "ref": "S4",
+        "url": "https://www.youtube.com/watch?v=i98fTZ7gtKQ",
+        "locator": "[28:40]-[31:50]"
+      },
+      "triangulation": "S4+S2(1월 목표·2월 연장 가능·사유는 보도자료와 일치)",
+      "caveat": "회사 공식 웹캐스트 원본 대조 미실시(비공식 유튜브 중계 자동 전사, 음성 인식 오탈자 가능, Q&A 27:39부터만 존재)"
+    },
+    {
+      "id": "IREN-2611-C12",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 2,
+      "confirmed": false,
+      "text": "경영진(비공식 전사)은 Horizon 2는 건설 완료·3개 홀 랙 전력 인입·GPU 설치·광케이블 완료로 Dell이 커미셔닝 중이며 통합 시험이 하나 남았다고, Horizon 3는 GPU 전량 현장 도착·3개 홀 통전, Horizon 4는 GPU가 수 주 내 입고된다고 말했다. 보도자료는 'Horizon 2-4 late-stage construction'으로만 기재했다. 세부 진행 상태는 단일 비공식 전사에만 존재해 confirmed=false로 둔다.",
+      "source": {
+        "ref": "S4",
+        "url": "https://www.youtube.com/watch?v=i98fTZ7gtKQ",
+        "locator": "[29:44]"
+      },
+      "caveat": "회사 공식 웹캐스트 원본 대조 미실시(비공식 유튜브 중계 자동 전사, 음성 인식 오탈자 가능, Q&A 27:39부터만 존재)"
+    },
+    {
+      "id": "IREN-2611-C13",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "분기 말 이후 체결 계약(보도자료 각주 7): 기존 프런티어 AI 랩 계약 확대, MW(IT)당 매출 약 $40m의 단기 계약, 5년 계약에서 MW(IT)당 약 $22m이며 고객이 관련 GPU capex의 90%를 선납, H100 GPU를 종전 가격의 2배로 재계약(기준은 Prince George 종전 H100 계약). 경영진(비공식 전사)은 H100 재계약이 다년 기간 고정이라고 말했다. 신규 3·5년 계약의 평균 MW(IT)당 연매출 추정 단가는 3년 +11%, 5년 +12%(ARR 가중, 내부 전력소비 가정 기반, 각주 6)다. 모두 계약 단가 기준(목표·추정치)이며 실현 MW당 매출이 아니다(F3).",
+      "source": {
+        "ref": "S2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+        "locator": "Demand and contracting; Notes 6, 7"
+      },
+      "triangulation": "S2+S4([40:15],[44:26],[68:03])",
+      "caveat": "회사 공식 웹캐스트 원본 대조 미실시(비공식 유튜브 중계 자동 전사, 음성 인식 오탈자 가능, Q&A 27:39부터만 존재)"
+    },
+    {
+      "id": "IREN-2611-C14",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "10-Q 주석 4: 상위 3개 고객이 총매출의 28%, 24%, 18%(합계 70%)를 차지했으며 모두 AI Cloud 부문이다(고객명 미공개). 보도자료는 계약 상대를 NVIDIA, Microsoft 및 기타 13개 고객으로 기재했다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 4 Significant customers; MD&A customer concentration"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C15",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "보도자료 자금 구조: 9/30 기준 잔여 계획 FY27 capex(데이터센터·GPU 포함) $15bn는 (i) 현금·확약 GPU 금융·선수금 $9bn와 (ii) 시장 상황을 조건으로 하는 목표 GPU 금융·선수금·데이터센터 금융·기타 회사 단위 재원 $6bn로 충당한다. 각주 12는 2027 역년 말 0.8GW 데이터센터 용량 등 추가 용량 목표가 FY27 추가 capex를 요구할 수 있다고 기재했다. 각주 5의 (i) 정의는 현금·제한현금·미인출 확약 GPU 금융·미수령 계약 선수금을 포함한다.",
+      "source": {
+        "ref": "S2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+        "locator": "Balance sheet and funding; Notes 5, 11, 12"
+      }
+    },
+    {
+      "id": "IREN-2611-C16",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "Q1 투자활동 현금유출은 $5,146m: 컴퓨터 하드웨어 $2,693m, 하드웨어 제외 PP&E $2,131m, 무형자산 $65m, 기타 선급금·보증금 $337m. 9/30 약정(commitments)은 $18,947m(6/30 $13,810m)이며 일부는 취소 유연성이 있다. 2026-09-28 Dell과 약 $6.7bn GPU 구매 주문서를 체결했고 인도는 2027 역년 하반기부터 분할되며 대금은 선적 후 30일 내 분할 지급이다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Item 2 Hardware Purchases; Historical Cash Flows; Note 24 Commitments"
+      },
+      "triangulation": "S1+S2(현금흐름표)"
+    },
+    {
+      "id": "IREN-2611-C17",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 3,
+      "confirmed": false,
+      "text": "2차 전사(Motley Fool 전사 재게재)에 따르면 2026-08-27 콜에서 CFO Anthony Lewis는 FY27 capex를 약 $25bn~$30bn으로 제시했고 실제 지출은 최종 원가·건설 일정·GPU 및 장기 납기 품목 인도 시점에 좌우된다고 말했다. 회사 공식 웹캐스트·공시 원문으로는 대조하지 못했다.",
+      "source": {
+        "ref": "S5",
+        "url": "https://www.webull.com/news/15497683404186624",
+        "locator": "CFO prepared remarks (Motley Fool 전사)"
+      },
+      "caveat": "등급 3, 삼각검증용 — 단독 판단 근거 불가(P4)"
+    },
+    {
+      "id": "IREN-2611-C18",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 2,
+      "confirmed": true,
+      "text": "경영진(비공식 전사)은 FY27 capex가 직전 분기 대비 하향됐고 '의도적으로 하향했다(deliberately flexed it down)'고 시인했다. 사유는 수요·고객·부지·전력 부족이 아니라 금융시장 상황과 자본 조달 가능성·비용이며 '무슨 수를 써서라도 성장하지는 않겠다'고 말했다. 수정된 capex 수치는 발언에 포함되지 않았다. Goldman 질의에 대해서는 capex가 내려가도 2027 말 목표 용량이 유지되는 이유로 35GW 개발 포트폴리오 투자와 장기 납기 품목 선행을 들었다.",
+      "source": {
+        "ref": "S4",
+        "url": "https://www.youtube.com/watch?v=i98fTZ7gtKQ",
+        "locator": "[41:23]-[43:26]; [54:10]-[57:25]"
+      },
+      "caveat": "회사 공식 웹캐스트 원본 대조 미실시(비공식 유튜브 중계 자동 전사, 음성 인식 오탈자 가능, Q&A 27:39부터만 존재)"
+    },
+    {
+      "id": "IREN-2611-C19",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "9/30 재무상태: 현금 $3,522m, 제한현금 $2,256m(유동 $2,208m + 비유동 $48m), 총차입(금융리스 포함) $10,208m, 회사 정의 순부채 $4,430m(제한현금 차감 후; 6/30 $216m). 이연수익 $2,544m(6/30 $1,843m; 리스 이연수익 $2,096m 포함), 총자산 $20,613m, 부채 합계 $15,497m. 전환사채 6개 시리즈 원금 합계 $6,746m, 차입표(Note 19)에 데이터센터 담보 차입 항목은 없다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Balance sheet; Note 16; Note 19; MD&A Convertible notes"
+      },
+      "triangulation": "S1+S2(Net Debt 조정표)"
+    },
+    {
+      "id": "IREN-2611-C20",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "발행 주식 수: 표지 기준 2026-10-30 보통주 424,357,381주 + B 클래스 2주. 9/30 406,929,463주(대출 지원 주식 포함), 6/30 380,710,559주. 가중평균 기본 주식 수 398,557,846주, 기본·희석 주당순손실 $(0.66). ATM(한도 $6.0bn): 9/30 누적 59,431,312주·약 $3.0bn, 10/30 누적 76,806,302주·약 $3.7bn(분기 말 이후 17,374,990주·약 $630m). Mirantis 인수로 12,632,234주를 2026-08-03 발행했다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Cover; Note 20; Note 22; Note 25; Part II Item 2"
+      },
+      "triangulation": "S1"
+    },
+    {
+      "id": "IREN-2611-C21",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "희석효과가 있으나 Q1 주당손실 산정에서 제외된 잠재 보통주: 옵션 5,050,763 + RSU 31,720,097 + Investment Rights 30,000,000 + 전환사채 127,225,107 = 193,995,967주. FY26 공시(146,132,206주)에 포함됐던 캡드콜·선불선도 항목은 이 표에 나열되지 않았다. 10-Q에는 회사가 명시한 완전희석 주식 수 수치가 없다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 22 anti-dilutive table"
+      }
+    },
+    {
+      "id": "IREN-2611-C22",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "Q1 손익: 순손실 $(263)m(직전 분기 $(684)m), Adjusted EBITDA $66m(마진 29%, 직전 분기 $19m·14%), 영업손실 $(186)m, SG&A $217m(주식보상 $106m 포함), 감가상각 $148m, 금융비용 $73m, 이자수익 $51m. 영업활동 현금흐름은 +$529m이며 이연수익 증가 +$645m가 포함된다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Statements of Operations; Cash flows; Adjusted EBITDA reconciliation"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C23",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "10-Q 부문 공시는 매출과 감가상각 제외 매출원가만 부문별로 제시하며 감가상각은 부문별로 배분하지 않았다(총 감가상각 $148m, PP&E 감가상각 $143m). 보도자료는 데이터센터 자산 $6bn의 내용연수를 20년으로 기재했다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 3 Segment information; Note 11; 보도자료 각주 10"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C24",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "채굴: 10-Q는 2026-12-31까지 전환을 실질적으로 완료하는 것을 목표로 하며 비중이 미미한 채굴 운영은 2027 역년 내내 지속될 것으로 예상한다고 기재했고 추가 채굴 장비 투자는 계획하지 않는다고 기재했다. Q1 채굴 402 BTC, 채굴 매출 $28m(전년 동기 $233m), 평균 가동 해시레이트 8.8 EH/s(전년 동기 45.3 EH/s), 9/30 설치 용량 7.9 EH/s·약 180MW, 채굴 매출총이익(감가상각 제외) $10m다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Item 2 Bitcoin mining; Bitcoin Mining revenue"
+      }
+    },
+    {
+      "id": "IREN-2611-C25",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "Mirantis(2026-08-03 종결): 총대가 약 $538m(주식 약 12.6M주 공정가치 $502m), 영업권 $414m, 무형자산 $145m. 10-Q는 Mirantis 매출이 FY27 연결 실적에 중요하지 않을 것으로 예상하며 인수일 이후 실적도 중요하지 않다고 기재했다. AI Cloud Services 매출에 Mirantis 기여분이 포함되나 금액은 별도 공시되지 않았다.",
+      "source": {
+        "ref": "S1",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "locator": "Note 2; Note 7; Item 2 AI Cloud Services revenue"
+      }
+    },
+    {
+      "id": "IREN-2611-C26",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "보도자료는 2GW Sweetwater Hub의 ERCOT Batch Zero base load 조건부 포함(conditional inclusion)으로 기재했고, 10-Q는 미국·캐나다·스페인·호주에서 계통 접속 계약·의향서·동등물 기준 약 5GW를 확보했다고 기재했다. 10-Q Part II Item 1A는 리스크 요인에 중요한 변경이 없다고 기재했다. 10-Q 전문에서 SB6·PUCT·curtailment 관련 서술은 ERCOT 접속 절차 개정·주지사 지시 검증·감사 리스크 문구로 한정되며 IREN 적용 MW는 기재되지 않았다.",
+      "source": {
+        "ref": "S2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+        "locator": "Development and platform updates"
+      },
+      "triangulation": "S1+S2"
+    },
+    {
+      "id": "IREN-2611-C27",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 2,
+      "confirmed": false,
+      "text": "Jefferies 질의에 대해 경영진(발언자 미식별, 비공식 전사)은 Sweetwater 1(1.4GW)은 이미 계통에 연결돼 있고, Sweetwater 1·2가 모두 batch process의 base load에 포함되어 두 사이트 합계 2GW 용량이 확보(secured)됐다고 말했다. 또 구속력 있는 계통 접속 계약을 체결한 뒤에만 프로젝트를 공시하며 Sweetwater 외 다른 프로젝트도 Batch Zero에 포함됐다고 말했다. 이 구두 표현(secured)은 보도자료 표현(conditional inclusion)보다 강하다.",
+      "source": {
+        "ref": "S4",
+        "url": "https://www.youtube.com/watch?v=i98fTZ7gtKQ",
+        "locator": "[60:41]-[62:44]"
+      },
+      "caveat": "회사 공식 웹캐스트 원본 대조 미실시(비공식 유튜브 중계 자동 전사, 음성 인식 오탈자 가능, Q&A 27:39부터만 존재)"
+    },
+    {
+      "id": "IREN-2611-C28",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 1,
+      "confirmed": true,
+      "text": "2026-08-27 보도자료(등급 1)는 신규 $2.8bn GPU 금융이 고객 선수금과 합쳐 GPU capex를 초과하는 자금을 제공해 기타 데이터센터 capex 소요를 지원한다고, 현금·확약 GPU 금융·선수금 합계가 $14bn이라고 기재했다. 이 보도자료 본문에는 추가 약 $80억 문구가 없다.",
+      "source": {
+        "ref": "S6",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000051/irenreportsfy26results.htm",
+        "locator": "Highlights — Capital-efficient GPU financing; Well capitalized"
+      }
+    },
+    {
+      "id": "IREN-2611-C29",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 3,
+      "confirmed": false,
+      "text": "2차 전사(Motley Fool 전사 재게재)에 따르면 8/27 콜에서 CFO는 준비 발언으로 We're targeting roughly an additional $8 billion of GPU financing and prepayments in support of GPU CapEx requirements 라고 말했고, 나머지 소요는 데이터센터 금융, 영업현금흐름, 회사 재원으로 충당할 것이라고 말했다. 질의응답에서는 I also spoke to $8 billion estimated additional GPU-related CapEx 라고 말했다. 공동 CEO는 데이터센터 포트폴리오 100%가 무담보(unencumbered)이며 데이터센터 capex를 어떻게 분산하고 조달할지 작업 중이라고 말했다.",
+      "source": {
+        "ref": "S5",
+        "url": "https://www.webull.com/news/15497683404186624",
+        "locator": "CFO prepared remarks; Q&A (Motley Fool 전사)"
+      },
+      "caveat": "등급 3, 삼각검증용. 9/5 run의 절단 오류는 해소: 원문은 GPU financing and prepayments"
+    },
+    {
+      "id": "IREN-2611-C30",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 2,
+      "confirmed": true,
+      "text": "경영진(비공식 전사)은 11/5 콜에서 데이터센터는 지금까지 단 한 푼의 부채도 없이 현금으로 조달했다고 말했고, 마지막 Q&A에서 자본 측면에서 슬라이드에 설명한 것 이상으로 많은 선택지가 있다며 5GW 수익화 방안을 언급했다. 구체 거래·금액은 언급하지 않았다. 10-Q Note 19 차입표에 데이터센터 담보 차입이 없는 사실과 방향이 일치한다.",
+      "source": {
+        "ref": "S4",
+        "url": "https://www.youtube.com/watch?v=i98fTZ7gtKQ",
+        "locator": "[38:10]-[39:11]; [47:37]"
+      },
+      "triangulation": "S4+S1(Note 19)",
+      "caveat": "회사 공식 웹캐스트 원본 대조 미실시(비공식 유튜브 중계 자동 전사, 음성 인식 오탈자 가능, Q&A 27:39부터만 존재)"
+    },
+    {
+      "id": "IREN-2611-C31",
+      "claim_type": "fact",
+      "scope": "company_specific",
+      "evidence_grade": 4,
+      "confirmed": false,
+      "text": "IREN 종가는 2026-10-28 $28.84, 10-29 $26.25, 10-30 $23.95, 11-02 $22.02, 11-03 $24.46, 11-04 $21.71, 11-05 $18.03이며 11-05 거래량은 126.7M주다. 실적 발표(17:00 ET)는 11-05 정규장 마감 이후이므로 이 종가에는 실적 반응이 반영돼 있지 않다. 2026-11-06 종가는 산출 시점에 확인 불가다. 애그리게이터(yfinance) 수치로 단독 판단 근거 불가(F1·P4).",
+      "source": {
+        "ref": "S8",
+        "url": "https://finance.yahoo.com/quote/IREN/history/",
+        "locator": "yfinance history (조회 2026-11-06)"
+      },
+      "caveat": "등급 4, 삼각검증용"
+    },
+    {
+      "id": "IREN-2611-I01",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "high",
+      "text": "Q4 FY26(총매출 QoQ -5.2%)과 달리 Q1 FY27 AI Cloud 비중 상승(51.4%→87.7%)은 총매출 +66% 성장과 동반됐다. 다만 분자(AI Cloud +$129m)와 분모(채굴 -$39m 포함) 동시 작용이 여전히 존재하며, 비중 상승의 일부는 채굴 감소분이다.",
+      "basis_claims": [
+        "IREN-2611-C01",
+        "IREN-2611-C02"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I02",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "Lease 매출 $65m의 구성($49m 고정 + $16m 조건부)과 최소 리스료 스케줄(FY27 잔여 $271m ÷ 9개월 ≈ $30m/월, FY28 $363m)을 대조하면 $49m는 2026년 8월 인수 후 약 1.6개월분 정액 인식과 규모가 일치한다. 따라서 $65m의 주된 원천은 Horizon 1일 개연성이 있으나, 10-Q가 including으로 서술하고 H1 단독 금액을 표시하지 않았으므로 H1 단독 인식액은 확정할 수 없다(사전 정의 게이트 ⑪의 문언 Horizon 1분 분리 여부는 미분리).",
+      "basis_claims": [
+        "IREN-2611-C03",
+        "IREN-2611-C04",
+        "IREN-2611-C06"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I03",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "P7 3단 분리 현황: Horizon 1은 계약 존재→인도·인수(2026-08)→매출 인식 개시(Q1 Lease $65m 일부)의 3단을 통과했다. Horizon 2-4는 계약 존재 단계이며 인도·인수와 매출 인식은 미도래다(2027년 1~2월 목표). 이연 리스 수익 $2,096m는 H2-4 인도·가용성 이행에 노출된 선수금 잔액의 원천이다. 리스크 이관(H1→H2-4)은 소멸이 아니라 유지다.",
+      "basis_claims": [
+        "IREN-2611-C03",
+        "IREN-2611-C09",
+        "IREN-2611-C10",
+        "IREN-2611-C19"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I04",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "$4bn ARR 목표와 Horizon 2-4 인도 목표가 2026-12-31에서 2027-01-31(최대 2월 말)로 이동했다. 이동 후 시점은 8/29 run에서 기록한 10-K의 계약상 인도 유예 상한(2027년 2분기 초, 20260829_1046의 C16) 안쪽이며, Microsoft 요청 변경에 따른 지연은 지연 크레딧 면제 조건이다. 그러나 10-Q는 수수료·크레딧·비용 상환 협의가 미종결임을 기재했고 일정 달성은 보장되지 않는다고 명시했다. 크레딧 노출이 면제된 범위와 협의 중인 범위의 경계는 계약 원문 미공시로 확정 불가다.",
+      "basis_claims": [
+        "IREN-2611-C09",
+        "IREN-2611-C10",
+        "IREN-2611-C11"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I05",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "low",
+      "text": "가동 ARR $1bn은 2026-08-26 값(8/27 보도자료)과 크기가 같고 11/5 보도자료는 기준일을 적지 않았다. 따라서 8/26~11/5 사이 가동 ARR의 공개된 순증은 확인할 수 없다. $1bn ÷ 93MW ≈ $10.8m/MW는 분자·분모 기준일과 MW 기준(IT/gross)이 불명이라 실현 MW당 매출 기준선으로 채택하지 않는다(F3).",
+      "basis_claims": [
+        "IREN-2611-C08"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I06",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "분기 말 이후 계약 단가($22m/MW(IT) 5년 + GPU capex 90% 선납, $40m/MW(IT) 단기)는 8/27 3년 계약 $20m 초과·협의 중 $25m와 계약 기간·선납 구조가 달라 동일 조건 비교가 불가하다. 모두 계약 단가·추정 기준이며 실현 매출이 아니다. 선납 90%는 GPU 자금 부담을 고객으로 이전하는 구조이므로 MW당 매출 수치만으로 마진 우위를 해석할 수 없다.",
+      "basis_claims": [
+        "IREN-2611-C13"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I07",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "low",
+      "text": "보도자료의 9/30 기준 잔여 FY27 capex $15bn에 Q1 현금 capex(하드웨어 $2.69bn + PP&E $2.13bn ≈ $4.8bn, 무형자산·보증금 포함 시 ≈ $5.2bn)를 더하면 FY27 총액은 대략 $19.8~20.2bn로 추산된다. 이는 8/27 2차 전사의 $25~30bn(C17, 등급 3)보다 낮다. 단 계획 기준(발생)과 현금 기준이 섞이며 회사가 FY27 총액을 명시하지 않았으므로 확정치가 아니다. 경영진이 하향을 시인(C18)한 사실과 방향은 일치한다.",
+      "basis_claims": [
+        "IREN-2611-C15",
+        "IREN-2611-C16",
+        "IREN-2611-C17",
+        "IREN-2611-C18"
+      ],
+      "evidence_grade": 3
+    },
+    {
+      "id": "IREN-2611-I08",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "$6bn 목표 조달 구간은 확약이 아니라 시장 상황을 조건으로 한 목표이며 GPU 금융·선수금·데이터센터 금융·회사 재원이 한 묶음이다. 8/27의 추가 약 $80억 GPU 금융·선수금(GPU capex 대응)과는 기준일(6/30 vs 9/30)·범위(GPU vs GPU+DC+기타)·분기 중 이미 집행된 조달이 달라 동일 항목의 증감으로 비교할 수 없다. 분기 중 순부채가 $216m에서 $4,430m로 증가했고 분기 말 이후에도 ATM 17.4M주($630m)가 추가 발행됐다.",
+      "basis_claims": [
+        "IREN-2611-C15",
+        "IREN-2611-C19",
+        "IREN-2611-C20",
+        "IREN-2611-C29"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I09",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "high",
+      "text": "u_20261018_IREN_01 대조 결과(부분 해소): ①GPU 대출만이라는 해석은 성립하지 않는다. 8/27 CFO 준비 발언 원문은 GPU financing and prepayments(등급 3 전사)이고 11/5 보도자료(등급 1)도 두 번째 조달 구간과 자금 충족 정의에 선수금을 명시한다. ②용처는 GPU capex(질의응답 표현 additional GPU-related CapEx)이며 데이터센터 소요는 data center financing, operating cash flows, corporate sources로 별도 서술됐다. ③8/27 보도자료(등급 1)는 신규 GPU 금융+선수금이 GPU capex를 초과해 데이터센터 capex를 지원한다고 기재했다. ④데이터센터 무담보 유지는 10-Q 차입표(데이터센터 담보 차입 없음)와 부합하나, 10-Q는 데이터센터 금융을 의도된 재원 목록에 포함시켰다. 잔여 공백: 8/27 콜의 회사 공식 웹캐스트 원본 대조는 미실시이며 계약·부지·대주별 배분은 미공개다.",
+      "basis_claims": [
+        "IREN-2611-C15",
+        "IREN-2611-C28",
+        "IREN-2611-C29",
+        "IREN-2611-C30",
+        "IREN-2611-C19"
+      ],
+      "evidence_grade": 3
+    },
+    {
+      "id": "IREN-2611-I10",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "주식 수 range 갱신(F9): 하한 424,357,381주(10/30 기본 발행). 상한 참고치 618,353,348주 = 424,357,381 + 반희석 제외 잠재주식 193,995,967(분기 표 기준 단순 합산; 캡드콜 상쇄·재무부주식법·이후 부여분 미반영). 이 상한에는 전환사채 127.2M주가 포함되므로 전환사채 원금 $6,746m가 순부채에 그대로 남아 이중 계상이 생긴다. 전환사채 제외 상한은 491,128,241주(424.36M + 옵션 5.05M + RSU 31.72M + Investment Rights 30.0M)다. 6/30 회사 명시 완전희석 558,718,254주는 10-Q에 갱신본이 없다.",
+      "basis_claims": [
+        "IREN-2611-C20",
+        "IREN-2611-C21",
+        "IREN-2611-C19"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I11",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "채굴 종료 표현이 완화됐다: 8/27 콜(등급 2)의 effectively decommissioned by the end of December 2026에 비해 11/5 10-Q(등급 1)는 전환을 실질적으로 완료하는 것을 목표(aim to substantially complete)하며 미미한 채굴 운영이 2027 역년 내내 지속될 것으로 기재했다. 9/30 설치 용량이 7.9 EH/s·약 180MW이므로 12/31까지의 전환 완료는 진행 중이며 채굴 매출은 계획대로 감소(-58% QoQ)하고 있다.",
+      "basis_claims": [
+        "IREN-2611-C24",
+        "IREN-2611-C01"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I12",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "구두 표현 Sweetwater 두 사이트 2GW 용량 확보(secured)는 보도자료 및 카드 기준선의 ERCOT Batch Zero 조건부 포함, 최종 접속 승인 아님보다 강한 표현이다. P7에 따라 회사 서면(등급 1)의 conditional을 기준으로 유지하며 구두 표현을 이행·확정 근거로 쓰지 않는다. SB6 적용 MW와 최종 접속 승인 일자는 여전히 미공시다.",
+      "basis_claims": [
+        "IREN-2611-C26",
+        "IREN-2611-C27"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I13",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "마진 구조: AI Cloud 부문 매출총이익률(감가상각 제외) 86%는 직전 분기와 유사하나 감가상각이 부문별로 배분되지 않아 카드의 자체 ~14% 대 임차 ~5% 전제를 부문 단위로 검증할 수 없다. 연결 기준 영업손실률은 -81.6%(-186/228), Adjusted EBITDA 마진 29%이며 SG&A($217m)의 49%가 주식보상($106m)이다.",
+      "basis_claims": [
+        "IREN-2611-C05",
+        "IREN-2611-C22",
+        "IREN-2611-C23"
+      ],
+      "evidence_grade": 1
+    },
+    {
+      "id": "IREN-2611-I14",
+      "claim_type": "inference",
+      "scope": "company_specific",
+      "inference_strength": "medium",
+      "text": "고객 집중도가 높다: 상위 3개 고객이 총매출의 70%(AI Cloud 부문)이며 10-K가 지적한 Microsoft·NVIDIA 집중과 방향이 같으나 10-Q는 고객명을 공개하지 않아 어느 고객이 28/24/18%인지 확정할 수 없다. 수주잔고 $20.3bn는 카드 기준선 TCV ~$15.9bn(Microsoft $9.7bn + NVIDIA $3.4bn + 신규 $2.8bn)과 산정 기준이 달라(RPO+리스 잔여 가치) 직접 비교 불가다.",
+      "basis_claims": [
+        "IREN-2611-C07",
+        "IREN-2611-C14"
+      ],
+      "evidence_grade": 1
+    }
+  ],
+  "deltas": [
+    {
+      "axis": "ai_cloud_conversion",
+      "direction": "강화",
+      "magnitude": "대",
+      "rationale": "Q1 AI Cloud 매출 $200m(QoQ +182%), 총매출 +66%, AI Cloud 비중 87.7%. Q4와 달리 총매출 성장과 동반됐다(I01). ASC 842 리스 매출이 처음 인식됐다($65m, 고정 $49m + 조건부 $16m). 다만 Horizon 1 단독 금액은 미분리(I02), 가동 ARR $1bn은 기준일 불명으로 순증 미확인(I05), 과금 가동률·MFU 미공개.",
+      "supporting_claims": [
+        "IREN-2611-C01",
+        "IREN-2611-C02",
+        "IREN-2611-C03",
+        "IREN-2611-C04",
+        "IREN-2611-I01",
+        "IREN-2611-I02",
+        "IREN-2611-I05"
+      ]
+    },
+    {
+      "axis": "execution_delivery",
+      "direction": "혼재",
+      "magnitude": "중",
+      "rationale": "P8에 따라 하위 축으로 분해: (a) H1 이행·매출 인식 — 진전(10-Q: 8월 인수·가동, 리스 매출 개시). (b) H2-4 인도 일정 — 훼손(CY Q4 2026 → 2027-01-31, 최대 2월 말; $4bn ARR 목표 동반 이동). (c) 계약상 노출 — 미해결(Microsoft 요청 변경은 지연 크레딧 면제, 단 수수료·크레딧·비용 상환 협의 미종결; 계약 원문 미공시). 리스크 이관(H1→H2-4)은 유지되며 후행 노출 시점이 2027 Q1로 이동했다. 인도 완료는 매출 인식이 아니다(P7).",
+      "sub_axes": [
+        {
+          "name": "h1_revenue_recognition",
+          "direction": "강화",
+          "claims": [
+            "IREN-2611-C04",
+            "IREN-2611-I02",
+            "IREN-2611-I03"
+          ]
+        },
+        {
+          "name": "h2_4_delivery_timing",
+          "direction": "훼손",
+          "claims": [
+            "IREN-2611-C09",
+            "IREN-2611-C10",
+            "IREN-2611-C11",
+            "IREN-2611-I04"
+          ]
+        },
+        {
+          "name": "contract_exposure_credits_fees",
+          "direction": "미해결",
+          "claims": [
+            "IREN-2611-C10",
+            "IREN-2611-I04"
+          ]
+        }
+      ],
+      "risk_transfer": "H1(50MW IT) 계약→인도·인수→매출 인식 개시 3단 통과(금액 총액만). H2-4는 계약 단계, 인도·인수 2027-01~02 목표. 이연 리스 수익 $2,096m가 H2-4 이행 노출 원천.",
+      "supporting_claims": [
+        "IREN-2611-C04",
+        "IREN-2611-C09",
+        "IREN-2611-C10",
+        "IREN-2611-C11",
+        "IREN-2611-C12",
+        "IREN-2611-I03",
+        "IREN-2611-I04"
+      ]
+    },
+    {
+      "axis": "margin_structure",
+      "direction": "유지",
+      "magnitude": "소",
+      "rationale": "AI Cloud 부문 매출총이익률(감가상각 제외) 86%로 직전 분기와 유사. 감가상각 부문 배분이 없어 자체 ~14% vs 임차 ~5% 전제 검증 불가. 연결 영업손실률 -81.6%, Adj. EBITDA 마진 29%(직전 14%). 분기 말 이후 신규 계약은 90% GPU capex 선납 구조로 MW당 단가 해석 기준이 달라짐(F3).",
+      "supporting_claims": [
+        "IREN-2611-C05",
+        "IREN-2611-C13",
+        "IREN-2611-C22",
+        "IREN-2611-C23",
+        "IREN-2611-I06",
+        "IREN-2611-I13"
+      ]
+    },
+    {
+      "axis": "funding_dilution",
+      "direction": "훼손",
+      "magnitude": "중",
+      "rationale": "분기 중 순부채 $216m→$4,430m(제한현금 차감 후), 약정 $18.9bn, ATM 누적 $3.7bn·76.8M주(10/30), 기본 발행 주식 6/30 대비 +11.5%(10/30). 상쇄 요인: 선수금(이연수익 $2.5bn)과 확약 GPU 금융으로 0.3GW 프로그램 fully funded 주장(집행 조건부), 잔여 FY27 capex $15bn 중 $6bn는 시장 조건부 목표 조달. 완전희석 주수 range 상향 갱신(하한 424.36M, 상한 참고 618.35M).",
+      "supporting_claims": [
+        "IREN-2611-C15",
+        "IREN-2611-C16",
+        "IREN-2611-C19",
+        "IREN-2611-C20",
+        "IREN-2611-C21",
+        "IREN-2611-I07",
+        "IREN-2611-I08",
+        "IREN-2611-I10"
+      ]
+    },
+    {
+      "axis": "power_permit",
+      "direction": "유지",
+      "magnitude": "소",
+      "rationale": "10-Q·보도자료에 SB6 적용 MW 미공시(KC-10 분모 공백 지속). 보도자료는 Sweetwater 2GW를 conditional로 유지하고 구두 발언은 secured로 더 강하게 표현(P7: 서면 기준 유지). 10-Q Item 1A 변경 없음. BC Hydro 결과 미확인.",
+      "supporting_claims": [
+        "IREN-2611-C26",
+        "IREN-2611-C27",
+        "IREN-2611-I12"
+      ]
+    },
+    {
+      "axis": "btc_mining",
+      "direction": "혼재",
+      "magnitude": "소",
+      "rationale": "채굴 매출 $28m(QoQ -58%, 402 BTC, 평균 해시레이트 8.8 EH/s)로 계획대로 감소 중. 종료 표현은 8/27 콜의 effectively decommissioned by end of December 2026에서 10-Q의 aim to substantially complete by Dec 31, 2026, immaterial operations through CY2027로 완화(I11). 현금흐름 기여는 축소되고 방어선은 AI Cloud로 이관 중이다.",
+      "supporting_claims": [
+        "IREN-2611-C24",
+        "IREN-2611-I11",
+        "IREN-2611-C01"
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "id": "u_20261106_IREN_01",
+      "item": "① 과금 가동률",
+      "status": "unconfirmed",
+      "note": "10-Q·보도자료·전사본(Q&A)에서 과금 가동률 수치가 적재되지 않았다. 8/27 이월 항목이며 2회 연속 미공개다. P5: 부재는 반증이 아니다.",
+      "next_check": "FY27 Q2 10-Q(2027-02 예상) 또는 IR 자료"
+    },
+    {
+      "id": "u_20261106_IREN_02",
+      "item": "② MFU",
+      "status": "unconfirmed",
+      "note": "동상. 10-Q 전문 키워드(utilization, uptime)에서 MFU 수치가 적재되지 않았다.",
+      "next_check": "FY27 Q2 10-Q 또는 IR 자료"
+    },
+    {
+      "id": "u_20261106_IREN_03",
+      "item": "④ Horizon 단위 MW당 건설원가 실측",
+      "status": "unconfirmed",
+      "note": "Q1 하드웨어 제외 PP&E 지출 $2,131m, 건설중 자산 $4,608m 등 총액은 있으나 Horizon 단위 MW당 원가는 분리되지 않았다. Macquarie(Paul Golding) 질의에서 애널리스트가 capex per megawatt 14 to 16을 언급했으나 이는 애널리스트 표현이며 회사 확정 수치로 확인되지 않았다(경영진은 해당 수치에 직접 답하지 않고 네트워크 증분 capex가 미미하다고만 답함).",
+      "next_check": "회사 IR 프레젠테이션 슬라이드 또는 차기 콜"
+    },
+    {
+      "id": "u_20261106_IREN_04",
+      "item": "⑤ 전력 단위원가 $/MWh",
+      "status": "partial",
+      "note": "부문별 전력비 절대액(AI Cloud $7m, 채굴 $14m)은 확보. 소비 MWh 미공시로 $/MWh 산출 불가(이월).",
+      "next_check": "FY27 Q2 10-Q"
+    },
+    {
+      "id": "u_20261106_IREN_05",
+      "item": "⑥ GPU 대체 조항(GB300→VR200 단가 재협상)",
+      "status": "unconfirmed",
+      "note": "경영진은 내년 VR 공급이 극히 부족하고 관심이 많다고 말했으나(비공식 전사) 대체 조항의 단가·방향은 언급하지 않았다. 10-Q·보도자료에도 조항 원문 미적재.",
+      "next_check": "Microsoft 계약 exhibit 또는 8-K Item 1.01"
+    },
+    {
+      "id": "u_20261106_IREN_06",
+      "item": "⑦ Horizon 1 단독 리스 매출 금액",
+      "status": "partial",
+      "note": "AI Cloud Lease 총액 $65m(고정 $49m + 조건부 $16m)는 확인. 10-Q가 Microsoft Agreement 포함이라 서술해 Horizon 1 단독분은 분리 공시되지 않았다.",
+      "next_check": "FY27 Q2 10-Q(리스 첫 완전 분기 및 Horizon 2-4 인수 반영 여부) 또는 IR 자료의 계약별 분리"
+    },
+    {
+      "id": "u_20261106_IREN_07",
+      "item": "⑧ 가동 ARR 기준일·가동 MW 기준(IT/gross)",
+      "status": "partial",
+      "note": "operating ARR $1bn(기준일 미기재), 운영 중 AI Cloud 용량 약 93MW(MW 기준 미특정). 둘의 기준일·기준 일치 여부가 불명이라 ARR/MW 실현 지표를 산출하지 않았다(F3).",
+      "next_check": "회사 IR 슬라이드 또는 차기 10-Q"
+    },
+    {
+      "id": "u_20261106_IREN_08",
+      "item": "⑨ Horizon 2-4 인도·인수 및 크레딧 협의 결과",
+      "status": "unconfirmed",
+      "note": "인도·인수 미완료(2027년 1~2월 목표). 수수료·크레딧·비용 상환 협의 결과와 지연 크레딧 면제 범위는 계약 원문이 공개되지 않아 확인 불가.",
+      "next_check": "2027-01~02 인도 공시, FY27 Q2 10-Q"
+    },
+    {
+      "id": "u_20261106_IREN_09",
+      "item": "⑪ FY27 capex 총액(회사 명시)",
+      "status": "partial",
+      "note": "9/30 기준 잔여 $15bn는 등급 1 확인. FY27 총액은 회사가 명시하지 않았고 8/27 $25~30bn은 등급 3 전사만 존재해 등급 1·2 대조 불가. 추산 약 $19.8~20.2bn는 산술 추정(I07, 등급 3 입력 포함)이다.",
+      "next_check": "회사 공식 웹캐스트·IR 슬라이드, 차기 10-Q"
+    },
+    {
+      "id": "u_20261018_IREN_01",
+      "item": "FY27 추가 약 $80억의 성격·용처(GPU 대출만 vs 선급금 포함) — 부분 해소",
+      "status": "partial",
+      "note": "원문 GPU financing and prepayments는 등급 3 전사(Motley Fool)로 확인, 11/5 보도자료(등급 1)의 두 번째 조달 구간도 선수금을 명시. GPU 대출만이라는 해석은 반증됨. 단 8/27 웹캐스트 회사 공식 원본 대조는 미실시이며 계약·부지·대주별 배분 미공개. 주간 페이지 t-iren-ms ④의 GPU 담보 대출로 문구는 정정 후보(사용자 결정 전까지 페이지는 그대로).",
+      "next_check": "회사 공식 웹캐스트 리플레이(iren.com/investors)로 8/27 원문 대조"
+    },
+    {
+      "id": "u_20261106_IREN_10",
+      "item": "⑫ SB6 적용 용량 MW / PUCT 최종 규칙",
+      "status": "unconfirmed",
+      "note": "10-Q·보도자료에 IREN 적용 MW 미공시. 웹검색(2026-11-06)에서 PUCT SB6 최종 규칙 채택 일자를 확인하지 못했다(2차 법률 해설만 존재, 등급 3). KC-10 분모 공백 지속.",
+      "next_check": "puc.texas.gov Project 58481 문서, ERCOT 공지"
+    },
+    {
+      "id": "u_20261106_IREN_11",
+      "item": "⑬ AI Cloud 부문 감가상각 배분",
+      "status": "unconfirmed",
+      "note": "10-Q 부문 주석은 감가상각을 배분하지 않는다(총 $148m). 카드의 14% 대 5% 전제 검증 불가.",
+      "next_check": "FY27 Q2 10-Q 또는 부문 주석 변경 공시"
+    },
+    {
+      "id": "u_20261106_IREN_12",
+      "item": "⑭ BC Hydro 2026 Call for Demand 결과",
+      "status": "unconfirmed",
+      "note": "10-Q·보도자료에 BC Hydro 선정 관련 서술 미적재. 웹검색(2026-11-06)에서 선정자 명단 공표를 확인하지 못했다. 보도자료는 Mackenzie 100MW 사이트에서 수랭 데이터센터 건설이 착수됐다고 기재(기존 접속분).",
+      "next_check": "BC Hydro Call for Demand 공지"
+    },
+    {
+      "id": "u_20261106_IREN_13",
+      "item": "Sweetwater 최종 접속 승인·에너지화 일자",
+      "status": "unconfirmed",
+      "note": "경영진 구두 secured(C27)와 보도자료 conditional(C26)의 표현 차이. 최종 접속 승인 일자는 어느 1차 자료에도 적재되지 않았다.",
+      "next_check": "ERCOT Batch Zero 게시, 후속 8-K"
+    },
+    {
+      "id": "u_20261106_IREN_14",
+      "item": "2026-11-06 실적 후 종가 및 반응",
+      "status": "unconfirmed",
+      "note": "산출 시점에 11/6 종가 미확보. 11/5 종가 $18.03은 실적 발표(17:00 ET) 이전이다.",
+      "next_check": "11/6 장 마감 이후 재조회"
+    },
+    {
+      "id": "u_20261106_IREN_15",
+      "item": "공식 웹캐스트 원본 대조(11/5 콜)",
+      "status": "unconfirmed",
+      "note": "C11·C12·C18·C27·C30의 경영진 발언은 비공식 유튜브 자동 전사만 근거. 발표(prepared remarks) 구간 부재.",
+      "next_check": "iren.com/investors 웹캐스트 리플레이 또는 공식 전사"
+    }
+  ],
+  "checkpoint_matrix": [
+    {
+      "no": 1,
+      "item": "과금 가동률",
+      "classification": "미확인",
+      "result": "u_20261106_IREN_01 참조. 2회 연속 미공개.",
+      "claims": []
+    },
+    {
+      "no": 2,
+      "item": "MFU",
+      "classification": "미확인",
+      "result": "u_20261106_IREN_02 참조.",
+      "claims": []
+    },
+    {
+      "no": 3,
+      "item": "매니지드 서비스 믹스(Mirantis 첫 연결 분기)",
+      "classification": "부분 확인",
+      "result": "Services 매출에 Mirantis 기여분 포함, 금액 미분리. 10-Q는 FY27 연결 실적에 중요하지 않을 것으로 예상. 믹스 % 미공시.",
+      "claims": [
+        "IREN-2611-C25",
+        "IREN-2611-C01"
+      ]
+    },
+    {
+      "no": 4,
+      "item": "Horizon 건설원가 실측",
+      "classification": "미확인",
+      "result": "u_20261106_IREN_03 참조. 총액만 공시.",
+      "claims": [
+        "IREN-2611-C16"
+      ]
+    },
+    {
+      "no": 5,
+      "item": "전력 단위원가 $/MWh",
+      "classification": "부분 확인",
+      "result": "부문별 전력비 확보(AI Cloud $7m, 채굴 $14m). MWh 미공시.",
+      "claims": [
+        "IREN-2611-C05"
+      ]
+    },
+    {
+      "no": 6,
+      "item": "GPU 대체 조항 단가 재협상",
+      "classification": "미확인",
+      "result": "u_20261106_IREN_05 참조.",
+      "claims": []
+    },
+    {
+      "no": 7,
+      "item": "ASC842 리스 매출 최초 인식 금액 [게이트 ⑪]",
+      "classification": "부분 확인",
+      "result": "AI Cloud Lease 총 $65m 인식(고정 $49m + 조건부 $16m). Horizon 1 단독분 미분리(including).",
+      "claims": [
+        "IREN-2611-C03",
+        "IREN-2611-C04",
+        "IREN-2611-C06",
+        "IREN-2611-I02"
+      ]
+    },
+    {
+      "no": 8,
+      "item": "가동 중 ARR $1.0B→$4.0B 진척률 및 가동 MW",
+      "classification": "부분 확인",
+      "result": "operating ARR $1bn(기준일 미기재), 운영 용량 약 93MW(기준 미특정). $4bn 목표 시점 2027-01-31로 이동.",
+      "claims": [
+        "IREN-2611-C08",
+        "IREN-2611-C09",
+        "IREN-2611-I05"
+      ]
+    },
+    {
+      "no": 9,
+      "item": "Horizon 2-4 인도·인수 완료 여부",
+      "classification": "상충",
+      "result": "인도·인수 미완료. 카드 기준선(CY Q4 2026) 대비 2027-01~02 목표로 이동, 크레딧 협의 미종결.",
+      "claims": [
+        "IREN-2611-C09",
+        "IREN-2611-C10",
+        "IREN-2611-C11",
+        "IREN-2611-C12",
+        "IREN-2611-I04"
+      ]
+    },
+    {
+      "no": 10,
+      "item": "완전희석 주수 range 갱신",
+      "classification": "부분 확인",
+      "result": "하한 424,357,381(10/30 기본), 상한 참고 618,353,348(기계적 합산, 전환사채 이중계상 포함); 전환사채 제외 491,128,241. 회사 명시 완전희석 수치는 10-Q에 없음.",
+      "claims": [
+        "IREN-2611-C20",
+        "IREN-2611-C21",
+        "IREN-2611-I10"
+      ]
+    },
+    {
+      "no": 11,
+      "item": "FY27 capex 확정치 및 조달 구성",
+      "classification": "부분 확인",
+      "result": "9/30 기준 잔여 $15bn = $9bn(현금·확약·선수금) + $6bn(목표, 시장 조건부) 등급 1 확인. FY27 총액 미명시, $25~30bn은 등급 3. 산술 추산 약 $19.8~20.2bn.",
+      "claims": [
+        "IREN-2611-C15",
+        "IREN-2611-C16",
+        "IREN-2611-C17",
+        "IREN-2611-C18",
+        "IREN-2611-I07",
+        "IREN-2611-I08",
+        "IREN-2611-I09"
+      ]
+    },
+    {
+      "no": 12,
+      "item": "SB6 적용 용량 MW",
+      "classification": "미확인",
+      "result": "u_20261106_IREN_10 참조.",
+      "claims": [
+        "IREN-2611-C26"
+      ]
+    },
+    {
+      "no": 13,
+      "item": "AI Cloud 부문 감가상각 배분",
+      "classification": "미확인",
+      "result": "u_20261106_IREN_11 참조. 부문 배분 없음.",
+      "claims": [
+        "IREN-2611-C23",
+        "IREN-2611-I13"
+      ]
+    },
+    {
+      "no": 14,
+      "item": "BC Hydro 2026 Call for Demand 결과",
+      "classification": "미확인",
+      "result": "u_20261106_IREN_12 참조.",
+      "claims": []
+    }
+  ],
+  "checkpoint_summary": {
+    "total": 14,
+    "확인": 0,
+    "부분 확인": 6,
+    "미확인": 7,
+    "상충": 1,
+    "note": "부분 확인=3,5,7,8,10,11 / 미확인=1,2,4,6,12,13,14 / 상충=9"
+  },
+  "thesis_patch_candidates": [
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-1",
+      "card_field": "catalysts[0]",
+      "operation": "amend",
+      "current_item_count_full_file": "catalysts 4개(전문 계수)",
+      "before": "FY27 Q1 10-Q (2026년 11월 경) — ASC842 리스 매출 최초 인식 금액. 사전 정의 상향 게이트 ⑪(Horizon 1 인식 금액)의 유일한 관측점",
+      "after": "[소진] FY27 Q1 10-Q(2026-11-05): AI Cloud Lease 매출 $65m 최초 인식(고정 $49m + 조건부 $16m), Horizon 1 단독분 미분리. 후속 관측점 = FY27 Q2 10-Q(2027-02 경): Horizon 1 단독 또는 계약별 리스 매출 분리 여부, Horizon 2-4 인수 후 리스 개시",
+      "basis_claims": [
+        "IREN-2611-C03",
+        "IREN-2611-C04",
+        "IREN-2611-I02"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "catalysts",
+            "n": 4
+          }
+        ]
+      },
+      "note": "이전 문구는 주석으로 보존(P9). 항목 수 4 유지."
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-2",
+      "card_field": "catalysts[1]",
+      "operation": "amend",
+      "current_item_count_full_file": "catalysts 4개",
+      "before": "Horizons 2-4 인도 — 역년 Q4 2026 단계 인도 목표, 계약상 유예 2026 Q4 중반~2027 Q2 초",
+      "after": "Horizons 2-4 인도 — 회사 목표가 2027-01(공급 상황에 따라 2월 말)로 이동(11/5 보도자료·10-Q, 사유: 고객 요청 설계 변경·공급 일정·제3자 지연). 계약상 유예 상한 2027 Q2 초(10-K) 및 Microsoft 요청 변경분 지연 크레딧 면제, 수수료·크레딧·비용 상환 협의 미종결",
+      "basis_claims": [
+        "IREN-2611-C09",
+        "IREN-2611-C10",
+        "IREN-2611-C11",
+        "IREN-2611-I04"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "catalysts",
+            "n": 4
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-3",
+      "card_field": "catalysts[3]",
+      "operation": "amend",
+      "current_item_count_full_file": "catalysts 4개",
+      "before": "가동 ARR $1.0B → $4.0B 진척 (회사 제시 기한 2026-12-31) / 차세대 GPU 배정 — VR200은 6/30 기준 설치·발주 포트폴리오에 편입 확인",
+      "after": "가동 ARR $1.0B → $4.0B+ 진척 (회사 제시 기한 2027-01-31, 2월 말 연장 가능 — 11/5 보도자료 각주 4; 종전 2026-12-31) / 차세대 GPU 배정 — Dell 약 $6.7bn GPU 주문(2026-09-28, 인도 2027 역년 하반기 시작) 체결 확인",
+      "basis_claims": [
+        "IREN-2611-C09",
+        "IREN-2611-C16"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "catalysts",
+            "n": 4
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-4",
+      "card_field": "risks[0]",
+      "operation": "amend",
+      "current_item_count_full_file": "risks 8개",
+      "before": "Horizons 2-4 인도 리스크 — H1(50MW IT)은 2026년 8월 Microsoft 인도·인수 완료로 해소. 잔여 H2-4는 역년 Q4 2026 단계 인도 목표이나 Microsoft 계약상 인도 유예기간이 2026년 4분기 중반~2027년 2분기 초까지 확장됨이 10-K로 최초 확인 — 리스크 이관 유지, 후행 노출 기간 명시적 연장",
+      "after": "Horizons 2-4 인도 리스크 — H1은 인도·인수·가동 및 리스 매출 인식 개시. 잔여 H2-4 목표가 2027-01(최대 2월 말)로 이동(10-Q: 고객 요청 설계 변경·공급·제3자 지연, 달성 보장 없음). Microsoft 요청 변경분 지연은 크레딧 없이 인도일 연장되나 수수료·크레딧·비용 상환 협의 미종결 — 리스크 이관 유지, 후행 노출 시점 2027 Q1로 이동",
+      "basis_claims": [
+        "IREN-2611-C10",
+        "IREN-2611-C11",
+        "IREN-2611-I03",
+        "IREN-2611-I04"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "risks",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-5",
+      "card_field": "risks[7] + key_metrics[1]",
+      "operation": "amend",
+      "current_item_count_full_file": "risks 8개 / key_metrics 8개",
+      "before": "risks[7] 가동 ARR 갭 …2026-12-31까지 가동해야 하며 그 기한이 Horizons 2-4 인도 기한과 동일 구간에 집중 / key_metrics[1] ARR 실행 갭 …미가동 ~$3.0B의 2026-12-31 기한 가동 여부",
+      "after": "기한을 2027-01-31(최대 2월 말)로 갱신. 이연수익 잔액 $2,544m(리스 이연수익 $2,096m 포함, 9/30), 가동 ARR $1bn 기준일 미기재로 순증 미확인 병기",
+      "basis_claims": [
+        "IREN-2611-C08",
+        "IREN-2611-C09",
+        "IREN-2611-C19",
+        "IREN-2611-I05"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "risks",
+            "n": 8
+          },
+          {
+            "path": "key_metrics",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-6",
+      "card_field": "risks[1]",
+      "operation": "amend",
+      "current_item_count_full_file": "risks 8개",
+      "before": "2026 인도 목표 달성 리스크 — 회사 공표 목표 0.3GW(IT) 누적. 카드 기존 기준선 480MW와 상충하며 연결 고리 미확보(F3) — 잔여 소요량 산출 불가 상태",
+      "after": "공동 CEO가 콜 마무리에서 다음 이정표는 1월을 목표로 하는 0.3GW라고 말함(비공식 전사, 보도자료 0.3GW(IT) 프로그램 fully funded와 방향 일치). 목표 시점이 2026에서 2027-01로 이동. 480MW 기준선과의 연결 고리는 여전히 미확보. 운영 중 AI Cloud 용량 약 93MW(9/30, 기준 미특정)",
+      "basis_claims": [
+        "IREN-2611-C08",
+        "IREN-2611-C09",
+        "IREN-2611-C11"
+      ],
+      "priority": "medium",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "risks",
+            "n": 8
+          }
+        ]
+      },
+      "note": "전사 의존 부분은 공식 웹캐스트 대조 전까지 caveat 유지."
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-7",
+      "card_field": "thesis",
+      "operation": "amend",
+      "current_item_count_full_file": "scalar(문단)",
+      "before": "MS $9.7B + NVIDIA $3.4B + 신규 $2.8B = TCV ~$15.9B.",
+      "after": "수주잔고(RPO+리스 잔여 가치) $20.3bn(9/30, 약 2/3 투자등급; ASC606 RPO $6.35bn + ASC842 리스 $13.96bn). 종전 TCV ~$15.9B(MS $9.7B + NVIDIA $3.4B + 신규 $2.8B)와 산정 기준이 달라 직접 증감 비교 불가",
+      "basis_claims": [
+        "IREN-2611-C06",
+        "IREN-2611-C07",
+        "IREN-2611-I14"
+      ],
+      "priority": "medium",
+      "note": "scalar 필드. 주석으로 이전 문장 보존."
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-8",
+      "card_field": "key_metrics[3] + risks[2]",
+      "operation": "amend",
+      "current_item_count_full_file": "key_metrics 8개 / risks 8개",
+      "before": "MW당 매출 — [계약 단가 기준] 최근 3년 계약 MW(IT)당 $20M 초과, 협의 중 ~$25M (8/27 공시). [실적 기준] 가동 MW 미공시로 산출 불가. (risks[2] 동일 기준)",
+      "after": "[계약 단가·목표 기준] 8/27: 3년 $20M 초과·협의 중 ~$25M. 11/5(분기 말 이후 체결): 5년 ~$22M/MW(IT) + 고객이 GPU capex 90% 선납, 단기 $40M/MW(IT), H100 재계약 종전의 2배(다년). 3·5년 신규 계약 평균 단가 +11%/+12%(추정, ARR 가중). 선납 구조가 달라 8/27 수치와 동일 조건 비교 불가. [실적 기준] 운영 용량 약 93MW 공시됐으나 MW 기준 미특정·ARR 기준일 불명으로 산출 보류(F3)",
+      "basis_claims": [
+        "IREN-2611-C13",
+        "IREN-2611-C08",
+        "IREN-2611-I05",
+        "IREN-2611-I06"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "key_metrics",
+            "n": 8
+          },
+          {
+            "path": "risks",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-9",
+      "card_field": "key_metrics[0]",
+      "operation": "amend",
+      "current_item_count_full_file": "key_metrics 8개",
+      "before": "AI Cloud 매출 비중 — Q4 FY26 51.4%로 역전 달성(Q3 23.2%). FY26 연간은 18.2%. 역전의 일부는 채굴 매출 QoQ -40.0% 감소분에 기인(총매출 QoQ -5.2%) — 분자·분모 동시 작용 표기 필수",
+      "after": "AI Cloud 매출 비중 — Q1 FY27 87.7%(Q4 FY26 51.4%). 총매출 QoQ +66%(AI Cloud +$129m, 채굴 -$39m, 채굴 QoQ -58%). 리스 매출 $65m 포함 — 분자·분모 동시 작용 표기 유지",
+      "basis_claims": [
+        "IREN-2611-C01",
+        "IREN-2611-C02",
+        "IREN-2611-I01"
+      ],
+      "priority": "medium",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "key_metrics",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-10",
+      "card_field": "key_metrics[5]",
+      "operation": "amend",
+      "current_item_count_full_file": "key_metrics 8개",
+      "before": "완전희석 주수 — F9 range 유지. 하한 394,058,648주(기본 발행, 8/14/26) ~ 상한 558,718,254주(회사 명시 완전희석, 6/30/26) …",
+      "after": "F9 range 유지·갱신. 하한 424,357,381주(10-Q 표지, 10/30/26 기본 발행). 상한 참고 618,353,348주(= 하한 + 9/30 반희석 제외 잠재주식 193,995,967: 옵션 5.05M + RSU 31.72M + Investment Rights 30.0M + 전환사채 127.23M; 캡드콜 상쇄·재무부주식법 미반영, 전환사채 이중계상 포함). 전환사채 제외 491,128,241주. 6/30 회사 명시 558,718,254주는 갱신본 없음. ATM 10/30 누적 76,806,302주·약 $3.7bn(한도 $6.0bn)",
+      "basis_claims": [
+        "IREN-2611-C20",
+        "IREN-2611-C21",
+        "IREN-2611-I10"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "key_metrics",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-11",
+      "card_field": "key_metrics[6]",
+      "operation": "amend",
+      "current_item_count_full_file": "key_metrics 8개",
+      "before": "현금·순부채 — 현금 $5,895.6M + 제한현금 $1,724.0M = $7,619.5M(6/30/26) …순부채 ~$217M(제한현금 포함 기준) / ~$1,941M(제한현금 제외 기준) …",
+      "after": "9/30/26: 현금 $3,522M + 제한현금 $2,256M = $5,778M. 총차입(금융리스 포함) $10,208M, 회사 정의 순부채 $4,430M(제한현금 차감 후; 6/30 $216M), 제한현금 미차감 시 $6,686M. 이연수익 $2,544M(고객 선수금, 차입 아님). 약정 $18,947M",
+      "basis_claims": [
+        "IREN-2611-C19",
+        "IREN-2611-C16"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "key_metrics",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-12",
+      "card_field": "key_metrics (신규 항목 추가)",
+      "operation": "add",
+      "current_item_count_full_file": "key_metrics 8개 → 9개",
+      "before": "(해당 항목 없음 — FY27 capex·조달 구성을 추적하는 지표 부재)",
+      "after": "FY27 capex·조달 — 9/30 기준 잔여 계획 capex $15bn = $9bn(현금·확약 GPU 금융·선수금) + $6bn(목표 GPU 금융·선수금·데이터센터 금융·기타, 시장 조건부). FY27 총액 미명시(8/27 2차 전사 $25~30bn, 등급 3; 산술 추산 약 $19.8~20.2bn). fully funded는 0.3GW(IT) 프로그램 한정·자금 집행 조건부",
+      "basis_claims": [
+        "IREN-2611-C15",
+        "IREN-2611-C16",
+        "IREN-2611-C17",
+        "IREN-2611-C18",
+        "IREN-2611-I07",
+        "IREN-2611-I08"
+      ],
+      "priority": "medium",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "key_metrics",
+            "n": 9
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-13",
+      "card_field": "earnings_checkpoints.items[10]",
+      "operation": "amend",
+      "current_item_count_full_file": "earnings_checkpoints.items 14개(전문 계수)",
+      "before": "FY27 capex 확정치 및 조달 구성 (2차 매체 $25-30B — 등급 1·2 대조 필요)",
+      "after": "FY27 capex 총액 회사 명시 여부 및 $6bn 목표 조달 구간의 확약 전환(대주·선수금 계약 체결) — 11/5 확인: 잔여 $15bn(등급 1), 총액 미명시",
+      "basis_claims": [
+        "IREN-2611-C15",
+        "IREN-2611-C17",
+        "IREN-2611-I07",
+        "IREN-2611-I09"
+      ],
+      "priority": "medium",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "earnings_checkpoints.items",
+            "n": 14
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-14",
+      "card_field": "earnings_checkpoints.date + items",
+      "operation": "amend",
+      "current_item_count_full_file": "earnings_checkpoints.items 14개(전문 계수)",
+      "before": "date: 2026-11 (FY27 Q1 10-Q — 정확일 미공시) / items 14개",
+      "after": "date: 2027-02 (FY27 Q2 10-Q 예상, 정확일 미공시). 이월 세트 제안 14개: 과금 가동률 / MFU / 매니지드 믹스(Mirantis 분리 여부) / 건설원가 / MWh / GPU 대체 조항 / Horizon 1 단독 또는 계약별 리스 매출 분리·H2-4 리스 개시 / 가동 ARR($4bn+ 도달, 기준일·MW 기준 명시) / H2-4 인수·크레딧 협의 결과 / 완전희석 주수 range / capex·$6bn 조달 확약 / SB6 MW / 감가상각 부문 배분 / BC Hydro",
+      "basis_claims": [
+        "IREN-2611-C03",
+        "IREN-2611-C09",
+        "IREN-2611-C10",
+        "IREN-2611-C20",
+        "IREN-2611-C23"
+      ],
+      "priority": "medium",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "earnings_checkpoints.items",
+            "n": 14
+          }
+        ]
+      },
+      "note": "항목 수는 14 유지 제안. 대조 결과는 02E 파일에 보존."
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-15",
+      "card_field": "valuation.caution + valuation.primary",
+      "operation": "amend",
+      "current_item_count_full_file": "scalar(문단)",
+      "before": "valuation.caution: Microsoft·Horizon 계약은 ASC842 리스로 분류돼 FY26 손익계산서에 매출 인식액이 0이다 — 현 매출 배수에 thesis 핵심 계약이 반영돼 있지 않다.",
+      "after": "Q1 FY27부터 ASC842 리스 매출이 인식되기 시작($65m, Horizon 1 인수 이후; 단독 분리 미공시). Horizon 2-4는 미반영. valuation.primary는 11/5 종가 $18.03·주식 수 range 424.36M~618.35M(전환사채 이중계상 상한)·순부채 $4,430M으로 재산출: EV/ARR 분모 A 3.02x~3.89x, 분모 B 12.08x~15.58x (02E 파일 §4)",
+      "basis_claims": [
+        "IREN-2611-C03",
+        "IREN-2611-C19",
+        "IREN-2611-C20",
+        "IREN-2611-C21",
+        "IREN-2611-C31"
+      ],
+      "priority": "high",
+      "note": "분모 A·B는 시계열 비교 금지(기준 변경). 가격은 등급 4."
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-16",
+      "card_field": "conclusion",
+      "operation": "amend",
+      "current_item_count_full_file": "scalar(문단)",
+      "before": "conclusion: …Microsoft·Horizon 계약은 ASC842 리스로 분류돼 FY26 인식 매출이 0이므로 …다음 판정점은 FY27 Q1의 ASC842 리스 매출 최초 인식 금액이다.",
+      "after": "초안 후보(사람 확정): FY27 Q1에서 ASC842 리스 매출이 처음 인식됐으나($65m) Horizon 1 단독분은 분리 공시되지 않았고, Horizon 2-4와 $4bn ARR 목표는 2027-01~02로 이동했으며 순부채·ATM 발행이 확대됐다. 다음 판정점은 FY27 Q2 10-Q 및 Horizon 2-4 인수.",
+      "basis_claims": [
+        "IREN-2611-C03",
+        "IREN-2611-C04",
+        "IREN-2611-C09",
+        "IREN-2611-C19",
+        "IREN-2611-C20"
+      ],
+      "priority": "medium",
+      "note": "결론 문단은 사람이 직접 확정."
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-17",
+      "card_field": "risks[4]",
+      "operation": "amend",
+      "current_item_count_full_file": "risks 8개",
+      "before": "희석 오버행 — ATM 실현: 2026-03-04 보충서(한도 $6.0B) 하 47,165,838주·약 $2.5B 발행 완료(8/14 기준) …",
+      "after": "ATM 실현: 59,431,312주·약 $3.0B(9/30) → 76,806,302주·약 $3.7B(10/30; 분기 말 이후 17,374,990주·약 $630m, 평균 약 $36.3). 잔여 한도 약 $2.3B. 반희석 제외 잠재주식 193,995,967주(옵션 5.05M + RSU 31.72M + Investment Rights 30.0M + 전환사채 127.23M). Mirantis 12,632,234주 발행(2026-08-03)",
+      "basis_claims": [
+        "IREN-2611-C20",
+        "IREN-2611-C21"
+      ],
+      "priority": "high",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "risks",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-18",
+      "card_field": "axes[btc_mining] (annotate)",
+      "operation": "annotate",
+      "current_item_count_full_file": "axes 6개(전문 계수)",
+      "before": "axes btc_mining 라벨: …CFO We currently expect mining operations to be effectively decommissioned by the end of December 2026…",
+      "after": "주석 병기: 2026-11-05 10-Q(등급 1)는 2026-12-31까지 전환을 실질적으로 완료하는 것을 목표(aim to substantially complete)하며 미미한 채굴 운영이 2027 역년 내내 지속될 것으로 기재 — 8/27 구두 표현보다 완화. Q1 채굴 매출 $28m, 402 BTC, 설치 7.9 EH/s·약 180MW(9/30). 축 수 6개 불변",
+      "basis_claims": [
+        "IREN-2611-C24",
+        "IREN-2611-I11"
+      ],
+      "priority": "medium",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "axes",
+            "n": 6
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-19",
+      "card_field": "axes[power_permit] (annotate)",
+      "operation": "annotate",
+      "current_item_count_full_file": "axes 6개",
+      "before": "axes power_permit 라벨: …2GW Sweetwater Hub 전량이 ERCOT Batch Zero 심사에서 Base Load로 조건부 포함…",
+      "after": "주석 병기: 2026-11-05 콜에서 경영진이 Sweetwater 1·2 합계 2GW를 확보(secured)라고 구두 표현(비공식 전사, 등급 2). 서면(보도자료, 등급 1)은 여전히 conditional inclusion이므로 P7에 따라 서면 기준 유지. 최종 접속 승인·에너지화 일자 미공시. 축 수 6개 불변",
+      "basis_claims": [
+        "IREN-2611-C26",
+        "IREN-2611-C27",
+        "IREN-2611-I12"
+      ],
+      "priority": "low",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "axes",
+            "n": 6
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-20",
+      "card_field": "risks (신규 항목 추가, 선택)",
+      "operation": "add",
+      "current_item_count_full_file": "risks 8개 → 9개",
+      "before": "(해당 항목 없음 — 고객 집중도 리스크 항목 부재)",
+      "after": "고객 집중 — 10-Q 기준 상위 3개 고객이 Q1 총매출의 28%·24%·18%(합계 70%, 모두 AI Cloud, 고객명 미공개). 이탈·감축이 부채 상환력에 영향을 줄 수 있다고 10-Q가 명시",
+      "basis_claims": [
+        "IREN-2611-C14",
+        "IREN-2611-I14"
+      ],
+      "priority": "low",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "risks",
+            "n": 9
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "IREN",
+      "requires_human_approval": true,
+      "candidate_id": "TP-21",
+      "card_field": "key_metrics[2] + key_metrics[7]",
+      "operation": "amend",
+      "current_item_count_full_file": "key_metrics 8개",
+      "before": "key_metrics[2] 과금 가동률·MFU — 8/27 FY26 실적에서 공개되지 않음 …다음 관측점 FY27 Q1 10-Q / key_metrics[7] 매니지드 서비스 믹스 — …FY27 Q1이 첫 연결 분기",
+      "after": "[2] FY27 Q1에서도 미공개(2회 연속) — 다음 관측점 FY27 Q2 10-Q. [7] Mirantis 첫 연결 분기(2026-08-03~): Services 매출에 기여분 포함되나 금액 미분리, 10-Q는 FY27 연결 실적에 중요하지 않을 것으로 예상",
+      "basis_claims": [
+        "IREN-2611-C25",
+        "IREN-2611-C01"
+      ],
+      "priority": "medium",
+      "expected_after": {
+        "counts": [
+          {
+            "path": "key_metrics",
+            "n": 8
+          }
+        ]
+      }
+    }
+  ],
+  "valuation_snapshot": {
+    "ticker": "IREN",
+    "metric": "EV/ARR (분모 A = 계약 ARR 목표 $4.0bn 이상 / 분모 B = 가동 ARR $1.0bn)",
+    "as_of": "2026-11-06",
+    "price": 18.03,
+    "price_date": "2026-11-05 정규장 종가(실적 발표 17:00 ET 이전)",
+    "price_source": "yfinance history (등급 4, 애그리게이터)",
+    "price_grade": 4,
+    "prior_baseline": {
+      "date": "2026-08-28",
+      "price": 35.45,
+      "shares_range_M": [
+        394.058648,
+        558.718254
+      ],
+      "net_debt_M": 217,
+      "ev_range_M": [
+        14186,
+        20024
+      ],
+      "ev_arr_A_range": [
+        3.55,
+        5.01
+      ],
+      "ev_arr_B_range": [
+        14.19,
+        20.02
+      ],
+      "source": "output/20260829_1046 및 카드 valuation.primary"
+    },
+    "shares_range_M": {
+      "low_basic_10_30": 424.357381,
+      "mid_ex_convertible": 491.128241,
+      "high_mechanical": 618.353348,
+      "note": "F9 range. high에는 전환사채 127.23M주 포함, 전환사채 원금 $6,746M가 순부채에 남아 이중 계상(EV 과대). 단일값 사용 금지."
+    },
+    "net_debt_M": {
+      "company_defined_restricted_cash_netted": 4430,
+      "restricted_cash_not_netted": 6686,
+      "prior_6_30": 216
+    },
+    "ev_range_M": {
+      "low": 12081,
+      "mid": 13285,
+      "high": 15579,
+      "high_if_converted_consistent": 8834
+    },
+    "ev_arr_A_range": {
+      "low": 3.02,
+      "mid": 3.32,
+      "high": 3.89,
+      "high_if_converted_consistent": 2.21,
+      "denominator": "계약 ARR 목표 $4bn 초과 이므로 $4.0bn 하한 사용(배수는 상한값)"
+    },
+    "ev_arr_B_range": {
+      "low": 12.08,
+      "mid": 13.29,
+      "high": 15.58,
+      "high_if_converted_consistent": 8.83,
+      "denominator": "가동 ARR $1.0bn(기준일 미기재, 8/26 값과 동일 크기)"
+    },
+    "value": "분모 A 3.02x~3.89x / 분모 B 12.08x~15.58x (단일값 아님, 분모 A·B 시계열 비교 금지)",
+    "prior_value": "분모 A 3.55x~5.01x / 분모 B 14.19x~20.02x (8/28 기준)",
+    "numerator_delta": "하한 케이스(주식 394.06M→424.36M): EV $14,186M→$12,081M. 가격 $35.45→$18.03(-49.1%)이 EV -$6,865M(3.55x→1.83x), 주식 수 +30.3M이 +$546M(→1.97x), 순부채 $217M→$4,430M이 +$4,213M(→3.02x). 상한 케이스(558.72M→618.35M): EV $20,024M→$15,579M. 가격 -$9,733M(5.01x→2.57x), 주식 수 +$1,075M(→2.84x), 순부채 +$4,213M(→3.89x). 순부채 증가는 분자 기여이며 분기 중 차입 증가에서 비롯된다.",
+    "denominator_delta": "분모 A: 계약 ARR 목표 $4.0bn 불변(0%), 단 가동 목표 시점 2026-12-31→2027-01-31(최대 2월 말)로 이동. 분모 B: 가동 ARR $1.0bn 불변(0%), 기준일 불명. 두 분모 모두 수치 변화 0이므로 배수 변동은 전액 분자 기여다.",
+    "interpretation": "배수 하락은 실적 개선이 아니라 가격 하락(-49.1%)에 의한 분자 감소가 지배했고, 순부채 증가가 이를 부분 상쇄했다. 분모(ARR)는 변하지 않았으므로 서사적 해석은 하지 않는다. 분기 매출이 AI Cloud로 이동(87.7%)했으나 ARR은 비GAAP이며 회사가 인식 매출이 실질적으로 낮을 수 있다고 명시했다.",
+    "denominator_uncertainty": "완전희석 주수 range 424.36M~618.35M(F9). 순부채 정의 2종(제한현금 차감 $4,430M / 미차감 $6,686M). 11/6 실적 후 가격 미반영.",
+    "claims": [
+      "IREN-2611-C19",
+      "IREN-2611-C20",
+      "IREN-2611-C21",
+      "IREN-2611-C31",
+      "IREN-2611-C09",
+      "IREN-2611-C08",
+      "IREN-2611-I08",
+      "IREN-2611-I10"
+    ]
+  },
+  "edgar_note": "edgar_fulltext 수집분(_raw_edgar_IREN.json): 10-Q, 8-K 각 1건(2026-11-05). 424B5/S-8/13G 등 추가 폼은 해당 파일에 포함되지 않음. 웹검색: SB6/PUCT, BC Hydro, Sweetwater는 2026-11-06 기준 신규 1차 자료를 찾지 못해 unconfirmed 적재."
+}

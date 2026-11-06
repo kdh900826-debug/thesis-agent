@@ -1,0 +1,26 @@
+{
+  "ticker": "IREN",
+  "cik": "0001878848",
+  "items": [
+    {
+      "id": "edgar_2026-11-05_10-Q_0",
+      "form": "10-Q",
+      "filed_at": "2026-11-05",
+      "title": "10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    },
+    {
+      "id": "edgar_2026-11-05_8-K_1",
+      "form": "8-K",
+      "filed_at": "2026-11-05",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/iren-20261105.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}

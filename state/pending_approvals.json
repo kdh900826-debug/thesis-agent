@@ -710,6 +710,136 @@
       "status": "approved",
       "resolved_at": "2026-10-03",
       "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_catalysts0_q1fy27_lease_recognized",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_catalysts0_q1fy27_lease_recognized.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_catalysts1_h2_4_target_jan2027",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_catalysts1_h2_4_target_jan2027.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_catalysts3_arr_deadline_jan2027",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_catalysts3_arr_deadline_jan2027.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_keymetrics3_risks2_rev_per_mw_a",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_keymetrics3_risks2_rev_per_mw_a.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_keymetrics3_risks2_rev_per_mw_b",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_keymetrics3_risks2_rev_per_mw_b.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_keymetrics5_fd_shares_range",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_keymetrics5_fd_shares_range.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_keymetrics6_cash_net_debt_q1",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_keymetrics6_cash_net_debt_q1.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_risks0_h2_4_delay",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_risks0_h2_4_delay.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_risks4_atm_dilution_q1",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_risks4_atm_dilution_q1.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_risks7_keymetrics1_arr_gap_deadline_a",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_risks7_keymetrics1_arr_gap_deadline_a.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_risks7_keymetrics1_arr_gap_deadline_b",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_risks7_keymetrics1_arr_gap_deadline_b.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_valuation_primary_caution_q1fy27_a",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_valuation_primary_caution_q1fy27_a.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261106_1420_thesis_patch_iren_valuation_primary_caution_q1fy27_b",
+      "type": "thesis_patch",
+      "artifact": "output/20261106_1346/07_thesis_patch/IREN_valuation_primary_caution_q1fy27_b.md",
+      "created_at": "2026-11-06",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-11-06",
+      "note": null
     }
   ]
 }

@@ -1,0 +1,715 @@
+{
+  "_comment": "승인 영속 큐 (D6). approve <id> / reject <id> 명령 또는 status 직접 수정으로 처리. expires_after_days 초과 시 expired — 승인 불가, 재실행 요구. 모든 Run 시작 시 state-audit가 최우선 보고.",
+  "queue": [
+    {
+      "approval_id": "ap_20260815_1528_thesis_patch_crwv",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_1408/07_thesis_patch/CRWV.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_1528_thesis_patch_crwv_interest_coverage",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_1408/07_thesis_patch/CRWV_interest_coverage.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_1528_thesis_patch_crwv_margin_basis",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_1408/07_thesis_patch/CRWV_margin_basis.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_1528_thesis_patch_nbis",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_1408/07_thesis_patch/NBIS.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_1528_thesis_patch_crcl",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_1408/07_thesis_patch/CRCL.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_1528_thesis_patch_crcl_catalyst_gate",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_1408/07_thesis_patch/CRCL_catalyst_gate.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_2221_thesis_patch_crcl_usdc_axis",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_2210/07_thesis_patch/CRCL_usdc_axis.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_2221_thesis_patch_crcl_usdc_metric",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_2210/07_thesis_patch/CRCL_usdc_metric.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_2221_thesis_patch_nbis_thesis_annotate",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_2210/07_thesis_patch/NBIS_thesis_annotate.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_2315_thesis_patch_crcl_risks_ylds",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_2307/07_thesis_patch/CRCL_risks_ylds.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_2315_thesis_patch_crcl_market_share_observed",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_2307/07_thesis_patch/CRCL_market_share_observed.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260815_2315_thesis_patch_crcl_regulation_decompose",
+      "type": "thesis_patch",
+      "artifact": "output/20260815_2307/07_thesis_patch/CRCL_regulation_decompose.md",
+      "created_at": "2026-08-15",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-15",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260816_0001_thesis_patch_crcl_kc_ref_add",
+      "type": "thesis_patch",
+      "artifact": "output/20260816_0000/07_thesis_patch/CRCL_kc_ref_add.md",
+      "created_at": "2026-08-16",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-16",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260816_0010_thesis_patch_iren_checkpoints_restore",
+      "type": "thesis_patch",
+      "artifact": "output/20260816_0000/07_thesis_patch/IREN_checkpoints_restore.md",
+      "created_at": "2026-08-16",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-08-16",
+      "note": "적용 후 즉시 원복(2026-08-16): 패치 전제('⑧~⑬ 누락')가 오케스트레이터의 부분 읽기 오인으로 판명 — 카드는 v1 초기화부터 13항목 보유. 적용 시 중복 6쌍 발생해 backup/IREN_20260816_001307.yaml 기준 원복. P9에 따라 이력 삭제 없이 기록 보존."
+    },
+    {
+      "approval_id": "ap_20260820_2235_thesis_patch_nbis_debt_annotate",
+      "type": "thesis_patch",
+      "artifact": "output/20260820_2230/07_thesis_patch/NBIS_debt_annotate.md",
+      "created_at": "2026-08-20",
+      "expires_after_days": 14,
+      "status": "expired",
+      "resolved_at": null,
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260820_2235_thesis_patch_nbis_key_metrics_debt",
+      "type": "thesis_patch",
+      "artifact": "output/20260820_2230/07_thesis_patch/NBIS_key_metrics_debt.md",
+      "created_at": "2026-08-20",
+      "expires_after_days": 14,
+      "status": "expired",
+      "resolved_at": null,
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260820_2235_thesis_patch_nbis_risks_funding_realized",
+      "type": "thesis_patch",
+      "artifact": "output/20260820_2230/07_thesis_patch/NBIS_risks_funding_realized.md",
+      "created_at": "2026-08-20",
+      "expires_after_days": 14,
+      "status": "expired",
+      "resolved_at": null,
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260829_1107_thesis_patch_iren_key_metrics_fy26",
+      "type": "thesis_patch",
+      "artifact": "output/20260829_1046/07_thesis_patch/IREN_key_metrics_fy26.md",
+      "created_at": "2026-08-29",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260829_1107_thesis_patch_iren_risks_fy26",
+      "type": "thesis_patch",
+      "artifact": "output/20260829_1046/07_thesis_patch/IREN_risks_fy26.md",
+      "created_at": "2026-08-29",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260829_1107_thesis_patch_iren_catalysts_fy26",
+      "type": "thesis_patch",
+      "artifact": "output/20260829_1046/07_thesis_patch/IREN_catalysts_fy26.md",
+      "created_at": "2026-08-29",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260829_1107_thesis_patch_iren_earnings_checkpoints_fy27q1",
+      "type": "thesis_patch",
+      "artifact": "output/20260829_1046/07_thesis_patch/IREN_earnings_checkpoints_fy27q1.md",
+      "created_at": "2026-08-29",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260829_1107_thesis_patch_iren_valuation_fy26",
+      "type": "thesis_patch",
+      "artifact": "output/20260829_1046/07_thesis_patch/IREN_valuation_fy26.md",
+      "created_at": "2026-08-29",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260829_1107_thesis_patch_iren_conclusion_fy26",
+      "type": "thesis_patch",
+      "artifact": "output/20260829_1046/07_thesis_patch/IREN_conclusion_fy26.md",
+      "created_at": "2026-08-29",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_mu_catalysts_earnings_date",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/MU_catalysts_earnings_date.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "MU catalysts '9/22 Q4 FY26 실적' → 회사 공식 확정일 9/30 정정(c_20260905_MU_02, grade 1). 항목 수 4개 불변."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_mu_earnings_checkpoints_date",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/MU_earnings_checkpoints_date.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "MU earnings_checkpoints.date 2026-09-22 → 2026-09-30 정정. items 7개 불변 이월."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_mu_axes_ip_litigation",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/MU_axes_ip_litigation.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "MU axes에 ip_litigation_risk 신규 축 추가(5 → 6). Netlist ITC/CDCA 제소(2026-08-12, grade 1). 2 run 연속 계류 건, L3 판정 MU 단독 귀착. 방향 판정 미포함."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_nbis_thesis_annotate",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/NBIS_thesis_annotate.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "NBIS thesis 주석 블록 갱신(재대조 완료 + 2026-08-24 클로징 확정 + leverage_burden/funding_access 상충 프레임 명시). 만료된 ap_20260820_2235_thesis_patch_nbis_debt_annotate의 재생성. thesis 본문 문장은 불변 — 재작성 판정은 esc_20260905_0618_nbis_thesis_rewrite로 분리."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_nbis_key_metrics_debt",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/NBIS_key_metrics_debt.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "NBIS key_metrics '현금 $8B + 고객 선불금 $9B+'에 이자부 부채 병기 + 8/24 결제 확정분 반영. 만료된 ap_20260820_2235_thesis_patch_nbis_key_metrics_debt의 재생성. 항목 수 7개 불변."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_nbis_risks_funding_realized",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/NBIS_risks_funding_realized.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "NBIS risks 조달 단계 표기 '가능성' → '실행 완료'($5.75B 클로징, 그린슈 전액 행사). 만료된 ap_20260820_2235_thesis_patch_nbis_risks_funding_realized의 재생성. 항목 수 5개 불변."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_crcl_risks_ylds_grade1",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/CRCL_risks_ylds_grade1.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "CRCL risks $YLDS 항목 등급 정정(grade 4 confirmed=false → grade 1 confirmed) + 2Q26 $556.033M 신규 수치·QoQ -7.0% 반영. 위협 판정 프레임 유지. 항목 수 5개 불변."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_crcl_axes_competition_decompose",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/CRCL_axes_competition_decompose.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "CRCL axes competition_ousd를 competition_ousd_consortium / competition_yield_bearing으로 분해(7 → 8). 근거 su_20260905_12(이질적 위협원 혼재). ⚠️P8 엄격 요건(축 판정 역전)은 미충족 — 2026-08-15 승인된 regulation 분해와 동일 유형의 제안이며 채택은 사람 판정."
+    },
+    {
+      "approval_id": "ap_20260905_0640_thesis_patch_iren_axes_btc_mining_terminal",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/IREN_axes_btc_mining_terminal.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "IREN axes btc_mining 라벨에 채굴 종료 목표 시점(2026-12월 말, CFO 발언 grade 2) 주석 병기. 축 수 6개 불변. ⚠️대기 중 ap_20260829_1107_* 6건은 key_metrics·risks·catalysts·earnings_checkpoints·valuation·conclusion 대상이며 axes 미포함 — 필드·내용 모두 비중복 확인."
+    },
+    {
+      "approval_id": "ap_20260905_0835_thesis_patch_nbis_thesis_rewrite_a",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/NBIS_thesis_rewrite_a.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260905_0835_thesis_patch_nbis_conclusion_health_rewrite",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0618/07_thesis_patch/NBIS_conclusion_health_rewrite.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": "2026-09-05 1차 approve 시 F20 not_contains 검증 실패로 자동 원복(오류 경위: 패치 after의 P9 보존 인용문이 not_contains 문자열을 포함하는 자기모순 — 검사 문자열을 개행 포함 형태로 수정 후 재시도, P9 기록). 카드 본문 훼손 없음(thesis 재작성 패치는 유지)."
+    },
+    {
+      "approval_id": "ap_20260905_0854_thesis_patch_hood_axes_prediction_baseline",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0839/07_thesis_patch/HOOD_axes_prediction_baseline.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260905_0854_thesis_patch_hood_key_metrics_prediction_baseline",
+      "type": "thesis_patch",
+      "artifact": "output/20260905_0839/07_thesis_patch/HOOD_key_metrics_prediction_baseline.md",
+      "created_at": "2026-09-05",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-05",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260912_1738_thesis_patch_crcl",
+      "type": "thesis_patch",
+      "artifact": "output/20260911_2308/07_thesis_patch/CRCL.md",
+      "created_at": "2026-09-12",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-12",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260912_1738_thesis_patch_hood",
+      "type": "thesis_patch",
+      "artifact": "output/20260911_2308/07_thesis_patch/HOOD.md",
+      "created_at": "2026-09-12",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-12",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260912_1738_thesis_patch_iren",
+      "type": "thesis_patch",
+      "artifact": "output/20260911_2308/07_thesis_patch/IREN.md",
+      "created_at": "2026-09-12",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-12",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_iren",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/IREN.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_nbis",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/NBIS.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_crwv",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/CRWV.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_crwv_key_metrics_coverage_basis",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/CRWV_key_metrics_coverage_basis.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_mu_axes_ip_litigation_observation",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/MU_axes_ip_litigation_observation.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_mu_axes_hbm_demand_decompose",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/MU_axes_hbm_demand_decompose.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_coin",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/COIN.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260919_2325_thesis_patch_hood",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/HOOD.json",
+      "created_at": "2026-09-19",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260920_0804_thesis_patch_crwv_margin_basis_adopted",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/CRWV_margin_basis_adopted.json",
+      "created_at": "2026-09-20",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260920_0804_thesis_patch_crwv_coverage_period_adopted",
+      "type": "thesis_patch",
+      "artifact": "output/20260919_2209/07_thesis_patch/CRWV_coverage_period_adopted.json",
+      "created_at": "2026-09-20",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-20",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_nbis_axes_on_demand_pricing_grade1",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/NBIS_axes_on_demand_pricing_grade1.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_crwv_key_metrics_margin_qoq_align",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/CRWV_key_metrics_margin_qoq_align.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_crwv_risks_margin_qoq_align",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/CRWV_risks_margin_qoq_align.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_crwv_risks_cross_default_covenant",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/CRWV_risks_cross_default_covenant.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_crwv_key_metrics_convert_settled_4p2b",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/CRWV_key_metrics_convert_settled_4p2b.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_crcl_reserve_income_binance_renewal",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/CRCL_reserve_income_binance_renewal.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_crcl_catalysts_clarity_status",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/CRCL_catalysts_clarity_status.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_crcl_diversification_arc_baseline",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/CRCL_diversification_arc_baseline.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_mu_axes_ip_litigation_itc_institution",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/MU_axes_ip_litigation_itc_institution.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20260925_1055_thesis_patch_mu_earnings_checkpoints_litigation_disclosure",
+      "type": "thesis_patch",
+      "artifact": "output/20260925_1015/07_thesis_patch/MU_earnings_checkpoints_litigation_disclosure.md",
+      "created_at": "2026-09-25",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-09-25",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2241_thesis_patch_mu_key_metrics_fy26q4_observations",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/MU_key_metrics_fy26q4_observations.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2241_thesis_patch_mu_earnings_checkpoints_fy26q4_gate_rollover",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/MU_earnings_checkpoints_fy26q4_gate_rollover.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2241_thesis_patch_mu_catalysts_fy26q4_elapsed",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/MU_catalysts_fy26q4_elapsed.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2241_thesis_patch_mu_risks_netlist_hbm_itc",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/MU_risks_netlist_hbm_itc.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2241_thesis_patch_mu_axes_ip_litigation_hbm_second_itc",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/MU_axes_ip_litigation_hbm_second_itc.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2243_thesis_patch_nbis_axes_on_demand_effective_b300",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/NBIS_axes_on_demand_effective_b300.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2243_thesis_patch_nbis_axes_capacity_delivery_aib_50mw",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/NBIS_axes_capacity_delivery_aib_50mw.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2245_thesis_patch_crwv_catalysts_vera_rubin_production",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/CRWV_catalysts_vera_rubin_production.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2245_thesis_patch_crwv_axes_customer_concentration_new_names",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/CRWV_axes_customer_concentration_new_names.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2245_thesis_patch_crwv_earnings_checkpoints_margin_qoq_align",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/CRWV_earnings_checkpoints_margin_qoq_align.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2246_thesis_patch_crcl_axes_ousd_launch_sign_activation",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/CRCL_axes_ousd_launch_sign_activation.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    },
+    {
+      "approval_id": "ap_20261002_2248_thesis_patch_hood_axes_federal_jurisdiction_docket_26_338",
+      "type": "thesis_patch",
+      "artifact": "output/20261001_0900/07_thesis_patch/HOOD_axes_federal_jurisdiction_docket_26_338.md",
+      "created_at": "2026-10-02",
+      "expires_after_days": 14,
+      "status": "approved",
+      "resolved_at": "2026-10-03",
+      "note": null
+    }
+  ]
+}

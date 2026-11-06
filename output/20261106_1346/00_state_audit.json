@@ -1,0 +1,24 @@
+{
+  "as_of": "2026-11-06",
+  "run_id": "20261106_1346",
+  "command": "run earnings IREN",
+  "pending_approvals": [],
+  "expired_now": [],
+  "config_errors": [],
+  "config_warnings": [],
+  "latest_run": "dc_top90_sweeps",
+  "artifacts": {
+    "macro_kc": {
+      "exists": false
+    },
+    "correlation": {
+      "exists": false
+    },
+    "positions": {
+      "age": 48,
+      "unit": "calendar_days",
+      "limit": 30,
+      "stale": true
+    }
+  }
+}

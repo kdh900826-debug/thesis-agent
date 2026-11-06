@@ -1,0 +1,71 @@
+{
+ "yield_30y": {
+  "value": 5.28,
+  "as_of": "2026-11-04",
+  "source_url": "https://fred.stlouisfed.org/series/DGS30",
+  "method": "api"
+ },
+ "ON_RRP": {
+  "value": 125000000.0,
+  "as_of": "2026-11-05",
+  "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+  "method": "api"
+ },
+ "brent": {
+  "value": 107.03,
+  "as_of": "2026-11-03",
+  "source_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+  "method": "api"
+ },
+ "FFR": {
+  "value": 4.0,
+  "as_of": "2026-11-05",
+  "source_url": "https://fred.stlouisfed.org/series/DFEDTARU",
+  "method": "api"
+ },
+ "BTC": {
+  "value": 75529.275,
+  "as_of": "2026-11-06",
+  "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
+  "method": "api"
+ },
+ "VIX": {
+  "value": 28.18000030517578,
+  "as_of": "2026-11-05",
+  "source_url": "yfinance:^VIX",
+  "method": "api"
+ },
+ "TAIEX_vs_20dma_pct": {
+  "value": -13.47,
+  "as_of": "2026-11-06",
+  "source_url": "yfinance:^TWII",
+  "method": "api"
+ },
+ "TAIEX_1m_return_pct": {
+  "value": -19.68,
+  "as_of": "2026-11-06",
+  "source_url": "yfinance:^TWII",
+  "method": "api"
+ },
+ "msft_fcf": {
+  "value": 18633000000,
+  "as_of": "2026-09-30",
+  "source_url": "https://fourweekmba.com/ai-microsoft-azure-grows-48-as-free-cash-flow-falls-to-18-6b/",
+  "method": "web_search",
+  "note_raw": "MSFT FY27 Q1(7-9월) FCF = 영업CF - PP&E 지출 산출치(2차 매체, 등급③). 10-Q 원문 미대조 - provisional. 웹검색 2026-11-06."
+ },
+ "hyperscaler_fcf_sum": {
+  "value": 6835000000,
+  "as_of": "2026-06-30",
+  "source_url": "https://www.investing.com/news/stock-market-news/microsoft-only-us-hyperscaler-with-positive-free-cash-flow-as-ai-capex-bites-93CH-4846663",
+  "method": "web_search",
+  "note_raw": "웹검색(2026-11-06): Q3'26 분기 합산 산출 불가 - 2차 매체 부분값만 확인(MSFT +18.6B, GOOGL -9.1B 분기, META/AMZN 분기 FCF 소스 간 불일치/미확인). 합산 재계산 안 함. as_of 2026-06-30 carry-over(129일, 한도 100일 초과 -> stale -> provisional 강제)."
+ },
+ "SDLLMTK_change_pct": {
+  "value": null,
+  "as_of": "2026-07-03",
+  "source_url": "https://www.cio.com/article/4192834/ai-token-prices-are-cooling-but-why-2.html",
+  "method": "web_search",
+  "note_raw": "웹검색(2026-11-06): SDLLMTK 지수 2주 구간 %변화 수치 미발견(unconfirmed, P5). 14일 한도 초과."
+ }
+}

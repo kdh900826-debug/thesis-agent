@@ -1,0 +1,35 @@
+{
+  "as_of": "2026-11-06",
+  "run_id": "20261106_1346",
+  "staleness_days": 1,
+  "ticker": "IREN",
+  "requires_human_approval": true,
+  "reverses_core_thesis": false,
+  "source_artifact": "output/20261106_1346/02_company/IREN.json#thesis_patch_candidates · output/20261106_1346/02E_earnings/IREN_checkpoints_20261105.md §7",
+  "patch_id": "IREN_catalysts3_arr_deadline_jan2027",
+  "card_field_detail": "catalysts[3] — 가동 ARR 진척 기한 2027-01-31로 갱신, Dell GPU 주문 병기",
+  "priority": "high",
+  "reason": "[fact] 가동 ARR $4B+ 목표 기한이 2027-01-31(2월 말 연장 가능)로 바뀌었다(IREN-2611-C09). [fact] 10-Q에 Dell 약 $6.7B GPU 주문이 기재됐다(IREN-2611-C16).",
+  "card_field": "catalysts",
+  "operation": "amend",
+  "before": "  - \"가동 ARR $1.0B → $4.0B 진척 (회사 제시 기한 2026-12-31) / 차세대 GPU 배정 — VR200은 6/30 기준 설치·발주 포트폴리오에 편입 확인\"",
+  "after": "  # 2026-11-06 ThesisPatch(amend, run 20261106_1346) — 이전: 가동 ARR $1.0B → $4.0B 진척 (회사 제시 기한 2026-12-31) / 차세대 GPU 배정 — VR200은 6/30 기준 설치·발주 포트폴리오에 편입 확인\n  - \"가동 ARR $1.0B → $4.0B+ 진척 (회사 제시 기한 2027-01-31, 2월 말 연장 가능 — 11/5 보도자료 각주 4; 종전 2026-12-31) / 차세대 GPU 배정 — VR200은 6/30 기준 설치·발주 포트폴리오에 편입 확인, Dell 약 $6.7B GPU 주문(2026-09-28 체결, 인도 2027 역년 하반기 시작) 10-Q 확인\"",
+  "basis_claims": [
+    "IREN-2611-C09",
+    "IREN-2611-C16"
+  ],
+  "expected_after": {
+    "contains": [
+      "회사 제시 기한 2027-01-31",
+      "이전: 가동 ARR $1.0B → $4.0B 진척"
+    ],
+    "counts": [
+      {
+        "path": "catalysts",
+        "n": 4
+      }
+    ]
+  },
+  "apply_order": "단독 패치(IREN) — 다른 9건과 대상 행이 겹치지 않아 순서 의존 없음",
+  "f20_note": "[fact] state/thesis_cards/IREN.yaml 전문 142행 열람 후 before 출현 1회 확인. 현재 계수 axes 6 / key_metrics 8 / catalysts 4 / risks 8 / earnings_checkpoints.items 14"
+}
