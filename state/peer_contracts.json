@@ -1,6 +1,6 @@
 {
  "_comment": "업계 AI 계약 비교 원장 — 채굴사 출신 데이터센터의 AI 임대·클라우드 계약과 자금 조달. weekly-events SKILL.md 23~27번. 정렬·단가는 렌더러가 계산한다(원장에 단가를 쓰지 않는다). 공개 자료(회사 보도자료·SEC 공시 우선, 2차 보도는 표시)만.",
- "asof": "2026-10-30",
+ "asof": "2026-11-06",
  "companies": {
   "IREN": "IREN", "HUT": "Hut 8", "CIFR": "Cipher Digital", "WULF": "TeraWulf", "CORZ": "Core Scientific",
   "GLXY": "Galaxy (Helios)", "APLD": "Applied Digital", "RIOT": "Riot", "CLSK": "CleanSpark", "BTDR": "Bitdeer"
@@ -52,6 +52,7 @@
   {"id": "riot-amd1", "date": "2026-01-16", "co": "RIOT", "site": "텍사스 Rockdale", "tenant": "AMD", "kind": "임대 modified gross", "it_mw": 25, "years": 10, "ext": "5년×3", "value_b": 0.311, "note": "연 NOI 약 $25M", "status": "2026년 2분기 25MW 전부 인도", "src": [{"t": "보도자료", "u": "https://www.riotplatforms.com/riot-announces-fee-simple-acquisition-of-land-and-first-data-center-lease-with-amd-at-the-rockdale-site/"}]},
   {"id": "riot-amd2", "date": "2026-04-30", "co": "RIOT", "site": "텍사스 Rockdale 확장", "tenant": "AMD", "kind": "임대 modified gross", "it_mw": 25, "years": 10, "ext": "5년×3", "value_b": 0.325, "status": "2026-11 10MW, 2027-05 15MW", "src": [{"t": "1분기 자료", "u": "https://www.sec.gov/Archives/edgar/data/0001167419/000110465926052943/riot-20260430xex99d2.htm"}]},
   {"id": "riot-lab", "date": "2026-08-10", "co": "RIOT", "site": "텍사스 Rockdale", "tenant": "비공개 '선도 AI 연구소'", "end_user": "Anthropic(Bloomberg 보도, 회사 미확인)", "backstop": "투자등급 신용 지원 협의 중(미확정)", "kind": "임대(형태 비공개)", "it_mw": 191, "years": 20, "ext": "5년×2 (최대 $16.1B)", "value_b": 9.1, "note": "누적 NOI $7.3~8.2B(마진 80~90%). Corsicana 756MW는 구속력 없는 의향서뿐", "status": "2027-12 96MW, 2028-06 191MW", "src": [{"t": "8-K", "u": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926093406/riot-20260810xex99d1.htm"}, {"t": "DCD", "u": "https://www.datacenterdynamics.com/en/news/riot-platforms-agrees-191mw-20-year-lease-agreement-with-anthropic-worth-91bn-report/"}]},
+  {"id": "riot-cors", "date": "2026-11-04", "co": "RIOT", "site": "텍사스 Corsicana 캠퍼스 전체(332에이커)", "tenant": "비공개 '선도 프런티어 AI 연구소'(Rockdale과 같은 임차인)", "kind": "전력 토지 임대 NNN", "it_mw": 910, "years": 15, "ext": "5년×2 (최대 약 $54B)", "value_b": 28, "value_note": "약 $28B(초기 15년, 연평균 임대료 약 $1.8B — 계약상 인상분 포함, 인상률 비공개)", "note": "Riot은 토지·전력 설비·전력 패드, 임차인이 컴퓨팅 모듈을 소유·운영. 사용량과 상관없이 910MW 전체에 임대료. 총 투자 약 $5.5B(IT MW당 약 $6M) 중 Riot 부담 IT MW당 $2M, 나머지 $4M은 단계별 인도 후 임차인에게 상환 — 비소구 프로젝트 대출로 조달 예정(규모·금리 비공개). 신용 보강 언급 없음. 8/10 구속력 없는 의향서(756MW)가 본계약으로 바뀐 것", "status": "2027-09 400MW, 2028-01 200MW, 2028-07 310MW (패드 인도 후 60일 안 임대료 시작)", "src": [{"t": "8-K(3분기 실적 보도자료)", "u": "https://www.sec.gov/Archives/edgar/data/0001167419/000110465926122368/riot-ex99d1.htm"}]},
 
   {"id": "clsk-sv", "date": "2026-07-14", "signed": "7/10 체결", "co": "CLSK", "site": "조지아 Sandersville", "tenant": "비공개 '세계적 기술 기업'(최상위 투자등급)", "kind": "임대 NNN", "it_mw": 175, "years": 20, "ext": "5년×2 (최대 $11.6B)", "value_b": 6.6, "note": "연 NOI 약 $330M(마진 거의 100%). 같은 임차인과 텍사스 최대 885MW 의향서(미체결)", "status": "2027년 4분기 인도 시작", "src": [{"t": "8-K", "u": "https://www.sec.gov/Archives/edgar/data/0000827876/000119312526302448/clsk-20260710.htm"}]},
 
