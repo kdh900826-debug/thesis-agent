@@ -543,6 +543,32 @@ def liquidity_section(cache, first_monday, this_monday, today, todo):
             "first_week": first_monday.isoformat(), "as_of": cache.get("as_of"), "source": cache.get("source", "")}
 
 
+def liq_alerts(liq):
+    """페이지 상단 경고 문장: 최근 SOFR가 IORB 위 / 최근 지급준비금 주평균이 참고선 아래. 없으면 []."""
+    if not liq:
+        return []
+    n, out = liq["now"], []
+    eok = lambda v: f"{abs(v) * 10:,.0f}억 달러"
+    if n["bp"] > 0:
+        out.append(f"SOFR가 IORB 위에 있습니다 — {md(date.fromisoformat(n['d']))} SOFR {n['sofr']:.2f}% · IORB {n['iorb']:.2f}% "
+                   f"(+{n['bp']}bp), {md(date.fromisoformat(n['streak_from']))}부터 {n['streak']}영업일 연속.")
+    if n.get("res") and n["res"][1] < liq["line"]:
+        out.append(f"지급준비금이 {liq['line'] / 1000:.1f}조 달러 참고선 아래입니다 — {md(date.fromisoformat(n['res'][0]))} 주평균 "
+                   f"{n['res'][1] / 1000:.3f}조 달러 (참고선보다 {eok(n['res'][1] - liq['line'])} 적음).")
+    return out
+
+
+def liq_alert_html(liq):
+    msgs = liq_alerts(liq)
+    if not msgs:
+        return ""
+    return ('<div class="callout warn" id="liq-alert"><b>단기자금 경고</b><ul style="margin:4px 0 4px;padding-left:18px">'
+            + "".join(f"<li>{html.escape(m)}</li>" for m in msgs)
+            + '</ul><span class="small">최근 공표 값이 이 페이지의 참고 조건(SOFR &gt; IORB, 지급준비금 &lt; 참고선)에 걸려 자동으로 붙은 알림입니다. '
+              '시스템 판정(등급·KC)이 아니며, 월말·분기말 같은 날짜 효과일 수 있습니다. '
+              '<a href="#liq-h" style="text-decoration:underline">유동성 차트 보기</a></span></div>')
+
+
 PS_METRICS =[("rev", "주당 최근 분기 매출(연환산)"), ("arr_live", "주당 가동 중 ARR"), ("arr_contract", "주당 계약 ARR")]
 
 
@@ -980,7 +1006,7 @@ def render_html(today, store, tickers, data):
     period = f"{fw.year}년 {fw.month}/{fw.day} 주부터"
     return TEMPLATE.format(
         tks=esc(tks), period=esc(period), today=today.isoformat(), last_check=esc(lc.isoformat() if lc else "없음"),
-        headline=esc(store.get("headline", "")), stale=stale, exp_head=exp_head, exp_body=exp_body, week_exp=week_exp,
+        headline=esc(store.get("headline", "")), stale=stale + liq_alert_html(data.get("liq")), exp_head=exp_head, exp_body=exp_body, week_exp=week_exp,
         filters=filters, payload=payload, disclaimer=DISCLAIMER, updated=esc(store.get("updated_at", "")))
 
 

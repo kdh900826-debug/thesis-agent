@@ -39,6 +39,28 @@ def test_liquidity_spread_streak_and_weeks():
     assert q["line"] == 2900 and todo == []
 
 
+def test_alert_when_sofr_above_iorb_or_reserves_below_line():
+    q = wer.liquidity_section(CACHE, date(2026, 10, 19), date(2026, 11, 2), date(2026, 11, 9), [])
+    msgs = wer.liq_alerts(q)
+    assert len(msgs) == 1 and "SOFR가 IORB 위" in msgs[0] and "10/23부터 10영업일" in msgs[0]   # 지준 2.930조 → 참고선 위
+    q["now"]["res"] = ["2026-10-28", 2893.8]
+    msgs = wer.liq_alerts(q)
+    assert len(msgs) == 2 and "참고선 아래" in msgs[1] and "62억 달러" in msgs[1]
+    q["now"].update(bp=0, res=["2026-11-04", 2930.1])
+    assert wer.liq_alerts(q) == [] and wer.liq_alert_html(q) == "" and wer.liq_alerts(None) == []
+
+
+def test_alert_rendered_at_page_top(monkeypatch, tmp_path):
+    import json
+    p = tmp_path / "liq.json"
+    p.write_text(json.dumps(CACHE, ensure_ascii=False), encoding="utf-8")
+    monkeypatch.setattr(wer, "LIQ", p)
+    store = wer.load_json(wer.STORE)
+    data = wer.build(date(2026, 11, 9), store, store["tickers"])
+    page = wer.render_html(date(2026, 11, 9), store, store["tickers"], data)
+    assert 'id="liq-alert"' in page and page.index('id="liq-alert"') < page.index("<h2>읽는 법</h2>")
+
+
 def test_liquidity_stale_adds_todo():
     todo = []
     wer.liquidity_section(CACHE, date(2026, 10, 19), date(2026, 11, 23), date(2026, 11, 23), todo)
