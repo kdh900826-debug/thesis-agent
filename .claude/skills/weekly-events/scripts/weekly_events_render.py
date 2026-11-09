@@ -72,6 +72,15 @@ CREDIT_RULES = {"hy_4w": 0.50, "ccc_4w": 1.00, "ig_4w": 0.15,          # 2단계
                 "s1_worse": 2}                                          # 1단계: '악화' 지표 수
 CREDIT_STALE_DAYS = 10
 
+# 단기자금 유동성(SOFR·IORB·지급준비금) 캐시 — 공개 연준 자료. 수집은 --update-liquidity에서만(FRED API, 같은 키).
+# marks(차트 세로선 [{date, label}])는 사람이 적고 수집 때 보존된다. 2.9조 선은 판정이 아닌 참고선.
+LIQ = ROOT / "state" / "weekly_liquidity.json"
+LIQ_SERIES = {"SOFR": "SOFR (담보부 하루 금리)", "IORB": "IORB (지급준비금 이자율)",
+              "WRESBAL": "지급준비금 주평균", "RPONTSYD": "연준 상설 레포 이용액"}
+LIQ_RES_LINE = 2900   # $B — 2026-11 유튜브 발언이 기준으로 쓴 2.9조 달러(연준이 정한 선 아님)
+LIQ_RES_LINE_NOTE = "2.9조 달러 선은 2026년 11월 유튜브 해설이 쓴 기준으로, 연준이 정한 선이 아닙니다(참고선)."
+LIQ_STALE_DAYS = 10
+
 
 def unit_price(c):
     """평균 단가 = 계약가치 ÷ 기간 ÷ 용량(계산값, $M / MW·년). unit_mw가 있으면 그 용량 기준(예: IT 용량 추정치), 없으면 it_mw.
@@ -306,26 +315,28 @@ def weekly_tga(cache, first_monday, this_monday, today):
             "as_of": cache.get("as_of"), "source": cache.get("source", ""), "last": [last_d, daily[-1][1]]}
 
 
-def fetch_credit(start):
-    """FRED API(환경변수 FRED_API_KEY — kc-eval과 같은 키) → {id: [[날짜, 값]]}. 결측('.')은 건너뛴다.
-    실업수당 청구는 천 건 단위로 바꾼다. (fredgraph.csv 주소는 Python 요청에 응답하지 않아 쓰지 않는다.)"""
+def fred_obs(sid, start):
+    """FRED API(환경변수 FRED_API_KEY — kc-eval과 같은 키) → [[날짜, 값]]. 결측('.')은 건너뛴다.
+    (fredgraph.csv 주소는 Python 요청에 응답하지 않아 쓰지 않는다.)"""
     import os, urllib.request
     key = os.environ.get("FRED_API_KEY")
     if not key:
         raise RuntimeError("FRED_API_KEY 미설정 — setup_fred_key.ps1로 등록")
-    out = {}
-    for sid in CREDIT_SERIES:
-        with urllib.request.urlopen(FRED_API.format(sid=sid, key=key, start=start.isoformat()), timeout=30) as r:
-            obs = json.load(r)["observations"]
-        rows = []
-        for o in obs:
-            try:
-                x = float(o["value"])
-            except ValueError:
-                continue
-            rows.append([o["date"], round(x / 1000, 1) if sid == "ICSA" else round(x, 2)])
-        out[sid] = rows
-    return out
+    with urllib.request.urlopen(FRED_API.format(sid=sid, key=key, start=start.isoformat()), timeout=30) as r:
+        obs = json.load(r)["observations"]
+    rows = []
+    for o in obs:
+        try:
+            rows.append([o["date"], float(o["value"])])
+        except ValueError:
+            continue
+    return rows
+
+
+def fetch_credit(start):
+    """FRED → {id: [[날짜, 값]]}. 실업수당 청구는 천 건 단위로 바꾼다."""
+    return {sid: [[d, round(x / 1000, 1) if sid == "ICSA" else round(x, 2)] for d, x in fred_obs(sid, start)]
+            for sid in CREDIT_SERIES}
 
 
 def update_credit(start, today):
@@ -451,6 +462,85 @@ def credit_section(cache, first_monday, this_monday, today, todo):
     return {"ind": ind, "combos": combos, "stages": stages, "watch": wrows, "watch_asof": watch.get("asof", ""),
             "watch_note": watch.get("note", ""), "weeks": weeks, "daily": daily, "first_week": first_monday.isoformat(),
             "rules": R, "as_of": cache.get("as_of"), "source": cache.get("source", "")}
+
+
+def fetch_liquidity(start):
+    """FRED → {id: [[날짜, 값]]}. 금리는 %, 지급준비금은 $M → $B, 상설 레포 이용액은 원래 $B."""
+    conv = {"WRESBAL": lambda x: round(x / 1000, 1), "RPONTSYD": lambda x: round(x, 3)}
+    return {sid: [[d, conv.get(sid, lambda x: round(x, 2))(x)] for d, x in fred_obs(sid, start)] for sid in LIQ_SERIES}
+
+
+def update_liquidity(start, today):
+    cache = load_json(LIQ) or {"series": {}, "marks": []}
+    for sid, rows in fetch_liquidity(start).items():
+        merged = {r[0]: r for r in cache["series"].get(sid, [])}
+        merged.update({r[0]: r for r in rows})
+        cache["series"][sid] = [merged[k] for k in sorted(merged)]
+    cache.update({"as_of": today.isoformat(),
+                  "source": "FRED(세인트루이스 연준) — 뉴욕 연준 SOFR, 연준 IORB, H.4.1 지급준비금 주평균(WRESBAL), 상설 레포 이용액(RPONTSYD)"})
+    LIQ.write_text(json.dumps(cache, ensure_ascii=False, indent=1), encoding="utf-8")
+    return cache
+
+
+def liquidity_section(cache, first_monday, this_monday, today, todo):
+    """단기자금 유동성: SOFR·IORB 일별(차이 bp), 지급준비금 주평균, 상설 레포 이용액 — 지금 값·연속 일수·주별 요약.
+    차트 기간은 이 페이지 첫 주 2주 전부터. 시계열이 오래되면 todo에 안내를 넣는다."""
+    if not cache or not cache.get("series"):
+        return None
+    S = cache["series"]
+    sofr, iorb, res, srf = (S.get(k) or [] for k in ("SOFR", "IORB", "WRESBAL", "RPONTSYD"))
+    if not sofr or not iorb:
+        return None
+    start = (first_monday - timedelta(days=14)).isoformat()
+    srf_by = {r[0]: r[1] for r in srf}
+    rates = []
+    for d, v in sofr:
+        if d < start:
+            continue
+        ib = _at(iorb, d)
+        if ib:
+            rates.append([d, v, ib[1], round((v - ib[1]) * 100), srf_by.get(d)])
+    if not rates:
+        return None
+    L = rates[-1]
+    n = 0
+    for r in reversed(rates):
+        if r[3] <= 0:
+            break
+        n += 1
+    last20 = rates[-20:]
+    in_page = [r for r in rates if r[0] >= first_monday.isoformat()] or rates
+    top = max(in_page, key=lambda r: r[3])
+    res_rows = [r for r in res if r[0] >= (date.fromisoformat(start) - timedelta(days=7)).isoformat()]
+    srf_4w = [r[1] for r in srf if r[0] >= (today - timedelta(days=28)).isoformat()]
+    now = {"d": L[0], "sofr": L[1], "iorb": L[2], "bp": L[3],
+           "streak": n, "streak_from": rates[-n][0] if n else None,
+           "above20": sum(1 for r in last20 if r[3] > 0), "n20": len(last20),
+           "max_bp": top[3], "max_d": top[0],
+           "res": res[-1] if res else None, "res_chg": round(res[-1][1] - res[-2][1], 1) if len(res) > 1 else None,
+           "srf": srf[-1] if srf else None, "srf_max4w": max(srf_4w) if srf_4w else None}
+    weeks, w = {}, first_monday
+    res_by = {monday(date.fromisoformat(r[0])): (i, r) for i, r in enumerate(res)}
+    while w <= this_monday:
+        rs = [r for r in rates if monday(date.fromisoformat(r[0])) == w]
+        rec = {}
+        if rs:
+            rec.update({"sofr": round(sum(r[1] for r in rs) / len(rs), 3), "iorb": rs[-1][2],
+                        "bp": round(sum(r[3] for r in rs) / len(rs), 1), "bp_max": max(r[3] for r in rs),
+                        "above": sum(1 for r in rs if r[3] > 0), "days": len(rs),
+                        "srf_max": max((r[4] or 0) for r in rs)})
+        if w in res_by:
+            i, r = res_by[w]
+            rec.update({"res": r[1], "res_d": md(date.fromisoformat(r[0])),
+                        "res_chg": round(r[1] - res[i - 1][1], 1) if i else None})
+        if rec:
+            weeks[w.isoformat()] = dict(rec, label=f"{md(w)}~{md(w + timedelta(days=6))}", now=w == this_monday)
+        w += timedelta(days=7)
+    if (today - date.fromisoformat(L[0])).days > LIQ_STALE_DAYS:
+        todo.append(f"liquidity: SOFR 마지막 값이 {L[0]} — --update-liquidity로 다시 수집 필요")
+    return {"rates": rates, "res": res_rows, "line": LIQ_RES_LINE, "line_note": LIQ_RES_LINE_NOTE, "now": now,
+            "weeks": weeks, "marks": [m for m in cache.get("marks", []) if m.get("date", "") >= start],
+            "first_week": first_monday.isoformat(), "as_of": cache.get("as_of"), "source": cache.get("source", "")}
 
 
 PS_METRICS =[("rev", "주당 최근 분기 매출(연환산)"), ("arr_live", "주당 가동 중 ARR"), ("arr_contract", "주당 계약 ARR")]
@@ -803,6 +893,12 @@ def build(today, store, tickers):
         for wk in weeks:   # 각 주 카드에 그 주의 하이일드 스프레드·10년물 금리를 붙인다
             wk["credit"] = credit["weeks"].get(cur.isoformat())
             cur -= timedelta(days=7)
+    liq = liquidity_section(load_json(LIQ), first, monday(today), today, todo)
+    if liq:
+        cur = monday(today)
+        for wk in weeks:   # 각 주 카드에 그 주의 SOFR−IORB 차이·지급준비금을 붙인다
+            wk["liq"] = liq["weeks"].get(cur.isoformat())
+            cur -= timedelta(days=7)
 
     upcoming = [u for u in store.get("upcoming", [])
                 if not u.get("until") or date.fromisoformat(u["until"]) >= today]
@@ -835,7 +931,7 @@ def build(today, store, tickers):
     last_check = max((d for d in by_day), default=None)
     return {"weeks": weeks, "status": status, "upcoming": upcoming, "axes": axes, "exp_rows": exp_rows,
             "last_check": last_check, "first_week": first, "threads": threads, "overlay": overlay,
-            "off_matrix": off, "warnings": warnings, "explainer_todo": todo, "prices": prices, "tga": tga, "credit": credit,
+            "off_matrix": off, "warnings": warnings, "explainer_todo": todo, "prices": prices, "tga": tga, "credit": credit, "liq": liq,
             "peers": peer_tables(load_json(PEERS), today), "per_share": per_share, "dc": dc}
 
 
@@ -875,7 +971,7 @@ def render_html(today, store, tickers, data):
                     + (f'<b>매트릭스 밖 노출 (관찰 메모)</b> <span class="small">— 지금 매트릭스에 없는 축에 닿은 소식. 매트릭스 변경은 사용자 결정 영역</span><ul>{off_notes}</ul>' if off_notes else "")
                     + "</div>")
     payload = json.dumps({"status": data["status"], "upcoming": data["upcoming"], "weeks": data["weeks"],
-                          "threads": data["threads"], "prices": data["prices"], "tga": data.get("tga"), "credit": data.get("credit"), "peers": data.get("peers"),
+                          "threads": data["threads"], "prices": data["prices"], "tga": data.get("tga"), "credit": data.get("credit"), "liq": data.get("liq"), "peers": data.get("peers"),
                           "per_share": data.get("per_share"), "dc": data.get("dc")},
                          ensure_ascii=False, default=str).replace("</", "<\\/")
     tks = " · ".join(tickers)
@@ -920,6 +1016,7 @@ def main(argv=None):
     ap.add_argument("--update-prices", action="store_true", help="yfinance로 일별 종가를 받아 state/weekly_prices.json 갱신 후 렌더")
     ap.add_argument("--update-tga", action="store_true", help="재무부 일일 재무제표로 TGA 잔고를 받아 state/weekly_tga.json 갱신 후 렌더")
     ap.add_argument("--update-credit", action="store_true", help="FRED로 국채 금리·회사채 스프레드·실업수당 청구를 받아 state/weekly_credit.json 갱신 후 렌더")
+    ap.add_argument("--update-liquidity", action="store_true", help="FRED로 SOFR·IORB·지급준비금·상설 레포 이용액을 받아 state/weekly_liquidity.json 갱신 후 렌더")
     a = ap.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
     store = load_json(STORE)
@@ -956,6 +1053,13 @@ def main(argv=None):
             print(f"신용 갱신: 하이일드 {hy[1]:.2f}%p ({hy[0]}) · 10년물 {r10[1]:.2f}% ({r10[0]})")
         except Exception as ex:   # 네트워크 실패 시 캐시로 렌더
             print(f"신용 갱신 실패 — 캐시로 렌더: {ex}")
+    if a.update_liquidity:
+        try:
+            c = update_liquidity(today - timedelta(days=400), today)
+            s, r = c["series"]["SOFR"][-1], c["series"]["WRESBAL"][-1]
+            print(f"유동성 갱신: SOFR {s[1]:.2f}% ({s[0]}) · 지급준비금 주평균 ${r[1]:,.1f}B ({r[0]})")
+        except Exception as ex:   # 네트워크 실패 시 캐시로 렌더
+            print(f"유동성 갱신 실패 — 캐시로 렌더: {ex}")
     data = build(today, store, tickers)
     for w in data["warnings"]:
         print(f"경고(연결): {w}")
@@ -989,13 +1093,13 @@ TEMPLATE = """<!doctype html>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{{--bg:#f7f6f3;--card:#fff;--ink:#1d1d1f;--ink2:#55575c;--ink3:#8a8c91;--line:#e4e2dc;
---IREN:#2a78d6;--NBIS:#eb6834;--CRWV:#1baf7a;--macro:#5b6270;--bench:#8a8c91;
+--IREN:#2a78d6;--NBIS:#eb6834;--CRWV:#1baf7a;--sofr:#2a78d6;--iorb:#e34948;--macro:#5b6270;--bench:#8a8c91;
 --good:#1a7f37;--bad:#cf222e;--mix:#b7791f;--neu:#8a8c91;--goodbg:#e8f5ec;--badbg:#fdecee;--mixbg:#fbf3e2;--neubg:#f0f0ee;--chip:#f0efea;--hl:#fff8e1}}
 @media (prefers-color-scheme: dark){{:root:not([data-theme="light"]){{--bg:#121316;--card:#1b1d21;--ink:#ececee;--ink2:#b4b6bb;--ink3:#83868c;--line:#2c2f35;
---IREN:#3987e5;--NBIS:#d95926;--CRWV:#199e70;--macro:#9aa3b2;--bench:#83868c;--good:#3fb950;--bad:#ff7b72;--mix:#e3b341;--neu:#8b949e;
+--IREN:#3987e5;--NBIS:#d95926;--CRWV:#199e70;--sofr:#3987e5;--iorb:#e66767;--macro:#9aa3b2;--bench:#83868c;--good:#3fb950;--bad:#ff7b72;--mix:#e3b341;--neu:#8b949e;
 --goodbg:#16291c;--badbg:#2d1719;--mixbg:#2b2312;--neubg:#24262b;--chip:#25282d;--hl:#2a2614}}}}
 :root[data-theme="dark"]{{--bg:#121316;--card:#1b1d21;--ink:#ececee;--ink2:#b4b6bb;--ink3:#83868c;--line:#2c2f35;
---IREN:#3987e5;--NBIS:#d95926;--CRWV:#199e70;--macro:#9aa3b2;--bench:#83868c;--good:#3fb950;--bad:#ff7b72;--mix:#e3b341;--neu:#8b949e;
+--IREN:#3987e5;--NBIS:#d95926;--CRWV:#199e70;--sofr:#3987e5;--iorb:#e66767;--macro:#9aa3b2;--bench:#83868c;--good:#3fb950;--bad:#ff7b72;--mix:#e3b341;--neu:#8b949e;
 --goodbg:#16291c;--badbg:#2d1719;--mixbg:#2b2312;--neubg:#24262b;--chip:#25282d;--hl:#2a2614}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;word-break:keep-all}}
@@ -1067,6 +1171,14 @@ svg.pc .plan-band{{fill:var(--mixbg);stroke:var(--mix);stroke-dasharray:3 3;stro
 .lg-tga::before{{content:"";display:inline-block;width:14px;border-top:2px solid var(--macro);margin-right:5px;vertical-align:3px}}
 .lg-plan::before{{content:"";display:inline-block;width:10px;height:10px;border:2px solid var(--mix);border-radius:50%;margin-right:5px;vertical-align:-1px}}
 .wk-tga{{font-size:12.5px;color:var(--ink2);margin:-4px 0 8px}}
+svg.pc .sofr{{stroke:var(--sofr)}} svg.pc .iorb{{stroke:var(--iorb);stroke-dasharray:6 4}} svg.pc .above{{fill:var(--iorb);opacity:.14}}
+svg.pc .refl{{stroke:var(--ink3);stroke-dasharray:5 4;stroke-width:1.2}} svg.pc .mk{{stroke:var(--ink3);stroke-width:1;stroke-dasharray:2 3}}
+.lg-sofr::before{{content:"";display:inline-block;width:14px;border-top:2px solid var(--sofr);margin-right:5px;vertical-align:3px}}
+.lg-iorb::before{{content:"";display:inline-block;width:14px;border-top:2px dashed var(--iorb);margin-right:5px;vertical-align:3px}}
+.lg-above::before{{content:"";display:inline-block;width:12px;height:10px;background:var(--iorb);opacity:.25;margin-right:5px;vertical-align:-1px}}
+.lg-ref::before{{content:"";display:inline-block;width:14px;border-top:2px dashed var(--ink3);margin-right:5px;vertical-align:3px}}
+.lq-k{{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:0 0 12px}} .lq-k>div{{background:var(--bg);border-radius:8px;padding:8px 11px}}
+.lq-k b{{display:block;font-size:18px;margin:1px 0}} .lq-read{{margin:8px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink2)}} .lq-read li{{margin:3px 0}}
 .wk-price{{font-size:12.5px;color:var(--ink2);margin:-2px 0 8px;display:flex;gap:12px;flex-wrap:wrap}}
 table.pt td,table.pt th{{text-align:right}} table.pt td:first-child,table.pt th:first-child{{text-align:left}}
 details.tlwrap summary{{cursor:pointer;font-size:13px;color:var(--ink3);margin-top:8px}}
@@ -1088,7 +1200,7 @@ table.dc .nm{{font-weight:500;min-width:170px}} table.dc td.stx{{min-width:220px
 @page{{size:A4;margin:14mm 12mm}}
 @media print{{
 :root,:root:not([data-theme="light"]),:root[data-theme="dark"]{{--bg:#fff;--card:#fff;--ink:#1d1d1f;--ink2:#45474c;--ink3:#6b6d72;--line:#d9d7d0;
---IREN:#2a78d6;--NBIS:#eb6834;--CRWV:#1baf7a;--macro:#5b6270;--bench:#8a8c91;--good:#1a7f37;--bad:#cf222e;--mix:#9a6412;--neu:#6b6d72;
+--IREN:#2a78d6;--NBIS:#eb6834;--CRWV:#1baf7a;--sofr:#2a78d6;--iorb:#e34948;--macro:#5b6270;--bench:#8a8c91;--good:#1a7f37;--bad:#cf222e;--mix:#9a6412;--neu:#6b6d72;
 --goodbg:#e8f5ec;--badbg:#fdecee;--mixbg:#fbf3e2;--neubg:#f0f0ee;--chip:#f0efea;--hl:#fff8e1}}
 html,body{{background:#fff}} body{{font-size:9.5pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .wrap{{max-width:none;padding:0}}
@@ -1149,6 +1261,9 @@ html.pr-brief #weeks .week:nth-child(n+3),html.pr-brief .ev .sec{{display:none!i
 <h2>미국 재무부 현금(TGA) 잔고 추이</h2>
 <p class="sub" style="margin-top:-4px">미국 재무부가 연준에 둔 통장(TGA, Treasury General Account)의 하루 마감 잔고입니다. 잔고가 늘면 그만큼 은행 시스템의 돈(지급준비금)이 재무부 통장으로 옮겨 가고, 줄면 다시 풀립니다. 세금이 들어오는 날(분기 중순 법인세·개인 세금 마감일)에는 늘고, 월초 지급일에는 줄어드는 날짜 패턴이 큽니다. 동그라미·띠는 재무부가 분기 국채 발행 계획에서 밝힌 잔고 가정으로, 약속이 아니라 국채를 얼마나 찍을지 계산하려고 쓴 전제입니다.</p>
 <div class="card" id="tga"></div>
+<h2 id="liq-h">단기자금 유동성 — SOFR·IORB·지급준비금</h2>
+<p class="sub" style="margin-top:-4px">은행들이 국채를 맡기고 하루 동안 돈을 빌리는 금리(SOFR, 파란 선)와, 은행이 연준에 돈을 그냥 맡겨 두기만 해도 받는 이자(IORB, 빨간 점선)를 나란히 놓았습니다. IORB는 연준이 금리 결정 때만 바꾸는 고정선이라 평평합니다. 평소에는 SOFR가 IORB보다 조금 낮지만, 시중에 현금이 빠듯해지면 IORB보다 비싸게 빌려야 해서 파란 선이 빨간 선 위로 올라갑니다(빨간 바탕). 아래 그림은 은행들이 연준에 둔 돈(지급준비금)이며, 위의 재무부 현금(TGA)이 늘면 줄고 줄면 다시 늘어납니다.</p>
+<div class="card" id="liq"></div>
 <h2>주별 이벤트 (최근 주부터)</h2>
 <div class="filters" id="filters"><button data-f="all" class="on">전체</button>{filters}<button data-f="hide-rumor">2차 보도 숨기기</button></div>
 <div id="weeks"></div>
@@ -1183,7 +1298,7 @@ function render(f) {{
    return `<div class="ev ${{it.kind||""}}"${{it.id?` id="ev-${{esc(it.id)}}"`:""}}><div class="d">${{esc(it.dt)}}</div><div class="who">${{tkSpan(it.tk)}}</div>
     <div class="body"><p>${{esc(it.text)}}</p>${{it.why?`<p class="why">${{esc(it.why)}}</p>`:""}}${{extra(it)}}${{tags.length?`<div class="tags">${{tags.join("")}}</div>`:""}}</div></div>`;
   }}).join("") : `<div class="empty">${{w.now ? "이번 주에 기록된 소식이 아직 없습니다." : "이 주에는 해당 소식이 없습니다."}}</div>`;
-  return `<div class="card week"><div class="wk-h"><span class="wk-date">${{esc(w.d)}}</span><span class="wk-title">${{esc(w.title)}}</span>${{w.now?'<span class="wk-now">이번 주</span>':""}}</div>${{priceLine(w)}}${{tgaLine(w)}}${{creditLine(w)}}${{dcLine(w)}}${{body}}</div>`;
+  return `<div class="card week"><div class="wk-h"><span class="wk-date">${{esc(w.d)}}</span><span class="wk-title">${{esc(w.title)}}</span>${{w.now?'<span class="wk-now">이번 주</span>':""}}</div>${{priceLine(w)}}${{tgaLine(w)}}${{liqLine(w)}}${{creditLine(w)}}${{dcLine(w)}}${{body}}</div>`;
  }}).join("");
  renderThreads(f);
 }}
@@ -1334,6 +1449,102 @@ function renderTGA() {{
  hit.addEventListener("mouseleave", () => {{ tip.style.display = "none"; xh.style.display = "none"; }});
 }}
 renderTGA();
+const resJ = v => v==null ? "—" : `${{(v/1000).toFixed(3)}}조 달러`;
+const bpS = v => v==null ? "—" : `${{v>0?"+":""}}${{v}}bp`;
+const srfS = v => v==null ? "—" : v < 0.05 ? "거의 0" : `${{eokS(v)}} 달러`;
+function liqLine(w) {{
+ const q = w.liq; if (!q) return "";
+ const a = q.days!=null ? `SOFR−IORB 평균 ${{bpS(q.bp)}} (최대 ${{bpS(q.bp_max)}}, ${{q.days}}일 중 ${{q.above}}일 IORB 위)` : "";
+ const b = q.res!=null ? `지급준비금 ${{resJ(q.res)}} (${{esc(q.res_d)}} 주평균, 전주 대비 ${{eokChg(q.res_chg)}})` : "";
+ return `<div class="wk-tga"><span class="small">단기자금:</span> ${{[a, b].filter(Boolean).join(" · ")}} <a class="small" href="#liq-h">차트 보기</a></div>`;
+}}
+function liqHover(svgEl, xs, tipHtml) {{
+ const wrap = svgEl.parentNode, tip = wrap.querySelector(".pc-tip"), xh = svgEl.querySelector(".xh"), hit = svgEl.querySelector(".hit");
+ hit.addEventListener("mousemove", ev => {{
+  const pt = svgEl.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+  const lx = pt.matrixTransform(svgEl.getScreenCTM().inverse()).x;
+  let i = 0; for (let k = 1; k < xs.length; k++) if (Math.abs(xs[k]-lx) < Math.abs(xs[i]-lx)) i = k;
+  xh.setAttribute("x1", xs[i]); xh.setAttribute("x2", xs[i]); xh.style.display = "";
+  tip.innerHTML = tipHtml(i); tip.style.display = "block";
+  const box = wrap.getBoundingClientRect(), px = ev.clientX - box.left;
+  tip.style.left = (px > box.width/2 ? px - tip.offsetWidth - 14 : px + 14) + "px"; tip.style.top = "6px";
+ }});
+ hit.addEventListener("mouseleave", () => {{ tip.style.display = "none"; xh.style.display = "none"; }});
+}}
+function renderLiq() {{
+ const Q = DATA.liq, el = document.getElementById("liq");
+ if (!Q) {{ el.innerHTML = `<div class="empty">유동성 데이터가 없습니다 (--update-liquidity로 수집).</div>`; return; }}
+ const R = Q.rates, N = Q.now, ts = d => Date.parse(d + "T00:00:00Z");
+ const t0 = ts(R[0][0]), t1 = ts(R[R.length-1][0]);
+ const w0 = 640, ml = 52, mr = 18, iw = w0-ml-mr;
+ const x = d => ml + (ts(d)-t0)/((t1-t0)||1)*iw;
+ const months = []; {{ const d0 = new Date(t0); let m = new Date(Date.UTC(d0.getUTCFullYear(), d0.getUTCMonth()+1, 1));
+  while (m.getTime() <= t1) {{ months.push(m.toISOString().slice(0,10)); m = new Date(Date.UTC(m.getUTCFullYear(), m.getUTCMonth()+1, 1)); }} }}
+ const mlab = h0 => months.map(m => `<text x="${{x(m)}}" y="${{h0-8}}" text-anchor="middle">${{+m.slice(5,7)}}월</text>`).join("");
+ const marks = [...(Q.marks||[])];
+ if (N.streak >= 3) marks.push({{date: N.streak_from, label: `${{mdj(N.streak_from)}} SOFR가 IORB 위로 (${{N.streak}}영업일째)`}});
+ marks.sort((a, b) => a.date < b.date ? -1 : 1);
+ const mkLines = (mt, ih, withText, yOf) => marks.filter(m => m.date >= R[0][0] && m.date <= R[R.length-1][0]).map((m, i, arr) => {{
+  const px = x(m.date), right = px > ml + iw*0.6;
+  const near = R.filter(r => r[0] <= m.date).pop() || R[0], low = yOf && yOf(near[1]) < mt + ih/2;   // 선이 위쪽이면 글자는 아래쪽에
+  const ty = low ? mt + ih - 8 - (arr.length-1-i)*14 : mt + 12 + i*14;
+  return `<line class="mk" x1="${{px}}" x2="${{px}}" y1="${{mt}}" y2="${{mt+ih}}"/>` + (withText ? `<text class="pl halo" x="${{px + (right?-4:4)}}" y="${{ty}}" text-anchor="${{right?"end":"start"}}">${{esc(m.label)}}</text>` : "");
+ }}).join("");
+ {{ /* 위: 금리 */ }}
+ const h1 = 250, mt1 = 14, mb1 = 26, ih1 = h1-mt1-mb1;
+ const rv = R.flatMap(r => [r[1], r[2]]); let lo = Math.min(...rv), hi = Math.max(...rv); const pd = Math.max((hi-lo)*0.12, 0.03); lo -= pd; hi += pd;
+ const y1 = v => mt1 + (hi-v)/(hi-lo)*ih1;
+ let g1 = `<g class="grid">${{crTicks(lo, hi).map(v => `<line x1="${{ml}}" x2="${{ml+iw}}" y1="${{y1(v)}}" y2="${{y1(v)}}"/><text x="${{ml-6}}" y="${{y1(v)+4}}" text-anchor="end">${{v.toFixed(2)}}%</text>`).join("")}}</g>` + mlab(h1);
+ let fill = "", run = [];
+ const flush = () => {{ if (run.length > 1) fill += `<polygon class="above" points="${{run.map(r => x(r[0]).toFixed(1)+","+y1(r[1]).toFixed(1)).join(" ")}} ${{[...run].reverse().map(r => x(r[0]).toFixed(1)+","+y1(r[2]).toFixed(1)).join(" ")}}"/>`; run = []; }};
+ R.forEach(r => {{ if (r[3] > 0) run.push(r); else flush(); }}); flush();
+ const ip = R.map((r, i) => i ? `L${{x(r[0]).toFixed(1)}} ${{y1(R[i-1][2]).toFixed(1)}} L${{x(r[0]).toFixed(1)}} ${{y1(r[2]).toFixed(1)}}` : `M${{x(r[0]).toFixed(1)}} ${{y1(r[2]).toFixed(1)}}`).join(" ");
+ const sp = R.map((r, i) => (i?"L":"M") + x(r[0]).toFixed(1) + " " + y1(r[1]).toFixed(1)).join(" ");
+ const L = R[R.length-1], up = L[1] >= L[2];
+ const lines1 = `<path class="ln iorb" d="${{ip}}"/><path class="ln sofr" d="${{sp}}"/><circle class="dot" cx="${{x(L[0])}}" cy="${{y1(L[1])}}" r="4" style="fill:var(--sofr)"/>` +
+  `<text class="end halo" x="${{x(L[0])-8}}" y="${{y1(L[1]) + (up?-10:18)}}" text-anchor="end">SOFR ${{L[1].toFixed(2)}}%</text>` +
+  `<text class="pl halo" x="${{x(L[0])-8}}" y="${{y1(L[2]) + (up?16:-8)}}" text-anchor="end">IORB ${{L[2].toFixed(2)}}%</text>`;
+ const svg1 = `<div class="pc-wrap"><svg class="pc" id="lqr" viewBox="0 0 ${{w0}} ${{h1}}" role="img" aria-label="SOFR와 IORB 일별 금리 추이">${{g1}}${{fill}}${{lines1}}${{mkLines(mt1, ih1, true, y1)}}<line class="xh" y1="${{mt1}}" y2="${{mt1+ih1}}" style="display:none"/><rect class="hit" x="${{ml}}" y="${{mt1}}" width="${{iw}}" height="${{ih1}}" fill="transparent"/></svg><div class="pc-tip"></div></div>`;
+ {{ /* 아래: 지급준비금 */ }}
+ const V = Q.res.filter(r => r[0] >= R[0][0] && r[0] <= R[R.length-1][0]);
+ let svg2 = "";
+ if (V.length) {{
+  const h2 = 180, mt2 = 12, mb2 = 26, ih2 = h2-mt2-mb2;
+  const vv = V.map(r => r[1]).concat([Q.line]); let a = Math.min(...vv), b = Math.max(...vv); const p2 = Math.max((b-a)*0.15, 20); a -= p2; b += p2;
+  const y2 = v => mt2 + (b-v)/(b-a)*ih2;
+  const g2 = `<g class="grid">${{crTicks(a, b).map(v => `<line x1="${{ml}}" x2="${{ml+iw}}" y1="${{y2(v)}}" y2="${{y2(v)}}"/><text x="${{ml-6}}" y="${{y2(v)+4}}" text-anchor="end">${{(v/1000).toFixed(2)}}조</text>`).join("")}}</g>` + mlab(h2);
+  const ref = `<line class="refl" x1="${{ml}}" x2="${{ml+iw}}" y1="${{y2(Q.line)}}" y2="${{y2(Q.line)}}"/><text class="pl halo" x="${{ml+6}}" y="${{y2(Q.line)-5}}">${{(Q.line/1000).toFixed(1)}}조 참고선</text>`;
+  const vp = V.map((r, i) => (i?"L":"M") + x(r[0]).toFixed(1) + " " + y2(r[1]).toFixed(1)).join(" ");
+  const LV = V[V.length-1];
+  const lines2 = `<path class="ln tga" d="${{vp}}"/>` + V.map(r => `<circle class="dot" cx="${{x(r[0])}}" cy="${{y2(r[1])}}" r="3.5" style="fill:var(--macro)"/>`).join("") +
+   `<text class="end halo" x="${{ml+iw}}" y="${{mt2+12}}" text-anchor="end">최근 ${{mdj(LV[0])}} 주 ${{(LV[1]/1000).toFixed(3)}}조</text>`;
+  svg2 = `<div class="sec-h" style="margin-top:12px">지급준비금 주평균 (수요일로 끝나는 1주, 연준 H.4.1)</div><div class="pc-wrap"><svg class="pc" id="lqv" viewBox="0 0 ${{w0}} ${{h2}}" role="img" aria-label="지급준비금 주평균 추이와 2.9조 달러 참고선">${{g2}}${{ref}}${{lines2}}${{mkLines(mt2, ih2, false)}}<line class="xh" y1="${{mt2}}" y2="${{mt2+ih2}}" style="display:none"/><rect class="hit" x="${{ml}}" y="${{mt2}}" width="${{iw}}" height="${{ih2}}" fill="transparent"/></svg><div class="pc-tip"></div></div>`;
+ }}
+ const kpi = `<div class="lq-k">` +
+  `<div><span class="small">SOFR − IORB</span><b>${{bpS(N.bp)}}</b><span class="small">${{mdj(N.d)}} · SOFR ${{N.sofr.toFixed(2)}}% / IORB ${{N.iorb.toFixed(2)}}%</span></div>` +
+  `<div><span class="small">IORB 위 연속</span><b>${{N.streak}}영업일</b><span class="small">${{N.streak_from ? mdj(N.streak_from)+"부터" : "지금은 IORB 이하"}} · 최근 ${{N.n20}}영업일 중 ${{N.above20}}일</span></div>` +
+  (N.res ? `<div><span class="small">지급준비금 주평균</span><b>${{resJ(N.res[1])}}</b><span class="small">${{mdj(N.res[0])}} 주 · 전주 대비 ${{eokChg(N.res_chg)}} · 참고선 대비 ${{eokChg(Math.round((N.res[1]-Q.line)*10)/10)}}</span></div>` : "") +
+  (N.srf ? `<div><span class="small">연준 상설 레포 이용</span><b>${{srfS(N.srf[1])}}</b><span class="small">${{mdj(N.srf[0])}} · 최근 4주 최대 ${{srfS(N.srf_max4w)}}</span></div>` : "") + `</div>`;
+ const legend = `<div class="pc-legend"><span class="lg-sofr">SOFR (하루 담보부 금리)</span><span class="lg-iorb">IORB (연준 고정선)</span><span class="lg-above">SOFR가 IORB 위인 구간</span><span class="lg-ref">지급준비금 참고선</span></div>`;
+ const W = Object.values(Q.weeks).reverse();
+ const wtable = W.length ? `<div class="xsec"><div class="sec-h">주별 요약 (최근 주부터)</div><div class="tblwrap"><table class="xt"><thead><tr><th>주</th><th>SOFR 평균</th><th>IORB</th><th>차이 평균 (최대)</th><th>IORB 위 일수</th><th>지급준비금 주평균</th><th>전주 대비</th><th>상설 레포 최대</th></tr></thead><tbody>` +
+  W.map(w => `<tr${{w.bp>0?' class="hlrow"':""}}><td>${{esc(w.label)}}${{w.now?" (진행 중)":""}}</td><td>${{w.sofr!=null?w.sofr.toFixed(2)+"%":"—"}}</td><td>${{w.iorb!=null?w.iorb.toFixed(2)+"%":"—"}}</td><td>${{w.days?`${{bpS(w.bp)}} (${{bpS(w.bp_max)}})`:"—"}}</td><td>${{w.days?`${{w.above}} / ${{w.days}}일`:"—"}}</td><td>${{w.res!=null?resJ(w.res):"—"}}</td><td>${{w.res!=null?eokChg(w.res_chg):"—"}}</td><td>${{w.days?srfS(w.srf_max):"—"}}</td></tr>`).join("") +
+  `</tbody></table></div></div>` : "";
+ const read = `<ul class="lq-read"><li>SOFR가 IORB보다 높으면, 연준에 그냥 맡겨도 받는 이자보다 비싸게 빌려야 할 만큼 단기자금이 빠듯하다는 뜻입니다(해석). 월말·분기말·세금 마감일·국채 결제일에는 하루이틀 오르는 일이 흔하므로 <b>며칠 연속인지</b>와 <b>폭(bp, 0.01%p)</b>을 함께 봅니다.</li>` +
+  `<li>지급준비금은 은행들이 연준에 둔 돈입니다. 재무부 현금(TGA) 증가, 연준 자산 축소가 이 돈을 줄입니다. ${{esc(Q.line_note)}}</li>` +
+  `<li>연준 상설 레포(SRF)는 시장에서 돈을 못 구한 은행이 국채를 맡기고 연준에서 빌리는 창구입니다. 이용액이 수십억 달러 이상으로 커지면 압박이 실제로 심하다는 신호이고, 거의 0이면 아직 시장 안에서 해결되고 있다는 뜻입니다(해석).</li>` +
+  `<li>이 페이지 기간 SOFR−IORB 최대 차이: ${{bpS(N.max_bp)}} (${{mdj(N.max_d)}}). 세로 점선은 날짜 표시이며, 유동성 지표와 주가 소식을 나란히 놓았을 뿐 인과를 뜻하지 않습니다.</li></ul>`;
+ el.innerHTML = kpi + legend + svg1 + svg2 + read + wtable +
+  `<p class="small" style="margin:8px 0 0">출처: ${{esc(Q.source)}} · 수집 ${{esc(Q.as_of)}}. SOFR는 다음 영업일 아침, 지급준비금은 매주 목요일 오후(동부 시간)에 공표됩니다.</p>`;
+ liqHover(document.getElementById("lqr"), R.map(r => x(r[0])), i => {{ const r = R[i];
+  return `<b>${{esc(r[0])}}</b><div class="r"><span>SOFR</span><span>${{r[1].toFixed(2)}}%</span></div><div class="r"><span>IORB</span><span>${{r[2].toFixed(2)}}%</span></div><div class="r"><span>차이</span><span>${{bpS(r[3])}}</span></div>` +
+   (r[4]!=null ? `<div class="r"><span>상설 레포 이용</span><span>${{srfS(r[4])}}</span></div>` : ""); }});
+ if (V.length) liqHover(document.getElementById("lqv"), V.map(r => x(r[0])), i => {{ const r = V[i], p = V[i-1];
+  return `<b>${{esc(r[0])}}로 끝나는 주</b><div class="r"><span>주평균</span><span>${{resJ(r[1])}}</span></div>` +
+   (p ? `<div class="r"><span>전주 대비</span><span>${{eokChg(Math.round((r[1]-p[1])*10)/10)}}</span></div>` : "") +
+   `<div class="r"><span>참고선 대비</span><span>${{eokChg(Math.round((r[1]-Q.line)*10)/10)}}</span></div>`; }});
+}}
+renderLiq();
 const crV = (v, u) => v==null ? "—" : u==="천 건" ? `${{(v/10).toFixed(1)}}만 건` : `${{v.toFixed(2)}}${{u}}`;
 const crD = (v, u) => v==null ? "—" : `${{v>0?"▲":v<0?"▼":"–"}} ${{u==="천 건" ? (Math.abs(v)/10).toFixed(1)+"만" : Math.abs(v).toFixed(2)+"%p"}}`;
 function creditLine(w) {{

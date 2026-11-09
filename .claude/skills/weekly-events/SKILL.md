@@ -13,8 +13,8 @@ description: run weekly 명령 또는 주간 예약 작업에서 사용. IREN·N
 # 1) 원장에 아직 정리되지 않은 신규 Claim·Delta 목록
 python .claude/skills/weekly-events/scripts/weekly_events_render.py --pending
 # 2) output/weekly_events_pending.json을 읽고 state/weekly_events.json에 쉬운 말 항목 추가 (아래 규칙)
-# 3) 렌더 — 개인정보 문구가 있으면 파일을 쓰지 않고 종료 코드 2 (주가·TGA·신용 지표 갱신 포함)
-python .claude/skills/weekly-events/scripts/weekly_events_render.py --update-prices --update-tga --update-credit
+# 3) 렌더 — 개인정보 문구가 있으면 파일을 쓰지 않고 종료 코드 2 (주가·TGA·유동성·신용 지표 갱신 포함)
+python .claude/skills/weekly-events/scripts/weekly_events_render.py --update-prices --update-tga --update-liquidity --update-credit
 ```
 
 **A4 인쇄 (2026-10-29~)**: 페이지 상단 버튼 두 개. '요약'(Ctrl+P 기본)은 읽는 법·Top 90·업계 계약·주당 매출, 이번 주 업데이트가 없는 이야기·해설, 최근 2주 밖의 소식, 소식별 매트릭스 영향·관련 과거 소식을 빼고 인쇄(10/29 기준 19쪽). '전체'는 접힌 내용을 모두 펼쳐 인쇄(약 90쪽). 인쇄 CSS는 렌더러 `@media print`, 모드 전환은 `beforeprint`/`afterprint`.
@@ -103,6 +103,13 @@ python .claude/skills/weekly-events/scripts/weekly_events_render.py --update-pri
 22b. 페이지에 자동 표시: 최근 1년 일별 꺾은선(이 페이지 기간 음영)·재무부 계획 가정(점·띠)·계획 대비 표·주별 표(주말 잔고, 전주 대비, 주중 최저~최고, 들어온/나간 돈 합계), 각 주 카드에 한 줄. 증감은 좋고 나쁨 색을 쓰지 않는다(잔고 증가 = 시중 돈 흡수, 방향 자체가 판정이 아님).
 22c. **계획 가정(`plan`)은 사람이 적는다** — 재무부 분기 차입 추정 발표(2·5·8·11월 첫 월요일 무렵)와 분기 발행 계획 발표(같은 주 수요일)의 잔고 가정 원문 숫자만. 시점 가정은 `{id,label,short,date,value,src,url}`, 기간 예상은 `{…,from,to,value,band}`(원문이 '하순' 같은 말이면 날짜 범위를 정한 이유를 `plan_note`에 "(해석)"으로 적는다). 새 발표가 나오면 다음 분기 항목을 추가하고, 지난 항목은 지우지 않는다(실제와 비교가 남음).
 22d. 해석 원칙: 잔고 변화와 주가를 나란히 놓을 뿐 인과를 단정하지 않는다. 세금 마감일·월초 지급·국채 결제일 같은 날짜 효과를 먼저 의심한다. '선거 전 방출' 같은 가설은 페이지에 쓰지 않는다(사용자 보류, 2026-10-18).
+
+## 단기자금 유동성 — SOFR·IORB·지급준비금 (2026-11-09~ 적용)
+
+22j. **목적**: 시중 단기자금이 빠듯해지는지 본다. 유래: 2026-11-09 유튜브 발언('지급준비금 2.9조 아래 → SOFR가 IORB 위로') 검증. TGA 섹션 바로 아래에 둔다(TGA 증가 → 지급준비금 감소 → SOFR 상승의 순서로 읽힘).
+22k. **자동**: `--update-liquidity`가 FRED API(`FRED_API_KEY`, 신용 경보와 같은 키)로 SOFR·IORB(%), 지급준비금 주평균 WRESBAL($M → $B), 연준 상설 레포 이용액 RPONTSYD($B)를 받아 `state/weekly_liquidity.json`의 `series`에 합친다(최근 400일). 네트워크·키 실패 시 캐시로 렌더한다. 렌더러가 지금 값 4칸(SOFR−IORB bp, IORB 위 연속 영업일·최근 20영업일 중 일수, 지급준비금 주평균·전주 대비·참고선 대비, 상설 레포 이용·4주 최대), 금리 차트(이 페이지 첫 주 2주 전부터, SOFR 파랑 실선·IORB 빨강 점선·SOFR>IORB 구간 빨간 바탕), 지급준비금 차트(2.9조 참고선), 주별 요약 표, 각 주 카드 한 줄을 만든다. SOFR가 IORB 위로 3영업일 이상 이어지면 시작일 세로선이 자동으로 붙는다.
+22l. **사람이 적는 것**: `marks`(차트 세로선 `[{date, label}]`) — 유동성과 나란히 볼 날짜(예: 큰 주가 급락일)만 적는다. 날짜 표시일 뿐 인과를 뜻하지 않는다고 페이지에 적혀 있다. 2.9조 선(`LIQ_RES_LINE`)은 영상이 쓴 참고선이며 연준 기준이 아니다 — 바꾸려면 사용자 결정 후 상수와 이 항목을 함께 고친다.
+22m. **해석 원칙**: 월말·분기말·세금 마감일·국채 결제일의 하루이틀 상승은 흔한 날짜 효과다 — 연속 일수와 폭(bp)을 함께 본다. 상설 레포 이용액이 거의 0이면 압박이 시장 안에서 해결되는 중, 수십억 달러 이상이면 실제 압박 신호(해석). 지표와 주가를 나란히 놓을 뿐 인과를 단정하지 않는다. 판정(등급·KC)을 새로 만들지 않는다. 마지막 SOFR가 10일 넘게 오래되면 렌더러가 `안내(해설): liquidity: …`를 낸다. 회귀 테스트: `tests/validators/test_weekly_events_liquidity.py`.
 
 ## AI 신용 경보 (2026-10-23~ 적용)
 

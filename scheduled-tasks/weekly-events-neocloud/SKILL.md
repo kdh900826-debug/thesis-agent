@@ -4,13 +4,13 @@ description: thesis-agent 산출물로 IREN·NBIS·CRWV 주간 이벤트 공개�
 ---
 
 작업 폴더: C:\Users\user\Desktop\클로드\투자 가설 검증\thesis-agent
-목표: IREN·NBIS·CRWV 주간 이벤트 페이지(output/weekly_events.html)를 최신 점검 산출물과 주가·재무부 현금(TGA)·신용 지표 기준으로 갱신한다. 이 페이지는 제3자에게 공개될 수 있다.
+목표: IREN·NBIS·CRWV 주간 이벤트 페이지(output/weekly_events.html)를 최신 점검 산출물과 주가·재무부 현금(TGA)·단기자금 유동성·신용 지표 기준으로 갱신한다. 이 페이지는 제3자에게 공개될 수 있다.
 
-먼저 .claude/skills/weekly-events/SKILL.md 전문을 읽고 그 규칙(1~27번, 18a~18f·22a~22i·27a~27d·28a~28g 포함)을 따른다. 요약:
+먼저 .claude/skills/weekly-events/SKILL.md 전문을 읽고 그 규칙(1~27번, 18a~18f·22a~22m·27a~27d·28a~28g 포함)을 따른다. 요약:
 
-0. 주가·TGA·신용 지표 갱신 (Bash, UTF-8 모드):
-   cd "C:/Users/user/Desktop/클로드/투자 가설 검증/thesis-agent" && PYTHONUTF8=1 python .claude/skills/weekly-events/scripts/weekly_events_render.py --update-prices --update-tga --update-credit
-   - yfinance 수집 실패 시 캐시(state/weekly_prices.json)로, TGA 수집 실패 시 캐시(state/weekly_tga.json)로, 신용 지표(FRED API, FRED_API_KEY) 수집 실패 시 캐시(state/weekly_credit.json)로 진행하고 보고에 적는다.
+0. 주가·TGA·유동성·신용 지표 갱신 (Bash, UTF-8 모드):
+   cd "C:/Users/user/Desktop/클로드/투자 가설 검증/thesis-agent" && PYTHONUTF8=1 python .claude/skills/weekly-events/scripts/weekly_events_render.py --update-prices --update-tga --update-liquidity --update-credit
+   - yfinance 수집 실패 시 캐시(state/weekly_prices.json)로, TGA 수집 실패 시 캐시(state/weekly_tga.json)로, 유동성 지표(FRED API) 수집 실패 시 캐시(state/weekly_liquidity.json)로, 신용 지표(FRED API, FRED_API_KEY) 수집 실패 시 캐시(state/weekly_credit.json)로 진행하고 보고에 적는다.
 1. 정리 대기 목록 생성: PYTHONUTF8=1 python .claude/skills/weekly-events/scripts/weekly_events_render.py --pending
 2. output/weekly_events_pending.json을 읽는다. 0건이면 3단계의 Claim 정리는 건너뛴다.
 3. state/weekly_events.json 전문을 읽고(수정 전 state/weekly_events_backup_<오늘 YYYYMMDD>.json으로 복사), 대기 항목을 쉬운 말 이벤트로 events에 추가한다. 새 항목마다:
@@ -38,9 +38,9 @@ description: thesis-agent 산출물로 IREN·NBIS·CRWV 주간 이벤트 공개�
    - t-contract-exit/exits(계약 철회·축소 사례표) — 3d 결과로 행을 추가·수정하고, 새 사례가 없어도 기존 행의 확인 수준을 다시 보고 표 asof를 오늘로 바꾼다.
    - 주당 매출·ARR(SKILL.md 18f) — 분기 보고서·실적 발표·ARR 갱신·발행 주식 수가 실린 공시가 새로 나왔거나 '안내(해설)'에 `<종목>/per_share: …입력이 아직 없음`이 나오면, state/weekly_events.json의 per_share.<종목>에 원본 숫자(금액 $M·주식 백만 주: asof·label·rev_q·rev_q_period·arr_live·arr_live_asof·arr_contract·sh_basic·sh_basic_asof·sh_fd·sh_fd_asof·src)로 새 입력을 덧붙인다. 직전 입력을 복사해 바뀐 값만 고치고, 지난 입력은 고치지 않는다. 공개 안 된 값은 null, 2차 보도 숫자는 넣지 않는다.
 5. 렌더(최종): 같은 명령을 다시 실행. 종료 코드 2(개인정보 의심 문구)면 원장 문구를 바꿔 쓰고 재실행. '경고(연결)'는 끊긴 id를 고친다. '안내(해설)'가 남지 않아야 한다(단 'dc-top90/…' 안내는 요청 시 점검의 몫이므로 보고에만 옮긴다).
-6. 확인: PYTHONUTF8=1 python -m pytest tests/validators/test_weekly_events_privacy.py tests/validators/test_weekly_events_tga.py tests/validators/test_dc_top90.py tests/validators/test_weekly_events_credit.py -q
+6. 확인: PYTHONUTF8=1 python -m pytest tests/validators/test_weekly_events_privacy.py tests/validators/test_weekly_events_tga.py tests/validators/test_dc_top90.py tests/validators/test_weekly_events_credit.py tests/validators/test_weekly_events_liquidity.py -q
 
 개인정보 절대 금지: config/positions.yaml을 읽지 않는다. 보유 비중·보유/미보유·평단·주수·개인 가격선($30·$28 등)·계좌 집중도·'내 ~' 표현을 쓰지 않는다. 회사 지표에도 '보유'·'비중' 단어 대신 다른 말(예: '매출에서 차지하는 몫', 회사 주식은 '발행 주식 수')을 쓴다. 주가·TGA(공개 시장·정부 데이터)는 써도 된다.
 하지 말 것: run full 등 점검 파이프라인 실행, Top 90 점검 실행, config/*.yaml·state/signals.json·thesis 카드 수정, 아티팩트 발행·외부 전송.
 
-끝나면 한국어로 10줄 이내 보고: 지난주 세 종목 주간 등락(나스닥100 대비), 재무부 현금(TGA) 최신 잔고·전주 대비와 재무부 계획 가정 대비 차이(새 계획 발표를 반영했으면 그 내용), AI 신용 경보(단계별 기준 충족 수, 하이일드·10년물 4주 변화와 조합, 1단계 지표 중 상태가 바뀐 행), 추가한 이벤트 수, 업데이트된 추적 이야기와 해설을 쓴/갱신한 이야기, 추적 표(sw-stages)에서 바뀐 칸(없으면 '변동 없음'), 희석 점검표(dilution) 종목별 바뀐 칸·새로 만든 표와 주당 매출·ARR 새 입력(종목별 주당 가동 ARR 범위와 직전 대비 %, 없으면 '변동 없음'), 업계 계약 표에 추가한 계약·자금 조달 건수, 계약 철회·축소 추적표의 새 사례·확인 수준이 바뀐 사례(없으면 '변동 없음'), Top 90(마지막 점검일·단계 변경·열린 follow-up 수·세 종목에 연결한 사건, 새 점검이 없으면 'Top 90: 새 점검 없음'과 확인일이 지난 follow-up 수), 마지막 시스템 점검일(10일 넘게 지났으면 '새 점검 필요'라고 명시), 생성 파일 경로.
+끝나면 한국어로 10줄 이내 보고: 지난주 세 종목 주간 등락(나스닥100 대비), 재무부 현금(TGA) 최신 잔고·전주 대비와 재무부 계획 가정 대비 차이(새 계획 발표를 반영했으면 그 내용), 단기자금 유동성(최근 SOFR−IORB bp·IORB 위 연속 영업일·지급준비금 주평균과 2.9조 참고선 대비·상설 레포 이용), AI 신용 경보(단계별 기준 충족 수, 하이일드·10년물 4주 변화와 조합, 1단계 지표 중 상태가 바뀐 행), 추가한 이벤트 수, 업데이트된 추적 이야기와 해설을 쓴/갱신한 이야기, 추적 표(sw-stages)에서 바뀐 칸(없으면 '변동 없음'), 희석 점검표(dilution) 종목별 바뀐 칸·새로 만든 표와 주당 매출·ARR 새 입력(종목별 주당 가동 ARR 범위와 직전 대비 %, 없으면 '변동 없음'), 업계 계약 표에 추가한 계약·자금 조달 건수, 계약 철회·축소 추적표의 새 사례·확인 수준이 바뀐 사례(없으면 '변동 없음'), Top 90(마지막 점검일·단계 변경·열린 follow-up 수·세 종목에 연결한 사건, 새 점검이 없으면 'Top 90: 새 점검 없음'과 확인일이 지난 follow-up 수), 마지막 시스템 점검일(10일 넘게 지났으면 '새 점검 필요'라고 명시), 생성 파일 경로.
