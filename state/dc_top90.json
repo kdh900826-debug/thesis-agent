@@ -1,6 +1,6 @@
 {
  "_comment": "미국 데이터센터 Top 90 주간 모니터링 원장. 규칙은 .claude/skills/dc-top90/SKILL.md. 원 목록 = 한국투자증권 2026-07-03 산업 Indepth(Top 90 원문) + 2026-07-07 건설 동향 #1(단계 분류). 리포트 원문은 고객 한정 배포물 — 이 원장·페이지는 로컬 전용, 외부 게시 금지.",
- "updated_at": "2026-11-06",
+ "updated_at": "2026-11-16",
  "checked_through": "2026-10-30",
  "baseline_date": "2026-07-07",
  "stages": {
@@ -4659,6 +4659,36 @@
    ],
    "stage_change": null,
    "weekly_id": "e1031-NBIS-1"
+  },
+  {
+   "id": "d1106-p22-1",
+   "date": "2026-11-06",
+   "logged": "2026-11-16",
+   "projects": [
+    "p22"
+   ],
+   "kind": "기타",
+   "title": "Crusoe, 부지를 구글에 넘겼다고 발표 · 구글 '첫 와이오밍 데이터센터 $170억' 발표(11/5)",
+   "detail": [
+    "11/6 Crusoe 보도자료: 구글이 Crusoe의 와이오밍 남동부 데이터센터 부지를 인수했고, 이로써 Crusoe의 사전 개발(부지 선정·인허가·전력 계획)이 끝났다고 밝혔다. 가격은 공개하지 않았다.",
+    "11/5 구글 블로그: 라라미 카운티 첫 데이터센터에 $170억 투자, 협력사 Tallgrass·Black Hills·AEP·Related Digital, 702MW 연료전지 포함. 착공 일정·데이터센터 용량은 밝히지 않았다.",
+    "구글 발표에는 Crusoe·Project Tembo·부지 이름이 없다. 같은 캠퍼스라는 것은 카운티·협력사가 겹친다는 점에서 본 해석이다.",
+    "블룸버그는 구글이 Crusoe 관리 아래의 비용·공사 일정을 우려했다고 보도했다(2차) — Crusoe 발표엔 언급 없음."
+   ],
+   "grade": 1,
+   "rumor": false,
+   "src": [
+    {
+     "t": "Crusoe 보도자료 (2026-11-06)",
+     "u": "https://www.crusoe.ai/resources/newsroom/crusoe-wyoming-data-center-campus-update"
+    },
+    {
+     "t": "Google 블로그 (2026-11-05)",
+     "u": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/"
+    }
+   ],
+   "stage_change": null,
+   "weekly_id": "e1106-ALL-1"
   }
  ],
  "week_titles": {},
@@ -5950,7 +5980,7 @@
    ],
    "base_note_0703": "2026년 1분기 착공 목표 지연",
    "base_note_0707": "2026년 내 카운티 승인 후 착공 목표",
-   "status": "2026-10-30 기준 데이터센터 건물 착공을 확인하는 1·2등급 자료는 없다. 신규로 2차 자료(Black Ridge Research)가 2026년 9월 라라미 카운티가 사무지원동 조건부사용허가를 승인했다고 전하나, 카운티 회의록은 확인하지 못했다. 10/6 Black Hills 8-K 전력 계약 사실은 기존 그대로.",
+   "status": "2026-11-16 기준: 11/6 Crusoe가 부지를 구글에 넘겼다고 발표(1차), 11/5 구글이 라라미 카운티 첫 데이터센터에 $170억 투자를 발표(1차, 착공 일정·용량 미공개). 데이터센터 건물 착공을 확인하는 1·2등급 자료는 여전히 없다. 10/6 Black Hills 8-K 전력 계약은 기존 그대로.",
    "holds": [],
    "tickers": [
     "GOOGL",
@@ -5965,7 +5995,7 @@
      "단계 2 → 1 후보 — 회사·정부 문서 또는 다른 언론 2곳으로 확인되나?",
      "8/13 사무지원시설 조건부사용허가 결과(카운티 회의록)"
     ],
-    "next_check": "2026-11-10",
+    "next_check": "2026-11-23",
     "log": [
      {
       "date": "2026-10-21",
@@ -5980,23 +6010,32 @@
       "events": [
        "d1030-p22-1"
       ]
+     },
+     {
+      "date": "2026-11-16",
+      "note": "Black Hills 계약 대상이 Project Tembo와 같은 캠퍼스인지 → 구글 11/5 발표가 Black Hills·Tallgrass를 협력사로 명시해 같은 캠퍼스일 가능성이 커짐(해석, 부지명은 없음); 단계 2 → 1 후보 → 아직 — 구글 발표에 착공 일정 없음; 8/13 사무지원시설 조건부사용허가 결과 → 아직(회의록 미확인). 신규: 11/6 Crusoe가 부지를 구글에 넘겼다고 발표.",
+      "events": [
+       "d1106-p22-1"
+      ]
      }
     ],
     "closed": null
    },
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-11-16",
    "events": [
     "d0611-p22-1",
     "d0708-p22-1",
     "d0813-p22-1",
     "d1006-p22-1",
-    "d1030-p22-1"
+    "d1030-p22-1",
+    "d1106-p22-1"
    ],
    "data_issues": [
     "개발사가 Crusoe→Google(Jupiter Star Holdings)로 바뀜, 프로젝트명 Project Tembo로 변경",
     "2.7GW는 발전용량 기준. 초기 IT 용량은 1.8GW로 보도됨",
     "Black Hills 공시는 '샤이엔 구글 데이터센터'라고만 적어 Project Tembo와 동일 여부 미확인. 앞선 자료의 'Tallgrass 계통 비연결 자가발전' 설명과 '계통 연결 590MW + 마이크로그리드 2.1GW' 구조가 어떻게 맞물리는지 확인 필요",
-    "Cowboy State Daily 9/25·9/29 제목: 샤이엔 시의 마이크로소프트 3,500에이커 편입 소송, 1,260에이커 추가 편입 승인 — 이 프로젝트와 별개(샤이엔 시 관할)로 보이며 섞지 말 것(제목만 확인)"
+    "Cowboy State Daily 9/25·9/29 제목: 샤이엔 시의 마이크로소프트 3,500에이커 편입 소송, 1,260에이커 추가 편입 승인 — 이 프로젝트와 별개(샤이엔 시 관할)로 보이며 섞지 말 것(제목만 확인)",
+    "11/6 Crusoe 발표로 개발사 변경(Crusoe → 구글)이 회사 자료로 확인됨. 구글 $170억 발표에는 부지명이 없어 Project Tembo와 같은 캠퍼스라는 것은 해석(카운티·협력사 일치)"
    ]
   },
   {

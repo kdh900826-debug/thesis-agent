@@ -1,0 +1,187 @@
+{
+  "as_of": "2026-11-11",
+  "staleness_days": 0,
+  "run_id": "20261111_1028",
+  "ticker": "CRWV",
+  "mode": "S2E earnings (Q3 2026) -> S3 합류",
+  "input_source": "output/20261111_1028/03_input/arbiter_CRWV.json",
+  "kc_excerpt_source": "output/20261111_1028/03_kc_excerpt/CRWV.json (make_kc_excerpt.py, 2026-11-11T10:44)",
+  "prior_signal": "🔴🔴",
+  "prior_label": "Kill 우선 — KC-1 매크로(FFR>3.75) 확정",
+  "prior_since": "2026-10-03",
+  "prior_next_gate": "① KC-1 해소 관측: 차기 FOMC 후 FFR(DFEDTARU) ≤ 3.75 여부 ② Q3 2026 10-Q 이자커버리지(Adj. EBITDA ÷ Interest expense, net, 분기 연환산 — KC-CRWV-3 경고 1.5x/발동 1.0x) ③ FCF 흑자 전환",
+  "proposed_signal": "🔴🔴",
+  "transition_candidate": "등급 변경 없음 — 🔴🔴 유지 후보 (규칙1 Kill 우선 지속). 근거: KC-1 met AND confirmed(FFR 4.00 > 3.75, api, 2026-11-10)가 해소되지 않았고, 이번 run에서 매크로 KC-5(TAIEX 음전환)도 met AND confirmed로 신규 관측되었다. 해소·해제는 사람이 확정한다.",
+  "candidate_disclaimer": "본 산출물은 시그널 등급 후보 판정이며 확정 권한은 사람에게 있다. 🔴🔴 포함이므로 자동 실행 없음, 사람 확인 요청 + 근거 패키지 제출로 종료한다. Q3 실적의 회사 고유 재료(매출·마진·백로그·가이던스 상향)는 규칙1 판정을 뒤집지 못하며(Kill 우선), 반대로 종목 전용 KC 훼손도 없다.",
+  "human_confirmation_request": {
+    "required": true,
+    "reason": "규칙1: KC met AND confirmed 지속(KC-1) + 신규 KC-5 met/confirmed. 둘 다 매크로 경로이며 종목 전용 KC(KC-CRWV-1/2/3)는 전부 not_met.",
+    "evidence_package": {
+      "KC-1": "FFR 4.00 > 3.75, as_of 2026-11-10, method api, verdict met / confirmed. 현행 🔴🔴(2026-10-03 사람 확정)의 trigger_source.",
+      "KC-5": "TAIEX_vs_20dma_pct -4.63(<0) AND TAIEX_1m_return_pct -12.81(<0), as_of 2026-11-11, api, stale_days 0, verdict met / confirmed. 직전 run(2026-10-07) not_met에서 변화. 신규 trigger_source 등재 후보 — 등재 여부는 사람 확인. consequence(config 원문): 광범위 디리스킹 검토(검토 의무이며 실행 지시 아님).",
+      "KC-9": "brent 107.03(임계 120 미만), as_of 2026-11-03, stale_days 6 > stale_limit 3 — not_met은 provisional 한정(stale). 직전 run의 met/provisional(125.44)에서 변화했으나 stale 입력이라 확정 판정 불가.",
+      "company_specific_context": "KC-CRWV-3 이자커버리지 2.67x(경고 1.5x·발동 1.0x 상회), 차환 실패·covenant 위반 공시 없음. 종목 전용 Kill/경고 트리거 없음."
+    }
+  },
+  "resolution_conditions": {
+    "to_exit_kill_state": "KC-1이 not_met AND confirmed(FRED DFEDTARU ≤ 3.75, api)로 전환되고 KC-5 포함 다른 KC에 met AND confirmed가 없을 때 Kill 후보 사유가 소멸한다. 해제 및 복귀 등급은 사람이 확정.",
+    "to_upgrade_after_exit": "해소 후에도 상향은 규칙2(quantitative AND company_specific AND revenue_recognized)가 별도로 필요하며 KC 해소 자체는 상향 근거가 아니다(P6/P13).",
+    "current_status": "KC-1 FFR 4.00 > 3.75(as_of 2026-11-10) — 미해소. KC-5 met/confirmed 추가."
+  },
+  "rerun_note": null,
+  "filter_bug_report": {
+    "bug_detected": false,
+    "detail": "arbiter_CRWV.json claims 26건 전수 scope=company_specific, removed_claims 빈 배열 — F13 위반 없음. 열람: 필터본·03_kc_excerpt/CRWV.json·state/signals.json·형식 참고용 이전 산출물(20261009_0920/03_signal/CRWV.json). 02_company/·04_sector/·01_macro_kc.json 미열람(D7/P17)."
+  },
+  "claims": [
+    {"id": "c_20261111_CRWV_1", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "Q3 2026 매출 $3,661M(전년 $1,365M +168%, Q2 $2,575M 대비 +42.2%), GAAP 영업이익 $207M(6%), 순손실 $(709)M. 매출 인식 완료(P7 3단계) 수치."},
+    {"id": "c_20261111_CRWV_2", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "Adj. EBITDA $2,256M(62%; 전년 61%), Adj. 영업이익 $379M(10%; 전년 16%), Q2 2026 Adj. EBITDA $1,510M(59%)."},
+    {"id": "c_20261111_CRWV_3", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "Interest expense, net Q3 2026 $846M(Q2 $640M 대비 +32.2%), 9개월 $2,022M."},
+    {"id": "c_20261111_CRWV_4", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "Revenue backlog 2026-09-30 약 $132.5B(6/30 $104.2B 대비 +$28.3B, +27.2%). P7: 계약 존재 단계이며 인도·매출 인식은 별개."},
+    {"id": "c_20261111_CRWV_5", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "FY2026 가이던스: 매출 $13.0~13.3B 상향, Adj. 영업이익 $1.275~1.375B 상향, CapEx $37~39B(하단 상향), Q4 이자비용 $1.05~1.15B, 연말 활성 전력 1.85GW 초과."},
+    {"id": "c_20261111_CRWV_6", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "9/30 차입금 합계 $46,873M(6/30 약 $35.07B 대비 +33.7%), 유동 차입금 $10,572M, 현금+제한현금+유가증권 $6.5B. 만기 구조·covenant 준수는 미공시(10-Q 대기)."},
+    {"id": "c_20261111_CRWV_7", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "Q3 영업활동현금흐름 +$1,975M(이연수익 +$2,127M 포함), 유형자산 매입 $(9,441)M, 부채 순수취 $10,301M."},
+    {"id": "c_20261111_CRWV_8", "claim_type": "fact", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "8-K Ex 99.1", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "활성 전력 1.7GW 초과(+200MW), 총 계약 전력 4.6GW 초과(+900MW)."},
+    {"id": "c_20261111_CRWV_13", "claim_type": "fact", "evidence_grade": 2, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "earnings_call(3개 제3자 전사 삼각검증)", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "CFO: Q3 CapEx $14.5B(가이던스 상단 초과), Q4 이자 $1.05~1.15B, parent 무담보 부채 2027까지 미발행 의도, 차기 DDTL 투자등급 7~7.5%. 가중평균 부채비용 7.9%."},
+    {"id": "c_20261111_CRWV_14", "claim_type": "fact", "evidence_grade": 2, "quantitative": true, "scope": "company_specific", "confirmed": true, "source_type": "earnings_call(3개 제3자 전사 삼각검증)", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "백로그 50% 초과가 연말 인도 개시 예상 계약(미래 단계), 선수금 $90억 전망(수취 완료 아님), 상위 고객 비중 수치는 제시되지 않음."},
+    {"id": "c_20261111_CRWV_12", "claim_type": "fact", "evidence_grade": 1, "quantitative": false, "scope": "company_specific", "confirmed": true, "source_type": "IR 공지 + EDGAR submissions API", "filed_at": "2026-10-27", "as_of": "2026-11-11", "staleness_days": 0, "summary": "Q3 10-Q는 2026-11-11 조회 시점에 EDGAR 목록에 없음. 10-Q 의존 항목은 전부 unconfirmed 이월(P5)."},
+    {"id": "c_20261111_CRWV_18", "claim_type": "inference", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "inference_strength": "strong", "source_type": "8-K Ex 99.1 파생 계산", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "KC-CRWV-3 확정 산식 Q3 2026 = 2,256/846 = 2.67x(Q2 2.36x, 전년 2.69x). 경고 1.5x·발동 1.0x 상회."},
+    {"id": "c_20261111_CRWV_19", "claim_type": "inference", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "inference_strength": "strong", "source_type": "8-K Ex 99.1 파생 계산", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "Adj. EBITDA 마진 QoQ 59%->62%(+3.0%p, 2분기 연속 개선, 5분기 최고). Adj. 영업이익 마진은 YoY 16%->10%."},
+    {"id": "c_20261111_CRWV_21", "claim_type": "inference", "evidence_grade": 1, "quantitative": true, "scope": "company_specific", "confirmed": true, "inference_strength": "weak", "source_type": "8-K Ex 99.1 파생 계산", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "FY 가이던스 역산 Q4 암묵 매출 $4.686~4.986B, Q4 이자 가이던스 대비 정태 커버리지 1.96~2.15x(Q4 EBITDA 가이던스 부재 — 시그널 근거 부적격)."},
+    {"id": "c_20261111_CRWV_23", "claim_type": "inference", "evidence_grade": 3, "quantitative": true, "scope": "company_specific", "confirmed": false, "inference_strength": "strong", "source_type": "8-K Ex 99.1 파생 계산 + 프레젠테이션 발췌", "filed_at": "2026-11-10", "as_of": "2026-11-10", "staleness_days": 1, "summary": "파생 FCF(OCF - 유형자산 매입) Q3 $(7,466)M, 9개월 $(17,920)M. FCF 흑자 전환과 거리가 큼. 일부 항목은 등급 3 의존."}
+  ],
+  "kill_check": {
+    "rule": "규칙1(Kill 우선, 변경 금지): KC met AND confirmed -> 🔴🔴 후보 + 사람 확인 요청.",
+    "triggered": true,
+    "trigger_source": ["KC-1"],
+    "additional_met_confirmed_candidate": ["KC-5"],
+    "own_company_kc": [
+      {
+        "kc_id": "KC-CRWV-1",
+        "condition": "대형 고객 계약 훼손 ($1B+ 전체)",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-11-11",
+        "staleness_days": 0,
+        "basis": "Q3 보도자료·콜 발언에 OpenAI·Meta·MS 등 $1B+ 고객의 해지·20%+ 축소·재협상 공시 없음. OpenAI는 기존 고객 확대 목록에 포함(c_9, 금액 미공시). 백로그 +27.2% QoQ. 정보 부재를 반증으로 쓰지 않으며(P5) 상위 고객 비중·계약별 구성은 10-Q 대기라 provisional."
+      },
+      {
+        "kc_id": "KC-CRWV-2",
+        "condition": "용량·차세대 GPU 배포 지연 (경고/발동 2단)",
+        "warning_verdict": "not_met",
+        "verdict": "not_met",
+        "confidence": "provisional",
+        "as_of": "2026-11-11",
+        "staleness_days": 0,
+        "basis": "Q3 보도자료는 Vera Rubin NVL72 멀티랙 온라인(Cognition)과 활성 전력 1.7GW 초과(+200MW), 연말 1.85GW 초과 유지를 기재했다. 일정 지연 공시 없음. CapEx 사유 문구는 예상보다 빨리 배치·인도. 공시 일정 대비 정량 지연 지표는 보도자료에 없어 provisional."
+      },
+      {
+        "kc_id": "KC-CRWV-3",
+        "condition": "이자 커버리지·차환 (경고/발동 2단)",
+        "warning_verdict": "not_met",
+        "verdict": "not_met",
+        "confidence": "confirmed",
+        "as_of": "2026-11-10",
+        "staleness_days": 1,
+        "observed_value": {
+          "interest_coverage": 2.67,
+          "period": "Q3 2026",
+          "formula": "Adj. EBITDA $2,256M ÷ Interest expense, net $846M (2026-09-20 사용자 확정 산식, 분기 기준)",
+          "source": "8-K Ex 99.1 (grade 1), c_20261111_CRWV_2·3·18",
+          "prior_quarter": 2.36,
+          "distance_to_warning_1_5x": 1.17,
+          "distance_to_kill_1_0x": 1.67,
+          "series": {"Q3 2025": 2.69, "Q4 2025": 2.31, "Q1 2026": 2.16, "Q2 2026": 2.36, "Q3 2026": 2.67}
+        },
+        "basis": "확정 산식 실측값 2.67x는 경고 1.5x·발동 1.0x를 모두 상회(1차 수치라 confirmed). 대체 정의(Adj. 영업이익/순이자 0.45x, GAAP 영업이익/순이자 0.24x)는 사용자 확정 산식이 아니므로 판정에 쓰지 않고 참고로만 기록. refinancing_failure_or_covenant_breach 하위 조항: 차환 실패·covenant 위반 공시는 없으나 만기 구조·covenant 준수 상태는 10-Q 미제출로 미확인(P5)이라 해당 하위 조항은 provisional이다. Q4 이자 가이던스 $1.05~1.15B(+24~36% QoQ)로 Q4 커버리지는 하락 방향 압력(정태 1.96~2.15x, 시그널 근거 아님) — 근접도 관측 대상."
+      }
+    ],
+    "macro_kc_propagating": [
+      {"kc_id": "KC-1", "condition": "FFR 인상 리스크 (>3.75)", "verdict": "met", "confidence": "confirmed", "as_of": "2026-11-10", "staleness_days": 1, "note": "FFR 4.00 > 3.75, api. 현행 🔴🔴(2026-10-03 확정)의 근거, 미해소."},
+      {"kc_id": "KC-5", "condition": "TAIEX 음전환 (아시아 리스크 프록시)", "verdict": "met", "confidence": "confirmed", "as_of": "2026-11-11", "staleness_days": 0, "note": "vs 20dma -4.63%, 1개월 수익률 -12.81%, api. 직전 run 대비 신규 met/confirmed. 신규 trigger_source 등재 후보(사람 확인)."},
+      {"kc_id": "KC-9", "condition": "에너지 쇼크 (brent>=120, 1개월 지속)", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-11-03", "staleness_days": 8, "note": "brent 107.03 < 120이나 입력 stale(6일 > 한도 3일)이므로 not_met은 provisional 한정."},
+      {"kc_id": "KC-2", "condition": "변동성 급등", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-11-10", "staleness_days": 1, "note": "VIX 19.46"},
+      {"kc_id": "KC-4", "condition": "유동성 위기 신호", "verdict": "not_met", "confidence": "confirmed", "as_of": "2026-11-10", "staleness_days": 1, "note": "ON_RRP·VIX 임계 미달"},
+      {"kc_id": "KC-6", "condition": "AI 토큰 지출 급감", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-07-03", "staleness_days": 131, "note": "입력값 null, 오래된 입력 — provisional 한정(P16)"},
+      {"kc_id": "KC-7", "condition": "하이퍼스케일러 합산 FCF 악화", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-06-30", "staleness_days": 134, "note": "stale, provisional"},
+      {"kc_id": "KC-8", "condition": "MSFT FCF 마이너스", "verdict": "not_met", "confidence": "provisional", "as_of": "2026-09-30", "staleness_days": 42, "note": "msft_fcf 18.63B > 0, provisional"}
+    ],
+    "conclusion": "KC-1(met/confirmed 지속) + KC-5(신규 met/confirmed)로 규칙1 Kill 우선이 계속 적용되어 🔴🔴 유지 후보. 종목 전용 KC-CRWV-1/2/3은 경고 단계 포함 전부 not_met이며 KC-CRWV-3은 확정 산식 실측으로 confirmed. 사람 확인 요청 + 근거 패키지(human_confirmation_request)로 종료."
+  },
+  "gate_check": {
+    "kill_check": {
+      "rule": "규칙1(Kill 우선): KC met AND confirmed -> 🔴🔴 후보",
+      "triggered": true,
+      "trigger_source": ["KC-1"],
+      "additional_met_confirmed_candidate": ["KC-5"],
+      "basis": "KC-1 FFR 4.00 > 3.75(api, 2026-11-10) 지속, KC-5 TAIEX 음전환(api, 2026-11-11) 신규. 종목 전용 KC는 전부 not_met."
+    },
+    "upgrade_gate": {
+      "rule": "규칙2(상향 게이트, P2·P6·P7 전부 충족 시에만): quantitative==true AND scope==company_specific AND stage==revenue_recognized",
+      "conditions": {
+        "quantitative_evidence": true,
+        "company_specific": true,
+        "revenue_recognized": true
+      },
+      "evidence_conditions_basis": {
+        "quantitative_evidence": "충족 — 매출 $3,661M·Adj. EBITDA $2,256M(62%)·FY 가이던스 상향 모두 정량 1차 공시(grade 1, c_1·2·5).",
+        "company_specific": "충족 — 입력 26건 전수 company_specific, 매크로·섹터 재료는 상향 근거로 쓰지 않음(P6/P13).",
+        "revenue_recognized": "충족(범위 한정) — Q3 인식 매출·마진 수치에 한함. 백로그 $132.5B·계약 전력 4.6GW·선수금 $90억 전망·Vera Rubin 가동은 P7 1~2단계이며 이 요건의 근거로 쓰지 않음."
+      },
+      "met": false,
+      "blocked_by": "규칙1 Kill 우선 — KC-1(및 KC-5) met AND confirmed가 지속되는 동안 상향 후보 불성립. 현재 등급 🔴🔴는 매크로 트리거이며 해제는 KC 해소 관측 후 사람 확정. 또한 같은 회사 고유 증거 안에서 leverage 축(차입금 +33.7%, 순이자 +32.2%, 파생 FCF Q3 $(7.5)B, Q4 이자 가이던스 +24~36%)이 개선 신호와 상충해 정량 방향이 혼재한다.",
+      "basis": "상향 게이트 3요건은 매출·마진 정량 수치 기준으로 충족되나 Kill 우선이 게이트 결과를 덮는다(규칙1 > 규칙2). 증거 충족분은 holding_reinforcement(매출·마진·가이던스, 정량)로 분류하며 상향 제안 없음. 백로그 증가는 P7 1단계로 상향 근거 부적격."
+    },
+    "downgrade_check": {
+      "rule": "규칙3(하향, 비대칭): 정량 훼손 OR evidence_grade<=2의 정성 훼손 시 하향 가능",
+      "quantitative_deterioration": false,
+      "qualitative_deterioration_grade_le_2": false,
+      "met": false,
+      "basis": "현재 등급이 이미 최하단 🔴🔴라 하향 여지 없음. 참고로 정량 훼손 지표 없음(커버리지 2.67x, 가이던스 상향). 차입금·이자·FCF 악화는 레버리지 축 모니터링 대상이며 KC-CRWV-3 임계에 접근하지 않았다."
+    }
+  },
+  "thesis_delta_summary": [
+    {"axis": "margin_trend", "direction": "strengthen", "stage": "강(strong) — 1차 수치, 확정 기준 QoQ 2분기 연속 개선", "summary": "Adj. EBITDA 마진 Q2 59% -> Q3 62%(+3.0%p QoQ, 5분기 최고). YoY +0.2%p. Adj. 영업이익 마진은 YoY 16%->10%(감가상각 확대).", "risk_transfer_to": [], "supporting_claims": ["c_20261111_CRWV_2", "c_20261111_CRWV_19", "c_20261111_CRWV_21"]},
+    {"axis": "backlog_scale", "direction": "strengthen", "stage": "강(strong) — 계약 존재(P7 1단계) 수치 확정, 인도·매출 인식은 부분", "summary": "백로그 $132.5B(+27.2% QoQ), 계약 전력 4.6GW 초과, Q3 매출 +42% QoQ. 백로그 50% 초과가 연말 인도 개시 예상 계약이라 매출 인식은 미래. 구성·고객 집중도 미공시. 위험 이관: leverage_coverage.", "risk_transfer_to": ["leverage_coverage"], "supporting_claims": ["c_20261111_CRWV_1", "c_20261111_CRWV_4", "c_20261111_CRWV_8", "c_20261111_CRWV_14"]},
+    {"axis": "leverage_coverage", "direction": "neutral", "stage": "혼재(상충 신호) — 확정 산식 커버리지 개선 vs 절대 부채·이자·FCF 악화", "summary": "커버리지 2.67x(+0.31x QoQ, 3x까지 0.33x) 개선. 차입금 $46.87B(+33.7%), 순이자 $846M(+32.2%), Q4 이자 가이던스 +24~36%, 파생 FCF Q3 $(7.5)B. 정의·기간에 따라 방향이 갈려 한쪽으로 판정하지 않는다.", "risk_transfer_to": [], "supporting_claims": ["c_20261111_CRWV_3", "c_20261111_CRWV_6", "c_20261111_CRWV_7", "c_20261111_CRWV_18", "c_20261111_CRWV_21", "c_20261111_CRWV_23"]},
+    {"axis": "funding_access", "direction": "neutral", "stage": "혼재(상충 신호) — 판정 보류", "summary": "긍정: 부채 순수취 $10.3B, 유동성 $6.5B + 미인출 DDTL 약 $50억, 차기 DDTL 투자등급 예정. 주의: 경영진이 무담보 시장 미사용 방침, 유동 차입금 $10.6B(+$3.1B QoQ), 시장 스트레스 정황은 등급 4 미확인. covenant 위반 공시 없음, 만기 구조는 10-Q 대기.", "risk_transfer_to": ["leverage_coverage"], "supporting_claims": ["c_20261111_CRWV_6", "c_20261111_CRWV_13"]},
+    {"axis": "gpu_priority", "direction": "neutral", "stage": "없음(제품 로드맵 발표만)", "summary": "Vera Rubin 가동은 직전 run 사실의 반복, Vera CPU 지원·Solidigm 계약은 수치 미공시. 신규 델타 근거 없음.", "risk_transfer_to": [], "supporting_claims": []},
+    {"axis": "customer_concentration", "direction": "neutral", "stage": "미확인 — 10-Q 대기", "summary": "신규 실명 6곳·기존 확대 6곳이나 상위 고객 매출·백로그 비중 수치 없음. 카드 관측점(Q3 10-Q 고객 집중 공시) 미도래.", "risk_transfer_to": [], "supporting_claims": ["c_20261111_CRWV_14"]}
+  ],
+  "alert": {
+    "ticker_event": "CRWV — 2026-11-10 Q3 2026 실적(8-K Item 2.02): 매출 $3,661M(+168% YoY), Adj. EBITDA 마진 62%, FY26 매출·Adj. 영업이익 가이던스 상향, 백로그 $132.5B. KC-CRWV-3 이자 커버리지 2.67x. KC-1 met/confirmed 지속 + KC-5 신규 met/confirmed로 🔴🔴 유지 후보.",
+    "facts": [
+      {"text": "Q3 2026 매출 $3,661M(Q2 $2,575M 대비 +42.2%), GAAP 영업이익 $207M, Adj. EBITDA $2,256M(마진 62%, Q2 59%), Adj. 영업이익 $379M. FY2026 가이던스는 매출 $13.0~13.3B, Adj. 영업이익 $1.275~1.375B로 상향.", "source": "8-K Ex 99.1 (grade 1) c_20261111_CRWV_1·2·5", "timestamp": "2026-11-10"},
+      {"text": "Revenue backlog $132.5B(6/30 $104.2B). Interest expense, net $846M(Q2 $640M). 9/30 차입금 합계 $46,873M(6/30 약 $35.07B). Q3 영업활동현금흐름 $1,975M, 유형자산 매입 $9,441M.", "source": "8-K Ex 99.1 (grade 1) c_20261111_CRWV_3·4·6·7", "timestamp": "2026-11-10"},
+      {"text": "CFO 콜 발언: Q3 CapEx $14.5B(가이던스 상단 초과), Q4 이자비용 $1.05~1.15B 예상, 2027년까지 parent 레벨 무담보 부채 발행 의도 없음. 백로그 50% 초과가 연말 인도 개시 예상 계약.", "source": "earnings call 전사(3개 제3자 삼각검증, grade 2) c_20261111_CRWV_13·14", "timestamp": "2026-11-10"},
+      {"text": "Q3 Form 10-Q는 2026-11-11 EDGAR 조회 시점에 목록에 없다. 상위 고객 비중·만기 구조·covenant 준수·ATM 매각 등 10-Q 의존 항목은 미확인이다.", "source": "EDGAR submissions API + IR 공지 (grade 1) c_20261111_CRWV_12", "timestamp": "2026-11-11"},
+      {"text": "FFR 상단 4.00(임계 3.75 초과, KC-1 met/confirmed, api), TAIEX vs 20dma -4.63%·1개월 -12.81%(KC-5 met/confirmed, api).", "source": "output/20261111_1028/03_kc_excerpt/CRWV.json KC-1·KC-5 (오케스트레이터 전달, api)", "timestamp": "2026-11-11"}
+    ],
+    "inference": [
+      {"text": "KC-CRWV-3 확정 산식(Adj. EBITDA ÷ Interest expense, net) Q3 2026 = 2,256/846 = 2.67x. Q2 2.36x 대비 개선이며 경고 1.5x·발동 1.0x 상회, 3x까지 0.33x.", "inference_strength": "strong (c_20261111_CRWV_18)"},
+      {"text": "Adj. EBITDA 마진 QoQ +3.0%p로 2분기 연속 개선(margin_trend 강화). Adj. 영업이익 마진은 YoY 하락(16%->10%).", "inference_strength": "strong (c_20261111_CRWV_19)"},
+      {"text": "Q4 이자 가이던스 $1.05~1.15B 대비 Q4 Adj. EBITDA 가이던스가 없어 Q4 커버리지 방향은 판정 불가. Q4 EBITDA를 Q3 수준으로 고정한 정태 예시는 1.96~2.15x이며 시그널 근거가 아니다.", "inference_strength": "weak (c_20261111_CRWV_21)"},
+      {"text": "차입금 +33.7%, 순이자 +32.2%, 파생 FCF Q3 $(7.5)B로 backlog_scale 강화의 리스크가 leverage_coverage 축으로 이관된다. 개선과 악화가 혼재해 편을 들지 않는다.", "inference_strength": "strong (c_20261111_CRWV_23, 일부 등급 3 의존)"}
+    ],
+    "classification": "kill_candidate 유지 (규칙1, KC-1 + KC-5 신규) — 등급 변경 없음. Q3 매출·마진·가이던스 상향은 holding_reinforcement(정량, 1차)이나 Kill 우선으로 상향 후보 불성립. 백로그 증가는 P7 1단계로 상향 근거 부적격.",
+    "thesis_delta": "margin_trend 강화(강, 1차, QoQ 2분기 연속). backlog_scale 강화(강, 계약 존재 단계, 인도·매출 인식 미래) — 리스크 이관: leverage_coverage. leverage_coverage 중립(커버리지 개선 vs 부채·이자·FCF 악화 혼재). funding_access 중립(혼재). gpu_priority·customer_concentration 중립/미확인(10-Q 대기). 매크로 해소(KC-1)는 상향 근거로 계상하지 않는다(P6/P13).",
+    "signal_verdict": "🔴🔴 유지 후보 (규칙1 Kill 우선, KC-1 met AND confirmed 지속 + KC-5 신규 met AND confirmed). 현행 등급은 2026-10-03 사람이 확정했으며 변경 제안 없음. 규칙2 증거 3요건은 매출·마진 기준 충족이나 Kill 우선으로 상향 불성립, 규칙3 하향 해당 없음. 사람 확인 요청: KC-5 신규 trigger_source 등재 여부. 등급 확정은 사람이 한다.",
+    "next_check": [
+      "[사람 확인 필요] KC-5(TAIEX vs 20dma -4.63%, 1개월 -12.81%) 신규 met/confirmed — trigger_source 추가 등재 여부",
+      "차기 FOMC 후 FRED DFEDTARU ≤ 3.75 여부 — KC-1 해소(Kill 사유 소멸) 관측 지표",
+      "Q3 2026 10-Q(미제출): 차입금 만기 구조·covenant 준수, DDTL 5.5 PCVR ≥ 2.40:1·DSCR ≥ 1.35x, 상위 고객 매출 비중 수치, ATM 실제 매각 주수",
+      "Q4 2026 실적: KC-CRWV-3 커버리지(Adj. EBITDA ÷ Interest expense, net) 실측 vs 경고 1.5x·발동 1.0x·conclusion 진입 3x. Q4 이자 가이던스 $1.05~1.15B 기준 1.5x 유지에 필요한 Adj. EBITDA는 $1.58~1.73B 이상, 3x는 $3.15~3.45B 이상(산술)",
+      "영업현금흐름 - 유형자산 매입 기준 FCF가 0 이상으로 전환되는지(Q3 $(7,466)M, 9개월 $(17,920)M)",
+      "KC-9 brent 입력 갱신(현재 stale, 107.03 vs 임계 120)"
+    ]
+  },
+  "next_gate": "관측 가능 정량 항목: (1) 차기 FOMC 후 FRED DFEDTARU ≤ 3.75 여부(KC-1 해소; KC-5 포함 다른 met/confirmed 부재 시 Kill 사유 소멸, 해제 확정은 사람) (2) KC-CRWV-3 이자커버리지(Adj. EBITDA ÷ Interest expense, net, 분기) Q3 2026 2.67x -> Q4 2026 실적에서 경고 1.5x/발동 1.0x 대비 및 3x 도달 여부 (3) Q3 10-Q 부채 주석 DDTL 5.5 PCVR ≥ 2.40:1·DSCR ≥ 1.35x 준수 (4) 영업현금흐름 - 유형자산 매입 FCF ≥ 0 전환(Q3 $(7,466)M) (5) KC-5 TAIEX vs 20dma ≥ 0 및 1개월 수익률 ≥ 0 복귀 여부. 상향은 (1)~(5) 해소와 별개로 규칙2 재충족이 필요하다.",
+  "unconfirmed_carried": [
+    {"topic": "Q3 Form 10-Q 미제출 — 10-Q 의존 항목 일괄", "detail": "상위 고객 비중, 차입금 만기 구조·가중평균 이자율·covenant 준수, 표지 발행 주식 수, ATM 매각, Legal Proceedings, 총이자비용·자본화이자 분리, DDTL 5.5 PCVR.", "reason": "not_yet_filed"},
+    {"topic": "KC-CRWV-3 차환 실패·covenant 위반 하위 조항", "detail": "공시된 위반·차환 실패 사건은 없으나 covenant 준수 상태 자체는 미공시. 근접도 불명이며 안전의 근거가 아니다(P5).", "reason": "awaiting_q3_10q"},
+    {"topic": "Q3 가이던스·직전 FY 가이던스 1차 원문", "detail": "Q2 콜 값이 등급 3이라 회사 가이던스 대비 비교는 confirmed=false.", "reason": "guidance_primary_source_not_opened"},
+    {"topic": "공식 IR 프레젠테이션·콜 전사 원본", "detail": "CapEx $14,511M·RPO 구성은 제3자 전사·애그리게이터 발췌로 확인(삼각검증).", "reason": "ir_site_not_rendered_in_fetch"},
+    {"topic": "시장 내재 신용 스트레스 보도(무담보채 약 15%·CDS 1,000bp 초과)", "detail": "등급 4 2차 매체, 판단 근거 불가(P4). 시그널 판정에 사용하지 않음.", "reason": "secondary_only"},
+    {"topic": "Vera Rubin 매출·고객 수, 인도 AdaniConneX 계약 조건", "detail": "미공시.", "reason": "contract_terms_not_disclosed"}
+  ]
+}

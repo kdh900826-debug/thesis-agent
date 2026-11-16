@@ -1,0 +1,16 @@
+{
+  "ticker": "CRWV",
+  "cik": "0001769628",
+  "items": [
+    {
+      "id": "edgar_2026-11-10_8-K_1",
+      "form": "8-K",
+      "filed_at": "2026-11-10",
+      "title": "8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/crwv-20261110.htm",
+      "domain": "sec.gov",
+      "evidence_grade": 1,
+      "method": "api"
+    }
+  ]
+}
